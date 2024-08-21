@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
 import Api from '../../services/Api';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
+
   
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
         const response = await Api.post('/api/webapi/login', { username, pwd: password });
-        if (response.data.status) {
-          // Store the token in localStorage or a cookie
+        console.log(response.data.message);
+        if (response.data.message === 'Login Sucess') {
+          // Save the token in localStorage
           localStorage.setItem('token', response.data.token);
-          alert('Login Successful!');
+          
+          // Redirect to /dashboard
+          navigate('/dashboard');
         } else {
           setError(response.data.message);
         }
@@ -22,8 +29,8 @@ export default function Login() {
         setError('An error occurred. Please try again.');
       }
     };
-
-
+    
+    
 
   return (
     <div style={{fontSize: '12px'}}>
