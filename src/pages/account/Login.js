@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Api from '../../services/Api';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown , faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Login() {
@@ -36,7 +38,7 @@ export default function Login() {
           localStorage.setItem('token', response.data.token);
           
           // Redirect to /dashboard
-          navigate('/dashboard');
+          navigate('/home/index');
         } else {
           setError(response.data.message);
         }
@@ -9545,11 +9547,7 @@ export default function Login() {
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
               <div data-v-12a80a3e="" className="navbar__content-left">
-                <i
-                  data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left"
-                  ></i
-                >
+              <FontAwesomeIcon icon={faChevronLeft} style={{fontSize:"20px"  }} />
               </div>
               <div data-v-12a80a3e="" className="navbar__content-center">
                 <div
@@ -9647,11 +9645,7 @@ export default function Login() {
                   <div data-v-5067ef5e="" data-v-50aa8bb0="" className="dropdown">
                     <div data-v-5067ef5e="" className="dropdown__value">
                       <span data-v-5067ef5e="">+91</span
-                      ><i
-                        data-v-5067ef5e=""
-                        className="van-badge__wrapper van-icon van-icon-arrow-down "
-                        ></i
-                      >
+                      ><FontAwesomeIcon icon={faChevronDown} />
                     </div>
                     <div data-v-5067ef5e="" className="dropdown__list">
                       <div
