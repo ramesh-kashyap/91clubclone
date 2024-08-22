@@ -4670,7 +4670,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="whiteColor">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141426883l.png)`}}>
-                                </div> <a href="/home/view all/Lottery.html">Lottery</a>
+                                </div> <a href="">Lottery</a>
                             </div>
                         </div>
                     </div>
@@ -4680,7 +4680,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141435wkxx.png)`}}>
-                                </div> <a href="/home/view all/miniGames.html">Mini games</a>
+                                </div> <a href="">Mini games</a>
                             </div>
                         </div>
                     </div>
@@ -4690,7 +4690,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141445b3ka.png)`}}>
-                                </div> <a href="/home/view all/populars.html">Popular</a>
+                                </div> <a href="">Popular</a>
                             </div>
                         </div>
                     </div>
@@ -4700,7 +4700,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141457h3ts.png)`}}>
-                                </div> <a href="/home/view all/slots.html">Slots</a>
+                                </div> <a href="">Slots</a>
                             </div>
                         </div>
                     </div>
@@ -4709,8 +4709,8 @@ export default function Dashboard() {
                         <div className="van-badge__wrapper van-sidebar-item__text">
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
-                                    style={{backgroundImage: `url(&quot;https://ossimg.91admin123admin.com/91club/gamecategory/gamecategory_20240311141515owja.png&quot;)`}}>
-                                </div> <a href="/home/view all/fishing.html">Fishing</a>
+                                    style={{backgroundImage: `url(/assets/png/gamecategory_20240311141515owja.png)`}}>
+                                </div> <a href="">Fishing</a>
                             </div>
                         </div>
                     </div>
@@ -4719,7 +4719,7 @@ export default function Dashboard() {
                         <div className="van-badge__wrapper van-sidebar-item__text">
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
-                                    style={{backgroundImage: `url(&quot;https://ossimg.91admin123admin.com/91club/gamecategory/gamecategory_202403111415086ujt.png&quot;)`}}>
+                                    style={{backgroundImage: `url(/assets/png/gamecategory_202403111415086ujt.png)`}}>
                                 </div> <a href="/home/view all/pvc.html">PVC</a>
                             </div>
                         </div>
@@ -4729,7 +4729,7 @@ export default function Dashboard() {
                         <div className="van-badge__wrapper van-sidebar-item__text">
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
-                                    style={{backgroundImage: `url(&quot;https://ossimg.91admin123admin.com/91club/gamecategory/gamecategory_20240311141522uvco.png&quot;)`}}>
+                                    style={{backgroundImage: `url(/assets/png/gamecategory_20240311141522uvco.png)`}}>
                                 </div> <a href="/home/view all/casino.html">Casino</a>
                             </div>
                         </div>
@@ -4739,7 +4739,7 @@ export default function Dashboard() {
                         <div className="van-badge__wrapper van-sidebar-item__text">
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
-                                    style={{backgroundImage: `url(&quot;https://ossimg.91admin123admin.com/91club/gamecategory/gamecategory_20240311141531fugo.png&quot;)`}}>
+                                    style={{backgroundImage: `url(/assets/png/gamecategory_20240311141531fugo.png)`}}>
                                 </div> <a href="/home/view all/sports.html">Sports</a>
                             </div>
                         </div>
