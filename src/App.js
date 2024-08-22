@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Login from './pages/account/Login';
 import Register from './pages/account/Register';
 import Dashboard from './pages/home/Dashboard';
+import Logout from './pages/account/Logout'; // Import the Logout component
+import Activity from './pages/activity/Activity';
+import PrivateRoute from './components/PrivateRoute'; // Import the PrivateRoute component
 
 function App() {
   return (
@@ -10,7 +13,23 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home/index" element={<Dashboard />} />
+        <Route
+          path="/home/index"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/activity/activity"
+          element={
+            <PrivateRoute>
+              <Activity />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/logout" element={<Logout />} /> {/* Add the Logout route */}
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
