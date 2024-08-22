@@ -1,28 +1,91 @@
-// import React from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Autoplay } from 'swiper/modules';
-import React, { useState } from 'react';
-
-
+import Api from '../../services/Api';
+import CustomModal from '../../components/CustomModal';
 
 export default function Dashboard() {
+  // State to track the active section
+  const [activeSection, setActiveSection] = useState('section1');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
+  const [gameId, setGameId] = useState(null);
+
+  const handleGameClick = async (gameId) => {
+    setGameId(gameId);
+    setIsModalOpen(true); // Open the custom modal
+  };
+
+  const handlePopupConfirm = async () => {
+    setIsModalOpen(false); // Close the modal after confirming
+
+    try {
+      const { data: userInfo } = await Api.get('/api/webapi/GetUserInfo');
+      setUserInfo(userInfo.data);
+
+      const { money_user, thirdparty_wallet } = userInfo.data;
+
+      if (money_user > 0) {
+        const response = await Api.post('/aviatorMoneySend');
+        if (response.data.status) {
+          await loginToAviatorGame();
+        } else {
+          console.error('Failed to send balance:', response.data.message);
+        }
+      } else if (thirdparty_wallet > 0) {
+        await loginToAviatorGame();
+      } else {
+        console.error('Insufficient balance');
+      }
+    } catch (error) {
+      console.error('Error occurred:', error);
+    }
+  };
+
+  const handlePopupCancel = () => {
+    setIsModalOpen(false); // Close the modal when Cancel is clicked
+  };
+
+  const loginToAviatorGame = async () => {
+    try {
+      const response = await Api.post(`/aviatorgame/${gameId}`);
+      if (response.data.status) {
+        if (response.data.data.ErrorCode === 0) {
+          window.open(response.data.data.Data, '_blank');
+        } else {
+          console.error('ErrorCode is not 0:', response.data.data.ErrorCode);
+        }
+      } else {
+        console.error('Login failed:', response.data.message);
+      }
+    } catch (error) {
+      console.error('Error occurred while logging in:', error);
+    }
+  };
+
+  // Function to show the selected section
+  const showSection = (sectionId) => {
+    setActiveSection(sectionId);
+  };
 
 
-    
-        // State to track the active section
-        const [activeSection, setActiveSection] = useState('section1');
-      
-        // Function to show the selected section
-        const showSection = (sectionId) => {
-          setActiveSection(sectionId);
-        };
+
+
   return (
 
     
     <div>
+       <CustomModal
+        isOpen={isModalOpen}
+        onClose={handlePopupCancel}
+        onConfirm={handlePopupConfirm}
+        contentLabel="Confirmation"
+        className="Modal"
+        overlayclassName="Overlay"
+      />
     <svg xmlns="http://www.w3.org/2000/svg" 
         style={{position: 'absolute', width: 0, height: 0}}>
         <symbol id="icon-privacyIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
@@ -4793,45 +4856,45 @@ export default function Dashboard() {
                             </h4>
                         </div>
                     </div>
-                    <div data-v-860d7030="" data-v-df3cc798="" class="minGame_container" id="section2" style={{ display: activeSection === 'section2' ? 'grid' : 'none' }}>
-                        <div data-v-860d7030="" class="onlineGamesItem flash"><img data-v-860d7030=""
-                                class="min_game_img"
+                    <div data-v-860d7030="" data-v-df3cc798="" className="minGame_container" id="section2" style={{ display: activeSection === 'section2' ? 'grid' : 'none' }}>
+                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
+                                className="min_game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/810_20240818125355074.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/810_20240818125355074.png"/>
                         </div>
-                        <div data-v-860d7030="" class="onlineGamesItem flash"><img data-v-860d7030=""
-                                class="min_game_img"
+                        <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(261)}><img data-v-860d7030=""
+                                className="min_game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"/>
                         </div>
-                        <div data-v-860d7030="" class="onlineGamesItem flash"><img data-v-860d7030=""
-                                class="min_game_img"
+                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
+                                className="min_game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/801_20240813135440084.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/801_20240813135440084.png"/>
                         </div>
-                        <div data-v-860d7030="" class="onlineGamesItem flash"><img data-v-860d7030=""
-                                class="min_game_img"
+                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
+                                className="min_game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/110.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/110.png"/></div>
-                        <div data-v-860d7030="" class="onlineGamesItem flash"><img data-v-860d7030=""
-                                class="min_game_img"
+                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
+                                className="min_game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/101.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/101.png"/></div>
-                        <div data-v-860d7030="" class="onlineGamesItem flash"><img data-v-860d7030=""
-                                class="min_game_img"
+                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
+                                className="min_game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"/></div>
-                        <div data-v-860d7030="" class="onlineGamesItem flash"><img data-v-860d7030=""
-                                class="min_game_img ar-lazyload"
+                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
+                                className="min_game_img ar-lazyload"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/100.png"/></div>
-                        <div data-v-860d7030="" class="onlineGamesItem flash"><img data-v-860d7030=""
-                                class="min_game_img ar-lazyload"
+                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
+                                className="min_game_img ar-lazyload"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/107.png"/></div>
                     </div>
-                    <div data-v-d06787cb="" data-v-df3cc798="" class="hot_container"  id="section3" style={{ display: activeSection === 'section3' ? 'grid' : 'none' }}>
-                        <div data-v-d06787cb="" class="platform">
-                            <div data-v-d06787cb="" class="title"><svg data-v-d06787cb="" width="37" height="37"
-                                    viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg" class="gameRec">
+                    <div data-v-d06787cb="" data-v-df3cc798="" className="hot_container"  id="section3" style={{ display: activeSection === 'section3' ? 'grid' : 'none' }}>
+                        <div data-v-d06787cb="" className="platform">
+                            <div data-v-d06787cb="" className="title"><svg data-v-d06787cb="" width="37" height="37"
+                                    viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg" className="gameRec">
                                     <path
                                         d="M23.6259 7.87715L25.7577 12.1408C26.045 12.7304 26.8161 13.2898 27.4662 13.4108L31.3216 14.0458C33.786 14.454 34.3606 16.2381 32.5916 18.0222L29.5829 21.0309C29.0839 21.5298 28.7967 22.5126 28.963 23.2232L29.8248 26.9425C30.5052 29.8757 28.9328 31.0247 26.3474 29.4826L22.7339 27.3356C22.0837 26.9425 20.9951 26.9425 20.345 27.3356L16.7315 29.4826C14.1461 31.0096 12.5737 29.8757 13.2541 26.9425L14.1159 23.2232C14.2822 22.5277 13.9949 21.545 13.496 21.0309L10.4872 18.0222C8.71829 16.2532 9.29282 14.4691 11.7573 14.0458L15.6127 13.4108C16.2628 13.305 17.0339 12.7304 17.3212 12.1408L19.453 7.87715C20.5869 5.5639 22.4617 5.5639 23.6259 7.87715Z"
                                         fill="#FE6868"></path>
@@ -4839,11 +4902,11 @@ export default function Dashboard() {
                                         d="M12.4531 8.69355H3.3815C2.76161 8.69355 2.24756 8.17949 2.24756 7.5596C2.24756 6.93971 2.76161 6.42566 3.3815 6.42566H12.4531C13.073 6.42566 13.587 6.93971 13.587 7.5596C13.587 8.17949 13.073 8.69355 12.4531 8.69355ZM7.91728 29.8605H3.3815C2.76161 29.8605 2.24756 29.3465 2.24756 28.7266C2.24756 28.1067 2.76161 27.5926 3.3815 27.5926H7.91728C8.53717 27.5926 9.05123 28.1067 9.05123 28.7266C9.05123 29.3465 8.53717 29.8605 7.91728 29.8605ZM4.89343 19.277H3.3815C2.76161 19.277 2.24756 18.763 2.24756 18.1431C2.24756 17.5232 2.76161 17.0091 3.3815 17.0091H4.89343C5.51332 17.0091 6.02738 17.5232 6.02738 18.1431C6.02738 18.763 5.51332 19.277 4.89343 19.277Z"
                                         fill="#FE6868"></path>
                                 </svg><span data-v-d06787cb="">Platform recommendation</span></div>
-                            <div data-v-d06787cb="" class="list">
+                            <div data-v-d06787cb="" className="list">
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><svg data-v-d06787cb="" width="40" height="37"
+                                    <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
                                             viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            class="hot_bage">
+                                            className="hot_bage">
                                             <path
                                                 d="M8.00798 5.79803C3.77459 9.42666 1.96027 13.3578 1.20431 15.6256C0.0703725 19.0272 0.328033 26.4667 5.36212 31.5009C12.5438 38.6826 22.3713 36.0367 26.1511 33.3907C31.144 29.8955 39.3805 18.6494 34.4667 23.1852C32.8472 24.6801 31.6436 24.1183 32.9548 22.8072C34.2659 21.4961 35.2227 20.9173 36.7346 18.6494C38.7544 15.6198 38.8765 12.0977 38.2465 10.3338C37.8685 10.8378 36.5834 12.1481 34.4667 13.3577C32.35 14.5672 30.3089 13.3577 29.5529 12.6017C30.3089 12.6017 32.9548 12.0725 35.9786 8.4439C39.7584 3.90812 39.3805 0.128418 39.3805 0.128418C39.3805 0.128418 37.4906 2.01822 33.3328 3.15216C29.175 4.28611 26.9071 2.77429 22.3713 2.77429C17.8355 2.77429 14.8116 5.79803 15.1896 4.28611C15.492 3.07656 17.5835 1.51424 18.5915 0.884272C16.8276 1.01027 12.2414 2.16941 8.00798 5.79803Z"
                                                 fill="url(#paint0_linear_597_39012)"></path>
@@ -4853,27 +4916,27 @@ export default function Dashboard() {
                                             <defs>
                                                 <linearGradient id="paint0_linear_597_39012" x1="20.0209" y1="0.128418"
                                                     x2="20.0209" y2="36.1366" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#FE6868"></stop>
-                                                    <stop offset="1" stop-color="#CF0405"></stop>
+                                                    <stop stopColor="#FE6868"></stop>
+                                                    <stop offset="1" stopColor="#CF0405"></stop>
                                                 </linearGradient>
                                                 <linearGradient id="paint1_linear_597_39012" x1="17.5" y1="13" x2="17.5"
                                                     y2="27" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="white"></stop>
-                                                    <stop offset="1" stop-color="#FFE081"></stop>
+                                                    <stop stopColor="white"></stop>
+                                                    <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
                                         </svg><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">89.37%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '89.37%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '89.37%'}}></div>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><svg data-v-d06787cb="" width="40" height="37"
+                                    <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
                                             viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            class="hot_bage">
+                                            className="hot_bage">
                                             <path
                                                 d="M8.00798 5.79803C3.77459 9.42666 1.96027 13.3578 1.20431 15.6256C0.0703725 19.0272 0.328033 26.4667 5.36212 31.5009C12.5438 38.6826 22.3713 36.0367 26.1511 33.3907C31.144 29.8955 39.3805 18.6494 34.4667 23.1852C32.8472 24.6801 31.6436 24.1183 32.9548 22.8072C34.2659 21.4961 35.2227 20.9173 36.7346 18.6494C38.7544 15.6198 38.8765 12.0977 38.2465 10.3338C37.8685 10.8378 36.5834 12.1481 34.4667 13.3577C32.35 14.5672 30.3089 13.3577 29.5529 12.6017C30.3089 12.6017 32.9548 12.0725 35.9786 8.4439C39.7584 3.90812 39.3805 0.128418 39.3805 0.128418C39.3805 0.128418 37.4906 2.01822 33.3328 3.15216C29.175 4.28611 26.9071 2.77429 22.3713 2.77429C17.8355 2.77429 14.8116 5.79803 15.1896 4.28611C15.492 3.07656 17.5835 1.51424 18.5915 0.884272C16.8276 1.01027 12.2414 2.16941 8.00798 5.79803Z"
                                                 fill="url(#paint0_linear_597_39012)"></path>
@@ -4883,27 +4946,27 @@ export default function Dashboard() {
                                             <defs>
                                                 <linearGradient id="paint0_linear_597_39012" x1="20.0209" y1="0.128418"
                                                     x2="20.0209" y2="36.1366" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#FE6868"></stop>
-                                                    <stop offset="1" stop-color="#CF0405"></stop>
+                                                    <stop stopColor="#FE6868"></stop>
+                                                    <stop offset="1" stopColor="#CF0405"></stop>
                                                 </linearGradient>
                                                 <linearGradient id="paint1_linear_597_39012" x1="17.5" y1="13" x2="17.5"
                                                     y2="27" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="white"></stop>
-                                                    <stop offset="1" stop-color="#FFE081"></stop>
+                                                    <stop stopColor="white"></stop>
+                                                    <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
                                         </svg><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/101.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">84.93%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '84.93%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '84.93%'}}></div>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><svg data-v-d06787cb="" width="40" height="37"
+                                    <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
                                             viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            class="hot_bage">
+                                            className="hot_bage">
                                             <path
                                                 d="M8.00798 5.79803C3.77459 9.42666 1.96027 13.3578 1.20431 15.6256C0.0703725 19.0272 0.328033 26.4667 5.36212 31.5009C12.5438 38.6826 22.3713 36.0367 26.1511 33.3907C31.144 29.8955 39.3805 18.6494 34.4667 23.1852C32.8472 24.6801 31.6436 24.1183 32.9548 22.8072C34.2659 21.4961 35.2227 20.9173 36.7346 18.6494C38.7544 15.6198 38.8765 12.0977 38.2465 10.3338C37.8685 10.8378 36.5834 12.1481 34.4667 13.3577C32.35 14.5672 30.3089 13.3577 29.5529 12.6017C30.3089 12.6017 32.9548 12.0725 35.9786 8.4439C39.7584 3.90812 39.3805 0.128418 39.3805 0.128418C39.3805 0.128418 37.4906 2.01822 33.3328 3.15216C29.175 4.28611 26.9071 2.77429 22.3713 2.77429C17.8355 2.77429 14.8116 5.79803 15.1896 4.28611C15.492 3.07656 17.5835 1.51424 18.5915 0.884272C16.8276 1.01027 12.2414 2.16941 8.00798 5.79803Z"
                                                 fill="url(#paint0_linear_597_39012)"></path>
@@ -4913,27 +4976,27 @@ export default function Dashboard() {
                                             <defs>
                                                 <linearGradient id="paint0_linear_597_39012" x1="20.0209" y1="0.128418"
                                                     x2="20.0209" y2="36.1366" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#FE6868"></stop>
-                                                    <stop offset="1" stop-color="#CF0405"></stop>
+                                                    <stop stopColor="#FE6868"></stop>
+                                                    <stop offset="1" stopColor="#CF0405"></stop>
                                                 </linearGradient>
                                                 <linearGradient id="paint1_linear_597_39012" x1="17.5" y1="13" x2="17.5"
                                                     y2="27" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="white"></stop>
-                                                    <stop offset="1" stop-color="#FFE081"></stop>
+                                                    <stop stopColor="white"></stop>
+                                                    <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
                                         </svg><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">90.11%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '90.11%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '90.11%'}}></div>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><svg data-v-d06787cb="" width="40" height="37"
+                                    <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
                                             viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            class="hot_bage">
+                                            className="hot_bage">
                                             <path
                                                 d="M8.00798 5.79803C3.77459 9.42666 1.96027 13.3578 1.20431 15.6256C0.0703725 19.0272 0.328033 26.4667 5.36212 31.5009C12.5438 38.6826 22.3713 36.0367 26.1511 33.3907C31.144 29.8955 39.3805 18.6494 34.4667 23.1852C32.8472 24.6801 31.6436 24.1183 32.9548 22.8072C34.2659 21.4961 35.2227 20.9173 36.7346 18.6494C38.7544 15.6198 38.8765 12.0977 38.2465 10.3338C37.8685 10.8378 36.5834 12.1481 34.4667 13.3577C32.35 14.5672 30.3089 13.3577 29.5529 12.6017C30.3089 12.6017 32.9548 12.0725 35.9786 8.4439C39.7584 3.90812 39.3805 0.128418 39.3805 0.128418C39.3805 0.128418 37.4906 2.01822 33.3328 3.15216C29.175 4.28611 26.9071 2.77429 22.3713 2.77429C17.8355 2.77429 14.8116 5.79803 15.1896 4.28611C15.492 3.07656 17.5835 1.51424 18.5915 0.884272C16.8276 1.01027 12.2414 2.16941 8.00798 5.79803Z"
                                                 fill="url(#paint0_linear_597_39012)"></path>
@@ -4943,27 +5006,27 @@ export default function Dashboard() {
                                             <defs>
                                                 <linearGradient id="paint0_linear_597_39012" x1="20.0209" y1="0.128418"
                                                     x2="20.0209" y2="36.1366" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#FE6868"></stop>
-                                                    <stop offset="1" stop-color="#CF0405"></stop>
+                                                    <stop stopColor="#FE6868"></stop>
+                                                    <stop offset="1" stopColor="#CF0405"></stop>
                                                 </linearGradient>
                                                 <linearGradient id="paint1_linear_597_39012" x1="17.5" y1="13" x2="17.5"
                                                     y2="27" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="white"></stop>
-                                                    <stop offset="1" stop-color="#FFE081"></stop>
+                                                    <stop stopColor="white"></stop>
+                                                    <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
                                         </svg><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/100.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">87.72%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '87.72%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '87.72%'}}></div>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><svg data-v-d06787cb="" width="40" height="37"
+                                    <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
                                             viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            class="hot_bage">
+                                            className="hot_bage">
                                             <path
                                                 d="M8.00798 5.79803C3.77459 9.42666 1.96027 13.3578 1.20431 15.6256C0.0703725 19.0272 0.328033 26.4667 5.36212 31.5009C12.5438 38.6826 22.3713 36.0367 26.1511 33.3907C31.144 29.8955 39.3805 18.6494 34.4667 23.1852C32.8472 24.6801 31.6436 24.1183 32.9548 22.8072C34.2659 21.4961 35.2227 20.9173 36.7346 18.6494C38.7544 15.6198 38.8765 12.0977 38.2465 10.3338C37.8685 10.8378 36.5834 12.1481 34.4667 13.3577C32.35 14.5672 30.3089 13.3577 29.5529 12.6017C30.3089 12.6017 32.9548 12.0725 35.9786 8.4439C39.7584 3.90812 39.3805 0.128418 39.3805 0.128418C39.3805 0.128418 37.4906 2.01822 33.3328 3.15216C29.175 4.28611 26.9071 2.77429 22.3713 2.77429C17.8355 2.77429 14.8116 5.79803 15.1896 4.28611C15.492 3.07656 17.5835 1.51424 18.5915 0.884272C16.8276 1.01027 12.2414 2.16941 8.00798 5.79803Z"
                                                 fill="url(#paint0_linear_597_39012)"></path>
@@ -4973,27 +5036,27 @@ export default function Dashboard() {
                                             <defs>
                                                 <linearGradient id="paint0_linear_597_39012" x1="20.0209" y1="0.128418"
                                                     x2="20.0209" y2="36.1366" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#FE6868"></stop>
-                                                    <stop offset="1" stop-color="#CF0405"></stop>
+                                                    <stop stopColor="#FE6868"></stop>
+                                                    <stop offset="1" stopColor="#CF0405"></stop>
                                                 </linearGradient>
                                                 <linearGradient id="paint1_linear_597_39012" x1="17.5" y1="13" x2="17.5"
                                                     y2="27" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="white"></stop>
-                                                    <stop offset="1" stop-color="#FFE081"></stop>
+                                                    <stop stopColor="white"></stop>
+                                                    <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
                                         </svg><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/106.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">91.83%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '91.83%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '91.83%'}}></div>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><svg data-v-d06787cb="" width="40" height="37"
+                                    <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
                                             viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            class="hot_bage">
+                                            className="hot_bage">
                                             <path
                                                 d="M8.00798 5.79803C3.77459 9.42666 1.96027 13.3578 1.20431 15.6256C0.0703725 19.0272 0.328033 26.4667 5.36212 31.5009C12.5438 38.6826 22.3713 36.0367 26.1511 33.3907C31.144 29.8955 39.3805 18.6494 34.4667 23.1852C32.8472 24.6801 31.6436 24.1183 32.9548 22.8072C34.2659 21.4961 35.2227 20.9173 36.7346 18.6494C38.7544 15.6198 38.8765 12.0977 38.2465 10.3338C37.8685 10.8378 36.5834 12.1481 34.4667 13.3577C32.35 14.5672 30.3089 13.3577 29.5529 12.6017C30.3089 12.6017 32.9548 12.0725 35.9786 8.4439C39.7584 3.90812 39.3805 0.128418 39.3805 0.128418C39.3805 0.128418 37.4906 2.01822 33.3328 3.15216C29.175 4.28611 26.9071 2.77429 22.3713 2.77429C17.8355 2.77429 14.8116 5.79803 15.1896 4.28611C15.492 3.07656 17.5835 1.51424 18.5915 0.884272C16.8276 1.01027 12.2414 2.16941 8.00798 5.79803Z"
                                                 fill="url(#paint0_linear_597_39012)"></path>
@@ -5003,30 +5066,30 @@ export default function Dashboard() {
                                             <defs>
                                                 <linearGradient id="paint0_linear_597_39012" x1="20.0209" y1="0.128418"
                                                     x2="20.0209" y2="36.1366" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#FE6868"></stop>
-                                                    <stop offset="1" stop-color="#CF0405"></stop>
+                                                    <stop stopColor="#FE6868"></stop>
+                                                    <stop offset="1" stopColor="#CF0405"></stop>
                                                 </linearGradient>
                                                 <linearGradient id="paint1_linear_597_39012" x1="17.5" y1="13" x2="17.5"
                                                     y2="27" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="white"></stop>
-                                                    <stop offset="1" stop-color="#FFE081"></stop>
+                                                    <stop stopColor="white"></stop>
+                                                    <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
                                         </svg><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/105.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">86.34%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '86.34%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '86.34%'}}></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div data-v-d06787cb="" class="popular">
-                            <div data-v-d06787cb="" class="title"><svg data-v-d06787cb="" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="hotGames">
-                                    <g clip-path="url(#clip0_589_37755)">
-                                        <path d="M24 0H0V24H24V0Z" fill="white" fill-opacity="0.01"></path>
+                        <div data-v-d06787cb="" className="popular">
+                            <div data-v-d06787cb="" className="title"><svg data-v-d06787cb="" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="hotGames">
+                                    <g clipPath="url(#clip0_589_37755)">
+                                        <path d="M24 0H0V24H24V0Z" fill="white" fillOpacity="0.01"></path>
                                         <path
                                             d="M12 22C16.1173 22 19.4999 18.7371 19.4999 14.5491C19.4999 13.5209 19.4476 12.4187 18.8778 10.7058C18.3079 8.9929 18.1931 8.7718 17.5905 7.71395C17.333 9.8727 15.9555 10.7724 15.6055 11.0413C15.6055 10.7615 14.7722 7.66795 13.5088 5.81695C12.2685 4 10.5817 2.80796 9.59265 2C9.59265 3.53489 9.16095 5.81695 8.5427 6.9797C7.92445 8.14245 7.80835 8.1848 7.0361 9.0501C6.2639 9.9154 5.90945 10.1826 5.2637 11.2325C4.61798 12.2825 4.5 13.6809 4.5 14.7091C4.5 18.8971 7.88265 22 12 22Z"
                                             fill="white"></path>
@@ -5037,186 +5100,186 @@ export default function Dashboard() {
                                         </clipPath>
                                     </defs>
                                 </svg><span data-v-d06787cb="">Popular</span></div>
-                            <div data-v-d06787cb="" class="list">
+                            <div data-v-d06787cb="" className="list">
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/51.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">81.64%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '81.64%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '81.64%'}}></div>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/109.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">85.41%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '85.41%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '85.41%'}}></div>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/EVO_Electronic/grandwheel000000.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">93.32%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '93.32%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '93.32%'}}></div>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7001.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">91.62%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '91.62%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '91.62%'}}></div>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/27.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">90.91%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '90.91%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '90.91%'}}></div>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/47.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">87.31%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '87.31%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '87.31%'}}></div>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/1.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">83.23%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '83.23%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '83.23%'}}></div>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/35.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">87.04%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '87.04%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '87.04%'}}></div>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" class="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/EVO_Electronic/777strike0000000.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" class="win-odds"><span data-v-d06787cb="">odds of
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">81.45%</span>
-                                        <div data-v-d06787cb="" class="win-p" style={{width: '81.45%'}}></div>
+                                        <div data-v-d06787cb="" className="win-p" style={{width: '81.45%'}}></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div data-v-54337c48="" data-v-df3cc798="" class="onlineGamesItem__container" id="section4" style={{ display: activeSection === 'section4' ? 'grid' : 'none' }}>
-                        <div data-v-54337c48="" class="item"><img data-v-54337c48="" class="gameImg"
+                    <div data-v-54337c48="" data-v-df3cc798="" className="onlineGamesItem__container" id="section4" style={{ display: activeSection === 'section4' ? 'grid' : 'none' }}>
+                        <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165352mtql.png"
                                 src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165352mtql.png"/>
                             
                         </div>
-                        <div data-v-54337c48="" class="item"><img data-v-54337c48="" class="gameImg"
+                        <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_2024010216505212ii.png"
                                 src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_2024010216505212ii.png"/>
                             
                         </div>
-                        <div data-v-54337c48="" class="item"><img data-v-54337c48="" class="gameImg"
+                        <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021653336o2h.png"
                                 src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021653336o2h.png"/>
                            
                         </div>
-                        <div data-v-54337c48="" class="item"><img data-v-54337c48="" class="gameImg"
+                        <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165037ckq2.png"
                                 src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165037ckq2.png"/>
                             
                         </div>
-                        <div data-v-54337c48="" class="item"><img data-v-54337c48="" class="gameImg"
+                        <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102163527dtbe.png"
                                 src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102163527dtbe.png"/>
                           
                         </div>
-                        <div data-v-54337c48="" class="item"><img data-v-54337c48="" class="gameImg"
+                        <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164858e6so.png"
                                 src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164858e6so.png"/>
                            
                         </div>
                     </div>
-                    <div data-v-860d7030="" data-v-df3cc798="" class="minGame_container" id="section5" style={{ display: activeSection === 'section5' ? 'grid' : 'none' }}>
-                        <div data-v-860d7030="" class="onlineGamesItem fish"><img data-v-860d7030="" class="fish_img"
+                    <div data-v-860d7030="" data-v-df3cc798="" className="minGame_container" id="section5" style={{ display: activeSection === 'section5' ? 'grid' : 'none' }}>
+                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7001.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7001.png"/></div>
-                        <div data-v-860d7030="" class="onlineGamesItem fish"><img data-v-860d7030="" class="fish_img"
+                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7002.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7002.png"/></div>
-                        <div data-v-860d7030="" class="onlineGamesItem fish"><img data-v-860d7030="" class="fish_img"
+                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7003.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7003.png"/></div>
-                        <div data-v-860d7030="" class="onlineGamesItem fish"><img data-v-860d7030="" class="fish_img"
+                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7004.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7004.png"/></div>
-                        <div data-v-860d7030="" class="onlineGamesItem fish"><img data-v-860d7030="" class="fish_img"
+                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7005.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7005.png"/></div>
-                        <div data-v-860d7030="" class="onlineGamesItem fish"><img data-v-860d7030="" class="fish_img"
+                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7006.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7006.png"/></div>
-                        <div data-v-860d7030="" class="onlineGamesItem fish"><img data-v-860d7030="" class="fish_img"
+                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7007.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7007.png"/></div>
-                        <div data-v-860d7030="" class="onlineGamesItem fish"><img data-v-860d7030="" class="fish_img"
+                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/1.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/1.png"/></div>
                     </div>
-                    <div data-v-df3cc798="" class="otherGame" id="section6" style={{ display: activeSection === 'section6' ? 'grid' : 'none' }}>
-                        <div data-v-1153e4fd="" data-v-df3cc798="" class="lotterySlotItem__container">
-                            <div data-v-1153e4fd="" class="title">
-                                <div data-v-1153e4fd="" class="tit">Rummy</div>
-                            </div><img data-v-1153e4fd="" class="game_img"
+                    <div data-v-df3cc798="" className="otherGame" id="section6" style={{ display: activeSection === 'section6' ? 'grid' : 'none' }}>
+                        <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
+                            <div data-v-1153e4fd="" className="title">
+                                <div data-v-1153e4fd="" className="tit">Rummy</div>
+                            </div><img data-v-1153e4fd="" className="game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164947dvuc.png"
                                 src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164947dvuc.png"/>
                         </div>
                     </div>
-                    <div data-v-df3cc798="" class="otherGame" id="section7" style={{ display: activeSection === 'section7' ? 'grid' : 'none' }}>
-                        <div data-v-1153e4fd="" data-v-df3cc798="" class="lotterySlotItem__container">
-                            <div data-v-1153e4fd="" class="title">
-                                <div data-v-1153e4fd="" class="tit">Casino</div>
-                            </div><img data-v-1153e4fd="" class="game_img"
+                    <div data-v-df3cc798="" className="otherGame" id="section7" style={{ display: activeSection === 'section7' ? 'grid' : 'none' }}>
+                        <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
+                            <div data-v-1153e4fd="" className="title">
+                                <div data-v-1153e4fd="" className="tit">Casino</div>
+                            </div><img data-v-1153e4fd="" className="game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165020x66i.png"
                                 src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165020x66i.png"/>
                         </div>
-                        <div data-v-1153e4fd="" data-v-df3cc798="" class="lotterySlotItem__container">
-                            <div data-v-1153e4fd="" class="title">
-                                <div data-v-1153e4fd="" class="tit">Casino</div>
-                            </div><img data-v-1153e4fd="" class="game_img"
+                        <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
+                            <div data-v-1153e4fd="" className="title">
+                                <div data-v-1153e4fd="" className="tit">Casino</div>
+                            </div><img data-v-1153e4fd="" className="game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021635413lly.png"
                                 src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021635413lly.png"/>
                         </div>
-                        <div data-v-1153e4fd="" data-v-df3cc798="" class="lotterySlotItem__container">
-                            <div data-v-1153e4fd="" class="title">
-                                <div data-v-1153e4fd="" class="tit">Casino</div>
-                            </div><img data-v-1153e4fd="" class="game_img"
+                        <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
+                            <div data-v-1153e4fd="" className="title">
+                                <div data-v-1153e4fd="" className="tit">Casino</div>
+                            </div><img data-v-1153e4fd="" className="game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202405081133481rmp.png"
                                 src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202405081133481rmp.png"/>
                         </div>
                     </div>
-                    <div data-v-df3cc798="" class="otherGame" id="section8" style={{ display: activeSection === 'section8' ? 'grid' : 'none' }}>
-                        <div data-v-1153e4fd="" data-v-df3cc798="" class="lotterySlotItem__container">
-                            <div data-v-1153e4fd="" class="title">
-                                <div data-v-1153e4fd="" class="tit">Sports</div>
-                            </div><img data-v-1153e4fd="" class="game_img"
+                    <div data-v-df3cc798="" className="otherGame" id="section8" style={{ display: activeSection === 'section8' ? 'grid' : 'none' }}>
+                        <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
+                            <div data-v-1153e4fd="" className="title">
+                                <div data-v-1153e4fd="" className="tit">Sports</div>
+                            </div><img data-v-1153e4fd="" className="game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165536rgfg.png"
                                 src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165536rgfg.png"/>
                         </div>
