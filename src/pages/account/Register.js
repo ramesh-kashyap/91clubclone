@@ -1,6 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Api from '../../services/Api';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Register() {
+    const [phone, setPhone] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [invitecode, setInvitecode] = useState(''); // New state for invite code
+    const [error, setError] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (password !== confirmPassword) {
+          setError('Passwords do not match');
+          return;
+        }
+        try {
+          const response = await Api.post('/api/webapi/register', {
+            username: phone, // Send phone as username
+            pwd: password, // Match the field name expected by the backend
+            invitecode, // Include invitecode in the POST request
+          });
+          console.log(response.data.message);
+          if (response.data.message === 'Register Success') {
+            // Redirect to login or home page
+            window.location.href = '/login';
+          } else {
+            setError(response.data.message);
+          }
+        } catch (err) {
+          setError('An error occurred. Please try again.');
+        }
+    };
+      
   return (
     <div> 
         <svg
@@ -9547,6 +9580,7 @@ export default function Register() {
             data-v-4752d5f1=""
             className="register__container"
           >
+         <form onSubmit={handleSubmit}>
             <div
               data-v-50aa8bb0=""
               data-v-e26f70e7=""
@@ -9577,11 +9611,13 @@ export default function Register() {
                   </div>
                 </div>
                 <input
-                  data-v-50aa8bb0=""
-                  type="text"
-                  name="userNumber"
-                  placeholder="Please enter the phone number"
-                />
+                data-v-50aa8bb0=""
+                type="text"
+                name="phone"
+                placeholder="Please enter the phone number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
               </div>
             </div>
             <div data-v-e26f70e7="" className="tip"></div>
@@ -9590,7 +9626,7 @@ export default function Register() {
               data-v-e26f70e7=""
               className="verifyInput__container"
             >
-              <div data-v-c17848a2="" className="verifyInput__container-label">
+              {/* <div data-v-c17848a2="" className="verifyInput__container-label">
                 <svg data-v-c17848a2="" className="svg-icon icon-verify">
                   <use href="#icon-verify"></use></svg
                 ><span data-v-c17848a2="">Verification Code</span>
@@ -9604,7 +9640,7 @@ export default function Register() {
                 /><button data-v-c17848a2="" className="">
                   <span data-v-c17848a2="">Send</span>
                 </button>
-              </div>
+              </div> */}
               <div
                 data-v-c17848a2=""
                 className="verifyInput__container-tip"
@@ -9633,13 +9669,14 @@ export default function Register() {
                 ><span data-v-ea5b66c8="">Set password</span>
               </div>
               <div data-v-ea5b66c8="" className="passwordInput__container-input">
-                <input
-                  data-v-ea5b66c8=""
-                  type="password"
-                  placeholder="Set password"
-                  maxLength="15"
-                  autoComplete="new-password"
-                /><img
+              <input
+                type="password"
+                name="password"
+                placeholder="Set password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                data-v-ea5b66c8=""
+              /><img
                   data-v-ea5b66c8=""
                   src="/assets/png/eyeInvisible-821d9d16.png"
                   className="eye"
@@ -9671,13 +9708,15 @@ export default function Register() {
                 ><span data-v-ea5b66c8="">Confirm password</span>
               </div>
               <div data-v-ea5b66c8="" className="passwordInput__container-input">
+                
                 <input
-                  data-v-ea5b66c8=""
-                  type="password"
-                  placeholder="Confirm password"
-                  maxLength="15"
-                  autoComplete="new-password"
-                /><img
+                data-v-ea5b66c8=""
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              /><img
                   data-v-ea5b66c8=""
                   src="/assets/png/eyeInvisible-821d9d16.png"
                   className="eye"
@@ -9707,14 +9746,13 @@ export default function Register() {
                 className="register__container-invitation__input"
               >
                 <input
-                  data-v-e26f70e7=""
-                  type="text"
-                  auto-complete="new-password"
-                  autoComplete="off"
-                  name="userNumber"
-                  placeholder="Please enter the invitation code"
-                  maxLength="20"
-                />
+                data-v-e26f70e7=""
+                type="text"
+                name="invitecode"
+                placeholder="Enter invite code"
+                value={invitecode}
+                onChange={(e) => setInvitecode(e.target.value)}
+              />
               </div>
             </div>
             <div data-v-e26f70e7="" className="register__container-remember">
@@ -9737,7 +9775,7 @@ export default function Register() {
               </div>
             </div>
             <div data-v-e26f70e7="" className="register__container-button">
-              <button data-v-e26f70e7="">Register</button
+              <button data-v-e26f70e7="" type="submit">Register</button
               ><button data-v-e26f70e7="" className="login">
                 <div data-v-e26f70e7="" className="account">
                   I have an account
@@ -9745,6 +9783,7 @@ export default function Register() {
                 <div data-v-e26f70e7="" className="loginin">Login</div>
               </button>
             </div>
+            </form>
           </div>
         </div>
         
