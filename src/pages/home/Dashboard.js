@@ -4720,7 +4720,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_202403111415086ujt.png)`}}>
-                                </div> <a href="/home/view all/pvc.html">PVC</a>
+                                </div> <a href="">PVC</a>
                             </div>
                         </div>
                     </div>
@@ -4730,7 +4730,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141522uvco.png)`}}>
-                                </div> <a href="/home/view all/casino.html">Casino</a>
+                                </div> <a href="">Casino</a>
                             </div>
                         </div>
                     </div>
@@ -4740,7 +4740,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141531fugo.png)`}}>
-                                </div> <a href="/home/view all/sports.html">Sports</a>
+                                </div> <a href="">Sports</a>
                             </div>
                         </div>
                     </div>
@@ -4752,7 +4752,7 @@ export default function Dashboard() {
                             src="/assets/lotterycategory_202307140102511fow.png"
                             data-v-acaadf81="" className="ar-lazyload"
                                 data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_202307140102511fow.png"/>
-                                <a href="/home/view all/winGo.html"><span
+                                <a href=""><span
                                     data-v-acaadf81="">Win Go</span></a>
                             <h4 data-v-acaadf81="">
                                 <div data-v-acaadf81="">Guess Number</div>
@@ -4763,7 +4763,7 @@ export default function Dashboard() {
                             src="/assets/lotterycategory_20230714010227swu2.png"
                             data-v-acaadf81="" className="ar-lazyload"
                                 data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_20230714010227swu2.png"/>
-                                <a href="/home/view all/K3.html"><span
+                                <a href=""><span
                                     data-v-acaadf81="">K3</span></a>
                             <h4 data-v-acaadf81="">
                                 <div data-v-acaadf81="">Guess Number</div>
@@ -4774,7 +4774,7 @@ export default function Dashboard() {
                             src="/assets/lotterycategory_2023071401023322dy.png"
                             data-v-acaadf81="" className="ar-lazyload"
                                 data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_2023071401023322dy.png"/>
-                                <a href="/home/view all/5D.html"><span
+                                <a href=""><span
                                     data-v-acaadf81="">5D</span></a>
                             <h4 data-v-acaadf81="">
                                 <div data-v-acaadf81="">Guess Number</div>
@@ -4785,7 +4785,7 @@ export default function Dashboard() {
                             src="/assets/lotterycategory_20230714010246lyuc.png"
                             data-v-acaadf81="" className="ar-lazyload"
                                 data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_20230714010246lyuc.png"/>
-                                <a href="/home/view all/Trxwin.html"><span
+                                <a href=""><span
                                     data-v-acaadf81="">Trx Win</span></a>
                             <h4 data-v-acaadf81="">
                                 <div data-v-acaadf81="">Guess Number</div>
@@ -5222,7 +5222,7 @@ export default function Dashboard() {
                         </div>
                     </div>
                     <button data-v-df3cc798="" className="look_all"><img data-v-df3cc798=""
-                            src="/assets/png/all-5227f2a4.png" alt=""/> <a href="/home/view all/viewAll.html">View All</a></button>
+                            src="/assets/png/all-5227f2a4.png" alt=""/> <a href="">View All</a></button>
                 </div>
             </div>
             
