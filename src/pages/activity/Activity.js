@@ -9718,16 +9718,20 @@ export default function Activity() {
         style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
       >
         <div data-v-6ab3f23e="" className="tabbar__container-item">
+        <a href="/home/index">
           <svg data-v-6ab3f23e="" className="svg-icon icon-home">
             <use href="#icon-home"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/home/index.html">Home</a></span>
+          ><span data-v-6ab3f23e="">Home</span>
+          </a>
         </div>
        
           <div data-v-6ab3f23e="" className="tabbar__container-item active">
+          <a href="/activity/activity">
             <svg data-v-6ab3f23e="" className="svg-icon icon-activity">
               <use href="#icon-activity"></use>
           </svg>
-          <span data-v-6ab3f23e=""><a href="/activity/activity.html">Activity</a></span>
+          <span data-v-6ab3f23e="">Activity</span>
+          </a>
           </div>
         
          
