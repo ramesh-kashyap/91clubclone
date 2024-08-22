@@ -9704,12 +9704,12 @@ export default function Login() {
                   tabIndex="0"
                   aria-checked="false"
                 >
-                  <div className="van-checkbox__icon van-checkbox__icon--round">
+                  {/* <div className="van-checkbox__icon van-checkbox__icon--round">
                     <i className="van-badge__wrapper van-icon van-icon-success"
                       ></i
                     >
-                  </div>
-                  <span className="van-checkbox__label">Remember password</span>
+                  </div> */}
+                  {/* <span className="van-checkbox__label">Remember password</span> */}
                 </div>
               </div>
               <div data-v-33f88764="" className="signIn__container-button">
@@ -9828,17 +9828,22 @@ export default function Login() {
                   ><span data-v-ea5b66c8="">Password</span>
                 </div>
                 <div data-v-ea5b66c8="" className="passwordInput__container-input">
-                  <input
-                    data-v-ea5b66c8=""
-                    type="password"
-                    placeholder="Password"
-                    maxLength="32"
-                    autoComplete="new-password"
-                  /><img
-                    data-v-ea5b66c8=""
-                    src="/assets/png/eyeInvisible-821d9d16.png"
-                    className="eye"
-                  />
+                <input
+        data-v-ea5b66c8=""
+        type={isPasswordVisible ? 'text' : 'password'}
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        maxLength="32"
+        autoComplete="new-password"
+      /><img
+                  data-v-ea5b66c8=""
+                  src={isPasswordVisible ? '/assets/png/eyeVisible-09720f5f.png' : '/assets/png/eyeInvisible-821d9d16.png'}
+                  className="eye"
+                  onClick={togglePasswordVisibility}
+                  alt="Toggle Password Visibility"
+                  style={{ cursor: 'pointer' }}
+                />
                 </div>
               </div>
               <div data-v-436a69c4="">
@@ -9849,12 +9854,12 @@ export default function Login() {
                   tabIndex="0"
                   aria-checked="false"
                 >
-                  <div className="van-checkbox__icon van-checkbox__icon--round">
+                  {/* <div className="van-checkbox__icon van-checkbox__icon--round">
                     <i className="van-badge__wrapper van-icon van-icon-success"
                       ></i
                     >
-                  </div>
-                  <span className="van-checkbox__label">Remember password</span>
+                  </div> */}
+                  {/* <span className="van-checkbox__label">Remember password</span> */}
                 </div>
               </div>
               <div data-v-436a69c4="" className="signIn__container-button">
