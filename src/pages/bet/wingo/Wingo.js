@@ -1,6 +1,52 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Api from '../../../services/Api';
+import { ThreeDots } from 'react-loader-spinner';
+
 export default function Wingo(){
     const [activeSection, setActiveSection] = useState('section1');
+    const [totalMoney, setTotalMoney] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+  
+    useEffect(() => {
+      const fetchUserInfo = async () => {
+        try {
+          const response = await Api.get('/api/webapi/GetUserInfo');
+          if (response.data.status) {
+            setTotalMoney(response.data.data.money);
+
+          } else {
+            setError('Failed to fetch user info');
+          }
+        } catch (err) {
+          setError('Error fetching user info');
+          console.error(err);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchUserInfo();
+    }, []);
+  
+    if (loading) {
+      return <div className="spinner-container" style={{ position:'absolute',top:'50%' }}>
+      <ThreeDots
+visible={true}
+height="80"
+width="80"
+color="#4fa94d"
+radius="9"
+ariaLabel="three-dots-loading"
+wrapperStyle={{}}
+wrapperClass=""
+/>
+    </div>; // You can replace this with a spinner if needed
+    }
+  
+    if (error) {
+      return <div>{error}</div>;
+    }
 
 
     const showSection = (sectionId) => {
@@ -9517,7 +9563,7 @@ export default function Wingo(){
     <div data-v-7dd1adab="" data-v-5d71c3fd="" className="Wallet__C">
       <div data-v-7dd1adab="" className="Wallet__C-balance">
         <div data-v-7dd1adab="" className="Wallet__C-balance-l1">
-          <div data-v-7dd1adab="">₹0.00</div>
+          <div data-v-7dd1adab="">₹{totalMoney??0.00}</div>
         </div>
         <div data-v-7dd1adab="" className="Wallet__C-balance-l2">
           <svg data-v-7dd1adab="" className="svg-icon icon-lottyWallet">
