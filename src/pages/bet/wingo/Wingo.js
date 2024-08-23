@@ -10032,8 +10032,8 @@ wrapperClass=""
               <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301450</div>
             </div>
             <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas1"
-                  className="line-canvas"></canvas>
+              <div data-v-d485a39d="" className="Trend__C-body2-Num">
+              <canvas data-v-d485a39d="" canvas="" id="myCanvas6" class="line-canvas"></canvas>
                 <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
                 <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
                 <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
@@ -10646,9 +10646,9 @@ style = {
         display: 'none'
     }
 } > <div data- v-7f36fe93 = ""className = "Betting__Popup-11" >
-     <div data-v-7 f36fe93 = ""className = "Betting__Popup-head" > < div data-v-7f36fe93 = ""
-className = "Betting__Popup-head-title" > Win Go 30 s </div>
-<div data-v-7f36fe93="" className="Betting__Popup-head-selectName">
+     <div data-v-7 f36fe93 = ""className = "Betting__Popup-head"> 
+        < div data-v-7f36fe93 = "" className = "Betting__Popup-head-title"> Win Go 30 s </div>
+       <div data-v-7f36fe93="" className="Betting__Popup-head-selectName">
     <span data-v-7f36fe93="">Select</span > <span data-v-7f36fe93 = ""> Green </span></div> </div>
     <div data-v-7f36fe93="" className="Betting__Popup-body">
         <div data-v-7f36fe93="" className="Betting__Popup-body-line">Balance 
