@@ -36,6 +36,7 @@ const PrivateRoute = ({ children }) => {
 
   if (isAuthenticated === null) {
     return (
+<<<<<<< HEAD
       <div className="spinner-container">
         <ThreeDots
   visible={true}
@@ -48,6 +49,20 @@ const PrivateRoute = ({ children }) => {
   wrapperClass=""
   />
       </div>
+=======
+      <div className="spinner-container" style={{ position:'absolute',top:'50%' }}>
+      <ThreeDots
+    visible={true}
+    height="80"
+    width="80"
+    color="#f95959"
+    radius="9"
+    ariaLabel="three-dots-loading"
+    wrapperStyle={{}}
+    wrapperClass=""
+    />
+    </div>
+>>>>>>> 358282a (ok)
     );
   }
 
