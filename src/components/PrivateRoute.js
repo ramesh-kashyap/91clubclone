@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import Api from '../services/Api'; // Import your Axios instance
-import Loader from './Loader';
+import { ThreeDots } from 'react-loader-spinner'; // Import the specific spinner
 
 const PrivateRoute = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
@@ -36,7 +36,18 @@ const PrivateRoute = ({ children }) => {
 
   if (isAuthenticated === null) {
     return (
-     <Loader/>
+      <div className="spinner-container">
+        <ThreeDots
+  visible={true}
+  height="80"
+  width="80"
+  color="#4fa94d"
+  radius="9"
+  ariaLabel="three-dots-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  />
+      </div>
     );
   }
 
