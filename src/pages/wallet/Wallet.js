@@ -9455,9 +9455,9 @@ export default function Promotion(){
         </div>
         <div data-v-647954c7="" class="skeleton-wrapper" style="display: none">
           <div data-v-647954c7="" class="van-skeleton van-skeleton--animate">
-            <!---->
+            
             <div class="van-skeleton__content">
-              <!---->
+              
               <div class="van-skeleton-paragraph" style="width: 100%"></div>
               <div class="van-skeleton-paragraph" style="width: 100%"></div>
               <div class="van-skeleton-paragraph" style="width: 100%"></div>
@@ -9482,7 +9482,7 @@ export default function Promotion(){
             </div>
           </div>
           <div data-v-647954c7="" class="van-skeleton van-skeleton--animate">
-            <!---->
+            
             <div class="van-skeleton__content">
               <h3 class="van-skeleton-title"></h3>
               <div class="van-skeleton-paragraph" style="width: 100%"></div>
@@ -9494,7 +9494,7 @@ export default function Promotion(){
           </div>
         </div>
       </div>
-      <!--v-if-->
+      
       <div
         data-v-0dabd3fc=""
         class="wallet-container"
@@ -9508,11 +9508,11 @@ export default function Promotion(){
                   <i
                     data-v-12a80a3e=""
                     class="van-badge__wrapper van-icon van-icon-arrow-left"
-                    ><!----><!----><!----></i
+                    ></i
                   >
                 </div>
                 <div data-v-12a80a3e="" class="navbar__content-center">
-                  <!--v-if-->
+                  
                   <div data-v-12a80a3e="" class="navbar__content-title">
                     Wallet
                   </div>
@@ -9545,7 +9545,7 @@ export default function Promotion(){
               <div data-v-0dabd3fc="" class="progressBarsL">
                 <div data-v-0dabd3fc="" class="van-circle">
                   <svg viewBox="0 0 1100 1100">
-                    <!---->
+                    
                     <path
                       class="van-circle__layer"
                       d="M 550 550 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
@@ -9569,7 +9569,7 @@ export default function Promotion(){
               <div data-v-0dabd3fc="" class="progressBarsR">
                 <div data-v-0dabd3fc="" class="van-circle">
                   <svg viewBox="0 0 1100 1100">
-                    <!---->
+                    
                     <path
                       class="van-circle__layer"
                       d="M 550 550 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
@@ -9739,12 +9739,12 @@ export default function Promotion(){
         <div data-v-6ab3f23e="" class="tabbar__container-item">
           <svg data-v-6ab3f23e="" class="svg-icon icon-home">
             <use xlink:href="#icon-home"></use></svg
-          ><!--v-if--><span data-v-6ab3f23e=""><a href="/home/index.html">Home</a></span>
+          ><span data-v-6ab3f23e=""><a href="/home/index.html">Home</a></span>
         </div>
         <div data-v-6ab3f23e="" class="tabbar__container-item">
           <svg data-v-6ab3f23e="" class="svg-icon icon-activity">
             <use xlink:href="#icon-activity"></use></svg
-          ><!--v-if--><span data-v-6ab3f23e=""><a href="/activity/activity.html">Activity</a></span>
+          ><span data-v-6ab3f23e=""><a href="/activity/activity.html">Activity</a></span>
         </div>
         <div data-v-6ab3f23e="" class="tabbar__container-item">
           <svg data-v-6ab3f23e="" class="svg-icon icon-promotion">
@@ -9756,35 +9756,31 @@ export default function Promotion(){
         <div data-v-6ab3f23e="" class="tabbar__container-item active">
           <svg data-v-6ab3f23e="" class="svg-icon icon-wallet">
             <use xlink:href="#icon-wallet"></use></svg
-          ><!--v-if--><span data-v-6ab3f23e=""><a href="/wallet/wallet.html">Wallet</a></span>
+          ><span data-v-6ab3f23e=""><a href="/wallet/wallet.html">Wallet</a></span>
         </div>
         <div data-v-6ab3f23e="" class="tabbar__container-item">
           <svg data-v-6ab3f23e="" class="svg-icon icon-main">
             <use xlink:href="#icon-main"></use></svg
-          ><!--v-if--><span data-v-6ab3f23e=""><a href="/account/account.html">Account</a></span>
+          ><span data-v-6ab3f23e=""><a href="/account/account.html">Account</a></span>
         </div>
       </div>
-      <!----><!----><!--v-if-->
+      
       <div
         class="van-overlay"
-        style="
-          z-index: 2003;
-          --f13b4d11-currentFontFamily: 'Roboto', 'Inter', sans-serif;
-          display: none;
-        "
+        style={{zIndex:'2003',
+          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
+          display: 'none',
+        }}
       >
-        <!---->
+        
       </div>
       <div
         role="dialog"
         tabindex="0"
         class="van-popup van-popup--center van-dialog firstSaveDialog"
-        style="
-          z-index: 2003;
-          --f13b4d11-currentFontFamily: 'Roboto', 'Inter', sans-serif;
-          display: none;
-        "
-      >
+        style={{zIndex:'2003',
+          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
+          display: 'none'}}>
         <div class="van-dialog__header">
           <div data-v-9cd12fb2="" class="header">
             <div data-v-9cd12fb2="" class="title">
@@ -9812,21 +9808,13 @@ export default function Promotion(){
                   data-v-bff59ba2=""
                   data-v-48dabef8=""
                   class="progress"
-                  style="
-                    background: var(--bg_color_L1);
-                    height: 16px;
-                    border-radius: 16px;
-                  "
-                >
+                  style={{background: 'var(--bg_color_L1)',height: '16px', borderRadius: '16px'}}>
                   <div
                     data-v-bff59ba2=""
                     class="line"
-                    style="
-                      background: var(--norm_secondary-color);
-                      width: 0%;
-                      height: 16px;
-                      border-radius: 16px;
-                    "
+                    style={{
+                      background: 'var(--norm_secondary-color)', width: '0%', height: '16px', borderRadius: '16px',
+                    }}
                   ></div>
                   <div data-v-bff59ba2="" class="step">0/400</div>
                 </div>
@@ -9848,21 +9836,21 @@ export default function Promotion(){
                   data-v-bff59ba2=""
                   data-v-48dabef8=""
                   class="progress"
-                  style="
-                    background: var(--bg_color_L1);
-                    height: 16px;
-                    border-radius: 16px;
-                  "
+                  style={{
+                    background: 'var(--bg_color_L1)',
+                    height: '16px',
+                    borderRadius: '16px',
+                  }}
                 >
                   <div
                     data-v-bff59ba2=""
                     class="line"
-                    style="
-                      background: var(--norm_secondary-color);
-                      width: 0%;
-                      height: 16px;
-                      border-radius: 16px;
-                    "
+                    style={{
+                      background: 'var(--norm_secondary-color)',
+                      width: '0%',
+                      height: '16px',
+                      borderRadius: '16px',
+                    }}
                   ></div>
                   <div data-v-bff59ba2="" class="step">0/1000</div>
                 </div>
@@ -10051,7 +10039,7 @@ export default function Promotion(){
                 <div data-v-48dabef8="" class="btn n2">Deposit</div>
               </div>
             </div>
-            <!----><!---->
+            
           </div>
           <div data-v-9cd12fb2="" class="close"></div>
         </div>
@@ -10063,9 +10051,9 @@ export default function Promotion(){
           </div>
           <div data-v-9cd12fb2="" class="btn">Activity</div>
         </div>
-        <!---->
+        
       </div>
-      <!----><!----><!----><!----><!----><!---->
+      
     </div>
   </div>
 );
