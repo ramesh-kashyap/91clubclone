@@ -6,6 +6,7 @@ import Dashboard from './pages/home/Dashboard';
 import Logout from './pages/account/Logout'; // Import the Logout component
 import Activity from './pages/activity/Activity';
 import PrivateRoute from './components/PrivateRoute'; // Import the PrivateRoute component
+import Account from './pages/account/Account';
 
 function App() {
   return (
@@ -26,6 +27,14 @@ function App() {
           element={
             <PrivateRoute>
               <Activity />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/account"
+          element={
+            <PrivateRoute>
+              <Account />
             </PrivateRoute>
           }
         />
