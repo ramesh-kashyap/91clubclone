@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Api from '../../services/Api';
-import { ThreeDots } from 'react-loader-spinner'; // Import the specific spinner
+import { ThreeDots } from 'react-loader-spinner';
 
 export default function Account() {
 
@@ -16,7 +16,7 @@ export default function Account() {
         try {
           const response = await Api.get('/api/webapi/GetUserInfo');
           if (response.data.status) {
-            setTotalMoney(response.data.data.total_money);
+            setTotalMoney(response.data.data.money);
             setUid(response.data.data.id_user);
             setUsername(response.data.data.name_user);
             setLastLogin(response.data.data.last_login);
@@ -37,7 +37,7 @@ export default function Account() {
     }, []);
   
     if (loading) {
-      return <div className="spinner-container">
+      return <div className="spinner-container" style={{ position:'absolute',top:'50%' }}>
       <ThreeDots
 visible={true}
 height="80"
