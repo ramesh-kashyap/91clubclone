@@ -10,6 +10,7 @@ import Promotion from './pages/promotion/Promotion';
 import Wingo from  './pages/bet/wingo/Wingo';
 import PrivateRoute from './components/PrivateRoute'; // Import the PrivateRoute component
 import Account from './pages/account/Account';
+import Account from './pages/account/Account';
 
 function App() {
   return (
@@ -17,7 +18,31 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home/index" element={<Dashboard />} />
+        <Route
+          path="/home/index"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/activity/activity"
+          element={
+            <PrivateRoute>
+              <Activity />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/account"
+          element={
+            <PrivateRoute>
+              <Account />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/logout" element={<Logout />} /> {/* Add the Logout route */}
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
