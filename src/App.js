@@ -17,8 +17,32 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/register" element={<Register />} /> */}
-        <Route path="/home/index" element={<Dashboard />} />
+        <Route path="/register" element={<Register />} />        
+        <Route
+          path="/home/index"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/activity/activity"
+          element={
+            <PrivateRoute>
+              <Activity />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/account"
+          element={
+            <PrivateRoute>
+              <Account />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/logout" element={<Logout />} /> {/* Add the Logout route */}
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
