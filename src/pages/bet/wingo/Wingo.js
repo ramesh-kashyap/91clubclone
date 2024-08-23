@@ -10020,7 +10020,8 @@ export default function Wingo(){
               <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301451</div>
             </div>
             <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas0"
+              <div data-v-d485a39d="" className="Trend__C-body2-Num">
+                <canvas data-v-d485a39d=""  id="myCanvas0"
                   className="line-canvas"></canvas>
                 <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
                 <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
