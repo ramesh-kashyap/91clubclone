@@ -9751,7 +9751,12 @@ const showSection = (sectionId) => {
                   className="Recharge__content-paymoney__money-list__item"
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px'}}/> </span> 300
+                    <span data-v-9e03166f="">{activeSection === 'section2' ? '$' 
+ : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : '$'}
+
+                    </span> 300
                   </div>
                   
                 </div>
@@ -9760,7 +9765,10 @@ const showSection = (sectionId) => {
                   className="Recharge__content-paymoney__money-list__item"
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px'}}/></span> 500
+                    <span data-v-9e03166f="">{activeSection === 'section2' ? '$' 
+ : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : '$'}</span> 500
                   </div>
                   
                 </div>
@@ -9769,7 +9777,10 @@ const showSection = (sectionId) => {
                   className="Recharge__content-paymoney__money-list__item"
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px'}}/></span> 800
+                    <span data-v-9e03166f="">{activeSection === 'section2' ? '$' 
+ : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : '$'}</span> 800
                   </div>
                   
                 </div>
@@ -9778,7 +9789,10 @@ const showSection = (sectionId) => {
                   className="Recharge__content-paymoney__money-list__item"
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px'}}/></span> 1K
+                    <span data-v-9e03166f="">{activeSection === 'section2' ? '$' 
+ : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : '$'}</span> 1K
                   </div>
                   
                 </div>
@@ -9787,7 +9801,10 @@ const showSection = (sectionId) => {
                   className="Recharge__content-paymoney__money-list__item"
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px'}}/></span> 2K
+                    <span data-v-9e03166f="">{activeSection === 'section2' ? '$' 
+ : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : '$'}</span> 2K
                   </div>
                   
                 </div>
@@ -9796,7 +9813,10 @@ const showSection = (sectionId) => {
                   className="Recharge__content-paymoney__money-list__item"
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px'}}/></span> 3K
+                    <span data-v-9e03166f="">{activeSection === 'section2' ? '$' 
+ : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : '$'}</span> 3K
                   </div>
                   
                 </div>
@@ -9805,7 +9825,10 @@ const showSection = (sectionId) => {
                   className="Recharge__content-paymoney__money-list__item"
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px'}}/></span> 5K
+                    <span data-v-9e03166f="">{activeSection === 'section2' ? '$' 
+ : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : '$'}</span> 5K
                   </div>
                   
                 </div>
@@ -9814,7 +9837,10 @@ const showSection = (sectionId) => {
                   className="Recharge__content-paymoney__money-list__item"
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px'}}/></span> 10K
+                    <span data-v-9e03166f="">{activeSection === 'section2' ? '$' 
+ : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : '$'}</span> 10K
                   </div>
                   
                 </div>
@@ -9823,7 +9849,10 @@ const showSection = (sectionId) => {
                   className="Recharge__content-paymoney__money-list__item"
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px'}}/></span> 20K
+                    <span data-v-9e03166f="">{activeSection === 'section2' ? '$' 
+ : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : '$'}</span> 20K
                   </div>
                   
                 </div>
@@ -9832,7 +9861,10 @@ const showSection = (sectionId) => {
                   className="Recharge__content-paymoney__money-list__item"
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px'}}/></span> 30K
+                    <span data-v-9e03166f="">{activeSection === 'section2' ? '$' 
+ : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : '$'}</span> 30K
                   </div>
                   
                 </div>
@@ -9841,7 +9873,10 @@ const showSection = (sectionId) => {
                   className="Recharge__content-paymoney__money-list__item"
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px'}}/></span> 40K
+                    <span data-v-9e03166f="">{activeSection === 'section2' ? '$' 
+ : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : '$'}</span> 40K
                   </div>
                   
                 </div>
@@ -9850,7 +9885,10 @@ const showSection = (sectionId) => {
                   className="Recharge__content-paymoney__money-list__item"
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px'}}/></span> 50K
+                    <span data-v-9e03166f="">{activeSection === 'section2' ? '$' 
+ : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : '$'}</span> 50K
                   </div>
                   
                 </div>
@@ -9860,7 +9898,10 @@ const showSection = (sectionId) => {
                 data-v-9e03166f=""
                 className="Recharge__content-paymoney__money-input"
               >
-                <div data-v-9e03166f="" className="place-div"><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px'}}/></div>
+                <div data-v-9e03166f="" className="place-div">{activeSection === 'section2' ? '$' 
+ : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : '$'}</div>
                 <div
                   data-v-9e03166f=""
                   className="van-cell van-field amount-input"
