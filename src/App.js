@@ -10,7 +10,6 @@ import Promotion from './pages/promotion/Promotion';
 import Wingo from  './pages/bet/wingo/Wingo';
 import PrivateRoute from './components/PrivateRoute'; // Import the PrivateRoute component
 import Account from './pages/account/Account';
-import Account from './pages/account/Account';
 
 function App() {
   return (
