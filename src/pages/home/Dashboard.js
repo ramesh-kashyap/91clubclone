@@ -4733,7 +4733,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="whiteColor">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141426883l.png)`}}>
-                                </div> <a href="">Lottery</a>
+                                </div> <span>Lottery</span>
                             </div>
                         </div>
                     </div>
@@ -4743,7 +4743,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141435wkxx.png)`}}>
-                                </div> <a href="">Mini games</a>
+                                </div> <span>Mini games</span>
                             </div>
                         </div>
                     </div>
@@ -4753,7 +4753,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141445b3ka.png)`}}>
-                                </div> <a href="">Popular</a>
+                                </div> <span>Popular</span>
                             </div>
                         </div>
                     </div>
@@ -4763,7 +4763,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141457h3ts.png)`}}>
-                                </div> <a href="">Slots</a>
+                                </div> <span>Slots</span>
                             </div>
                         </div>
                     </div>
@@ -4773,7 +4773,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141515owja.png)`}}>
-                                </div> <a href="">Fishing</a>
+                                </div> <span>Fishing</span>
                             </div>
                         </div>
                     </div>
@@ -4783,7 +4783,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_202403111415086ujt.png)`}}>
-                                </div> <a href="">PVC</a>
+                                </div> <span>PVC</span>
                             </div>
                         </div>
                     </div>
@@ -4793,7 +4793,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141522uvco.png)`}}>
-                                </div> <a href="">Casino</a>
+                                </div> <span>Casino</span>
                             </div>
                         </div>
                     </div>
@@ -4803,7 +4803,7 @@ export default function Dashboard() {
                             <div data-v-c9ec78ed="" className="">
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141531fugo.png)`}}>
-                                </div> <a href="">Sports</a>
+                                </div> <span>Sports</span>
                             </div>
                         </div>
                     </div>
@@ -5475,25 +5475,25 @@ export default function Dashboard() {
             style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
             <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
                     className="svg-icon icon-home">
-                    <use href="#icon-home"></use>
-                </svg><span data-v-6ab3f23e=""><a href="/home/index.html">Home</a></span></div>
+                    <a href="/index"><use href="#icon-home"></use></a>
+                </svg><span data-v-6ab3f23e=""><a href="/index">Home</a></span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
                     className="svg-icon icon-activity">
-                    <use href="#icon-activity"></use>
+                    <a href="/activity"><use href="#icon-activity"></use></a>
                    
-                </svg><span data-v-6ab3f23e=""><a href="/activity/activity.html">Activity</a></span></div>
+                </svg><span data-v-6ab3f23e=""><a href="/activity">Activity</a></span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
                     className="svg-icon icon-promotion">
-                    <a href="/promotion/promotion.html"><use href="#icon-promotion"></use></a>
+                    <a href="/promotion"><use href="#icon-promotion"></use></a>
                 </svg>
                 <div data-v-6ab3f23e="" className="promotionBg"></div><span data-v-6ab3f23e=""><a href="/promotion/promotion.html">Promotion</a> </span>
             </div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
-                    <use href="#icon-wallet"></use>
-                </svg><span data-v-6ab3f23e=""><a href="/wallet/wallet.html">Wallet</a></span></div>
+            <a href="/wallet"><use href="#icon-wallet"></use></a>
+                </svg><span data-v-6ab3f23e=""><a href="/wallet">Wallet</a></span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-main">
-                    <use href="#icon-main"></use>
-                </svg><span data-v-6ab3f23e=""><a href="/account/account.html">Account</a></span></div>
+            <a href="/account"><use href="#icon-main"></use></a>
+                </svg><span data-v-6ab3f23e=""><a href="/account">Account</a></span></div>
         </div>
     </div>
     </div>

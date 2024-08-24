@@ -38,7 +38,7 @@ export default function Login() {
           localStorage.setItem('token', response.data.token);
           
           // Redirect to /dashboard
-          navigate('/home/index');
+          navigate('/index');
         } else {
           setError(response.data.message);
         }

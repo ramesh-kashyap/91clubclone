@@ -10,6 +10,7 @@ import Wallet from './pages/wallet/Wallet';
 import Wingo from  './pages/bet/wingo/Wingo';
 import PrivateRoute from './components/PrivateRoute'; // Import the PrivateRoute component
 import Account from './pages/account/Account';
+import Deposit from './pages/wallet/Deposit';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />        
         <Route
-          path="/home/index"
+          path="/index"
           element={
             <PrivateRoute>
               <Dashboard />
@@ -26,7 +27,7 @@ function App() {
           }
         />
         <Route
-          path="/activity/activity"
+          path="/activity"
           element={
             <PrivateRoute>
               <Activity />
@@ -36,6 +37,7 @@ function App() {
         <Route path="/wallet" element={<PrivateRoute><Wallet/></PrivateRoute>}/>
         <Route path="/promotion" element={<PrivateRoute><Promotion/></PrivateRoute>}/>
         <Route path="/wingo" element={<PrivateRoute><Wingo/></PrivateRoute>}/>
+        <Route path="/deposit" element={<PrivateRoute><Deposit/></PrivateRoute>}/>
         <Route
           path="/account"
           element={

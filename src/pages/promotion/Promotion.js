@@ -9741,29 +9741,29 @@ export default function Promotion(){
         <div data-v-6ab3f23e="" className="tabbar__container-item">
           <svg data-v-6ab3f23e="" className="svg-icon icon-home">
             <use href="#icon-home"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/home/index.html">Home</a></span>
+          ><span data-v-6ab3f23e=""><a href="/index">Home</a></span>
         </div>
         <div data-v-6ab3f23e="" className="tabbar__container-item">
           <svg data-v-6ab3f23e="" className="svg-icon icon-activity">
             <use href="#icon-activity"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/activity/activity.html">Activity</a></span>
+          ><span data-v-6ab3f23e=""><a href="/activity">Activity</a></span>
         </div>
         <div data-v-6ab3f23e="" className="tabbar__container-item active">
           <svg data-v-6ab3f23e="" className="svg-icon icon-promotion">
             <use href="#icon-promotion"></use>
           </svg>
           <div data-v-6ab3f23e="" className="promotionBg"></div>
-          <span data-v-6ab3f23e=""><a href="/promotion/promotion.html">Promotion</a></span>
+          <span data-v-6ab3f23e=""><a href="/promotion">Promotion</a></span>
         </div>
         <div data-v-6ab3f23e="" className="tabbar__container-item">
           <svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
             <use href="#icon-wallet"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/wallet/wallet.html">Wallet</a></span>
+          ><span data-v-6ab3f23e=""><a href="/wallet">Wallet</a></span>
         </div>
         <div data-v-6ab3f23e="" className="tabbar__container-item">
           <svg data-v-6ab3f23e="" className="svg-icon icon-main">
             <use href="#icon-main"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/account/account.html">Account</a></span>
+          ><span data-v-6ab3f23e=""><a href="/account">Account</a></span>
         </div>
       </div>
       
