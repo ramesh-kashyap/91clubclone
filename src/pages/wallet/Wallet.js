@@ -3224,7 +3224,6 @@ export default function Promotion(){
           strokeLinecap="round"
         ></path>
       </symbol>
-      <!-- #FB5755 -->
       <symbol
         id="icon-downArrow"
         xmlns="http://www.w3.org/2000/svg"
@@ -9427,7 +9426,6 @@ export default function Promotion(){
             </svg>
           </div>
           <div data-v-647954c7="" class="com__box" style="display: none">
-            <!-- loading -->
             <div class="loading" data-v-647954c7="">
               <div class="shape shape-1" data-v-647954c7=""></div>
               <div class="shape shape-2" data-v-647954c7=""></div>
