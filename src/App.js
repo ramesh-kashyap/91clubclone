@@ -39,8 +39,7 @@ function App() {
         <Route path="/wallet" element={<PrivateRoute><Wallet/></PrivateRoute>}/>
         <Route path="/promotion" element={<PrivateRoute><Promotion/></PrivateRoute>}/>
         <Route path="/wingo" element={<PrivateRoute><Wingo/></PrivateRoute>}/>
-        <Route path="/wallet" element={<PrivateRoute><Withdraw/></PrivateRoute>}/>
-        <Route path="/wallet" element={<PrivateRoute><WithdrawHistory/></PrivateRoute>}/>
+       
         <Route path="/deposit" element={<PrivateRoute><Deposit/></PrivateRoute>}/>
         <Route
           path="/account"
