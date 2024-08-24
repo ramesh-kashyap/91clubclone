@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import Api from '../services/Api'; // Import your Axios instance
-import { ThreeDots } from 'react-loader-spinner'; // Import the specific spinner
+import Loader from './Loader';
 
 const PrivateRoute = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(null);

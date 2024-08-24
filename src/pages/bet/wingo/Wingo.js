@@ -1,6 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Api from '../../../services/Api';
-import { ThreeDots } from 'react-loader-spinner';
+import Loader from '../../../components/Loader';
+import { io } from 'socket.io-client';
+
+const SOCKET_URL = 'http://localhost:3000'; // Ensure this matches your server URL
+
+export const socket = io(SOCKET_URL, {
+  transports: ['websocket'], // Ensures WebSocket transport is used
+  reconnection: true,
+  reconnectionAttempts: Infinity,
+  timeout: 10000,
+  secure: false,
+});
 
 export default function Wingo(){
     const [activeSection, setActiveSection] = useState('section1');
@@ -9,39 +20,40 @@ export default function Wingo(){
     const [error, setError] = useState(null);
   
     useEffect(() => {
-      const fetchUserInfo = async () => {
-        try {
-          const response = await Api.get('/api/webapi/GetUserInfo');
-          if (response.data.status) {
-            setTotalMoney(response.data.data.money);
+      console.log("Connecting to socket...");
+    
+      // Assuming you initialize the socket connection somewhere
+      socket.on('connect', () => {
+        console.log("Connected to socket server.");
+      });
 
-          } else {
-            setError('Failed to fetch user info');
-          }
-        } catch (err) {
-          setError('Error fetching user info');
-          console.error(err);
-        } finally {
-          setLoading(false);
-        }
+      socket.on('connect_error', (err) => {
+        console.error('Socket connection error:', err);
+      });
+    
+      // Listen for 'data-server' messages
+      socket.on('data-server', (msg) => {
+        console.log("hello");
+        if (msg.data[0].game !== 'wingo') return;
+        
+        setTimeout(() => {
+          const data1 = msg.data[0]; // Get the latest game data
+          console.log(msg.data[0]);
+          const data2 = []; // Initialize array for old data
+          data2.push(msg.data[1]); // Add old data
+          // Further processing...
+        }, 1000);
+      });
+    
+      // Clean up the socket connection when the component unmounts
+      return () => {
+        socket.disconnect();
       };
-  
-      fetchUserInfo();
     }, []);
+
   
     if (loading) {
-      return <div className="spinner-container" style={{ position:'absolute',top:'50%' }}>
-      <ThreeDots
-visible={true}
-height="80"
-width="80"
-color="#4fa94d"
-radius="9"
-ariaLabel="three-dots-loading"
-wrapperStyle={{}}
-wrapperClass=""
-/>
-    </div>; // You can replace this with a spinner if needed
+      return <Loader/>
     }
   
     if (error) {
