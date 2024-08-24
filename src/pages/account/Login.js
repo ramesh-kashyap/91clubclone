@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Api from '../../services/Api';
 import { useNavigate } from 'react-router-dom';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown , faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Login() {
@@ -9,7 +10,23 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const [activeTab, setActiveTab] = useState('phone');    
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const handleTabClick = (tab) => {
+      setActiveTab(tab);
+    };
 
+   const handlePhoneClick = () => {
+    setActiveTab('phone');
+   };
+
+   const handleEmailClick = () => {
+    setActiveTab('email');
+   };   
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
   
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -21,7 +38,7 @@ export default function Login() {
           localStorage.setItem('token', response.data.token);
           
           // Redirect to /dashboard
-          navigate('/dashboard');
+          navigate('/home/index');
         } else {
           setError(response.data.message);
         }
@@ -9530,11 +9547,7 @@ export default function Login() {
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
               <div data-v-12a80a3e="" className="navbar__content-left">
-                <i
-                  data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left"
-                  ></i
-                >
+              <FontAwesomeIcon icon={faChevronLeft} style={{fontSize:"20px"  }} />
               </div>
               <div data-v-12a80a3e="" className="navbar__content-center">
                 <div
@@ -9578,29 +9591,39 @@ export default function Login() {
           </div>
         </div>
         <div data-v-47f4cc84="" className="login_container-tab">
-          <div data-v-47f4cc84="" className="tab active">
-            <svg data-v-47f4cc84="" className="svg-icon icon-phone">
-              <use xlinkHref="#icon-phone"></use>
-            </svg>
-            <div data-v-47f4cc84="">Log in with phone</div>
-          </div>
-          <div data-v-47f4cc84="" className="tab">
-            <div data-v-47f4cc84="">
-              <svg data-v-47f4cc84="" className="svg-icon icon-email">
-                <use xlinkHref="#icon-email"></use></svg
-              ><svg
-                data-v-47f4cc84=""
-                className="svg-icon icon-user"
-                style={{display: 'none'}}
-              >
-                <use xlinkHref="#icon-user"></use>
-              </svg>
-            </div>
-            <div data-v-47f4cc84="">Email Login</div>
-          </div>
+        <div
+        data-v-47f4cc84=""
+        className={`tab ${activeTab === 'phone' ? 'active' : ''}`}
+        onClick={handlePhoneClick}
+      >
+        <svg data-v-47f4cc84="" className="svg-icon icon-phone">
+          <use xlinkHref="#icon-phone"></use>
+        </svg>
+        <div data-v-47f4cc84="">Log in with phone</div>
+      </div>
+
+      <div
+        data-v-47f4cc84=""
+        className={`tab ${activeTab === 'email' ? 'active' : ''}`}
+        onClick={handleEmailClick}
+      >
+        <div data-v-47f4cc84="">
+          <svg data-v-47f4cc84="" className="svg-icon icon-email">
+            <use xlinkHref="#icon-email"></use>
+          </svg>
+          <svg
+            data-v-47f4cc84=""
+            className="svg-icon icon-user"
+            style={{ display: 'none' }}
+          >
+            <use xlinkHref="#icon-user"></use>
+          </svg>
+        </div>
+        <div data-v-47f4cc84="">Email Login</div>
+      </div>
         </div>
         <div data-v-47f4cc84="" className="login__container-form">
-          <div data-v-47f4cc84="" className="tab-content activecontent">
+          <div data-v-47f4cc84="" className={`tab-content ${activeTab === 'phone' ? 'activecontent' : ''}`}>
             <div
               data-v-33f88764=""
               data-v-47f4cc84=""
@@ -9622,11 +9645,7 @@ export default function Login() {
                   <div data-v-5067ef5e="" data-v-50aa8bb0="" className="dropdown">
                     <div data-v-5067ef5e="" className="dropdown__value">
                       <span data-v-5067ef5e="">+91</span
-                      ><i
-                        data-v-5067ef5e=""
-                        className="van-badge__wrapper van-icon van-icon-arrow-down "
-                        ></i
-                      >
+                      ><FontAwesomeIcon icon={faChevronDown} />
                     </div>
                     <div data-v-5067ef5e="" className="dropdown__list">
                       <div
@@ -9659,19 +9678,22 @@ export default function Login() {
                   ><span data-v-ea5b66c8="">Password</span>
                 </div>
                 <div data-v-ea5b66c8="" className="passwordInput__container-input">
-                  <input
-                    data-v-ea5b66c8=""
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    maxLength="32"
-                    autoComplete="new-password"
-                  /><img
-                    data-v-ea5b66c8=""
-                    src="/assets/png/eyeInvisible-821d9d16.png"
-                    className="eye"
-                  />
+                <input
+        data-v-ea5b66c8=""
+        type={isPasswordVisible ? 'text' : 'password'}
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        maxLength="32"
+        autoComplete="new-password"
+      /><img
+                  data-v-ea5b66c8=""
+                  src={isPasswordVisible ? '/assets/png/eyeVisible-09720f5f.png' : '/assets/png/eyeInvisible-821d9d16.png'}
+                  className="eye"
+                  onClick={togglePasswordVisibility}
+                  alt="Toggle Password Visibility"
+                  style={{ cursor: 'pointer' }}
+                />
                 </div>
               </div>
               <div data-v-33f88764="">
@@ -9682,12 +9704,12 @@ export default function Login() {
                   tabIndex="0"
                   aria-checked="false"
                 >
-                  <div className="van-checkbox__icon van-checkbox__icon--round">
+                  {/* <div className="van-checkbox__icon van-checkbox__icon--round">
                     <i className="van-badge__wrapper van-icon van-icon-success"
                       ></i
                     >
-                  </div>
-                  <span className="van-checkbox__label">Remember password</span>
+                  </div> */}
+                  {/* <span className="van-checkbox__label">Remember password</span> */}
                 </div>
               </div>
               <div data-v-33f88764="" className="signIn__container-button">
@@ -9765,7 +9787,7 @@ export default function Login() {
               </div>
             </div>
           </div>
-          <div data-v-47f4cc84="" className="tab-content">
+          <div data-v-47f4cc84="" className={`tab-content ${activeTab === 'email' ? 'activecontent' : ''}`}>
             <div
               data-v-436a69c4=""
               data-v-47f4cc84=""
@@ -9806,17 +9828,22 @@ export default function Login() {
                   ><span data-v-ea5b66c8="">Password</span>
                 </div>
                 <div data-v-ea5b66c8="" className="passwordInput__container-input">
-                  <input
-                    data-v-ea5b66c8=""
-                    type="password"
-                    placeholder="Password"
-                    maxLength="32"
-                    autoComplete="new-password"
-                  /><img
-                    data-v-ea5b66c8=""
-                    src="/assets/png/eyeInvisible-821d9d16.png"
-                    className="eye"
-                  />
+                <input
+        data-v-ea5b66c8=""
+        type={isPasswordVisible ? 'text' : 'password'}
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        maxLength="32"
+        autoComplete="new-password"
+      /><img
+                  data-v-ea5b66c8=""
+                  src={isPasswordVisible ? '/assets/png/eyeVisible-09720f5f.png' : '/assets/png/eyeInvisible-821d9d16.png'}
+                  className="eye"
+                  onClick={togglePasswordVisibility}
+                  alt="Toggle Password Visibility"
+                  style={{ cursor: 'pointer' }}
+                />
                 </div>
               </div>
               <div data-v-436a69c4="">
@@ -9827,16 +9854,16 @@ export default function Login() {
                   tabIndex="0"
                   aria-checked="false"
                 >
-                  <div className="van-checkbox__icon van-checkbox__icon--round">
+                  {/* <div className="van-checkbox__icon van-checkbox__icon--round">
                     <i className="van-badge__wrapper van-icon van-icon-success"
                       ></i
                     >
-                  </div>
-                  <span className="van-checkbox__label">Remember password</span>
+                  </div> */}
+                  {/* <span className="van-checkbox__label">Remember password</span> */}
                 </div>
               </div>
               <div data-v-436a69c4="" className="signIn__container-button">
-                <button data-v-436a69c4="" className="">Log in</button
+                <button data-v-436a69c4="" className="active">Log in</button
                 ><button data-v-436a69c4="" className="register">Register</button>
               </div>
               <div data-v-436a69c4="" className="signIn_footer">
