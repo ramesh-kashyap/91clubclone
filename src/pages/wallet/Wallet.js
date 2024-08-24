@@ -3224,6 +3224,7 @@ export default function Promotion(){
           strokeLinecap="round"
         ></path>
       </symbol>
+      <!-- #FB5755 -->
       <symbol
         id="icon-downArrow"
         xmlns="http://www.w3.org/2000/svg"
@@ -3605,6 +3606,7 @@ export default function Promotion(){
           strokeLinejoin="round"
         ></path>
       </symbol>
+     
       <symbol
         id="icon-eye"
         t="1503993826520"
@@ -9424,12 +9426,13 @@ export default function Promotion(){
               </g>
             </svg>
           </div>
-          <div data-v-647954c7="" className="com__box" style={{display: 'none'}}>
-            <div className="loading" data-v-647954c7="">
-              <div className="shape shape-1" data-v-647954c7=""></div>
-              <div className="shape shape-2" data-v-647954c7=""></div>
-              <div className="shape shape-3" data-v-647954c7=""></div>
-              <div className="shape shape-4" data-v-647954c7=""></div>
+          <div data-v-647954c7="" class="com__box" style="display: none">
+            <!-- loading -->
+            <div class="loading" data-v-647954c7="">
+              <div class="shape shape-1" data-v-647954c7=""></div>
+              <div class="shape shape-2" data-v-647954c7=""></div>
+              <div class="shape shape-3" data-v-647954c7=""></div>
+              <div class="shape shape-4" data-v-647954c7=""></div>
             </div>
           </div>
         </div>
