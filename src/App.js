@@ -10,6 +10,7 @@ import Promotion from './pages/promotion/Promotion';
 import Wingo from  './pages/bet/wingo/Wingo';
 import PrivateRoute from './components/PrivateRoute'; // Import the PrivateRoute component
 import Account from './pages/account/Account';
+import Withdraw from'./pages/wallet/Withdraw';
 
 function App() {
   return (
@@ -36,11 +37,20 @@ function App() {
         {/* <Route path="/wallet" element={<PrivateRoute><Wallet/></PrivateRoute>}/> */}
         <Route path="/promotion" element={<PrivateRoute><Promotion/></PrivateRoute>}/>
         <Route path="/wingo" element={<PrivateRoute><Wingo/></PrivateRoute>}/>
+        <Route path="/wallet" element={<PrivateRoute><Withdraw/></PrivateRoute>}/>
         <Route
           path="/account"
           element={
             <PrivateRoute>
               <Account />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/wallet/withdraw"
+          element={
+            <PrivateRoute>
+              <Withdraw />
             </PrivateRoute>
           }
         />
