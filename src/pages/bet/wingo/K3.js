@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from 'react';
-    export default function Deposit(){
-const [activeSection, setActiveSection] = useState('section1');
+export default function K3(){
 
-const showSection = (sectionId) => {
-    setActiveSection(sectionId);
-  };
-
-
- return(
- <div style={{fontSize: '12px'}} className="">
+  return(
+  <div className="" style={{fontSize: '12px'}}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       style={{position: 'absolute', width: '0', height: '0'}}
@@ -6076,7 +6070,7 @@ const showSection = (sectionId) => {
       >
         <mask
           id="mask0_186_36273"
-          style={{maskType: 'alpha'}}
+          style={{masktype: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="1"
           y="1"
@@ -7566,7 +7560,7 @@ const showSection = (sectionId) => {
       >
         <mask
           id="mask0_1148_26793"
-          style={{maskType: 'alpha'}}
+          style={{masktype: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="1"
           y="1"
@@ -8556,7 +8550,7 @@ const showSection = (sectionId) => {
         <g clip-path="url(#clip0_2238_60810)">
           <mask
             id="mask0_2238_60810"
-            style={{maskType: 'alpha'}}
+            style={{masktype: 'alpha'}}
             maskUnits="userSpaceOnUse"
             x="0"
             y="0"
@@ -9120,7 +9114,7 @@ const showSection = (sectionId) => {
       >
         <mask
           id="mask0_6140_40993"
-          style={{maskType: 'alpha'}}
+          style={{masktype: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -9266,7 +9260,7 @@ const showSection = (sectionId) => {
         ></path>
         <mask
           id="mask0_6140_37956"
-          style={{maskType: 'alpha'}}
+          style={{masktype: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="11"
           y="11"
@@ -9381,12 +9375,10 @@ const showSection = (sectionId) => {
         data-v-647954c7=""
         className="ar-loading-view"
         style={{
-          "--f13b4d11-currentFontFamily": "'Roboto', 'Inter', 'sansSerif'",
-          display: 'none',
+          "--f13b4d11-currentFontFamily": "'Roboto', 'Inter', 'sansSerif'", display: 'none',
         }}
       >
         <div data-v-647954c7="" className="loading-wrapper">
-          
           <div data-v-647954c7="" className="loading-animat">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -9394,12 +9386,7 @@ const showSection = (sectionId) => {
               width="200"
               height="200"
               preserveAspectRatio="xMidYMid meet"
-              style={{
-                width: '100%',
-                height: '100%',
-                transform: 'translate3d(0px, 0px, 0px)',
-                contentVisibility: 'visible',
-              }}
+              style={{width: '100%', height: '100%', transform: 'translate3d(0px, 0px, 0px)', contentVisibility: 'visible',}}
             >
               <defs>
                 <clipPath id="__lottie_element_2">
@@ -9452,8 +9439,10 @@ const showSection = (sectionId) => {
           </div>
         </div>
         <div data-v-647954c7="" className="skeleton-wrapper" style={{display: 'none'}}>
-          <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">           
+          <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
+            
             <div className="van-skeleton__content">
+              
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9492,584 +9481,552 @@ const showSection = (sectionId) => {
       </div>
       
       <div
-        data-v-36cc3380=""
-        className="Recharge__box"
-        style={{"--f13b4d11-currentFontFamily": "'Roboto', 'Inter', 'sansSerif',"}}
+        data-v-d024c659=""
+        className="K3__C"
+        style={{"--f13b4d11-currentFontFamily": "'Roboto', 'Inter', sansSerif"}}
       >
-        <div data-v-36cc3380="" className="Recharge__container">
-          <div data-v-12a80a3e="" data-v-36cc3380="" className="navbar white">
-            <div data-v-12a80a3e="" className="navbar-fixed">
-              <div data-v-12a80a3e="" className="navbar__content">
-                <div data-v-12a80a3e="" className="navbar__content-left">
-                  <i
-                    data-v-12a80a3e=""
-                    className="van-badge__wrapper van-icon van-icon-arrow-left"
-                    ></i
-                  >
-                </div>
-                <div data-v-12a80a3e="" className="navbar__content-center">
-                  
-                  <div data-v-12a80a3e="" className="navbar__content-title">
-                    Deposit
-                  </div>
-                </div>
-                <div data-v-12a80a3e="" className="navbar__content-right">
-                  <div data-v-36cc3380="" className="title"><a href="/wallet/deposithistory.html">Deposit history</a></div>
+        <div data-v-12a80a3e="" data-v-d024c659="" className="navbar main">
+          <div data-v-12a80a3e="" className="navbar-fixed">
+            <div data-v-12a80a3e="" className="navbar__content">
+              <div data-v-12a80a3e="" className="navbar__content-left">
+                <i
+                  data-v-12a80a3e=""
+                  className="van-badge__wrapper van-icon van-icon-arrow-left"
+                  ></i
+                >
+              </div>
+              <div data-v-12a80a3e="" className="navbar__content-center">
+                <div
+                  data-v-12a80a3e=""
+                  className="headLogo"
+                  style={{backgroundImage: "url('/assets/png/h5setting_20230714005938hfia.png')",}}
+                ></div>
+                <div data-v-12a80a3e="" className="navbar__content-title"></div>
+              </div>
+              <div data-v-12a80a3e="" className="navbar__content-right">
+                <div data-v-d024c659="" className="K3__C-head-more">
+                  <div data-v-d024c659=""></div>
+                  <div data-v-d024c659="" className=""></div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div data-v-98c90f53="" data-v-36cc3380="" className="balanceAssets">
-            <div data-v-98c90f53="" className="balanceAssets__header">
-              <div data-v-98c90f53="" className="balanceAssets__header__left">
-                <img
-                  data-v-98c90f53=""
-                  src="/assets/png/balance-e39ce400.png"
-                />
-                Balance
-              </div>
-            </div>
-            <div data-v-98c90f53="" className="balanceAssets__main">
-              <p data-v-98c90f53="">₹56.05</p>
-              <img
-                data-v-98c90f53=""
-                src="/assets/png/refresh-8e0efe26.png"
-                alt=""
-              />
-            </div>
-            
-          </div>
-          <div data-v-4f3d8608="" data-v-36cc3380="">
-            
-            <div data-v-4f3d8608="" className="Recharge__container-tabcard">
-              <div
-                data-v-4f3d8608=""
-                 className={`Recharge__container-tabcard__items ${activeSection === 'section1' ? 'active' : ''}`}  onClick={() => showSection('section1')}
-              >
-                <div data-v-4f3d8608="" className="centers">
-                  
-                  <div
-                    data-v-4f3d8608=""
-                    className="Recharge__container-tabcard__top"
-                  >
-                    <img
-                      data-v-4f3d8608=""
-                      className="img"
-                      src="/assets/png/usdt.png"
-                      alt=""
-                    />
-                  </div>
-                  <div
-                    data-v-4f3d8608=""
-                    className="Recharge__container-tabcard__bot"
-                  >
-                    UPI
-                  </div>
-                </div>
-              </div>
-              
-              <div
-                data-v-4f3d8608=""
-                className={`Recharge__container-tabcard__items ${activeSection === 'section3' ? 'active' : ''}`} onClick={() => showSection('section3')}
-              >
-                <div data-v-4f3d8608="" className="centers">
-                  
-                  <div
-                    data-v-4f3d8608=""
-                    className="Recharge__container-tabcard__top"
-                  >
-                    <img
-                      data-v-4f3d8608=""
-                      className="img"
-                      src="/assets/png/trx.png"
-                      alt=""
-                    />
-                  </div>
-                  <div
-                    data-v-4f3d8608=""
-                    className="Recharge__container-tabcard__bot"
-                  >
-                    UPI-PAY
-                  </div>
-                </div>
-              </div>
-              <div
-                data-v-4f3d8608=""
-                className={`Recharge__container-tabcard__items ${activeSection === 'section2' ? 'active' : ''}`}  onClick={() => showSection('section2')}
-              >
-                <div data-v-4f3d8608="" className="centers">
-                  
-                  <div
-                    data-v-4f3d8608=""
-                    className="Recharge__container-tabcard__top"
-                  >
-                    <img
-                      data-v-4f3d8608=""
-                      className="img"
-                      src="https://ossimg.91admin123admin.com/91club/payNameIcon/payNameIcon_20240313185300ivg6.png"
-                      alt=""
-                    />
-                  </div>
-                  <div
-                    data-v-4f3d8608=""
-                    className="Recharge__container-tabcard__bot"
-                  >
-                    UPI-transfer
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-          <div data-v-9e03166f="" className="Recharge__content">
-            <div
-              data-v-9e03166f=""
-              className="Recharge__content-quickInfo boxStyle"
-            >
-              <div
-                data-v-9e03166f=""
-                className="Recharge__content-quickInfo__title"
-              >
-                <div data-v-9e03166f="" className="title">
-                  <svg data-v-9e03166f="" className="svg-icon icon-quickpay2">
-                    <use href="#icon-quickpay2"></use>
-                  </svg>
-                  <p data-v-9e03166f="">Select channel</p>
-                </div>
-              </div>
-              <div data-v-9e03166f="" className="rechargeTypes_list"  id="section3" style={{ display: activeSection === 'section3' ? 'block' : 'none' }}>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-quickInfo__item item_active"
-                >
-                   
-                  <div data-v-9e03166f="" className="other">
-                    <div data-v-9e03166f="">UPI-Super</div>
-                    <div data-v-9e03166f="">Balance:300 - 50K</div>
-                    
-                  </div>
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-quickInfo__item"
-                >
-                  <div data-v-9e03166f="" className="other">
-                    <div data-v-9e03166f="">UPI-ceco</div>
-                    <div data-v-9e03166f="">Balance:500 - 50K</div>
-                    
-                  </div>
-                </div>
-                
-              </div>
-              <div data-v-9e03166f="" className="rechargeTypes_list"  id="section2" style={{ display: activeSection === 'section2' ? 'grid' : 'none' }}>
-                <div data-v-9e03166f="" className="Recharge__content-quickInfo__item item_active">
-                  <div data-v-9e03166f="" className="other">
-                    <div data-v-9e03166f="">PAYTM-ARpay</div>
-                    <div data-v-9e03166f="">Balance:500 - 30K</div>
-                    
-                  </div>
-                </div>
-                <div data-v-9e03166f="" className="Recharge__content-quickInfo__item">
-                  <div data-v-9e03166f="" className="other">
-                    <div data-v-9e03166f="">PAYTM-Super</div>
-                    <div data-v-9e03166f="">Balance:300 - 50K</div>
-                    
-                  </div>
-                </div>
-                <div data-v-9e03166f="" className="Recharge__content-quickInfo__item">
-                  <div data-v-9e03166f="" className="other">
-                    <div data-v-9e03166f="">PAYTM-FFPay</div>
-                    <div data-v-9e03166f="">Balance:100 - 50K</div>
-                    
-                  </div>
-                </div>
-                <div data-v-9e03166f="" className="Recharge__content-quickInfo__item">
-                  <div data-v-9e03166f="" className="other">
-                    <div data-v-9e03166f="">PAYTM-Happy</div>
-                    <div data-v-9e03166f="">Balance:500 - 50K</div>
-                    
-                  </div>
-                </div>
-              </div>
-              <div data-v-9e03166f="" className="rechargeTypes_list" id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
-                <div data-v-9e03166f="" className="Recharge__content-quickInfo__item item_active">
-                <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px',position:'absolute', left:'30px', top:'482px'}}/>               
-                  <div data-v-9e03166f="" className="other">                  
-                    <div data-v-9e03166f=""  style={{paddingLeft:'18px'}}>QR-ARpay</div>
-                    <div data-v-9e03166f="">Balance:500 - 30K</div>
-                    
-                  </div>
-                </div>
-                <div data-v-9e03166f="" className="Recharge__content-quickInfo__item">
-                <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px',position:'absolute', left:'30px', top:'482px'}}/> 
-                  <div data-v-9e03166f="" className="other">
-                    <div data-v-9e03166f="" style={{paddingLeft:'18px'}}>QR-3cPay</div>
-                    <div data-v-9e03166f="">Balance:500 - 50K</div>
-                    
-                  </div>
-                </div>
-              </div>
-
-              </div>
-            <div data-v-9e03166f="" className="Recharge__content-paymoney boxStyle">
-              <div data-v-9e03166f="" className="Recharge__content-paymoney__title">
-                <svg data-v-9e03166f="" className="svg-icon icon-saveWallet">
-                  <use href="#icon-saveWallet"></use>
-                </svg>
-                <p data-v-9e03166f="">Deposit amount</p>
-              </div>
-              <div
-                data-v-9e03166f=""
-                className="Recharge__content-paymoney__money-list"
-              >
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-                >
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">{activeSection === 'section2' ? '₹' 
- : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
- : '$'}
-
-                    </span> {activeSection=== 'section2'? '500' :activeSection==='section3' ? '100':activeSection==='section1'? '10': '$'}
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-                >
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">{activeSection === 'section2' ? '₹' 
- : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
- : '$'}</span>  {activeSection=== 'section2'? '1k' :activeSection==='section3' ? '500':activeSection==='section1'? '50': '$'}
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-                >
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">{activeSection === 'section2' ? '₹' 
- : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
- : '$'}</span>  {activeSection=== 'section2'? '5k' :activeSection==='section3' ? '1k':activeSection==='section1'? '100': '$'}
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-                >
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">{activeSection === 'section2' ? '₹' 
- : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
- : '$'}</span> {activeSection=== 'section2'? '10k' :activeSection==='section3' ? '5k':activeSection==='section1'? '500': '$'}
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-                >
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">{activeSection === 'section2' ? '₹' 
- : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
- : '$'}</span> {activeSection=== 'section2'? '15k' :activeSection==='section3' ? '10k':activeSection==='section1'? '1k': '$'}
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-                >
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">{activeSection === 'section2' ? '₹' 
- : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
- : '$'}</span> {activeSection=== 'section2'? '20k' :activeSection==='section3' ? '15k':activeSection==='section1'? '5k': '$'}
-                  </div>
-                  
-                </div>
-              
-              </div>
-              
-              <div
-                data-v-9e03166f=""
-                className="Recharge__content-paymoney__money-input"
-              >
-                <div data-v-9e03166f="" className="place-div">{activeSection === 'section2' ? '' 
- : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
- : '$'}</div>
-                <div
-                  data-v-9e03166f=""
-                  className="van-cell van-field amount-input"
-                  modelmodifiers="[object Object]"
-                >
-                  
-                  <div className="van-cell__value van-field__value">
-                    <div className="van-field__body">
-                      < input type = "tel"
-                      inputmode = "numeric"
-                      id = "van-field-7-input"
-                      className = "van-field__control"
-                      placeholder = "Please enter the amount" /
-                        >
-                    </div>
-                    
-                  </div>
-                  
-                </div>
-                
-                <div data-v-9e03166f="" className="place-right">
-                  <img
-                    data-v-9e03166f=""
-                    src="/assets/png/clean-82487515.png"
-                    alt=""
-                  />
-                </div>
-                
-              </div>
-              
-              <div data-v-9e03166f="" className="Recharge__container-rechageBtn">
-                Deposit
-              </div>
-            </div>
-            <div
-              data-v-9e03166f=""
-              className="Recharge__content-waitPay boxStyle"
-              style={{display: 'none'}}
-            >
-              <img
-                data-v-9e03166f=""
-                src="/assets/png/tip-0498e3f9.png"
-                alt=""
-              />
-              <div data-v-9e03166f="" className="wait_text">
-                You have 1 unpaid order
-              </div>
-              <div
-                data-v-9e03166f=""
-                className="Recharge__content-waitPay__countdown"
-              >
-                <span data-v-9e03166f="">3</span
-                ><span data-v-9e03166f="">0</span
-                ><span data-v-9e03166f="">:</span
-                ><span data-v-9e03166f="">0</span
-                ><span data-v-9e03166f="">0</span>
-              </div>
-              <div data-v-9e03166f="" className="go_pay">Go pay</div>
-            </div>
-            
-          </div>
-          
-          <div
-            data-v-7cba6004=""
-            data-v-36cc3380=""
-            className="Recharge__container-intro"
-          >
-            <div data-v-7cba6004="" className="Recharge__container-intro__title">
-              <div data-v-7cba6004="" className="img">
-                <svg data-v-7cba6004="" className="svg-icon icon-shuoming">
-                  <use href="#icon-shuoming"></use>
-                </svg>
-              </div>
-              <p data-v-7cba6004="">Recharge instructions</p>
-            </div>
-            <div data-v-7cba6004="" className="Recharge__container-intro__lists">
-              
-              <div data-v-7cba6004="" className="item">
-                <p data-v-7cba6004="">
-                  If the transfer time is up, please fill out the deposit form
-                  again.
-                </p>
-                <p data-v-7cba6004="">
-                  The transfer amount must match the order you created,
-                  otherwise the money cannot be credited successfully.
-                </p>
-                <p data-v-7cba6004="">
-                  If you transfer the wrong amount, our company will not be
-                  responsible for the lost amount!
-                </p>
-                
-                <p data-v-7cba6004="">
-                  Note: do not cancel the deposit order after the money has been
-                  transferred.
-                </p>
-              </div>
-              
-            </div>
-          </div>
-          <div
-            data-v-9f5f4114=""
-            data-v-36cc3380=""
-            className="record__main"
-            payid="2"
-          >
-            <div data-v-9f5f4114="" className="record__main-title">
-              <svg data-v-9f5f4114="" className="svg-icon icon-historyHead">
-                <use href="#icon-historyHead"></use></svg
-              ><span data-v-9f5f4114="">Deposit history</span>
-            </div>
-            
-            <div data-v-9f5f4114="">
-              <div data-v-9f5f4114="" className="record__main-info">
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__title flex_between"
-                >
-                  <div data-v-9f5f4114="" className="recharge_text">Deposit</div>
-                  <div data-v-9f5f4114="" className="flex_between">
-                    <div data-v-9f5f4114="" className="rechargeFail">Failed</div>
-                    
-                  </div>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__money item flex_between"
-                >
-                  <span data-v-9f5f4114="">Balance</span
-                  ><span data-v-9f5f4114="">₹100.00</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__type item flex_between"
-                >
-                  <span data-v-9f5f4114="">Type</span
-                  ><span data-v-9f5f4114="">UPI-ICE</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__time item flex_between"
-                >
-                  <span data-v-9f5f4114="">Time</span
-                  ><span data-v-9f5f4114="">2024-07-30 16:43:18</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__orderNumber item flex_between"
-                >
-                  <span data-v-9f5f4114="">Order number</span>
-                  <div data-v-9f5f4114="">
-                    <span data-v-9f5f4114="">p2024073011131873726770</span
-                    ><svg data-v-9f5f4114="" className="svg-icon icon-copy" alt="">
-                      <use href="#icon-copy"></use>
-                    </svg>
-                  </div>
-                </div>
-                
-              </div>
-              <div data-v-9f5f4114="" className="record__main-info">
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__title flex_between"
-                >
-                  <div data-v-9f5f4114="" className="recharge_text">Deposit</div>
-                  <div data-v-9f5f4114="" className="flex_between">
-                    <div data-v-9f5f4114="" className="success">Complete</div>
-                    <img
-                      data-v-9f5f4114=""
-                      src="/assets/png/left_arrow-6c6e3cc6.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__money item flex_between"
-                >
-                  <span data-v-9f5f4114="">Balance</span
-                  ><span data-v-9f5f4114="">₹100.00</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__type item flex_between"
-                >
-                  <span data-v-9f5f4114="">Type</span
-                  ><span data-v-9f5f4114="">UPI-ICE</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__time item flex_between"
-                >
-                  <span data-v-9f5f4114="">Time</span
-                  ><span data-v-9f5f4114="">2024-07-30 16:09:19</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__orderNumber item flex_between"
-                >
-                  <span data-v-9f5f4114="">Order number</span>
-                  <div data-v-9f5f4114="">
-                    <span data-v-9f5f4114="">p2024073010391969107618</span
-                    ><svg data-v-9f5f4114="" className="svg-icon icon-copy" alt="">
-                      <use href="#icon-copy"></use>
-                    </svg>
-                  </div>
-                </div>
-                
-              </div>
-              <div data-v-9f5f4114="" className="record__main-info">
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__title flex_between"
-                >
-                  <div data-v-9f5f4114="" className="recharge_text">Deposit</div>
-                  <div data-v-9f5f4114="" className="flex_between">
-                    <div data-v-9f5f4114="" className="success">Complete</div>
-                    <img
-                      data-v-9f5f4114=""
-                      src="/assets/png/left_arrow-6c6e3cc6.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__money item flex_between"
-                >
-                  <span data-v-9f5f4114="">Balance</span
-                  ><span data-v-9f5f4114="">₹100.00</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__type item flex_between"
-                >
-                  <span data-v-9f5f4114="">Type</span
-                  ><span data-v-9f5f4114="">UPI-ICE</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__time item flex_between"
-                >
-                  <span data-v-9f5f4114="">Time</span
-                  ><span data-v-9f5f4114="">2024-07-09 12:55:12</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__orderNumber item flex_between"
-                >
-                  <span data-v-9f5f4114="">Order number</span>
-                  <div data-v-9f5f4114="">
-                    <span data-v-9f5f4114="">p2024070907251227219587</span
-                    ><svg data-v-9f5f4114="" className="svg-icon icon-copy" alt="">
-                      <use href="#icon-copy"></use>
-                    </svg>
-                  </div>
-                </div>
-                
-              </div>
-              
             </div>
           </div>
         </div>
-        <div data-v-3e71d3da="" data-v-36cc3380="" className="dialog inactive">
+        <div data-v-7dd1adab="" data-v-d024c659="" className="Wallet__C">
+          <div data-v-7dd1adab="" className="Wallet__C-balance">
+            <div data-v-7dd1adab="" className="Wallet__C-balance-l1">
+              <div data-v-7dd1adab="">₹0.07</div>
+            </div>
+            <div data-v-7dd1adab="" className="Wallet__C-balance-l2">
+              <svg data-v-7dd1adab="" className="svg-icon icon-lottyWallet">
+                <use href="#icon-lottyWallet"></use>
+              </svg>
+              <div data-v-7dd1adab="">Wallet balance</div>
+            </div>
+            <div data-v-7dd1adab="" className="Wallet__C-balance-l3">
+              <div data-v-7dd1adab="">Withdraw</div>
+              <div data-v-7dd1adab="">Deposit</div>
+            </div>
+          </div>
+        </div>
+        <div data-v-d024c659="" className="noticeBar__container" sitemsg="">
+          <svg className="svg-icon icon-noticeBarSpeaker">
+            <use href="#icon-noticeBarSpeaker"></use>
+          </svg>
+          <div className="noticeBar__container-body">
+            <div className="noticeBar__container-body-text">
+              Welcome to 91 CLUB! We have a variety of games, promos and bonus
+              for you to enjoy, so why wait? Go register and enjoy the variety
+              reward awaits you.
+            </div>
+          </div>
+          <button className="hotIcon">Detail</button>
+        </div>
+        <div data-v-17d56002="" data-v-d024c659="" className="GameList__C">
+          <div data-v-17d56002="" className="GameList__C-item active">
+            <div data-v-17d56002="">K3 Lotre <br />1Min</div>
+          </div>
+          <div data-v-17d56002="" className="GameList__C-item">
+            <div data-v-17d56002="">K3 Lotre<br />3Min</div>
+          </div>
+          <div data-v-17d56002="" className="GameList__C-item">
+            <div data-v-17d56002="">K3 Lotre<br />5Min</div>
+          </div>
+          <div data-v-17d56002="" className="GameList__C-item">
+            <div data-v-17d56002="">K3 Lotre<br />10Min</div>
+          </div>
+        </div>
+        <div data-v-75b35bf5="" className="K3TL__C">
+          <div data-v-75b35bf5="" className="K3TL__C-l1">
+            <div data-v-75b35bf5="" className="left">
+              <div data-v-75b35bf5="">Period</div>
+              <div data-v-75b35bf5="" className="K3TL__C-rule">
+                <svg
+                  data-v-75b35bf5=""
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="33"
+                  height="32"
+                  viewBox="0 0 33 32"
+                  fill="none"
+                >
+                  <path
+                    data-v-75b35bf5=""
+                    d="M9.0484 25.8284L9.04089 25.8359L9.03366 25.8437C8.47797 26.4402 7.97942 26.8014 7.56631 26.9797C7.15908 27.1556 6.87147 27.141 6.67169 27.055C6.46753 26.967 6.24252 26.7559 6.06263 26.3149C5.88195 25.8718 5.76602 25.2377 5.76602 24.3993V9.38602C5.76602 6.69019 6.09509 5.23943 6.86083 4.42092C7.61326 3.61665 8.94055 3.26602 11.4593 3.26602H21.5393C24.0584 3.26602 25.3852 3.61676 26.1358 4.42054C26.8997 5.23844 27.226 6.68864 27.2193 9.38453V9.38602V24.386C27.2193 25.2248 27.1041 25.8592 26.9242 26.3024C26.7451 26.7438 26.5211 26.9543 26.3182 27.0418C26.1198 27.1275 25.8328 27.1424 25.4244 26.9663C25.0105 26.7878 24.5102 26.4264 23.9512 25.8299C23.2918 25.1224 22.4328 24.7733 21.5701 24.8202C20.7074 24.8672 19.8916 25.3075 19.3127 26.0793L19.3123 26.0799L17.9676 27.8772C17.9673 27.8776 17.967 27.878 17.9667 27.8785C17.5231 28.4638 16.9844 28.7094 16.4927 28.7094C16.001 28.7094 15.4623 28.4638 15.0187 27.8785C15.0184 27.878 15.0181 27.8776 15.0177 27.8772L13.6733 26.0802C13.6732 26.0801 13.6732 26.08 13.6731 26.0799C12.5033 24.515 10.4028 24.3993 9.05577 25.8211L9.0484 25.8284ZM8.93935 14.666C8.93935 15.7307 9.80798 16.5993 10.8727 16.5993C11.9374 16.5993 12.806 15.7307 12.806 14.666C12.806 13.6013 11.9374 12.7327 10.8727 12.7327C9.80798 12.7327 8.93935 13.6013 8.93935 14.666ZM8.93935 9.33268C8.93935 10.3974 9.80798 11.266 10.8727 11.266C11.9374 11.266 12.806 10.3974 12.806 9.33268C12.806 8.26798 11.9374 7.39935 10.8727 7.39935C9.80798 7.39935 8.93935 8.26798 8.93935 9.33268ZM14.806 16.266H22.1393C23.0174 16.266 23.7393 15.5441 23.7393 14.666C23.7393 13.788 23.0174 13.066 22.1393 13.066H14.806C13.928 13.066 13.206 13.788 13.206 14.666C13.206 15.5441 13.928 16.266 14.806 16.266ZM14.806 10.9327H22.1393C23.0174 10.9327 23.7393 10.2107 23.7393 9.33268C23.7393 8.45465 23.0174 7.73268 22.1393 7.73268H14.806C13.928 7.73268 13.206 8.45465 13.206 9.33268C13.206 10.2107 13.928 10.9327 14.806 10.9327Z"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                  ></path>
+                </svg>
+                How to play
+              </div>
+            </div>
+            <div data-v-75b35bf5="">Time remaining</div>
+          </div>
+          <div data-v-75b35bf5="" className="K3TL__C-l2">
+            <div data-v-75b35bf5="">20240814090782</div>
+            <div data-v-75b35bf5="" className="K3TL__C-time">
+              <div data-v-75b35bf5="">0</div>
+              <div data-v-75b35bf5="">0</div>
+              <div data-v-75b35bf5="" notime="">:</div>
+              <div data-v-75b35bf5="">4</div>
+              <div data-v-75b35bf5="">4</div>
+            </div>
+          </div>
+          <div data-v-75b35bf5="" className="K3TL__C-l3">
+            <div data-v-75b35bf5="" className="box">
+              <div data-v-75b35bf5="" className="num1"></div>
+              <div data-v-75b35bf5="" className="num2"></div>
+              <div data-v-75b35bf5="" className="num5"></div>
+            </div>
+          </div>
+        </div>
+        <div
+          data-v-8a4509d7=""
+          data-v-d024c659=""
+          className="K3B__C"
+          voicetype="1"
+          typeid="9"
+        >
+            
+          <div data-v-8a4509d7="" className="K3B__C-mark" style={{display: 'none'}}>
+            <div data-v-8a4509d7="">4</div>
+            <div data-v-8a4509d7="">4</div>
+          </div>
+          <div data-v-8a4509d7="" className="K3B__C-nav">
+            <div data-v-8a4509d7="" className="active">Total</div>
+            <div data-v-8a4509d7="" className="">2 same</div>
+            <div data-v-8a4509d7="" className="">3 same</div>
+            <div data-v-8a4509d7="" className="">Different</div>
+          </div>
+          <div
+            data-v-ed0c8e79=""
+            data-v-8a4509d7=""
+            className="K3B__C-bettingList"
+            numlist="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+            numtow=""
+            numone=""
+            numchack="false"
+          >
+            <div data-v-ed0c8e79="" className="num num3">
+              <div data-v-ed0c8e79="" className="ball rball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num3">3</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">207.36X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num4">
+              <div data-v-ed0c8e79="" className="ball gball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num4">4</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">69.12X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num5">
+              <div data-v-ed0c8e79="" className="ball rball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num5">5</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">34.56X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num6">
+              <div data-v-ed0c8e79="" className="ball gball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num6">6</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">20.74X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num7">
+              <div data-v-ed0c8e79="" className="ball rball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num7">7</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">13.83X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num8">
+              <div data-v-ed0c8e79="" className="ball gball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num8">8</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">9.88X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num9">
+              <div data-v-ed0c8e79="" className="ball rball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num9">9</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">8.3X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num10">
+              <div data-v-ed0c8e79="" className="ball gball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num10">10</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">7.68X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num11">
+              <div data-v-ed0c8e79="" className="ball rball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num11">11</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">7.68X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num12">
+              <div data-v-ed0c8e79="" className="ball gball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num12">12</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">8.3X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num13">
+              <div data-v-ed0c8e79="" className="ball rball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num13">13</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">9.88X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num14">
+              <div data-v-ed0c8e79="" className="ball gball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num14">14</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">13.83X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num15">
+              <div data-v-ed0c8e79="" className="ball rball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num15">15</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">20.74X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num16">
+              <div data-v-ed0c8e79="" className="ball gball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num16">16</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">34.56X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num17">
+              <div data-v-ed0c8e79="" className="ball rball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num17">17</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">69.12X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num num18">
+              <div data-v-ed0c8e79="" className="ball gball">
+                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num18">18</div>
+              </div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">207.36X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num numA">
+              <div data-v-ed0c8e79="" className="">Big</div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num numB">
+              <div data-v-ed0c8e79="" className="">Small</div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num numC">
+              <div data-v-ed0c8e79="" className="">Odd</div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
+            </div>
+            <div data-v-ed0c8e79="" className="num numD">
+              <div data-v-ed0c8e79="" className="">Even</div>
+              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
+            </div>
+          </div>
+        </div>
+        < div role = "dialog" tabindex = "0" class = "van-popup van-popup--round van-popup--bottom" data-v-5 f002ad4 = ""
+        style = "z-index: 2005; box-shadow: rgba(37, 37, 60, 0.26) 0px -18px 40px;" > < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-body" >< div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-type2" > < p data-v-5 f002ad4 = ""
+        class = "title" > 2 matching numbers: </p><div data-v-5f002ad4="" className="list"><div data-v-5f002ad4="" className="Betting__Popup-type2-d">22</div > </div></div >
+    < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-body-line" > Balance < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-body-line-list" > < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-body-line-item bgcolor" > 1 </div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item">10</div > < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-body-line-item" > 100 </div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item">1000</div > </div></div > < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-body-line" > Quantity < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-body-line-btnL" > < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-btn bgcolor" > - </div><div data-v-5f002ad4="" className="van-cell van-field Betting__Popup-input"><div className="van-cell__value van-field__value"><div className="van-field__body">
+            <input type="tel" inputmode="numeric" id="van-field-1-input" className="van-field__control"/></div ></div></div> < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-btn bgcolor" > + </div></div > </div><div data-v-5f002ad4="" className="Betting__Popup-body-line"><div data-v-5f002ad4=""></div > < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-body-line-list" > < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-body-line-item bgcolor"> X1 </div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X5</div > < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-body-line-item" > X10 </div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X20</div > < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-body-line-item" > X50 </div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X100</div > </div></div > < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-body-line" > < span data-v-5 f002ad4 = ""
+        class = "Betting__Popup-agree active" > I agree </span><span data-v-5f002ad4="" className="Betting__Popup-preSaleShow">《Pre-sale rules》</span > </div></div > < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-foot" > < div data-v-5 f002ad4 = ""
+        class = "Betting__Popup-foot-c" > Cancel </div><div data-v-5f002ad4="" className="Betting__Popup-foot-s bgcolor">Total amount ₹1.00</div > </div></div >
+         <div data-v-3deb049d="" data-v-8a4509d7="" className="K3B__C-betting3"><div data-v-3deb049d="" className="K3B__C-betting3-tip1">3 of the same number: odds <span data-v-3deb049d="">(207.36)</span><i data-v-3deb049d="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px',}}></i></div><div data-v-3deb049d="" className="K3B__C-betting3-line1 mb30"><div data-v-3deb049d="" className=""><div data-v-3deb049d="">111</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">222</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">333</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">444</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">555</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">666</div></div></div><div data-v-3deb049d="" className="K3B__C-betting3-tip1">Any 3 of the same number: odds <span data-v-3deb049d="">(34.56)</span><i data-v-3deb049d="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-3deb049d="" className="K3B__C-betting3-btn">Any 3 of the same number: odds</div></div>
+         <div data-v-bcf2c3f9="" data-v-8a4509d7="" className="K3B__C-betting4"><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 different numbers: odds <span data-v-bcf2c3f9="">(34.56)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}><!----><!----><!----></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1 mb30"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 continuous numbers: odds <span data-v-bcf2c3f9="">(8.64)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-btn">3 continuous numbers</div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">2 different numbers: odds <span data-v-bcf2c3f9="">(6.91)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}><!----><!----><!----></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div></div>
+            <div data-v-72 f81e71 = ""  data-v-d024c659 = "" className = "RecordNav__C">
+          <div data-v-72f81e71="" className="active">Game history</div>
+          <div data-v-72f81e71="" className="">Chart</div>
+          <div data-v-72f81e71="" className="">My history</div>
+        </div>
+
+        <div
+          data-v-4e09079f=""
+          data-v-d024c659=""
+          className="GameRecord__C"
+          apifun="e=>_(f.WinTxrGetTRXMyEmerdList,e).then(t=>t.data)"
+          listapi="e=>_(f.GetK3NoaverageEmerdList,e).then(t=>t.data)"
+          emerdapi="e=>_(f.WinTxrGetEmerdList,e).then(t=>t.data)"
+          gopathname="AllLotteryGames-BettingRecordK3"
+        >
+          <div data-v-4e09079f="" className="GameRecord__C-head">
+            <div data-v-4e09079f="" className="van-row">
+              <div data-v-4e09079f="" className="van-col van-col--10">Period</div>
+              <div data-v-4e09079f="" className="van-col van-col--4">Sum</div>
+              <div data-v-4e09079f="" className="van-col van-col--10">Results</div>
+            </div>
+          </div>
+          <div data-v-4e09079f="" className="GameRecord__C-body">
+            <div data-v-4e09079f="" className="van-row">
+              <div data-v-4e09079f="" className="van-col van-col--8">
+                20240814090781
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--1">
+                <span data-v-4e09079f="">8</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Small</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Even</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--6">
+                <div data-v-4e09079f="" className="GameRecord__C-body-premium">
+                  <div data-v-4e09079f="" className="n1"></div>
+                  <div data-v-4e09079f="" className="n2"></div>
+                  <div data-v-4e09079f="" className="n5"></div>
+                </div>
+              </div>
+            </div>
+            <div data-v-4e09079f="" className="van-row">
+              <div data-v-4e09079f="" className="van-col van-col--8">
+                20240814090780
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--1">
+                <span data-v-4e09079f="">13</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Big</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Odd</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--6">
+                <div data-v-4e09079f="" className="GameRecord__C-body-premium">
+                  <div data-v-4e09079f="" className="n4"></div>
+                  <div data-v-4e09079f="" className="n6"></div>
+                  <div data-v-4e09079f="" className="n3"></div>
+                </div>
+              </div>
+            </div>
+            <div data-v-4e09079f="" className="van-row">
+              <div data-v-4e09079f="" className="van-col van-col--8">
+                20240814090779
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--1">
+                <span data-v-4e09079f="">10</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Small</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Even</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--6">
+                <div data-v-4e09079f="" className="GameRecord__C-body-premium">
+                  <div data-v-4e09079f="" className="n4"></div>
+                  <div data-v-4e09079f="" className="n4"></div>
+                  <div data-v-4e09079f="" className="n2"></div>
+                </div>
+              </div>
+            </div>
+            <div data-v-4e09079f="" className="van-row">
+              <div data-v-4e09079f="" className="van-col van-col--8">
+                20240814090778
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--1">
+                <span data-v-4e09079f="">9</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Small</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Odd</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--6">
+                <div data-v-4e09079f="" className="GameRecord__C-body-premium">
+                  <div data-v-4e09079f="" className="n3"></div>
+                  <div data-v-4e09079f="" className="n5"></div>
+                  <div data-v-4e09079f="" className="n1"></div>
+                </div>
+              </div>
+            </div>
+            <div data-v-4e09079f="" className="van-row">
+              <div data-v-4e09079f="" className="van-col van-col--8">
+                20240814090777
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--1">
+                <span data-v-4e09079f="">14</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Big</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Even</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--6">
+                <div data-v-4e09079f="" className="GameRecord__C-body-premium">
+                  <div data-v-4e09079f="" className="n6"></div>
+                  <div data-v-4e09079f="" className="n2"></div>
+                  <div data-v-4e09079f="" className="n6"></div>
+                </div>
+              </div>
+            </div>
+            <div data-v-4e09079f="" className="van-row">
+              <div data-v-4e09079f="" className="van-col van-col--8">
+                20240814090776
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--1">
+                <span data-v-4e09079f="">10</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Small</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Even</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--6">
+                <div data-v-4e09079f="" className="GameRecord__C-body-premium">
+                  <div data-v-4e09079f="" className="n6"></div>
+                  <div data-v-4e09079f="" className="n1"></div>
+                  <div data-v-4e09079f="" className="n3"></div>
+                </div>
+              </div>
+            </div>
+            <div data-v-4e09079f="" className="van-row">
+              <div data-v-4e09079f="" className="van-col van-col--8">
+                20240814090775
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--1">
+                <span data-v-4e09079f="">9</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Small</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Odd</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--6">
+                <div data-v-4e09079f="" className="GameRecord__C-body-premium">
+                  <div data-v-4e09079f="" className="n5"></div>
+                  <div data-v-4e09079f="" className="n2"></div>
+                  <div data-v-4e09079f="" className="n2"></div>
+                </div>
+              </div>
+            </div>
+            <div data-v-4e09079f="" className="van-row">
+              <div data-v-4e09079f="" className="van-col van-col--8">
+                20240814090774
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--1">
+                <span data-v-4e09079f="">7</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Small</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Odd</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--6">
+                <div data-v-4e09079f="" className="GameRecord__C-body-premium">
+                  <div data-v-4e09079f="" className="n3"></div>
+                  <div data-v-4e09079f="" className="n2"></div>
+                  <div data-v-4e09079f="" className="n2"></div>
+                </div>
+              </div>
+            </div>
+            <div data-v-4e09079f="" className="van-row">
+              <div data-v-4e09079f="" className="van-col van-col--8">
+                20240814090773
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--1">
+                <span data-v-4e09079f="">6</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Small</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Even</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--6">
+                <div data-v-4e09079f="" className="GameRecord__C-body-premium">
+                  <div data-v-4e09079f="" className="n1"></div>
+                  <div data-v-4e09079f="" className="n1"></div>
+                  <div data-v-4e09079f="" className="n4"></div>
+                </div>
+              </div>
+            </div>
+            <div data-v-4e09079f="" className="van-row">
+              <div data-v-4e09079f="" className="van-col van-col--8">
+                20240814090772
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--1">
+                <span data-v-4e09079f="">5</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Small</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--4">
+                <span data-v-4e09079f="">Odd</span>
+              </div>
+              <div data-v-4e09079f="" className="van-col van-col--6">
+                <div data-v-4e09079f="" className="GameRecord__C-body-premium">
+                  <div data-v-4e09079f="" className="n2"></div>
+                  <div data-v-4e09079f="" className="n1"></div>
+                  <div data-v-4e09079f="" className="n2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div data-v-4e09079f="" className="GameRecord__C-foot">
+            <div
+              data-v-4e09079f=""
+              className="GameRecord__C-foot-previous disabled"
+            >
+              <i
+                data-v-4e09079f=""
+                className="van-badge__wrapper van-icon van-icon-arrow-left GameRecord__C-icon"
+                style={{fontSize: '20px'}}
+                ></i
+              >
+            </div>
+            <div data-v-4e09079f="" className="GameRecord__C-foot-page">1/1663</div>
+            <div data-v-4e09079f="" className="GameRecord__C-foot-next">
+              <i
+                data-v-4e09079f=""
+                className="van-badge__wrapper van-icon van-icon-arrow GameRecord__C-icon"
+                style={{fontSize: '20px'}}
+                ></i
+              >
+            </div>
+          </div>
+        </div>
+        <div data-v-bcf2c3f9="" data-v-8a4509d7="" className="K3B__C-betting4"><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 different numbers: odds <span data-v-bcf2c3f9="">(34.56)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px',}}><!----><!----><!----></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1 mb30"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 continuous numbers: odds <span data-v-bcf2c3f9="">(8.64)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: rgb(250, 87, 74); font-size: 16px;}}><!----><!----><!----></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-btn">3 continuous numbers</div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">2 different numbers: odds <span data-v-bcf2c3f9="">(6.91)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style="color: rgb(250, 87, 74); font-size: 16px;"><!----><!----><!----></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div></div>
+        <div data-v-4159c83a="" data-v-d024c659="" className="Trend__C" apifun="e=>_(f.WinTxrGetTRXMyEmerdList,e).then(t=>t.data)" listapi="e=>_(f.GetK3NoaverageEmerdList,e).then(t=>t.data)" emerdapi="e=>_(f.WinTxrGetEmerdList,e).then(t=>t.data)" gopathname="AllLotteryGames-BettingRecordK3"><div data-v-4159c83a="" className="Trend__C-head"><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">Period</div><div data-v-4159c83a="" className="van-col van-col--6">Results</div><div data-v-4159c83a="" className="van-col van-col--10">Number</div></div></div><div data-v-4159c83a="" className="Trend__C-body"><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090932</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n3"></div><div data-v-4159c83a="" className="n5"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">3 different numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090931</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n5"></div><div data-v-4159c83a="" className="n2"></div><div data-v-4159c83a="" className="n6"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">3 different numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090930</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n4"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">2 same numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090929</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n5"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">2 same numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090928</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n3"></div><div data-v-4159c83a="" className="n6"></div><div data-v-4159c83a="" className="n2"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">3 different numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090927</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n5"></div><div data-v-4159c83a="" className="n3"></div><div data-v-4159c83a="" className="n5"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">2 same numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090926</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n6"></div><div data-v-4159c83a="" className="n3"></div><div data-v-4159c83a="" className="n5"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">3 different numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090925</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n5"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">2 same numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090924</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n6"></div><div data-v-4159c83a="" className="n2"></div><div data-v-4159c83a="" className="n2"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">2 same numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090923</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n5"></div><div data-v-4159c83a="" className="n3"></div><div data-v-4159c83a="" className="n1"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">3 different numbers</span></div></div></div></div><div data-v-4159c83a="" className="Trend__C-foot"><div data-v-4159c83a="" className="Trend__C-foot-previous disabled"><i data-v-4159c83a="" className="van-badge__wrapper van-icon van-icon-arrow-left Trend__C-icon" style="font-size: 20px;"><!----><!----><!----></i></div><div data-v-4159c83a="" className="Trend__C-foot-page">1/1678</div><div data-v-4159c83a="" className="Trend__C-foot-next"><i data-v-4159c83a="" className="van-badge__wrapper van-icon van-icon-arrow Trend__C-icon" style="font-size: 20px;"><!----><!----><!----></i></div></div></div>
+        
+        <div data-v-cffd8c9f="" data-v-d024c659="" className="MyGameRecord__C" apifun="e=>_(f.WinTxrGetTRXMyEmerdList,e).then(t=>t.data)" listapi="e=>_(f.GetK3NoaverageEmerdList,e).then(t=>t.data)" emerdapi="e=>_(f.WinTxrGetEmerdList,e).then(t=>t.data)"><div data-v-cffd8c9f="" className="MyGameRecord__C-head"><div data-v-cffd8c9f="" className="MyGameRecord__C-head-moreB">Detail <svg data-v-cffd8c9f="" className="svg-icon icon-rightCircle"><use xlink:href="#icon-rightCircle"></use></svg></div></div><div data-v-cffd8c9f="" className="MyGameRecord__C-body"><div data-v-cffd8c9f="" className="MyGameRecord__C-body-empty"><div data-v-f84b843f="" data-v-cffd8c9f="" className="empty__container"><svg data-v-f84b843f="" className="svg-icon icon-empty"><use xlink:href="#icon-empty"></use></svg><p data-v-f84b843f="">No data</p></div></div></div><!--v-if--></div>
+        <div data-v-3e71d3da="" data-v-d024c659="" className="dialog inactive">
           <div
             data-v-3e71d3da=""
             className="dialog__container"
@@ -10086,104 +10043,71 @@ const showSection = (sectionId) => {
               />
             </div>
             <div data-v-3e71d3da="" className="dialog__container-title">
-              <h1 data-v-3e71d3da="">Invalid amount</h1>
+              <h1 data-v-3e71d3da=""></h1>
             </div>
             <div data-v-3e71d3da="" className="dialog__container-content">
-              <div data-v-36cc3380="" className="cancen_model_cnt">
-                Please select another amount
-              </div>
+              <div data-v-d024c659=""></div>
             </div>
             <div data-v-3e71d3da="" className="dialog__container-footer">
-              <button data-v-3e71d3da="">OK</button
+              <button data-v-3e71d3da="">Confirm</button
               ><button data-v-3e71d3da="">Cancel</button>
             </div>
             
           </div>
           <div data-v-3e71d3da="" className="dialog__outside"></div>
         </div>
-        
-        <div data-v-3e71d3da="" data-v-36cc3380="" className="dialog inactive">
-          <div
-            data-v-3e71d3da=""
-            className="dialog__container"
-            role="dialog"
-            tabindex="0"
-          >
-            <div data-v-3e71d3da="" className="dialog__container-img">
-              <img
-                data-v-3e71d3da=""
-                className=""
-                alt=""
-                data-origin=""
-                src="/assets/png/avatar-2f23f3bd.png"
-              />
+        <div
+          data-v-2d418cc5=""
+          data-v-d024c659=""
+          className="WinningTip__C"
+          style={{display: 'none'}}
+        >
+          <div data-v-2d418cc5="" className="WinningTip__C-body">
+            <div data-v-2d418cc5="" className="WinningTip__C-body-l1">
+              Congratulations
             </div>
-            <div data-v-3e71d3da="" className="dialog__container-title">
-              <h1 data-v-3e71d3da="">
-                You have been disabled from C2C transactions for 0 hours
-              </h1>
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-content">
-              <div data-v-36cc3380="" className="forbidden_tip">
-                0 hours remaining
-              </div>
-              <div data-v-36cc3380="" className="forbidden1">
-                Because your transactions failed 0 times in a row
-              </div>
-              <div data-v-36cc3380="" className="forbidden2">
-                C2C recharge is prohibited within 0 hours
-              </div>
-              <div data-v-36cc3380="" className="forbidden3">
-                If you have any questions, please contact customer service
+            <div data-v-2d418cc5="" className="WinningTip__C-body-l2">
+              <div data-v-2d418cc5="" className="line1"></div>
+              <div data-v-2d418cc5="" className="line2">
+                <div data-v-2d418cc5=""></div>
+                <div data-v-2d418cc5="" className="yuan">Small</div>
+                <div data-v-2d418cc5="">Even</div>
               </div>
             </div>
-            <div data-v-3e71d3da="" className="dialog__container-footer">
-              <button data-v-3e71d3da="">Sure</button
-              >
+            <div data-v-2d418cc5="" className="WinningTip__C-body-l3">
+              <div data-v-2d418cc5="" className="head">Bonus</div>
+              <div data-v-2d418cc5="" className="bonus"></div>
+              <div data-v-2d418cc5="" className="gameDetail">Period:</div>
             </div>
-            
+            <div data-v-2d418cc5="" className="WinningTip__C-body-l4">
+              <div data-v-2d418cc5="" className="acitveBtn"></div>
+              3 seconds auto close
+            </div>
+            <div data-v-2d418cc5="" className="closeBtn"></div>
+            <i
+              data-v-2d418cc5=""
+              className="van-badge__wrapper van-icon van-icon-arrow arrowBtn"
+              style={{color: 'rgb(255, 255, 255)', fontSize: '30px', display: 'none'}}
+              ></i
+            >
           </div>
-          <div data-v-3e71d3da="" className="dialog__outside"></div>
         </div>
-        <div data-v-3e71d3da="" data-v-36cc3380="" className="dialog inactive">
-          <div
-            data-v-3e71d3da=""
-            className="dialog__container"
-            role="dialog"
-            tabindex="0"
-          >
-            <div data-v-3e71d3da="" className="dialog__container-img">
-              <img
-                data-v-3e71d3da=""
-                className=""
-                alt=""
-                data-origin="/assets/png/tip-0498e3f9.png"
-                src="/assets/png/tip-0498e3f9.png"
-              />
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-title">
-              <h1 data-v-3e71d3da="">safety warning</h1>
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-content">
-              <div data-v-36cc3380="" className="cancen_model_cnt">
-                Please use your own PIX account to obtain the order and QR code
-                for recharge. Do not use the QR code provided by others to pay.
-              </div>
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-footer">
-              <button data-v-3e71d3da="">Confirm</button
-              >
-            </div>
-            
-          </div>
-          <div data-v-3e71d3da="" className="dialog__outside"></div>
-        </div>
+        <div
+          data-v-0ac3de13=""
+          data-v-d024c659=""
+          className="changlongEnter changlong"
+        ></div>
+        <audio id="voice1">
+          <source src="/assets/mp3/di1-0f3d86cb.mp3" type="audio/mpeg" /></audio
+        ><audio id="voice2">
+          <source src="/assets/mp3/di2-ad9aa8fb.mp3" type="audio/mpeg" />
+        </audio>
       </div>
       <div
         className="customer"
         id="customerId"
         style={{
-          "--f13b4d11-currentFontFamily": "'Roboto', 'Inter', 'sansSerif'",
+          "--f13b4d11-currentFontFamily": "'Roboto', 'Inter', sansSerif",
           "--f6a705e1-currentFontFamily": 'bahnschrift',
         }}
       >
@@ -10195,6 +10119,26 @@ const showSection = (sectionId) => {
       </div>
       
     </div>
-  </div>
 
+    <div data-v-app=""></div>
+    <div className="van-overlay" style={{zIndex: '2011', display: 'none'}}></div>
+    <div
+      role="dialog"
+      tabindex="0"
+      className="van-popup van-popup--center van-toast van-toast--middle van-toast--loading"
+      style={{zIndex: '2011', display: 'none'}}
+    >
+      <div
+        className="van-loading van-loading--circular van-toast__loading"
+        aria-live="polite"
+        aria-busy="true"
+      >
+        <span className="van-loading__spinner van-loading__spinner--circular"
+          ><svg className="van-loading__circular" viewBox="25 25 50 50">
+            <circle cx="50" cy="50" r="20" fill="none"></circle></svg></span
+        >
+      </div>
+      
+    </div>
+ </div>
 )}

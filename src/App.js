@@ -8,11 +8,13 @@ import Activity from './pages/activity/Activity';
 import Promotion from './pages/promotion/Promotion';
 import Wallet from './pages/wallet/Wallet';
 import Wingo from  './pages/bet/wingo/Wingo';
+import K3 from './pages/bet/wingo/K3';
 import PrivateRoute from './components/PrivateRoute'; // Import the PrivateRoute component
 import Account from './pages/account/Account';
 import Withdraw from'./pages/wallet/Withdraw';
 import WithdrawHistory from'./pages/wallet/WithdrawHistory';
 import Deposit from './pages/wallet/Deposit';
+
 
 function App() {
   return (
@@ -39,6 +41,7 @@ function App() {
         <Route path="/wallet" element={<PrivateRoute><Wallet/></PrivateRoute>}/>
         <Route path="/promotion" element={<PrivateRoute><Promotion/></PrivateRoute>}/>
         <Route path="/wingo" element={<PrivateRoute><Wingo/></PrivateRoute>}/>
+        <Route path="/AllLotteryGames/K3" element={<PrivateRoute><K3/></PrivateRoute>}/>
        
         <Route path="/deposit" element={<PrivateRoute><Deposit/></PrivateRoute>}/>
         <Route
