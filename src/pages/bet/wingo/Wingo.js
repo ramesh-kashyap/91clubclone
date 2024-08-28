@@ -13,6 +13,7 @@ const socket = io(SOCKET_URL, {
   timeout: 10000,
 });
 
+
 const countDownDate = new Date("2030-07-16T23:59:59.9999999+01:00").getTime();
 
 const getPopupClass = (item) => {
@@ -38,6 +39,7 @@ const getPopupClass = (item) => {
 
 
 export default function Wingo() {
+  const [userInfo, setUserInfo] = useState(null);
     const [activeSection, setActiveSection] = useState('section1');
     const [totalMoney, setTotalMoney] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -55,10 +57,32 @@ export default function Wingo() {
   const [selectedItem, setSelectedItem] = useState(''); // To track the selected item
   const [balance, setBalance] = useState(1);  // State for balance
   const [quantity, setQuantity] = useState(1);  // State for quantity
+  const [audio1, setAudio1] = useState(null);
+  const [audio2, setAudio2] = useState(null);
+    const [join, setJoin] = useState(null);
+    const [totalGamePages, setTotalGamePages] = useState(null);
+    const [totalBetsPages, setTotalBetsPages] = useState(null);
+    const [currentPage, setCurrentPage] = useState(1);
+
 
 
   const handleOpenPopup = (item) => {
     setSelectedItem(item);
+ 
+  if (item === 'Big') {
+      setJoin('l');
+    } else if (item === 'Small') {
+      setJoin('n');
+    } else if (item === 'Violet') {
+      setJoin('t');
+    } else if (item === 'Red') {
+      setJoin('d');
+    } else if (item === 'Green') {
+      setJoin('x');
+    } else if (!isNaN(item)) {
+      setJoin(item);
+    } 
+
     setPopupVisible(true);
   };
 
@@ -89,7 +113,10 @@ export default function Wingo() {
     const checkPeriodAndStage = async (period) => {
       try {
         const response = await Api.post('/api/webapi/checkPeriodAndStage', { period });
-        if (response.data.status === 'true') {
+        console.log("hi");
+
+        console.log(response.data.status);
+        if (response.data.status == true) {
           // Handle success case
           // console.log(response.data);
           return true;
@@ -126,55 +153,83 @@ export default function Wingo() {
       return () => clearInterval(intervalId); // Clean up on component unmount
     }, []);
 
+    const fetchGamelist = async () => {
+      try {
+        const response = await Api.post('/api/webapi/GetNoaverageEmerdList', {
+          typeid: "1",
+          pageno: "0",
+          pageto: "10",
+          language: "vi",
+        });
+  
+        const { gameslist } = response.data.data;
+        console.log(response.data.page);
+  
+        // Update gamelist state
+        setGamelist(gameslist);
+        setTotalGamePages(response.data.page);
+  
+        // Compute last5Periods
+        const last5 = gameslist.slice(0, 5).map(item => item.amount);
+        setLast5Periods(last5);
+        
+      } catch (err) {
+        console.error('An error occurred:', err);
+        setError('An error occurred. Please try again.');
+      }
+    };
+
+    const fetchUserInfo = async () => {
+      try {
+        const response = await Api.get('/api/webapi/GetUserInfo');
+        const data =  response.data;
+
+        console.log(data);
+
+        setUserInfo(data.data); // Assuming data.data contains the user's information
+
+
+      } catch (err) {
+        console.error('An error occurred:', err);
+        setError('An error occurred. Please try again.');
+      } 
+    };
+
+    const fetchMyBets = async () => {
+      try {
+        const response = await Api.post('/api/webapi/GetMyEmerdList', {
+          typeid: "1",
+          pageno: "0",
+          pageto: "10",
+          language: "vi",
+        });
+
+        const { gameslist } = response.data.data;
+
+        // console.log(gameslist);
+        setTotalBetsPages(response.data.page);
+        // Handle the response data, e.g., save it to state
+        setMyBets(gameslist);
+      } catch (err) {
+        console.error('An error occurred:', err);
+        setError('An error occurred. Please try again.');
+      }
+    }; 
+    
+    // Fetch the first page when the component mounts
     useEffect(() => {
-      const fetchGamelist = async () => {
-        try {
-          const response = await Api.post('/api/webapi/GetNoaverageEmerdList', {
-            typeid: "1",
-            pageno: "0",
-            pageto: "10",
-            language: "vi",
-          });
+      fetchMyBets(currentPage);
+    }, []);
     
-          const { gameslist } = response.data.data;
-          console.log(gameslist);
+
     
-          // Update gamelist state
-          setGamelist(gameslist);
-    
-          // Compute last5Periods
-          const last5 = gameslist.slice(0, 5).map(item => item.amount);
-          setLast5Periods(last5);
-          
-        } catch (err) {
-          console.error('An error occurred:', err);
-          setError('An error occurred. Please try again.');
-        }
-      };
 
-      const fetchMyBets = async () => {
-        try {
-          const response = await Api.post('/api/webapi/GetMyEmerdList', {
-            typeid: "1",
-            pageno: "0",
-            pageto: "10",
-            language: "vi",
-          });
 
-          const { gameslist } = response.data.data;
-
-          // console.log(gameslist);
-          
-          // Handle the response data, e.g., save it to state
-          setMyBets(gameslist);
-        } catch (err) {
-          console.error('An error occurred:', err);
-          setError('An error occurred. Please try again.');
-        }
-      };
-
+    useEffect(() => {
+      
       fetchMyBets();
       fetchGamelist();
+      fetchUserInfo();
 
       const handleSocketData = async (msg) => {
         console.log("Received message from server:", msg);
@@ -189,7 +244,10 @@ export default function Wingo() {
         const isCheckSuccessful = await checkPeriodAndStage(data1.period);
         if (isCheckSuccessful) {
           fetchMyBets();
+
         }
+
+        fetchUserInfo();
 
         fetchGamelist();
 
@@ -234,7 +292,44 @@ export default function Wingo() {
         };
     }, []);
   
+    const handleJoin = async () => {
+      const totalAmount = quantity * balance;
   
+      // Validate inputs
+      if (!join || !quantity || !balance || userInfo.money_user < totalAmount) {
+        alert('Invalid input or insufficient balance');
+        return;
+      }
+  
+      try {
+        // Make the AJAX request
+        const response = await Api.post('/api/webapi/action/join', {
+          typeid: '1',
+          join: join,
+          x: quantity,
+          money: balance,
+        });
+  
+        const { data } = response;
+  
+        handleClosePopup();
+        fetchMyBets();
+        fetchUserInfo();
+  
+  
+      
+        // Emit the event through socket
+        socket.emit('data-server_2', {
+          money: quantity * balance,
+          join,
+          time: Date.now(),
+          change: data.change,
+        });
+  
+      } catch (error) {
+        console.error('An error occurred:', error);
+      }
+    }
 
   
     // if (loading) {
@@ -9760,7 +9855,7 @@ export default function Wingo() {
     <div data-v-7dd1adab="" data-v-5d71c3fd="" className="Wallet__C">
       <div data-v-7dd1adab="" className="Wallet__C-balance">
         <div data-v-7dd1adab="" className="Wallet__C-balance-l1">
-          <div data-v-7dd1adab="">₹{totalMoney??0.00}</div>
+          <div data-v-7dd1adab="">₹{userInfo?userInfo.money_user:0.00}</div>
         </div>
         <div data-v-7dd1adab="" className="Wallet__C-balance-l2">
           <svg data-v-7dd1adab="" className="svg-icon icon-lottyWallet">
@@ -9868,14 +9963,21 @@ export default function Wingo() {
       </div>
       <div data-v-4aca9bd1="" className="Betting__C-multiple">
         <div data-v-4aca9bd1="" className="Betting__C-multiple-l">Random</div>
-        <div data-v-4aca9bd1="" className="Betting__C-multiple-r active">
+        <div data-v-4aca9bd1="" className={`Betting__C-multiple-r ${quantity === '1' || quantity === 1 ? 'active' : ''}`}
+                    onClick={() => handleSelectQuantity('1')}>
           X1
         </div>
-        <div data-v-4aca9bd1="" className="Betting__C-multiple-r">X5</div>
-        <div data-v-4aca9bd1="" className="Betting__C-multiple-r">X10</div>
-        <div data-v-4aca9bd1="" className="Betting__C-multiple-r">X20</div>
-        <div data-v-4aca9bd1="" className="Betting__C-multiple-r">X50</div>
-        <div data-v-4aca9bd1="" className="Betting__C-multiple-r">X100</div>
+        <div data-v-4aca9bd1="" className={`Betting__C-multiple-r ${quantity === '5' || quantity === 5 ? 'active' : ''}`}
+                    onClick={() => handleSelectQuantity('5')}>X5</div>
+        <div data-v-4aca9bd1="" className={`Betting__C-multiple-r ${quantity === '10' || quantity === 10 ? 'active' : ''}`}
+                    onClick={() => handleSelectQuantity('10')}>X10</div>
+        <div data-v-4aca9bd1="" className={`Betting__C-multiple-r ${quantity === '20' || quantity === 20 ? 'active' : ''}`}
+                    onClick={() => handleSelectQuantity('20')}>X20</div>
+        <div data-v-4aca9bd1="" className={`Betting__C-multiple-r ${quantity === '50' || quantity === 50 ? 'active' : ''}`}
+                    onClick={() => handleSelectQuantity('50')}>X50</div>
+        <div data-v-4aca9bd1="" className={`Betting__C-multiple-r ${quantity === '100' || quantity === 100 ? 'active' : ''}`}
+                    onClick={() => handleSelectQuantity('100')}>X100</div>
+           
       </div>
       <div data-v-4aca9bd1="" className="Betting__C-foot">
         <div data-v-4aca9bd1="" className="Betting__C-foot-b" onClick={() => handleOpenPopup('Big')}>Big</div>
@@ -9908,7 +10010,7 @@ export default function Wingo() {
             
             
             </i></div>
-        <div data-v-4b21e13b="" className="MyGameRecord__C-foot-page">1/2</div>
+        <div data-v-4b21e13b="" className="MyGameRecord__C-foot-page">1/{totalBetsPages}</div>
         <div data-v-4b21e13b="" className="MyGameRecord__C-foot-next"><i data-v-4b21e13b=""
             className="van-badge__wrapper van-icon van-icon-arrow MyGameRecord__C-icon" style={{fontSize: '20px'}}>
             
@@ -10239,7 +10341,7 @@ export default function Wingo() {
             
             
             </i></div>
-        <div data-v-d485a39d="" className="Trend__C-foot-page">1/3314</div>
+        <div data-v-d485a39d="" className="Trend__C-foot-page">10/{totalGamePages}</div>
         <div data-v-d485a39d="" className="Trend__C-foot-next"><i data-v-d485a39d=""
             className="van-badge__wrapper van-icon van-icon-arrow Trend__C-icon" style={{fontSize: '20px'}}>
             
@@ -10262,28 +10364,48 @@ export default function Wingo() {
        
        
       </div>
-      <div data-v-481307ec="" className="GameRecord__C-foot">
-        <div
-          data-v-481307ec=""
-          className="GameRecord__C-foot-previous disabled"
-        >
-          <i
-            data-v-481307ec=""
-            className="van-badge__wrapper van-icon van-icon-arrow-left GameRecord__C-icon"
-            style={{fontSize: '20px'}}
-            ></i
-          >
-        </div>
-        <div data-v-481307ec="" className="GameRecord__C-foot-page">1/3364</div>
-        <div data-v-481307ec="" className="GameRecord__C-foot-next">
-          <i
-            data-v-481307ec=""
-            className="van-badge__wrapper van-icon van-icon-arrow GameRecord__C-icon"
-            style={{fontSize: '20px'}}
-            ></i
-          >
-        </div>
-      </div>
+      {/* <div className="GameRecord__C-foot">
+  <div
+    className={`GameRecord__C-foot-previous ${currentPage === 1 ? 'disabled' : ''}`}
+    onClick={() => {
+      if (currentPage > 1) {
+        setCurrentPage(prevPage => {
+          const newPage = prevPage - 1;
+          fetchMyBets(newPage);
+          return newPage;
+        });
+      }
+    }}
+  >
+    <i
+      className="van-badge__wrapper van-icon van-icon-arrow-left GameRecord__C-icon"
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+
+  <div className="GameRecord__C-foot-page">
+    {currentPage}/{totalGamePages}
+  </div>
+
+  <div
+    className={`GameRecord__C-foot-next ${currentPage === totalGamePages ? 'disabled' : ''}`}
+    onClick={() => {
+      if (currentPage < totalGamePages) {
+        setCurrentPage(prevPage => {
+          const newPage = prevPage + 1;
+          fetchMyBets(newPage);
+          return newPage;
+        });
+      }
+    }}
+  >
+    <i
+      className="van-badge__wrapper van-icon van-icon-arrow-right GameRecord__C-icon"
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+</div> */}
+
     </div>
     <div data-v-3e71d3da="" data-v-5d71c3fd="" className="dialog inactive">
       <div
@@ -10478,14 +10600,11 @@ export default function Wingo() {
                   </div>
                 </div>
               </div>
-              <div data-v-7f36fe93="" className="Betting__Popup-body-line">
-                <span data-v-7f36fe93="" className="Betting__Popup-agree active">I agree</span>
-                <span data-v-7f36fe93="" className="Betting__Popup-preSaleShow">《Pre-sale rules》</span>
-              </div>
+              
             </div>
             <div data-v-7f36fe93="" className="Betting__Popup-foot">
               <div data-v-7f36fe93="" className="Betting__Popup-foot-c" onClick={handleClosePopup}>Cancel</div>
-              <div data-v-7f36fe93="" className="Betting__Popup-foot-s bgcolor">Total amount ₹{quantity*balance}</div>
+              <div data-v-7f36fe93="" className="Betting__Popup-foot-s bgcolor"  onClick={handleJoin} >Total amount ₹{quantity*balance}</div>
             </div>
           </div>
         </div>
