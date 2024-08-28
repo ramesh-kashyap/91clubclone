@@ -6,6 +6,8 @@ import Dashboard from './pages/home/Dashboard';
 import Logout from './pages/account/Logout'; // Import the Logout component
 import Activity from './pages/activity/Activity';
 import Promotion from './pages/promotion/Promotion';
+import PromotionShare from './pages/promotion/PromotionShare';
+import TeamPartner from './pages/promotion/TeamPartner';
 import Wallet from './pages/wallet/Wallet';
 import Wingo from  './pages/bet/wingo/Wingo';
 import K3 from './pages/bet/wingo/K3';
@@ -40,6 +42,8 @@ function App() {
         />
         <Route path="/wallet" element={<PrivateRoute><Wallet/></PrivateRoute>}/>
         <Route path="/promotion" element={<PrivateRoute><Promotion/></PrivateRoute>}/>
+        <Route path="/promotion/PromotionShare" element={<PrivateRoute><PromotionShare/></PrivateRoute>}/>
+        <Route path="/promotion/TeamPartner" element={<PrivateRoute><TeamPartner/></PrivateRoute>}/>
         <Route path="/wingo" element={<PrivateRoute><Wingo/></PrivateRoute>}/>
         <Route path="/AllLotteryGames/K3" element={<PrivateRoute><K3/></PrivateRoute>}/>
        

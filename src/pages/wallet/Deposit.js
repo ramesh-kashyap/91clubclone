@@ -1,12 +1,35 @@
 import React, { useEffect, useState } from 'react';
-    export default function Deposit(){
+export default function Deposit(){
 const [activeSection, setActiveSection] = useState('section1');
 const [selectedAmount, setSelectedAmount] = useState('');
+const [inputAmount, setInputAmount] = useState('');
 const showSection = (sectionId) => {
     setActiveSection(sectionId);
   };
   const handleAmountClick = (amount) => {
     setSelectedAmount(amount);
+    setInputAmount(amount);
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputAmount(value);
+
+    // Clear the selectedAmount if input is changed manually and doesn't match any predefined amount
+    if (amounts[activeSection].indexOf(value) === -1) {
+      setSelectedAmount(''); 
+    } else {
+      setSelectedAmount(value); // Set selectedAmount to match input value
+    }
+  };
+  const amounts = {
+    section1: ['300', '500', '800', '1000', '3000','5000'],
+    section2: ['10', '20', '50','100','200','500'],
+    section3: ['10', '20', '50','100','200','500'],
+  };
+
+  const isActive = (amount) => {
+    return selectedAmount === amount || inputAmount === amount;
   };
 
 
@@ -9725,189 +9748,66 @@ const showSection = (sectionId) => {
                 data-v-9e03166f=""
                 className="Recharge__content-paymoney__money-list" id="section1" style={{ display: activeSection === 'section1' ? 'flex' : 'none' }}
               >
+                {amounts.section1.map((amount) => (
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"  onClick={() => handleAmountClick('10')}
+                  key={amount}
+            className={`Recharge__content-paymoney__money-list__item ${isActive(amount) ? 'active' : ''}`}
+            onClick={() => handleAmountClick(amount)}
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">₹</span>10
-                  </div>
-                  
+                    <span data-v-9e03166f="">₹</span>{amount}
+                  </div>                  
                 </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('100')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f="">₹</span>100
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('500')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f="">₹</span>500
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"onClick={() => handleAmountClick('1000')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f="">₹</span>1K
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('3000')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f="">₹</span>3K
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('5000')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f="">₹</span>5K
-                  </div>
-                  
-                </div>
+                ))}
+                
               
               </div>
               <div
                 data-v-9e03166f=""
                 className="Recharge__content-paymoney__money-list" id="section2" style={{ display: activeSection === 'section2' ? 'flex' : 'none' }}
               >
+                {amounts.section2.map((amount) => (
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('10')}
-                >
+                  key={amount}
+            className={`Recharge__content-paymoney__money-list__item ${isActive(amount) ? 'active' : ''}`}
+            onClick={() => handleAmountClick(amount)}
+                >                
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>10
-                  </div>
-                  
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>{amount}
+                  </div>                  
                 </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('50')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>50
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('100')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>100
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('200')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>200
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('500')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>500
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('1K')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>1000
-                  </div>
-                  
-                </div>
+                 ))}
+                
               
               </div>
               <div
                 data-v-9e03166f=""
                 className="Recharge__content-paymoney__money-list" id="section3" style={{ display: activeSection === 'section3' ? 'flex' : 'none' }}
               >
+                {amounts.section3.map((amount) => (
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('10')}
+                  key={amount}
+                  className={`Recharge__content-paymoney__money-list__item ${isActive(amount) ? 'active' : ''}`}
+            onClick={() => handleAmountClick(amount)}
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>10
-                  </div>
-                  
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>{amount}
+                  </div>                  
                 </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('100')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>100
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('500')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>50
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('1K')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>500
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('5K')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>1K
-                  </div>
-                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('10K')}
-                >
-                  <div data-v-9e03166f="" className="amount">
-                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>5K
-                  </div>
-                  
-                </div>
+                ))}
+                
               
               </div>
               <div
                 data-v-9e03166f=""
                 className="Recharge__content-paymoney__money-input"
               >
-                <div data-v-9e03166f="" className="place-div">{activeSection === 'section2' ? '' 
+                <div data-v-9e03166f="" className="place-div">{activeSection === 'section1' ? '₹' 
  : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section2' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
  : '$'}</div>
                 <div
                   data-v-9e03166f=""
@@ -9922,7 +9822,8 @@ const showSection = (sectionId) => {
                       id = "van-field-7-input"
                       className = "van-field__control"
                       placeholder = "Please enter the amount"
-                      value={selectedAmount} 
+                      value={inputAmount}
+                      onChange={handleInputChange}
                       />
                     </div>
                     
@@ -9940,7 +9841,7 @@ const showSection = (sectionId) => {
                 
               </div>
               
-              <div data-v-9e03166f="" className="Recharge__container-rechageBtn">
+              <div data-v-9e03166f="" className={`Recharge__container-rechageBtn ${inputAmount || selectedAmount ? 'rechage_active' : ''}`}>
                 Deposit
               </div>
             </div>
