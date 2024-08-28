@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 
 export default function Withdraw() {
+
+  const [activeSection, setActiveSection] = useState('section1');
+  const showSection = (sectionID) =>{
+     setActiveSection(sectionID);
+  };
   return (
     <div style={{fontSize: '12px'}}>
     <svg
@@ -9545,7 +9550,7 @@ export default function Withdraw() {
         
           <div data-v-9bae072d="" data-v-80a607a5="" className="withdrawWay">
             
-            <div data-v-9bae072d="" className="select">
+            <div data-v-9bae072d="" className={`${activeSection === 'section1' ? 'select' : ''}`} onClick={()=> showSection('section1')}>
               <div data-v-9bae072d="">
                 <img
                   data-v-9bae072d=""
@@ -9554,7 +9559,7 @@ export default function Withdraw() {
               </div>
               <span data-v-9bae072d=""> BANK CARD</span>
             </div>
-            <div data-v-9bae072d="" className="">
+            <div data-v-9bae072d="" className={`${activeSection === 'section2' ? 'select' : ''}`} onClick={() => showSection('section2')}>
               <div data-v-9bae072d="">
                 <img
                   data-v-9bae072d=""
@@ -9564,7 +9569,7 @@ export default function Withdraw() {
               <span data-v-9bae072d="">USDT</span>
             </div>
           </div>
-          <div data-v-80a607a5="" className="bankInfo">
+          <div data-v-80a607a5="" className="bankInfo" id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
             <div data-v-80a607a5="" className="bankInfoItem type1">
               <div data-v-80a607a5="">
                 <svg data-v-80a607a5="" className="svg-icon icon-1">
@@ -9583,17 +9588,10 @@ export default function Withdraw() {
             </div>
             
           </div>
-          <div
-            data-v-ef5c8333=""
-            data-v-80a607a5=""
-            className="addWithdrawType"
-            style={{display: 'none'}}
-          >
+          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
             <div data-v-ef5c8333="" className="addWithdrawType-top">
               <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
-                data-v-ef5c8333=""
-                >Add a bank account number</span
-              >
+                data-v-ef5c8333="">Add a bank account number</span>
             </div>
             <div data-v-ef5c8333="" className="addWithdrawType-text">
               Need to add beneficiary information to be able to withdraw money
@@ -9624,11 +9622,11 @@ export default function Withdraw() {
               </div>
             </div>
           </div>
-          <div data-v-cb5583fe="" className="explain usdt" style={{display: 'none'}}>
+          <div data-v-cb5583fe="" className="explain usdt">
             <div data-v-cb5583fe="" className="head">
               <img
                 data-v-cb5583fe=""
-                src="/assets/png/1-4618686f.png"
+                src="/assets/png/usdt.png"
               />
             </div>
             <div data-v-cb5583fe="" className="input">

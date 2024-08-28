@@ -6,8 +6,11 @@ import Dashboard from './pages/home/Dashboard';
 import Logout from './pages/account/Logout'; // Import the Logout component
 import Activity from './pages/activity/Activity';
 import Promotion from './pages/promotion/Promotion';
-// import Wallet from '/pages/wallet/Wallet';
+import PromotionShare from './pages/promotion/PromotionShare';
+import TeamPartner from './pages/promotion/TeamPartner';
+import Wallet from './pages/wallet/Wallet';
 import Wingo from  './pages/bet/wingo/Wingo';
+import K3 from './pages/bet/wingo/K3';
 import PrivateRoute from './components/PrivateRoute'; // Import the PrivateRoute component
 import Account from './pages/account/Account';
 import Withdraw from'./pages/wallet/Withdraw';
@@ -25,6 +28,7 @@ import Superjackpot_rule from './pages/activity/Superjackpot_rule';
 import SuperJackpot_star from './pages/activity/SuperJackpot_star';
 import DailyTasks from './pages/activity/DailyTasks';
 
+import Deposit from './pages/wallet/Deposit';
 
 
 function App() {
@@ -34,7 +38,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />        
         <Route
-          path="/home/index"
+          path="/index"
           element={
             <PrivateRoute>
               <Dashboard />
@@ -42,15 +46,17 @@ function App() {
           }
         />
         <Route
-          path="/activity/activity"
+          path="/activity"
           element={
             <PrivateRoute>
               <Activity />
             </PrivateRoute>
           }
         />
-        {/* <Route path="/wallet" element={<PrivateRoute><Wallet/></PrivateRoute>}/> */}
+        <Route path="/wallet" element={<PrivateRoute><Wallet/></PrivateRoute>}/>
         <Route path="/promotion" element={<PrivateRoute><Promotion/></PrivateRoute>}/>
+        <Route path="/promotion/PromotionShare" element={<PrivateRoute><PromotionShare/></PrivateRoute>}/>
+        <Route path="/promotion/TeamPartner" element={<PrivateRoute><TeamPartner/></PrivateRoute>}/>
         <Route path="/wingo" element={<PrivateRoute><Wingo/></PrivateRoute>}/>
         <Route path="/wallet" element={<PrivateRoute><Withdraw/></PrivateRoute>}/>
         <Route path="/wallet" element={<PrivateRoute><WithdrawHistory/></PrivateRoute>}/>
@@ -69,6 +75,9 @@ function App() {
 
 
 
+        <Route path="/AllLotteryGames/K3" element={<PrivateRoute><K3/></PrivateRoute>}/>
+       
+        <Route path="/deposit" element={<PrivateRoute><Deposit/></PrivateRoute>}/>
         <Route
           path="/account"
           element={

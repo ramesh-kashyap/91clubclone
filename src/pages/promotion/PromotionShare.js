@@ -1,93 +1,31 @@
 import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Navigation, Autoplay } from 'swiper/modules';
-import Api from '../../services/Api';
-import CustomModal from '../../components/CustomModal';
-
-export default function Dashboard() {
-  // State to track the active section
-  const [activeSection, setActiveSection] = useState('section1');
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [userInfo, setUserInfo] = useState(null);
-  const [gameId, setGameId] = useState(null);
-
-  const handleGameClick = async (gameId) => {
-    setGameId(gameId);
-    setIsModalOpen(true); // Open the custom modal
-  };
-
-  const handlePopupConfirm = async () => {
-    setIsModalOpen(false); // Close the modal after confirming
-
-    try {
-      const { data: userInfo } = await Api.get('/api/webapi/GetUserInfo');
-      setUserInfo(userInfo.data);
-
-      const { money_user, thirdparty_wallet } = userInfo.data;
-
-      if (money_user > 0) {
-        const response = await Api.post('/aviatorMoneySend');
-        if (response.data.status) {
-          await loginToAviatorGame();
-        } else {
-          console.error('Failed to send balance:', response.data.message);
-        }
-      } else if (thirdparty_wallet > 0) {
-        await loginToAviatorGame();
-      } else {
-        console.error('Insufficient balance');
-      }
-    } catch (error) {
-      console.error('Error occurred:', error);
-    }
-  };
-
-  const handlePopupCancel = () => {
-    setIsModalOpen(false); // Close the modal when Cancel is clicked
-  };
-
-  const loginToAviatorGame = async () => {
-    try {
-      const response = await Api.post(`/aviatorgame/${gameId}`);
-      if (response.data.status) {
-        if (response.data.data.ErrorCode === 0) {
-          window.open(response.data.data.Data, '_blank');
-        } else {
-          console.error('ErrorCode is not 0:', response.data.data.ErrorCode);
-        }
-      } else {
-        console.error('Login failed:', response.data.message);
-      }
-    } catch (error) {
-      console.error('Error occurred while logging in:', error);
-    }
-  };
-
-  // Function to show the selected section
-  const showSection = (sectionId) => {
-    setActiveSection(sectionId);
-  };
-
-
-
-
-  return (
+ export default function PromotionShare(){
 
     
-    <div>
-       <CustomModal
-        isOpen={isModalOpen}
-        onClose={handlePopupCancel}
-        onConfirm={handlePopupConfirm}
-        contentLabel="Confirmation"
-        className="Modal"
-        overlayclassName="Overlay"
-      />
+        const [activeSection, setActiveSection] = useState(1);
+      
+        const handleSectionClick = (sectionNumber) => {
+          setActiveSection(sectionNumber);
+        };
+
+        const getSectionClass = (sectionNumber) => {
+            if (sectionNumber === activeSection) {
+              return 'swiper-slide swiper-slide-active';
+            }
+            if (sectionNumber === activeSection + 1 || (activeSection === 3 && sectionNumber === 1)) {
+              return 'swiper-slide swiper-slide-next';
+            }
+            if (sectionNumber === activeSection - 1 || (activeSection === 1 && sectionNumber === 3)) {
+              return 'swiper-slide swiper-slide-prev';
+            }
+            return 'swiper-slide';
+          };
+       
+
+return(
+<div className="" style={{fontSize: '12px'}}>
     <svg xmlns="http://www.w3.org/2000/svg" 
-        style={{position: 'absolute', width: 0, height: 0}}>
+        style={{position: 'absolute', width: '0', height: '0'}}>
         <symbol id="icon-privacyIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
             <path opacity="0.4" d="M41 14V30H12.7C9.56 30 7 32.56 7 35.7V14C7 6 9 4 17 4H31C39 4 41 6 41 14Z"
                 fill="var(--main-color)"></path>
@@ -1375,7 +1313,7 @@ export default function Dashboard() {
             <path
                 d="M6.40816 20.1019C6.25952 20.054 6.17679 19.8977 6.22441 19.7482C6.38965 19.2295 6.81106 18.0011 7.5467 16.445C8.28233 14.8888 8.96491 13.7819 9.26132 13.3241C9.34673 13.1921 9.52082 13.1552 9.65301 13.2379L12.7396 15.1683C12.8488 15.2366 12.8994 15.3684 12.8612 15.4922C12.7178 15.9577 12.3308 17.1384 11.7377 18.393C11.1446 19.6476 10.4769 20.6979 10.2079 21.105C10.1363 21.2133 10.0018 21.2591 9.87898 21.2195L6.40816 20.1019Z"
                 fill="#B8DBC8"></path>
-            <mask id="mask0_2094_41589" style={{maskType:'alpha'}} maskUnits="userSpaceOnUse" x="11" y="11" width="26"
+            <mask id="mask0_2094_41589" style={{ maskType:'alpha'}} maskUnits="userSpaceOnUse" x="11" y="11" width="26"
                 height="26">
                 <path fillRule="evenodd" clipRule="evenodd"
                     d="M23.9978 36.7541C31.0986 36.7541 36.8549 31.0461 36.8549 24.005C36.8549 16.9638 31.0986 11.2559 23.9978 11.2559C16.897 11.2559 11.1406 16.9638 11.1406 24.005C11.1406 31.0461 16.897 36.7541 23.9978 36.7541ZM23.9978 35.7342C30.5305 35.7342 35.8263 30.4828 35.8263 24.005C35.8263 17.5271 30.5305 12.2758 23.9978 12.2758C17.465 12.2758 12.1692 17.5271 12.1692 24.005C12.1692 30.4828 17.465 35.7342 23.9978 35.7342Z"
@@ -1728,7 +1666,7 @@ export default function Dashboard() {
             </path>
         </symbol>
         <symbol id="icon-eye" t="1503993826520" className="icon"  viewBox="0 0 1024 1024" version="1.1"
-            xmlns="http://www.w3.org/2000/svg" p-id="7878" >
+            xmlns="http://www.w3.org/2000/svg" p-id="7878">
             <defs>
                 <style type="text/css"></style>
             </defs>
@@ -4568,12 +4506,12 @@ export default function Dashboard() {
 
     <div id="app" data-v-app="">
         <div data-v-647954c7="" className="ar-loading-view"
-            style={{display: 'none', '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
+            style={{display:' none', '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sansSerif'",}}>
             <div data-v-647954c7="" className="loading-wrapper">
                 <div data-v-647954c7="" className="loading-animat"><svg xmlns="http://www.w3.org/2000/svg"
-                       
+                         viewBox="0 0 200 200" width="200" height="200"
                         preserveAspectRatio="xMidYMid meet"
-                        style={{width: '100%', height: '100%', transform: 'translate3d(0px, 0px, 0px)', contentVisibility: 'visible'}}>
+                        style={{width: '100%', height: '100%', transform: 'translate3d(0px, 0px, 0px)', contentVisibility: 'visible',}}>
                         <defs>
                             <clipPath id="__lottie_element_2">
                                 <rect width="200" height="200" x="0" y="0"></rect>
@@ -4582,19 +4520,19 @@ export default function Dashboard() {
                                 href="data:image/png;base64,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">
                             </image>
                             <image
-                                href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIBAMAAABfdrOtAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAHlBMVEVHcEy/GyDCGiHCGiDBGiHBGiLBGiG/GyC/HCDBGiEYgX5lAAAACXRSTlMAFupex4emMEAHMN8rAAAEw0lEQVR42u1cy1ITQRTtYTKZsAsQLLODUsDeoVWC2YGSSHYC8ZEdolU6Owopq9gpisJOhwS5f2vPDENek2QefW5ZyF0BReZM9z3nPjrdLURimxJwM+p0Dw5SIqJl9ECaCmQO93z7pLFBvv1BjeDkPV3bJQbicZ267DcC4ySAcGsvT3+W1Q+7+iHMPR+huhr8RtQqasf4IRVEa+f6wbM17Qw2tr1RvCsiZVFwFMbCPlR6pvK4+xorb1O542IZj7FQxGIUFAY64Np1PIYXbuGJ4xEDhspNbbDPPWK10BiGQy46x4pjoi00hsXgdFX1XKAdIg7wRY/HrCV4+VbBs1fkIYVCnzl0LvADwctQ0Rfv9RK5+wweWWfwCJ6+aiDzcAyLwyMVBmrZHAOZZhC7EuIyA38vBIPb8UK0pYsXYonB7aJJL+AYBWoJBpEsccwWXiQ2x2zlMCsm/UrEc8uQLn4gFmgRq8fKtIYHcQgftwyOKJ/nIHCZgcDCcW+ISywOl0wzNFcqcOGLOlFnCPM2RwmRR35ZEdoEhxRZ/O4wJCyDw+8mh97zHFmRhVxHHORqMpBL1BmSieBgcIGDwRZHeMxzpEUWmZTpCx7kjKEM5tGi0+IQfJsBRDIIXnA0cjZsX0UPyC+O+MgAYnJk+JsDYnFEeosj0t+CxLXDIh7EkGt4kCCg3IL8SyCmX5+CY5flP/4mgUCL+pwf5ME5Pufzysb2QBPBNybYumsy6BmwLWM56N+xtfAZBVU9tMO+akya0NbhqjGpEENjcgTtGa9oNYn87i/sGXLI6s68iicWMkKGC3bQtZVwJQK6zlkOHY6UfCVciUCuFlwvElSA6x6y3T9vCJlcXtMMJpTOgh1whbsjdOB3NF2ewK3ZNjucwtFLXkQNSje5zruiGKi+636wiaqKprs7BgnyfI+zmyDPy1YPnSGNUKFHgHnM9sdcD6EKGM2f9U5QHZJS+vYrVBByNKjdl+/nEFKc7yuPzuEu8ZyiXykDzzzTrxST2gOU1p4dJwbEZ+vfuRKxiU/7vj5DtiKi8rxuAl/GcFPmMB9RaNX1NlxG5HZazfOVj5S3pXe+KtFlqdbN1caQzcda5ys3JBiaOnenDt187Oir7s2hZyY07q8+GLr52Ja6tn0YcjiJtB11KI2Qg6Xr9MlI72o6RzP6qExOD4ubIxVn1HWw2BxzwqSkI0GO449i8W72gYwLggfZh1IZq2k1lPWs1BofzQ+yaiXOAb+sh+finYtT/5Uh2dvx3lENJUMwPqbWfkzPvc1A3/W4HIz3NhGz4MRWQEGmPVt8nOAw72HKCbOIHiQJo2kOmipmJdGYKdMclG4mPPl8J8WRb+WQ58k+8YhoM9kn1Hu1k5MxmfNnZQrie7dIbCXyYhquqFdztxJgpGO9muS4KDMysQs78ZjoQ8xBp8UQ4rtCeTZeLyuU6Y6Dz+rji2M4498tsykymDcRo291+eTd9PMxW1kw4z1jcSg5Cw2iBCQcGvW82aBqZEa2V7ybfrTcLeM/iapPBiaq4V+JpOmmH3M7uGCp+uZr+Ke7314Fty4tPtTWZs7shddE3d9Q9jT8bXFV60rJTIMGrKYXwtfDSUN2ANzazr7AmDF16ttUUfyf9hdhzrd5F3WCHQAAAABJRU5ErkJggg==">
+                               href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIBAMAAABfdrOtAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAHlBMVEVHcEy/GyDCGiHCGiDBGiHBGiLBGiG/GyC/HCDBGiEYgX5lAAAACXRSTlMAFupex4emMEAHMN8rAAAEw0lEQVR42u1cy1ITQRTtYTKZsAsQLLODUsDeoVWC2YGSSHYC8ZEdolU6Owopq9gpisJOhwS5f2vPDENek2QefW5ZyF0BReZM9z3nPjrdLURimxJwM+p0Dw5SIqJl9ECaCmQO93z7pLFBvv1BjeDkPV3bJQbicZ267DcC4ySAcGsvT3+W1Q+7+iHMPR+huhr8RtQqasf4IRVEa+f6wbM17Qw2tr1RvCsiZVFwFMbCPlR6pvK4+xorb1O542IZj7FQxGIUFAY64Np1PIYXbuGJ4xEDhspNbbDPPWK10BiGQy46x4pjoi00hsXgdFX1XKAdIg7wRY/HrCV4+VbBs1fkIYVCnzl0LvADwctQ0Rfv9RK5+wweWWfwCJ6+aiDzcAyLwyMVBmrZHAOZZhC7EuIyA38vBIPb8UK0pYsXYonB7aJJL+AYBWoJBpEsccwWXiQ2x2zlMCsm/UrEc8uQLn4gFmgRq8fKtIYHcQgftwyOKJ/nIHCZgcDCcW+ISywOl0wzNFcqcOGLOlFnCPM2RwmRR35ZEdoEhxRZ/O4wJCyDw+8mh97zHFmRhVxHHORqMpBL1BmSieBgcIGDwRZHeMxzpEUWmZTpCx7kjKEM5tGi0+IQfJsBRDIIXnA0cjZsX0UPyC+O+MgAYnJk+JsDYnFEeosj0t+CxLXDIh7EkGt4kCCg3IL8SyCmX5+CY5flP/4mgUCL+pwf5ME5Pufzysb2QBPBNybYumsy6BmwLWM56N+xtfAZBVU9tMO+akya0NbhqjGpEENjcgTtGa9oNYn87i/sGXLI6s68iicWMkKGC3bQtZVwJQK6zlkOHY6UfCVciUCuFlwvElSA6x6y3T9vCJlcXtMMJpTOgh1whbsjdOB3NF2ewK3ZNjucwtFLXkQNSje5zruiGKi+636wiaqKprs7BgnyfI+zmyDPy1YPnSGNUKFHgHnM9sdcD6EKGM2f9U5QHZJS+vYrVBByNKjdl+/nEFKc7yuPzuEu8ZyiXykDzzzTrxST2gOU1p4dJwbEZ+vfuRKxiU/7vj5DtiKi8rxuAl/GcFPmMB9RaNX1NlxG5HZazfOVj5S3pXe+KtFlqdbN1caQzcda5ys3JBiaOnenDt187Oir7s2hZyY07q8+GLr52Ja6tn0YcjiJtB11KI2Qg6Xr9MlI72o6RzP6qExOD4ubIxVn1HWw2BxzwqSkI0GO449i8W72gYwLggfZh1IZq2k1lPWs1BofzQ+yaiXOAb+sh+finYtT/5Uh2dvx3lENJUMwPqbWfkzPvc1A3/W4HIz3NhGz4MRWQEGmPVt8nOAw72HKCbOIHiQJo2kOmipmJdGYKdMclG4mPPl8J8WRb+WQ58k+8YhoM9kn1Hu1k5MxmfNnZQrie7dIbCXyYhquqFdztxJgpGO9muS4KDMysQs78ZjoQ8xBp8UQ4rtCeTZeLyuU6Y6Dz+rji2M4498tsykymDcRo291+eTd9PMxW1kw4z1jcSg5Cw2iBCQcGvW82aBqZEa2V7ybfrTcLeM/iapPBiaq4V+JpOmmH3M7uGCp+uZr+Ke7314Fty4tPtTWZs7shddE3d9Q9jT8bXFV60rJTIMGrKYXwtfDSUN2ANzazr7AmDF16ttUUfyf9hdhzrd5F3WCHQAAAABJRU5ErkJggg==">
                             </image>
                         </defs>
                         <g clipPath="url(#__lottie_element_2)">
                             <g className="ai"
-                                transform="matrix(0.3730732798576355,-0.9278019070625305,0.9278019070625305,0.3730732798576355,-30.087509155273438,155.4728546142578)"
+                                transform="matrix(0.2449391931295395,-0.9695384502410889,0.9695384502410889,0.2449391931295395,-21.44776153564453,172.45993041992188)"
                                 opacity="1" style={{display: 'block'}}>
                                 <image width="200px" height="200px" preserveAspectRatio="xMidYMid slice"
                                     href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIBAMAAABfdrOtAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAHlBMVEVHcEy/GyDCGiHCGiDBGiHBGiLBGiG/GyC/HCDBGiEYgX5lAAAACXRSTlMAFupex4emMEAHMN8rAAAEw0lEQVR42u1cy1ITQRTtYTKZsAsQLLODUsDeoVWC2YGSSHYC8ZEdolU6Owopq9gpisJOhwS5f2vPDENek2QefW5ZyF0BReZM9z3nPjrdLURimxJwM+p0Dw5SIqJl9ECaCmQO93z7pLFBvv1BjeDkPV3bJQbicZ267DcC4ySAcGsvT3+W1Q+7+iHMPR+huhr8RtQqasf4IRVEa+f6wbM17Qw2tr1RvCsiZVFwFMbCPlR6pvK4+xorb1O542IZj7FQxGIUFAY64Np1PIYXbuGJ4xEDhspNbbDPPWK10BiGQy46x4pjoi00hsXgdFX1XKAdIg7wRY/HrCV4+VbBs1fkIYVCnzl0LvADwctQ0Rfv9RK5+wweWWfwCJ6+aiDzcAyLwyMVBmrZHAOZZhC7EuIyA38vBIPb8UK0pYsXYonB7aJJL+AYBWoJBpEsccwWXiQ2x2zlMCsm/UrEc8uQLn4gFmgRq8fKtIYHcQgftwyOKJ/nIHCZgcDCcW+ISywOl0wzNFcqcOGLOlFnCPM2RwmRR35ZEdoEhxRZ/O4wJCyDw+8mh97zHFmRhVxHHORqMpBL1BmSieBgcIGDwRZHeMxzpEUWmZTpCx7kjKEM5tGi0+IQfJsBRDIIXnA0cjZsX0UPyC+O+MgAYnJk+JsDYnFEeosj0t+CxLXDIh7EkGt4kCCg3IL8SyCmX5+CY5flP/4mgUCL+pwf5ME5Pufzysb2QBPBNybYumsy6BmwLWM56N+xtfAZBVU9tMO+akya0NbhqjGpEENjcgTtGa9oNYn87i/sGXLI6s68iicWMkKGC3bQtZVwJQK6zlkOHY6UfCVciUCuFlwvElSA6x6y3T9vCJlcXtMMJpTOgh1whbsjdOB3NF2ewK3ZNjucwtFLXkQNSje5zruiGKi+636wiaqKprs7BgnyfI+zmyDPy1YPnSGNUKFHgHnM9sdcD6EKGM2f9U5QHZJS+vYrVBByNKjdl+/nEFKc7yuPzuEu8ZyiXykDzzzTrxST2gOU1p4dJwbEZ+vfuRKxiU/7vj5DtiKi8rxuAl/GcFPmMB9RaNX1NlxG5HZazfOVj5S3pXe+KtFlqdbN1caQzcda5ys3JBiaOnenDt187Oir7s2hZyY07q8+GLr52Ja6tn0YcjiJtB11KI2Qg6Xr9MlI72o6RzP6qExOD4ubIxVn1HWw2BxzwqSkI0GO449i8W72gYwLggfZh1IZq2k1lPWs1BofzQ+yaiXOAb+sh+finYtT/5Uh2dvx3lENJUMwPqbWfkzPvc1A3/W4HIz3NhGz4MRWQEGmPVt8nOAw72HKCbOIHiQJo2kOmipmJdGYKdMclG4mPPl8J8WRb+WQ58k+8YhoM9kn1Hu1k5MxmfNnZQrie7dIbCXyYhquqFdztxJgpGO9muS4KDMysQs78ZjoQ8xBp8UQ4rtCeTZeLyuU6Y6Dz+rji2M4498tsykymDcRo291+eTd9PMxW1kw4z1jcSg5Cw2iBCQcGvW82aBqZEa2V7ybfrTcLeM/iapPBiaq4V+JpOmmH3M7uGCp+uZr+Ke7314Fty4tPtTWZs7shddE3d9Q9jT8bXFV60rJTIMGrKYXwtfDSUN2ANzazr7AmDF16ttUUfyf9hdhzrd5F3WCHQAAAABJRU5ErkJggg==">
                                 </image>
                             </g>
                             <g className="png"
-                                transform="matrix(0.87566077709198,0,0,0.87566077709198,56.21696090698242,56.21696090698242)"
+                                transform="matrix(0.8842463493347168,0,0,0.8842463493347168,55.787681579589844,55.787681579589844)"
                                 opacity="1" style={{display: 'block'}}>
                                 <image width="100px" height="100px" preserveAspectRatio="xMidYMid slice"
                                     href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAdVBMVEVHcEz5WkXaGxboNyv4WUTlOCv7X0nmOCvnOSzUDwznOCvhOTLaGxbZGhX5W0b////qOy7sQTL0UT7UEA3nNSnXFRH3VkLyTDrRCQjvRzf9Y0zbHBbeIxvkMCX6XEfgJx/iLCL96Of3q6X4x8TzjYXsW1HtcWqX28DLAAAAD3RSTlMA743clTDcG2vnQ/vDpLsaydEZAAAHJ0lEQVRo3rVah6KyOgwG5QhuUBwoIPv9H/G2TUdSiso5//1aOpI0XwcbPO9LhJtosd+t13eG9Xq3W0Sb0PuXCKO9cG5jvY9+/g3DZuEkMESbP49hsbt/xDr6y8T9vB8Ewv63NOHuPgO/ogkX95mYTxOt77OxjmbO1Jk1Ot/PZ77dVcCQEqRkcRfOGsYZcKeR4q6Su6zOGEy4MN0nPs5YdCcybXRffDtVf8L6iykL1+fz/83yQzgusF1Q5aIEFxmlCMnWPx85LhxnnvHWl1EBcpFdEI3WfWT5WV9kc5UZd1qhxWdLYrJ3LOH6QjxbHoqha1qOphv6HGvPdn+m10VxuJAPTX0kaLt+2nyaZZqj7ywGQN1sp1o8Jw7+BVOhYGLfHifBaZ6OcLk4j8pIq6n5qzu+BaPBDU0SuRbkyTQ8PqV7yPr6+AH1AG1kelE1x7LslO5i7Bm64xfoUEPZOR53o8lSXp+kW83xK9TbpwP2hPHJGqNqj8e/sFgTtnfZPL/mcLPkT7KHhUzAokxUaI7HWSympY4hHUg+Co41b5th6Pt+6BxjrKunpshFZAGtfZjnIMyhIOJ2xDBUuZyGZ14NI55GNgZPEHNzptxLrdKI1D5V9bmF0RHUodYqX5CB2KCTVfcum4HS1MXYRO9g0Vj32lqr6uJgVvV4wqjFSw1lySomvoSW7FltIeRcA1ay8HoVdGWMnbaRS78RCmjEN55t6TSAwmy5tt4Slk670LY5PFnsX0QlEjyQOjFtTKYKZMbqVGpQn2C+lq8RErt7b9Bj22Gkzpfi5kGUK53ybcC9A1mlbMBOWbIEj7qVSq1m4PtXxGXchVBC2pLOSTHXpF1bt+2QKD+8YVqTHkkOyLien4v3lcRLJyk5W1SKoqrUgVEPuA0eSq/FL+V3z5eEijjwNHdGXHROsW1OXLHRsEUJqzHw0Z4Z8XB0k1dovhqHu9Db8C7yqEOBl6QtOEBPDu86rsCYqRt8THHzotKRJRsvAi9gLcuIpAFejsE6HaqGBZ7G2thXQFdUkbcw3jVRbbviSK1rWGOaYfpi5K1YeLu0GAHvLUZqXUBqo+ndJKp3e2/HUlUTgUV8lBh5PSZJoS0dSVroDfwtvaWspJqCkGRFKpQstUbSSnKm6vHZSwlV34pi6W3Bh1II4JGkgoWRp9Y1v0klyEhq6QQ6DsWtJw1TjBqTaCSU5GY0iL4de0tTSbLFMrJ3IXnjHAhVNKkDHipv3zSK+VDwmfCkm8X2yOMxSbxlUhlkgrsshUKR1YhDi9MTMk84hVRwx8K5t+VCLkEseImHGLlL4Ymr7sBUivGSxKarsSpvvSWUSYK71sYYadyze0jLHC+hkmoKhqUg0fYKNRlKjBrwInLCgY+SLLbBjA7ePnagmRzKGAneTZwWOy9gZsIWi8kJdwB1ggwTJMAnrj6OlVb3IU4CLxJ5kqgUIrnP6blIeAUlCqxOB2L0xijyNkQsY0KOuzrDSmmhMjKQxDKEdOOFyQhMcyOn3DaZBr70Cr/EkQC7J1paIkBj3dRPcTR0IC7wu7vAqTlZTwWD2wGerMZtwvZgdnMH5UxEtsmC/TDX9MoGzEaTxUZL9Jnyy2/uQpCooAujx7W2O4FFkgkLljb2QDKHJ/FEt4QWOkkgOznedzTYKMnwA11tnJhO8ChuuL0gQ1q9ZZnjrUqnOyPQWqqEaKHEDkXxEJRNYBhNGNV30yoE+XllOaG+WYtf90RNRtpP+ViqB9PsxgKXiChqIKGPtw0YqNDaqkw11wxsUy9xQp+1YWDSm4oZZGRpbxrcHA+TqDJTZkX94iNQyszYANvtavbSXg+Cq8lkdVh1w5XAvA6+vYF6x9lSMZ6sdqIpHojnHW4faeqeyvBi9RMNT2ggbFW4wARaYdWuZTOCpWSyGtoAebiRt2rB6ST1PMpMVgTKk9IIEZ6sWtvekBMRAvp60JfOJIWBYjIJA5ms7jQC2N1W1vvU6DQDZLLaabvRm+HDDBJygn5Mmh3GL5/5hF1hE1EmKpg6nayG6KEIme94Wx9dr0wlkhNKVDBJSW5lrlhPOuX8UBcIU2JuAfpALv+dsjLZCbLA/WljdXWCctHJaq8TOK2mPtKsrp/xIJP1mDJbTX8K8qVJqaKsINDHreuElf/mM+CPz4xLIICk5FnJC1AjV8v6qtUqQOa//zznl7gRai2pyFWsMyY4K/1PHxr9UlmXMlHgFfqSFZlgc//j3xnhqpwGvbV4lHYfRLb65uPvGxZrspxYffdNPpjiaN5wqGEF3373j3zWxhEaA0bxwLoScn/GHwzhQTcnLBqKwkRRPcz7FyNaGQLwDo40W/mwe1D6837E4IMJcM+VX1ylkscj+NWfK8FjBg6//gfnWxo/+MvfUSFbm49YBX/+02sTrN4z/PnXK3lCiw4rN0H0b/9W8zZRcDisfLEEq9UhmPE73H8phJ3sS9dyggAAAABJRU5ErkJggg==">
@@ -4649,854 +4587,108 @@ export default function Dashboard() {
                 </div>
             </div>
         </div>
-        <div data-v-003e4505="" id="home" className="red-home content"
-            style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
-            <div data-v-12a80a3e="" data-v-003e4505="" className="navbar white">
+        <div data-v-3b74cce6="" className="promotionShare__container"
+            style={{"--f13b4d11-currentFontFamily": "'Roboto', 'Inter', 'sansSerif'",}}>
+            <div data-v-12a80a3e="" data-v-3b74cce6="" className="navbar">
                 <div data-v-12a80a3e="" className="navbar-fixed">
                     <div data-v-12a80a3e="" className="navbar__content">
-                        <div data-v-12a80a3e="" className="navbar__content-left"><img data-v-003e4505=""
-                                src="/assets/png/h5setting_20230714005937kuk1.png"
-                                alt=""/></div>
+                        <div data-v-12a80a3e="" className="navbar__content-left"><i data-v-12a80a3e=""
+                                className="van-badge__wrapper van-icon van-icon-arrow-left"></i></div>
                         <div data-v-12a80a3e="" className="navbar__content-center">
-                            <div data-v-12a80a3e="" className="navbar__content-title"></div>
+                            <div data-v-12a80a3e="" className="navbar__content-title">Invite</div>
                         </div>
-                        <div data-v-12a80a3e="" className="navbar__content-right">
-                            <div data-v-003e4505="" className="content__right">
-                                <div data-v-003e4505="" className="message">
-                                    <a href="/home/notification.html">
-                                        <svg data-v-003e4505="" className="svg-icon icon-notification">
-                                            <use href="#icon-notification"></use>
-                                        </svg>
-                                    </a>
-                                    <div data-v-c10b67fb="" data-v-003e4505="" className="point point-flicker point" style={{display: 'none'}}></div>
-                                </div>
-                                <div className="dropdown">
-                                    <svg data-v-003e4505="" className="svg-icon icon-down down down dropdown-toggle">
-                                        <use href="#icon-down"></use>
-                                    </svg>
-                                    <div className="dropdown-menu" style={{display: 'none'}}>
-                                        <a href="/profile.html">Profile</a>
-                                        <a href="/settings.html">Settings</a>
-                                        <a href="/logout.html">Logout</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
+                        <div data-v-12a80a3e="" className="navbar__content-right"></div>
                     </div>
                 </div>
             </div>
-            
-            
-            <div className="swiper-container">
-      <Swiper
-        modules={[Navigation, Autoplay]}
-        spaceBetween={20}
-        slidesPerView={1.2}
-        centeredSlides={true}
-        loop={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-      >
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 1" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 2" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 3" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 4" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 5" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 6" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 7" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 8" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 9" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240204130106kabs.png" alt="Slide 10" /></SwiperSlide>
-      </Swiper>
-    </div>
-            
-            
-            
-           
-            <div data-v-003e4505="" className="noticeBar__container"><svg className="svg-icon icon-noticeBarSpeaker">
-                    <use href="#icon-noticeBarSpeaker"></use>
-                </svg>
-                <div className="noticeBar__container-body">
-                    <div className="noticeBar__container-body-text">Our customer service never send a link to the member,if
-                        you received a link from someone who pro-claimed as 91club customer service do not click the
-                        link to prevent being hack or lost data. Thank you</div>
-                </div><button className="hotIcon">Detail</button>
+            <div data-v-3b74cce6="" className="promotionShare__container-tips">
+                <p data-v-3b74cce6="">Please swipe left - right to choose your favorite poster</p>
             </div>
-            <div data-v-c9ec78ed="" data-v-003e4505="" className="gameList">
-                <div data-v-c9ec78ed="" role="tablist" className="van-sidebar mySideBar">
-                    <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section1' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section1')}
-                        aria-selected="true" id="gameType-lottery">
-                        <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="whiteColor">
-                                <div data-v-c9ec78ed=""
-                                    style={{backgroundImage: `url(/assets/png/gamecategory_20240311141426883l.png)`}}>
-                                </div> <span>Lottery</span>
-                            </div>
+            <div data-v-3b74cce6=""
+                className="swiper swiper-initialized swiper-horizontal swiper-pointer-events my-swipe swiper-backface-hidden">
+                <div className="swiper-wrapper"
+                    style={{"transitionDuration": '0ms', transform: 'translate3d(61.3385px, 0px, 0px)',}}>
+                    <div data-v-3b74cce6="" className={getSectionClass(1)} id="section1" style={{marginRight: '20px'}} onClick={() => handleSectionClick(1)}>
+                        <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share0">
+                             {/* <img v-lazy="getIcons('promotion/promotionShare', 'poster')" />  */}
+                            <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
+                                    src="https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005937kuk1.png"
+                                    alt=""/>
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
+                                        data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
+                                        transparent</span></div>
+                                <div data-v-3b74cce6="" className="head2">Full Odds <span>Bonus</span> Rate</div>
+                                <div data-v-3b74cce6="" className="head3">
+                                    <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
+                                            src="/assets/png/bank-1227ae77.png" alt=""/> Financial security</div>
+                                    <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
+                                            src="/assets/png/trucktick-4f43261f.png" alt=""/> Quick withdrawal</div>
+                                </div>
+                                <div data-v-3b74cce6="" className="head4">Permanent commission<span>up to</span>85%</div>
+                            </div><canvas data-v-3b74cce6="" id="qr-code1" height="164" width="164"
+                                style={{height: '164px', width: '164px'}}></canvas>
                         </div>
                     </div>
-                    <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section2' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section2')}
-                        id="gameType-flash">
-                        <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
-                                <div data-v-c9ec78ed=""
-                                    style={{backgroundImage: `url(/assets/png/gamecategory_20240311141435wkxx.png)`}}>
-                                </div> <span>Mini games</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section3' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section3')}
-                        id="gameType-popular">
-                        <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
-                                <div data-v-c9ec78ed=""
-                                    style={{backgroundImage: `url(/assets/png/gamecategory_20240311141445b3ka.png)`}}>
-                                </div> <span>Popular</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section4' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section4')}
-                        id="gameType-slot">
-                        <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
-                                <div data-v-c9ec78ed=""
-                                    style={{backgroundImage: `url(/assets/png/gamecategory_20240311141457h3ts.png)`}}>
-                                </div> <span>Slots</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section5' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section5')}
-                        id="gameType-fish">
-                        <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
-                                <div data-v-c9ec78ed=""
-                                    style={{backgroundImage: `url(/assets/png/gamecategory_20240311141515owja.png)`}}>
-                                </div> <span>Fishing</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section6' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section6')}
-                        id="gameType-chess">
-                        <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
-                                <div data-v-c9ec78ed=""
-                                    style={{backgroundImage: `url(/assets/png/gamecategory_202403111415086ujt.png)`}}>
-                                </div> <span>PVC</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section7' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section7')}
-                        id="gameType-video">
-                        <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
-                                <div data-v-c9ec78ed=""
-                                    style={{backgroundImage: `url(/assets/png/gamecategory_20240311141522uvco.png)`}}>
-                                </div> <span>Casino</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section8' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section8')}
-                        id="gameType-sport">
-                        <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
-                                <div data-v-c9ec78ed=""
-                                    style={{backgroundImage: `url(/assets/png/gamecategory_20240311141531fugo.png)`}}>
-                                </div> <span>Sports</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div data-v-df3cc798="" data-v-c9ec78ed="" className="gameListGrid__container" >
-                    
-                    <div data-v-acaadf81="" data-v-df3cc798="" className="lottery_container" id="section1" style={{ display: activeSection === 'section1' ? 'grid' : 'none' }}>
-                        <div data-v-acaadf81="" className="lotterySlotItem"><img 
-                            src="/assets/lotterycategory_202307140102511fow.png"
-                            data-v-acaadf81="" className="ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_202307140102511fow.png"/>
-                                <a href=""><span
-                                    data-v-acaadf81="">Win Go</span></a>
-                            <h4 data-v-acaadf81="">
-                                <div data-v-acaadf81="">Guess Number</div>
-                                <div data-v-acaadf81="">Green/Red/Violet to win</div>
-                            </h4>
-                        </div>
-                        <div data-v-acaadf81="" className="lotterySlotItem"><img 
-                            src="/assets/lotterycategory_20230714010227swu2.png"
-                            data-v-acaadf81="" className="ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_20230714010227swu2.png"/>
-                                <a href=""><span
-                                    data-v-acaadf81="">K3</span></a>
-                            <h4 data-v-acaadf81="">
-                                <div data-v-acaadf81="">Guess Number</div>
-                                <div data-v-acaadf81="">Big/Small/Odd/Even</div>
-                            </h4>
-                        </div>
-                        <div data-v-acaadf81="" className="lotterySlotItem"><img 
-                            src="/assets/lotterycategory_2023071401023322dy.png"
-                            data-v-acaadf81="" className="ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_2023071401023322dy.png"/>
-                                <a href=""><span
-                                    data-v-acaadf81="">5D</span></a>
-                            <h4 data-v-acaadf81="">
-                                <div data-v-acaadf81="">Guess Number</div>
-                                <div data-v-acaadf81="">Big/Small/Odd/Even</div>
-                            </h4>
-                        </div>
-                        <div data-v-acaadf81="" className="lotterySlotItem"><img 
-                            src="/assets/lotterycategory_20230714010246lyuc.png"
-                            data-v-acaadf81="" className="ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_20230714010246lyuc.png"/>
-                                <a href=""><span
-                                    data-v-acaadf81="">Trx Win</span></a>
-                            <h4 data-v-acaadf81="">
-                                <div data-v-acaadf81="">Guess Number</div>
-                                <div data-v-acaadf81="">Green/Red/Violet to win</div>
-                            </h4>
-                        </div>
-                    </div>
-                    <div data-v-860d7030="" data-v-df3cc798="" className="minGame_container" id="section2" style={{ display: activeSection === 'section2' ? 'grid' : 'none' }}>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
-                                className="min_game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/810_20240818125355074.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/810_20240818125355074.png"/>
-                        </div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(261)}><img data-v-860d7030=""
-                                className="min_game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"/>
-                        </div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
-                                className="min_game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/801_20240813135440084.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/801_20240813135440084.png"/>
-                        </div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
-                                className="min_game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/110.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/110.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
-                                className="min_game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/101.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/101.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
-                                className="min_game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
-                                className="min_game_img ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/100.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
-                                className="min_game_img ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/107.png"/></div>
-                    </div>
-                    <div data-v-d06787cb="" data-v-df3cc798="" className="hot_container"  id="section3" style={{ display: activeSection === 'section3' ? 'grid' : 'none' }}>
-                        <div data-v-d06787cb="" className="platform">
-                            <div data-v-d06787cb="" className="title"><svg data-v-d06787cb="" width="37" height="37"
-                                    viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg" className="gameRec">
-                                    <path
-                                        d="M23.6259 7.87715L25.7577 12.1408C26.045 12.7304 26.8161 13.2898 27.4662 13.4108L31.3216 14.0458C33.786 14.454 34.3606 16.2381 32.5916 18.0222L29.5829 21.0309C29.0839 21.5298 28.7967 22.5126 28.963 23.2232L29.8248 26.9425C30.5052 29.8757 28.9328 31.0247 26.3474 29.4826L22.7339 27.3356C22.0837 26.9425 20.9951 26.9425 20.345 27.3356L16.7315 29.4826C14.1461 31.0096 12.5737 29.8757 13.2541 26.9425L14.1159 23.2232C14.2822 22.5277 13.9949 21.545 13.496 21.0309L10.4872 18.0222C8.71829 16.2532 9.29282 14.4691 11.7573 14.0458L15.6127 13.4108C16.2628 13.305 17.0339 12.7304 17.3212 12.1408L19.453 7.87715C20.5869 5.5639 22.4617 5.5639 23.6259 7.87715Z"
-                                        fill="#FE6868"></path>
-                                    <path
-                                        d="M12.4531 8.69355H3.3815C2.76161 8.69355 2.24756 8.17949 2.24756 7.5596C2.24756 6.93971 2.76161 6.42566 3.3815 6.42566H12.4531C13.073 6.42566 13.587 6.93971 13.587 7.5596C13.587 8.17949 13.073 8.69355 12.4531 8.69355ZM7.91728 29.8605H3.3815C2.76161 29.8605 2.24756 29.3465 2.24756 28.7266C2.24756 28.1067 2.76161 27.5926 3.3815 27.5926H7.91728C8.53717 27.5926 9.05123 28.1067 9.05123 28.7266C9.05123 29.3465 8.53717 29.8605 7.91728 29.8605ZM4.89343 19.277H3.3815C2.76161 19.277 2.24756 18.763 2.24756 18.1431C2.24756 17.5232 2.76161 17.0091 3.3815 17.0091H4.89343C5.51332 17.0091 6.02738 17.5232 6.02738 18.1431C6.02738 18.763 5.51332 19.277 4.89343 19.277Z"
-                                        fill="#FE6868"></path>
-                                </svg><span data-v-d06787cb="">Platform recommendation</span></div>
-                            <div data-v-d06787cb="" className="list">
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
-                                            viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            className="hot_bage">
-                                            <path
-                                                d="M8.00798 5.79803C3.77459 9.42666 1.96027 13.3578 1.20431 15.6256C0.0703725 19.0272 0.328033 26.4667 5.36212 31.5009C12.5438 38.6826 22.3713 36.0367 26.1511 33.3907C31.144 29.8955 39.3805 18.6494 34.4667 23.1852C32.8472 24.6801 31.6436 24.1183 32.9548 22.8072C34.2659 21.4961 35.2227 20.9173 36.7346 18.6494C38.7544 15.6198 38.8765 12.0977 38.2465 10.3338C37.8685 10.8378 36.5834 12.1481 34.4667 13.3577C32.35 14.5672 30.3089 13.3577 29.5529 12.6017C30.3089 12.6017 32.9548 12.0725 35.9786 8.4439C39.7584 3.90812 39.3805 0.128418 39.3805 0.128418C39.3805 0.128418 37.4906 2.01822 33.3328 3.15216C29.175 4.28611 26.9071 2.77429 22.3713 2.77429C17.8355 2.77429 14.8116 5.79803 15.1896 4.28611C15.492 3.07656 17.5835 1.51424 18.5915 0.884272C16.8276 1.01027 12.2414 2.16941 8.00798 5.79803Z"
-                                                fill="url(#paint0_linear_597_39012)"></path>
-                                            <path
-                                                d="M3.8208 25V15.5455H6.38756V19.2386H9.78529V15.5455H12.3521V25H9.78529V21.3068H6.38756V25H3.8208ZM22.7299 20.2727C22.7299 21.3253 22.5252 22.2132 22.1159 22.9364C21.7066 23.6566 21.1541 24.2029 20.4586 24.5753C19.763 24.9446 18.9875 25.1293 18.1319 25.1293C17.2701 25.1293 16.4915 24.9431 15.7959 24.5707C15.1035 24.1952 14.5526 23.6474 14.1432 22.9272C13.737 22.204 13.5339 21.3191 13.5339 20.2727C13.5339 19.2202 13.737 18.3338 14.1432 17.6136C14.5526 16.8904 15.1035 16.3441 15.7959 15.9748C16.4915 15.6024 17.2701 15.4162 18.1319 15.4162C18.9875 15.4162 19.763 15.6024 20.4586 15.9748C21.1541 16.3441 21.7066 16.8904 22.1159 17.6136C22.5252 18.3338 22.7299 19.2202 22.7299 20.2727ZM20.0893 20.2727C20.0893 19.7064 20.0139 19.2294 19.8631 18.8416C19.7153 18.4508 19.4953 18.1553 19.2029 17.9553C18.9136 17.7521 18.5566 17.6506 18.1319 17.6506C17.7072 17.6506 17.3486 17.7521 17.0562 17.9553C16.7669 18.1553 16.5469 18.4508 16.3961 18.8416C16.2484 19.2294 16.1745 19.7064 16.1745 20.2727C16.1745 20.839 16.2484 21.3176 16.3961 21.7085C16.5469 22.0962 16.7669 22.3917 17.0562 22.5948C17.3486 22.7949 17.7072 22.8949 18.1319 22.8949C18.5566 22.8949 18.9136 22.7949 19.2029 22.5948C19.4953 22.3917 19.7153 22.0962 19.8631 21.7085C20.0139 21.3176 20.0893 20.839 20.0893 20.2727ZM23.2146 17.6136V15.5455H31.432V17.6136H28.5882V25H26.0584V17.6136H23.2146Z"
-                                                fill="url(#paint1_linear_597_39012)"></path>
-                                            <defs>
-                                                <linearGradient id="paint0_linear_597_39012" x1="20.0209" y1="0.128418"
-                                                    x2="20.0209" y2="36.1366" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="#FE6868"></stop>
-                                                    <stop offset="1" stopColor="#CF0405"></stop>
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_597_39012" x1="17.5" y1="13" x2="17.5"
-                                                    y2="27" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="white"></stop>
-                                                    <stop offset="1" stopColor="#FFE081"></stop>
-                                                </linearGradient>
-                                            </defs>
-                                        </svg><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"
-                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">89.37%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '89.37%'}}></div>
-                                    </div>
-                                </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
-                                            viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            className="hot_bage">
-                                            <path
-                                                d="M8.00798 5.79803C3.77459 9.42666 1.96027 13.3578 1.20431 15.6256C0.0703725 19.0272 0.328033 26.4667 5.36212 31.5009C12.5438 38.6826 22.3713 36.0367 26.1511 33.3907C31.144 29.8955 39.3805 18.6494 34.4667 23.1852C32.8472 24.6801 31.6436 24.1183 32.9548 22.8072C34.2659 21.4961 35.2227 20.9173 36.7346 18.6494C38.7544 15.6198 38.8765 12.0977 38.2465 10.3338C37.8685 10.8378 36.5834 12.1481 34.4667 13.3577C32.35 14.5672 30.3089 13.3577 29.5529 12.6017C30.3089 12.6017 32.9548 12.0725 35.9786 8.4439C39.7584 3.90812 39.3805 0.128418 39.3805 0.128418C39.3805 0.128418 37.4906 2.01822 33.3328 3.15216C29.175 4.28611 26.9071 2.77429 22.3713 2.77429C17.8355 2.77429 14.8116 5.79803 15.1896 4.28611C15.492 3.07656 17.5835 1.51424 18.5915 0.884272C16.8276 1.01027 12.2414 2.16941 8.00798 5.79803Z"
-                                                fill="url(#paint0_linear_597_39012)"></path>
-                                            <path
-                                                d="M3.8208 25V15.5455H6.38756V19.2386H9.78529V15.5455H12.3521V25H9.78529V21.3068H6.38756V25H3.8208ZM22.7299 20.2727C22.7299 21.3253 22.5252 22.2132 22.1159 22.9364C21.7066 23.6566 21.1541 24.2029 20.4586 24.5753C19.763 24.9446 18.9875 25.1293 18.1319 25.1293C17.2701 25.1293 16.4915 24.9431 15.7959 24.5707C15.1035 24.1952 14.5526 23.6474 14.1432 22.9272C13.737 22.204 13.5339 21.3191 13.5339 20.2727C13.5339 19.2202 13.737 18.3338 14.1432 17.6136C14.5526 16.8904 15.1035 16.3441 15.7959 15.9748C16.4915 15.6024 17.2701 15.4162 18.1319 15.4162C18.9875 15.4162 19.763 15.6024 20.4586 15.9748C21.1541 16.3441 21.7066 16.8904 22.1159 17.6136C22.5252 18.3338 22.7299 19.2202 22.7299 20.2727ZM20.0893 20.2727C20.0893 19.7064 20.0139 19.2294 19.8631 18.8416C19.7153 18.4508 19.4953 18.1553 19.2029 17.9553C18.9136 17.7521 18.5566 17.6506 18.1319 17.6506C17.7072 17.6506 17.3486 17.7521 17.0562 17.9553C16.7669 18.1553 16.5469 18.4508 16.3961 18.8416C16.2484 19.2294 16.1745 19.7064 16.1745 20.2727C16.1745 20.839 16.2484 21.3176 16.3961 21.7085C16.5469 22.0962 16.7669 22.3917 17.0562 22.5948C17.3486 22.7949 17.7072 22.8949 18.1319 22.8949C18.5566 22.8949 18.9136 22.7949 19.2029 22.5948C19.4953 22.3917 19.7153 22.0962 19.8631 21.7085C20.0139 21.3176 20.0893 20.839 20.0893 20.2727ZM23.2146 17.6136V15.5455H31.432V17.6136H28.5882V25H26.0584V17.6136H23.2146Z"
-                                                fill="url(#paint1_linear_597_39012)"></path>
-                                            <defs>
-                                                <linearGradient id="paint0_linear_597_39012" x1="20.0209" y1="0.128418"
-                                                    x2="20.0209" y2="36.1366" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="#FE6868"></stop>
-                                                    <stop offset="1" stopColor="#CF0405"></stop>
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_597_39012" x1="17.5" y1="13" x2="17.5"
-                                                    y2="27" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="white"></stop>
-                                                    <stop offset="1" stopColor="#FFE081"></stop>
-                                                </linearGradient>
-                                            </defs>
-                                        </svg><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/101.png"
-                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">84.93%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '84.93%'}}></div>
-                                    </div>
-                                </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
-                                            viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            className="hot_bage">
-                                            <path
-                                                d="M8.00798 5.79803C3.77459 9.42666 1.96027 13.3578 1.20431 15.6256C0.0703725 19.0272 0.328033 26.4667 5.36212 31.5009C12.5438 38.6826 22.3713 36.0367 26.1511 33.3907C31.144 29.8955 39.3805 18.6494 34.4667 23.1852C32.8472 24.6801 31.6436 24.1183 32.9548 22.8072C34.2659 21.4961 35.2227 20.9173 36.7346 18.6494C38.7544 15.6198 38.8765 12.0977 38.2465 10.3338C37.8685 10.8378 36.5834 12.1481 34.4667 13.3577C32.35 14.5672 30.3089 13.3577 29.5529 12.6017C30.3089 12.6017 32.9548 12.0725 35.9786 8.4439C39.7584 3.90812 39.3805 0.128418 39.3805 0.128418C39.3805 0.128418 37.4906 2.01822 33.3328 3.15216C29.175 4.28611 26.9071 2.77429 22.3713 2.77429C17.8355 2.77429 14.8116 5.79803 15.1896 4.28611C15.492 3.07656 17.5835 1.51424 18.5915 0.884272C16.8276 1.01027 12.2414 2.16941 8.00798 5.79803Z"
-                                                fill="url(#paint0_linear_597_39012)"></path>
-                                            <path
-                                                d="M3.8208 25V15.5455H6.38756V19.2386H9.78529V15.5455H12.3521V25H9.78529V21.3068H6.38756V25H3.8208ZM22.7299 20.2727C22.7299 21.3253 22.5252 22.2132 22.1159 22.9364C21.7066 23.6566 21.1541 24.2029 20.4586 24.5753C19.763 24.9446 18.9875 25.1293 18.1319 25.1293C17.2701 25.1293 16.4915 24.9431 15.7959 24.5707C15.1035 24.1952 14.5526 23.6474 14.1432 22.9272C13.737 22.204 13.5339 21.3191 13.5339 20.2727C13.5339 19.2202 13.737 18.3338 14.1432 17.6136C14.5526 16.8904 15.1035 16.3441 15.7959 15.9748C16.4915 15.6024 17.2701 15.4162 18.1319 15.4162C18.9875 15.4162 19.763 15.6024 20.4586 15.9748C21.1541 16.3441 21.7066 16.8904 22.1159 17.6136C22.5252 18.3338 22.7299 19.2202 22.7299 20.2727ZM20.0893 20.2727C20.0893 19.7064 20.0139 19.2294 19.8631 18.8416C19.7153 18.4508 19.4953 18.1553 19.2029 17.9553C18.9136 17.7521 18.5566 17.6506 18.1319 17.6506C17.7072 17.6506 17.3486 17.7521 17.0562 17.9553C16.7669 18.1553 16.5469 18.4508 16.3961 18.8416C16.2484 19.2294 16.1745 19.7064 16.1745 20.2727C16.1745 20.839 16.2484 21.3176 16.3961 21.7085C16.5469 22.0962 16.7669 22.3917 17.0562 22.5948C17.3486 22.7949 17.7072 22.8949 18.1319 22.8949C18.5566 22.8949 18.9136 22.7949 19.2029 22.5948C19.4953 22.3917 19.7153 22.0962 19.8631 21.7085C20.0139 21.3176 20.0893 20.839 20.0893 20.2727ZM23.2146 17.6136V15.5455H31.432V17.6136H28.5882V25H26.0584V17.6136H23.2146Z"
-                                                fill="url(#paint1_linear_597_39012)"></path>
-                                            <defs>
-                                                <linearGradient id="paint0_linear_597_39012" x1="20.0209" y1="0.128418"
-                                                    x2="20.0209" y2="36.1366" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="#FE6868"></stop>
-                                                    <stop offset="1" stopColor="#CF0405"></stop>
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_597_39012" x1="17.5" y1="13" x2="17.5"
-                                                    y2="27" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="white"></stop>
-                                                    <stop offset="1" stopColor="#FFE081"></stop>
-                                                </linearGradient>
-                                            </defs>
-                                        </svg><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"
-                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">90.11%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '90.11%'}}></div>
-                                    </div>
-                                </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
-                                            viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            className="hot_bage">
-                                            <path
-                                                d="M8.00798 5.79803C3.77459 9.42666 1.96027 13.3578 1.20431 15.6256C0.0703725 19.0272 0.328033 26.4667 5.36212 31.5009C12.5438 38.6826 22.3713 36.0367 26.1511 33.3907C31.144 29.8955 39.3805 18.6494 34.4667 23.1852C32.8472 24.6801 31.6436 24.1183 32.9548 22.8072C34.2659 21.4961 35.2227 20.9173 36.7346 18.6494C38.7544 15.6198 38.8765 12.0977 38.2465 10.3338C37.8685 10.8378 36.5834 12.1481 34.4667 13.3577C32.35 14.5672 30.3089 13.3577 29.5529 12.6017C30.3089 12.6017 32.9548 12.0725 35.9786 8.4439C39.7584 3.90812 39.3805 0.128418 39.3805 0.128418C39.3805 0.128418 37.4906 2.01822 33.3328 3.15216C29.175 4.28611 26.9071 2.77429 22.3713 2.77429C17.8355 2.77429 14.8116 5.79803 15.1896 4.28611C15.492 3.07656 17.5835 1.51424 18.5915 0.884272C16.8276 1.01027 12.2414 2.16941 8.00798 5.79803Z"
-                                                fill="url(#paint0_linear_597_39012)"></path>
-                                            <path
-                                                d="M3.8208 25V15.5455H6.38756V19.2386H9.78529V15.5455H12.3521V25H9.78529V21.3068H6.38756V25H3.8208ZM22.7299 20.2727C22.7299 21.3253 22.5252 22.2132 22.1159 22.9364C21.7066 23.6566 21.1541 24.2029 20.4586 24.5753C19.763 24.9446 18.9875 25.1293 18.1319 25.1293C17.2701 25.1293 16.4915 24.9431 15.7959 24.5707C15.1035 24.1952 14.5526 23.6474 14.1432 22.9272C13.737 22.204 13.5339 21.3191 13.5339 20.2727C13.5339 19.2202 13.737 18.3338 14.1432 17.6136C14.5526 16.8904 15.1035 16.3441 15.7959 15.9748C16.4915 15.6024 17.2701 15.4162 18.1319 15.4162C18.9875 15.4162 19.763 15.6024 20.4586 15.9748C21.1541 16.3441 21.7066 16.8904 22.1159 17.6136C22.5252 18.3338 22.7299 19.2202 22.7299 20.2727ZM20.0893 20.2727C20.0893 19.7064 20.0139 19.2294 19.8631 18.8416C19.7153 18.4508 19.4953 18.1553 19.2029 17.9553C18.9136 17.7521 18.5566 17.6506 18.1319 17.6506C17.7072 17.6506 17.3486 17.7521 17.0562 17.9553C16.7669 18.1553 16.5469 18.4508 16.3961 18.8416C16.2484 19.2294 16.1745 19.7064 16.1745 20.2727C16.1745 20.839 16.2484 21.3176 16.3961 21.7085C16.5469 22.0962 16.7669 22.3917 17.0562 22.5948C17.3486 22.7949 17.7072 22.8949 18.1319 22.8949C18.5566 22.8949 18.9136 22.7949 19.2029 22.5948C19.4953 22.3917 19.7153 22.0962 19.8631 21.7085C20.0139 21.3176 20.0893 20.839 20.0893 20.2727ZM23.2146 17.6136V15.5455H31.432V17.6136H28.5882V25H26.0584V17.6136H23.2146Z"
-                                                fill="url(#paint1_linear_597_39012)"></path>
-                                            <defs>
-                                                <linearGradient id="paint0_linear_597_39012" x1="20.0209" y1="0.128418"
-                                                    x2="20.0209" y2="36.1366" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="#FE6868"></stop>
-                                                    <stop offset="1" stopColor="#CF0405"></stop>
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_597_39012" x1="17.5" y1="13" x2="17.5"
-                                                    y2="27" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="white"></stop>
-                                                    <stop offset="1" stopColor="#FFE081"></stop>
-                                                </linearGradient>
-                                            </defs>
-                                        </svg><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/100.png"
-                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">87.72%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '87.72%'}}></div>
-                                    </div>
-                                </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
-                                            viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            className="hot_bage">
-                                            <path
-                                                d="M8.00798 5.79803C3.77459 9.42666 1.96027 13.3578 1.20431 15.6256C0.0703725 19.0272 0.328033 26.4667 5.36212 31.5009C12.5438 38.6826 22.3713 36.0367 26.1511 33.3907C31.144 29.8955 39.3805 18.6494 34.4667 23.1852C32.8472 24.6801 31.6436 24.1183 32.9548 22.8072C34.2659 21.4961 35.2227 20.9173 36.7346 18.6494C38.7544 15.6198 38.8765 12.0977 38.2465 10.3338C37.8685 10.8378 36.5834 12.1481 34.4667 13.3577C32.35 14.5672 30.3089 13.3577 29.5529 12.6017C30.3089 12.6017 32.9548 12.0725 35.9786 8.4439C39.7584 3.90812 39.3805 0.128418 39.3805 0.128418C39.3805 0.128418 37.4906 2.01822 33.3328 3.15216C29.175 4.28611 26.9071 2.77429 22.3713 2.77429C17.8355 2.77429 14.8116 5.79803 15.1896 4.28611C15.492 3.07656 17.5835 1.51424 18.5915 0.884272C16.8276 1.01027 12.2414 2.16941 8.00798 5.79803Z"
-                                                fill="url(#paint0_linear_597_39012)"></path>
-                                            <path
-                                                d="M3.8208 25V15.5455H6.38756V19.2386H9.78529V15.5455H12.3521V25H9.78529V21.3068H6.38756V25H3.8208ZM22.7299 20.2727C22.7299 21.3253 22.5252 22.2132 22.1159 22.9364C21.7066 23.6566 21.1541 24.2029 20.4586 24.5753C19.763 24.9446 18.9875 25.1293 18.1319 25.1293C17.2701 25.1293 16.4915 24.9431 15.7959 24.5707C15.1035 24.1952 14.5526 23.6474 14.1432 22.9272C13.737 22.204 13.5339 21.3191 13.5339 20.2727C13.5339 19.2202 13.737 18.3338 14.1432 17.6136C14.5526 16.8904 15.1035 16.3441 15.7959 15.9748C16.4915 15.6024 17.2701 15.4162 18.1319 15.4162C18.9875 15.4162 19.763 15.6024 20.4586 15.9748C21.1541 16.3441 21.7066 16.8904 22.1159 17.6136C22.5252 18.3338 22.7299 19.2202 22.7299 20.2727ZM20.0893 20.2727C20.0893 19.7064 20.0139 19.2294 19.8631 18.8416C19.7153 18.4508 19.4953 18.1553 19.2029 17.9553C18.9136 17.7521 18.5566 17.6506 18.1319 17.6506C17.7072 17.6506 17.3486 17.7521 17.0562 17.9553C16.7669 18.1553 16.5469 18.4508 16.3961 18.8416C16.2484 19.2294 16.1745 19.7064 16.1745 20.2727C16.1745 20.839 16.2484 21.3176 16.3961 21.7085C16.5469 22.0962 16.7669 22.3917 17.0562 22.5948C17.3486 22.7949 17.7072 22.8949 18.1319 22.8949C18.5566 22.8949 18.9136 22.7949 19.2029 22.5948C19.4953 22.3917 19.7153 22.0962 19.8631 21.7085C20.0139 21.3176 20.0893 20.839 20.0893 20.2727ZM23.2146 17.6136V15.5455H31.432V17.6136H28.5882V25H26.0584V17.6136H23.2146Z"
-                                                fill="url(#paint1_linear_597_39012)"></path>
-                                            <defs>
-                                                <linearGradient id="paint0_linear_597_39012" x1="20.0209" y1="0.128418"
-                                                    x2="20.0209" y2="36.1366" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="#FE6868"></stop>
-                                                    <stop offset="1" stopColor="#CF0405"></stop>
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_597_39012" x1="17.5" y1="13" x2="17.5"
-                                                    y2="27" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="white"></stop>
-                                                    <stop offset="1" stopColor="#FFE081"></stop>
-                                                </linearGradient>
-                                            </defs>
-                                        </svg><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/106.png"
-                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">91.83%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '91.83%'}}></div>
-                                    </div>
-                                </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
-                                            viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            className="hot_bage">
-                                            <path
-                                                d="M8.00798 5.79803C3.77459 9.42666 1.96027 13.3578 1.20431 15.6256C0.0703725 19.0272 0.328033 26.4667 5.36212 31.5009C12.5438 38.6826 22.3713 36.0367 26.1511 33.3907C31.144 29.8955 39.3805 18.6494 34.4667 23.1852C32.8472 24.6801 31.6436 24.1183 32.9548 22.8072C34.2659 21.4961 35.2227 20.9173 36.7346 18.6494C38.7544 15.6198 38.8765 12.0977 38.2465 10.3338C37.8685 10.8378 36.5834 12.1481 34.4667 13.3577C32.35 14.5672 30.3089 13.3577 29.5529 12.6017C30.3089 12.6017 32.9548 12.0725 35.9786 8.4439C39.7584 3.90812 39.3805 0.128418 39.3805 0.128418C39.3805 0.128418 37.4906 2.01822 33.3328 3.15216C29.175 4.28611 26.9071 2.77429 22.3713 2.77429C17.8355 2.77429 14.8116 5.79803 15.1896 4.28611C15.492 3.07656 17.5835 1.51424 18.5915 0.884272C16.8276 1.01027 12.2414 2.16941 8.00798 5.79803Z"
-                                                fill="url(#paint0_linear_597_39012)"></path>
-                                            <path
-                                                d="M3.8208 25V15.5455H6.38756V19.2386H9.78529V15.5455H12.3521V25H9.78529V21.3068H6.38756V25H3.8208ZM22.7299 20.2727C22.7299 21.3253 22.5252 22.2132 22.1159 22.9364C21.7066 23.6566 21.1541 24.2029 20.4586 24.5753C19.763 24.9446 18.9875 25.1293 18.1319 25.1293C17.2701 25.1293 16.4915 24.9431 15.7959 24.5707C15.1035 24.1952 14.5526 23.6474 14.1432 22.9272C13.737 22.204 13.5339 21.3191 13.5339 20.2727C13.5339 19.2202 13.737 18.3338 14.1432 17.6136C14.5526 16.8904 15.1035 16.3441 15.7959 15.9748C16.4915 15.6024 17.2701 15.4162 18.1319 15.4162C18.9875 15.4162 19.763 15.6024 20.4586 15.9748C21.1541 16.3441 21.7066 16.8904 22.1159 17.6136C22.5252 18.3338 22.7299 19.2202 22.7299 20.2727ZM20.0893 20.2727C20.0893 19.7064 20.0139 19.2294 19.8631 18.8416C19.7153 18.4508 19.4953 18.1553 19.2029 17.9553C18.9136 17.7521 18.5566 17.6506 18.1319 17.6506C17.7072 17.6506 17.3486 17.7521 17.0562 17.9553C16.7669 18.1553 16.5469 18.4508 16.3961 18.8416C16.2484 19.2294 16.1745 19.7064 16.1745 20.2727C16.1745 20.839 16.2484 21.3176 16.3961 21.7085C16.5469 22.0962 16.7669 22.3917 17.0562 22.5948C17.3486 22.7949 17.7072 22.8949 18.1319 22.8949C18.5566 22.8949 18.9136 22.7949 19.2029 22.5948C19.4953 22.3917 19.7153 22.0962 19.8631 21.7085C20.0139 21.3176 20.0893 20.839 20.0893 20.2727ZM23.2146 17.6136V15.5455H31.432V17.6136H28.5882V25H26.0584V17.6136H23.2146Z"
-                                                fill="url(#paint1_linear_597_39012)"></path>
-                                            <defs>
-                                                <linearGradient id="paint0_linear_597_39012" x1="20.0209" y1="0.128418"
-                                                    x2="20.0209" y2="36.1366" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="#FE6868"></stop>
-                                                    <stop offset="1" stopColor="#CF0405"></stop>
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_597_39012" x1="17.5" y1="13" x2="17.5"
-                                                    y2="27" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="white"></stop>
-                                                    <stop offset="1" stopColor="#FFE081"></stop>
-                                                </linearGradient>
-                                            </defs>
-                                        </svg><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/105.png"
-                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">86.34%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '86.34%'}}></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-v-d06787cb="" className="popular">
-                            <div data-v-d06787cb="" className="title"><svg data-v-d06787cb="" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="hotGames">
-                                    <g clipPath="url(#clip0_589_37755)">
-                                        <path d="M24 0H0V24H24V0Z" fill="white" fillOpacity="0.01"></path>
-                                        <path
-                                            d="M12 22C16.1173 22 19.4999 18.7371 19.4999 14.5491C19.4999 13.5209 19.4476 12.4187 18.8778 10.7058C18.3079 8.9929 18.1931 8.7718 17.5905 7.71395C17.333 9.8727 15.9555 10.7724 15.6055 11.0413C15.6055 10.7615 14.7722 7.66795 13.5088 5.81695C12.2685 4 10.5817 2.80796 9.59265 2C9.59265 3.53489 9.16095 5.81695 8.5427 6.9797C7.92445 8.14245 7.80835 8.1848 7.0361 9.0501C6.2639 9.9154 5.90945 10.1826 5.2637 11.2325C4.61798 12.2825 4.5 13.6809 4.5 14.7091C4.5 18.8971 7.88265 22 12 22Z"
-                                            fill="white"></path>
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_589_37755">
-                                            <rect width="24" height="24" fill="white"></rect>
-                                        </clipPath>
-                                    </defs>
-                                </svg><span data-v-d06787cb="">Popular</span></div>
-                            <div data-v-d06787cb="" className="list">
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/51.png" alt=""
-                                            data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">81.64%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '81.64%'}}></div>
-                                    </div>
-                                </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/109.png" alt=""
-                                            data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">85.41%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '85.41%'}}></div>
-                                    </div>
-                                </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/EVO_Electronic/grandwheel000000.png"
-                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">93.32%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '93.32%'}}></div>
-                                    </div>
-                                </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7001.png" alt=""
-                                            data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">91.62%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '91.62%'}}></div>
-                                    </div>
-                                </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/27.png" alt=""
-                                            data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">90.91%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '90.91%'}}></div>
-                                    </div>
-                                </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/47.png" alt=""
-                                            data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">87.31%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '87.31%'}}></div>
-                                    </div>
-                                </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/1.png" alt=""
-                                            data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">83.23%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '83.23%'}}></div>
-                                    </div>
-                                </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/35.png" alt=""
-                                            data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">87.04%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '87.04%'}}></div>
-                                    </div>
-                                </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/EVO_Electronic/777strike0000000.png"
-                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">81.45%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '81.45%'}}></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-v-54337c48="" data-v-df3cc798="" className="onlineGamesItem__container" id="section4" style={{ display: activeSection === 'section4' ? 'grid' : 'none' }}>
-                        <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165352mtql.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165352mtql.png"/>
+                    <div data-v-3b74cce6="" className={getSectionClass(2)} id="section2" style={{marginRight: '20px'}} onClick={() => handleSectionClick(2)}>
+                        <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share1">
                             
+                            <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
+                                    src="https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005937kuk1.png"
+                                    alt=""/>
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
+                                        data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
+                                        transparent</span></div>
+                                <div data-v-3b74cce6="" className="head2">Full Odds <span>Bonus</span> Rate</div>
+                                <div data-v-3b74cce6="" className="head3">
+                                    <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
+                                            src="/assets/png/bank-1227ae77.png" alt=""/> Financial security</div>
+                                    <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
+                                            src="/assets/png/trucktick-4f43261f.png" alt=""/> Quick withdrawal</div>
+                                </div>
+                                <div data-v-3b74cce6="" className="head4">Permanent commission<span>up to</span>85%</div>
+                            </div><canvas data-v-3b74cce6="" id="qr-code2" height="164" width="164"
+                                style={{height: '164px', width: '164px',}}></canvas>
                         </div>
-                        <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_2024010216505212ii.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_2024010216505212ii.png"/>
+                    </div>
+                    <div data-v-3b74cce6="" className={getSectionClass(3)} id="section3" style={{marginRight: '20px'}} onClick={() => handleSectionClick(3)}>
+                        <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share2">
                             
-                        </div>
-                        <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021653336o2h.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021653336o2h.png"/>
-                           
-                        </div>
-                        <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165037ckq2.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165037ckq2.png"/>
-                            
-                        </div>
-                        <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102163527dtbe.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102163527dtbe.png"/>
-                          
-                        </div>
-                        <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164858e6so.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164858e6so.png"/>
-                           
-                        </div>
-                    </div>
-                    <div data-v-860d7030="" data-v-df3cc798="" className="minGame_container" id="section5" style={{ display: activeSection === 'section5' ? 'grid' : 'none' }}>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7001.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7001.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7002.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7002.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7003.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7003.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7004.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7004.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7005.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7005.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7006.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7006.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7007.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7007.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/1.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/1.png"/></div>
-                    </div>
-                    <div data-v-df3cc798="" className="otherGame" id="section6" style={{ display: activeSection === 'section6' ? 'grid' : 'none' }}>
-                        <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
-                            <div data-v-1153e4fd="" className="title">
-                                <div data-v-1153e4fd="" className="tit">Rummy</div>
-                            </div><img data-v-1153e4fd="" className="game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164947dvuc.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164947dvuc.png"/>
-                        </div>
-                    </div>
-                    <div data-v-df3cc798="" className="otherGame" id="section7" style={{ display: activeSection === 'section7' ? 'grid' : 'none' }}>
-                        <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
-                            <div data-v-1153e4fd="" className="title">
-                                <div data-v-1153e4fd="" className="tit">Casino</div>
-                            </div><img data-v-1153e4fd="" className="game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165020x66i.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165020x66i.png"/>
-                        </div>
-                        <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
-                            <div data-v-1153e4fd="" className="title">
-                                <div data-v-1153e4fd="" className="tit">Casino</div>
-                            </div><img data-v-1153e4fd="" className="game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021635413lly.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021635413lly.png"/>
-                        </div>
-                        <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
-                            <div data-v-1153e4fd="" className="title">
-                                <div data-v-1153e4fd="" className="tit">Casino</div>
-                            </div><img data-v-1153e4fd="" className="game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202405081133481rmp.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202405081133481rmp.png"/>
-                        </div>
-                    </div>
-                    <div data-v-df3cc798="" className="otherGame" id="section8" style={{ display: activeSection === 'section8' ? 'grid' : 'none' }}>
-                        <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
-                            <div data-v-1153e4fd="" className="title">
-                                <div data-v-1153e4fd="" className="tit">Sports</div>
-                            </div><img data-v-1153e4fd="" className="game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165536rgfg.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165536rgfg.png"/>
-                        </div>
-                    </div>
-                    <button data-v-df3cc798="" className="look_all"><img data-v-df3cc798=""
-                            src="/assets/png/all-5227f2a4.png" alt=""/> <a href="">View All</a></button>
-                </div>
-            </div>
-            
-            <div data-v-ffb14677="" data-v-003e4505="" className="luckyWinners__container">
-                <h1 data-v-ffb14677="">Winning information</h1>
-                <div data-v-ffb14677="" className="luckyWinners__container-wrapper">
-                    <div data-v-ffb14677="" style={{position: 'relative'}}>
-                        <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item">
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-img"><img src="/assets/png/11-925c456e.png"
-                                    data-v-ffb14677="" className="ar-lazyload" data-origin="/assets/png/11-925c456e.png"/>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-info">
-                                <h1 data-v-ffb14677="">Mem***SYI</h1>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winType"><img
-                                src="/assets/png/13-5676d43f.png"
-                                    data-v-ffb14677="" className="ar-lazyload"
-                                    data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165536rgfg.png"/>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winAmount">
-                                <h1 data-v-ffb14677="">Receive ₹185.00</h1><span data-v-ffb14677="">Winning
-                                    amount</span>
-                            </div>
-                        </div>
-                        <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item">
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-img"><img
-                                src="/assets/png/12-ae12c679.png"
-                                    data-v-ffb14677="" className="ar-lazyload" data-origin="/assets/png/12-ae12c679.png"/>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-info">
-                                <h1 data-v-ffb14677="">Mem***PIY</h1>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winType"><img src="/assets/lotterycategory_202307140102511fow.png"
-                                    data-v-ffb14677="" className="ar-lazyload"
-                                    data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_202307140102511fow.png"/>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winAmount">
-                                <h1 data-v-ffb14677="">Receive ₹19.60</h1><span data-v-ffb14677="">Winning amount</span>
-                            </div>
-                        </div>
-                        <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item">
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-img"><img src="/assets/png/8-ea087ede.png"
-                                    data-v-ffb14677="" className="ar-lazyload" data-origin="/assets/png/8-ea087ede.png"/>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-info">
-                                <h1 data-v-ffb14677="">Mem***BMV</h1>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winType"><img src="/assets/lotterycategory_202307140102511fow.png"
-                                    data-v-ffb14677="" className="ar-lazyload"
-                                    data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_202307140102511fow.png"/>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winAmount">
-                                <h1 data-v-ffb14677="">Receive ₹19.60</h1><span data-v-ffb14677="">Winning amount</span>
-                            </div>
-                        </div>
-                        <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item">
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-img"><img src="/assets/png/8-ea087ede.png"
-                                    data-v-ffb14677="" className="ar-lazyload" data-origin="/assets/png/8-ea087ede.png"/>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-info">
-                                <h1 data-v-ffb14677="">Mem***YYF</h1>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winType"><img src="/assets/lotterycategory_202307140102511fow.png"
-                                    data-v-ffb14677="" className="ar-lazyload"
-                                    data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_202307140102511fow.png"/>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winAmount">
-                                <h1 data-v-ffb14677="">Receive ₹39.20</h1><span data-v-ffb14677="">Winning amount</span>
-                            </div>
-                        </div>
-                        <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item">
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-img"><img src="/assets/png/12-ae12c679.png"
-                                    data-v-ffb14677="" className="ar-lazyload" data-origin="/assets/png/12-ae12c679.png"/>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-info">
-                                <h1 data-v-ffb14677="">Mem***HDJ</h1>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winType"><img src="/assets/lotterycategory_202307140102511fow.png"
-                                    data-v-ffb14677="" className="ar-lazyload"
-                                    data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_202307140102511fow.png"/>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winAmount">
-                                <h1 data-v-ffb14677="">Receive ₹31.36</h1><span data-v-ffb14677="">Winning amount</span>
-                            </div>
-                        </div>
-                        <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item">
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-img"><img src="/assets/png/2-58c8a9bc.png"
-                                    data-v-ffb14677="" className="ar-lazyload" data-origin="/assets/png/2-58c8a9bc.png"/>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-info">
-                                <h1 data-v-ffb14677="">Mem***GUK</h1>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winType"><img
-                                    data-v-ffb14677="" className="ar-lazyload"
-                                    data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_202307140102511fow.png"/>
-                            </div>
-                            <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winAmount">
-                                <h1 data-v-ffb14677="">Receive ₹19.60</h1><span data-v-ffb14677="">Winning amount</span>
-                            </div>
+                            <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
+                                    src="https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005937kuk1.png"
+                                    alt=""/>
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
+                                        data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
+                                        transparent</span></div>
+                                <div data-v-3b74cce6="" className="head2">Full Odds <span>Bonus</span> Rate</div>
+                                <div data-v-3b74cce6="" className="head3">
+                                    <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
+                                            src="/assets/png/bank-1227ae77.png" alt=""/> Financial security</div>
+                                    <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
+                                            src="/assets/png/trucktick-4f43261f.png" alt=""/> Quick withdrawal</div>
+                                </div>
+                                <div data-v-3b74cce6="" className="head4">Permanent commission<span>up to</span>85%</div>
+                            </div><canvas data-v-3b74cce6="" id="qr-code3" height="164" width="164"
+                                style={{height: '164px', width: '164px'}}></canvas>
                         </div>
                     </div>
                 </div>
             </div>
-            <div data-v-84514e8e="" data-v-003e4505="" className="dailyProfitRank">
-                <div data-v-84514e8e="" className="title"><b data-v-84514e8e=""></b>Today's earnings chart</div>
-                <div data-v-84514e8e="" className="dailyProfitRank__content">
-                    <div data-v-84514e8e="" className="dailyProfitRank__content-topThree">
-                        <div data-v-84514e8e="" className="dailyProfitRank__content-topThree__item"
-                            style={{order: 2, top: '-45px'}}>
-                            <div data-v-84514e8e=""
-                                style={{background: `url(&quot;/assets/png/border1-3b6518ec.png&quot;) center center / 100% 100% no-repeat`}}>
-                                <img src="/assets/png/8-ea087ede.png" data-v-84514e8e="" data-img="/assets/png/avatar-ea3b8ee9.png" className="ar-lazyload"
-                                    data-origin="/assets/png/8-ea087ede.png"/></div>
-                            <div data-v-84514e8e=""><img data-v-84514e8e="" className="ar-lazyload"
-                                    data-origin="/assets/png/crown1-3912fd85.png"/><img src="/assets/png/place2-8189be28.png"
-                                    className="ar-lazyload" data-origin="/assets/png/place1-fe39c3f3.png"/></div><span
-                                data-v-84514e8e="">Mem***BNC</span><span data-v-84514e8e="">₹9,587,575,772.15</span>
-                        </div>
-                        <div data-v-84514e8e="" className="dailyProfitRank__content-topThree__item"
-                            style={{order: 1, top: '-30px'}}>
-                            <div data-v-84514e8e=""
-                                style={{background: `url(&quot;/assets/png/border2-7a806be7.png&quot;) center center / 100% 100% no-repeat`}}>
-                                <img src="/assets/png/11-925c456e.png" data-v-84514e8e="" data-img="/assets/png/avatar-ea3b8ee9.png" className="ar-lazyload"
-                                    data-origin="/assets/png/8-ea087ede.png"/></div>
-                            <div data-v-84514e8e=""><img src="/assets/png/crown3-2ca02146.png" data-v-84514e8e="" className="ar-lazyload"
-                                    data-origin="/assets/png/crown2-c8aced52.png"/><img src="/assets/png/place1-fe39c3f3.png"
-                                    className="ar-lazyload" data-origin="/assets/png/place2-8189be28.png"/></div><span
-                                data-v-84514e8e="">Mem***VVX</span><span data-v-84514e8e="">₹725,325,438.04</span>
-                        </div>
-                        <div data-v-84514e8e="" className="dailyProfitRank__content-topThree__item"
-                            style={{order: 3, top: '-30px'}}>
-                            <div data-v-84514e8e=""
-                                style={{background: `url(&quot;/assets/png/border3-cfec4a7d.png&quot;) center center / 100% 100% no-repeat`}}>
-                                <img src="/assets/png/12-ae12c679.png"
-                                 data-v-84514e8e="" data-img="/assets/png/avatar-ea3b8ee9.png" className="ar-lazyload"
-                                    data-origin="/assets/png/12-ae12c679.png"/></div>
-                            <div data-v-84514e8e=""><img src="/assets/png/crown3-2ca02146.png" data-v-84514e8e="" className="ar-lazyload"
-                                    data-origin="/assets/png/crown3-2ca02146.png"/><img src="/assets/png/place3-d9b0be38.png"
-                                    className="ar-lazyload" data-origin="/assets/png/place3-d9b0be38.png" /></div><span
-                                data-v-84514e8e="">Mem***JQQ</span><span data-v-84514e8e="">₹590,662,479.68</span>
-                        </div>
-                    </div>
-                    <div data-v-84514e8e="" className="dailyProfitRank__content-list">
-                        <div data-v-84514e8e="" className="dailyProfitRank__content-list__item"><span data-v-84514e8e=""
-                                className="left-rank">4</span><img src="/assets/png/1-a6662edb.png"  data-v-84514e8e=""
-                                data-img="/assets/png/avatar-ea3b8ee9.png" className="ar-lazyload"
-                                data-origin="/assets/png/1-a6662edb.png"/><span data-v-84514e8e=""
-                                className="middle-name">Mem***JYF</span><span
-                                data-v-84514e8e="" className="right-box">₹390,663,597.52</span></div>
-                        <div data-v-84514e8e="" className="dailyProfitRank__content-list__item"><span data-v-84514e8e=""
-                                className="left-rank">5</span><img data-v-84514e8e="" src="/assets/png/3-abfcc056.png"
-                                data-img="/assets/png/avatar-ea3b8ee9.png" className="ar-lazyload"
-                                data-origin="/assets/png/3-abfcc056.png"/><span data-v-84514e8e=""
-                                className="middle-name">Mem***JVH</span><span
-                                data-v-84514e8e="" className="right-box">₹316,561,560.00</span></div>
-                    </div>
-                </div>
+            <div data-v-3b74cce6="" className="promotionShare__container-slogan">
+                <p data-v-3b74cce6="">Invite friends</p>
+                <p data-v-3b74cce6="">Income <span data-v-3b74cce6="">10 billion</span> Commission</p>
             </div>
-            <div data-v-0ac3de13="" data-v-003e4505="" className="changlongEnter changlong"></div>
-           
-            <div data-v-c0caae78="" data-v-003e4505="" className="dialog inactive">
-                <div data-v-c0caae78="" className="dialog__container" role="dialog" tabIndex="0">
-                    <div data-v-c0caae78="" className="dialog__container-img"><img data-v-c0caae78="" alt="" className=""
-                            data-origin="/assets/png/superjackpotHome-72bbeb43.png"
-                            src="/assets/png/superjackpotHome-72bbeb43.png"/></div>
-                    <div data-v-c0caae78="" className="dialog__container-title">
-                        <h1 data-v-c0caae78="">Congratulation</h1>
-                    </div>
-                    <div data-v-c0caae78="" className="dialog__container-content">
-                        <div data-v-003e4505="" className="Laundry-Con">
-                            <div data-v-003e4505="" className="Laundry-Con_tip">Get 【Super Jackpot】!</div>
-                            <div data-v-003e4505="" className="Landty-Con-tips">Visit the [Super Jackpot] page to claim your
-                                reward</div>
-                        </div>
-                    </div>
-                    <div data-v-c0caae78="" className="dialog__container-footer"><button
-                            data-v-c0caae78="">OK</button></div>
-                </div>
-                <div data-v-c0caae78="" className="dialog__outside"></div>
+            <div data-v-3b74cce6="" className="promotionShare__container-buttons">
+                <div data-v-3b74cce6="" className="share">INVITATION LINK</div>
+                <div data-v-3b74cce6="" className="cpy">Copy invitation link</div>
+                
             </div>
         </div>
         <div className="customer" id="customerId"
-            style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif", '--f6a705e1-currentFontFamily': "bahnschrift"}}>
+            style={{"--f13b4d11-currentFontFamily": "'Roboto', 'Inter', 'sans-serif'", "--f6a705e1-currentFontFamily": 'bahnschrift'}}>
             <img className="" data-origin="/assets/png/icon_sevice-9f0c8455.png" src="/assets/png/icon_sevice-9f0c8455.png"/>
         </div>
-        <div data-v-6ab3f23e="" className="tabbar__container"
-            style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
-            <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-home">
-                    <a href="/index"><use href="#icon-home"></use></a>
-                </svg><span data-v-6ab3f23e=""><a href="/index">Home</a></span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-activity">
-                    <a href="/activity"><use href="#icon-activity"></use></a>
-                   
-                </svg><span data-v-6ab3f23e=""><a href="/activity">Activity</a></span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-promotion">
-                    <a href="/promotion"><use href="#icon-promotion"></use></a>
-                </svg>
-                <div data-v-6ab3f23e="" className="promotionBg"></div><span data-v-6ab3f23e=""><a href="/promotion/promotion.html">Promotion</a> </span>
-            </div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
-            <a href="/wallet"><use href="#icon-wallet"></use></a>
-                </svg><span data-v-6ab3f23e=""><a href="/wallet">Wallet</a></span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-main">
-            <a href="/account"><use href="#icon-main"></use></a>
-                </svg><span data-v-6ab3f23e=""><a href="/account">Account</a></span></div>
-        </div>
     </div>
-    </div>
-    
-  )
-}
+</div>
+
+)}
+

@@ -9718,7 +9718,7 @@ export default function Activity() {
         style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
       >
         <div data-v-6ab3f23e="" className="tabbar__container-item">
-        <a href="/home/index">
+        <a href="/index">
           <svg data-v-6ab3f23e="" className="svg-icon icon-home">
             <use href="#icon-home"></use></svg
           ><span data-v-6ab3f23e="">Home</span>
@@ -9726,7 +9726,7 @@ export default function Activity() {
         </div>
        
           <div data-v-6ab3f23e="" className="tabbar__container-item active">
-          <a href="/activity/activity">
+          <a href="/activity">
             <svg data-v-6ab3f23e="" className="svg-icon icon-activity">
               <use href="#icon-activity"></use>
           </svg>
@@ -9741,17 +9741,17 @@ export default function Activity() {
             <use href="#icon-promotion"></use>
           </svg>
           <div data-v-6ab3f23e="" className="promotionBg"></div>
-          <span data-v-6ab3f23e=""><a href="/promotion/promotion.html">Promotion</a></span>
+          <span data-v-6ab3f23e=""><a href="/promotion">Promotion</a></span>
         </div>
         <div data-v-6ab3f23e="" className="tabbar__container-item">
           <svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
             <use href="#icon-wallet"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/wallet/wallet.html">Wallet</a></span>
+          ><span data-v-6ab3f23e=""><a href="/wallet">Wallet</a></span>
         </div>
         <div data-v-6ab3f23e="" className="tabbar__container-item">
           <svg data-v-6ab3f23e="" className="svg-icon icon-main">
             <use href="#icon-main"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/account/account.html">Account</a></span>
+          ><span data-v-6ab3f23e=""><a href="/account">Account</a></span>
         </div>
       </div>
       
