@@ -13,6 +13,28 @@ const socket = io(SOCKET_URL, {
   timeout: 10000,
 });
 
+const countDownDate = new Date("2030-07-16T23:59:59.9999999+01:00").getTime();
+
+const getPopupClass = (item) => {
+  switch (item) {
+    case '0': return 0;
+    case '1': return 1;
+    case '2': return 2;
+    case '3': return 3;
+    case '4': return 4;
+    case '5': return 5;
+    case '6': return 6;
+    case '7': return 7;
+    case '8': return 8;
+    case '9': return 9;
+    case 'Red': return 10;
+    case 'Violet': return 12;
+    case 'Green': return 11;
+    case 'Big': return 13;
+    case 'Small': return 14;
+    default: return 1; // Default class if nothing is selected
+  }
+};
 
 
 export default function Wingo() {
@@ -24,9 +46,44 @@ export default function Wingo() {
     const [myBets,setMyBets] = useState(null);
     const [last5Periods, setLast5Periods] = useState([]);
     const [period, setPeriod] = useState(null);
+    const [time, setTime] = useState({
+      seconds1: 0,
+      seconds2: 0,
+    });
+    const [showMark, setShowMark] = useState(false);
+    const [isPopupVisible, setPopupVisible] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(''); // To track the selected item
+  const [balance, setBalance] = useState(1);  // State for balance
+  const [quantity, setQuantity] = useState(1);  // State for quantity
+
+
+  const handleOpenPopup = (item) => {
+    setSelectedItem(item);
+    setPopupVisible(true);
+  };
+
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+    setSelectedItem(''); // Reset the selected item when closing the popup
+    setBalance(1);  // Reset balance
+    setQuantity(1);  // Reset quantity
+  };
+
 
     const getClassName = (amount) => {
       return `n${amount}`; // Construct class name based on amount
+    };
+
+    const handleSelectBalance = (value) => {
+      setBalance(value);
+    };
+  
+    const handleSelectQuantity = (value) => {
+      setQuantity(value);
+    };
+  
+    const handleQuantityChange = (e) => {
+      setQuantity(e.target.value);
     };
 
     const checkPeriodAndStage = async (period) => {
@@ -46,13 +103,35 @@ export default function Wingo() {
       }
     };
     
+    useEffect(() => {
+      const intervalId = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const minute = Math.ceil(minutes / 20 - 2);
+        const seconds1 = Math.floor((distance % (1000 * 60)) / 10000);
+        const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
+        setTime({ seconds1, seconds2 });
+
+        if (seconds1 === 0 && seconds2 <= 5) {
+          handleClosePopup();
+                    setShowMark(true);
+          
+        } else {
+          setShowMark(false);
+        }
+
+      }, 10); // Adjusted the interval time for better performance
+  
+      return () => clearInterval(intervalId); // Clean up on component unmount
+    }, []);
 
     useEffect(() => {
       const fetchGamelist = async () => {
         try {
           const response = await Api.post('/api/webapi/GetNoaverageEmerdList', {
             typeid: "1",
-            pageno: "0",
+            pageno: "1",
             pageto: "10",
             language: "vi",
           });
@@ -111,9 +190,11 @@ export default function Wingo() {
         if (isCheckSuccessful) {
           fetchMyBets();
         }
+
+        fetchGamelist();
+
       };
   
-      fetchGamelist();
 
         console.log("Connecting to socket...");
 
@@ -9752,8 +9833,8 @@ export default function Wingo() {
         <div data-v-3e4c6499="">0</div>
         <div data-v-3e4c6499="">0</div>
         <div data-v-3e4c6499="">:</div>
-        <div data-v-3e4c6499="">0</div>
-        <div data-v-3e4c6499="">6</div>
+        <div data-v-3e4c6499="">{time.seconds1}</div>
+        <div data-v-3e4c6499="">{time.seconds2}</div>
       </div>
     </div>
     <div
@@ -9763,26 +9844,27 @@ export default function Wingo() {
       voicetype="1"
       typeid="30"
     >
-      <div data-v-4aca9bd1="" className="Betting__C-mark" style={{display: 'none'}}>
-        <div data-v-4aca9bd1="">0</div>
-        <div data-v-4aca9bd1="">6</div>
+      <div data-v-4aca9bd1="" className="Betting__C-mark"         style={{ display: showMark ? '' : 'none' }}
+      >
+        <div data-v-4aca9bd1="">{time.seconds1}</div>
+        <div data-v-4aca9bd1="">{time.seconds2}</div>
       </div>
       <div data-v-4aca9bd1="" className="Betting__C-head">
-        <div data-v-4aca9bd1="" className="Betting__C-head-g">Green</div>
-        <div data-v-4aca9bd1="" className="Betting__C-head-p">Violet</div>
-        <div data-v-4aca9bd1="" className="Betting__C-head-r">Red</div>
+        <div data-v-4aca9bd1="" className="Betting__C-head-g" onClick={() => handleOpenPopup('Green')}>Green</div>
+        <div data-v-4aca9bd1="" className="Betting__C-head-p" onClick={() => handleOpenPopup('Violet')}>Violet</div>
+        <div data-v-4aca9bd1="" className="Betting__C-head-r" onClick={() => handleOpenPopup('Red')}>Red</div>
       </div>
       <div data-v-4aca9bd1="" className="Betting__C-numC">
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item0"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item1"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item2"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item3"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item4"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item5"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item6"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item7"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item8"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item9"></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item0" onClick={() => handleOpenPopup('0')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item1" onClick={() => handleOpenPopup('1')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item2" onClick={() => handleOpenPopup('2')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item3" onClick={() => handleOpenPopup('3')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item4" onClick={() => handleOpenPopup('4')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item5" onClick={() => handleOpenPopup('5')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item6" onClick={() => handleOpenPopup('6')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item7" onClick={() => handleOpenPopup('7')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item8" onClick={() => handleOpenPopup('8')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item9" onClick={() => handleOpenPopup('9')}></div>
       </div>
       <div data-v-4aca9bd1="" className="Betting__C-multiple">
         <div data-v-4aca9bd1="" className="Betting__C-multiple-l">Random</div>
@@ -9796,8 +9878,8 @@ export default function Wingo() {
         <div data-v-4aca9bd1="" className="Betting__C-multiple-r">X100</div>
       </div>
       <div data-v-4aca9bd1="" className="Betting__C-foot">
-        <div data-v-4aca9bd1="" className="Betting__C-foot-b">Big</div>
-        <div data-v-4aca9bd1="" className="Betting__C-foot-s">Small</div>
+        <div data-v-4aca9bd1="" className="Betting__C-foot-b" onClick={() => handleOpenPopup('Big')}>Big</div>
+        <div data-v-4aca9bd1="" className="Betting__C-foot-s" onClick={() => handleOpenPopup('Small')}>Small</div>
       </div>
     </div>
     <div data-v-72f81e71="" data-v-5d71c3fd="" className="RecordNav__C">
@@ -10293,43 +10375,122 @@ export default function Wingo() {
 </div>
 
 <div data-v-app=""></div>
-<div className="van-overlay" style={{zIndex: '2005', display: 'none'}}></div>
-< div role = "dialog"
-tabIndex = "0"
-className = "van-popup van-popup--round van-popup--bottom"
-data-v-7 f36fe93 = ""
-style = {
-    {
-        zIndex: '2005',
-        display: 'none'
-    }
-} > <div data- v-7f36fe93 = ""className = "Betting__Popup-11" >
-     <div data-v-7 f36fe93 = ""className = "Betting__Popup-head" > < div data-v-7f36fe93 = ""
-className = "Betting__Popup-head-title" > Win Go 30 s </div>
-<div data-v-7f36fe93="" className="Betting__Popup-head-selectName">
-    <span data-v-7f36fe93="">Select</span > <span data-v-7f36fe93 = ""> Green </span></div> </div>
-    <div data-v-7f36fe93="" className="Betting__Popup-body">
-        <div data-v-7f36fe93="" className="Betting__Popup-body-line">Balance 
-            <div data-v-7f36fe93="" className="Betting__Popup-body-line-list">
-                <div data-v-7f36fe93="" className="Betting__Popup-body-line-item bgcolor">1</div>
-         <div data-v-7 f36fe93 = ""className = "Betting__Popup-body-line-item" > 10 </div>
-         <div data-v-7f36fe93="" className="Betting__Popup-body-line-item">100</div> 
-         <div data-v-7f36fe93 = ""className = "Betting__Popup-body-line-item" > 1000 </div></div> </div>
-         <div data-v-7f36fe93="" className="Betting__Popup-body-line">Quantity 
-            <div data-v-7f36fe93="" className="Betting__Popup-body-line-btnL">
-                <div data-v-7f36fe93="" className="Betting__Popup-btn bgcolor">-</div > < div data-v-7f36fe93 = ""
-className = "van-cell van-field Betting__Popup-input"
-modelmodifiers = "[object Object]"> <div className = "van-cell__value van-field__value"> <div className = "van-field__body"> 
-<input type = "tel"inputMode = "numeric" id = "van-field-1-input" className = "van-field__control"/> </div></div > </div><div data-v-7f36fe93="" className="Betting__Popup-btn bgcolor">+</div > </div></div > 
-<div data-v-7f36fe93 = ""className = "Betting__Popup-body-line"> <div data-v-7f36fe93 = "" > </div><div data-v-7f36fe93="" className="Betting__Popup-body-line-list">
-    <div data-v-7f36fe93="" className="Betting__Popup-body-line-item bgcolor"> X1</div > < div data-v-7f36fe93 = ""
-className = "Betting__Popup-body-line-item" > X5 </div><div data-v-7f36fe93="" className="Betting__Popup-body-line-item"> X10</div > < div data-v-7f36fe93 = ""
-className = "Betting__Popup-body-line-item" > X20 </div><div data-v-7f36fe93="" className="Betting__Popup-body-line-item"> X50</div > < div data-v-7f36fe93 = ""
-className = "Betting__Popup-body-line-item" > X100 </div></div > </div><div data-v-7f36fe93="" className="Betting__Popup-body-line"><span data-v-7f36fe93="" className="Betting__Popup-agree active">I agree</span > 
-< span data-v-7f36fe93 = ""
-className = "Betting__Popup-preSaleShow" > 《Pre - sale rules》 </span></div > </div>
-<div data-v-7f36fe93="" className="Betting__Popup-foot"><div data-v-7f36fe93="" className="Betting__Popup-foot-c">Cancel</div > < div data-v-7f36fe93 = ""
-className = "Betting__Popup-foot-s bgcolor" > Total amount₹ 1.00 </div></div > </div></div >
+{isPopupVisible && (
+<div className="van-overlay" style={{zIndex: '2005'}}></div>
+)
+}
+{isPopupVisible && (
+        <div
+          role="dialog"
+          tabIndex="0"
+          className={`van-popup van-popup--round van-popup--bottom Betting__Popup-${getPopupClass(selectedItem)}`}
+          data-v-7f36fe93=""
+          style={{ zIndex: 2009 }}
+        >
+          <div data-v-7f36fe93="" className="Betting__Popup-1">
+            <div data-v-7f36fe93="" className="Betting__Popup-head">
+              <div data-v-7f36fe93="" className="Betting__Popup-head-title">Win Go 5Min</div>
+              <div data-v-7f36fe93="" className="Betting__Popup-head-selectName">
+                <span data-v-7f36fe93="">Select</span>
+                <span data-v-7f36fe93="">{selectedItem}</span>
+              </div>
+            </div>
+            <div data-v-7f36fe93="" className="Betting__Popup-body">
+              <div data-v-7f36fe93="" className="Betting__Popup-body-line">
+                Balance
+                <div data-v-7f36fe93="" className="Betting__Popup-body-line-list">
+                  <div data-v-7f36fe93=""  className={`Betting__Popup-body-line-item ${balance === 1 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectBalance(1)}>1</div>
+                  <div data-v-7f36fe93=""  className={`Betting__Popup-body-line-item ${balance === 10 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectBalance(10)}>10</div>
+ <div data-v-7f36fe93=""  className={`Betting__Popup-body-line-item ${balance === 100 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectBalance(100)}>100</div>
+ <div data-v-7f36fe93=""  className={`Betting__Popup-body-line-item ${balance === 1000 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectBalance(1000)}>1000</div>
+                </div>
+              </div>
+              <div data-v-7f36fe93="" className="Betting__Popup-body-line">
+                Quantity
+                <div data-v-7f36fe93="" className="Betting__Popup-body-line-btnL">
+                  <div data-v-7f36fe93="" className="Betting__Popup-btn bgcolor" onClick={() => setQuantity((prev) => prev > 0 ? prev - 1 : 0)}>-</div>
+                  <div data-v-7f36fe93="" className="van-cell van-field Betting__Popup-input">
+                    <div className="van-cell__value van-field__value">
+                      <div className="van-field__body">
+                        <input
+                          type="tel"
+                          inputMode="numeric"
+                          id="van-field-1-input"
+                          className="van-field__control"
+                          data-v-7f36fe93=""
+                          value={quantity}
+                          onChange={handleQuantityChange}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div data-v-7f36fe93="" className="Betting__Popup-btn bgcolor" onClick={() => setQuantity((prev) => prev + 1)}>+</div>
+                </div>
+              </div>
+              <div data-v-7f36fe93="" className="Betting__Popup-body-line">
+                <div data-v-7f36fe93=""></div>
+                <div data-v-7f36fe93="" className="Betting__Popup-body-line-list">
+                <div
+                    data-v-7f36fe93=""
+                    className={`Betting__Popup-body-line-item ${quantity === '1' || quantity === 1 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectQuantity('1')}
+                  >
+                    X1
+                  </div>
+                  <div
+                    data-v-7f36fe93=""
+                    className={`Betting__Popup-body-line-item ${quantity === '5' || quantity === 5 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectQuantity('5')}
+                  >
+                    X5
+                  </div>  
+                  <div
+                    data-v-7f36fe93=""
+                    className={`Betting__Popup-body-line-item ${quantity === '10' || quantity === 10 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectQuantity('10')}
+                  >
+                    X10
+                  </div>
+                  <div
+                    data-v-7f36fe93=""
+                    className={`Betting__Popup-body-line-item ${quantity === '20' || quantity === 20 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectQuantity('20')}
+                  >
+                    X20
+                  </div>
+                  <div
+                    data-v-7f36fe93=""
+                    className={`Betting__Popup-body-line-item ${quantity === '50' || quantity === 50 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectQuantity('50')}
+                  >
+                    X50
+                  </div>
+                  <div
+                    data-v-7f36fe93=""
+                    className={`Betting__Popup-body-line-item ${quantity === '100' || quantity === 100 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectQuantity('100')}
+                  >
+                    X100
+                  </div>
+                </div>
+              </div>
+              <div data-v-7f36fe93="" className="Betting__Popup-body-line">
+                <span data-v-7f36fe93="" className="Betting__Popup-agree active">I agree</span>
+                <span data-v-7f36fe93="" className="Betting__Popup-preSaleShow">《Pre-sale rules》</span>
+              </div>
+            </div>
+            <div data-v-7f36fe93="" className="Betting__Popup-foot">
+              <div data-v-7f36fe93="" className="Betting__Popup-foot-c" onClick={handleClosePopup}>Cancel</div>
+              <div data-v-7f36fe93="" className="Betting__Popup-foot-s bgcolor">Total amount ₹{quantity*balance}</div>
+            </div>
+          </div>
+        </div>
+      )}
+
 <div
   role="dialog"
   tabIndex="0"
