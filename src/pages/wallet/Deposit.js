@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
     export default function Deposit(){
 const [activeSection, setActiveSection] = useState('section1');
-
+const [selectedAmount, setSelectedAmount] = useState('');
 const showSection = (sectionId) => {
     setActiveSection(sectionId);
+  };
+  const handleAmountClick = (amount) => {
+    setSelectedAmount(amount);
   };
 
 
@@ -9542,9 +9545,34 @@ const showSection = (sectionId) => {
           <div data-v-4f3d8608="" data-v-36cc3380="">
             
             <div data-v-4f3d8608="" className="Recharge__container-tabcard">
+            <div
+                data-v-4f3d8608=""
+                className={`Recharge__container-tabcard__items ${activeSection === 'section1' ? 'active' : ''}`}  onClick={() => showSection('section1')}
+              >
+                <div data-v-4f3d8608="" className="centers">
+                  
+                  <div
+                    data-v-4f3d8608=""
+                    className="Recharge__container-tabcard__top"
+                  >
+                    <img
+                      data-v-4f3d8608=""
+                      className="img"
+                      src="https://ossimg.91admin123admin.com/91club/payNameIcon/payNameIcon_20240313185300ivg6.png"
+                      alt=""
+                    />
+                  </div>
+                  <div
+                    data-v-4f3d8608=""
+                    className="Recharge__container-tabcard__bot"
+                  >
+                    UPI-transfer
+                  </div>
+                </div>
+              </div>
               <div
                 data-v-4f3d8608=""
-                 className={`Recharge__container-tabcard__items ${activeSection === 'section1' ? 'active' : ''}`}  onClick={() => showSection('section1')}
+                 className={`Recharge__container-tabcard__items ${activeSection === 'section2' ? 'active' : ''}`}  onClick={() => showSection('section2')}
               >
                 <div data-v-4f3d8608="" className="centers">
                   
@@ -9566,8 +9594,7 @@ const showSection = (sectionId) => {
                     UPI
                   </div>
                 </div>
-              </div>
-              
+              </div>              
               <div
                 data-v-4f3d8608=""
                 className={`Recharge__container-tabcard__items ${activeSection === 'section3' ? 'active' : ''}`} onClick={() => showSection('section3')}
@@ -9593,31 +9620,7 @@ const showSection = (sectionId) => {
                   </div>
                 </div>
               </div>
-              <div
-                data-v-4f3d8608=""
-                className={`Recharge__container-tabcard__items ${activeSection === 'section2' ? 'active' : ''}`}  onClick={() => showSection('section2')}
-              >
-                <div data-v-4f3d8608="" className="centers">
-                  
-                  <div
-                    data-v-4f3d8608=""
-                    className="Recharge__container-tabcard__top"
-                  >
-                    <img
-                      data-v-4f3d8608=""
-                      className="img"
-                      src="https://ossimg.91admin123admin.com/91club/payNameIcon/payNameIcon_20240313185300ivg6.png"
-                      alt=""
-                    />
-                  </div>
-                  <div
-                    data-v-4f3d8608=""
-                    className="Recharge__container-tabcard__bot"
-                  >
-                    UPI-transfer
-                  </div>
-                </div>
-              </div>
+              
             </div>
             
           </div>
@@ -9720,85 +9723,184 @@ const showSection = (sectionId) => {
               </div>
               <div
                 data-v-9e03166f=""
-                className="Recharge__content-paymoney__money-list"
+                className="Recharge__content-paymoney__money-list" id="section1" style={{ display: activeSection === 'section1' ? 'flex' : 'none' }}
               >
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
+                  className="Recharge__content-paymoney__money-list__item"  onClick={() => handleAmountClick('10')}
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">{activeSection === 'section2' ? '₹' 
- : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
- : '$'}
-
-                    </span> {activeSection=== 'section2'? '500' :activeSection==='section3' ? '100':activeSection==='section1'? '10': '$'}
+                    <span data-v-9e03166f="">₹</span>10
                   </div>
                   
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('100')}
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">{activeSection === 'section2' ? '₹' 
- : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
- : '$'}</span>  {activeSection=== 'section2'? '1k' :activeSection==='section3' ? '500':activeSection==='section1'? '50': '$'}
+                  <span data-v-9e03166f="">₹</span>100
                   </div>
                   
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('500')}
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">{activeSection === 'section2' ? '₹' 
- : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
- : '$'}</span>  {activeSection=== 'section2'? '5k' :activeSection==='section3' ? '1k':activeSection==='section1'? '100': '$'}
+                  <span data-v-9e03166f="">₹</span>500
                   </div>
                   
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
+                  className="Recharge__content-paymoney__money-list__item"onClick={() => handleAmountClick('1000')}
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">{activeSection === 'section2' ? '₹' 
- : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
- : '$'}</span> {activeSection=== 'section2'? '10k' :activeSection==='section3' ? '5k':activeSection==='section1'? '500': '$'}
+                  <span data-v-9e03166f="">₹</span>1K
                   </div>
                   
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('3000')}
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">{activeSection === 'section2' ? '₹' 
- : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
- : '$'}</span> {activeSection=== 'section2'? '15k' :activeSection==='section3' ? '10k':activeSection==='section1'? '1k': '$'}
+                  <span data-v-9e03166f="">₹</span>3K
                   </div>
                   
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('5000')}
                 >
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">{activeSection === 'section2' ? '₹' 
- : activeSection === 'section3' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section1' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
- : '$'}</span> {activeSection=== 'section2'? '20k' :activeSection==='section3' ? '15k':activeSection==='section1'? '5k': '$'}
+                  <span data-v-9e03166f="">₹</span>5K
                   </div>
                   
                 </div>
               
               </div>
+              <div
+                data-v-9e03166f=""
+                className="Recharge__content-paymoney__money-list" id="section2" style={{ display: activeSection === 'section2' ? 'flex' : 'none' }}
+              >
+                <div
+                  data-v-9e03166f=""
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('10')}
+                >
+                  <div data-v-9e03166f="" className="amount">
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>10
+                  </div>
+                  
+                </div>
+                <div
+                  data-v-9e03166f=""
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('50')}
+                >
+                  <div data-v-9e03166f="" className="amount">
+                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>50
+                  </div>
+                  
+                </div>
+                <div
+                  data-v-9e03166f=""
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('100')}
+                >
+                  <div data-v-9e03166f="" className="amount">
+                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>100
+                  </div>
+                  
+                </div>
+                <div
+                  data-v-9e03166f=""
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('200')}
+                >
+                  <div data-v-9e03166f="" className="amount">
+                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>200
+                  </div>
+                  
+                </div>
+                <div
+                  data-v-9e03166f=""
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('500')}
+                >
+                  <div data-v-9e03166f="" className="amount">
+                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>500
+                  </div>
+                  
+                </div>
+                <div
+                  data-v-9e03166f=""
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('1K')}
+                >
+                  <div data-v-9e03166f="" className="amount">
+                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>1000
+                  </div>
+                  
+                </div>
               
+              </div>
+              <div
+                data-v-9e03166f=""
+                className="Recharge__content-paymoney__money-list" id="section3" style={{ display: activeSection === 'section3' ? 'flex' : 'none' }}
+              >
+                <div
+                  data-v-9e03166f=""
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('10')}
+                >
+                  <div data-v-9e03166f="" className="amount">
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>10
+                  </div>
+                  
+                </div>
+                <div
+                  data-v-9e03166f=""
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('100')}
+                >
+                  <div data-v-9e03166f="" className="amount">
+                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>100
+                  </div>
+                  
+                </div>
+                <div
+                  data-v-9e03166f=""
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('500')}
+                >
+                  <div data-v-9e03166f="" className="amount">
+                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>50
+                  </div>
+                  
+                </div>
+                <div
+                  data-v-9e03166f=""
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('1K')}
+                >
+                  <div data-v-9e03166f="" className="amount">
+                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>500
+                  </div>
+                  
+                </div>
+                <div
+                  data-v-9e03166f=""
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('5K')}
+                >
+                  <div data-v-9e03166f="" className="amount">
+                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>1K
+                  </div>
+                  
+                </div>
+                <div
+                  data-v-9e03166f=""
+                  className="Recharge__content-paymoney__money-list__item" onClick={() => handleAmountClick('10K')}
+                >
+                  <div data-v-9e03166f="" className="amount">
+                  <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>5K
+                  </div>
+                  
+                </div>
+              
+              </div>
               <div
                 data-v-9e03166f=""
                 className="Recharge__content-paymoney__money-input"
@@ -9819,8 +9921,9 @@ const showSection = (sectionId) => {
                       inputmode = "numeric"
                       id = "van-field-7-input"
                       className = "van-field__control"
-                      placeholder = "Please enter the amount" /
-                        >
+                      placeholder = "Please enter the amount"
+                      value={selectedAmount} 
+                      />
                     </div>
                     
                   </div>

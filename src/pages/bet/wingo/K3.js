@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
 export default function K3(){
+    const [activeSection, setActiveSection] = useState('section1');
+
+const showSection = (sectionId) => {
+    setActiveSection(sectionId);
+  };
 
   return(
   <div className="" style={{fontSize: '12px'}}>
@@ -3225,6 +3230,7 @@ export default function K3(){
           stroke-linecap="round"
         ></path>
       </symbol>
+      
       <symbol
         id="icon-downArrow"
         xmlns="http://www.w3.org/2000/svg"
@@ -6070,7 +6076,7 @@ export default function K3(){
       >
         <mask
           id="mask0_186_36273"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="1"
           y="1"
@@ -7560,7 +7566,7 @@ export default function K3(){
       >
         <mask
           id="mask0_1148_26793"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="1"
           y="1"
@@ -8550,7 +8556,7 @@ export default function K3(){
         <g clip-path="url(#clip0_2238_60810)">
           <mask
             id="mask0_2238_60810"
-            style={{masktype: 'alpha'}}
+            style={{maskType: 'alpha'}}
             maskUnits="userSpaceOnUse"
             x="0"
             y="0"
@@ -9114,7 +9120,7 @@ export default function K3(){
       >
         <mask
           id="mask0_6140_40993"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -9260,7 +9266,7 @@ export default function K3(){
         ></path>
         <mask
           id="mask0_6140_37956"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="11"
           y="11"
@@ -9374,8 +9380,8 @@ export default function K3(){
       <div
         data-v-647954c7=""
         className="ar-loading-view"
-        style={{
-          "--f13b4d11-currentFontFamily": "'Roboto', 'Inter', 'sansSerif'", display: 'none',
+        style={{"--f13b4d11-currentFontFamily": "'Roboto', 'Inter', 'sansSerif'",
+          display: 'none'
         }}
       >
         <div data-v-647954c7="" className="loading-wrapper">
@@ -9386,7 +9392,12 @@ export default function K3(){
               width="200"
               height="200"
               preserveAspectRatio="xMidYMid meet"
-              style={{width: '100%', height: '100%', transform: 'translate3d(0px, 0px, 0px)', contentVisibility: 'visible',}}
+              style={{
+                width: '100%',
+                height: '100%',
+                transform: 'translate3d(0px, 0px, 0px)',
+                contentVisibility: 'visible',
+              }}
             >
               <defs>
                 <clipPath id="__lottie_element_2">
@@ -9440,9 +9451,8 @@ export default function K3(){
         </div>
         <div data-v-647954c7="" className="skeleton-wrapper" style={{display: 'none'}}>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
+          
             <div className="van-skeleton__content">
-              
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9467,7 +9477,6 @@ export default function K3(){
             </div>
           </div>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
             <div className="van-skeleton__content">
               <h3 className="van-skeleton-title"></h3>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9479,11 +9488,10 @@ export default function K3(){
           </div>
         </div>
       </div>
-      
       <div
         data-v-d024c659=""
         className="K3__C"
-        style={{"--f13b4d11-currentFontFamily": "'Roboto', 'Inter', sansSerif"}}
+        style={{"--f13b4d11-currentFontFamily": "'Roboto', 'Inter', 'sansSerif',"}}
       >
         <div data-v-12a80a3e="" data-v-d024c659="" className="navbar main">
           <div data-v-12a80a3e="" className="navbar-fixed">
@@ -9499,7 +9507,7 @@ export default function K3(){
                 <div
                   data-v-12a80a3e=""
                   className="headLogo"
-                  style={{backgroundImage: "url('/assets/png/h5setting_20230714005938hfia.png')",}}
+                  style={{ backgroundImage: `url('/assets/png/h5setting_20230714005938hfia.png')` }}
                 ></div>
                 <div data-v-12a80a3e="" className="navbar__content-title"></div>
               </div>
@@ -9546,13 +9554,13 @@ export default function K3(){
           <div data-v-17d56002="" className="GameList__C-item active">
             <div data-v-17d56002="">K3 Lotre <br />1Min</div>
           </div>
-          <div data-v-17d56002="" className="GameList__C-item">
+          <div data-v-17d56002=""  className="GameList__C-item">
             <div data-v-17d56002="">K3 Lotre<br />3Min</div>
           </div>
           <div data-v-17d56002="" className="GameList__C-item">
             <div data-v-17d56002="">K3 Lotre<br />5Min</div>
           </div>
-          <div data-v-17d56002="" className="GameList__C-item">
+          <div data-v-17d56002=""className="GameList__C-item">
             <div data-v-17d56002="">K3 Lotre<br />10Min</div>
           </div>
         </div>
@@ -9606,16 +9614,15 @@ export default function K3(){
           voicetype="1"
           typeid="9"
         >
-            
           <div data-v-8a4509d7="" className="K3B__C-mark" style={{display: 'none'}}>
             <div data-v-8a4509d7="">4</div>
             <div data-v-8a4509d7="">4</div>
           </div>
-          <div data-v-8a4509d7="" className="K3B__C-nav">
-            <div data-v-8a4509d7="" className="active">Total</div>
-            <div data-v-8a4509d7="" className="">2 same</div>
-            <div data-v-8a4509d7="" className="">3 same</div>
-            <div data-v-8a4509d7="" className="">Different</div>
+          <div data-v-8a4509d7="" className="K3B__C-nav" >
+            <div data-v-8a4509d7="" className={`${activeSection === 'section1' ? 'active' : ''}`}  onClick={() => showSection('section1')}>Total</div>
+            <div data-v-8a4509d7="" className={`${activeSection === 'section2' ? 'active' : ''}`}  onClick={() => showSection('section2')}>2 same</div>
+            <div data-v-8a4509d7="" className={`${activeSection === 'section3' ? 'active' : ''}`}  onClick={() => showSection('section3')}>3 same</div>
+            <div data-v-8a4509d7="" className={`${activeSection === 'section4' ? 'active' : ''}`}  onClick={() => showSection('section4')}>Different</div>
           </div>
           <div
             data-v-ed0c8e79=""
@@ -9624,8 +9631,13 @@ export default function K3(){
             numlist="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
             numtow=""
             numone=""
-            numchack="false"
+            numchack="false" id="section1" style={{ display: activeSection === 'section1' ? 'flex' : 'none' }}
           >
+
+
+
+
+
             <div data-v-ed0c8e79="" className="num num3">
               <div data-v-ed0c8e79="" className="ball rball">
                 <div data-v-ed0c8e79="" className="K3B__C-odds-bet num3">3</div>
@@ -9739,38 +9751,24 @@ export default function K3(){
               <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
             </div>
           </div>
+          <div data-v-5c28a69e="" data-v-8a4509d7="" className="K3B__C-betting2"  id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}> <div data-v-5c28a69e="" className="K3B__C-betting2-tip1">2 matching numbers: odds<span data-v-5c28a69e="">(13.83)</span><i data-v-5c28a69e="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-5c28a69e="" className="K3B__C-betting2-line1 mb30"><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">11</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">22</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">33</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">44</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">55</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">66</div></div></div><div data-v-5c28a69e="" className="K3B__C-betting2-tip1">A pair of unique numbers: odds<span data-v-5c28a69e="">(69.12)</span><i data-v-5c28a69e="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-5c28a69e="" className="K3B__C-betting2-line2"><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">11</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">22</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">33</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">44</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">55</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">66</div></div></div><div data-v-5c28a69e="" className="K3B__C-betting2-line3"><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">1</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">2</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">3</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">4</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">5</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">6</div></div></div></div>
+
+
+<div data-v-8a4509d7="" data-v-d024c659="" className="K3B__C" voicetype="1" typeid="9" style={{ display: 'none' }}>
+    <div data-v-8a4509d7="" className="K3B__C-mark" >
+        <div data-v-8a4509d7="">0</div>
+        <div data-v-8a4509d7="">8</div>
+        </div></div>
+        <div data-v-3deb049d="" data-v-8a4509d7="" className="K3B__C-betting3" id="section3" style={{ display: activeSection === 'section3' ? 'block' : 'none' }}><div data-v-3deb049d="" className="K3B__C-betting3-tip1">3 of the same number: odds <span data-v-3deb049d="">(207.36)</span><i data-v-3deb049d="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-3deb049d="" className="K3B__C-betting3-line1 mb30"><div data-v-3deb049d="" className=""><div data-v-3deb049d="">111</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">222</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">333</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">444</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">555</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">666</div></div></div><div data-v-3deb049d="" className="K3B__C-betting3-tip1">Any 3 of the same number: odds <span data-v-3deb049d="">(34.56)</span><i data-v-3deb049d="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-3deb049d="" className="K3B__C-betting3-btn">Any 3 of the same number: odds</div></div>
+
+          <div data-v-bcf2c3f9="" data-v-8a4509d7="" className="K3B__C-betting4" id="section4" style={{ display: activeSection === 'section4' ? 'block' : 'none' }}><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 different numbers: odds <span data-v-bcf2c3f9="">(34.56)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1 mb30"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 continuous numbers: odds <span data-v-bcf2c3f9="">(8.64)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-btn">3 continuous numbers</div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">2 different numbers: odds <span data-v-bcf2c3f9="">(6.91)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div></div>
+
         </div>
-        < div role = "dialog" tabindex = "0" class = "van-popup van-popup--round van-popup--bottom" data-v-5 f002ad4 = ""
-        style = "z-index: 2005; box-shadow: rgba(37, 37, 60, 0.26) 0px -18px 40px;" > < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-body" >< div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-type2" > < p data-v-5 f002ad4 = ""
-        class = "title" > 2 matching numbers: </p><div data-v-5f002ad4="" className="list"><div data-v-5f002ad4="" className="Betting__Popup-type2-d">22</div > </div></div >
-    < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-body-line" > Balance < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-body-line-list" > < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-body-line-item bgcolor" > 1 </div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item">10</div > < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-body-line-item" > 100 </div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item">1000</div > </div></div > < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-body-line" > Quantity < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-body-line-btnL" > < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-btn bgcolor" > - </div><div data-v-5f002ad4="" className="van-cell van-field Betting__Popup-input"><div className="van-cell__value van-field__value"><div className="van-field__body">
-            <input type="tel" inputmode="numeric" id="van-field-1-input" className="van-field__control"/></div ></div></div> < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-btn bgcolor" > + </div></div > </div><div data-v-5f002ad4="" className="Betting__Popup-body-line"><div data-v-5f002ad4=""></div > < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-body-line-list" > < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-body-line-item bgcolor"> X1 </div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X5</div > < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-body-line-item" > X10 </div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X20</div > < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-body-line-item" > X50 </div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X100</div > </div></div > < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-body-line" > < span data-v-5 f002ad4 = ""
-        class = "Betting__Popup-agree active" > I agree </span><span data-v-5f002ad4="" className="Betting__Popup-preSaleShow">《Pre-sale rules》</span > </div></div > < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-foot" > < div data-v-5 f002ad4 = ""
-        class = "Betting__Popup-foot-c" > Cancel </div><div data-v-5f002ad4="" className="Betting__Popup-foot-s bgcolor">Total amount ₹1.00</div > </div></div >
-         <div data-v-3deb049d="" data-v-8a4509d7="" className="K3B__C-betting3"><div data-v-3deb049d="" className="K3B__C-betting3-tip1">3 of the same number: odds <span data-v-3deb049d="">(207.36)</span><i data-v-3deb049d="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px',}}></i></div><div data-v-3deb049d="" className="K3B__C-betting3-line1 mb30"><div data-v-3deb049d="" className=""><div data-v-3deb049d="">111</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">222</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">333</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">444</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">555</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">666</div></div></div><div data-v-3deb049d="" className="K3B__C-betting3-tip1">Any 3 of the same number: odds <span data-v-3deb049d="">(34.56)</span><i data-v-3deb049d="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-3deb049d="" className="K3B__C-betting3-btn">Any 3 of the same number: odds</div></div>
-         <div data-v-bcf2c3f9="" data-v-8a4509d7="" className="K3B__C-betting4"><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 different numbers: odds <span data-v-bcf2c3f9="">(34.56)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}><!----><!----><!----></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1 mb30"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 continuous numbers: odds <span data-v-bcf2c3f9="">(8.64)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-btn">3 continuous numbers</div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">2 different numbers: odds <span data-v-bcf2c3f9="">(6.91)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}><!----><!----><!----></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div></div>
-            <div data-v-72 f81e71 = ""  data-v-d024c659 = "" className = "RecordNav__C">
+        <div data-v-72f81e71="" data-v-d024c659="" className="RecordNav__C">
           <div data-v-72f81e71="" className="active">Game history</div>
           <div data-v-72f81e71="" className="">Chart</div>
           <div data-v-72f81e71="" className="">My history</div>
         </div>
-
         <div
           data-v-4e09079f=""
           data-v-d024c659=""
@@ -9872,6 +9870,7 @@ export default function K3(){
                 </div>
               </div>
             </div>
+
             <div data-v-4e09079f="" className="van-row">
               <div data-v-4e09079f="" className="van-col van-col--8">
                 20240814090777
@@ -9999,7 +9998,7 @@ export default function K3(){
               </div>
             </div>
           </div>
-          <div data-v-4e09079f="" className="GameRecord__C-foot">
+          <div data-v-4e09079f="" className="GameRecord__C-foot" style={{display: 'none'}}>
             <div
               data-v-4e09079f=""
               className="GameRecord__C-foot-previous disabled"
@@ -10022,11 +10021,7 @@ export default function K3(){
             </div>
           </div>
         </div>
-        <div data-v-bcf2c3f9="" data-v-8a4509d7="" className="K3B__C-betting4"><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 different numbers: odds <span data-v-bcf2c3f9="">(34.56)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px',}}><!----><!----><!----></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1 mb30"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 continuous numbers: odds <span data-v-bcf2c3f9="">(8.64)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: rgb(250, 87, 74); font-size: 16px;}}><!----><!----><!----></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-btn">3 continuous numbers</div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">2 different numbers: odds <span data-v-bcf2c3f9="">(6.91)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style="color: rgb(250, 87, 74); font-size: 16px;"><!----><!----><!----></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div></div>
-        <div data-v-4159c83a="" data-v-d024c659="" className="Trend__C" apifun="e=>_(f.WinTxrGetTRXMyEmerdList,e).then(t=>t.data)" listapi="e=>_(f.GetK3NoaverageEmerdList,e).then(t=>t.data)" emerdapi="e=>_(f.WinTxrGetEmerdList,e).then(t=>t.data)" gopathname="AllLotteryGames-BettingRecordK3"><div data-v-4159c83a="" className="Trend__C-head"><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">Period</div><div data-v-4159c83a="" className="van-col van-col--6">Results</div><div data-v-4159c83a="" className="van-col van-col--10">Number</div></div></div><div data-v-4159c83a="" className="Trend__C-body"><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090932</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n3"></div><div data-v-4159c83a="" className="n5"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">3 different numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090931</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n5"></div><div data-v-4159c83a="" className="n2"></div><div data-v-4159c83a="" className="n6"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">3 different numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090930</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n4"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">2 same numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090929</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n5"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">2 same numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090928</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n3"></div><div data-v-4159c83a="" className="n6"></div><div data-v-4159c83a="" className="n2"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">3 different numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090927</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n5"></div><div data-v-4159c83a="" className="n3"></div><div data-v-4159c83a="" className="n5"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">2 same numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090926</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n6"></div><div data-v-4159c83a="" className="n3"></div><div data-v-4159c83a="" className="n5"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">3 different numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090925</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n1"></div><div data-v-4159c83a="" className="n5"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">2 same numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090924</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n6"></div><div data-v-4159c83a="" className="n2"></div><div data-v-4159c83a="" className="n2"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">2 same numbers</span></div></div></div><div data-v-4159c83a="" className="van-row"><div data-v-4159c83a="" className="van-col van-col--8">20240827090923</div><div data-v-4159c83a="" className="van-col van-col--6"><div data-v-4159c83a="" className="Trend__C-body-premium"><div data-v-4159c83a="" className="n5"></div><div data-v-4159c83a="" className="n3"></div><div data-v-4159c83a="" className="n1"></div></div></div><div data-v-4159c83a="" className="van-col van-col--10"><div data-v-4159c83a="" className="Trend__C-body-gameText"><span data-v-4159c83a="">3 different numbers</span></div></div></div></div><div data-v-4159c83a="" className="Trend__C-foot"><div data-v-4159c83a="" className="Trend__C-foot-previous disabled"><i data-v-4159c83a="" className="van-badge__wrapper van-icon van-icon-arrow-left Trend__C-icon" style="font-size: 20px;"><!----><!----><!----></i></div><div data-v-4159c83a="" className="Trend__C-foot-page">1/1678</div><div data-v-4159c83a="" className="Trend__C-foot-next"><i data-v-4159c83a="" className="van-badge__wrapper van-icon van-icon-arrow Trend__C-icon" style="font-size: 20px;"><!----><!----><!----></i></div></div></div>
-        
-        <div data-v-cffd8c9f="" data-v-d024c659="" className="MyGameRecord__C" apifun="e=>_(f.WinTxrGetTRXMyEmerdList,e).then(t=>t.data)" listapi="e=>_(f.GetK3NoaverageEmerdList,e).then(t=>t.data)" emerdapi="e=>_(f.WinTxrGetEmerdList,e).then(t=>t.data)"><div data-v-cffd8c9f="" className="MyGameRecord__C-head"><div data-v-cffd8c9f="" className="MyGameRecord__C-head-moreB">Detail <svg data-v-cffd8c9f="" className="svg-icon icon-rightCircle"><use xlink:href="#icon-rightCircle"></use></svg></div></div><div data-v-cffd8c9f="" className="MyGameRecord__C-body"><div data-v-cffd8c9f="" className="MyGameRecord__C-body-empty"><div data-v-f84b843f="" data-v-cffd8c9f="" className="empty__container"><svg data-v-f84b843f="" className="svg-icon icon-empty"><use xlink:href="#icon-empty"></use></svg><p data-v-f84b843f="">No data</p></div></div></div><!--v-if--></div>
-        <div data-v-3e71d3da="" data-v-d024c659="" className="dialog inactive">
+        <div data-v-3e71d3da="" data-v-d024c659="" className="dialog inactive" style={{display: 'none'}}>
           <div
             data-v-3e71d3da=""
             className="dialog__container"
@@ -10052,10 +10047,262 @@ export default function K3(){
               <button data-v-3e71d3da="">Confirm</button
               ><button data-v-3e71d3da="">Cancel</button>
             </div>
-            
           </div>
           <div data-v-3e71d3da="" className="dialog__outside"></div>
         </div>
+
+        <div
+        data-v-4159c83a=""
+        data-v-d024c659=""
+        className="Trend__C"
+        apifun="e=>_(f.WinTxrGetTRXMyEmerdList,e).then(t=>t.data)"
+        listapi="e=>_(f.GetK3NoaverageEmerdList,e).then(t=>t.data)"
+        emerdapi="e=>_(f.WinTxrGetEmerdList,e).then(t=>t.data)"
+        gopathname="AllLotteryGames-BettingRecordK3"
+      >
+
+
+      <div data-v-5f002ad4="" className="Betting__Popup-body" style={{display: 'none'}}><div data-v-5f002ad4="" className="Betting__Popup-type1"><p data-v-5f002ad4="" className="title">Total:</p><div data-v-5f002ad4="" className="list"><div data-v-5f002ad4="" className="red num3">3</div></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line">Balance <div data-v-5f002ad4="" className="Betting__Popup-body-line-list"></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line">Quantity <div data-v-5f002ad4="" className="Betting__Popup-body-line-btnL"><div data-v-5f002ad4="" className="Betting__Popup-btn bgcolor">-</div><div data-v-5f002ad4="" className="van-cell van-field Betting__Popup-input"><div className="van-cell__value van-field__value"><div className="van-field__body"><input type="tel" inputmode="numeric" id="van-field-6-input" className="van-field__control"/></div></div></div><div data-v-5f002ad4="" className="Betting__Popup-btn bgcolor">+</div></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line"><div data-v-5f002ad4=""></div><div data-v-5f002ad4="" className="Betting__Popup-body-line-list"><div data-v-5f002ad4="" className="Betting__Popup-body-line-item bgcolor"> X1</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X5</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X10</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X20</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X50</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X100</div></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line"><span data-v-5f002ad4="" className="Betting__Popup-agree active">I agree</span><span data-v-5f002ad4="" className="Betting__Popup-preSaleShow">《Pre-sale rules》</span></div></div>
+
+
+        <div data-v-4159c83a="" className="Trend__C-head"style={{display: 'none'}}>
+          <div data-v-4159c83a="" className="van-row">
+            <div data-v-4159c83a="" className="van-col van-col--8">Period</div>
+            <div data-v-4159c83a="" className="van-col van-col--6">Results</div>
+            <div data-v-4159c83a="" className="van-col van-col--10">Number</div>
+          </div>
+        </div>
+        <div data-v-4159c83a="" className="Trend__C-body"style={{display: 'none'}}>
+          <div data-v-4159c83a="" className="van-row">
+            <div data-v-4159c83a="" className="van-col van-col--8">
+              20240824090742
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--6">
+              <div data-v-4159c83a="" className="Trend__C-body-premium">
+                <div data-v-4159c83a="" className="n2"></div>
+                <div data-v-4159c83a="" className="n4"></div>
+                <div data-v-4159c83a="" className="n1"></div>
+              </div>
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--10">
+              <div data-v-4159c83a="" className="Trend__C-body-gameText">
+                <span data-v-4159c83a="">3 different numbers</span>
+              </div>
+            </div>
+          </div>
+          <div data-v-4159c83a="" className="van-row">
+            <div data-v-4159c83a="" className="van-col van-col--8">
+              20240824090741
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--6">
+              <div data-v-4159c83a="" className="Trend__C-body-premium">
+                <div data-v-4159c83a="" className="n6"></div>
+                <div data-v-4159c83a="" className="n1"></div>
+                <div data-v-4159c83a="" className="n1"></div>
+              </div>
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--10">
+              <div data-v-4159c83a="" className="Trend__C-body-gameText">
+                <span data-v-4159c83a="">2 same numbers</span>
+              </div>
+            </div>
+          </div>
+          <div data-v-4159c83a="" className="van-row">
+            <div data-v-4159c83a="" className="van-col van-col--8">
+              20240824090740
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--6">
+              <div data-v-4159c83a="" className="Trend__C-body-premium">
+                <div data-v-4159c83a="" className="n4"></div>
+                <div data-v-4159c83a="" className="n6"></div>
+                <div data-v-4159c83a="" className="n3"></div>
+              </div>
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--10">
+              <div data-v-4159c83a="" className="Trend__C-body-gameText">
+                <span data-v-4159c83a="">3 different numbers</span>
+              </div>
+            </div>
+          </div>
+          <div data-v-4159c83a="" className="van-row">
+            <div data-v-4159c83a="" className="van-col van-col--8">
+              20240824090739
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--6">
+              <div data-v-4159c83a="" className="Trend__C-body-premium">
+                <div data-v-4159c83a="" className="n2"></div>
+                <div data-v-4159c83a="" className="n2"></div>
+                <div data-v-4159c83a="" className="n6"></div>
+              </div>
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--10">
+              <div data-v-4159c83a="" className="Trend__C-body-gameText">
+                <span data-v-4159c83a="">2 same numbers</span>
+              </div>
+            </div>
+          </div>
+          <div data-v-4159c83a="" className="van-row">
+            <div data-v-4159c83a="" className="van-col van-col--8">
+              20240824090738
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--6">
+              <div data-v-4159c83a="" className="Trend__C-body-premium">
+                <div data-v-4159c83a="" className="n1"></div>
+                <div data-v-4159c83a="" className="n1"></div>
+                <div data-v-4159c83a="" className="n3"></div>
+              </div>
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--10">
+              <div data-v-4159c83a="" className="Trend__C-body-gameText">
+                <span data-v-4159c83a="">2 same numbers</span>
+              </div>
+            </div>
+          </div>
+          <div data-v-4159c83a="" className="van-row">
+            <div data-v-4159c83a="" className="van-col van-col--8">
+              20240824090737
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--6">
+              <div data-v-4159c83a="" className="Trend__C-body-premium">
+                <div data-v-4159c83a="" className="n3"></div>
+                <div data-v-4159c83a="" className="n5"></div>
+                <div data-v-4159c83a="" className="n6"></div>
+              </div>
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--10">
+              <div data-v-4159c83a="" className="Trend__C-body-gameText">
+                <span data-v-4159c83a="">3 different numbers</span>
+              </div>
+            </div>
+          </div>
+          <div data-v-4159c83a="" className="van-row">
+            <div data-v-4159c83a="" className="van-col van-col--8">
+              20240824090736
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--6">
+              <div data-v-4159c83a="" className="Trend__C-body-premium">
+                <div data-v-4159c83a="" className="n4"></div>
+                <div data-v-4159c83a="" className="n3"></div>
+                <div data-v-4159c83a="" className="n6"></div>
+              </div>
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--10">
+              <div data-v-4159c83a="" className="Trend__C-body-gameText">
+                <span data-v-4159c83a="">3 different numbers</span>
+              </div>
+            </div>
+          </div>
+          <div data-v-4159c83a="" className="van-row">
+            <div data-v-4159c83a="" className="van-col van-col--8">
+              20240824090735
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--6">
+              <div data-v-4159c83a="" className="Trend__C-body-premium">
+                <div data-v-4159c83a="" className="n1"></div>
+                <div data-v-4159c83a="" className="n5"></div>
+                <div data-v-4159c83a="" className="n1"></div>
+              </div>
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--10">
+              <div data-v-4159c83a="" className="Trend__C-body-gameText">
+                <span data-v-4159c83a="">2 same numbers</span>
+              </div>
+            </div>
+          </div>
+          <div data-v-4159c83a="" className="van-row">
+            <div data-v-4159c83a="" className="van-col van-col--8">
+              20240824090734
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--6">
+              <div data-v-4159c83a="" className="Trend__C-body-premium">
+                <div data-v-4159c83a="" className="n2"></div>
+                <div data-v-4159c83a="" className="n6"></div>
+                <div data-v-4159c83a="" className="n1"></div>
+              </div>
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--10">
+              <div data-v-4159c83a="" className="Trend__C-body-gameText">
+                <span data-v-4159c83a="">3 different numbers</span>
+              </div>
+            </div>
+          </div>
+          <div data-v-4159c83a="" className="van-row">
+            <div data-v-4159c83a="" className="van-col van-col--8">
+              20240824090733
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--6">
+              <div data-v-4159c83a="" className="Trend__C-body-premium">
+                <div data-v-4159c83a="" className="n4"></div>
+                <div data-v-4159c83a="" className="n5"></div>
+                <div data-v-4159c83a="" className="n6"></div>
+              </div>
+            </div>
+            <div data-v-4159c83a="" className="van-col van-col--10">
+              <div data-v-4159c83a="" className="Trend__C-body-gameText">
+                <span data-v-4159c83a="">3 consecutive numbers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-v-4159c83a="" className="Trend__C-foot" style={{display: 'none'}}>
+          <div data-v-4159c83a="" className="Trend__C-foot-previous disabled">
+            <i
+              data-v-4159c83a=""
+              className="van-badge__wrapper van-icon van-icon-arrow-left Trend__C-icon"
+              style={{fontSize: '20px'}}
+              ></i
+            >
+          </div>
+          <div data-v-4159c83a="" className="Trend__C-foot-page">1/1659</div>
+          <div data-v-4159c83a="" className="Trend__C-foot-next">
+            <i
+              data-v-4159c83a=""
+              className="van-badge__wrapper van-icon van-icon-arrow Trend__C-icon"
+              style={{fontSize: '20px'}}
+              ></i
+            >
+          </div>
+        </div>
+      </div>
+
+
+
+      
+
+      <div
+      data-v-cffd8c9f=""
+      data-v-d024c659=""
+      className="MyGameRecord__C"
+      apifun="e=>_(f.WinTxrGetTRXMyEmerdList,e).then(t=>t.data)"
+      listapi="e=>_(f.GetK3NoaverageEmerdList,e).then(t=>t.data)"
+      emerdapi="e=>_(f.WinTxrGetEmerdList,e).then(t=>t.data)"
+      style={{display: 'none'}}>
+      <div data-v-cffd8c9f="" className="MyGameRecord__C-head">
+        <div data-v-cffd8c9f="" className="MyGameRecord__C-head-moreB">
+          Detail
+          <svg data-v-cffd8c9f="" className="svg-icon icon-rightCircle">
+            <use href="#icon-rightCircle"></use>
+          </svg>
+        </div>
+      </div>
+      <div data-v-cffd8c9f="" className="MyGameRecord__C-body" >
+        <div data-v-cffd8c9f="" className="MyGameRecord__C-body-empty">
+          <div
+            data-v-f84b843f=""
+            data-v-cffd8c9f=""
+            className="empty__container"
+          >
+            <svg data-v-f84b843f="" className="svg-icon icon-empty">
+              <use href="#icon-empty"></use>
+            </svg>
+            <p data-v-f84b843f="">No data</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+
         <div
           data-v-2d418cc5=""
           data-v-d024c659=""
@@ -10106,9 +10353,8 @@ export default function K3(){
       <div
         className="customer"
         id="customerId"
-        style={{
-          "--f13b4d11-currentFontFamily": "'Roboto', 'Inter', sansSerif",
-          "--f6a705e1-currentFontFamily": 'bahnschrift',
+        style={{"--f13b4d11-currentFontFamily": "'Roboto', 'Inter', sansSerif",
+          "--f6a705e1-currentFontFamily": 'bahnschrift'
         }}
       >
         <img
@@ -10121,24 +10367,382 @@ export default function K3(){
     </div>
 
     <div data-v-app=""></div>
-    <div className="van-overlay" style={{zIndex: '2011', display: 'none'}}></div>
+    <div className="van-overlay" style={{zIndex: 2011, display: 'none'}}> 
+       <div className="van-overlay" style={{zIndex: 2011, display: 'none'}}> 
     <div
       role="dialog"
       tabindex="0"
-      className="van-popup van-popup--center van-toast van-toast--middle van-toast--loading"
-      style={{zIndex: '2011', display: 'none'}}
+      className="van-popup van-popup--round van-popup--bottom"
+      data-v-7181abf7=""
+      style={{
+        zIndex: '2020',
+        boxShadow: "rgba(37, 37, 60, 0.26) 0px -18px 40px",
+      }}
     >
-      <div
-        className="van-loading van-loading--circular van-toast__loading"
-        aria-live="polite"
-        aria-busy="true"
-      >
-        <span className="van-loading__spinner van-loading__spinner--circular"
-          ><svg className="van-loading__circular" viewBox="25 25 50 50">
-            <circle cx="50" cy="50" r="20" fill="none"></circle></svg></span
-        >
+      <div data-v-7181abf7="" className="Betting__Popup-body">
+        <div data-v-baf77bdf="" className="FDB__C-nav">
+          <div data-v-baf77bdf="" className="active">A</div>
+          <div data-v-baf77bdf="" className="">B</div>
+          <div data-v-baf77bdf="" className="">C</div>
+          <div data-v-baf77bdf="" className="">D</div>
+          <div data-v-baf77bdf="" className="">E</div>
+          <div data-v-baf77bdf="" className="">SUM</div>
+        </div>
+        <div data-v-baf77bdf="" className="FDB__C-H">
+          <div data-v-baf77bdf="" className="active">
+            <span data-v-baf77bdf="">Big</span
+            ><span data-v-baf77bdf="">1.98</span>
+          </div>
+          <div data-v-baf77bdf="" className="">
+            <span data-v-baf77bdf="">Small</span
+            ><span data-v-baf77bdf="">1.98</span>
+          </div>
+          <div data-v-baf77bdf="" className="">
+            <span data-v-baf77bdf="">Odd</span
+            ><span data-v-baf77bdf="">1.98</span>
+          </div>
+          <div data-v-baf77bdf="" className="">
+            <span data-v-baf77bdf="">Even</span
+            ><span data-v-baf77bdf="">1.98</span>
+          </div>
+        </div>
+        <div data-v-baf77bdf="" className="FDB__C-Num">
+          <div data-v-baf77bdf="" txt="0" className="">
+            <div data-v-baf77bdf="" className="round">0</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="1" className="">
+            <div data-v-baf77bdf="" className="round">1</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="2" className="">
+            <div data-v-baf77bdf="" className="round">2</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="3" className="">
+            <div data-v-baf77bdf="" className="round">3</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="4" className="">
+            <div data-v-baf77bdf="" className="round">4</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="5" className="">
+            <div data-v-baf77bdf="" className="round">5</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="6" className="">
+            <div data-v-baf77bdf="" className="round">6</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="7" className="">
+            <div data-v-baf77bdf="" className="round">7</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="8" className="">
+            <div data-v-baf77bdf="" className="round">8</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="9" className="">
+            <div data-v-baf77bdf="" className="round">9</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+        </div>
+        <div data-v-7181abf7="" className="Betting__Popup-body-line">
+          Balance
+          <div data-v-7181abf7="" className="Betting__Popup-body-line-list">
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item bgcolor"
+            >
+              1
+            </div>
+            <div data-v-7181abf7="" className="Betting__Popup-body-line-item">
+              10
+            </div>
+            <div data-v-7181abf7="" className="Betting__Popup-body-line-item">
+              100
+            </div>
+            <div data-v-7181abf7="" className="Betting__Popup-body-line-item">
+              1000
+            </div>
+          </div>
+        </div>
+        <div data-v-7181abf7="" className="Betting__Popup-body-line">
+          Quantity
+          <div data-v-7181abf7="" className="Betting__Popup-body-line-btnL">
+            <div data-v-7181abf7="" className="Betting__Popup-btn bgcolor">
+              -
+            </div>
+            <div
+              data-v-7181abf7=""
+              className="van-cell van-field Betting__Popup-input"
+              modelmodifiers="[object Object]"
+            >
+              
+              <div className="van-cell__value van-field__value">
+                <div className="van-field__body">
+                  <input
+                    type="tel"
+                    inputmode="numeric"
+                    id="van-field-19-input"
+                    className="van-field__control"
+                  />
+                </div>
+                
+              </div>
+              
+            </div>
+            <div data-v-7181abf7="" className="Betting__Popup-btn bgcolor">
+              +
+            </div>
+          </div>
+        </div>
+        <div data-v-7181abf7="" className="Betting__Popup-body-line">
+          <div data-v-7181abf7=""></div>
+          <div data-v-7181abf7="" className="Betting__Popup-body-line-list">
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item setBorder bgcolor"
+            >
+              X1
+            </div>
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item setBorder"
+            >
+              X5
+            </div>
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item setBorder"
+            >
+              X10
+            </div>
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item setBorder"
+            >
+              X20
+            </div>
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item setBorder"
+            >
+              X50
+            </div>
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item setBorder"
+            >
+              X100
+            </div>
+          </div>
+        </div>
+        <div data-v-7181abf7="" className="Betting__Popup-body-line">
+          <span data-v-7181abf7="" className="Betting__Popup-agree active"
+            >I agree</span
+          ><span data-v-7181abf7="" className="Betting__Popup-preSaleShow"
+            >《Pre-sale rules》</span
+          >
+        </div>
+      </div>
+      <div data-v-7181abf7="" className="Betting__Popup-foot">
+        <div data-v-7181abf7="" className="Betting__Popup-foot-c">Cancel</div>
+        <div data-v-7181abf7="" className="Betting__Popup-foot-s bgcolor">
+          Total amount₹1.00
+        </div>
       </div>
       
+    </div></div></div>
+    <div className="van-overlay" style={{zIndex: '2001', display: 'none'}}>  <div className="van-overlay" data-v-7181abf7="" style={{zIndex: '2020'}}>
+      
     </div>
- </div>
+    <div
+      role="dialog"
+      tabindex="0"
+      className="van-popup van-popup--round van-popup--bottom"
+      data-v-7181abf7=""
+      style={{
+        zIndex: '2020',
+        boxShadow: 'rgba(37, 37, 60, 0.26) 0px -18px 40px',
+      }}
+    >
+      <div data-v-7181abf7="" className="Betting__Popup-body">
+        <div data-v-baf77bdf="" className="FDB__C-nav">
+          <div data-v-baf77bdf="" className="active">A</div>
+          <div data-v-baf77bdf="" className="">B</div>
+          <div data-v-baf77bdf="" className="">C</div>
+          <div data-v-baf77bdf="" className="">D</div>
+          <div data-v-baf77bdf="" className="">E</div>
+          <div data-v-baf77bdf="" className="">SUM</div>
+        </div>
+        <div data-v-baf77bdf="" className="FDB__C-H">
+          <div data-v-baf77bdf="" className="active">
+            <span data-v-baf77bdf="">Big</span
+            ><span data-v-baf77bdf="">1.98</span>
+          </div>
+          <div data-v-baf77bdf="" className="">
+            <span data-v-baf77bdf="">Small</span
+            ><span data-v-baf77bdf="">1.98</span>
+          </div>
+          <div data-v-baf77bdf="" className="">
+            <span data-v-baf77bdf="">Odd</span
+            ><span data-v-baf77bdf="">1.98</span>
+          </div>
+          <div data-v-baf77bdf="" className="">
+            <span data-v-baf77bdf="">Even</span
+            ><span data-v-baf77bdf="">1.98</span>
+          </div>
+        </div>
+        <div data-v-baf77bdf="" className="FDB__C-Num">
+          <div data-v-baf77bdf="" txt="0" className="">
+            <div data-v-baf77bdf="" className="round">0</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="1" className="">
+            <div data-v-baf77bdf="" className="round">1</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="2" className="">
+            <div data-v-baf77bdf="" className="round">2</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="3" className="">
+            <div data-v-baf77bdf="" className="round">3</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="4" className="">
+            <div data-v-baf77bdf="" className="round">4</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="5" className="">
+            <div data-v-baf77bdf="" className="round">5</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="6" className="">
+            <div data-v-baf77bdf="" className="round">6</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="7" className="">
+            <div data-v-baf77bdf="" className="round">7</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="8" className="">
+            <div data-v-baf77bdf="" className="round">8</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+          <div data-v-baf77bdf="" txt="9" className="">
+            <div data-v-baf77bdf="" className="round">9</div>
+            <div data-v-baf77bdf="" className="rate">9</div>
+          </div>
+        </div>
+        <div data-v-7181abf7="" className="Betting__Popup-body-line">
+          Balance
+          <div data-v-7181abf7="" className="Betting__Popup-body-line-list">
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item bgcolor"
+            >
+              1
+            </div>
+            <div data-v-7181abf7="" className="Betting__Popup-body-line-item">
+              10
+            </div>
+            <div data-v-7181abf7="" className="Betting__Popup-body-line-item">
+              100
+            </div>
+            <div data-v-7181abf7="" className="Betting__Popup-body-line-item">
+              1000
+            </div>
+          </div>
+        </div>
+        <div data-v-7181abf7="" className="Betting__Popup-body-line">
+          Quantity
+          <div data-v-7181abf7="" className="Betting__Popup-body-line-btnL">
+            <div data-v-7181abf7="" className="Betting__Popup-btn bgcolor">
+              -
+            </div>
+            <div
+              data-v-7181abf7=""
+              className="van-cell van-field Betting__Popup-input"
+              modelmodifiers="[object Object]"
+            >
+              
+              <div className="van-cell__value van-field__value">
+                <div className="van-field__body">
+                  <input
+                    type="tel"
+                    inputmode="numeric"
+                    id="van-field-19-input"
+                    className="van-field__control"
+                  />
+                </div>
+                
+              </div>
+              
+            </div>
+            <div data-v-7181abf7="" className="Betting__Popup-btn bgcolor">
+              +
+            </div>
+          </div>
+        </div>
+        <div data-v-7181abf7="" className="Betting__Popup-body-line">
+          <div data-v-7181abf7=""></div>
+          <div data-v-7181abf7="" className="Betting__Popup-body-line-list">
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item setBorder bgcolor"
+            >
+              X1
+            </div>
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item setBorder"
+            >
+              X5
+            </div>
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item setBorder"
+            >
+              X10
+            </div>
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item setBorder"
+            >
+              X20
+            </div>
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item setBorder"
+            >
+              X50
+            </div>
+            <div
+              data-v-7181abf7=""
+              className="Betting__Popup-body-line-item setBorder"
+            >
+              X100
+            </div>
+          </div>
+        </div>
+        <div data-v-7181abf7="" className="Betting__Popup-body-line">
+          <span data-v-7181abf7="" className="Betting__Popup-agree active"
+            >I agree</span
+          ><span data-v-7181abf7="" className="Betting__Popup-preSaleShow"
+            >《Pre-sale rules》</span
+          >
+        </div>
+      </div>
+      <div data-v-7181abf7="" className="Betting__Popup-foot">
+        <div data-v-7181abf7="" className="Betting__Popup-foot-c">Cancel</div>
+        <div data-v-7181abf7="" className="Betting__Popup-foot-s bgcolor">
+          Total amount₹1.00
+        </div>
+      </div>
+      
+    </div></div>
+  </div>
 )}

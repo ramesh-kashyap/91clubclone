@@ -1,164 +1,60 @@
 import React, { useEffect, useState } from 'react';
-import { io } from 'socket.io-client';
 import Api from '../../../services/Api';
-import MyGameRecordList from './components/MyGameRecordList';
-import GameList from './components/GameList';
+import Loader from '../../../components/Loader';
+import { io } from 'socket.io-client';
 
-const SOCKET_URL = 'http://localhost:3000';
+const SOCKET_URL = 'http://localhost:3000'; // Ensure this matches your server URL
 
-const socket = io(SOCKET_URL, {
-  transports: ['websocket', 'polling'],
+export const socket = io(SOCKET_URL, {
+  transports: ['websocket'], // Ensures WebSocket transport is used
   reconnection: true,
   reconnectionAttempts: Infinity,
   timeout: 10000,
+  secure: false,
 });
 
-
-
-export default function Wingo() {
+export default function Wingo(){
     const [activeSection, setActiveSection] = useState('section1');
     const [totalMoney, setTotalMoney] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [gamelist, setGamelist] = useState(null);
-    const [myBets,setMyBets] = useState(null);
-    const [last5Periods, setLast5Periods] = useState([]);
-    const [period, setPeriod] = useState(null);
-
-    const getClassName = (amount) => {
-      return `n${amount}`; // Construct class name based on amount
-    };
-
-    const checkPeriodAndStage = async (period) => {
-      try {
-        const response = await Api.post('/api/webapi/checkPeriodAndStage', { period });
-        if (response.data.status === 'true') {
-          // Handle success case
-          // console.log(response.data);
-          return true;
-        } else {
-          // console.error('API response was not successful:', response.data.status);
-          return false;
-        }
-      } catch (error) {
-        console.error('An error occurred during the API request:', error);
-        return false;
-      }
-    };
-    
-
+  
     useEffect(() => {
-      const fetchGamelist = async () => {
-        try {
-          const response = await Api.post('/api/webapi/GetNoaverageEmerdList', {
-            typeid: "1",
-            pageno: "0",
-            pageto: "10",
-            language: "vi",
-          });
+      console.log("Connecting to socket...");
     
-          const { gameslist } = response.data.data;
-          console.log(gameslist);
+      // Assuming you initialize the socket connection somewhere
+      socket.on('connect', () => {
+        console.log("Connected to socket server.");
+      });
+
+      socket.on('connect_error', (err) => {
+        console.error('Socket connection error:', err);
+      });
     
-          // Update gamelist state
-          setGamelist(gameslist);
-    
-          // Compute last5Periods
-          const last5 = gameslist.slice(0, 5).map(item => item.amount);
-          setLast5Periods(last5);
-          
-        } catch (err) {
-          console.error('An error occurred:', err);
-          setError('An error occurred. Please try again.');
-        }
-      };
-
-      const fetchMyBets = async () => {
-        try {
-          const response = await Api.post('/api/webapi/GetMyEmerdList', {
-            typeid: "1",
-            pageno: "0",
-            pageto: "10",
-            language: "vi",
-          });
-
-          const { gameslist } = response.data.data;
-
-          // console.log(gameslist);
-          
-          // Handle the response data, e.g., save it to state
-          setMyBets(gameslist);
-        } catch (err) {
-          console.error('An error occurred:', err);
-          setError('An error occurred. Please try again.');
-        }
-      };
-
-      fetchMyBets();
-      fetchGamelist();
-
-      const handleSocketData = async (msg) => {
-        console.log("Received message from server:", msg);
+      // Listen for 'data-server' messages
+      socket.on('data-server', (msg) => {
+        console.log("hello");
         if (msg.data[0].game !== 'wingo') return;
-  
-        const data1 = msg.data[0];
-        const data2 = [msg.data[1]];
-  
-        setPeriod(data1.period);
-        // Handle other state updates here
-  
-        const isCheckSuccessful = await checkPeriodAndStage(data1.period);
-        if (isCheckSuccessful) {
-          fetchMyBets();
-        }
+        
+        setTimeout(() => {
+          const data1 = msg.data[0]; // Get the latest game data
+          console.log(msg.data[0]);
+          const data2 = []; // Initialize array for old data
+          data2.push(msg.data[1]); // Add old data
+          // Further processing...
+        }, 1000);
+      });
+    
+      // Clean up the socket connection when the component unmounts
+      return () => {
+        socket.disconnect();
       };
-  
-      fetchGamelist();
-
-        console.log("Connecting to socket...");
-
-        socket.on('connect', () => {
-          console.log('WebSocket Connection Established');
-      });
-      
-      socket.on('disconnect', (reason) => {
-          console.log('WebSocket Connection Closed:', reason);
-          if (reason === 'io client disconnect') {
-              // Handle client disconnect, maybe attempt a reconnect
-              socket.connect();  // Example of reconnecting
-          }
-      });
-      
-      socket.on('connect_error', (error) => {
-          console.error('WebSocket Connection Error:', error);
-      });
-
-      socket.on('data-server', handleSocketData);
-
-
-        socket.on('connect_error', (error) => {
-            console.error('Connection error:', error);
-            setError(error);
-        });
-
-        socket.on('disconnect', () => {
-            console.log('Socket disconnected');
-        });
-
-        // Clean up the socket connection when the component unmounts
-        return () => {
-          socket.off('data-server', handleSocketData);
-
-            socket.disconnect();
-        };
     }, []);
-  
-  
 
   
-    // if (loading) {
-    //   return <Loader/>
-    // }
+    if (loading) {
+      return <Loader/>
+    }
   
     if (error) {
       return <div>{error}</div>;
@@ -9739,14 +9635,13 @@ export default function Wingo() {
       </div>
       <div data-v-3e4c6499="" className="TimeLeft__C-name">Win Go 30s</div>
       <div data-v-3e4c6499="" className="TimeLeft__C-num">
-      {last5Periods.map((amount, index) => (
-    
-            <div data-v-3e4c6499="" key={index} className={getClassName(amount)}>
-            </div>
-          
-        ))}
+        <div data-v-3e4c6499="" className="n7"></div>
+        <div data-v-3e4c6499="" className="n9"></div>
+        <div data-v-3e4c6499="" className="n6"></div>
+        <div data-v-3e4c6499="" className="n3"></div>
+        <div data-v-3e4c6499="" className="n6"></div>
       </div>
-      <div data-v-3e4c6499="" className="TimeLeft__C-id">{period}</div>
+      <div data-v-3e4c6499="" className="TimeLeft__C-id">20240814301953</div>
       <div data-v-3e4c6499="" className="TimeLeft__C-text">Time remaining</div>
       <div data-v-3e4c6499="" className="TimeLeft__C-time">
         <div data-v-3e4c6499="">0</div>
@@ -9814,9 +9709,208 @@ export default function Wingo() {
       </div>
       <div data-v-4b21e13b="" className="MyGameRecord__C-body">
         <div data-v-2faec5cb="" data-v-4b21e13b="" className="MyGameRecordList__C">
-         
-   <MyGameRecordList myBets={myBets}/>
-
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-small">small</div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240823301339</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-23 11:09:22</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
+              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹9.80</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-detail"><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-text">Details</div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Order number</span><div data-v-2faec5cb="">WG2024082311092233233210a <svg data-v-2faec5cb="" className="svg-icon icon-copy"><use href="#icon-copy"></use></svg></div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Period</span><div data-v-2faec5cb="">20240823301339</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Purchase amount</span><div data-v-2faec5cb="">₹5.00</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Quantity</span><div data-v-2faec5cb="">5</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Amount after tax</span><div data-v-2faec5cb="" className="red">₹4.90</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Tax</span><div data-v-2faec5cb="">₹0.10</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Result</span><div data-v-2faec5cb=""><div data-v-2faec5cb="" className="MyGameRecordList__C-inlineB">2</div><div data-v-2faec5cb="" className="MyGameRecordList__C-inlineB redColor">Red</div><div data-v-2faec5cb="" className="MyGameRecordList__C-inlineB small">Small</div></div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Select</span><div data-v-2faec5cb="">Small</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Status</span><div data-v-2faec5cb="" className="green">Succeed</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Win/lose</span><div data-v-2faec5cb="" className="green">+ ₹9.80</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Order time</span><div data-v-2faec5cb="">2024-08-23 11:09:22</div></div></div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-small">small</div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240823301338</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-23 11:08:50</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
+              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹9.80</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822302085</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 17:22:13</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
+              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹19.60</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301990</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 16:34:44</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
+              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹1.47</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-small">small</div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301701</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:10:17</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
+              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹1.96</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301700</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:09:41</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
+              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹0.98</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301685</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:02:10</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
+              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹19.60</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301684</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:01:54</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
+              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹0.98</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301683</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:01:15</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
+              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹4.90</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301682</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:00:48</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
+              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹1.96</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301681</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:00:11</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
+              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹1.96</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-small">small</div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301511</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 12:35:13</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
+              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹9.80</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240821301341</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-21 11:10:12</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
+              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹0.98</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302637</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:58:21</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
+              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹4.90</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302635</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:57:21</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
+              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹1.47</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302634</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:56:52</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
+              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹9.80</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-small">small</div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302633</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:56:21</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
+              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹9.80</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302632</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:55:49</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
+              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹9.80</span>
+            </div>
+          </div>
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302630</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:54:52</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
+              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹0.98</span>
+            </div>
+          </div>
+          
+          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302630</div>
+              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:54:45</div>
+            </div>
+            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
+              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹0.98</span>
+            </div>
+          </div>
           
         </div>
       </div>
@@ -10176,10 +10270,269 @@ export default function Wingo() {
         </div>
       </div>
       <div data-v-481307ec="" className="GameRecord__C-body">
-      <GameList gamelist={gamelist} />
-
-       
-       
+        <div data-v-481307ec="" className="van-row">
+          <div data-v-481307ec="" className="van-col van-col--8">
+            20240814301952
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
+            <div
+              data-v-481307ec=""
+              className="GameRecord__C-body-num greenColor"
+            >
+              7
+            </div>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5">
+            <span data-v-481307ec="">Big</span>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--6">
+            <div data-v-481307ec="" className="GameRecord__C-origin">
+              
+              <div
+                data-v-481307ec=""
+                className="GameRecord__C-origin-I green"
+              ></div>
+              
+            </div>
+          </div>
+        </div>
+        <div data-v-481307ec="" className="van-row">
+          <div data-v-481307ec="" className="van-col van-col--8">
+            20240814301951
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
+            <div
+              data-v-481307ec=""
+              className="GameRecord__C-body-num greenColor"
+            >
+              9
+            </div>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5">
+            <span data-v-481307ec="">Big</span>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--6">
+            <div data-v-481307ec="" className="GameRecord__C-origin">
+              
+              <div
+                data-v-481307ec=""
+                className="GameRecord__C-origin-I green"
+              ></div>
+              
+            </div>
+          </div>
+        </div>
+        <div data-v-481307ec="" className="van-row">
+          <div data-v-481307ec="" className="van-col van-col--8">
+            20240814301950
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
+            <div
+              data-v-481307ec=""
+              className="GameRecord__C-body-num defaultColor"
+            >
+              6
+            </div>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5">
+            <span data-v-481307ec="">Big</span>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--6">
+            <div data-v-481307ec="" className="GameRecord__C-origin">
+              
+              <div
+                data-v-481307ec=""
+                className="GameRecord__C-origin-I red"
+              ></div>
+              
+            </div>
+          </div>
+        </div>
+        <div data-v-481307ec="" className="van-row">
+          <div data-v-481307ec="" className="van-col van-col--8">
+            20240814301949
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
+            <div
+              data-v-481307ec=""
+              className="GameRecord__C-body-num greenColor"
+            >
+              3
+            </div>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5">
+            <span data-v-481307ec="">Small</span>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--6">
+            <div data-v-481307ec="" className="GameRecord__C-origin">
+              
+              <div
+                data-v-481307ec=""
+                className="GameRecord__C-origin-I green"
+              ></div>
+              
+            </div>
+          </div>
+        </div>
+        <div data-v-481307ec="" className="van-row">
+          <div data-v-481307ec="" className="van-col van-col--8">
+            20240814301948
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
+            <div
+              data-v-481307ec=""
+              className="GameRecord__C-body-num defaultColor"
+            >
+              6
+            </div>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5">
+            <span data-v-481307ec="">Big</span>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--6">
+            <div data-v-481307ec="" className="GameRecord__C-origin">
+              
+              <div
+                data-v-481307ec=""
+                className="GameRecord__C-origin-I red"
+              ></div>
+              
+            </div>
+          </div>
+        </div>
+        <div data-v-481307ec="" className="van-row">
+          <div data-v-481307ec="" className="van-col van-col--8">
+            20240814301947
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
+            <div
+              data-v-481307ec=""
+              className="GameRecord__C-body-num greenColor"
+            >
+              1
+            </div>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5">
+            <span data-v-481307ec="">Small</span>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--6">
+            <div data-v-481307ec="" className="GameRecord__C-origin">
+              
+              <div
+                data-v-481307ec=""
+                className="GameRecord__C-origin-I green"
+              ></div>
+              
+            </div>
+          </div>
+        </div>
+        <div data-v-481307ec="" className="van-row">
+          <div data-v-481307ec="" className="van-col van-col--8">
+            20240814301946
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
+            <div
+              data-v-481307ec=""
+              className="GameRecord__C-body-num mixedColor0"
+            >
+              0
+            </div>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5">
+            <span data-v-481307ec="">Small</span>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--6">
+            <div data-v-481307ec="" className="GameRecord__C-origin">
+              <div
+                data-v-481307ec=""
+                className="GameRecord__C-origin-I red"
+              ></div>
+              <div
+                data-v-481307ec=""
+                className="GameRecord__C-origin-I violet"
+              ></div>
+              
+            </div>
+          </div>
+        </div>
+        <div data-v-481307ec="" className="van-row">
+          <div data-v-481307ec="" className="van-col van-col--8">
+            20240814301945
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
+            <div
+              data-v-481307ec=""
+              className="GameRecord__C-body-num greenColor"
+            >
+              1
+            </div>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5">
+            <span data-v-481307ec="">Small</span>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--6">
+            <div data-v-481307ec="" className="GameRecord__C-origin">
+              
+              <div
+                data-v-481307ec=""
+                className="GameRecord__C-origin-I green"
+              ></div>
+              
+            </div>
+          </div>
+        </div>
+        <div data-v-481307ec="" className="van-row">
+          <div data-v-481307ec="" className="van-col van-col--8">
+            20240814301944
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
+            <div
+              data-v-481307ec=""
+              className="GameRecord__C-body-num greenColor"
+            >
+              3
+            </div>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5">
+            <span data-v-481307ec="">Small</span>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--6">
+            <div data-v-481307ec="" className="GameRecord__C-origin">
+              
+              <div
+                data-v-481307ec=""
+                className="GameRecord__C-origin-I green"
+              ></div>
+              
+            </div>
+          </div>
+        </div>
+        <div data-v-481307ec="" className="van-row">
+          <div data-v-481307ec="" className="van-col van-col--8">
+            20240814301943
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
+            <div
+              data-v-481307ec=""
+              className="GameRecord__C-body-num greenColor"
+            >
+              3
+            </div>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--5">
+            <span data-v-481307ec="">Small</span>
+          </div>
+          <div data-v-481307ec="" className="van-col van-col--6">
+            <div data-v-481307ec="" className="GameRecord__C-origin">
+              
+              <div
+                data-v-481307ec=""
+                className="GameRecord__C-origin-I green"
+              ></div>
+              
+            </div>
+          </div>
+        </div>
       </div>
       <div data-v-481307ec="" className="GameRecord__C-foot">
         <div
