@@ -131,7 +131,7 @@ export default function Wingo() {
         try {
           const response = await Api.post('/api/webapi/GetNoaverageEmerdList', {
             typeid: "1",
-            pageno: "1",
+            pageno: "0",
             pageto: "10",
             language: "vi",
           });
