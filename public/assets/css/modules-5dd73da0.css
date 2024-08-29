@@ -1269,7 +1269,7 @@ ul {
 }
 
 .van-icon-arrow:before {
-    content: "î™ "
+    content: "";
 }
 
 .van-icon-after-sale:before {
@@ -1301,7 +1301,7 @@ ul {
 }
 
 .van-icon-arrow-left:before {
-    content: "î™¨"
+    content: "";
 }
 
 .van-icon-award-o:before {

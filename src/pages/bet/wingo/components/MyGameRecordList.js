@@ -43,10 +43,10 @@ const MyGameRecordList = ({ myBets }) => {
               colorClass = 'green';
               break;
             case '0':
-              colorClass = 'red-violet';
+              colorClass = 0;
               break;
             case '5':
-              colorClass = 'green-violet';
+              colorClass = 5;
               break;
             default:
               if (Number(bet.bet)) {
@@ -63,22 +63,29 @@ const MyGameRecordList = ({ myBets }) => {
                 className={`MyGameRecordList__C-item-l MyGameRecordList__C-item-l-${colorClass}`}
                 
               >
-                {Number(bet.bet) ? bet.bet
-                  : bet.bet === 'l' ? 'Big'
-                  : bet.bet === 'n' ? 'Small'
-                  : ''
-                }
+                {
+  bet.bet === '0' || bet.bet === '5' ? bet.bet
+  : bet.bet === 'l' ? 'Big'
+  : bet.bet === 'n' ? 'Small'
+  : Number(bet.bet) ? bet.bet
+  : ''
+}
+
               </div>
               <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
                 <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">{bet.stage}</div>
                 <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">{formatDate(bet.time)}</div>
               </div>
-              <div data-v-2faec5cb="" className={`MyGameRecordList__C-item-r ${bet.status === '1' ? 'success' : 'fail'}`}>
-                <div data-v-2faec5cb="" className={bet.status === '1' ? 'success' : 'fail'}>
-                  {bet.status === '1' ? 'Succeed' : 'Failed'}
-                </div>
-                <span data-v-2faec5cb="">{bet.status === '1' ? `+₹${bet.money}` : `-₹${bet.money}`}</span>
-              </div>
+              { bet.status !== 0 && (
+  <div data-v-2faec5cb="" className={`MyGameRecordList__C-item-r ${bet.status == '1' ? 'success' : 'fail'}`}>
+    <div data-v-2faec5cb="" className={bet.status == '1' ? 'success' : 'fail'}>
+      {bet.status == '1' ? 'Succeed' : 'Failed'}
+    </div>
+    <span data-v-2faec5cb="">
+      {bet.status == '1' ? `+₹${bet.get}` : `-₹${bet.money}`}
+    </span>
+  </div>
+)}
 
               {/* Details Section */}
               
@@ -120,38 +127,47 @@ const MyGameRecordList = ({ myBets }) => {
             <div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line">
               <span data-v-2faec5cb="">Result</span>
               <div data-v-2faec5cb="">
-                {/* Result display */}
-                <div data-v-2faec5cb="" className="MyGameRecordList__C-inlineB">{bet.result}</div>
+  {/* Result display */}
+  <div data-v-2faec5cb="" className="MyGameRecordList__C-inlineB">
+    {bet.status === 0 ? `--` : bet.result}
+  </div>
 
-                {/* Conditional color and content */}
-                <div
-                  data-v-2faec5cb=""
-                  className={`MyGameRecordList__C-inlineB
-                    ${bet.result === 0 ? 'redColor'
-                      : bet.result === 5 ? 'greenColor'
-                      : bet.result % 2 === 0 ? 'redColor' : 'greenColor'
-                    }`}
-                >
-                  {bet.result === 0 ? 'Red'
-                    : bet.result === 5 ? 'Green'
-                    : bet.result % 2 === 0 ? 'Red' : 'Green'}
-                </div>
+  {bet.status !== 0 && (
+    <>
+      {/* Conditional color and content */}
+      <div
+        data-v-2faec5cb=""
+        className={`MyGameRecordList__C-inlineB
+          ${bet.result === 0 ? 'redColor'
+            : bet.result === 5 ? 'greenColor'
+            : bet.result % 2 === 0 ? 'redColor' : 'greenColor'
+          }`}
+      >
+        {bet.result === 0 ? 'Red'
+          : bet.result === 5 ? 'Green'
+          : bet.result % 2 === 0 ? 'Red' : 'Green'}
+      </div>
 
-                {/* Special cases */}
-                {bet.result === 0 || bet.result === 5 ? (
-                  <div data-v-2faec5cb="" className="MyGameRecordList__C-inlineB purpleColor">Violet</div>
-                ) : null}
+      {/* Special cases */}
+      {(bet.result === 0 || bet.result === 5) && (
+        <div data-v-2faec5cb="" className="MyGameRecordList__C-inlineB purpleColor">
+          Violet
+        </div>
+      )}
 
-                {/* Small or Big */}
-                <div
-                  data-v-2faec5cb=""
-                  className={`MyGameRecordList__C-inlineB
-                    ${bet.result < 5 ? 'small' : 'big'}
-                  `}
-                >
-                  {bet.result < 5 ? 'Small' : 'Big'}
-                </div>
-              </div>
+      {/* Small or Big */}
+      <div
+        data-v-2faec5cb=""
+        className={`MyGameRecordList__C-inlineB
+          ${bet.result < 5 ? 'small' : 'big'}
+        `}
+      >
+        {bet.result < 5 ? 'Small' : 'Big'}
+      </div>
+    </>
+  )}
+</div>
+
             </div>
             <div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line">
               <span data-v-2faec5cb="">Select</span>
@@ -159,15 +175,29 @@ const MyGameRecordList = ({ myBets }) => {
             </div>
             <div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line">
               <span data-v-2faec5cb="">Status</span>
-              <div data-v-2faec5cb="" className={bet.status === '1' ? 'green' : 'red'}>
-                {bet.status === '1' ? 'Succeed' : 'Failed'}
+              {
+                bet.status !== 0 ? (
+              <div data-v-2faec5cb="" className={bet.status == '1' ? 'green' : 'red'}>
+                {bet.status == '1' ? 'Succeed' : 'Failed'}
               </div>
+                ):
+                <div data-v-2faec5cb="" >
+                Unpaid
+              </div>
+        }
             </div>
             <div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line">
               <span data-v-2faec5cb="">Win/lose</span>
-              <div data-v-2faec5cb="" className={bet.status === '1' ? 'green' : 'red'}>
-                {bet.status === '1' ? `+ ₹${bet.get}` : `- ₹${bet.money}`}
+              {
+                bet.status !== 0 ? (
+              <div data-v-2faec5cb="" className={bet.status == '1' ? 'green' : 'red'}>
+                {bet.status == '1' ? `+ ₹${bet.get}` : `- ₹${bet.money}`}
               </div>
+              ):
+<div data-v-2faec5cb="" >
+                --
+              </div>
+            }
             </div>
             <div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line">
               <span data-v-2faec5cb="">Order time</span>
