@@ -9542,50 +9542,72 @@ export default function Activity() {
         <div data-v-4a7709f3="" className="activity-panel">
           
           <div data-v-4a7709f3="" className="activity-panel-header lg3">
-            
+          <div data-v-4a7709f3="" className="header-item">
+  <div data-v-4a7709f3="" className="van-badge__wrapper">
+    <a href="/activity/DailyTasks">
+      <div data-v-4a7709f3="" className="a4 bgcontainer"></div>
+    </a>
+  </div>
+
+  <span data-v-4a7709f3="">Activity Award</span>
+</div>
+
             <div data-v-4a7709f3="" className="header-item">
               <div data-v-4a7709f3="" className="van-badge__wrapper">
+              <a href="/main/InvitationBonu">
+
                 <div data-v-4a7709f3="" className="a2 bgcontainer"></div>
-                
+                </a>
               </div>
+
               <span data-v-4a7709f3="">Invitation bonus</span>
             </div>
             <div data-v-4a7709f3="" className="header-item">
               <div data-v-4a7709f3="" className="van-badge__wrapper">
+              <a href="/main/Laundry">
+
                 <div data-v-4a7709f3="" className="a3 bgcontainer"></div>
-                
+                </a>
               </div>
               <span data-v-4a7709f3="">Betting rebate</span>
             </div>
             <div data-v-4a7709f3="" className="header-item">
               <div data-v-4a7709f3="" className="van-badge__wrapper">
+              <a href="/main/SuperJackpot">
+
                 <div data-v-4a7709f3="" className="a4 bgcontainer"></div>
-                
+                </a>
               </div>
               <span data-v-4a7709f3="">Super Jackpot</span>
             </div>
             
           </div>
           <div data-v-4a7709f3="" className="activity-panel-content">
+          
             <div data-v-4a7709f3="" className="content-title">
+           
               <img
                 data-v-4a7709f3=""
                 className=""
                 data-origin="/assets/png/signInBanner-33f86d3f.png"
                 src="/assets/png/signInBanner-33f86d3f.png"
               />
+            
               <div data-v-4a7709f3="" className="content-para">Gifts</div>
+              
               <p data-v-4a7709f3="">
                 Enter the redemption code to receive gift rewards
               </p>
             </div>
             <div data-v-4a7709f3="" className="content-title">
+              
               <img
                 data-v-4a7709f3=""
                 className=""
                 data-origin="/assets/png/giftRedeem-45917887.png"
                 src="/assets/png/giftRedeem-45917887.png"
               />
+              
               <div data-v-4a7709f3="" className="content-para">
                 Attendance bonus
               </div>

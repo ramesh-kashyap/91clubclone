@@ -65,9 +65,9 @@ function App() {
         <Route path="/main/Laundry" element={<PrivateRoute><Laundry/></PrivateRoute>}/>
         <Route path="/main/SuperJackpot" element={<PrivateRoute><SuperJackpot/></PrivateRoute>}/>
         <Route path="/main/RedeemGift" element={<PrivateRoute><RedeemGift/></PrivateRoute>}/>
-        <Route path="/activity/DailySignI" element={<PrivateRoute><DailySignI/></PrivateRoute>}/>
-        <Route path="/activity/DailySignI/Rules" element={<PrivateRoute><Rules/></PrivateRoute>}/>
-        <Route path="/activity/DailySignI/Record" element={<PrivateRoute><Record/></PrivateRoute>}/>
+        <Route path="/activity/DailySignIn" element={<PrivateRoute><DailySignI/></PrivateRoute>}/>
+        <Route path="/activity/DailySignIn/Rules" element={<PrivateRoute><Rules/></PrivateRoute>}/>
+        <Route path="/activity/DailySignIn/Record" element={<PrivateRoute><Record/></PrivateRoute>}/>
         <Route path="/main/InvitationBonus/Records" element={<PrivateRoute><Records/></PrivateRoute>}/>
         <Route path="/main/SuperJackpot/rule" element={<PrivateRoute><Superjackpot_rule/></PrivateRoute>}/>
         <Route path="/main/SuperJackpot/star" element={<PrivateRoute><SuperJackpot_star/></PrivateRoute>}/>

@@ -1269,7 +1269,7 @@ ul {
 }
 
 .van-icon-arrow:before {
-    content: "î™ "
+    content:  "î™“"
 }
 
 .van-icon-after-sale:before {
@@ -5673,7 +5673,7 @@ ul {
 .van-tab__text--ellipsis {
     display: -webkit-box;
     overflow: hidden;
-    -webkit-line-clamp:1;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical
 }
 

@@ -3520,11 +3520,11 @@ html:lang(ar) .gverify-container-content-item-tip svg[data-v-1911143a] {
 }
 
 .bonus-header .nav > div.rule[data-v-b733e3c6] {
-    background-image: url("/assets/svg/inviterule-c8d78199.svg");
+    background-image: url("/assets/png/inviterule-c8d78199.svg");
 }
 
 .bonus-header .nav > div.record[data-v-b733e3c6] {
-    background-image: url("/assets/svg/inviterecord-610ce16f.svg");
+    background-image: url("/assets/png/inviterecord-610ce16f.svg");
 }
 
 .bonus-container[data-v-b733e3c6] {
@@ -3595,7 +3595,7 @@ html:lang(ar) .gverify-container-content-item-tip svg[data-v-1911143a] {
 }
 
 .bonus-items .head.isFinshed .left[data-v-b733e3c6] {
-    background-image: url("/assets/svg/righticon-84e23970.svg");
+    background-image: url("/assets/png/righticon-84e23970.svg");
     background-color: var(--norm_green-color);
 }
 
