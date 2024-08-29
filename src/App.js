@@ -30,6 +30,8 @@ import Records from './pages/activity/Records';
 import Superjackpot_rule from './pages/activity/Superjackpot_rule';
 import SuperJackpot_star from './pages/activity/SuperJackpot_star';
 import DailyTasks from './pages/activity/DailyTasks';
+import Receive from './pages/activity/Receive';
+
 
 import Deposit from './pages/wallet/Deposit';
 
@@ -78,6 +80,8 @@ function App() {
         <Route path="/main/SuperJackpot/rule" element={<PrivateRoute><Superjackpot_rule/></PrivateRoute>}/>
         <Route path="/main/SuperJackpot/star" element={<PrivateRoute><SuperJackpot_star/></PrivateRoute>}/>
         <Route path="/activity/DailyTasks" element={<PrivateRoute><DailyTasks/></PrivateRoute>}/>
+        <Route path="/activity/DailyTasks/Record" element={<PrivateRoute><Receive/></PrivateRoute>}/>
+
 
 
 
