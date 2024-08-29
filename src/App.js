@@ -8,6 +8,9 @@ import Activity from './pages/activity/Activity';
 import Promotion from './pages/promotion/Promotion';
 import PromotionShare from './pages/promotion/PromotionShare';
 import TeamPartner from './pages/promotion/TeamPartner';
+import TeamReport from './pages/promotion/TeamReport';
+import Commission from './pages/promotion/Commission';
+import Promotionrule from './pages/promotion/PromotionRule';
 import Wallet from './pages/wallet/Wallet';
 import Wingo from  './pages/bet/wingo/Wingo';
 import K3 from './pages/bet/wingo/K3';
@@ -57,6 +60,9 @@ function App() {
         <Route path="/promotion" element={<PrivateRoute><Promotion/></PrivateRoute>}/>
         <Route path="/promotion/PromotionShare" element={<PrivateRoute><PromotionShare/></PrivateRoute>}/>
         <Route path="/promotion/TeamPartner" element={<PrivateRoute><TeamPartner/></PrivateRoute>}/>
+        <Route path="/promotion/TeamReport" element={<PrivateRoute><TeamReport/></PrivateRoute>}/>
+        <Route path="/promotion/MyCommission" element={<PrivateRoute><Commission/></PrivateRoute>}/>
+        <Route path="/promotion/PromotionRule" element={<PrivateRoute><Promotionrule/></PrivateRoute>}/>
         <Route path="/wingo" element={<PrivateRoute><Wingo/></PrivateRoute>}/>
         <Route path="/wallet" element={<PrivateRoute><Withdraw/></PrivateRoute>}/>
         <Route path="/wallet" element={<PrivateRoute><WithdrawHistory/></PrivateRoute>}/>
