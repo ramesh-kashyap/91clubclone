@@ -4655,8 +4655,8 @@ export default function Dashboard() {
                 <div data-v-12a80a3e="" className="navbar-fixed">
                     <div data-v-12a80a3e="" className="navbar__content">
                         <div data-v-12a80a3e="" className="navbar__content-left"><img data-v-003e4505=""
-                                src="/assets/png/h5setting_20230714005937kuk1.png"
-                                alt=""/></div>
+                                src="/assets/png/BDGPRO2.png"
+                                alt="" style={{width:'80px', height:'40px',}}/></div>
                         <div data-v-12a80a3e="" className="navbar__content-center">
                             <div data-v-12a80a3e="" className="navbar__content-title"></div>
                         </div>

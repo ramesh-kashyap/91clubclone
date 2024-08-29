@@ -9425,7 +9425,7 @@ export default function Promotion(){
               </g>
             </svg>
           </div>
-          <div data-v-647954c7="" class="com__box" style="display: none">
+          <div data-v-647954c7="" class="com__box" style={{display: 'none'}}>
             <div class="loading" data-v-647954c7="">
               <div class="shape shape-1" data-v-647954c7=""></div>
               <div class="shape shape-2" data-v-647954c7=""></div>
