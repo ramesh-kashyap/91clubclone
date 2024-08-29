@@ -9575,14 +9575,14 @@ export default function Promotion(){
         style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sans-serif'"}}
       >
         <div data-v-600663f7="" className="shareBtnContainer">
-          <button data-v-600663f7="" className="shareBtn"><a href="/promotion/invitelink.html">INVITATION LINK</a></button>
+          <button data-v-600663f7="" className="shareBtn"><a href="/promotion/PromotionShare">INVITATION LINK</a></button>
         </div>
         <div data-v-600663f7="" className="promote__cell">
           <div data-v-600663f7="" className="promote__cell-item">
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-team_partner">
                 <use href="#icon-team_partner"></use></svg
-              > <a href="/promotion/partnereward.html"><span data-v-600663f7="">Partner rewards</span></a>
+              > <a href="/promotion/TeamPartner"><span data-v-600663f7="">Partner rewards</span></a>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9611,7 +9611,7 @@ export default function Promotion(){
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-team_port">
                 <use href="#icon-team_port"></use></svg
-              > <a href="/promotion/subordinatedata.html"><span data-v-600663f7="">Subordinate data</span></a>
+              > <a href="/promotion/TeamReport"><span data-v-600663f7="">Subordinate data</span></a>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9626,7 +9626,7 @@ export default function Promotion(){
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-commission">
                 <use href="#icon-commission"></use></svg
-              > <a href="/promotion/commissiondetail.html"><span data-v-600663f7="">Commission detail</span></a>
+              > <a href="/promotion/MyCommission"><span data-v-600663f7="">Commission detail</span></a>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9641,7 +9641,7 @@ export default function Promotion(){
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-invite_reg">
                 <use href="#icon-invite_reg"></use></svg
-              > <a href="/promotion/invitationrule.html"><span data-v-600663f7="">Invitation rules</span></a>
+              > <a href="/promotion/PromotionRule"><span data-v-600663f7="">Invitation rules</span></a>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i

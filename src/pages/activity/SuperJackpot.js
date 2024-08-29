@@ -4492,8 +4492,8 @@ export default function SuperJackpot() {
             <div data-v-12a80a3e="" data-v-6243ef37="" className="navbar">
                 <div data-v-12a80a3e="" className="navbar-fixed">
                     <div data-v-12a80a3e="" className="navbar__content">
-                        <div data-v-12a80a3e="" className="navbar__content-left"><i data-v-12a80a3e=""
-                                className="van-badge__wrapper van-icon van-icon-arrow-left"></i></div>
+                        <div data-v-12a80a3e="" className="navbar__content-left"><a href="/activity"><i data-v-12a80a3e=""
+                                className="van-badge__wrapper van-icon van-icon-arrow-left"></i></a></div>
                         <div data-v-12a80a3e="" className="navbar__content-center">
                             <div data-v-12a80a3e="" className="navbar__content-title">Super Jackpot</div>
                         </div>

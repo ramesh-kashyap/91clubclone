@@ -5489,7 +5489,7 @@ export default function Dashboard() {
                 </svg>
                 <div data-v-6ab3f23e="" className="promotionBg"></div>
                 <span data-v-6ab3f23e="">
-                    <a href="/promotion/promotion.html">Promotion</a> </span>
+                    <a href="/promotion">Promotion</a> </span>
             </div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
             <a href="/wallet"><use href="#icon-wallet"></use></a>
