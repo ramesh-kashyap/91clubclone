@@ -63,11 +63,14 @@ const MyGameRecordList = ({ myBets }) => {
                 className={`MyGameRecordList__C-item-l MyGameRecordList__C-item-l-${colorClass}`}
                 
               >
-                {Number(bet.bet) ? bet.bet
-                  : bet.bet === 'l' ? 'Big'
-                  : bet.bet === 'n' ? 'Small'
-                  : ''
-                }
+                {
+  bet.bet === '0' || bet.bet === '5' ? bet.bet
+  : bet.bet === 'l' ? 'Big'
+  : bet.bet === 'n' ? 'Small'
+  : Number(bet.bet) ? bet.bet
+  : ''
+}
+
               </div>
               <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
                 <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">{bet.stage}</div>

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { io } from 'socket.io-client';
 import Api from '../../../services/Api';
 import MyGameRecordList from './components/MyGameRecordList';
 import GameList from './components/GameList';
+import ReactHowler from 'react-howler';
 
 const SOCKET_URL = 'http://localhost:3000';
 
@@ -41,7 +42,6 @@ const getPopupClass = (item) => {
 export default function Wingo() {
   const [userInfo, setUserInfo] = useState(null);
     const [activeSection, setActiveSection] = useState('section1');
-    const [totalMoney, setTotalMoney] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [gamelist, setGamelist] = useState(null);
@@ -57,13 +57,56 @@ export default function Wingo() {
   const [selectedItem, setSelectedItem] = useState(''); // To track the selected item
   const [balance, setBalance] = useState(1);  // State for balance
   const [quantity, setQuantity] = useState(1);  // State for quantity
-  const [audio1, setAudio1] = useState(null);
-  const [audio2, setAudio2] = useState(null);
+  const [lastBet, setLastBet] = useState([]);  // State for quantity
+ 
     const [join, setJoin] = useState(null);
     const [totalGamePages, setTotalGamePages] = useState(null);
     const [totalBetsPages, setTotalBetsPages] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
+    const [currentGamePage, setCurrentGamePage] = useState(1);
+    const [isVisible, setIsVisible] = useState(false);
 
+    const toggleVisibility = () => {
+      setIsVisible(!isVisible);
+    };
+
+
+
+    const handleNextPage = () => {
+      if (currentPage < totalBetsPages) {
+        setCurrentPage(prevPage => prevPage + 1);
+        fetchMyBets(currentPage + 1);
+      }
+    };
+    
+    const handlePreviousPage = () => {
+      if (currentPage > 1) {
+        setCurrentPage(prevPage => prevPage - 1);
+        fetchMyBets(currentPage - 1);
+      }
+    };
+
+    const handleNextGamePage = () => {
+      if (currentGamePage < totalGamePages) {
+        setCurrentGamePage(prevPage => {
+          const nextPage = prevPage + 1;
+          fetchGamelist(nextPage); // Pass the next page number to fetchGamelist
+          return nextPage;
+        });
+      }
+    };
+    
+    const handlePreviousGamePage = () => {
+      if (currentGamePage > 1) {
+        setCurrentGamePage(prevPage => {
+          const previousPage = prevPage - 1;
+          fetchGamelist(previousPage); // Pass the previous page number to fetchGamelist
+          return previousPage;
+        });
+      }
+    };
+    
+    
 
 
   const handleOpenPopup = (item) => {
@@ -130,34 +173,81 @@ export default function Wingo() {
       }
     };
     
-    useEffect(() => {
-      const intervalId = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = countDownDate - now;
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const minute = Math.ceil(minutes / 20 - 2);
-        const seconds1 = Math.floor((distance % (1000 * 60)) / 10000);
-        const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
-        setTime({ seconds1, seconds2 });
-
-        if (seconds1 === 0 && seconds2 <= 5) {
-          handleClosePopup();
-                    setShowMark(true);
-          
-        } else {
-          setShowMark(false);
-        }
-
-      }, 10); // Adjusted the interval time for better performance
+    const [playAudio2, setPlayAudio2] = useState(false);
+    const audio1Ref = useRef(null);
+    const [audio2Played, setAudio2Played] = useState(false);
   
-      return () => clearInterval(intervalId); // Clean up on component unmount
-    }, []);
+    useEffect(() => {
+      const audio1 = new Audio('/assets/audio/di1.da40b233.mp3');
+      audio1.loop = false; // Ensure audio1 does not loop
+  
+      let intervalId;
+  
+      const startCountdown = () => {
+        intervalId = setInterval(() => {
+          const now = new Date().getTime();
+          const distance = countDownDate - now;
+          const seconds1 = Math.floor((distance % (1000 * 60)) / 10000);
+          const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
+          setTime({ seconds1, seconds2 });
+  
+          console.log(`seconds1: ${seconds1}, seconds2: ${seconds2}`);
+  
+          if (seconds1 === 0 && seconds2 > 0 && seconds2 <= 5) {
+            if (audio1Ref.current && audio1Ref.current.paused) {
+              audio1Ref.current.play();
+            }
+          } else {
+            if (audio1Ref.current) {
+              audio1Ref.current.pause();
+              audio1Ref.current.currentTime = 0;
+            }
+          }
+  
+          if (seconds1 === 0 && seconds2 === 0) {
+            console.log('Playing audio2');
+            setPlayAudio2(true);
+            setAudio2Played(true);
+            setTimeout(() => {
+              setPlayAudio2(false); // Stop audio2 after it has finished playing
+            }, 3000); // Adjust this duration based on the length of audio2
+          }
+  
+          if (seconds1 !== 0 || seconds2 > 5) {
+            setShowMark(false);
 
-    const fetchGamelist = async () => {
+            if (audio1Ref.current) {
+              audio1Ref.current.pause();
+              audio1Ref.current.currentTime = 0;
+            }
+          }
+  
+          if (seconds1 === 0 && seconds2 <= 5) {
+            handleClosePopup();
+            setShowMark(true);
+          }
+  
+        }, 1000); // Check every second
+      };
+  
+      startCountdown();
+  
+      return () => {
+        clearInterval(intervalId); // Clean up on component unmount
+        if (audio1Ref.current) {
+          audio1Ref.current.pause();
+          audio1Ref.current.currentTime = 0;
+        }
+      };
+    }, [audio2Played]);
+
+    const fetchGamelist = async (pageNumber = 1) => {
       try {
+        const pageno = (pageNumber - 1) * 10; // Calculate pageno based on the page number
+
         const response = await Api.post('/api/webapi/GetNoaverageEmerdList', {
           typeid: "1",
-          pageno: "0",
+          pageno: pageno.toString(),
           pageto: "10",
           language: "vi",
         });
@@ -195,30 +285,39 @@ export default function Wingo() {
       } 
     };
 
-    const fetchMyBets = async () => {
+    const fetchMyBets = async (pageNumber = 1) => {
       try {
+        const pageno = (pageNumber - 1) * 10; // Calculate pageno based on the page number
         const response = await Api.post('/api/webapi/GetMyEmerdList', {
           typeid: "1",
-          pageno: "0",
+          pageno: pageno.toString(),
           pageto: "10",
           language: "vi",
         });
-
+    
         const { gameslist } = response.data.data;
 
-        // console.log(gameslist);
-        setTotalBetsPages(response.data.page);
-        // Handle the response data, e.g., save it to state
+        console.log(response.data.data);
+        
+    
+        // Set total pages based on the total number of records and page size
+        const totalRecords = response.data.page; // Assuming the API returns total records
+    
+        setTotalBetsPages(totalRecords);
         setMyBets(gameslist);
+        console.log(gameslist[0]);
+        setLastBet(gameslist[0]);
       } catch (err) {
         console.error('An error occurred:', err);
         setError('An error occurred. Please try again.');
       }
-    }; 
+    };
+    
     
     // Fetch the first page when the component mounts
     useEffect(() => {
-      fetchMyBets(currentPage);
+      fetchMyBets(1);
+      fetchGamelist(1);
     }, []);
     
 
@@ -244,6 +343,7 @@ export default function Wingo() {
         const isCheckSuccessful = await checkPeriodAndStage(data1.period);
         if (isCheckSuccessful) {
           fetchMyBets();
+          setIsVisible(true);
 
         }
 
@@ -9717,6 +9817,15 @@ export default function Wingo() {
 </svg>
 
 <div id="app" data-v-app="">
+<audio ref={audio1Ref} src="/assets/audio/di1.da40b233.mp3" />
+      <ReactHowler
+        src="/assets/audio/di2.317de251.mp3"
+        playing={playAudio2}
+        loop={false} // Play only once
+        volume={1.0}
+        onEnd={() => setPlayAudio2(false)} // Ensure audio2 stops after playing
+      />
+
   <div
     data-v-647954c7=""
     className="ar-loading-view"
@@ -9884,9 +9993,6 @@ export default function Wingo() {
     </div>
     <div data-v-17d56002="" data-v-5d71c3fd="" className="GameList__C">
       <div data-v-17d56002="" className="GameList__C-item active">
-        <div data-v-17d56002="">Win Go<br />30s</div>
-      </div>
-      <div data-v-17d56002="" className="GameList__C-item">
         <div data-v-17d56002="">Win Go<br />1Min</div>
       </div>
       <div data-v-17d56002="" className="GameList__C-item">
@@ -9894,6 +10000,9 @@ export default function Wingo() {
       </div>
       <div data-v-17d56002="" className="GameList__C-item">
         <div data-v-17d56002="">Win Go<br />5Min</div>
+      </div>
+      <div data-v-17d56002="" className="GameList__C-item">
+        <div data-v-17d56002="">Win Go<br />10Min</div>
       </div>
     </div>
     <div data-v-3e4c6499="" className="TimeLeft__C">
@@ -9913,7 +10022,7 @@ export default function Wingo() {
           ></path></svg
         >How to play
       </div>
-      <div data-v-3e4c6499="" className="TimeLeft__C-name">Win Go 30s</div>
+      <div data-v-3e4c6499="" className="TimeLeft__C-name">Win Go 1 min</div>
       <div data-v-3e4c6499="" className="TimeLeft__C-num">
       {last5Periods.map((amount, index) => (
     
@@ -10005,18 +10114,32 @@ export default function Wingo() {
         </div>
       </div>
       <div data-v-4b21e13b="" className="MyGameRecord__C-foot">
-        <div data-v-4b21e13b="" className="MyGameRecord__C-foot-previous disabled"><i data-v-4b21e13b=""
-            className="van-badge__wrapper van-icon van-icon-arrow-left MyGameRecord__C-icon" style={{fontSize: '20px'}}>
-            
-            
-            </i></div>
-        <div data-v-4b21e13b="" className="MyGameRecord__C-foot-page">1/{totalBetsPages}</div>
-        <div data-v-4b21e13b="" className="MyGameRecord__C-foot-next"><i data-v-4b21e13b=""
-            className="van-badge__wrapper van-icon van-icon-arrow MyGameRecord__C-icon" style={{fontSize: '20px'}}>
-            
-            
-            </i></div>
-      </div>
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-previous ${currentPage === 1 ? 'disabled' : ''}`} 
+    onClick={handlePreviousPage}
+  >
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow-left MyGameRecord__C-icon" 
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+  <div data-v-4b21e13b="" className="MyGameRecord__C-foot-page">
+    {currentPage}/{totalBetsPages}
+  </div>
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-next ${currentPage === totalBetsPages ? 'disabled' : ''}`} 
+    onClick={handleNextPage}
+  >
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow MyGameRecord__C-icon" 
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+</div>
     </div>
     <div data-v-d485a39d="" data-v-5d71c3fd="" className="Trend__C game-record" apifun="e=>_(f.WinGoGetMyEmerdList,e).then(t=>t.data)" gopathname="AllLotteryGames-BettingRecordWin" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
       <div data-v-d485a39d="" className="Trend__C-head">
@@ -10364,47 +10487,36 @@ export default function Wingo() {
        
        
       </div>
-      {/* <div className="GameRecord__C-foot">
-  <div
-    className={`GameRecord__C-foot-previous ${currentPage === 1 ? 'disabled' : ''}`}
-    onClick={() => {
-      if (currentPage > 1) {
-        setCurrentPage(prevPage => {
-          const newPage = prevPage - 1;
-          fetchMyBets(newPage);
-          return newPage;
-        });
-      }
-    }}
+     
+
+      <div data-v-4b21e13b="" className="MyGameRecord__C-foot">
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-previous ${currentGamePage === 1 ? 'disabled' : ''}`} 
+    onClick={handlePreviousGamePage}
   >
-    <i
-      className="van-badge__wrapper van-icon van-icon-arrow-left GameRecord__C-icon"
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow-left MyGameRecord__C-icon" 
       style={{ fontSize: '20px' }}
     ></i>
   </div>
-
-  <div className="GameRecord__C-foot-page">
-    {currentPage}/{totalGamePages}
+  <div data-v-4b21e13b="" className="MyGameRecord__C-foot-page">
+    {currentGamePage}/{totalGamePages}
   </div>
-
-  <div
-    className={`GameRecord__C-foot-next ${currentPage === totalGamePages ? 'disabled' : ''}`}
-    onClick={() => {
-      if (currentPage < totalGamePages) {
-        setCurrentPage(prevPage => {
-          const newPage = prevPage + 1;
-          fetchMyBets(newPage);
-          return newPage;
-        });
-      }
-    }}
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-next ${currentGamePage === totalGamePages ? 'disabled' : ''}`} 
+    onClick={handleNextGamePage}
   >
-    <i
-      className="van-badge__wrapper van-icon van-icon-arrow-right GameRecord__C-icon"
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow MyGameRecord__C-icon" 
       style={{ fontSize: '20px' }}
     ></i>
   </div>
-</div> */}
+</div>
+
 
     </div>
     <div data-v-3e71d3da="" data-v-5d71c3fd="" className="dialog inactive">
@@ -10628,8 +10740,81 @@ export default function Wingo() {
   </div>
   
 </div>
+{ lastBet && lastBet.status===2 ?
+<div data-v-e44179e3="" data-v-5d71c3fd="" className="WinningTip__C" style={{ display: isVisible ? '' : 'none' }}>
+  <div data-v-e44179e3="" className="WinningTip__C-body isL">
+    
+    {/* Display static text "Sorry" with a class based on some condition */}
+    <div data-v-e44179e3="" className="WinningTip__C-body-l1 isL">Sorry</div>
 
+    {/* Display lottery results with conditional text */}
+    <div data-v-e44179e3="" className={`WinningTip__C-body-l2 type${lastBet.result}`}>Lottery results 
+      <div data-v-e44179e3="">
+        {lastBet.result === 0 ? 'Red Violet'
+          : lastBet.result === 5 ? 'Green Violet'
+          : lastBet.result % 2 === 0 ? 'Red' : 'Green'}
+      </div>
 
+      {/* Display the result number */}
+      <div data-v-e44179e3="" className="WinningNum">{lastBet.result}</div>
+
+      {/* Display whether the result is "Small" or "Big" */}
+      <div data-v-e44179e3="">{lastBet.result < 5 ? 'Small' : 'Big'}</div>
+    </div>
+
+    {/* Apply a dynamic class based on the result */}
+    <div data-v-e44179e3="" className="WinningTip__C-body-l3">
+      <div data-v-e44179e3="" className="isLose">Lose</div>
+      <div data-v-e44179e3="" className="gameDetail">Period: 1 min {lastBet.stage}</div>
+    </div>
+
+    <div data-v-e44179e3="" className="WinningTip__C-body-l4">
+      <div data-v-e44179e3="" className="acitveBtn"></div> 3 seconds auto close
+    </div>
+
+    <div data-v-e44179e3="" className="closeBtn" onClick={toggleVisibility}></div>
+    
+    {/* This is an icon, hidden by default */}
+    <i data-v-e44179e3="" className="van-badge__wrapper van-icon van-icon-arrow arrowBtn" style={{color: 'rgb(255, 255, 255)', fontSize: '30px', display: 'none'}}></i>
+  </div>
+</div>
+:
+<div data-v-e44179e3="" data-v-5d71c3fd="" className="WinningTip__C" style={{ display: isVisible ? '' : 'none' }}>
+
+<div data-v-e44179e3="" className="WinningTip__C-body" style={{ backgroundImage : `url('/assets/png/win-popup.png')` }}>
+  <div data-v-e44179e3="" className="WinningTip__C-body-l1">Congratulations</div>
+  <div data-v-e44179e3="" className={`WinningTip__C-body-l2 type${lastBet.result}`}>
+    Lottery results
+    <div data-v-e44179e3="">
+    {lastBet.result === 0 ? 'Red Violet'
+          : lastBet.result === 5 ? 'Green Violet'
+          : lastBet.result % 2 === 0 ? 'Red' : 'Green'}
+
+    </div>
+    <div data-v-e44179e3="" className="WinningNum">{lastBet.result}</div>
+    <div data-v-e44179e3="">{lastBet.result < 5 ? 'Small' : 'Big'}</div>
+  </div>
+  <div data-v-e44179e3="" className="WinningTip__C-body-l3">
+    <div data-v-e44179e3="" className="head">Bonus</div>
+    <div data-v-e44179e3="" className="bonus">₹{lastBet.get}</div>
+    <div data-v-e44179e3="" className="gameDetail">
+      Period:1min {lastBet.stage}
+    </div>
+  </div>
+  <div data-v-e44179e3="" className="WinningTip__C-body-l4">
+    <div data-v-e44179e3="" className="acitveBtn"></div>
+    3 seconds auto close
+  </div>
+  <div data-v-e44179e3="" className="closeBtn" onClick={toggleVisibility}></div>
+  <i
+    data-v-e44179e3=""
+    className="van-badge__wrapper van-icon van-icon-arrow arrowBtn"
+    style={{color: 'rgb(255, 255, 255)', fontSize: '30px', display: 'none'}}
+    ></i
+  >
+</div>
+</div>
+}
 </div>
 );
 }
