@@ -4518,10 +4518,10 @@ export default function SuperJackpot() {
                         batches</span></div>
                 <ul data-v-6243ef37="" className="tab">
                     <li data-v-6243ef37="" className="tab-item"><svg data-v-6243ef37="" className="svg-icon icon-rule">
-                            <use href="#icon-rule"></use>
+                            <use href="/main/SuperJackpot/rule"></use>
                         </svg><span data-v-6243ef37="">Rule</span></li>
                     <li data-v-6243ef37="" className="tab-item"><svg data-v-6243ef37="" className="svg-icon icon-winningStar">
-                            <use href="#icon-winningStar"></use>
+                            <use href="/main/SuperJackpot/star"></use>
                         </svg><span data-v-6243ef37="">Winning star</span></li>
                 </ul>
                 <div data-v-cbab7763="" data-v-6243ef37="" className="infiniteScroll"
