@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function TeamReport(){
+
+  const [isVisible, setIsVisible] = useState(false);
+  const [isSecondVisible, setIsSecondVisible] = useState(false);
+  
+    const handleToggle = () => {
+      setIsVisible(!isVisible);
+    };
+  
+    const handleCancel = () => {
+      setIsVisible(false);
+    };
+    const handleSecondToggle = () => {
+      setIsSecondVisible(!isSecondVisible);
+    };
+    const handleSecondCancel = () => {
+      setIsSecondVisible(false);
+    };
+ 
 
     return(
   <div style={{fontSize: '12px'}}>
@@ -9375,15 +9393,15 @@ export default function TeamReport(){
     <div id="app" data-v-app="">
       <div
         data-v-647954c7=""
-        class="ar-loading-view"
+        className="ar-loading-view"
         style={{  
             '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
             display: 'none'
           }}
       >
-        <div data-v-647954c7="" class="loading-wrapper">
+        <div data-v-647954c7="" className="loading-wrapper">
           
-          <div data-v-647954c7="" class="loading-animat">
+          <div data-v-647954c7="" className="loading-animat">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 200 200"
@@ -9410,7 +9428,7 @@ export default function TeamReport(){
               </defs>
               <g clip-path="url(#__lottie_element_2)">
                 <g
-                  class="ai"
+                  className="ai"
                   transform="matrix(0.26992830634117126,-0.9628804326057434,0.9628804326057434,0.26992830634117126,-23.280868530273438,169.2952117919922)"
                   opacity="1"
                   style={{display: 'block'}}
@@ -9423,7 +9441,7 @@ export default function TeamReport(){
                   ></image>
                 </g>
                 <g
-                  class="png"
+                  className="png"
                   transform="matrix(0.8826000094413757,0,0,0.8826000094413757,55.869998931884766,55.869998931884766)"
                   opacity="1"
                   style={{display: 'block'}}
@@ -9438,53 +9456,53 @@ export default function TeamReport(){
               </g>
             </svg>
           </div>
-          <div data-v-647954c7="" class="com__box" style={{display: 'none'}}>
+          <div data-v-647954c7="" className="com__box" style={{display: 'none'}}>
            
-            <div class="loading" data-v-647954c7="">
-              <div class="shape shape-1" data-v-647954c7=""></div>
-              <div class="shape shape-2" data-v-647954c7=""></div>
-              <div class="shape shape-3" data-v-647954c7=""></div>
-              <div class="shape shape-4" data-v-647954c7=""></div>
+            <div className="loading" data-v-647954c7="">
+              <div className="shape shape-1" data-v-647954c7=""></div>
+              <div className="shape shape-2" data-v-647954c7=""></div>
+              <div className="shape shape-3" data-v-647954c7=""></div>
+              <div className="shape shape-4" data-v-647954c7=""></div>
             </div>
           </div>
         </div>
-        <div data-v-647954c7="" class="skeleton-wrapper" style={{display: 'none'}}>
-          <div data-v-647954c7="" class="van-skeleton van-skeleton--animate">
+        <div data-v-647954c7="" className="skeleton-wrapper" style={{display: 'none'}}>
+          <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
             
-            <div class="van-skeleton__content">
+            <div className="van-skeleton__content">
               
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '60%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '60%'}}></div>
             </div>
           </div>
-          <div data-v-647954c7="" class="van-skeleton van-skeleton--animate">
-            <div class="van-skeleton-avatar van-skeleton-avatar--round"></div>
-            <div class="van-skeleton__content">
-              <h3 class="van-skeleton-title"></h3>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '60%'}}></div>
+          <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
+            <div className="van-skeleton-avatar van-skeleton-avatar--round"></div>
+            <div className="van-skeleton__content">
+              <h3 className="van-skeleton-title"></h3>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '60%'}}></div>
             </div>
           </div>
-          <div data-v-647954c7="" class="van-skeleton van-skeleton--animate">
+          <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
             
-            <div class="van-skeleton__content">
-              <h3 class="van-skeleton-title"></h3>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div class="van-skeleton-paragraph" style={{width: '60%'}}></div>
+            <div className="van-skeleton__content">
+              <h3 className="van-skeleton-title"></h3>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+              <div className="van-skeleton-paragraph" style={{width: '60%'}}></div>
             </div>
           </div>
         </div>
@@ -9492,114 +9510,115 @@ export default function TeamReport(){
       
       <div
         data-v-10d1559c=""
-        class="TeamReport__C"
+        className="TeamReport__C"
         style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
       >
-        <div data-v-12a80a3e="" data-v-10d1559c="" class="navbar white">
-          <div data-v-12a80a3e="" class="navbar-fixed">
-            <div data-v-12a80a3e="" class="navbar__content">
-              <div data-v-12a80a3e="" class="navbar__content-left">
+        <div data-v-12a80a3e="" data-v-10d1559c="" className="navbar white">
+          <div data-v-12a80a3e="" className="navbar-fixed">
+            <div data-v-12a80a3e="" className="navbar__content">
+              <div data-v-12a80a3e="" className="navbar__content-left">
                 <i
                   data-v-12a80a3e=""
-                  class="van-badge__wrapper van-icon van-icon-arrow-left"
+                  className="van-badge__wrapper van-icon van-icon-arrow-left"
                   ></i
                 >
               </div>
-              <div data-v-12a80a3e="" class="navbar__content-center">
+              <div data-v-12a80a3e="" className="navbar__content-center">
                 
-                <div data-v-12a80a3e="" class="navbar__content-title">
+                <div data-v-12a80a3e="" className="navbar__content-title">
                   Subordinate data
                 </div>
               </div>
-              <div data-v-12a80a3e="" class="navbar__content-right"></div>
+              <div data-v-12a80a3e="" className="navbar__content-right"></div>
             </div>
           </div>
         </div>
-        <div data-v-10d1559c="" class="TeamReport__C-head">
-          <div data-v-10d1559c="" class="TeamReport__C-head-fixed">
+        <div data-v-10d1559c="" className="TeamReport__C-head">
+          <div data-v-10d1559c="" className="TeamReport__C-head-fixed">
             <div
               data-v-c06f3394=""
               data-v-10d1559c=""
-              class="searchbar-container"
+              className="searchbar-container"
             >
               <input
                 data-v-c06f3394=""
                 type="text"
                 auto-complete="new-password"
                 autocomplete="off"
-                class="searchbar-container__searchbar"
+                className="searchbar-container__searchbar"
                 placeholder="Search subordinate UID"
                 maxlength="30"
               /><svg
                 data-v-c06f3394=""
-                class="svg-icon icon-searchBtn searchIcon searchIcon"
+                className="svg-icon icon-searchBtn searchIcon searchIcon"
               >
                 <use href="#icon-searchBtn"></use>
               </svg>
             </div>
-            <div data-v-10d1559c="" class="TeamReport__C-head-line2">
+            <div data-v-10d1559c="" className="TeamReport__C-head-line2">
               <div data-v-10d1559c="">
-                <span data-v-10d1559c="" class="default">All</span
+                <span data-v-10d1559c="" className="default">All</span
                 ><i
                   data-v-10d1559c=""
-                  class="van-badge__wrapper van-icon van-icon-arrow-down"
-                  ></i
+                  className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleToggle}
+                  >
+                    </i
                 >
               </div>
               <div data-v-10d1559c="">
-                <span data-v-10d1559c="" class="default">2024-08-12</span
+                <span data-v-10d1559c="" className="default">2024-08-12</span
                 ><i
                   data-v-10d1559c=""
-                  class="van-badge__wrapper van-icon van-icon-arrow-down"
+                  className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleSecondToggle}
                   ></i
                 >
               </div>
             </div>
           </div>
         </div>
-        <div data-v-10d1559c="" class="TeamReport__C-body">
-          <div data-v-10d1559c="" class="header-container">
+        <div data-v-10d1559c="" className="TeamReport__C-body">
+          <div data-v-10d1559c="" className="header-container">
             <div data-v-10d1559c="">
-              <div data-v-10d1559c="" class="num">0</div>
+              <div data-v-10d1559c="" className="num">0</div>
               <div data-v-10d1559c="">Deposit number</div>
             </div>
             <div data-v-10d1559c="">
-              <div data-v-10d1559c="" class="num">0</div>
+              <div data-v-10d1559c="" className="num">0</div>
               <div data-v-10d1559c="">Deposit amount</div>
             </div>
             <div data-v-10d1559c="">
-              <div data-v-10d1559c="" class="num">0</div>
+              <div data-v-10d1559c="" className="num">0</div>
               <div data-v-10d1559c="">Number of bettors</div>
             </div>
             <div data-v-10d1559c="">
-              <div data-v-10d1559c="" class="num">0</div>
+              <div data-v-10d1559c="" className="num">0</div>
               <div data-v-10d1559c="">Total bet</div>
             </div>
             <div data-v-10d1559c="">
-              <div data-v-10d1559c="" class="num">0</div>
+              <div data-v-10d1559c="" className="num">0</div>
               <div data-v-10d1559c="">
                 Number of people making first deposit
               </div>
             </div>
             <div data-v-10d1559c="">
-              <div data-v-10d1559c="" class="num">0</div>
+              <div data-v-10d1559c="" className="num">0</div>
               <div data-v-10d1559c="">First deposit amount</div>
             </div>
           </div>
           <div
             data-v-cbab7763=""
             data-v-10d1559c=""
-            class="infiniteScroll"
+            className="infiniteScroll"
             id="refreshe884edb8e39f4e8fae8bfcf400dd17f3"
           >
-            <div data-v-cbab7763="" class="infiniteScroll__loading">
+            <div data-v-cbab7763="" className="infiniteScroll__loading">
               
               <div
                 data-v-f84b843f=""
                 data-v-cbab7763=""
-                class="empty__container"
+                className="empty__container"
               >
-                <svg data-v-f84b843f="" class="svg-icon icon-empty">
+                <svg data-v-f84b843f="" className="svg-icon icon-empty">
                   <use href="#icon-empty"></use>
                 </svg>
                 <p data-v-f84b843f="">No data</p>
@@ -9607,10 +9626,483 @@ export default function TeamReport(){
             </div>
           </div>
         </div>
-        
+        <div className="van-overlay" role="button" tabindex="0" data-v-10d1559c="" style={{zIndex: '2001', display: isVisible ? 'block' : 'none'}}></div>
+        <div
+  role="dialog"
+  tabindex="0"
+  className="van-popup van-popup--round van-popup--bottom"
+  data-v-10d1559c=""
+  style={{zIndex: '2001', display: isVisible ? 'block' : 'none'}}
+>
+  <div data-v-10d1559c="" className="van-picker">
+    <div className="van-picker__toolbar">
+      <button type="button" className="van-picker__cancel van-haptics-feedback" onClick={handleCancel}>
+        Cancel</button
+      ><button
+        type="button"
+        className="van-picker__confirm van-haptics-feedback"
+      >
+        Confirm
+      </button>
+    </div>
+    
+    <div className="van-picker__columns" style={{height: '264px'}}>
+      <div className="van-picker-column">
+        <ul
+          className="van-picker-column__wrapper"
+          style={{
+            transform: 'translate3d(0px, 110px, 0px)',
+            transitionDuration: '0ms',
+            transitionProperty: 'none',
+          }}
+        >
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item van-picker-column__item--selected"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">All</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">Tier 1</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">Tier 2</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">Tier 3</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">Tier 4</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">Tier 5</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">Tier 6</div>
+          </li>
+        </ul>
+      </div>
+      <div className="van-picker__mask" style={{backgroundSize: '100% 110px'}}></div>
+      <div
+        className="van-hairline-unset--top-bottom van-picker__frame"
+        style={{height: '44px'}}
+      ></div>
+    </div>
+    
+  </div>
+  
+</div>
+<div className="van-overlay" role="button" tabindex="0" data-v-10d1559c="" style={{zIndex: '2002', display: isSecondVisible ? 'block' : 'none'}}></div>
+<div
+  role="dialog"
+  tabindex="0"
+  className="van-popup van-popup--round van-popup--bottom"
+  data-v-10d1559c=""
+  style={{zIndex: '2002', display: isSecondVisible ? 'block' : 'none'}}
+>
+  <div data-v-10d1559c="" className="van-picker">
+    <div className="van-picker__toolbar">
+      <button type="button" className="van-picker__cancel van-haptics-feedback" onClick={handleSecondCancel}>
+        Cancel
+      </button>
+      <div className="van-picker__title van-ellipsis">Choose a date</div>
+      <button type="button" className="van-picker__confirm van-haptics-feedback">
+        Confirm
+      </button>
+    </div>
+    
+    <div className="van-picker__columns" style={{height: '264px'}}>
+      <div className="van-picker-column">
+        <ul
+          className="van-picker-column__wrapper"
+          style={{
+            transform: 'translate3d(0px, 22px, 0px)',
+            transitionDuration: '0ms',
+            transitionProperty: 'none',
+          }}
+        >
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">2022</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">2023</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item van-picker-column__item--selected"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">2024</div>
+          </li>
+        </ul>
+      </div>
+      <div className="van-picker-column">
+        <ul
+          className="van-picker-column__wrapper"
+          style={{
+            transform: 'translate3d(0px, -198px, 0px)',
+            transitionDuration: '0ms',
+            transitionProperty: 'none',
+          }}
+        >
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">01</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">02</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">03</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">04</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">05</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">06</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">07</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item van-picker-column__item--selected"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">08</div>
+          </li>
+        </ul>
+      </div>
+      <div className="van-picker-column">
+        <ul
+          className="van-picker-column__wrapper"
+          style={{
+            transform: 'translate3d(0px, -1078px, 0px)',
+            transitionDuration: '0ms',
+            transitionProperty: 'none',
+          }}
+        >
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">01</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">02</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">03</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">04</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">05</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">06</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">07</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">08</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">09</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">10</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">11</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">12</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">13</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">14</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">15</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">16</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">17</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">18</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">19</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">20</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">21</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">22</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">23</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">24</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">25</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">26</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">27</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item van-picker-column__item--selected"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">28</div>
+          </li>
+        </ul>
+      </div>
+      <div className="van-picker__mask" style={{backgroundSize: '100% 110px'}}></div>
+      <div
+        className="van-hairline-unset--top-bottom van-picker__frame"
+        style={{height: '44px'}}
+      ></div>
+    </div>
+    
+  </div>
+  
+</div>
+     
       </div>
       <div
-        class="customer"
+        className="customer"
         id="customerId"
         style={{  
             '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
@@ -9618,7 +10110,7 @@ export default function TeamReport(){
           }}
       >
         <img
-          class=""
+          className=""
           data-origin="/assets/png/icon_sevice-9f0c8455.png"
           src="/assets/png/icon_sevice-9f0c8455.png"
         />

@@ -4655,8 +4655,8 @@ export default function Dashboard() {
                 <div data-v-12a80a3e="" className="navbar-fixed">
                     <div data-v-12a80a3e="" className="navbar__content">
                         <div data-v-12a80a3e="" className="navbar__content-left"><img data-v-003e4505=""
-                                src="/assets/png/h5setting_20230714005937kuk1.png"
-                                alt=""/></div>
+                                src="/assets/png/BDGPRO2.png"
+                                alt="" style={{width:'80px', height:'40px',}}/></div>
                         <div data-v-12a80a3e="" className="navbar__content-center">
                             <div data-v-12a80a3e="" className="navbar__content-title"></div>
                         </div>
@@ -5489,7 +5489,7 @@ export default function Dashboard() {
                 </svg>
                 <div data-v-6ab3f23e="" className="promotionBg"></div>
                 <span data-v-6ab3f23e="">
-                    <a href="/promotion/promotion.html">Promotion</a> </span>
+                    <a href="/promotion">Promotion</a> </span>
             </div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
             <a href="/wallet"><use href="#icon-wallet"></use></a>

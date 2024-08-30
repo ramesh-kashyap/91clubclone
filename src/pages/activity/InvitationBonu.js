@@ -1,6 +1,11 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom';
 export default function InvitationBonu() {
+ 
+    const navigate = useNavigate();
+   
+  
+
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -9508,11 +9513,10 @@ export default function InvitationBonu() {
         <div data-v-12a80a3e="" className="navbar-fixed">
           <div data-v-12a80a3e="" className="navbar__content">
             <div data-v-12a80a3e="" className="navbar__content-left">
-              <i
-                data-v-12a80a3e=""
+            <a href="/activity">
+              <i data-v-12a80a3e=""
                 className="van-badge__wrapper van-icon van-icon-arrow-left"
-                ></i
-              >
+                ></i></a>
             </div>
             <div data-v-12a80a3e="" className="navbar__content-center">
              
@@ -9546,9 +9550,11 @@ export default function InvitationBonu() {
             </div>
           </div>
         </div>
-        <div data-v-b733e3c6="" className="nav">
-          <div data-v-b733e3c6="" className="rule">Invitation reward rules</div>
-          <div data-v-b733e3c6="" className="record">Invitation record</div>
+        <div data-v-b733e3c6="" className="nav">                    
+        <div data-v-b733e3c6="" className="rule" onClick={() => navigate('/activity/DailySignIn/Rules')}>
+          Invitation reward rules</div>         
+          <div data-v-b733e3c6="" className="record"  onClick={() => navigate('/main/InvitationBonus/Record')}
+          >Invitation record</div>
         </div>
       </div>
       <div

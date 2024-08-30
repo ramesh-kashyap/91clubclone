@@ -1,5 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
  export default function Commission(){
+
+  
+    const [isVisible, setIsVisible] = useState(false);
+  
+    const handleToggle = () => {
+      setIsVisible(!isVisible);
+    };
+  
+    const handleCancel = () => {
+      setIsVisible(false);
+    };
 
 return(
   <div className="" style={{fontSize: '12px'}}>
@@ -9532,7 +9543,7 @@ return(
                       >2024-08-27</span
                     ><i
                       data-v-fa757a88=""
-                      className="van-badge__wrapper van-icon van-icon-arrow-down"
+                      className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleToggle}
                       ></i
                     >
                   </div>
@@ -9546,7 +9557,7 @@ return(
           role="button"
           tabindex="0"
           data-v-5659d99c=""
-          style={{zIndex: '2006', display: 'none'}}
+          style={{ zIndex: 2006, display: isVisible ? 'block' : 'none' }}
         >
           
         </div>
@@ -9555,13 +9566,13 @@ return(
           tabindex="0"
           className="van-popup van-popup--round van-popup--bottom"
           data-v-5659d99c=""
-          style={{zIndex: '2006',}}
+          style={{ zIndex: 2006, display: isVisible ? 'block' : 'none' }}
         >
           <div data-v-5659d99c="" className="van-picker">
             <div className="van-picker__toolbar">
               <button
                 type="button"
-                className="van-picker__cancel van-haptics-feedback"
+                className="van-picker__cancel van-haptics-feedback" onClick={handleCancel}
               >
                 Cancel
               </button>

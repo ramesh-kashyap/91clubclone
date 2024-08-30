@@ -4492,8 +4492,8 @@ export default function SuperJackpot() {
             <div data-v-12a80a3e="" data-v-6243ef37="" className="navbar">
                 <div data-v-12a80a3e="" className="navbar-fixed">
                     <div data-v-12a80a3e="" className="navbar__content">
-                        <div data-v-12a80a3e="" className="navbar__content-left"><i data-v-12a80a3e=""
-                                className="van-badge__wrapper van-icon van-icon-arrow-left"></i></div>
+                        <div data-v-12a80a3e="" className="navbar__content-left"><a href="/activity"><i data-v-12a80a3e=""
+                                className="van-badge__wrapper van-icon van-icon-arrow-left"></i></a></div>
                         <div data-v-12a80a3e="" className="navbar__content-center">
                             <div data-v-12a80a3e="" className="navbar__content-title">Super Jackpot</div>
                         </div>
@@ -4518,10 +4518,10 @@ export default function SuperJackpot() {
                         batches</span></div>
                 <ul data-v-6243ef37="" className="tab">
                     <li data-v-6243ef37="" className="tab-item"><svg data-v-6243ef37="" className="svg-icon icon-rule">
-                            <use href="#icon-rule"></use>
+                            <use href="/main/SuperJackpot/rule"></use>
                         </svg><span data-v-6243ef37="">Rule</span></li>
                     <li data-v-6243ef37="" className="tab-item"><svg data-v-6243ef37="" className="svg-icon icon-winningStar">
-                            <use href="#icon-winningStar"></use>
+                            <use href="/main/SuperJackpot/star"></use>
                         </svg><span data-v-6243ef37="">Winning star</span></li>
                 </ul>
                 <div data-v-cbab7763="" data-v-6243ef37="" className="infiniteScroll"
