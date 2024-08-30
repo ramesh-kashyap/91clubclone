@@ -4858,11 +4858,7 @@ export default function Dashboard() {
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"/>
                         </div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
-                                className="min_game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/801_20240813135440084.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/801_20240813135440084.png"/>
-                        </div>
+                       
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(235)}><img data-v-860d7030=""
                                 className="min_game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/110.png"
@@ -4875,12 +4871,8 @@ export default function Dashboard() {
                                 className="min_game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(229)}><img data-v-860d7030=""
-                                className="min_game_img ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/100.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
-                                className="min_game_img ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/107.png"/></div>
+                        
+                        
                     </div>
                     <div data-v-d06787cb="" data-v-df3cc798="" className="hot_container"  id="section3" style={{ display: activeSection === 'section3' ? 'grid' : 'none' }}>
                         <div data-v-d06787cb="" className="platform">
@@ -4918,7 +4910,7 @@ export default function Dashboard() {
                                             </defs>
                                         </svg><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"
-                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
+                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png" onClick={() => handleGameClick(261)}/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">89.37%</span>
                                         <div data-v-d06787cb="" className="win-p" style={{width: '89.37%'}}></div>
