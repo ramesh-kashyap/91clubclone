@@ -4,6 +4,9 @@ import Api from '../../../services/Api';
 import MyGameRecordList from './components/MyGameRecordList';
 import GameList from './components/GameList';
 import ReactHowler from 'react-howler';
+import ChartList from './components/ChartList';
+import { useNavigate } from 'react-router-dom';
+
 
 const SOCKET_URL = 'http://localhost:3000';
 
@@ -40,11 +43,15 @@ const getPopupClass = (item) => {
 
 
 export default function Wingo() {
+
+  const navigate = useNavigate();
+
+
   const [userInfo, setUserInfo] = useState(null);
     const [activeSection, setActiveSection] = useState('section1');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [gamelist, setGamelist] = useState(null);
+    const [gamelist, setGamelist] = useState([]);
     const [myBets,setMyBets] = useState(null);
     const [last5Periods, setLast5Periods] = useState([]);
     const [period, setPeriod] = useState(null);
@@ -442,7 +449,10 @@ export default function Wingo() {
 
 
     const showSection = (sectionId) => {
+      fetchGamelist(1);
+
         setActiveSection(sectionId);
+
       };
 
 
@@ -9992,16 +10002,24 @@ export default function Wingo() {
       <button className="hotIcon">Detail</button>
     </div>
     <div data-v-17d56002="" data-v-5d71c3fd="" className="GameList__C">
-      <div data-v-17d56002="" className="GameList__C-item active">
+      <div data-v-17d56002="" className="GameList__C-item active" onClick={() => {
+    navigate('/wingo');
+  }}>
         <div data-v-17d56002="">Win Go<br />1Min</div>
       </div>
-      <div data-v-17d56002="" className="GameList__C-item">
+      <div data-v-17d56002="" className="GameList__C-item" onClick={() => {
+    navigate('/wingo3');
+  }}>
         <div data-v-17d56002="">Win Go<br />3Min</div>
       </div>
-      <div data-v-17d56002="" className="GameList__C-item">
+      <div data-v-17d56002="" className="GameList__C-item" onClick={() => {
+    navigate('/wingo5');
+  }}>
         <div data-v-17d56002="">Win Go<br />5Min</div>
       </div>
-      <div data-v-17d56002="" className="GameList__C-item">
+      <div data-v-17d56002="" className="GameList__C-item" onClick={() => {
+    navigate('/wingo10');
+  }}>
         <div data-v-17d56002="">Win Go<br />10Min</div>
       </div>
     </div>
@@ -10226,251 +10244,36 @@ export default function Wingo() {
           </div>
         </div>
       </div>
-      <div data-v-d485a39d="" className="Trend__C-body2">
-        <div data-v-d485a39d="" issuenumber="20240823301451" number="9" colour="green" rowid="0">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301451</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas0"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action9">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS isB">B</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301450" number="6" colour="red" rowid="1">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301450</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas1"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action6">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS isB">B</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301449" number="0" colour="red,violet" rowid="2">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301449</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas2"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action0">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS">S</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301448" number="0" colour="red,violet" rowid="3">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301448</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas3"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action0">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS">S</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301447" number="7" colour="green" rowid="4">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301447</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas4"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action7">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS isB">B</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301446" number="2" colour="red" rowid="5">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301446</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas5"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action2">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS">S</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301445" number="0" colour="red,violet" rowid="6">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301445</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas6"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action0">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS">S</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301444" number="5" colour="green,violet" rowid="7">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301444</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas7"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action5">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS isB">B</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301443" number="5" colour="green,violet" rowid="8">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301443</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas8"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action5">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS isB">B</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301442" number="3" colour="green" rowid="9">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301442</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas9"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action3">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS">S</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div data-v-d485a39d="" className="Trend__C-foot">
-        <div data-v-d485a39d="" className="Trend__C-foot-previous disabled"><i data-v-d485a39d=""
-            className="van-badge__wrapper van-icon van-icon-arrow-left Trend__C-icon" style={{fontSize: '20px'}}>
-            
-            
-            </i></div>
-        <div data-v-d485a39d="" className="Trend__C-foot-page">10/{totalGamePages}</div>
-        <div data-v-d485a39d="" className="Trend__C-foot-next"><i data-v-d485a39d=""
-            className="van-badge__wrapper van-icon van-icon-arrow Trend__C-icon" style={{fontSize: '20px'}}>
-            
-            
-            </i></div>
-      </div>
+      <ChartList gamelist={gamelist} />
+      
+      <div data-v-4b21e13b="" className="MyGameRecord__C-foot">
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-previous ${currentGamePage === 1 ? 'disabled' : ''}`} 
+    onClick={handlePreviousGamePage}
+  >
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow-left MyGameRecord__C-icon" 
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+  <div data-v-4b21e13b="" className="MyGameRecord__C-foot-page">
+    {currentGamePage}/{totalGamePages}
+  </div>
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-next ${currentGamePage === totalGamePages ? 'disabled' : ''}`} 
+    onClick={handleNextGamePage}
+    style={{ zIndex:10 }}
+  >
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow MyGameRecord__C-icon" 
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+</div>
     </div>
     <div data-v-481307ec="" data-v-5d71c3fd="" className="GameRecord__C game-record" apifun="e=>_(f.WinGoGetMyEmerdList,e).then(t=>t.data)" listapi="e=>_(f.WinGoGetNoaverageEmerdList,e).then(t=>t.data)" emerdapi="e=>_(f.WinGoGetEmerdList,e).then(t=>t.data)"  gopathname="AllLotteryGames-BettingRecordWin" id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
       <div data-v-481307ec="" className="GameRecord__C-head">
@@ -10623,7 +10426,7 @@ export default function Wingo() {
         >
           <div data-v-7f36fe93="" className="Betting__Popup-1">
             <div data-v-7f36fe93="" className="Betting__Popup-head">
-              <div data-v-7f36fe93="" className="Betting__Popup-head-title">Win Go 5Min</div>
+              <div data-v-7f36fe93="" className="Betting__Popup-head-title">Win Go 1Min</div>
               <div data-v-7f36fe93="" className="Betting__Popup-head-selectName">
                 <span data-v-7f36fe93="">Select</span>
                 <span data-v-7f36fe93="">{selectedItem}</span>
@@ -10712,6 +10515,9 @@ export default function Wingo() {
                   </div>
                 </div>
               </div>
+
+              <div data-v-7f36fe93="" className="Betting__Popup-body-line"><span data-v-7f36fe93="" className="Betting__Popup-agree active">I
+        agree</span><span data-v-7f36fe93="" className="Betting__Popup-preSaleShow">《Pre-sale rules》</span></div>
               
             </div>
             <div data-v-7f36fe93="" className="Betting__Popup-foot">
@@ -10740,81 +10546,75 @@ export default function Wingo() {
   </div>
   
 </div>
-{ lastBet && lastBet.status===2 ?
-<div data-v-e44179e3="" data-v-5d71c3fd="" className="WinningTip__C" style={{ display: isVisible ? '' : 'none' }}>
-  <div data-v-e44179e3="" className="WinningTip__C-body isL">
-    
-    {/* Display static text "Sorry" with a class based on some condition */}
-    <div data-v-e44179e3="" className="WinningTip__C-body-l1 isL">Sorry</div>
+{ lastBet && lastBet.result !== undefined ? (
+  lastBet.status === 2 ? (
+    <div data-v-e44179e3="" data-v-5d71c3fd="" className="WinningTip__C" style={{ display: isVisible ? '' : 'none' }}>
+      <div data-v-e44179e3="" className="WinningTip__C-body isL">
+        
+        <div data-v-e44179e3="" className="WinningTip__C-body-l1 isL">Sorry</div>
 
-    {/* Display lottery results with conditional text */}
-    <div data-v-e44179e3="" className={`WinningTip__C-body-l2 type${lastBet.result}`}>Lottery results 
-      <div data-v-e44179e3="">
-        {lastBet.result === 0 ? 'Red Violet'
-          : lastBet.result === 5 ? 'Green Violet'
-          : lastBet.result % 2 === 0 ? 'Red' : 'Green'}
+        <div data-v-e44179e3="" className={`WinningTip__C-body-l2 type${lastBet.result}`}>Lottery results 
+          <div data-v-e44179e3="">
+            {lastBet.result === 0 ? 'Red Violet'
+              : lastBet.result === 5 ? 'Green Violet'
+              : lastBet.result % 2 === 0 ? 'Red' : 'Green'}
+          </div>
+
+          <div data-v-e44179e3="" className="WinningNum">{lastBet.result}</div>
+
+          <div data-v-e44179e3="">{lastBet.result < 5 ? 'Small' : 'Big'}</div>
+        </div>
+
+        <div data-v-e44179e3="" className="WinningTip__C-body-l3">
+          <div data-v-e44179e3="" className="isLose">Lose</div>
+          <div data-v-e44179e3="" className="gameDetail">Period: 1 min {lastBet.stage}</div>
+        </div>
+
+        <div data-v-e44179e3="" className="WinningTip__C-body-l4">
+          <div data-v-e44179e3="" className="acitveBtn"></div> 3 seconds auto close
+        </div>
+
+        <div data-v-e44179e3="" className="closeBtn" onClick={toggleVisibility}></div>
+
+        <i data-v-e44179e3="" className="van-badge__wrapper van-icon van-icon-arrow arrowBtn" style={{color: 'rgb(255, 255, 255)', fontSize: '30px', display: 'none'}}></i>
       </div>
-
-      {/* Display the result number */}
-      <div data-v-e44179e3="" className="WinningNum">{lastBet.result}</div>
-
-      {/* Display whether the result is "Small" or "Big" */}
-      <div data-v-e44179e3="">{lastBet.result < 5 ? 'Small' : 'Big'}</div>
     </div>
-
-    {/* Apply a dynamic class based on the result */}
-    <div data-v-e44179e3="" className="WinningTip__C-body-l3">
-      <div data-v-e44179e3="" className="isLose">Lose</div>
-      <div data-v-e44179e3="" className="gameDetail">Period: 1 min {lastBet.stage}</div>
+  ) : (
+    <div data-v-e44179e3="" data-v-5d71c3fd="" className="WinningTip__C" style={{ display: isVisible ? '' : 'none' }}>
+      <div data-v-e44179e3="" className="WinningTip__C-body" style={{ backgroundImage : `url('/assets/png/win-popup.png')` }}>
+        <div data-v-e44179e3="" className="WinningTip__C-body-l1">Congratulations</div>
+        <div data-v-e44179e3="" className={`WinningTip__C-body-l2 type${lastBet.result}`}>
+          Lottery results
+          <div data-v-e44179e3="">
+            {lastBet.result === 0 ? 'Red Violet'
+              : lastBet.result === 5 ? 'Green Violet'
+              : lastBet.result % 2 === 0 ? 'Red' : 'Green'}
+          </div>
+          <div data-v-e44179e3="" className="WinningNum">{lastBet.result}</div>
+          <div data-v-e44179e3="">{lastBet.result < 5 ? 'Small' : 'Big'}</div>
+        </div>
+        <div data-v-e44179e3="" className="WinningTip__C-body-l3">
+          <div data-v-e44179e3="" className="head">Bonus</div>
+          <div data-v-e44179e3="" className="bonus">₹{lastBet.get}</div>
+          <div data-v-e44179e3="" className="gameDetail">
+            Period:1min {lastBet.stage}
+          </div>
+        </div>
+        <div data-v-e44179e3="" className="WinningTip__C-body-l4">
+          <div data-v-e44179e3="" className="acitveBtn"></div>
+          3 seconds auto close
+        </div>
+        <div data-v-e44179e3="" className="closeBtn" onClick={toggleVisibility}></div>
+        <i
+          data-v-e44179e3=""
+          className="van-badge__wrapper van-icon van-icon-arrow arrowBtn"
+          style={{color: 'rgb(255, 255, 255)', fontSize: '30px', display: 'none'}}
+          ></i>
+      </div>
     </div>
+  )
+) : null }
 
-    <div data-v-e44179e3="" className="WinningTip__C-body-l4">
-      <div data-v-e44179e3="" className="acitveBtn"></div> 3 seconds auto close
-    </div>
-
-    <div data-v-e44179e3="" className="closeBtn" onClick={toggleVisibility}></div>
-    
-    {/* This is an icon, hidden by default */}
-    <i data-v-e44179e3="" className="van-badge__wrapper van-icon van-icon-arrow arrowBtn" style={{color: 'rgb(255, 255, 255)', fontSize: '30px', display: 'none'}}></i>
-  </div>
-</div>
-:
-<div data-v-e44179e3="" data-v-5d71c3fd="" className="WinningTip__C" style={{ display: isVisible ? '' : 'none' }}>
-
-<div data-v-e44179e3="" className="WinningTip__C-body" style={{ backgroundImage : `url('/assets/png/win-popup.png')` }}>
-  <div data-v-e44179e3="" className="WinningTip__C-body-l1">Congratulations</div>
-  <div data-v-e44179e3="" className={`WinningTip__C-body-l2 type${lastBet.result}`}>
-    Lottery results
-    <div data-v-e44179e3="">
-    {lastBet.result === 0 ? 'Red Violet'
-          : lastBet.result === 5 ? 'Green Violet'
-          : lastBet.result % 2 === 0 ? 'Red' : 'Green'}
-
-    </div>
-    <div data-v-e44179e3="" className="WinningNum">{lastBet.result}</div>
-    <div data-v-e44179e3="">{lastBet.result < 5 ? 'Small' : 'Big'}</div>
-  </div>
-  <div data-v-e44179e3="" className="WinningTip__C-body-l3">
-    <div data-v-e44179e3="" className="head">Bonus</div>
-    <div data-v-e44179e3="" className="bonus">₹{lastBet.get}</div>
-    <div data-v-e44179e3="" className="gameDetail">
-      Period:1min {lastBet.stage}
-    </div>
-  </div>
-  <div data-v-e44179e3="" className="WinningTip__C-body-l4">
-    <div data-v-e44179e3="" className="acitveBtn"></div>
-    3 seconds auto close
-  </div>
-  <div data-v-e44179e3="" className="closeBtn" onClick={toggleVisibility}></div>
-  <i
-    data-v-e44179e3=""
-    className="van-badge__wrapper van-icon van-icon-arrow arrowBtn"
-    style={{color: 'rgb(255, 255, 255)', fontSize: '30px', display: 'none'}}
-    ></i
-  >
-</div>
-</div>
-}
 </div>
 );
 }
