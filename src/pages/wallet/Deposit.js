@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 export default function Deposit(){
 const [activeSection, setActiveSection] = useState('section1');
 const [selectedAmount, setSelectedAmount] = useState('');
@@ -22,6 +23,7 @@ const showSection = (sectionId) => {
       setSelectedAmount(value); // Set selectedAmount to match input value
     }
   };
+  
   const amounts = {
     section1: ['300', '500', '800', '1000', '3000','5000'],
     section2: ['10', '20', '50','100','200','500'],

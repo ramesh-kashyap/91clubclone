@@ -4730,7 +4730,7 @@ export default function Dashboard() {
                     <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section1' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section1')}
                         aria-selected="true" id="gameType-lottery">
                         <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="whiteColor">
+                            <div data-v-c9ec78ed="" className={`${activeSection === 'section1' ? 'whiteColor' : ''}`}>
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141426883l.png)`}}>
                                 </div> <span>Lottery</span>
@@ -4740,7 +4740,7 @@ export default function Dashboard() {
                     <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section2' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section2')}
                         id="gameType-flash">
                         <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
+                            <div data-v-c9ec78ed="" className={`${activeSection === 'section2' ? 'whiteColor' : ''}`}>
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141435wkxx.png)`}}>
                                 </div> <span>Mini games</span>
@@ -4750,7 +4750,7 @@ export default function Dashboard() {
                     <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section3' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section3')}
                         id="gameType-popular">
                         <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
+                            <div data-v-c9ec78ed="" className={`${activeSection === 'section3' ? 'whiteColor' : ''}`}>
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141445b3ka.png)`}}>
                                 </div> <span>Popular</span>
@@ -4760,7 +4760,7 @@ export default function Dashboard() {
                     <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section4' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section4')}
                         id="gameType-slot">
                         <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
+                            <div data-v-c9ec78ed="" className={`${activeSection === 'section4' ? 'whiteColor' : ''}`}>
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141457h3ts.png)`}}>
                                 </div> <span>Slots</span>
@@ -4770,7 +4770,7 @@ export default function Dashboard() {
                     <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section5' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section5')}
                         id="gameType-fish">
                         <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
+                            <div data-v-c9ec78ed="" className={`${activeSection === 'section5' ? 'whiteColor' : ''}`}>
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141515owja.png)`}}>
                                 </div> <span>Fishing</span>
@@ -4780,7 +4780,7 @@ export default function Dashboard() {
                     <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section6' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section6')}
                         id="gameType-chess">
                         <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
+                            <div data-v-c9ec78ed="" className={`${activeSection === 'section6' ? 'whiteColor' : ''}`}>
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_202403111415086ujt.png)`}}>
                                 </div> <span>PVC</span>
@@ -4790,7 +4790,7 @@ export default function Dashboard() {
                     <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section7' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section7')}
                         id="gameType-video">
                         <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
+                            <div data-v-c9ec78ed="" className={`${activeSection === 'section7' ? 'whiteColor' : ''}`}>
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141522uvco.png)`}}>
                                 </div> <span>Casino</span>
@@ -4800,7 +4800,7 @@ export default function Dashboard() {
                     <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section8' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section8')}
                         id="gameType-sport">
                         <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className="">
+                            <div data-v-c9ec78ed="" className={`${activeSection === 'section8' ? 'whiteColor' : ''}`}>
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141531fugo.png)`}}>
                                 </div> <span>Sports</span>
