@@ -4759,16 +4759,7 @@ export default function Dashboard() {
                             </div>
                         </div>
                     </div>
-                    <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section4' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section4')}
-                        id="gameType-slot">
-                        <div className="van-badge__wrapper van-sidebar-item__text">
-                            <div data-v-c9ec78ed="" className={`${activeSection === 'section4' ? 'whiteColor' : ''}`}>
-                                <div data-v-c9ec78ed=""
-                                    style={{backgroundImage: `url(/assets/png/gamecategory_20240311141457h3ts.png)`}}>
-                                </div> <span>Slots</span>
-                            </div>
-                        </div>
-                    </div>
+                  
                     <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section5' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section5')}
                         id="gameType-fish">
                         <div className="van-badge__wrapper van-sidebar-item__text">
@@ -4859,7 +4850,7 @@ export default function Dashboard() {
                         </div>
                     </div>
                     <div data-v-860d7030="" data-v-df3cc798="" className="minGame_container" id="section2" style={{ display: activeSection === 'section2' ? 'grid' : 'none' }}>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
+                        <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(225)}><img data-v-860d7030=""
                                 className="min_game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/810_20240818125355074.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/810_20240818125355074.png"/>
@@ -4869,29 +4860,21 @@ export default function Dashboard() {
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"/>
                         </div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
-                                className="min_game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/801_20240813135440084.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/801_20240813135440084.png"/>
-                        </div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
+                       
+                        <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(235)}><img data-v-860d7030=""
                                 className="min_game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/110.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/110.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
+                        <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(233)}><img data-v-860d7030=""
                                 className="min_game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/101.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/101.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
+                        <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(62)}><img data-v-860d7030=""
                                 className="min_game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
-                                className="min_game_img ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/100.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem flash"><img data-v-860d7030=""
-                                className="min_game_img ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/107.png"/></div>
+                        
+                        
                     </div>
                     <div data-v-d06787cb="" data-v-df3cc798="" className="hot_container"  id="section3" style={{ display: activeSection === 'section3' ? 'grid' : 'none' }}>
                         <div data-v-d06787cb="" className="platform">
@@ -4929,7 +4912,7 @@ export default function Dashboard() {
                                             </defs>
                                         </svg><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"
-                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
+                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png" onClick={() => handleGameClick(261)}/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">89.37%</span>
                                         <div data-v-d06787cb="" className="win-p" style={{width: '89.37%'}}></div>
@@ -4957,7 +4940,7 @@ export default function Dashboard() {
                                                     <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
-                                        </svg><img data-v-d06787cb=""
+                                        </svg><img   onClick={() => handleGameClick(233)} data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/101.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -4987,7 +4970,7 @@ export default function Dashboard() {
                                                     <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
-                                        </svg><img data-v-d06787cb=""
+                                        </svg><img onClick={() => handleGameClick(62)} data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -5017,7 +5000,7 @@ export default function Dashboard() {
                                                     <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
-                                        </svg><img data-v-d06787cb=""
+                                        </svg><img  onClick={() => handleGameClick(229)}data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/100.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -5047,7 +5030,7 @@ export default function Dashboard() {
                                                     <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
-                                        </svg><img data-v-d06787cb=""
+                                        </svg><img  onClick={() => handleGameClick(241)}data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/106.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -5077,7 +5060,7 @@ export default function Dashboard() {
                                                     <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
-                                        </svg><img data-v-d06787cb=""
+                                        </svg><img  onClick={() => handleGameClick(407)} data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/105.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -5104,7 +5087,7 @@ export default function Dashboard() {
                                 </svg><span data-v-d06787cb="">Popular</span></div>
                             <div data-v-d06787cb="" className="list">
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(51)}><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/51.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -5113,7 +5096,7 @@ export default function Dashboard() {
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(300)}><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/109.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -5122,7 +5105,7 @@ export default function Dashboard() {
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(152)}><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/EVO_Electronic/grandwheel000000.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -5131,7 +5114,7 @@ export default function Dashboard() {
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(20)}><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7001.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -5140,7 +5123,7 @@ export default function Dashboard() {
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(27)} ><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/27.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -5149,7 +5132,7 @@ export default function Dashboard() {
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(46)}><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/47.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -5158,7 +5141,7 @@ export default function Dashboard() {
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(1)}><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/1.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -5167,7 +5150,7 @@ export default function Dashboard() {
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(35)}><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/35.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -5176,7 +5159,7 @@ export default function Dashboard() {
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(27)}><img data-v-d06787cb=""
                                             src="https://ossimg.91admin123admin.com/91club/gamelogo/EVO_Electronic/777strike0000000.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
@@ -5188,7 +5171,7 @@ export default function Dashboard() {
                         </div>
                     </div>
                     <div data-v-54337c48="" data-v-df3cc798="" className="onlineGamesItem__container" id="section4" style={{ display: activeSection === 'section4' ? 'grid' : 'none' }}>
-                        <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
+                        <div data-v-54337c48="" className="item" onClick={() => handleGameClick(144)}><img data-v-54337c48="" className="gameImg"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165352mtql.png"
                                 src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165352mtql.png"/>
                             
@@ -5220,28 +5203,22 @@ export default function Dashboard() {
                         </div>
                     </div>
                     <div data-v-860d7030="" data-v-df3cc798="" className="minGame_container" id="section5" style={{ display: activeSection === 'section5' ? 'grid' : 'none' }}>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
+                        <div data-v-860d7030="" className="onlineGamesItem fish" onClick={() => handleGameClick(20)}><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7001.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7001.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
+                        <div data-v-860d7030="" className="onlineGamesItem fish" onClick={() => handleGameClick(32)}><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7002.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7002.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
+                        <div data-v-860d7030="" className="onlineGamesItem fish" onClick={() => handleGameClick(74)}><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7003.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7003.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
+                        <div data-v-860d7030="" className="onlineGamesItem fish" onClick={() => handleGameClick(82)}><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7004.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7004.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
+                        <div data-v-860d7030="" className="onlineGamesItem fish" onClick={() => handleGameClick(114)}><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7005.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7005.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7006.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7006.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7007.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7007.png"/></div>
-                        <div data-v-860d7030="" className="onlineGamesItem fish"><img data-v-860d7030="" className="fish_img"
+                        <div data-v-860d7030="" className="onlineGamesItem fish" onClick={() => handleGameClick(1)}><img data-v-860d7030="" className="fish_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/1.png"
                                 src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/1.png"/></div>
                     </div>
@@ -5249,18 +5226,18 @@ export default function Dashboard() {
                         <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
                             <div data-v-1153e4fd="" className="title">
                                 <div data-v-1153e4fd="" className="tit">Rummy</div>
-                            </div><img data-v-1153e4fd="" className="game_img"
+                            </div>< img data-v-1153e4fd="" className="game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164947dvuc.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164947dvuc.png"/>
+                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164947dvuc.png" onClick={() => handleGameClick(94)}/>
                         </div>
                     </div>
                     <div data-v-df3cc798="" className="otherGame" id="section7" style={{ display: activeSection === 'section7' ? 'grid' : 'none' }}>
                         <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
                             <div data-v-1153e4fd="" className="title">
                                 <div data-v-1153e4fd="" className="tit">Casino</div>
-                            </div><img data-v-1153e4fd="" className="game_img"
+                            </div>< img data-v-1153e4fd="" className="game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165020x66i.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165020x66i.png"/>
+                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165020x66i.png" onClick={() => handleGameClick(132)}/>
                         </div>
                         <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
                             <div data-v-1153e4fd="" className="title">
@@ -5269,13 +5246,7 @@ export default function Dashboard() {
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021635413lly.png"
                                 src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021635413lly.png"/>
                         </div>
-                        <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
-                            <div data-v-1153e4fd="" className="title">
-                                <div data-v-1153e4fd="" className="tit">Casino</div>
-                            </div><img data-v-1153e4fd="" className="game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202405081133481rmp.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202405081133481rmp.png"/>
-                        </div>
+                      
                     </div>
                     <div data-v-df3cc798="" className="otherGame" id="section8" style={{ display: activeSection === 'section8' ? 'grid' : 'none' }}>
                         <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
@@ -5283,7 +5254,7 @@ export default function Dashboard() {
                                 <div data-v-1153e4fd="" className="tit">Sports</div>
                             </div><img data-v-1153e4fd="" className="game_img"
                                 data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165536rgfg.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165536rgfg.png"/>
+                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165536rgfg.png"  onClick={() => handleGameClick(469)}/>
                         </div>
                     </div>
                     <button data-v-df3cc798="" className="look_all"><img data-v-df3cc798=""
