@@ -31,6 +31,10 @@ import Superjackpot_rule from './pages/activity/Superjackpot_rule';
 import SuperJackpot_star from './pages/activity/SuperJackpot_star';
 import DailyTasks from './pages/activity/DailyTasks';
 import LaundryRecord from './pages/activity/LaundryRecord';
+import ActivityDetail from './pages/activity/ActivityDetail';
+import FirstRecharge from './pages/activity/FirstRecharge';
+
+
 
 import Receive from './pages/activity/Receive';
 
@@ -84,6 +88,10 @@ function App() {
         <Route path="/activity/DailyTasks" element={<PrivateRoute><DailyTasks/></PrivateRoute>}/>
         <Route path="/activity/DailyTasks/Record" element={<PrivateRoute><Receive/></PrivateRoute>}/>
         <Route path="/main/Laundry/LaundryRecord" element={<PrivateRoute><LaundryRecord/></PrivateRoute>}/>
+        <Route path="/activity/ActivityDetail" element={<PrivateRoute><ActivityDetail/></PrivateRoute>}/>
+        <Route path="/activity/FirstRecharge" element={<PrivateRoute><FirstRecharge/></PrivateRoute>}/>
+
+
 
 
 
