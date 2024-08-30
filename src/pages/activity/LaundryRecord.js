@@ -1,58 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Api from '../../services/Api';
-import Loader from '../../components/Loader';
+import React from 'react'
 
-export default function Account() {
-
-    const [totalMoney, setTotalMoney] = useState(0);
-    const [uid, setUid] = useState(null);
-    const [username, setUsername] = useState(null);
-    const [lastlogin, setLastLogin] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const navigate = useNavigate();
-  
-    useEffect(() => {
-      const fetchUserInfo = async () => {
-        try {
-          const response = await Api.get('/api/webapi/GetUserInfo');
-          if (response.data.status) {
-            setTotalMoney(response.data.data.money_user);
-            setUid(response.data.data.id_user);
-            setUsername(response.data.data.name_user);
-            setLastLogin(response.data.data.last_login);
-
-
-          } else {
-            setError('Failed to fetch user info');
-          }
-        } catch (err) {
-          setError('Error fetching user info');
-          console.error(err);
-        } finally {
-          setLoading(false);
-        }
-      };
-  
-      fetchUserInfo();
-    }, []);
-  
-    if (loading) {
-      return      <Loader/>
-      // You can replace this with a spinner if needed
-    }
-  
-    if (error) {
-      return <div>{error}</div>;
-    }
-
+export default function LaundryRecord() {
   return (
-    <div style={{fontSize: '12px'}}>
+    <div style={{fontSize: '12px'}}> 
+
+
+
+
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      
-      style={{position: 'absolute', width: 0, height: 0}}
+      style={{position: 'absolute', width: '0', height: '0'}}
     >
       <symbol
         id="icon-privacyIcon"
@@ -3272,7 +3229,7 @@ export default function Account() {
           strokeLinecap="round"
         ></path>
       </symbol>
-      
+    
       <symbol
         id="icon-downArrow"
         xmlns="http://www.w3.org/2000/svg"
@@ -3654,18 +3611,16 @@ export default function Account() {
           strokeLinejoin="round"
         ></path>
       </symbol>
-      
+    
       <symbol
         id="icon-eye"
         t="1503993826520"
         className="icon"
-        
         viewBox="0 0 1024 1024"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         p-id="7878"
-        
-      >
+        >
         <defs><style type="text/css"></style></defs>
         <path
           d="M941.677063 391.710356c9.337669-14.005992 6.224772-32.68133-6.224772-43.575447-14.005992-10.894118-32.68133-7.78122-43.575447 6.224771-1.556449 1.556449-174.300768 205.426673-379.727441 205.426673-199.200878 0-379.727441-205.426673-381.28389-206.982098-10.894118-12.450567-31.124881-14.005992-43.575448-3.112898-12.450567 10.894118-14.005992 31.124881-3.112897 43.575448 3.112897 4.668323 40.46255 46.687322 99.600439 93.375667l-79.369676 82.48155c-12.450567 12.450567-10.894118 32.68133 1.556449 43.575448 3.112897 6.224772 10.894118 9.337669 18.675338 9.337669 7.78122 0 15.562441-3.112897 21.787213-9.337669l85.594447-88.706321c40.46255 28.013007 88.706321 54.469566 141.619438 73.14388L340.959485 707.631586c-4.668323 17.118889 4.669346 34.237779 21.787213 38.906101h9.337669c14.005992 0 26.456558-9.337669 29.568432-23.343661l32.68133-110.494556c24.90011 4.668323 51.356668 7.78122 77.813227 7.78122s52.913117-3.112897 77.813227-7.78122l32.68133 108.938108c3.112897 14.005992 17.118889 23.343661 29.569456 23.343661 3.112897 0 6.224772 0 7.78122-1.556449 17.118889-4.669346 26.456558-21.787212 21.788236-38.906102l-32.68133-108.938108c52.913117-18.675338 101.156888-45.131897 141.619438-73.14388l84.037998 87.150896c6.224772 6.224772 14.005992 9.337669 21.787212 9.337669 7.78122 0 15.562441-3.112897 21.787212-9.337669 12.450567-12.450567 12.450567-31.124881 1.556449-43.575448l-79.369675-82.48155c63.808258-46.688345 101.158934-91.820242 101.158934-91.820242z"
@@ -9425,27 +9380,26 @@ export default function Account() {
       <div
         data-v-647954c7=""
         className="ar-loading-view"
-        style={{  
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
+        style={{
+          '--f13b4d11CurrentFontFamily':" 'Roboto', 'Inter', 'sansSerif'",
           display: 'none'
         }}
       >
         <div data-v-647954c7="" className="loading-wrapper">
-          
+        
           <div data-v-647954c7="" className="loading-animat">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              
-              viewBox="0 0 200 200"
+                      viewBox="0 0 200 200"
               width="200"
               height="200"
               preserveAspectRatio="xMidYMid meet"
-              style={{  
+              style={{
                 width: '100%',
                 height: '100%',
                 transform: 'translate3d(0px, 0px, 0px)',
-                contentVisibility: 'visible'
-            }}
+                'contentVisibility':' visible'
+              }}
             >
               <defs>
                 <clipPath id="__lottie_element_2">
@@ -9489,20 +9443,20 @@ export default function Account() {
             </svg>
           </div>
           <div data-v-647954c7="" className="com__box" style={{display: 'none'}}>
-            
+        
             <div className="loading" data-v-647954c7="">
               <div className="shape shape-1" data-v-647954c7=""></div>
               <div className="shape shape-2" data-v-647954c7=""></div>
               <div className="shape shape-3" data-v-647954c7=""></div>
               <div className="shape shape-4" data-v-647954c7=""></div>
             </div>
-            
+        
           </div>
-          
+        
         </div>
         <div data-v-647954c7="" className="skeleton-wrapper" style={{display: 'none'}}>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
+        
             <div className="van-skeleton__content">
               
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9529,7 +9483,7 @@ export default function Account() {
             </div>
           </div>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
+        
             <div className="van-skeleton__content">
               <h3 className="van-skeleton-title"></h3>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9541,19 +9495,13 @@ export default function Account() {
           </div>
         </div>
       </div>
-      
+    
       <div
-        data-v-5bd44e74=""
-        data-v-a78765c7=""
-        className="userInfo__container"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
+        data-v-34682eef=""
+        className="Laundry-Record"
+        style={{'--f13b4d11-currentFontFamily':" 'Roboto', 'Inter', 'sansSerif'"}}
       >
-        <div
-          data-v-12a80a3e=""
-          data-v-5bd44e74=""
-          className="navbar main"
-          style={{display: 'none'}}
-        >
+        <div data-v-12a80a3e="" data-v-34682eef="" className="navbar">
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
               <div data-v-12a80a3e="" className="navbar__content-left">
@@ -9564,617 +9512,462 @@ export default function Account() {
                 >
               </div>
               <div data-v-12a80a3e="" className="navbar__content-center">
-                
+            
                 <div data-v-12a80a3e="" className="navbar__content-title">
-                  Settings Center
+                  Rebate history
                 </div>
               </div>
               <div data-v-12a80a3e="" className="navbar__content-right"></div>
             </div>
           </div>
         </div>
-        <div data-v-5bd44e74="" className="userInfo__container-content">
-          <div data-v-5bd44e74="" className="userInfo__container-content-wrapper">
-            <div data-v-5bd44e74="" className="userInfo__container-content__avatar">
-              <img
-                data-v-5bd44e74=""
-                src="/assets/png/6-7c7f5203.png"
-                className="userAvatar"
-              />
-            </div>
-            <div data-v-5bd44e74="" className="userInfo__container-content__name">
+        <div data-v-34682eef="" className="bet-container-sticky">
+          <div className="van-sticky">
+            <div
+              data-v-34682eef=""
+              style={{'backgrounColor': 'rgb(247, 248, 255)'}}
+            >
               <div
-                data-v-5bd44e74=""
-                className="userInfo__container-content-nickname"
+                data-v-34682eef=""
+                className="fun-tabs tabs"
+                activeclassnamename="tab_active"
               >
-                <h3 data-v-5bd44e74="">{username}</h3>
-                <div data-v-5bd44e74="" className="n0"></div>
-                <img
-                  data-v-5bd44e74=""
-                  className="editPencil"
-                  src="/assets/png/editPencil-c89ee923.png"
-                  style={{display: 'none'}}
-                />
-              </div>
-              <div data-v-5bd44e74="" className="userInfo__container-content-uid">
-                <span data-v-5bd44e74="">UID</span
-                ><span data-v-5bd44e74="">|</span
-                ><span data-v-5bd44e74="">{uid}</span
-                ><svg data-v-5bd44e74="" className="svg-icon icon-copy">
-                  <use href="#icon-copy"></use>
-                </svg>
-              </div>
-              <div
-                data-v-5bd44e74=""
-                className="userInfo__container-content-logintime"
-              >
-                <span data-v-5bd44e74="">Last login:&nbsp;</span
-                ><span data-v-5bd44e74="">{lastlogin}</span>
-              </div>
-              <div
-                data-v-5bd44e74=""
-                className="userInfo__container-content-logintime"
-                style={{display: 'none'}}
-              >
-                <span data-v-5bd44e74="">&nbsp;</span>
+                <div
+                  className="fun-tabs__tab-list"
+                  style={{
+                    'transitionTimingFunction': "'cubicBezier('0.25','0.46','0.45', '0.94')'",
+                    'transitionDuration': '360ms',
+                    transform: 'translate3d(0px, 0px, 0px)'
+                }}
+                >
+                  <div
+                    className="fun-tab-item funtab_item activeClassName"
+                    style={{color:' rgb(22, 119, 255)'}}
+                  >
+                    <div className="fun-tab-item__wrap">
+                      <div className="fun-tab-item__label">
+                        <div data-v-34682eef="" className="tab_item tab_active">
+                          <svg data-v-34682eef="" className="svg-icon icon-all">
+                            <use href="#icon-all"></use></svg
+                          ><span data-v-34682eef="">All</span>
+                        </div>
+                      </div>
+                    
+                    </div>
+                  </div>
+                  <div className="fun-tab-item funtab_item">
+                    <div className="fun-tab-item__wrap">
+                      <div className="fun-tab-item__label">
+                        <div data-v-34682eef="" className="tab_item">
+                          <svg data-v-34682eef="" className="svg-icon icon-lottery">
+                            <use href="#icon-lottery"></use></svg
+                          ><span data-v-34682eef="">Lottery</span>
+                        </div>
+                      </div>
+                    
+                    </div>
+                  </div>
+                  <div className="fun-tab-item funtab_item">
+                    <div className="fun-tab-item__wrap">
+                      <div className="fun-tab-item__label">
+                        <div data-v-34682eef="" className="tab_item">
+                          <svg data-v-34682eef="" className="svg-icon icon-video">
+                            <use href="#icon-video"></use></svg
+                          ><span data-v-34682eef="">Casino</span>
+                        </div>
+                      </div>
+                    
+                    </div>
+                  </div>
+                  <div className="fun-tab-item funtab_item">
+                    <div className="fun-tab-item__wrap">
+                      <div className="fun-tab-item__label">
+                        <div data-v-34682eef="" className="tab_item">
+                          <svg data-v-34682eef="" className="svg-icon icon-chess">
+                            <use href="#icon-chess"></use></svg
+                          ><span data-v-34682eef="">Rummy</span>
+                        </div>
+                      </div>
+                
+                    </div>
+                  </div>
+                  <div className="fun-tab-item funtab_item">
+                    <div className="fun-tab-item__wrap">
+                      <div className="fun-tab-item__label">
+                        <div data-v-34682eef="" className="tab_item">
+                          <svg data-v-34682eef="" className="svg-icon icon-slot">
+                            <use href="#icon-slot"></use></svg
+                          ><span data-v-34682eef="">Slots</span>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div
+                    className="fun-tabs__active-line"
+                    style={{
+                      transition: '300ms',
+                      width: '0px',
+                      height: '3px',
+                      transform:"'translate3d(53.5px, 0px, 0px)'",
+                      backgroundColor: 'rgb(22, 119, 255)',
+                    }}
+                  ></div>
+                </div>
               </div>
             </div>
           </div>
-
+        </div>
+        <div data-v-34682eef="" className="list">
           <div
-            data-v-5bd44e74=""
-            className="userInfo__container-content-right"
-            style={{display: 'none'}}
+            data-v-61888f52=""
+            data-v-34682eef=""
+            className="infiniteScroll"
+            is-first="true"
+            id="refresh761f8ea0c2844fc5874282bdc2fca1ec"
           >
-            <h5 data-v-5bd44e74="">Change avatar</h5>
-          </div>
-        </div>
-        <div
-          data-v-5bd44e74=""
-          className="userInfo__container-setting-center"
-          style={{display: 'none'}}
-        >
-          <div
-            data-v-5bd44e74=""
-            className="userInfo__container-setting-center-header"
-          >
-            <div data-v-5bd44e74="" className="userInfo__container-content__avatar">
-              <img
-                data-v-5bd44e74=""
-                data-img="/assets/png/avatar-2f23f3bd.png"
-                className="ar-lazyload"
-                data-origin="/assets/png/6-7c7f5203.png"
-              />
-            </div>
-            <div
-              data-v-5bd44e74=""
-              className="userInfo__container-setting-center-header-edit"
-            >
-              <span data-v-5bd44e74="">Change avatar</span
-              ><i
-                data-v-5bd44e74=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                style={{color: 'rgb(136, 136, 136)'}}
-                ></i
-              >
-            </div>
-          </div>
-          <div
-            data-v-5bd44e74=""
-            className="userInfo__container-setting-center-content ar-1px-b"
-          >
-            <h5 data-v-5bd44e74="">Nickname</h5>
-            <div data-v-5bd44e74="">
-              <span data-v-5bd44e74="">MemberNNGNDBYB</span
-              ><i
-                data-v-5bd44e74=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                style={{color: 'rgb(136, 136, 136)'}}
-                ></i
-              >
-            </div>
-          </div>
-          <div
-            data-v-5bd44e74=""
-            className="userInfo__container-setting-center-content"
-          >
-            <h5 data-v-5bd44e74="">UID</h5>
-            <div data-v-5bd44e74="">
-              <span data-v-5bd44e74="">11693333</span
-              ><svg data-v-5bd44e74="" className="svg-icon icon-copy">
-                <use href="#icon-copy"></use>
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div data-v-2c18a1cc="" data-v-5bd44e74="" className="info-dialog">
-          
-        </div>
-      </div>
-      <div
-        data-v-a78765c7=""
-        className="userinfo-content"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      >
-        
-        <div
-          data-v-7d799898=""
-          data-v-a78765c7=""
-          className="totalSavings__container"
-        >
-        <div data-v-7d799898="" className="totalSavings__container-header">
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-header-box ar-1px-b"
-            >
-              <div
-                data-v-7d799898=""
-                className="totalSavings__container-header__title"
-              >
-                <span data-v-7d799898="">Total balance</span
-                >
+            <div data-v-34682eef="" className="item">
+              <div data-v-34682eef="" className="header">
+                <div data-v-34682eef="" className="">
+                  <p data-v-34682eef="" className="name">Lottery</p>
+                  <span data-v-34682eef="" className="time"
+                    >2024-08-28 22:56:39</span
+                  >
+                </div>
+                <div data-v-34682eef="" className="state">Completed</div>
               </div>
-              <p
-                data-v-7d799898=""
-                className="totalSavings__container-header__subtitle"
-              >
-                <span data-v-7d799898="">₹{totalMoney??0    }</span
-                ><svg data-v-7d799898="" className="svg-icon icon-refreshBalance">
-                  <use href="#icon-refreshBalance"></use>
-                </svg>
-              </p>
-            </div>
-          </div>
-          <div data-v-7d799898="" className="totalSavings__container-content">
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-content-item"
-            >
-              <div data-v-7d799898="">
-                <svg data-v-7d799898="" className="svg-icon icon-wallets">
-                  <use href="#icon-wallets"></use></svg
-                > <a href="/wallet/wallet.html"><span data-v-7d799898="">Wallet</span></a>
+              <div data-v-34682eef="" className="body">
+                <div data-v-34682eef="" className="left">
+                  <div data-v-34682eef="" className="imgBox">
+                    <img
+                      data-v-34682eef=""
+                      className="img"
+                      src="/assets/png/gameStatsSteps-fde7a66f.png"
+                      alt=""
+                    />
+                  </div>
+                  <div data-v-34682eef="">
+                    <p data-v-34682eef="">Betting rebate</p>
+                    <p data-v-34682eef="">Rebate rate</p>
+                    <p data-v-34682eef="">Rebate amount</p>
+                  </div>
+                </div>
+                <div data-v-34682eef="" className="right">
+                  <p data-v-34682eef="">560</p>
+                  <p data-v-34682eef="" className="red">0.05%</p>
+                  <p data-v-34682eef="" className="orange">0.28</p>
+                </div>
               </div>
             </div>
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-content-item"
-            >
-              <div data-v-7d799898="">
-                <svg data-v-7d799898="" className="svg-icon icon-rechargeIcon">
-                  <use href="#icon-rechargeIcon"></use></svg
-                > <a href="/account/deposit.html"><span data-v-7d799898="">Deposit</span></a>
+            <div data-v-34682eef="" className="item">
+              <div data-v-34682eef="" className="header">
+                <div data-v-34682eef="" className="">
+                  <p data-v-34682eef="" className="name">Slots</p>
+                  <span data-v-34682eef="" className="time"
+                    >2024-08-28 22:56:39</span
+                  >
+                </div>
+                <div data-v-34682eef="" className="state">Completed</div>
+              </div>
+              <div data-v-34682eef="" className="body">
+                <div data-v-34682eef="" className="left">
+                  <div data-v-34682eef="" className="imgBox">
+                    <img
+                      data-v-34682eef=""
+                      className="img"
+                      src="/assets/png/gameStatsSteps-fde7a66f.png"
+                      alt=""
+                    />
+                  </div>
+                  <div data-v-34682eef="">
+                    <p data-v-34682eef="">Betting rebate</p>
+                    <p data-v-34682eef="">Rebate rate</p>
+                    <p data-v-34682eef="">Rebate amount</p>
+                  </div>
+                </div>
+                <div data-v-34682eef="" className="right">
+                  <p data-v-34682eef="">57.5</p>
+                  <p data-v-34682eef="" className="red">0.05%</p>
+                  <p data-v-34682eef="" className="orange">0.03</p>
+                </div>
               </div>
             </div>
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-content-item"
-            >
-              <div data-v-7d799898="">
-                <svg data-v-7d799898="" className="svg-icon icon-widthdrawBlue">
-                  <use href="#icon-widthdrawBlue"></use></svg
-                > <a href="/account/withdraw.html"><span data-v-7d799898="">Withdraw</span></a>
+            <div data-v-34682eef="" className="item">
+              <div data-v-34682eef="" className="header">
+                <div data-v-34682eef="" className="">
+                  <p data-v-34682eef="" className="name">Lottery</p>
+                  <span data-v-34682eef="" className="time"
+                    >2024-08-28 01:02:27</span
+                  >
+                </div>
+                <div data-v-34682eef="" className="state">Completed</div>
+              </div>
+              <div data-v-34682eef="" className="body">
+                <div data-v-34682eef="" className="left">
+                  <div data-v-34682eef="" className="imgBox">
+                    <img
+                      data-v-34682eef=""
+                      className="img"
+                      src="/assets/png/gameStatsSteps-fde7a66f.png"
+                      alt=""
+                    />
+                  </div>
+                  <div data-v-34682eef="">
+                    <p data-v-34682eef="">Betting rebate</p>
+                    <p data-v-34682eef="">Rebate rate</p>
+                    <p data-v-34682eef="">Rebate amount</p>
+                  </div>
+                </div>
+                <div data-v-34682eef="" className="right">
+                  <p data-v-34682eef="">139</p>
+                  <p data-v-34682eef="" className="red">0.05%</p>
+                  <p data-v-34682eef="" className="orange">0.07</p>
+                </div>
               </div>
             </div>
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-content-item"
-            >
-              <div data-v-7d799898="">
-                <svg data-v-7d799898="" className="svg-icon icon-VipIcon">
-                  <use href="#icon-VipIcon"></use></svg
-                > <a href="/account/accVip.html"><span data-v-7d799898="">VIP</span></a>
+            <div data-v-34682eef="" className="item">
+              <div data-v-34682eef="" className="header">
+                <div data-v-34682eef="" className="">
+                  <p data-v-34682eef="" className="name">Lottery</p>
+                  <span data-v-34682eef="" className="time"
+                    >2024-08-27 01:01:59</span
+                  >
+                </div>
+                <div data-v-34682eef="" className="state">Completed</div>
+              </div>
+              <div data-v-34682eef="" className="body">
+                <div data-v-34682eef="" className="left">
+                  <div data-v-34682eef="" className="imgBox">
+                    <img
+                      data-v-34682eef=""
+                      className="img"
+                      src="/assets/png/gameStatsSteps-fde7a66f.png"
+                      alt=""
+                    />
+                  </div>
+                  <div data-v-34682eef="">
+                    <p data-v-34682eef="">Betting rebate</p>
+                    <p data-v-34682eef="">Rebate rate</p>
+                    <p data-v-34682eef="">Rebate amount</p>
+                  </div>
+                </div>
+                <div data-v-34682eef="" className="right">
+                  <p data-v-34682eef="">503</p>
+                  <p data-v-34682eef="" className="red">0.05%</p>
+                  <p data-v-34682eef="" className="orange">0.25</p>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        
-        <div
-          data-v-acd6d46f=""
-          data-v-a78765c7=""
-          className="financialServices__container"
-        >
-          
-          <div data-v-acd6d46f="" className="financialServices__container-box">
-            <div data-v-acd6d46f="">
-              <svg data-v-acd6d46f="" className="svg-icon icon-betHistory">
-                <use href="#icon-betHistory"></use>
-              </svg>
-              <div
-                data-v-acd6d46f=""
-                className="financialServices__container-box-para"
-              >
-               <a href="/account/gamehistory.html"><h3 data-v-acd6d46f="">Game History</h3></a>
-                <span data-v-acd6d46f="">My game history</span>
+            <div data-v-34682eef="" className="item">
+              <div data-v-34682eef="" className="header">
+                <div data-v-34682eef="" className="">
+                  <p data-v-34682eef="" className="name">Lottery</p>
+                  <span data-v-34682eef="" className="time"
+                    >2024-08-23 14:16:20</span
+                  >
+                </div>
+                <div data-v-34682eef="" className="state">Completed</div>
+              </div>
+              <div data-v-34682eef="" className="body">
+                <div data-v-34682eef="" className="left">
+                  <div data-v-34682eef="" className="imgBox">
+                    <img
+                      data-v-34682eef=""
+                      className="img"
+                      src="/assets/png/gameStatsSteps-fde7a66f.png"
+                      alt=""
+                    />
+                  </div>
+                  <div data-v-34682eef="">
+                    <p data-v-34682eef="">Betting rebate</p>
+                    <p data-v-34682eef="">Rebate rate</p>
+                    <p data-v-34682eef="">Rebate amount</p>
+                  </div>
+                </div>
+                <div data-v-34682eef="" className="right">
+                  <p data-v-34682eef="">115</p>
+                  <p data-v-34682eef="" className="red">0.05%</p>
+                  <p data-v-34682eef="" className="orange">0.06</p>
+                </div>
               </div>
             </div>
-            <div data-v-acd6d46f="">
-              <svg data-v-acd6d46f="" className="svg-icon icon-tradeHistory">
-                <use href="#icon-tradeHistory"></use>
-              </svg>
-              <div
-                data-v-acd6d46f=""
-                className="financialServices__container-box-para"
-              >
-                <a href="/account/transactionhistory.html"></a>
-                <span data-v-acd6d46f="">My transaction history</span>
+            <div data-v-34682eef="" className="item">
+              <div data-v-34682eef="" className="header">
+                <div data-v-34682eef="" className="">
+                  <p data-v-34682eef="" className="name">Slots</p>
+                  <span data-v-34682eef="" className="time"
+                    >2024-08-23 14:16:20</span
+                  >
+                </div>
+                <div data-v-34682eef="" className="state">Completed</div>
+              </div>
+              <div data-v-34682eef="" className="body">
+                <div data-v-34682eef="" className="left">
+                  <div data-v-34682eef="" className="imgBox">
+                    <img
+                      data-v-34682eef=""
+                      className="img"
+                      src="/assets/png/gameStatsSteps-fde7a66f.png"
+                      alt=""
+                    />
+                  </div>
+                  <div data-v-34682eef="">
+                    <p data-v-34682eef="">Betting rebate</p>
+                    <p data-v-34682eef="">Rebate rate</p>
+                    <p data-v-34682eef="">Rebate amount</p>
+                  </div>
+                </div>
+                <div data-v-34682eef="" className="right">
+                  <p data-v-34682eef="">50.5</p>
+                  <p data-v-34682eef="" className="red">0.05%</p>
+                  <p data-v-34682eef="" className="orange">0.03</p>
+                </div>
               </div>
             </div>
-            <div data-v-acd6d46f="">
-              <svg data-v-acd6d46f="" className="svg-icon icon-rechargeHistory">
-                <use href="#icon-rechargeHistory"></use>
-              </svg>
-              <div
-                data-v-acd6d46f=""
-                className="financialServices__container-box-para"
-              >
-               <a href="/account/deposithistory.html"> <h3 data-v-acd6d46f="">Deposit</h3></a>
-                <span data-v-acd6d46f="">My deposit history</span>
+            <div data-v-34682eef="" className="item">
+              <div data-v-34682eef="" className="header">
+                <div data-v-34682eef="" className="">
+                  <p data-v-34682eef="" className="name">Slots</p>
+                  <span data-v-34682eef="" className="time"
+                    >2024-08-14 01:01:09</span
+                  >
+                </div>
+                <div data-v-34682eef="" className="state">Completed</div>
+              </div>
+              <div data-v-34682eef="" className="body">
+                <div data-v-34682eef="" className="left">
+                  <div data-v-34682eef="" className="imgBox">
+                    <img
+                      data-v-34682eef=""
+                      className="img"
+                      src="/assets/png/gameStatsSteps-fde7a66f.png"
+                      alt=""
+                    />
+                  </div>
+                  <div data-v-34682eef="">
+                    <p data-v-34682eef="">Betting rebate</p>
+                    <p data-v-34682eef="">Rebate rate</p>
+                    <p data-v-34682eef="">Rebate amount</p>
+                  </div>
+                </div>
+                <div data-v-34682eef="" className="right">
+                  <p data-v-34682eef="">143.8</p>
+                  <p data-v-34682eef="" className="red">0.05%</p>
+                  <p data-v-34682eef="" className="orange">0.07</p>
+                </div>
               </div>
             </div>
-            <div data-v-acd6d46f="">
-              <svg data-v-acd6d46f="" className="svg-icon icon-myWithdrawHistory">
-                <use href="#icon-myWithdrawHistory"></use>
-              </svg>
-              <div
-                data-v-acd6d46f=""
-                className="financialServices__container-box-para"
-              >
-                 <a href="/account/withdrahistory.html"><h3 data-v-acd6d46f="">Withdraw</h3></a>
-                <span data-v-acd6d46f="">My withdraw history</span>
+            <div data-v-34682eef="" className="item">
+              <div data-v-34682eef="" className="header">
+                <div data-v-34682eef="" className="">
+                  <p data-v-34682eef="" className="name">Slots</p>
+                  <span data-v-34682eef="" className="time"
+                    >2024-07-16 01:02:04</span
+                  >
+                </div>
+                <div data-v-34682eef="" className="state">Completed</div>
+              </div>
+              <div data-v-34682eef="" className="body">
+                <div data-v-34682eef="" className="left">
+                  <div data-v-34682eef="" className="imgBox">
+                    <img
+                      data-v-34682eef=""
+                      className="img"
+                      src="/assets/png/gameStatsSteps-fde7a66f.png"
+                      alt=""
+                    />
+                  </div>
+                  <div data-v-34682eef="">
+                    <p data-v-34682eef="">Betting rebate</p>
+                    <p data-v-34682eef="">Rebate rate</p>
+                    <p data-v-34682eef="">Rebate amount</p>
+                  </div>
+                </div>
+                <div data-v-34682eef="" className="right">
+                  <p data-v-34682eef="">150</p>
+                  <p data-v-34682eef="" className="red">0.05%</p>
+                  <p data-v-34682eef="" className="orange">0.08</p>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        
-        <div
-          data-v-a30d19b1=""
-          data-v-a78765c7=""
-          className="settingPanel__container"
-        >
-          <div data-v-a30d19b1="" className="settingPanel__container-items">
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-notification">
-                  <use href="#icon-notification"></use></svg
-                >
-
-                <a href="/account/notification.html"><span
-                  data-v-a30d19b1=""
-                  >Notification</span
-                ></a>
+            <div data-v-34682eef="" className="item">
+              <div data-v-34682eef="" className="header">
+                <div data-v-34682eef="" className="">
+                  <p data-v-34682eef="" className="name">Lottery</p>
+                  <span data-v-34682eef="" className="time"
+                    >2024-07-15 13:17:10</span
+                  >
+                </div>
+                <div data-v-34682eef="" className="state">Completed</div>
               </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="">1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
+              <div data-v-34682eef="" className="body">
+                <div data-v-34682eef="" className="left">
+                  <div data-v-34682eef="" className="imgBox">
+                    <img
+                      data-v-34682eef=""
+                      className="img"
+                      src="/assets/png/gameStatsSteps-fde7a66f.png"
+                      alt=""
+                    />
+                  </div>
+                  <div data-v-34682eef="">
+                    <p data-v-34682eef="">Betting rebate</p>
+                    <p data-v-34682eef="">Rebate rate</p>
+                    <p data-v-34682eef="">Rebate amount</p>
+                  </div>
+                </div>
+                <div data-v-34682eef="" className="right">
+                  <p data-v-34682eef="">40</p>
+                  <p data-v-34682eef="" className="red">0.05%</p>
+                  <p data-v-34682eef="" className="orange">0.02</p>
+                </div>
               </div>
             </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-gifts">
-                  <use href="#icon-gifts"></use></svg
-                >
-
-                <a href="/account/gift.html"><span
-                  data-v-a30d19b1=""
-                  >Gifts</span
-                ></a>
+            <div data-v-34682eef="" className="item">
+              <div data-v-34682eef="" className="header">
+                <div data-v-34682eef="" className="">
+                  <p data-v-34682eef="" className="name">Slots</p>
+                  <span data-v-34682eef="" className="time"
+                    >2024-07-15 13:17:10</span
+                  >
+                </div>
+                <div data-v-34682eef="" className="state">Completed</div>
               </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-              style={{display: 'none'}}
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-tournament">
-                  <use href="#icon-tournament"></use></svg
-                ><span
-                  data-v-a30d19b1=""
-                  >My tournament</span
-                >
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
+              <div data-v-34682eef="" className="body">
+                <div data-v-34682eef="" className="left">
+                  <div data-v-34682eef="" className="imgBox">
+                    <img
+                      data-v-34682eef=""
+                      className="img"
+                      src="/assets/png/gameStatsSteps-fde7a66f.png"
+                      alt=""
+                    />
+                  </div>
+                  <div data-v-34682eef="">
+                    <p data-v-34682eef="">Betting rebate</p>
+                    <p data-v-34682eef="">Rebate rate</p>
+                    <p data-v-34682eef="">Rebate amount</p>
+                  </div>
+                </div>
+                <div data-v-34682eef="" className="right">
+                  <p data-v-34682eef="">67</p>
+                  <p data-v-34682eef="" className="red">0.05%</p>
+                  <p data-v-34682eef="" className="orange">0.03</p>
+                </div>
               </div>
             </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-              style={{display: 'none'}}
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-productCode">
-                  <use href="#icon-productCode"></use></svg
-                ><span
-                  data-v-a30d19b1=""
-                  >Product code</span
-                >
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
+            <div data-v-61888f52="" className="infiniteScroll__loading">
+              <div data-v-61888f52="">No more</div>
             </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-              style={{display: 'none'}}
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-myDraw">
-                  <use href="#icon-myDraw"></use></svg
-                ><span
-                  data-v-a30d19b1=""
-                  >my draw</span
-                >
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-statsIcon">
-                  <use href="#icon-statsIcon"></use></svg
-                >
-                <a href="/account/gamestatics.html"><span
-                  data-v-a30d19b1=""
-                  >Game statistics</span></a>
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-language">
-                  <use href="#icon-language"></use></svg
-                ><span
-                  data-v-a30d19b1=""
-                  >Language</span
-                >
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="">English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div data-v-159bf81f="" data-v-a78765c7="" className="serviceCenter-wrap">
-          <div data-v-159bf81f="" className="serviceCenter__container">
-            <h1 data-v-159bf81f="">Service center</h1>
-            <div data-v-159bf81f="" className="serviceCenter__container-items">
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-settingCenter">
-                  <use href="#icon-settingCenter"></use></svg
-                >
-                <a href="/account/settingcenter.html"><span
-                  data-v-159bf81f=""
-                  >Settings</span
-                ></a>
-
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-feedback">
-                  <use href="#icon-feedback"></use></svg
-                >
-                <a href="/account/feedback.html"><span
-                  data-v-159bf81f=""
-                  >Feedback</span
-                ></a>
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg
-                  data-v-159bf81f=""
-                  className="svg-icon icon-notificationCenter"
-                >
-                  <use href="#icon-notificationCenter"></use></svg
-                >
-                <a href="/account/notification.html"><span
-                  data-v-159bf81f=""
-                  >Notification</span
-                ></a>
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-server">
-                  <use href="#icon-server"></use></svg
-                >
-                <a href="/account/customerService.html"><span
-                  data-v-159bf81f=""
-                  >24/7 Customer service</span
-                ></a>
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-guide">
-                  <use href="#icon-guide"></use></svg
-                >
-                <a href="/account/BeginnerGuide.html"><span
-                  data-v-159bf81f=""
-                  >Beginner's Guide</span
-                ></a>
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-about">
-                  <use href="#icon-about"></use></svg
-                >
-
-                <a href="/account/Aboutus.html"><span
-                  data-v-159bf81f=""
-                  >About us</span
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div data-v-159bf81f="" className="serviceCenter-wrap-header">
-            <button data-v-159bf81f="">
-              <svg data-v-159bf81f="" className="svg-icon icon-logout">
-                <use href="#icon-logout"></use></svg
-              >
-              Log out
-            </button>
-          </div>
-          
-          <div data-v-3e71d3da="" data-v-159bf81f="" className="dialog inactive">
-            <div
-              data-v-3e71d3da=""
-              className="dialog__container"
-              role="dialog"
-              tabIndex="0"
-            >
-              <div data-v-3e71d3da="" className="dialog__container-img">
-                <img
-                  data-v-3e71d3da=""
-                  className=""
-                  alt=""
-                  data-origin="/assets/png/tip-0498e3f9.png"
-                  src="/assets/png/tip-0498e3f9.png"
-                />
-              </div>
-              <div data-v-3e71d3da="" className="dialog__container-title">
-                <h1 data-v-3e71d3da="">Do you want to log out?</h1>
-              </div>
-              <div data-v-3e71d3da="" className="dialog__container-content"></div>
-              <div data-v-3e71d3da="" className="dialog__container-footer">
-                <button data-v-3e71d3da="">Confirm</button
-                ><button data-v-3e71d3da="">Cancel</button>
-              </div>
-              
-            </div>
-            <div data-v-3e71d3da="" className="dialog__outside"></div>
           </div>
         </div>
       </div>
-      
       <div
         className="customer"
         id="customerId"
-        style={{  
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-          '--f6a705e1-currentFontFamily': "bahnschrift"
+        style={{
+          '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
+          '--f6a705e1CurrentFontFamily': 'bahnschrift'
         }}
       >
         <img
@@ -10183,336 +9976,25 @@ export default function Account() {
           src="/assets/png/icon_sevice-9f0c8455.png"
         />
       </div>
-      <div data-v-6ab3f23e="" className="tabbar__container"
-            style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
-            <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-home" onClick={()=> navigate('/index')}>
-                    <use href="#icon-home"></use>
-                </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-activity" onClick={()=> navigate('/index')}><use href="#icon-activity"></use>
-                   
-                </svg>
-                <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
-                    <use href="#icon-promotion"></use>
-                </svg>
-                <div data-v-6ab3f23e="" className="promotionBg"></div>
-                <span data-v-6ab3f23e="" onClick={()=> navigate('/promotion')}>
-                    Promotion</span>
-            </div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
-            <use href="#icon-wallet" onClick={()=> navigate('/wallet')}></use>
-                </svg><span data-v-6ab3f23e=""  onClick={()=> navigate('/wallet')}>Wallet</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-main"  onClick={()=> navigate('/account')}>
-            <use href="#icon-main"></use>
-                </svg><span data-v-6ab3f23e="" onClick={()=> navigate('/account')}>Account</span></div>
-        </div>
-      
-      <div
-        className="van-overlay"
-        style={{  
-            zIndex: '2010',
-            '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-            display: 'none',
-          }}
+    </div>
+
+    <div data-v-app=""></div>
+    <div
+      role="dialog"
+      tabIndex="0"
+      className="van-popup van-popup--center van-toast van-toast--middle van-toast--break-word van-toast--fail"
+      style={{zIndex: '2005', display:' none'}}
+    >
+      <i className="van-badge__wrapper van-icon van-icon-fail van-toast__icon"
+        ></i
       >
-        
+      <div className="van-toast__text">
+        Error: 22 Your account is already logged in somewhere else
       </div>
-      <div
-        role="dialog"
-        tabIndex="0"
-        className="van-popup van-popup--center van-dialog firstSaveDialog"
-        style={{  
-          zIndex: '2010',
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-          display: 'none',
-        }}
-      >
-        <div className="van-dialog__header">
-          <div data-v-9cd12fb2="" className="header">
-            <div data-v-9cd12fb2="" className="title">
-              Extra first deposit bonus
-            </div>
-            <div data-v-9cd12fb2="" className="tip">
-              Each account can only receive rewards once
-            </div>
-          </div>
-        </div>
-        <div className="van-dialog__content">
-          <div data-v-9cd12fb2="" className="container">
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">400</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹48.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 400 for the first time and you will receive 48 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                  background: 'var(--bg_color_L1)',
-                    height: '16px',
-                    borderRadius: '16px'
-                }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/400</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">1000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹108.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 1000 for the first time and you will receive 108 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/1000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">2000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹188.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 2000 for the first time and you will receive 188 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/2000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">10000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹488.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 10000 for the first time and you will receive 488 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/10000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">24000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹1,388.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 24000 for the first time and you will receive 1388 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/24000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">120000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹5,888.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 120000 for the first time and you will receive 5888
-                bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                      background: 'var(--norm_secondary-color)',
-                      width: '0%',
-                      height: '16px',
-                      borderRadius: '16px'
-                    }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/120000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">240000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹8,888.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 240000 for the first time and you will receive 8888
-                bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/240000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            
-          </div>
-          <div data-v-9cd12fb2="" className="close"></div>
-        </div>
-        <div data-v-9cd12fb2="" className="footer">
-          <div data-v-9cd12fb2="" className="active">
-            <svg data-v-9cd12fb2="" className="svg-icon icon-active">
-              <use href="#icon-active"></use></svg
-            >No more reminders today
-          </div>
-          <div data-v-9cd12fb2="" className="btn">Activity</div>
-        </div>
-        
-      </div>
-      
+
     </div>
   
+
     </div>
   )
 }

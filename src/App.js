@@ -18,6 +18,7 @@ import PrivateRoute from './components/PrivateRoute'; // Import the PrivateRoute
 import Account from './pages/account/Account';
 import Withdraw from'./pages/wallet/Withdraw';
 import WithdrawHistory from'./pages/wallet/WithdrawHistory';
+import Paymentpage from './pages/wallet/PaymentPage';
 import Rule from'./pages/activity/Rule';
 import InvitationBonu from './pages/activity/InvitationBonu';
 import Laundry from './pages/activity/Laundry';
@@ -30,6 +31,16 @@ import Records from './pages/activity/Records';
 import Superjackpot_rule from './pages/activity/Superjackpot_rule';
 import SuperJackpot_star from './pages/activity/SuperJackpot_star';
 import DailyTasks from './pages/activity/DailyTasks';
+import LaundryRecord from './pages/activity/LaundryRecord';
+import ActivityDetail from './pages/activity/ActivityDetail';
+import FirstRecharge from './pages/activity/FirstRecharge';
+import RebateRatio from './pages/promotion/RebateRatio';
+import Server from './pages/promotion/Server';
+
+
+
+
+
 import Receive from './pages/activity/Receive';
 import Wingo3 from  './pages/bet/wingo/Wingo3';
 import Wingo5 from  './pages/bet/wingo/Wingo5';
@@ -76,6 +87,7 @@ function App() {
 
         <Route path="/wallet" element={<PrivateRoute><Withdraw/></PrivateRoute>}/>
         <Route path="/wallet" element={<PrivateRoute><WithdrawHistory/></PrivateRoute>}/>
+        <Route path="/wallet/paymentPage" element={<PrivateRoute><Paymentpage/></PrivateRoute>}/>
         <Route path="/activity/Rule" element={<PrivateRoute><Rule/></PrivateRoute>}/>
         <Route path="/main/InvitationBonus" element={<PrivateRoute><InvitationBonu/></PrivateRoute>}/>
         <Route path="/main/Laundry" element={<PrivateRoute><Laundry/></PrivateRoute>}/>
@@ -89,13 +101,23 @@ function App() {
         <Route path="/main/SuperJackpot/star" element={<PrivateRoute><SuperJackpot_star/></PrivateRoute>}/>
         <Route path="/activity/DailyTasks" element={<PrivateRoute><DailyTasks/></PrivateRoute>}/>
         <Route path="/activity/DailyTasks/Record" element={<PrivateRoute><Receive/></PrivateRoute>}/>
+        <Route path="/main/Laundry/LaundryRecord" element={<PrivateRoute><LaundryRecord/></PrivateRoute>}/>
+        <Route path="/activity/ActivityDetail" element={<PrivateRoute><ActivityDetail/></PrivateRoute>}/>
+        <Route path="/activity/FirstRecharge" element={<PrivateRoute><FirstRecharge/></PrivateRoute>}/>
+        <Route path="/promotion/RebateRatio" element={<PrivateRoute><RebateRatio/></PrivateRoute>}/>
+        <Route path="/promotion/Server" element={<PrivateRoute><Server/></PrivateRoute>}/>
+
+
+
+
+
 
 
 
 
         <Route path="/AllLotteryGames/K3" element={<PrivateRoute><K3/></PrivateRoute>}/>
        
-        <Route path="/deposit" element={<PrivateRoute><Deposit/></PrivateRoute>}/>
+        <Route path="/wallet/deposit" element={<PrivateRoute><Deposit/></PrivateRoute>}/>
         <Route
           path="/account"
           element={

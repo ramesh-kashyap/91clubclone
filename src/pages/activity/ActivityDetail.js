@@ -1,58 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Api from '../../services/Api';
-import Loader from '../../components/Loader';
 
-export default function Account() {
+import React from 'react'
 
-    const [totalMoney, setTotalMoney] = useState(0);
-    const [uid, setUid] = useState(null);
-    const [username, setUsername] = useState(null);
-    const [lastlogin, setLastLogin] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const navigate = useNavigate();
-  
-    useEffect(() => {
-      const fetchUserInfo = async () => {
-        try {
-          const response = await Api.get('/api/webapi/GetUserInfo');
-          if (response.data.status) {
-            setTotalMoney(response.data.data.money_user);
-            setUid(response.data.data.id_user);
-            setUsername(response.data.data.name_user);
-            setLastLogin(response.data.data.last_login);
-
-
-          } else {
-            setError('Failed to fetch user info');
-          }
-        } catch (err) {
-          setError('Error fetching user info');
-          console.error(err);
-        } finally {
-          setLoading(false);
-        }
-      };
-  
-      fetchUserInfo();
-    }, []);
-  
-    if (loading) {
-      return      <Loader/>
-      // You can replace this with a spinner if needed
-    }
-  
-    if (error) {
-      return <div>{error}</div>;
-    }
-
+export default function ActivityDetail() {
   return (
-    <div style={{fontSize: '12px'}}>
+    <div style={{fontSize: '12px'}}> 
+
+
+
+
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      
-      style={{position: 'absolute', width: 0, height: 0}}
+      style={{position: 'absolute', width: '0', height: '0'}}
     >
       <symbol
         id="icon-privacyIcon"
@@ -256,7 +214,7 @@ export default function Account() {
           d="M57.8205 43.1875C49.6245 43.1875 42.9805 49.8315 42.9805 58.0275C42.9805 65.8395 49.0165 72.2355 56.6805 72.8195C61.2405 71.7195 64.6325 67.6115 64.6325 62.7115V44.8395C62.5264 43.7526 60.1905 43.1862 57.8205 43.1875Z"
           fill="#3689FF"
         ></path>
-        <path d="M68 48H48V68H68V48Z" fill="white" fillOpacity="0.01"></path>
+        <path d="M68 48H48V68H68V48Z" fill="white" fill-opacity="0.01"></path>
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -368,9 +326,9 @@ export default function Account() {
             width="112"
             height="112"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -465,9 +423,9 @@ export default function Account() {
             width="112"
             height="112"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -656,9 +614,9 @@ export default function Account() {
             width="57.7773"
             height="54.3809"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -730,9 +688,9 @@ export default function Account() {
             width="24.2539"
             height="25.0469"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -974,9 +932,9 @@ export default function Account() {
             width="38.75"
             height="42.75"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -1069,7 +1027,7 @@ export default function Account() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clipPath="url(#clip0_4808_6957)">
+        <g clippath="url(#clip0_4808_6957)">
           <rect
             opacity="0.4"
             x="4"
@@ -1187,9 +1145,9 @@ export default function Account() {
             width="131"
             height="54"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -1607,7 +1565,7 @@ export default function Account() {
         viewBox="0 0 48 48"
         fill="none"
       >
-        <g clipPath="url(#clip0_6360_21191)">
+        <g clippath="url(#clip0_6360_21191)">
           <path
             d="M23.9955 47.9998C10.7874 48.0471 -0.23118 37.1883 0.00368673 23.5594C0.230542 10.3977 11.1372 -0.274265 24.5288 0.00537298C37.2674 0.271345 47.9986 10.6432 48 24.0104C48.0014 37.308 37.2675 47.9998 23.9955 47.9998ZM31.898 33.1019C31.9229 33.0378 31.9637 32.9372 32.0012 32.8354C33.1533 29.6991 34.3075 26.5635 35.4523 23.4244C35.536 23.1947 35.6523 23.088 35.8957 23.0243C37.2211 22.6772 38.0122 21.3663 37.7026 20.0709C37.4124 18.8567 36.2337 18.0384 34.9821 18.182C33.8198 18.3155 32.8786 19.3717 32.8533 20.572C32.8411 21.1496 33.0217 21.6654 33.3848 22.1331C32.2741 23.4385 31.1737 24.7319 30.0385 26.0661C29.6353 23.6602 29.2447 21.329 28.8523 18.9878C28.9398 18.952 29.0064 18.9252 29.0725 18.8975C30.322 18.3741 30.9078 17.1195 30.5141 15.8101C30.134 14.5463 28.8118 13.7321 27.5455 13.9871C26.5239 14.1927 25.8288 14.7962 25.5231 15.7839C25.2074 16.804 25.4546 17.7202 26.2156 18.4748C26.3696 18.6275 26.399 18.7449 26.3322 18.9462C25.6104 21.1204 24.8986 23.298 24.183 25.4742C24.1586 25.5481 24.1223 25.6181 24.0673 25.7465C23.2467 23.3546 22.4458 21.02 21.6468 18.6912C22.8623 17.9342 23.0229 16.5173 22.6448 15.5997C22.187 14.4887 21.0419 13.806 19.8796 13.9608C18.6987 14.118 17.751 15.0669 17.62 16.2404C17.5534 16.8374 17.6585 17.4066 17.9731 17.9268C18.3196 18.4997 18.8001 18.8909 19.5106 18.9992C19.0253 21.3552 18.5454 23.6849 18.0595 26.0437C17.9958 25.9875 17.9587 25.9614 17.9295 25.9282C16.8492 24.6989 15.7714 23.4675 14.6876 22.2414C14.5807 22.1205 14.601 22.0352 14.6673 21.905C14.8237 21.5976 15.0201 21.291 15.0871 20.961C15.3937 19.4526 13.9742 17.8363 12.2263 18.1747C11.1024 18.3924 10.2019 19.4713 10.2078 20.6228C10.214 21.8218 11.1066 22.8928 12.2555 23.0499C12.4471 23.0761 12.5109 23.1563 12.5678 23.3159C13.1845 25.044 13.8075 26.7699 14.4283 28.4965C14.9596 29.9743 15.491 31.4521 16.02 32.9307C16.0686 33.0664 16.1044 33.1693 16.298 33.1459C16.9872 33.0625 17.6799 33.0088 18.3697 32.9293C20.934 32.6341 23.5048 32.4656 26.0844 32.6334C28.007 32.7585 29.9258 32.9409 31.898 33.1019Z"
             fill="var(--main-color)"
@@ -1724,7 +1682,7 @@ export default function Account() {
         viewBox="0 0 29 28"
         fill="none"
       >
-        <g clipPath="url(#clip0_4402_98617)">
+        <g clippath="url(#clip0_4402_98617)">
           <path
             d="M25.1778 22.687C22.5234 25.998 18.623 28 14.3922 28C7.7044 28 1.9602 23.0048 0.5 16.0776L3.279 15.4C4.4466 20.937 9.0428 24.934 14.3922 24.934C17.8726 24.934 21.0716 23.24 23.1982 20.4596L20.1 16.975H28.5V26.425L25.1778 22.687ZM3.8222 5.313C6.4766 2.002 10.377 0 14.6078 0C21.2956 0 27.0398 4.9952 28.5 11.9224L25.721 12.6C24.5534 7.063 19.9572 3.066 14.6078 3.066C11.1274 3.066 7.9284 4.76 5.8018 7.5404L8.9 11.025H0.5V1.575L3.8222 5.313Z"
             fill="var(--text_color_L4)"
@@ -1880,8 +1838,8 @@ export default function Account() {
         viewBox="0 0 30 30"
         fill="none"
       >
-        <g clipPath="url(#clip0_2271_83618)">
-          <path d="M30 0H0V30H30V0Z" fill="white" fillOpacity="0.01"></path>
+        <g clippath="url(#clip0_2271_83618)">
+          <path d="M30 0H0V30H30V0Z" fill="white" fill-opacity="0.01"></path>
           <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -2031,9 +1989,9 @@ export default function Account() {
             width="75.1768"
             height="75.177"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -2065,9 +2023,9 @@ export default function Account() {
             width="63.0542"
             height="32.3481"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -2086,9 +2044,9 @@ export default function Account() {
             width="19.9863"
             height="15.2263"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -2107,9 +2065,9 @@ export default function Account() {
             width="33.7349"
             height="26.8772"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -2153,7 +2111,7 @@ export default function Account() {
           >
             <stop stopColor="#FA999A"></stop>
             <stop offset="0.743552" stopColor="#FE474D"></stop>
-            <stop offset="1" stopColor="#DD2223" stopOpacity="0"></stop>
+            <stop offset="1" stopColor="#DD2223" stop-opacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="paint3_linear_186_36254"
@@ -2335,7 +2293,7 @@ export default function Account() {
             clipRule="evenodd"
             d="M690.847 21.138C707.178 38.335 706.477 65.5153 689.28 81.8469C672.083 98.1785 644.903 97.477 628.571 80.28C612.239 63.083 612.941 35.9027 630.138 19.5711C647.335 3.23949 674.515 3.94101 690.847 21.138ZM660.283 28.6248L659.005 44.5061L632.046 46.4145L660.283 28.6248ZM661.457 23.7932C661.233 23.846 661.009 23.9377 660.795 24.0729L625.31 46.4289C624.449 46.9712 624.179 47.8735 624.351 48.6804C624.235 49.5409 624.614 50.4685 625.587 50.9134L679.708 75.675C681.086 76.3053 682.419 75.4002 682.706 74.1949C682.944 73.8309 683.074 73.3786 683.035 72.8608L679.503 25.6135C679.455 24.9784 679.162 24.4698 678.745 24.1258C678.377 23.4952 677.694 23.0454 676.842 23.066L662.632 23.4093C662.197 23.4198 661.792 23.5598 661.457 23.7932ZM662.919 40.4756L664.007 26.9556L673.867 26.7174L662.919 40.4756ZM632.176 49.9929L659.809 48.0368L676.048 70.065L632.176 49.9929ZM676.207 29.5241L679.089 68.0688L662.92 46.2222L676.207 29.5241Z"
             fill="white"
-            fillOpacity="0.36"
+            fill-opacity="0.36"
           ></path>
         </g>
       </symbol>
@@ -2434,7 +2392,7 @@ export default function Account() {
         viewBox="0 0 49 48"
         fill="none"
       >
-        <g clipPath="url(#clip0_2093_19994)">
+        <g clippath="url(#clip0_2093_19994)">
           <path
             d="M44.9609 38V44H4.96094V38C4.96094 36.9 5.86094 36 6.96094 36H42.9609C44.0609 36 44.9609 36.9 44.9609 38Z"
             fill="var(--main-color)"
@@ -2473,7 +2431,7 @@ export default function Account() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clipPath="url(#clip0_6487_39735)">
+        <g clippath="url(#clip0_6487_39735)">
           <path
             opacity="0.4"
             d="M45.7147 17.1445V33.314C45.7147 38.2775 41.6758 42.2874 36.7033 42.2874H11.2976C6.32499 42.2874 2.28613 38.2775 2.28613 33.314V17.1445H45.7147Z"
@@ -2628,9 +2586,9 @@ export default function Account() {
             width="97.1665"
             height="102.235"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -2668,9 +2626,9 @@ export default function Account() {
             width="43.9805"
             height="83.3131"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -3272,7 +3230,6 @@ export default function Account() {
           strokeLinecap="round"
         ></path>
       </symbol>
-      
       <symbol
         id="icon-downArrow"
         xmlns="http://www.w3.org/2000/svg"
@@ -3451,7 +3408,7 @@ export default function Account() {
           stroke="#908E9B"
           strokeWidth="0.881"
           strokeLinecap="round"
-          strokeDasharray="2.64 2.64"
+          stroke-dasharray="2.64 2.64"
         ></path>
         <path
           d="M83.2109 50.6191L124.558 71.2914L116.173 82.6011L83.2109 50.6191Z"
@@ -3479,8 +3436,8 @@ export default function Account() {
             gradientUnits="userSpaceOnUse"
           >
             <stop stopColor="#484852"></stop>
-            <stop offset="0.615" stopColor="#777783" stopOpacity="0.1"></stop>
-            <stop offset="1" stopColor="#DEDEE6" stopOpacity="0"></stop>
+            <stop offset="0.615" stopColor="#777783" stop-opacity="0.1"></stop>
+            <stop offset="1" stopColor="#DEDEE6" stop-opacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="paint1_linear_6306_124794"
@@ -3491,7 +3448,7 @@ export default function Account() {
             gradientUnits="userSpaceOnUse"
           >
             <stop stopColor="#353240"></stop>
-            <stop offset="1" stopColor="#24212F" stopOpacity="0"></stop>
+            <stop offset="1" stopColor="#24212F" stop-opacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="paint2_linear_6306_124794"
@@ -3502,7 +3459,7 @@ export default function Account() {
             gradientUnits="userSpaceOnUse"
           >
             <stop stopColor="#353240"></stop>
-            <stop offset="1" stopColor="#24212F" stopOpacity="0"></stop>
+            <stop offset="1" stopColor="#24212F" stop-opacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="paint3_linear_6306_124794"
@@ -3654,18 +3611,15 @@ export default function Account() {
           strokeLinejoin="round"
         ></path>
       </symbol>
-      
       <symbol
         id="icon-eye"
         t="1503993826520"
         className="icon"
-        
         viewBox="0 0 1024 1024"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         p-id="7878"
-        
-      >
+        >
         <defs><style type="text/css"></style></defs>
         <path
           d="M941.677063 391.710356c9.337669-14.005992 6.224772-32.68133-6.224772-43.575447-14.005992-10.894118-32.68133-7.78122-43.575447 6.224771-1.556449 1.556449-174.300768 205.426673-379.727441 205.426673-199.200878 0-379.727441-205.426673-381.28389-206.982098-10.894118-12.450567-31.124881-14.005992-43.575448-3.112898-12.450567 10.894118-14.005992 31.124881-3.112897 43.575448 3.112897 4.668323 40.46255 46.687322 99.600439 93.375667l-79.369676 82.48155c-12.450567 12.450567-10.894118 32.68133 1.556449 43.575448 3.112897 6.224772 10.894118 9.337669 18.675338 9.337669 7.78122 0 15.562441-3.112897 21.787213-9.337669l85.594447-88.706321c40.46255 28.013007 88.706321 54.469566 141.619438 73.14388L340.959485 707.631586c-4.668323 17.118889 4.669346 34.237779 21.787213 38.906101h9.337669c14.005992 0 26.456558-9.337669 29.568432-23.343661l32.68133-110.494556c24.90011 4.668323 51.356668 7.78122 77.813227 7.78122s52.913117-3.112897 77.813227-7.78122l32.68133 108.938108c3.112897 14.005992 17.118889 23.343661 29.569456 23.343661 3.112897 0 6.224772 0 7.78122-1.556449 17.118889-4.669346 26.456558-21.787212 21.788236-38.906102l-32.68133-108.938108c52.913117-18.675338 101.156888-45.131897 141.619438-73.14388l84.037998 87.150896c6.224772 6.224772 14.005992 9.337669 21.787212 9.337669 7.78122 0 15.562441-3.112897 21.787212-9.337669 12.450567-12.450567 12.450567-31.124881 1.556449-43.575448l-79.369675-82.48155c63.808258-46.688345 101.158934-91.820242 101.158934-91.820242z"
@@ -5018,12 +4972,12 @@ export default function Account() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g id="Frame" clipPath="url(#clip0_621_12387)">
+        <g id="Frame" clippath="url(#clip0_621_12387)">
           <path
             id="Vector"
             d="M24.0001 0H0.000106812V24H24.0001V0Z"
             fill="currentColor"
-            fillOpacity="0.01"
+            fill-opacity="0.01"
           ></path>
           <path
             id="Vector_2"
@@ -5436,7 +5390,7 @@ export default function Account() {
           <path
             d="M302.017 76.4956L302.015 76.4937C301.659 76.1495 301.46 75.6788 301.46 75.1817V58.9538H356.459V93.4406H320.14C319.661 93.4406 319.199 93.2503 318.857 92.9159L318.857 92.9157L302.017 76.4956ZM328.317 75.9378C329.457 75.9378 330.38 75.0161 330.38 73.8765V66.0501C330.38 64.9105 329.457 63.9888 328.317 63.9888H313.578C312.438 63.9888 311.515 64.9105 311.515 66.0501V73.8765C311.515 75.0161 312.438 75.9378 313.578 75.9378H328.317ZM350.925 75.9378C352.064 75.9378 352.987 75.0161 352.987 73.8765V66.0501C352.987 64.9105 352.064 63.9888 350.925 63.9888H336.186C335.046 63.9888 334.123 64.9105 334.123 66.0501V73.8765C334.123 75.0161 335.046 75.9378 336.186 75.9378H350.925Z"
             fill="#AFB0B4"
-            fillOpacity="0.7"
+            fill-opacity="0.7"
             stroke="#A0A8BD"
             strokeWidth="1.15714"
           ></path>
@@ -5551,7 +5505,7 @@ export default function Account() {
             <path
               d="M52.5457 110.141H95.763V122.839C95.763 123.202 95.6206 123.543 95.3638 123.792L95.3629 123.793L82.0553 136.772L82.0533 136.774C81.8081 137.016 81.474 137.151 81.1269 137.151H52.5457V110.141ZM74.6638 113.876C73.6968 113.876 72.9096 114.661 72.9096 115.629V121.816C72.9096 122.783 73.6968 123.569 74.6638 123.569H86.3099C87.277 123.569 88.0641 122.783 88.0641 121.816V115.629C88.0641 114.661 87.277 113.876 86.3099 113.876H74.6638ZM56.7949 113.876C55.8279 113.876 55.0407 114.661 55.0407 115.629V121.816C55.0407 122.783 55.8279 123.569 56.7949 123.569H68.441C69.408 123.569 70.1952 122.783 70.1952 121.816V115.629C70.1952 114.661 69.408 113.876 68.441 113.876H56.7949Z"
               fill="#AFB0B4"
-              fillOpacity="0.7"
+              fill-opacity="0.7"
               stroke="#6E7689"
               strokeWidth="1.15714"
             ></path>
@@ -5639,9 +5593,9 @@ export default function Account() {
             width="139.908"
             height="124.722"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -6187,9 +6141,9 @@ export default function Account() {
             width="63.0542"
             height="32.3481"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -6208,9 +6162,9 @@ export default function Account() {
             width="19.9863"
             height="15.2263"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -6255,7 +6209,7 @@ export default function Account() {
           >
             <stop stopColor="#DCDCDC"></stop>
             <stop offset="0.743552" stopColor="#C2C2C2"></stop>
-            <stop offset="1" stopColor="#CDCDCD" stopOpacity="0"></stop>
+            <stop offset="1" stopColor="#CDCDCD" stop-opacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="paint3_linear_186_36273"
@@ -6320,7 +6274,7 @@ export default function Account() {
         viewBox="0 0 32 32"
         fill="none"
       >
-        <g clipPath="url(#clip0_9095_3163)">
+        <g clippath="url(#clip0_9095_3163)">
           <path
             d="M15.9993 4V28C11.3327 28 7.86502 21.8927 7.86502 21.8927H3.99935C3.26297 21.8927 2.66602 21.2958 2.66602 20.5594V11.3405C2.66602 10.6041 3.26297 10.0072 3.99935 10.0072H7.86502C7.86502 10.0072 11.3327 4 15.9993 4Z"
             fill="url(#paint0_linear_9095_3163)"
@@ -6384,7 +6338,7 @@ export default function Account() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clipPath="url(#clip0_2085_65071)">
+        <g clippath="url(#clip0_2085_65071)">
           <path
             d="M0 16.9334C0 16.004 0.327564 15.2161 0.982692 14.5725C1.63846 13.9283 2.42628 13.6065 3.34808 13.6065H6.69487V28.686H3.34744C2.42628 28.686 1.63846 28.3642 0.982692 27.72C0.327564 27.0758 0 26.2886 0 25.3584V16.9334ZM37.1942 3.08857C38.7179 1.6219 40.0994 0.816776 41.3397 0.673186C42.5795 0.529597 43.6776 0.861007 44.6346 1.66549C45.5904 2.47062 46.4051 3.65139 47.0782 5.20716C47.7513 6.76357 48.3 8.49883 48.7256 10.4123C49.1618 12.3955 49.4811 14.4026 49.6821 16.4232C49.8942 18.5161 50.0006 20.5104 50.0006 22.4065C50.0006 24.3027 49.868 26.1988 49.6019 28.095C49.3365 29.9911 48.9468 31.7706 48.4333 33.4347C47.9192 35.0982 47.3173 36.5559 46.6263 37.8078C45.9359 39.0604 45.1654 39.9905 44.3154 40.5982C43.4654 41.2072 42.5526 41.4213 41.5782 41.2424C40.6045 41.0636 39.5859 40.3661 38.5237 39.1495C37.4962 37.9334 36.1058 36.9225 34.3526 36.1174C32.5987 35.3129 30.6859 34.6328 28.6141 34.079C26.5396 33.5237 24.4379 33.0757 22.3173 32.7366C20.1917 32.3969 18.2436 32.0931 16.4724 31.8245C14.7013 31.5559 13.2224 31.2969 12.0359 31.0463C10.8494 30.7963 10.1846 30.4918 10.0429 30.1341V13.3379C10.1846 12.8373 10.7429 12.4258 11.7167 12.104C12.691 11.7822 13.9308 11.4777 15.4365 11.1918C16.9417 10.9052 18.6417 10.5924 20.5372 10.2527C22.4927 9.89819 24.4264 9.43226 26.3288 8.85716C28.308 8.26174 30.236 7.50803 32.0942 6.60331C33.9628 5.69708 35.6827 4.51195 37.1949 3.08857H37.1942ZM18.066 35.9841C18.2429 36.4136 18.4558 36.8783 18.7032 37.3796C18.9606 37.9296 19.2444 38.4667 19.5538 38.9892C19.9531 39.6673 20.3786 40.3296 20.8295 40.9745C21.4308 41.8334 22.0423 42.7373 22.6622 43.6847C23.2821 44.6334 23.7519 45.4918 24.0699 46.261C24.3891 47.0302 24.4865 47.6649 24.3622 48.1655C24.2385 48.6668 23.734 48.9168 22.8481 48.9168H19.8192C19.1109 48.9168 18.4558 48.7828 17.8532 48.5149C17.2506 48.2456 16.6756 47.8354 16.1263 47.2802C15.5776 46.7257 15.0109 46.0193 14.4263 45.1604C13.8417 44.3014 13.2128 43.2822 12.5397 42.1014C11.7256 40.7424 11.1583 39.5527 10.8397 38.5334C10.5205 37.5136 10.3077 36.6636 10.2019 35.9841C10.0603 35.1969 10.0603 34.5174 10.2019 33.945C10.4853 33.9809 10.8218 34.052 11.2115 34.1597C11.5301 34.2309 11.9199 34.32 12.3808 34.4277C12.841 34.5354 13.3724 34.6424 13.9744 34.7501C14.5769 34.8931 15.1167 35.027 15.5949 35.152C16.0731 35.2777 16.5071 35.4116 16.8968 35.5546C17.2907 35.6862 17.6806 35.8295 18.066 35.9841Z"
             fill="var(--main-color)"
@@ -6537,7 +6491,7 @@ export default function Account() {
         viewBox="0 0 61 61"
         fill="none"
       >
-        <g clipPath="url(#clip0_6048_105312)">
+        <g clippath="url(#clip0_6048_105312)">
           <path
             d="M26.6817 15.5322H34.8635C35.576 15.5322 36.1818 15.9877 36.4064 16.6232H25.1388C25.3635 15.9876 25.9693 15.5322 26.6817 15.5322ZM21.0159 25.2868H25.0454V18.2595H36.4999V25.2868H40.0476C41.5105 25.2868 41.9817 25.5603 40.5934 26.9344L33.0444 34.3873C30.5105 36.8904 30.5415 36.8836 28.0121 34.3873L20.4644 26.9333C19.0761 25.5603 19.3956 25.2868 21.0159 25.2868ZM46.8636 43.0438C46.8636 44.1162 46.019 44.9869 44.9758 44.9869H16.0239C14.9807 44.9869 14.1362 44.1162 14.1362 43.0438V33.3272C14.1362 32.2548 14.9807 31.3842 16.0239 31.3842C17.067 31.3842 17.9136 32.2548 17.9136 33.3272V41.1011H43.0882V33.3272C43.0882 32.2548 43.9349 31.3842 44.9759 31.3842C46.019 31.3842 46.8636 32.2548 46.8636 33.3272V43.0438Z"
             fill="white"
@@ -6575,7 +6529,7 @@ export default function Account() {
         viewBox="0 0 60 61"
         fill="none"
       >
-        <g clipPath="url(#clip0_6101_28743)">
+        <g clippath="url(#clip0_6101_28743)">
           <circle
             cx="30"
             cy="30.8047"
@@ -6615,7 +6569,7 @@ export default function Account() {
         viewBox="0 0 60 61"
         fill="none"
       >
-        <g clipPath="url(#clip0_6101_28737)">
+        <g clippath="url(#clip0_6101_28737)">
           <circle
             cx="30"
             cy="30.8047"
@@ -6659,7 +6613,7 @@ export default function Account() {
         viewBox="0 0 60 61"
         fill="none"
       >
-        <g clipPath="url(#clip0_6048_105291)">
+        <g clippath="url(#clip0_6048_105291)">
           <path
             d="M17.0595 33.0852H13V23.9051H17.0595V33.0852ZM31.3884 46.8481C30.8154 48.4183 27.0175 48.2485 27.0175 48.2485C22.6469 42.6046 22.0527 37.2156 22.0527 37.2156L26.1901 37.2155C26.7528 40.9497 30.1951 43.8574 30.5821 44.4718C31.7914 45.8084 31.3884 46.8481 31.3884 46.8481ZM41.0244 41.5048C41.0244 41.5048 36.1659 35.2035 19.4262 34.4394L19.4219 22.6814C19.4219 22.6814 33.5527 22.1651 40.9649 13.3388C40.9649 13.3388 47.3047 11.8229 46.8209 28.4456C46.8209 28.4456 47.4953 39.8923 41.0244 41.5048Z"
             fill="white"
@@ -6697,7 +6651,7 @@ export default function Account() {
         viewBox="0 0 61 61"
         fill="none"
       >
-        <g clipPath="url(#clip0_6101_28729)">
+        <g clippath="url(#clip0_6101_28729)">
           <circle
             cx="30.5"
             cy="30.8047"
@@ -6833,7 +6787,7 @@ export default function Account() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g id="app/game" clipPath="url(#clip0_6131_4738)">
+        <g id="app/game" clippath="url(#clip0_6131_4738)">
           <g id="Vector">
             <path
               d="M11.4893 13.4156C10.8243 13.4089 10.1723 13.5999 9.61611 13.9645C9.05989 14.329 8.62455 14.8506 8.36537 15.4631C8.10619 16.0755 8.03487 16.7512 8.16046 17.4043C8.28604 18.0573 8.60288 18.6583 9.07072 19.131C9.53857 19.6036 10.1363 19.9266 10.7881 20.0588C11.4398 20.1911 12.1162 20.1267 12.7313 19.8737C13.3463 19.6208 13.8723 19.1908 14.2425 18.6384C14.6128 18.0859 14.8104 17.4359 14.8105 16.7708C14.8083 15.8875 14.4588 15.0405 13.8374 14.4127C13.216 13.785 12.3726 13.4268 11.4893 13.4156Z"
@@ -6873,7 +6827,7 @@ export default function Account() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g id="app/game" clipPath="url(#clip0_6131_4738)">
+        <g id="app/game" clippath="url(#clip0_6131_4738)">
           <g id="Vector">
             <path
               d="M11.4893 13.4156C10.8243 13.4089 10.1723 13.5999 9.61611 13.9645C9.05989 14.329 8.62455 14.8506 8.36537 15.4631C8.10619 16.0755 8.03487 16.7512 8.16046 17.4043C8.28604 18.0573 8.60288 18.6583 9.07072 19.131C9.53857 19.6036 10.1363 19.9266 10.7881 20.0588C11.4398 20.1911 12.1162 20.1267 12.7313 19.8737C13.3463 19.6208 13.8723 19.1908 14.2425 18.6384C14.6128 18.0859 14.8104 17.4359 14.8105 16.7708C14.8083 15.8875 14.4588 15.0405 13.8374 14.4127C13.216 13.785 12.3726 13.4268 11.4893 13.4156Z"
@@ -6971,7 +6925,7 @@ export default function Account() {
         viewBox="0 0 40 40"
         fill="none"
       >
-        <g clipPath="url(#clip0_6079_60205)">
+        <g clippath="url(#clip0_6079_60205)">
           <path
             d="M18.5142 4.69292L12.4561 10.7451L12.169 11.0459C8.98571 14.6647 9.11851 19.924 12.4132 23.2187C13.9519 24.7574 16.0068 25.6706 18.1801 25.7813C20.3534 25.8921 22.4906 25.1926 24.1778 23.8182L24.3672 23.6561L24.7832 23.2734L26.91 21.1466L32.4349 26.6696L22.7677 36.3367C22.0353 37.0689 21.042 37.4803 20.0063 37.4803C18.9705 37.4803 17.9772 37.0689 17.2448 36.3367L3.43736 22.5293C1.35745 20.452 0.134259 17.6689 0.0104128 14.732C-0.113434 11.795 0.871112 8.9188 2.76876 6.67382C4.66641 4.42885 7.33853 2.97911 10.2551 2.61219C13.1717 2.24526 16.1196 2.98794 18.5142 4.69292ZM36.2783 5.67135L36.6122 5.99359L36.7372 6.12249L37.0107 6.41152C37.3544 6.7943 37.6707 7.19661 37.9559 7.61064L37.7782 7.35871C37.8778 7.49737 37.9754 7.63798 38.0711 7.78055L37.9559 7.61064C38.0633 7.76688 38.1648 7.92311 38.2625 8.07935L38.0711 7.78055C38.1551 7.90749 38.2352 8.03443 38.3133 8.16528L38.2625 8.07935C38.3445 8.2141 38.4246 8.34886 38.5027 8.48556L38.3133 8.16528C38.4129 8.32738 38.5086 8.49338 38.5984 8.65938L38.5008 8.48556C38.573 8.61251 38.6414 8.73945 38.7078 8.86639L38.5984 8.65938C38.6765 8.80585 38.7546 8.95232 38.8269 9.1027L38.7097 8.86834C38.7976 9.03825 38.8796 9.21011 38.9597 9.38393L38.8269 9.1027C38.8913 9.2355 38.9538 9.37025 39.0124 9.50501L38.9597 9.38393C39.0417 9.56555 39.1198 9.74522 39.1921 9.93075L39.0124 9.50501C39.89 11.5108 40.1912 13.7215 39.8821 15.889C39.573 18.0565 38.6659 20.0949 37.2626 21.7754L36.915 22.1778L36.7294 22.3691L36.579 22.5293L33.8156 25.2888L28.2926 19.7658C27.9264 19.3997 27.4298 19.194 26.9119 19.194C26.3941 19.194 25.8974 19.3997 25.5312 19.7658L23.461 21.8379L23.0939 22.1758L22.9435 22.3047C21.6312 23.3734 19.9691 23.9173 18.2789 23.831C16.5887 23.7448 14.9906 23.0346 13.7939 21.8379C11.341 19.385 11.1262 15.5025 13.3193 12.7098L13.583 12.3934L13.8369 12.1259L20.057 5.90766L20.1254 5.84126L20.4496 5.5366C20.6933 5.31651 20.9461 5.10671 21.2073 4.90775L20.9554 5.10695C21.0921 4.99758 21.2288 4.89212 21.3655 4.78862L21.2093 4.90775C21.3323 4.81401 21.4573 4.72222 21.5842 4.63433L21.3675 4.79057C21.5059 4.68853 21.6465 4.58955 21.7893 4.49372L21.5842 4.63433C21.7164 4.54106 21.8506 4.45056 21.9865 4.36287L21.7893 4.49372C21.9299 4.39998 22.0705 4.31014 22.2131 4.22226L21.9865 4.36287C22.1233 4.27694 22.26 4.19297 22.3986 4.11289L22.2131 4.22226C22.3537 4.13633 22.4963 4.05431 22.6408 3.97619L22.3986 4.11289C22.5392 4.03087 22.6818 3.9508 22.8244 3.87659L22.6408 3.97423C22.7775 3.90002 22.9181 3.82581 23.0587 3.7555L22.8244 3.87659C22.965 3.80237 23.1075 3.73011 23.2501 3.66176L23.0587 3.7555L23.4923 3.55044L23.2501 3.66176C23.4005 3.59145 23.5528 3.5231 23.7052 3.4567L23.4923 3.55044C23.6427 3.48404 23.795 3.41959 23.9473 3.35905L23.7052 3.4567C23.8594 3.39225 24.0137 3.32976 24.17 3.27117L23.9473 3.35905C26.0117 2.54426 28.2642 2.3292 30.4455 2.73864C32.6267 3.14808 34.648 4.16536 36.2763 5.67331L36.2783 5.67135Z"
             fill="var(--text_color_L3)"
@@ -6989,7 +6943,7 @@ export default function Account() {
         viewBox="0 0 40 40"
         fill="none"
       >
-        <g clipPath="url(#clip0_6079_60199)">
+        <g clippath="url(#clip0_6079_60199)">
           <path
             d="M18.5142 4.69292L12.4561 10.7451L12.169 11.0459C8.98571 14.6647 9.11851 19.924 12.4132 23.2187C13.9519 24.7574 16.0068 25.6706 18.1801 25.7813C20.3534 25.8921 22.4906 25.1926 24.1778 23.8182L24.3672 23.6561L24.7832 23.2734L26.91 21.1466L32.4349 26.6696L22.7677 36.3367C22.0353 37.0689 21.042 37.4803 20.0063 37.4803C18.9705 37.4803 17.9772 37.0689 17.2448 36.3367L3.43736 22.5293C1.35745 20.452 0.134259 17.6689 0.0104128 14.732C-0.113434 11.795 0.871112 8.9188 2.76876 6.67382C4.66641 4.42885 7.33853 2.97911 10.2551 2.61219C13.1717 2.24526 16.1196 2.98794 18.5142 4.69292ZM36.2783 5.67135L36.6122 5.99359L36.7372 6.12249L37.0107 6.41152C37.3544 6.7943 37.6707 7.19661 37.9559 7.61064L37.7782 7.35871C37.8778 7.49737 37.9754 7.63798 38.0711 7.78055L37.9559 7.61064C38.0633 7.76688 38.1648 7.92311 38.2625 8.07935L38.0711 7.78055C38.1551 7.90749 38.2352 8.03443 38.3133 8.16528L38.2625 8.07935C38.3445 8.2141 38.4246 8.34886 38.5027 8.48556L38.3133 8.16528C38.4129 8.32738 38.5086 8.49338 38.5984 8.65938L38.5008 8.48556C38.573 8.61251 38.6414 8.73945 38.7078 8.86639L38.5984 8.65938C38.6765 8.80585 38.7546 8.95232 38.8269 9.1027L38.7097 8.86834C38.7976 9.03825 38.8796 9.21011 38.9597 9.38393L38.8269 9.1027C38.8913 9.2355 38.9538 9.37025 39.0124 9.50501L38.9597 9.38393C39.0417 9.56555 39.1198 9.74522 39.1921 9.93075L39.0124 9.50501C39.89 11.5108 40.1912 13.7215 39.8821 15.889C39.573 18.0565 38.6659 20.0949 37.2626 21.7754L36.915 22.1778L36.7294 22.3691L36.579 22.5293L33.8156 25.2888L28.2926 19.7658C27.9264 19.3997 27.4298 19.194 26.9119 19.194C26.3941 19.194 25.8974 19.3997 25.5312 19.7658L23.461 21.8379L23.0939 22.1758L22.9435 22.3047C21.6312 23.3734 19.9691 23.9173 18.2789 23.831C16.5887 23.7448 14.9906 23.0346 13.7939 21.8379C11.341 19.385 11.1262 15.5025 13.3193 12.7098L13.583 12.3934L13.8369 12.1259L20.057 5.90766L20.1254 5.84126L20.4496 5.5366C20.6933 5.31651 20.9461 5.10671 21.2073 4.90775L20.9554 5.10695C21.0921 4.99758 21.2288 4.89212 21.3655 4.78862L21.2093 4.90775C21.3323 4.81401 21.4573 4.72222 21.5842 4.63433L21.3675 4.79057C21.5059 4.68853 21.6465 4.58955 21.7893 4.49372L21.5842 4.63433C21.7164 4.54106 21.8506 4.45056 21.9865 4.36287L21.7893 4.49372C21.9299 4.39998 22.0705 4.31014 22.2131 4.22226L21.9865 4.36287C22.1233 4.27694 22.26 4.19297 22.3986 4.11289L22.2131 4.22226C22.3537 4.13633 22.4963 4.05431 22.6408 3.97619L22.3986 4.11289C22.5392 4.03087 22.6818 3.9508 22.8244 3.87659L22.6408 3.97423C22.7775 3.90002 22.9181 3.82581 23.0587 3.7555L22.8244 3.87659C22.965 3.80237 23.1075 3.73011 23.2501 3.66176L23.0587 3.7555L23.4923 3.55044L23.2501 3.66176C23.4005 3.59145 23.5528 3.5231 23.7052 3.4567L23.4923 3.55044C23.6427 3.48404 23.795 3.41959 23.9473 3.35905L23.7052 3.4567C23.8594 3.39225 24.0137 3.32976 24.17 3.27117L23.9473 3.35905C26.0117 2.54426 28.2642 2.3292 30.4455 2.73864C32.6267 3.14808 34.648 4.16536 36.2763 5.67331L36.2783 5.67135Z"
             fill="url(#paint0_linear_6079_60199)"
@@ -7094,7 +7048,7 @@ export default function Account() {
         viewBox="0 0 50 53"
         fill="none"
       >
-        <g clipPath="url(#clip0_6079_59714)">
+        <g clippath="url(#clip0_6079_59714)">
           <path
             d="M36.9386 50.3403C35.4684 50.3406 34.0126 50.0512 32.6542 49.4887C31.2959 48.9261 30.0617 48.1015 29.0221 47.0619C27.9825 46.0224 27.1579 44.7881 26.5954 43.4298C26.0329 42.0715 25.7435 40.6156 25.7437 39.1454V30.4441C25.7437 30.1175 25.8081 29.794 25.9331 29.4922C26.0582 29.1905 26.2415 28.9163 26.4726 28.6854C26.7037 28.4545 26.978 28.2714 27.2798 28.1465C27.5817 28.0217 27.9052 27.9576 28.2319 27.9578H36.9386C38.6827 27.9584 40.4026 28.3665 41.961 29.1495C43.5195 29.9325 44.8734 31.0689 45.9149 32.4679C46.9563 33.8669 47.6565 35.4899 47.9595 37.2075C48.2626 38.9251 48.1602 40.6897 47.6604 42.3607C47.5841 42.6934 47.4403 43.0069 47.2377 43.2817C47.0351 43.5564 46.7781 43.7866 46.4828 43.9577C46.1875 44.1289 45.8601 44.2375 45.521 44.2767C45.1818 44.316 44.8383 44.285 44.5117 44.1857C44.1851 44.0865 43.8823 43.9211 43.6224 43.6999C43.3624 43.4786 43.1508 43.2062 43.0006 42.8997C42.8504 42.5931 42.7649 42.2589 42.7494 41.9179C42.7339 41.5769 42.7888 41.2364 42.9106 40.9175C43.0752 40.343 43.1589 39.7484 43.159 39.1509C43.159 37.5036 42.5046 35.9237 41.3398 34.7589C40.1749 33.594 38.5951 32.9396 36.9478 32.9396H30.7365V39.1509C30.7399 40.1174 30.9678 41.07 31.4022 41.9334C31.8365 42.7969 32.4655 43.5476 33.2396 44.1264C34.0136 44.7053 34.9116 45.0964 35.8626 45.269C36.8136 45.4416 37.7917 45.391 38.7198 45.121C39.0387 44.9992 39.3792 44.9444 39.7203 44.9599C40.0613 44.9754 40.3955 45.0609 40.702 45.211C41.0086 45.3612 41.281 45.5729 41.5022 45.8328C41.7235 46.0928 41.8888 46.3955 41.9881 46.7221C42.0873 47.0487 42.1183 47.3923 42.0791 47.7314C42.0398 48.0705 41.9313 48.3979 41.7601 48.6933C41.5889 48.9886 41.3588 49.2455 41.084 49.4481C40.8092 49.6507 40.4957 49.7946 40.163 49.8708C39.1226 50.1849 38.0418 50.3443 36.9551 50.344L36.9386 50.3403Z"
             fill="currentColor"
@@ -7235,7 +7189,7 @@ export default function Account() {
         viewBox="0 0 100 100"
         fill="none"
       >
-        <g clipPath="url(#clip0_4009_102098)">
+        <g clippath="url(#clip0_4009_102098)">
           <path
             d="M49.7917 91.4583C72.8035 91.4583 91.4583 72.8035 91.4583 49.7917C91.4583 26.7798 72.8035 8.125 49.7917 8.125C26.7798 8.125 8.125 26.7798 8.125 49.7917C8.125 72.8035 26.7798 91.4583 49.7917 91.4583Z"
             fill="var(--norm_red-color)"
@@ -7416,7 +7370,7 @@ export default function Account() {
             opacity="0.4"
             d="M63 21V51C63 60 58.5 66 48 66H24C13.5 66 9 60 9 51V21C9 12 13.5 6 24 6H48C58.5 6 63 12 63 21Z"
             fill="var(--main-color)"
-            fillOpacity="0.6"
+            fill-opacity="0.6"
           ></path>
           <path
             id="Vector_2"
@@ -7683,9 +7637,9 @@ export default function Account() {
             width="65.5801"
             height="65.5803"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -7717,9 +7671,9 @@ export default function Account() {
             width="54.9033"
             height="28.5841"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -7738,9 +7692,9 @@ export default function Account() {
             width="18.8457"
             height="14.7654"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -7759,9 +7713,9 @@ export default function Account() {
             width="30.3438"
             height="24.4662"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -7805,7 +7759,7 @@ export default function Account() {
           >
             <stop stopColor="#FA999A"></stop>
             <stop offset="0.743552" stopColor="#FE474D"></stop>
-            <stop offset="1" stopColor="#DD2223" stopOpacity="0"></stop>
+            <stop offset="1" stopColor="#DD2223" stop-opacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="paint3_linear_1148_26793"
@@ -8204,7 +8158,7 @@ export default function Account() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clipPath="url(#clip0_10_105884)">
+        <g clippath="url(#clip0_10_105884)">
           <path
             d="M24 48C10.7454 48 0 37.2546 0 24C0 10.7454 10.7454 0 24 0C37.2546 0 48 10.7454 48 24C48 37.2546 37.2546 48 24 48ZM15 12.6C14.0452 12.6 13.1295 12.9793 12.4544 13.6544C11.7793 14.3295 11.4 15.2452 11.4 16.2V20.7276C11.4 21.6824 11.7793 22.5981 12.4544 23.2732C13.1295 23.9483 14.0452 24.3276 15 24.3276H19.485C20.4398 24.3276 21.3555 23.9483 22.0306 23.2732C22.7057 22.5981 23.085 21.6824 23.085 20.7276V16.2C23.085 15.2452 22.7057 14.3295 22.0306 13.6544C21.3555 12.9793 20.4398 12.6 19.485 12.6H15ZM28.146 12.6C27.1912 12.6 26.2755 12.9793 25.6004 13.6544C24.9253 14.3295 24.546 15.2452 24.546 16.2V20.7276C24.546 21.6824 24.9253 22.5981 25.6004 23.2732C26.2755 23.9483 27.1912 24.3276 28.146 24.3276H32.631C33.5858 24.3276 34.5015 23.9483 35.1766 23.2732C35.8517 22.5981 36.231 21.6824 36.231 20.7276V16.2C36.231 15.2452 35.8517 14.3295 35.1766 13.6544C34.5015 12.9793 33.5858 12.6 32.631 12.6H28.146ZM15 25.7934C14.0452 25.7934 13.1295 26.1727 12.4544 26.8478C11.7793 27.5229 11.4 28.4386 11.4 29.3934V33.921C11.4 34.8758 11.7793 35.7915 12.4544 36.4666C13.1295 37.1417 14.0452 37.521 15 37.521H19.485C20.4398 37.521 21.3555 37.1417 22.0306 36.4666C22.7057 35.7915 23.085 34.8758 23.085 33.921V29.3934C23.085 28.4386 22.7057 27.5229 22.0306 26.8478C21.3555 26.1727 20.4398 25.7934 19.485 25.7934H15ZM30.3882 25.7934C27.1614 25.7934 24.546 28.4094 24.546 31.6362V31.6782C24.546 34.905 27.162 37.521 30.3882 37.521C33.615 37.521 36.231 34.905 36.231 31.6782V31.6362C36.231 28.4094 33.615 25.7934 30.3882 25.7934Z"
             fill="#07DDD1"
@@ -8222,7 +8176,7 @@ export default function Account() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clipPath="url(#clip0_10_106001)">
+        <g clippath="url(#clip0_10_106001)">
           <path
             d="M24 48C10.7454 48 0 37.2546 0 24C0 10.7454 10.7454 0 24 0C37.2546 0 48 10.7454 48 24C48 37.2546 37.2546 48 24 48ZM15 12.6C14.0452 12.6 13.1295 12.9793 12.4544 13.6544C11.7793 14.3295 11.4 15.2452 11.4 16.2V20.7276C11.4 21.6824 11.7793 22.5981 12.4544 23.2732C13.1295 23.9483 14.0452 24.3276 15 24.3276H19.485C20.4398 24.3276 21.3555 23.9483 22.0306 23.2732C22.7057 22.5981 23.085 21.6824 23.085 20.7276V16.2C23.085 15.2452 22.7057 14.3295 22.0306 13.6544C21.3555 12.9793 20.4398 12.6 19.485 12.6H15ZM28.146 12.6C27.1912 12.6 26.2755 12.9793 25.6004 13.6544C24.9253 14.3295 24.546 15.2452 24.546 16.2V20.7276C24.546 21.6824 24.9253 22.5981 25.6004 23.2732C26.2755 23.9483 27.1912 24.3276 28.146 24.3276H32.631C33.5858 24.3276 34.5015 23.9483 35.1766 23.2732C35.8517 22.5981 36.231 21.6824 36.231 20.7276V16.2C36.231 15.2452 35.8517 14.3295 35.1766 13.6544C34.5015 12.9793 33.5858 12.6 32.631 12.6H28.146ZM15 25.7934C14.0452 25.7934 13.1295 26.1727 12.4544 26.8478C11.7793 27.5229 11.4 28.4386 11.4 29.3934V33.921C11.4 34.8758 11.7793 35.7915 12.4544 36.4666C13.1295 37.1417 14.0452 37.521 15 37.521H19.485C20.4398 37.521 21.3555 37.1417 22.0306 36.4666C22.7057 35.7915 23.085 34.8758 23.085 33.921V29.3934C23.085 28.4386 22.7057 27.5229 22.0306 26.8478C21.3555 26.1727 20.4398 25.7934 19.485 25.7934H15ZM30.3882 25.7934C27.1614 25.7934 24.546 28.4094 24.546 31.6362V31.6782C24.546 34.905 27.162 37.521 30.3882 37.521C33.615 37.521 36.231 34.905 36.231 31.6782V31.6362C36.231 28.4094 33.615 25.7934 30.3882 25.7934Z"
             fill="currentColor"
@@ -8264,9 +8218,9 @@ export default function Account() {
             width="86"
             height="50.5459"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -8299,9 +8253,9 @@ export default function Account() {
             width="78"
             height="43.5459"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -8355,9 +8309,9 @@ export default function Account() {
             width="23.7773"
             height="22.6611"
             filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
+            color-interpolation-filters="sRGB"
           >
-            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -8598,7 +8552,7 @@ export default function Account() {
         viewBox="0 0 42 42"
         fill="none"
       >
-        <g clipPath="url(#clip0_2238_60810)">
+        <g clippath="url(#clip0_2238_60810)">
           <mask
             id="mask0_2238_60810"
             style={{maskType: 'alpha'}}
@@ -8940,7 +8894,7 @@ export default function Account() {
         viewBox="0 0 36 36"
         fill="none"
       >
-        <g clipPath="url(#clip0_2123_4419)">
+        <g clippath="url(#clip0_2123_4419)">
           <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -9425,27 +9379,25 @@ export default function Account() {
       <div
         data-v-647954c7=""
         className="ar-loading-view"
-        style={{  
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
+        style={{
+          '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
           display: 'none'
         }}
       >
         <div data-v-647954c7="" className="loading-wrapper">
-          
           <div data-v-647954c7="" className="loading-animat">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              
-              viewBox="0 0 200 200"
+                      viewBox="0 0 200 200"
               width="200"
               height="200"
               preserveAspectRatio="xMidYMid meet"
-              style={{  
-                width: '100%',
+              style={{
+                width:' 100%',
                 height: '100%',
                 transform: 'translate3d(0px, 0px, 0px)',
-                contentVisibility: 'visible'
-            }}
+                'contentVisibility': 'visible'
+              }}
             >
               <defs>
                 <clipPath id="__lottie_element_2">
@@ -9458,7 +9410,7 @@ export default function Account() {
                   href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIBAMAAABfdrOtAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAHlBMVEVHcEy/GyDCGiHCGiDBGiHBGiLBGiG/GyC/HCDBGiEYgX5lAAAACXRSTlMAFupex4emMEAHMN8rAAAEw0lEQVR42u1cy1ITQRTtYTKZsAsQLLODUsDeoVWC2YGSSHYC8ZEdolU6Owopq9gpisJOhwS5f2vPDENek2QefW5ZyF0BReZM9z3nPjrdLURimxJwM+p0Dw5SIqJl9ECaCmQO93z7pLFBvv1BjeDkPV3bJQbicZ267DcC4ySAcGsvT3+W1Q+7+iHMPR+huhr8RtQqasf4IRVEa+f6wbM17Qw2tr1RvCsiZVFwFMbCPlR6pvK4+xorb1O542IZj7FQxGIUFAY64Np1PIYXbuGJ4xEDhspNbbDPPWK10BiGQy46x4pjoi00hsXgdFX1XKAdIg7wRY/HrCV4+VbBs1fkIYVCnzl0LvADwctQ0Rfv9RK5+wweWWfwCJ6+aiDzcAyLwyMVBmrZHAOZZhC7EuIyA38vBIPb8UK0pYsXYonB7aJJL+AYBWoJBpEsccwWXiQ2x2zlMCsm/UrEc8uQLn4gFmgRq8fKtIYHcQgftwyOKJ/nIHCZgcDCcW+ISywOl0wzNFcqcOGLOlFnCPM2RwmRR35ZEdoEhxRZ/O4wJCyDw+8mh97zHFmRhVxHHORqMpBL1BmSieBgcIGDwRZHeMxzpEUWmZTpCx7kjKEM5tGi0+IQfJsBRDIIXnA0cjZsX0UPyC+O+MgAYnJk+JsDYnFEeosj0t+CxLXDIh7EkGt4kCCg3IL8SyCmX5+CY5flP/4mgUCL+pwf5ME5Pufzysb2QBPBNybYumsy6BmwLWM56N+xtfAZBVU9tMO+akya0NbhqjGpEENjcgTtGa9oNYn87i/sGXLI6s68iicWMkKGC3bQtZVwJQK6zlkOHY6UfCVciUCuFlwvElSA6x6y3T9vCJlcXtMMJpTOgh1whbsjdOB3NF2ewK3ZNjucwtFLXkQNSje5zruiGKi+636wiaqKprs7BgnyfI+zmyDPy1YPnSGNUKFHgHnM9sdcD6EKGM2f9U5QHZJS+vYrVBByNKjdl+/nEFKc7yuPzuEu8ZyiXykDzzzTrxST2gOU1p4dJwbEZ+vfuRKxiU/7vj5DtiKi8rxuAl/GcFPmMB9RaNX1NlxG5HZazfOVj5S3pXe+KtFlqdbN1caQzcda5ys3JBiaOnenDt187Oir7s2hZyY07q8+GLr52Ja6tn0YcjiJtB11KI2Qg6Xr9MlI72o6RzP6qExOD4ubIxVn1HWw2BxzwqSkI0GO449i8W72gYwLggfZh1IZq2k1lPWs1BofzQ+yaiXOAb+sh+finYtT/5Uh2dvx3lENJUMwPqbWfkzPvc1A3/W4HIz3NhGz4MRWQEGmPVt8nOAw72HKCbOIHiQJo2kOmipmJdGYKdMclG4mPPl8J8WRb+WQ58k+8YhoM9kn1Hu1k5MxmfNnZQrie7dIbCXyYhquqFdztxJgpGO9muS4KDMysQs78ZjoQ8xBp8UQ4rtCeTZeLyuU6Y6Dz+rji2M4498tsykymDcRo291+eTd9PMxW1kw4z1jcSg5Cw2iBCQcGvW82aBqZEa2V7ybfrTcLeM/iapPBiaq4V+JpOmmH3M7uGCp+uZr+Ke7314Fty4tPtTWZs7shddE3d9Q9jT8bXFV60rJTIMGrKYXwtfDSUN2ANzazr7AmDF16ttUUfyf9hdhzrd5F3WCHQAAAABJRU5ErkJggg=="
                 ></image>
               </defs>
-              <g clipPath="url(#__lottie_element_2)">
+              <g clippath="url(#__lottie_element_2)">
                 <g
                   className="ai"
                   transform="matrix(1,0,0,1,0,0)"
@@ -9489,22 +9441,19 @@ export default function Account() {
             </svg>
           </div>
           <div data-v-647954c7="" className="com__box" style={{display: 'none'}}>
-            
             <div className="loading" data-v-647954c7="">
               <div className="shape shape-1" data-v-647954c7=""></div>
               <div className="shape shape-2" data-v-647954c7=""></div>
               <div className="shape shape-3" data-v-647954c7=""></div>
               <div className="shape shape-4" data-v-647954c7=""></div>
             </div>
-            
           </div>
-          
         </div>
         <div data-v-647954c7="" className="skeleton-wrapper" style={{display: 'none'}}>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
+        
             <div className="van-skeleton__content">
-              
+            
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9543,638 +9492,59 @@ export default function Account() {
       </div>
       
       <div
-        data-v-5bd44e74=""
-        data-v-a78765c7=""
-        className="userInfo__container"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
+        data-v-12a80a3e=""
+        data-v-cfff515d=""
+        className="navbar"
+        style={{'--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'"}}
       >
-        <div
-          data-v-12a80a3e=""
-          data-v-5bd44e74=""
-          className="navbar main"
-          style={{display: 'none'}}
-        >
-          <div data-v-12a80a3e="" className="navbar-fixed">
-            <div data-v-12a80a3e="" className="navbar__content">
-              <div data-v-12a80a3e="" className="navbar__content-left">
-                <i
-                  data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left"
-                  ></i
-                >
-              </div>
-              <div data-v-12a80a3e="" className="navbar__content-center">
-                
-                <div data-v-12a80a3e="" className="navbar__content-title">
-                  Settings Center
-                </div>
-              </div>
-              <div data-v-12a80a3e="" className="navbar__content-right"></div>
-            </div>
-          </div>
-        </div>
-        <div data-v-5bd44e74="" className="userInfo__container-content">
-          <div data-v-5bd44e74="" className="userInfo__container-content-wrapper">
-            <div data-v-5bd44e74="" className="userInfo__container-content__avatar">
-              <img
-                data-v-5bd44e74=""
-                src="/assets/png/6-7c7f5203.png"
-                className="userAvatar"
-              />
-            </div>
-            <div data-v-5bd44e74="" className="userInfo__container-content__name">
-              <div
-                data-v-5bd44e74=""
-                className="userInfo__container-content-nickname"
-              >
-                <h3 data-v-5bd44e74="">{username}</h3>
-                <div data-v-5bd44e74="" className="n0"></div>
-                <img
-                  data-v-5bd44e74=""
-                  className="editPencil"
-                  src="/assets/png/editPencil-c89ee923.png"
-                  style={{display: 'none'}}
-                />
-              </div>
-              <div data-v-5bd44e74="" className="userInfo__container-content-uid">
-                <span data-v-5bd44e74="">UID</span
-                ><span data-v-5bd44e74="">|</span
-                ><span data-v-5bd44e74="">{uid}</span
-                ><svg data-v-5bd44e74="" className="svg-icon icon-copy">
-                  <use href="#icon-copy"></use>
-                </svg>
-              </div>
-              <div
-                data-v-5bd44e74=""
-                className="userInfo__container-content-logintime"
-              >
-                <span data-v-5bd44e74="">Last login:&nbsp;</span
-                ><span data-v-5bd44e74="">{lastlogin}</span>
-              </div>
-              <div
-                data-v-5bd44e74=""
-                className="userInfo__container-content-logintime"
-                style={{display: 'none'}}
-              >
-                <span data-v-5bd44e74="">&nbsp;</span>
-              </div>
-            </div>
-          </div>
-
-          <div
-            data-v-5bd44e74=""
-            className="userInfo__container-content-right"
-            style={{display: 'none'}}
-          >
-            <h5 data-v-5bd44e74="">Change avatar</h5>
-          </div>
-        </div>
-        <div
-          data-v-5bd44e74=""
-          className="userInfo__container-setting-center"
-          style={{display: 'none'}}
-        >
-          <div
-            data-v-5bd44e74=""
-            className="userInfo__container-setting-center-header"
-          >
-            <div data-v-5bd44e74="" className="userInfo__container-content__avatar">
-              <img
-                data-v-5bd44e74=""
-                data-img="/assets/png/avatar-2f23f3bd.png"
-                className="ar-lazyload"
-                data-origin="/assets/png/6-7c7f5203.png"
-              />
-            </div>
-            <div
-              data-v-5bd44e74=""
-              className="userInfo__container-setting-center-header-edit"
-            >
-              <span data-v-5bd44e74="">Change avatar</span
-              ><i
-                data-v-5bd44e74=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                style={{color: 'rgb(136, 136, 136)'}}
+        <div data-v-12a80a3e="" className="navbar-fixed">
+          <div data-v-12a80a3e="" className="navbar__content">
+            <div data-v-12a80a3e="" className="navbar__content-left">
+              <i
+                data-v-12a80a3e=""
+                className="van-badge__wrapper van-icon van-icon-arrow-left"
                 ></i
               >
             </div>
-          </div>
-          <div
-            data-v-5bd44e74=""
-            className="userInfo__container-setting-center-content ar-1px-b"
-          >
-            <h5 data-v-5bd44e74="">Nickname</h5>
-            <div data-v-5bd44e74="">
-              <span data-v-5bd44e74="">MemberNNGNDBYB</span
-              ><i
-                data-v-5bd44e74=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                style={{color: 'rgb(136, 136, 136)'}}
-                ></i
-              >
+            <div data-v-12a80a3e="" className="navbar__content-center">
+            
+              <div data-v-12a80a3e="" className="navbar__content-title">
+                Activity details
+              </div>
             </div>
+            <div data-v-12a80a3e="" className="navbar__content-right"></div>
           </div>
-          <div
-            data-v-5bd44e74=""
-            className="userInfo__container-setting-center-content"
-          >
-            <h5 data-v-5bd44e74="">UID</h5>
-            <div data-v-5bd44e74="">
-              <span data-v-5bd44e74="">11693333</span
-              ><svg data-v-5bd44e74="" className="svg-icon icon-copy">
-                <use href="#icon-copy"></use>
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div data-v-2c18a1cc="" data-v-5bd44e74="" className="info-dialog">
-          
         </div>
       </div>
       <div
-        data-v-a78765c7=""
-        className="userinfo-content"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
+        data-v-cfff515d=""
+        className="active-container"
+        style={{'--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'"}}
       >
-        
-        <div
-          data-v-7d799898=""
-          data-v-a78765c7=""
-          className="totalSavings__container"
-        >
-        <div data-v-7d799898="" className="totalSavings__container-header">
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-header-box ar-1px-b"
-            >
-              <div
-                data-v-7d799898=""
-                className="totalSavings__container-header__title"
-              >
-                <span data-v-7d799898="">Total balance</span
-                >
-              </div>
-              <p
-                data-v-7d799898=""
-                className="totalSavings__container-header__subtitle"
-              >
-                <span data-v-7d799898="">₹{totalMoney??0    }</span
-                ><svg data-v-7d799898="" className="svg-icon icon-refreshBalance">
-                  <use href="#icon-refreshBalance"></use>
-                </svg>
-              </p>
-            </div>
-          </div>
-          <div data-v-7d799898="" className="totalSavings__container-content">
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-content-item"
-            >
-              <div data-v-7d799898="">
-                <svg data-v-7d799898="" className="svg-icon icon-wallets">
-                  <use href="#icon-wallets"></use></svg
-                > <a href="/wallet/wallet.html"><span data-v-7d799898="">Wallet</span></a>
-              </div>
-            </div>
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-content-item"
-            >
-              <div data-v-7d799898="">
-                <svg data-v-7d799898="" className="svg-icon icon-rechargeIcon">
-                  <use href="#icon-rechargeIcon"></use></svg
-                > <a href="/account/deposit.html"><span data-v-7d799898="">Deposit</span></a>
-              </div>
-            </div>
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-content-item"
-            >
-              <div data-v-7d799898="">
-                <svg data-v-7d799898="" className="svg-icon icon-widthdrawBlue">
-                  <use href="#icon-widthdrawBlue"></use></svg
-                > <a href="/account/withdraw.html"><span data-v-7d799898="">Withdraw</span></a>
-              </div>
-            </div>
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-content-item"
-            >
-              <div data-v-7d799898="">
-                <svg data-v-7d799898="" className="svg-icon icon-VipIcon">
-                  <use href="#icon-VipIcon"></use></svg
-                > <a href="/account/accVip.html"><span data-v-7d799898="">VIP</span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div
-          data-v-acd6d46f=""
-          data-v-a78765c7=""
-          className="financialServices__container"
-        >
-          
-          <div data-v-acd6d46f="" className="financialServices__container-box">
-            <div data-v-acd6d46f="">
-              <svg data-v-acd6d46f="" className="svg-icon icon-betHistory">
-                <use href="#icon-betHistory"></use>
-              </svg>
-              <div
-                data-v-acd6d46f=""
-                className="financialServices__container-box-para"
-              >
-               <a href="/account/gamehistory.html"><h3 data-v-acd6d46f="">Game History</h3></a>
-                <span data-v-acd6d46f="">My game history</span>
-              </div>
-            </div>
-            <div data-v-acd6d46f="">
-              <svg data-v-acd6d46f="" className="svg-icon icon-tradeHistory">
-                <use href="#icon-tradeHistory"></use>
-              </svg>
-              <div
-                data-v-acd6d46f=""
-                className="financialServices__container-box-para"
-              >
-                <a href="/account/transactionhistory.html"></a>
-                <span data-v-acd6d46f="">My transaction history</span>
-              </div>
-            </div>
-            <div data-v-acd6d46f="">
-              <svg data-v-acd6d46f="" className="svg-icon icon-rechargeHistory">
-                <use href="#icon-rechargeHistory"></use>
-              </svg>
-              <div
-                data-v-acd6d46f=""
-                className="financialServices__container-box-para"
-              >
-               <a href="/account/deposithistory.html"> <h3 data-v-acd6d46f="">Deposit</h3></a>
-                <span data-v-acd6d46f="">My deposit history</span>
-              </div>
-            </div>
-            <div data-v-acd6d46f="">
-              <svg data-v-acd6d46f="" className="svg-icon icon-myWithdrawHistory">
-                <use href="#icon-myWithdrawHistory"></use>
-              </svg>
-              <div
-                data-v-acd6d46f=""
-                className="financialServices__container-box-para"
-              >
-                 <a href="/account/withdrahistory.html"><h3 data-v-acd6d46f="">Withdraw</h3></a>
-                <span data-v-acd6d46f="">My withdraw history</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div
-          data-v-a30d19b1=""
-          data-v-a78765c7=""
-          className="settingPanel__container"
-        >
-          <div data-v-a30d19b1="" className="settingPanel__container-items">
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-notification">
-                  <use href="#icon-notification"></use></svg
-                >
-
-                <a href="/account/notification.html"><span
-                  data-v-a30d19b1=""
-                  >Notification</span
-                ></a>
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="">1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-gifts">
-                  <use href="#icon-gifts"></use></svg
-                >
-
-                <a href="/account/gift.html"><span
-                  data-v-a30d19b1=""
-                  >Gifts</span
-                ></a>
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-              style={{display: 'none'}}
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-tournament">
-                  <use href="#icon-tournament"></use></svg
-                ><span
-                  data-v-a30d19b1=""
-                  >My tournament</span
-                >
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-              style={{display: 'none'}}
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-productCode">
-                  <use href="#icon-productCode"></use></svg
-                ><span
-                  data-v-a30d19b1=""
-                  >Product code</span
-                >
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-              style={{display: 'none'}}
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-myDraw">
-                  <use href="#icon-myDraw"></use></svg
-                ><span
-                  data-v-a30d19b1=""
-                  >my draw</span
-                >
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-statsIcon">
-                  <use href="#icon-statsIcon"></use></svg
-                >
-                <a href="/account/gamestatics.html"><span
-                  data-v-a30d19b1=""
-                  >Game statistics</span></a>
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-language">
-                  <use href="#icon-language"></use></svg
-                ><span
-                  data-v-a30d19b1=""
-                  >Language</span
-                >
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="">English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div data-v-159bf81f="" data-v-a78765c7="" className="serviceCenter-wrap">
-          <div data-v-159bf81f="" className="serviceCenter__container">
-            <h1 data-v-159bf81f="">Service center</h1>
-            <div data-v-159bf81f="" className="serviceCenter__container-items">
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-settingCenter">
-                  <use href="#icon-settingCenter"></use></svg
-                >
-                <a href="/account/settingcenter.html"><span
-                  data-v-159bf81f=""
-                  >Settings</span
-                ></a>
-
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-feedback">
-                  <use href="#icon-feedback"></use></svg
-                >
-                <a href="/account/feedback.html"><span
-                  data-v-159bf81f=""
-                  >Feedback</span
-                ></a>
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg
-                  data-v-159bf81f=""
-                  className="svg-icon icon-notificationCenter"
-                >
-                  <use href="#icon-notificationCenter"></use></svg
-                >
-                <a href="/account/notification.html"><span
-                  data-v-159bf81f=""
-                  >Notification</span
-                ></a>
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-server">
-                  <use href="#icon-server"></use></svg
-                >
-                <a href="/account/customerService.html"><span
-                  data-v-159bf81f=""
-                  >24/7 Customer service</span
-                ></a>
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-guide">
-                  <use href="#icon-guide"></use></svg
-                >
-                <a href="/account/BeginnerGuide.html"><span
-                  data-v-159bf81f=""
-                  >Beginner's Guide</span
-                ></a>
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-about">
-                  <use href="#icon-about"></use></svg
-                >
-
-                <a href="/account/Aboutus.html"><span
-                  data-v-159bf81f=""
-                  >About us</span
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div data-v-159bf81f="" className="serviceCenter-wrap-header">
-            <button data-v-159bf81f="">
-              <svg data-v-159bf81f="" className="svg-icon icon-logout">
-                <use href="#icon-logout"></use></svg
-              >
-              Log out
-            </button>
-          </div>
-          
-          <div data-v-3e71d3da="" data-v-159bf81f="" className="dialog inactive">
-            <div
-              data-v-3e71d3da=""
-              className="dialog__container"
-              role="dialog"
-              tabIndex="0"
-            >
-              <div data-v-3e71d3da="" className="dialog__container-img">
-                <img
-                  data-v-3e71d3da=""
-                  className=""
-                  alt=""
-                  data-origin="/assets/png/tip-0498e3f9.png"
-                  src="/assets/png/tip-0498e3f9.png"
-                />
-              </div>
-              <div data-v-3e71d3da="" className="dialog__container-title">
-                <h1 data-v-3e71d3da="">Do you want to log out?</h1>
-              </div>
-              <div data-v-3e71d3da="" className="dialog__container-content"></div>
-              <div data-v-3e71d3da="" className="dialog__container-footer">
-                <button data-v-3e71d3da="">Confirm</button
-                ><button data-v-3e71d3da="">Cancel</button>
-              </div>
-              
-            </div>
-            <div data-v-3e71d3da="" className="dialog__outside"></div>
+        <img
+          data-v-cfff515d=""
+          className="banner"
+          src="/assets/png/Banner_20240821101004fj8u.png"
+        />
+        <div data-v-cfff515d="" className="active-box">
+          <div data-v-cfff515d="" className="title">91CLUB Daily Luck Spin</div>
+          <div data-v-cfff515d="">
+            <p>
+              <img
+                src="/assets/png/editor_20240821100959ulwr.jpg"
+                style={{width: '429px'}}
+              /><br />
+            </p>
           </div>
         </div>
       </div>
-      
+    
       <div
         className="customer"
         id="customerId"
-        style={{  
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-          '--f6a705e1-currentFontFamily': "bahnschrift"
+        style={{
+         ' --f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
+          '--f6a705e1CurrentFontFamily': 'bahnschrift'
         }}
       >
         <img
@@ -10183,336 +9553,12 @@ export default function Account() {
           src="/assets/png/icon_sevice-9f0c8455.png"
         />
       </div>
-      <div data-v-6ab3f23e="" className="tabbar__container"
-            style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
-            <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-home" onClick={()=> navigate('/index')}>
-                    <use href="#icon-home"></use>
-                </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-activity" onClick={()=> navigate('/index')}><use href="#icon-activity"></use>
-                   
-                </svg>
-                <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
-                    <use href="#icon-promotion"></use>
-                </svg>
-                <div data-v-6ab3f23e="" className="promotionBg"></div>
-                <span data-v-6ab3f23e="" onClick={()=> navigate('/promotion')}>
-                    Promotion</span>
-            </div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
-            <use href="#icon-wallet" onClick={()=> navigate('/wallet')}></use>
-                </svg><span data-v-6ab3f23e=""  onClick={()=> navigate('/wallet')}>Wallet</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-main"  onClick={()=> navigate('/account')}>
-            <use href="#icon-main"></use>
-                </svg><span data-v-6ab3f23e="" onClick={()=> navigate('/account')}>Account</span></div>
-        </div>
-      
-      <div
-        className="van-overlay"
-        style={{  
-            zIndex: '2010',
-            '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-            display: 'none',
-          }}
-      >
-        
-      </div>
-      <div
-        role="dialog"
-        tabIndex="0"
-        className="van-popup van-popup--center van-dialog firstSaveDialog"
-        style={{  
-          zIndex: '2010',
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-          display: 'none',
-        }}
-      >
-        <div className="van-dialog__header">
-          <div data-v-9cd12fb2="" className="header">
-            <div data-v-9cd12fb2="" className="title">
-              Extra first deposit bonus
-            </div>
-            <div data-v-9cd12fb2="" className="tip">
-              Each account can only receive rewards once
-            </div>
-          </div>
-        </div>
-        <div className="van-dialog__content">
-          <div data-v-9cd12fb2="" className="container">
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">400</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹48.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 400 for the first time and you will receive 48 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                  background: 'var(--bg_color_L1)',
-                    height: '16px',
-                    borderRadius: '16px'
-                }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/400</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">1000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹108.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 1000 for the first time and you will receive 108 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/1000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">2000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹188.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 2000 for the first time and you will receive 188 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/2000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">10000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹488.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 10000 for the first time and you will receive 488 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/10000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">24000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹1,388.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 24000 for the first time and you will receive 1388 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/24000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">120000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹5,888.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 120000 for the first time and you will receive 5888
-                bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                      background: 'var(--norm_secondary-color)',
-                      width: '0%',
-                      height: '16px',
-                      borderRadius: '16px'
-                    }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/120000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">240000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹8,888.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 240000 for the first time and you will receive 8888
-                bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/240000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            
-          </div>
-          <div data-v-9cd12fb2="" className="close"></div>
-        </div>
-        <div data-v-9cd12fb2="" className="footer">
-          <div data-v-9cd12fb2="" className="active">
-            <svg data-v-9cd12fb2="" className="svg-icon icon-active">
-              <use href="#icon-active"></use></svg
-            >No more reminders today
-          </div>
-          <div data-v-9cd12fb2="" className="btn">Activity</div>
-        </div>
-        
-      </div>
       
     </div>
-  
+
+
+
+
     </div>
   )
 }
