@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Deposit(){
 const [activeSection, setActiveSection] = useState('section1');
 const [selectedAmount, setSelectedAmount] = useState('');
 const [inputAmount, setInputAmount] = useState('');
+const navigate = useNavigate();
 const showSection = (sectionId) => {
     setActiveSection(sectionId);
   };
@@ -16,6 +18,8 @@ const showSection = (sectionId) => {
     const value = e.target.value;
     setInputAmount(value);
 
+   
+
     // Clear the selectedAmount if input is changed manually and doesn't match any predefined amount
     if (amounts[activeSection].indexOf(value) === -1) {
       setSelectedAmount(''); 
@@ -23,7 +27,15 @@ const showSection = (sectionId) => {
       setSelectedAmount(value); // Set selectedAmount to match input value
     }
   };
-  
+  const handleSubmit = () => {
+    // Check if activeSection is 'section1' and inputAmount is provided
+    if (activeSection === 'section1' && inputAmount) {
+      navigate('/wallet/paymentPage', { state: { section: activeSection, amount: inputAmount } });
+    } else {
+      // Handle cases for other sections if needed or show an alert
+      console.log('Section is not section1 or inputAmount is missing.');
+    }
+  };
   const amounts = {
     section1: ['300', '500', '800', '1000', '3000','5000'],
     section2: ['10', '20', '50','100','200','500'],
@@ -34,6 +46,7 @@ const showSection = (sectionId) => {
     return selectedAmount === amount || inputAmount === amount;
   };
 
+ 
 
  return(
  <div style={{fontSize: '12px'}} className="">
@@ -9843,7 +9856,7 @@ const showSection = (sectionId) => {
                 
               </div>
               
-              <div data-v-9e03166f="" className={`Recharge__container-rechageBtn ${inputAmount || selectedAmount ? 'rechage_active' : ''}`}>
+              <div data-v-9e03166f="" className={`Recharge__container-rechageBtn ${inputAmount || selectedAmount ? 'rechage_active' : ''}`} onClick={handleSubmit}>
                 Deposit
               </div>
             </div>

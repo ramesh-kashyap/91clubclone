@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -13,6 +14,7 @@ export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const [gameId, setGameId] = useState(null);
+  const navigate = useNavigate();
 
   const handleGameClick = async (gameId) => {
     setGameId(gameId);
@@ -5474,29 +5476,28 @@ export default function Dashboard() {
         <div data-v-6ab3f23e="" className="tabbar__container"
             style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
             <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-home">
-                    <a href="/index"><use href="#icon-home"></use></a>
-                </svg><span data-v-6ab3f23e=""><a href="/index">Home</a></span></div>
+                    className="svg-icon icon-home" onClick={()=> navigate('/index')}>
+                    <use href="#icon-home"></use>
+                </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-activity">
-                    <a href="/activity"><use href="#icon-activity"></use></a>
+                    className="svg-icon icon-activity" onClick={()=> navigate('/index')}><use href="#icon-activity"></use>
                    
                 </svg>
-                <span data-v-6ab3f23e=""><a href="/activity">Activity</a></span></div>
+                <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-promotion">
-                    <a href="/promotion"><use href="#icon-promotion"></use></a>
+                    className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
+                    <use href="#icon-promotion"></use>
                 </svg>
                 <div data-v-6ab3f23e="" className="promotionBg"></div>
-                <span data-v-6ab3f23e="">
-                    <a href="/promotion">Promotion</a> </span>
+                <span data-v-6ab3f23e="" onClick={()=> navigate('/promotion')}>
+                    Promotion</span>
             </div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
-            <a href="/wallet"><use href="#icon-wallet"></use></a>
-                </svg><span data-v-6ab3f23e=""><a href="/wallet">Wallet</a></span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-main">
-            <a href="/account"><use href="#icon-main"></use></a>
-                </svg><span data-v-6ab3f23e=""><a href="/account">Account</a></span></div>
+            <use href="#icon-wallet" onClick={()=> navigate('/wallet')}></use>
+                </svg><span data-v-6ab3f23e=""  onClick={()=> navigate('/wallet')}>Wallet</span></div>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-main"  onClick={()=> navigate('/account')}>
+            <use href="#icon-main"></use>
+                </svg><span data-v-6ab3f23e="" onClick={()=> navigate('/account')}>Account</span></div>
         </div>
     </div>
     </div>

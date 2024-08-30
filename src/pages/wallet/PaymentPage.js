@@ -1,25 +1,31 @@
-
-import React, { useState, useEffect } from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export default function PaymentPage() {
   const [amount, setAmount] = useState(0);
   const [txtUtr, setTxtUtr] = useState('');
-  const [selectedMethod, setSelectedMethod] = useState('Patym');
-
+  const [selectedMethod, setSelectedMethod] = useState('Paytm');
+  
   const link = document.createElement('link');
   link.rel = 'stylesheet';
   link.href = `${process.env.PUBLIC_URL}/assets/css/sach.css`;
   document.head.appendChild(link);
 
+  const location = useLocation();
+
   useEffect(() => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const amountParam = urlParams.get("amount");
-    if (amountParam) {
-      setAmount(amountParam);
+    // Retrieve the amount from the location state
+    if (location.state && location.state.amount) {
+      setAmount(location.state.amount);
+    } else {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const amountParam = urlParams.get("amount");
+      if (amountParam) {
+        setAmount(amountParam);
+      }
     }
-  }, []);
+  }, [location.state]);
 
   const handleCopy = () => {
     const textToCopy = document.getElementById('upi_info').innerText;

@@ -9585,7 +9585,7 @@ export default function Promotion(){
                     src="/assets/png/rechargeIcon-e515aee4.png"
                   />
                 </div>
-                <a href="/wallet/deposit.html"><span data-v-0dabd3fc="">Deposit</span></a>
+                <a href="/wallet/deposit"><span data-v-0dabd3fc="">Deposit</span></a>
               </div>
               <div data-v-0dabd3fc="">
                 <div data-v-0dabd3fc="" className="imgD">

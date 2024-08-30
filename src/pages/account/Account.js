@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
 import Loader from '../../components/Loader';
 
@@ -10,6 +11,7 @@ export default function Account() {
     const [lastlogin, setLastLogin] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
   
     useEffect(() => {
       const fetchUserInfo = async () => {
@@ -10181,39 +10183,32 @@ export default function Account() {
           src="/assets/png/icon_sevice-9f0c8455.png"
         />
       </div>
-      <div
-        data-v-6ab3f23e=""
-        className="tabbar__container"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      >
-        <div data-v-6ab3f23e="" className="tabbar__container-item">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-home">
-            <use href="#icon-home"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/index">Home</a></span>
+      <div data-v-6ab3f23e="" className="tabbar__container"
+            style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
+            <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
+                    className="svg-icon icon-home" onClick={()=> navigate('/index')}>
+                    <use href="#icon-home"></use>
+                </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
+                    className="svg-icon icon-activity" onClick={()=> navigate('/index')}><use href="#icon-activity"></use>
+                   
+                </svg>
+                <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
+                    className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
+                    <use href="#icon-promotion"></use>
+                </svg>
+                <div data-v-6ab3f23e="" className="promotionBg"></div>
+                <span data-v-6ab3f23e="" onClick={()=> navigate('/promotion')}>
+                    Promotion</span>
+            </div>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
+            <use href="#icon-wallet" onClick={()=> navigate('/wallet')}></use>
+                </svg><span data-v-6ab3f23e=""  onClick={()=> navigate('/wallet')}>Wallet</span></div>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-main"  onClick={()=> navigate('/account')}>
+            <use href="#icon-main"></use>
+                </svg><span data-v-6ab3f23e="" onClick={()=> navigate('/account')}>Account</span></div>
         </div>
-        <div data-v-6ab3f23e="" className="tabbar__container-item">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-activity">
-            <use href="#icon-activity"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/activity">Activity</a></span>
-        </div>
-        <div data-v-6ab3f23e="" className="tabbar__container-item">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-promotion">
-            <use href="#icon-promotion"></use>
-          </svg>
-          <div data-v-6ab3f23e="" className="promotionBg"></div>
-          <span data-v-6ab3f23e=""><a href="/promotion">Promotion</a></span>
-        </div>
-        <div data-v-6ab3f23e="" className="tabbar__container-item">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
-            <use href="#icon-wallet"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/wallet">Wallet</a></span>
-        </div>
-        <div data-v-6ab3f23e="" className="tabbar__container-item active">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-main">
-            <use href="#icon-main"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/account">Account</a></span>
-        </div>
-      </div>
       
       <div
         className="van-overlay"

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Server() {
   return (
-    <div style={{fontSize: '12px'}}>
+    <div style={{fontSize: '12px',height:'0px'}}>
 
 
 

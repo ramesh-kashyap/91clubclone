@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 
 export default function RebateRatio() {
+const [activeSection, setActiveSection]= useState('section1');
+
+const showSection = (sectionId) => {
+  setActiveSection(sectionId);
+};
+
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -9532,7 +9538,7 @@ export default function RebateRatio() {
                   >
                     <div className="fun-tab-item__wrap">
                       <div className="fun-tab-item__label">
-                        <div data-v-a6a0c110="" className="tab_item tab_active">
+                        <div data-v-a6a0c110="" className={`tab_item  ${activeSection === 'section1' ? 'tab_active':''}`}  onClick={() => showSection('section1')}>
                           <svg data-v-a6a0c110="" className="svg-icon icon-lottery">
                             <use href="#icon-lottery"></use></svg
                           ><span data-v-a6a0c110="">Lottery</span>
@@ -9543,7 +9549,7 @@ export default function RebateRatio() {
                   <div className="fun-tab-item funtab_item">
                     <div className="fun-tab-item__wrap">
                       <div className="fun-tab-item__label">
-                        <div data-v-a6a0c110="" className="tab_item">
+                        <div data-v-a6a0c110="" className={`tab_item ${activeSection==='section2'? 'tab_active':''}`} onClick={() => showSection('section2')}>
                           <svg data-v-a6a0c110="" className="svg-icon icon-video">
                             <use href="#icon-video"></use></svg
                           ><span data-v-a6a0c110="">Casino</span>
@@ -9554,7 +9560,7 @@ export default function RebateRatio() {
                   <div className="fun-tab-item funtab_item">
                     <div className="fun-tab-item__wrap">
                       <div className="fun-tab-item__label">
-                        <div data-v-a6a0c110="" className="tab_item">
+                        <div data-v-a6a0c110="" className={`tab_item ${activeSection==='section3'? 'tab_active':''}`} onClick={() => showSection('section3')}>
                           <svg data-v-a6a0c110="" className="svg-icon icon-sport">
                             <use href="#icon-sport"></use></svg
                           ><span data-v-a6a0c110="">Sports</span>
@@ -9562,10 +9568,22 @@ export default function RebateRatio() {
                       </div>
                     </div>
                   </div>
+                  {activeSection === 'section3' && (
+  <div
+    className="fun-tabs__active-line"
+    style={{
+      transition: '300ms',
+      width: '0px',
+      height: '3px',
+      transform: 'translate3d(55.5px, 0px, 0px)',
+      backgroundColor: 'rgb(22, 119, 255)',
+    }}
+  ></div>
+)}
                   <div className="fun-tab-item funtab_item">
                     <div className="fun-tab-item__wrap">
                       <div className="fun-tab-item__label">
-                        <div data-v-a6a0c110="" className="tab_item">
+                        <div data-v-a6a0c110="" className={`tab_item ${activeSection==='section4'? 'tab_active':''}`} onClick={() => showSection('section4')}>
                           <svg data-v-a6a0c110="" className="svg-icon icon-chess">
                             <use href="#icon-chess"></use></svg
                           ><span data-v-a6a0c110="">Rummy</span>
@@ -9573,10 +9591,22 @@ export default function RebateRatio() {
                       </div>
                     </div>
                   </div>
+                  {activeSection === 'section4' && (
+  <div
+    className="fun-tabs__active-line"
+    style={{
+      transition: '300ms',
+      width: '0px',
+      height: '3px',
+      transform: 'translate3d(388.5px, 0px, 0px)',
+      backgroundColor: 'rgb(22, 119, 255)',
+    }}
+  ></div>
+)}
                   <div className="fun-tab-item funtab_item">
                     <div className="fun-tab-item__wrap">
                       <div className="fun-tab-item__label">
-                        <div data-v-a6a0c110="" className="tab_item">
+                        <div data-v-a6a0c110="" className={`tab_item ${activeSection==='section5'? 'tab_active':''}`} onClick={() => showSection('section5')}>
                           <svg data-v-a6a0c110="" className="svg-icon icon-slot">
                             <use href="#icon-slot"></use></svg
                           ><span data-v-a6a0c110="">Slots</span>
@@ -9584,16 +9614,19 @@ export default function RebateRatio() {
                       </div>
                     </div>
                   </div>
-                  <div
-                    className="fun-tabs__active-line"
-                    style={{
-                      transition: '300ms',
-                      width: '0px',
-                      height: '3px',
-                      transform: 'translate3d(55.5px, 0px, 0px)',
-                      'backgroundColor': 'rgb(22, 119, 255)'
-                    }}
-                  ></div>
+                  {activeSection === 'section5' && (
+  <div
+    className="fun-tabs__active-line"
+    style={{
+      transition: '300ms',
+      width: '0px',
+      height: '3px',
+      transform: 'translate3d(499.5px, 0px, 0px)',
+      backgroundColor: 'rgb(22, 119, 255)',
+    }}
+  ></div>
+)}
+
                 </div>
               </div>
             </div>

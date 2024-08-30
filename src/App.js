@@ -96,8 +96,8 @@ function App() {
         <Route path="/main/Laundry/LaundryRecord" element={<PrivateRoute><LaundryRecord/></PrivateRoute>}/>
         <Route path="/activity/ActivityDetail" element={<PrivateRoute><ActivityDetail/></PrivateRoute>}/>
         <Route path="/activity/FirstRecharge" element={<PrivateRoute><FirstRecharge/></PrivateRoute>}/>
-        <Route path="promotion/RebateRatio" element={<PrivateRoute><RebateRatio/></PrivateRoute>}/>
-        <Route path="promotion/Server" element={<PrivateRoute><Server/></PrivateRoute>}/>
+        <Route path="/promotion/RebateRatio" element={<PrivateRoute><RebateRatio/></PrivateRoute>}/>
+        <Route path="/promotion/Server" element={<PrivateRoute><Server/></PrivateRoute>}/>
 
 
 
