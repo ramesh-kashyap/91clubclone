@@ -42,6 +42,10 @@ import Server from './pages/promotion/Server';
 
 
 import Receive from './pages/activity/Receive';
+import Wingo3 from  './pages/bet/wingo/Wingo3';
+import Wingo5 from  './pages/bet/wingo/Wingo5';
+import Wingo10 from  './pages/bet/wingo/Wingo10';
+
 
 
 import Deposit from './pages/wallet/Deposit';
@@ -77,6 +81,10 @@ function App() {
         <Route path="/promotion/MyCommission" element={<PrivateRoute><Commission/></PrivateRoute>}/>
         <Route path="/promotion/PromotionRule" element={<PrivateRoute><Promotionrule/></PrivateRoute>}/>
         <Route path="/wingo" element={<PrivateRoute><Wingo/></PrivateRoute>}/>
+        <Route path="/wingo3" element={<PrivateRoute><Wingo3/></PrivateRoute>}/>
+        <Route path="/wingo5" element={<PrivateRoute><Wingo5/></PrivateRoute>}/>
+        <Route path="/wingo10" element={<PrivateRoute><Wingo10/></PrivateRoute>}/>
+
         <Route path="/wallet" element={<PrivateRoute><Withdraw/></PrivateRoute>}/>
         <Route path="/wallet" element={<PrivateRoute><WithdrawHistory/></PrivateRoute>}/>
         <Route path="/wallet/paymentPage" element={<PrivateRoute><Paymentpage/></PrivateRoute>}/>

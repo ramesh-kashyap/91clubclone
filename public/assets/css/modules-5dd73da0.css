@@ -1113,7 +1113,7 @@ ul {
 }
 
 .van-icon-success:before {
-    content: "îœ¨"
+    content: "";
 }
 
 .van-icon-stop-circle:before {
@@ -1261,7 +1261,7 @@ ul {
 }
 
 .van-icon-arrow-down:before {
-    content: "î™ž"
+    content: "";
 }
 
 .van-icon-arrow-up:before {
