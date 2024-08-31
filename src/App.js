@@ -36,6 +36,7 @@ import ActivityDetail from './pages/activity/ActivityDetail';
 import FirstRecharge from './pages/activity/FirstRecharge';
 import RebateRatio from './pages/promotion/RebateRatio';
 import Server from './pages/promotion/Server';
+import AddUSDT from './pages/wallet/AddUSDT';
 
 
 
@@ -106,6 +107,7 @@ function App() {
         <Route path="/activity/FirstRecharge" element={<PrivateRoute><FirstRecharge/></PrivateRoute>}/>
         <Route path="/promotion/RebateRatio" element={<PrivateRoute><RebateRatio/></PrivateRoute>}/>
         <Route path="/promotion/Server" element={<PrivateRoute><Server/></PrivateRoute>}/>
+        <Route path="/wallet/Withdraw/AddUSDT" element={<PrivateRoute><AddUSDT/></PrivateRoute>}/>
 
 
 
