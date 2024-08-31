@@ -9588,10 +9588,11 @@ export default function Withdraw() {
             </div>
             
           </div>
+          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" ><div data-v-ef5c8333="" className="addWithdrawType-top"><img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png"/><span data-v-ef5c8333="">Add a bank account number</span></div><div data-v-ef5c8333="" className="addWithdrawType-text">Need to add beneficiary information to be able to withdraw money</div></div>
           <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
             <div data-v-ef5c8333="" className="addWithdrawType-top">
               <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
-                data-v-ef5c8333="">Add a bank account number</span>
+                data-v-ef5c8333="">Add Address</span>
             </div>
             <div data-v-ef5c8333="" className="addWithdrawType-text">
               Need to add beneficiary information to be able to withdraw money

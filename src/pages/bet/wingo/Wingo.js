@@ -6,7 +6,6 @@ import MyGameRecordList from './components/MyGameRecordList';
 import GameList from './components/GameList';
 import ReactHowler from 'react-howler';
 import ChartList from './components/ChartList';
-import { useNavigate } from 'react-router-dom';
 
 
 const SOCKET_URL = 'http://localhost:3000';
@@ -45,8 +44,6 @@ const getPopupClass = (item) => {
 
 
 export default function Wingo() {
-
-  const navigate = useNavigate();
 
 
   const [userInfo, setUserInfo] = useState(null);
