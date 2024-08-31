@@ -9956,7 +9956,7 @@ export default function Wingo10() {
           <div data-v-12a80a3e="" className="navbar__content-left">
             <i
               data-v-12a80a3e=""
-              className="van-badge__wrapper van-icon van-icon-arrow-left">
+              className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=> navigate('/index')}>
                 </i>
           </div>
           <div data-v-12a80a3e="" className="navbar__content-center">

@@ -1,7 +1,67 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Api from '../../services/Api';
+import Loader from '../../components/Loader';
+
+
+
+
 export default function Promotion(){
   const navigate = useNavigate();
+
+  const [totalMoney, setTotalMoney] = useState(0);
+  const [thirdPartyWallet, setThirdPartyWallet] = useState(0);
+  const [totalRecharge, setTotalRecharge] = useState(0);
+  const [totalWithdraw, setTotalWithdraw] = useState(0);
+  const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const response = await Api.get('/api/webapi/GetUserInfo');
+        if (response.data.status) {
+          setTotalMoney(response.data.data.money_user);
+          setThirdPartyWallet(response.data.data.thirdparty_wallet);
+          setTotalRecharge(response.data.totalRecharge);
+          setTotalWithdraw(response.data.totalWithdraw);
+
+        } else {
+          setError('Failed to fetch user info');
+        }
+      } catch (err) {
+        setError('Error fetching user info');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserInfo();
+  }, []);
+
+
+
+
+  if (loading) {
+    return      <Loader/>
+    // You can replace this with a spinner if needed
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+
+
+
+
+
+
+
+
+
     return (
 <div className="" style={{fontSize: '12px'}}>
     <svg
@@ -9508,15 +9568,15 @@ export default function Promotion(){
             <svg data-v-0dabd3fc="" className="svg-icon icon-wallet1">
               <use href="#icon-wallet1"></use>
             </svg>
-            <div data-v-0dabd3fc="">₹93.18</div>
+            <div data-v-0dabd3fc="">₹{totalMoney}</div>
             <span data-v-0dabd3fc="">Total balance</span>
             <div data-v-0dabd3fc="">
               <div data-v-0dabd3fc="">
-                <p data-v-0dabd3fc="" className="total">110</p>
-                <p data-v-0dabd3fc="">Total amount</p>
+                <p data-v-0dabd3fc="" className="total">{totalWithdraw}</p>
+                <p data-v-0dabd3fc="">Total withdraw amount</p>
               </div>
               <div data-v-0dabd3fc="">
-                <p data-v-0dabd3fc="" className="total">200</p>
+                <p data-v-0dabd3fc="" className="total">{totalRecharge}</p>
                 <p data-v-0dabd3fc="">Total deposit amount</p>
               </div>
             </div>
@@ -9546,7 +9606,7 @@ export default function Promotion(){
                   </svg>
                   <div className="van-circle__text">100%</div>
                 </div>
-                <h3 data-v-0dabd3fc="">₹93.18</h3>
+                <h3 data-v-0dabd3fc="">₹{totalMoney}</h3>
                 <span data-v-0dabd3fc="">Main wallet</span>
               </div>
               <div data-v-0dabd3fc="" className="progressBarsR">
@@ -9570,7 +9630,7 @@ export default function Promotion(){
                   </svg>
                   <div className="van-circle__text">0%</div>
                 </div>
-                <h3 data-v-0dabd3fc="">₹0.00</h3>
+                <h3 data-v-0dabd3fc="">₹{thirdPartyWallet}</h3>
                 <span data-v-0dabd3fc="">3rd party wallet</span>
               </div>
             </div>
