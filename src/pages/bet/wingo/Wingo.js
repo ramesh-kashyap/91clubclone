@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import { io } from 'socket.io-client';
 import Api from '../../../services/Api';
 import MyGameRecordList from './components/MyGameRecordList';
@@ -6,6 +7,7 @@ import GameList from './components/GameList';
 import ReactHowler from 'react-howler';
 
 const SOCKET_URL = 'http://localhost:3000';
+
 
 const socket = io(SOCKET_URL, {
   transports: ['websocket', 'polling'],
@@ -70,7 +72,7 @@ export default function Wingo() {
       setIsVisible(!isVisible);
     };
 
-
+    const navigate = useNavigate();
 
     const handleNextPage = () => {
       if (currentPage < totalBetsPages) {
@@ -9939,7 +9941,7 @@ export default function Wingo() {
           <div data-v-12a80a3e="" className="navbar__content-left">
             <i
               data-v-12a80a3e=""
-              className="van-badge__wrapper van-icon van-icon-arrow-left">
+              className="van-badge__wrapper van-icon van-icon-arrow-left"  onClick={()=> navigate('/index')}>
                 </i>
           </div>
           <div data-v-12a80a3e="" className="navbar__content-center">
@@ -10048,7 +10050,7 @@ export default function Wingo() {
       voicetype="1"
       typeid="30"
     >
-      <div data-v-4aca9bd1="" className="Betting__C-mark"         style={{ display: showMark ? '' : 'none' }}
+      <div data-v-4aca9bd1="" className="Betting__C-mark" style={{ display: showMark ? '' : 'none' }}
       >
         <div data-v-4aca9bd1="">{time.seconds1}</div>
         <div data-v-4aca9bd1="">{time.seconds2}</div>

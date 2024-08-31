@@ -10130,7 +10130,7 @@ export default function Account() {
             </div>
           </div>
           <div data-v-159bf81f="" className="serviceCenter-wrap-header">
-            <button data-v-159bf81f="">
+            <button data-v-159bf81f="" onClick={()=>navigate('/logout')}>
               <svg data-v-159bf81f="" className="svg-icon icon-logout">
                 <use href="#icon-logout"></use></svg
               >

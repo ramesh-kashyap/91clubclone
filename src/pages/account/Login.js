@@ -9715,7 +9715,7 @@ export default function Login() {
               <div data-v-33f88764="" className="signIn__container-button">
                 <button data-v-33f88764="" className="active" type="submit">Log in</button>
                 
-                <button data-v-33f88764="" className="register">Register</button>
+                <button data-v-33f88764="" className="register" onClick={()=>navigate('/register')}>Register</button>
               </div>
               </form>
               <div data-v-33f88764="" className="signIn_footer">
