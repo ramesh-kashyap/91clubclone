@@ -164,7 +164,7 @@ export default function Wingo10() {
 
     const checkPeriodAndStage = async (period) => {
       try {
-        const response = await Api.post('/api/webapi/checkPeriodAndStage', { period });
+        const response = await Api.post('/api/webapi/checkPeriodAndStage10', { period });
         console.log("hi");
 
         console.log(response.data.status);

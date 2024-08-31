@@ -163,7 +163,7 @@ export default function Wingo3() {
 
     const checkPeriodAndStage = async (period) => {
       try {
-        const response = await Api.post('/api/webapi/checkPeriodAndStage', { period });
+        const response = await Api.post('/api/webapi/checkPeriodAndStage3', { period });
         console.log("hi");
 
         console.log(response.data.status);
@@ -346,14 +346,14 @@ export default function Wingo3() {
         if (msg.data[0].game !== 'wingo3') return;
   
         const data1 = msg.data[0];
-        const data2 = [msg.data[1]];
+        const data2 = msg.data[1];
 
-        console.log('data:', data1);
+        console.log('data:', data2.period);
   
         setPeriod(data1.period);
         // Handle other state updates here
   
-        const isCheckSuccessful = await checkPeriodAndStage(data1.period);
+        const isCheckSuccessful = await checkPeriodAndStage(data2.period);
         if (isCheckSuccessful) {
           fetchMyBets();
           setIsVisible(true);

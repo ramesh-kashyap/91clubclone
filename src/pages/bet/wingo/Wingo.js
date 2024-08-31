@@ -55,6 +55,8 @@ export default function Wingo() {
     const [myBets,setMyBets] = useState(null);
     const [last5Periods, setLast5Periods] = useState([]);
     const [period, setPeriod] = useState(null);
+    const [lastperiod, setLastPeriod] = useState(null);
+
     const [time, setTime] = useState({
       seconds1: 0,
       seconds2: 0,
@@ -198,7 +200,6 @@ export default function Wingo() {
           const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
           setTime({ seconds1, seconds2 });
   
-          console.log(`seconds1: ${seconds1}, seconds2: ${seconds2}`);
   
           if (seconds1 === 0 && seconds2 > 0 && seconds2 <= 5) {
             if (audio1Ref.current && audio1Ref.current.paused) {
@@ -345,9 +346,10 @@ export default function Wingo() {
         const data2 = [msg.data[1]];
   
         setPeriod(data1.period);
+        setLastPeriod(data2.period);
         // Handle other state updates here
   
-        const isCheckSuccessful = await checkPeriodAndStage(data1.period);
+        const isCheckSuccessful = await checkPeriodAndStage(data2.period);
         if (isCheckSuccessful) {
           fetchMyBets();
           setIsVisible(true);
