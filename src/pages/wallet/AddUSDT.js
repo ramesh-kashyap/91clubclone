@@ -1,7 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 export default function AddUSDT(){
 
-    const[isVisible, setIsVisible] =useState(false);
+  const navigate = useNavigate();
+
+  const [selectedValue, setSelectedValue] = useState('');
+
+  const handleSelect = (value) => {
+    setSelectedValue(value);
+  };
+  const items = [
+    { label: 'BEP20', value: 'BEP20' },
+    { label: 'TRC', value: 'TRC' },
+  ];
+
+  const sortedItems = [...items].sort((a, b) => (a.value === selectedValue ? -1 : b.value === selectedValue ? 1 : 0));
+
+    const[isVisible, setIsVisible] =useState(false);      
 
      const handleToggle = () => {
       setIsVisible(!isVisible);
@@ -9399,7 +9414,7 @@ export default function AddUSDT(){
               <div data-v-12a80a3e="" className="navbar__content-left">
                 <i
                   data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left"
+                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/wallet/Withdraw')}
                   ></i
                 >
               </div>
@@ -9434,11 +9449,13 @@ export default function AddUSDT(){
                 className="ar-searchbar__selector"
               >
                 <div data-v-fa757a88="">
-                  <span
+                  <input
+                  type="text"
                     data-v-fa757a88=""
                     className="ar-searchbar__selector-default"onClick={handleToggle}
-                    >TRC</span
-                  ><i
+                    value={selectedValue}
+                    />
+                  <i
                     data-v-fa757a88=""
                     className="van-badge__wrapper van-icon van-icon-arrow-down"onClick={handleToggle}
                     ></i
@@ -9463,7 +9480,7 @@ export default function AddUSDT(){
               />
             </div>
           </div>
-          <div data-v-24736190="" className="addUSDT__container-content-item">
+          {/* <div data-v-24736190="" className="addUSDT__container-content-item">
             <div data-v-24736190="" className="label">
               <svg data-v-24736190="" className="svg-icon icon-usdt3 icon icon">
                 <use href="#icon-usdt3"></use>
@@ -9475,13 +9492,40 @@ export default function AddUSDT(){
               placeholder="Please enter a remark of the withdrawal address"
               maxlength="20"
             />
-          </div>
+          </div> */}
           <div data-v-24736190="" className="addUSDT__container-content-btn">
             <button data-v-24736190="" className="">Save</button>
           </div>
         </div>
         <div className="van-overlay" role="button" tabindex="0" data-v-24736190="" style={{ zIndex: 2006, display: isVisible ? 'block' : 'none' }}></div>
-        <div role="dialog" tabindex="0" className="van-popup van-popup--round van-popup--bottom" data-v-24736190="" style={{ zIndex: 2006, display: isVisible ? 'block' : 'none' }}><div data-v-24736190="" className="van-picker"><div className="van-picker__toolbar"><button type="button" className="van-picker__cancel van-haptics-feedback" onClick={handleCancel}>Cancel</button><button type="button" className="van-picker__confirm van-haptics-feedback">Confirm</button></div><div className="van-picker__columns" style={{height: '264px'}}><div className="van-picker-column"><ul className="van-picker-column__wrapper" style={{transform: 'translate3d(0px, 110px, 0px)', 'transitionDuration': '0ms', "transitionProperty": 'none'}}><li role="button" tabindex="0" className="van-picker-column__item van-picker-column__item--selected" style={{height: '44px'}}><div className="van-ellipsis">TRC</div></li></ul></div><div className="van-picker__mask" style={{backgroundSize: '100% 110px'}}></div><div className="van-hairline-unset--top-bottom van-picker__frame" style={{height: '44px'}}></div></div></div></div>
+        <div role="dialog" tabindex="0" className="van-popup van-popup--round van-popup--bottom" data-v-24736190="" style={{ zIndex: 2006, display: isVisible ? 'block' : 'none' }}>
+          <div data-v-24736190="" className="van-picker">
+            <div className="van-picker__toolbar">
+              <button type="button" className="van-picker__cancel van-haptics-feedback" onClick={handleCancel}>Cancel</button>
+              <button type="button" className="van-picker__confirm van-haptics-feedback" onClick={handleCancel}>Confirm</button>
+              </div>
+              <div className="van-picker__columns" style={{height: '264px'}}>
+                <div className="van-picker-column">
+                  <ul className="van-picker-column__wrapper" style={{transform: 'translate3d(0px, 110px, 0px)', 'transitionDuration': '0ms', "transitionProperty": 'none'}}>
+                  {sortedItems.map((item) => (
+        <li
+          key={item.value}
+          role="button"
+          tabIndex="0"
+          className={`van-picker-column__item ${item.value === selectedValue ? 'van-picker-column__item--selected' : ''}`}
+          style={{ height: '44px', cursor: 'pointer' }}
+          onClick={() => handleSelect(item.value)}
+        >
+          <div className="van-ellipsis">{item.label}</div>
+        </li>
+      ))}
+                  </ul>
+                        </div>
+                        <div className="van-picker__mask" style={{backgroundSize: '100% 110px'}}></div>
+                        <div className="van-hairline-unset--top-bottom van-picker__frame" style={{height: '44px'}}></div>
+                        </div>
+                        </div>
+                        </div>
         
       </div>
       <div
