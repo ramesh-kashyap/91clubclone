@@ -35,7 +35,7 @@
     align-items: center;
     height: auto;
     padding-top: .6rem;
-    background-image: url(/assets/png/promotionbg-13880556.png),var(--main_gradient-color);
+    background-image: url(/assets/png/promotionbg-13880556.png),var(--main_gradient-color2);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover,100% 100%

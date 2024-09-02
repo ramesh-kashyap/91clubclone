@@ -9577,7 +9577,7 @@ export default function Promotion(){
         style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sans-serif'"}}
       >
         <div data-v-600663f7="" className="shareBtnContainer">
-          <button data-v-600663f7="" className="shareBtn"><a href="/promotion/PromotionShare">INVITATION LINK</a></button>
+          <button data-v-600663f7="" className="shareBtn" onClick={()=>navigate('/promotion/PromotionShare')}> INVITATION LINK </button>
         </div>
         <div data-v-600663f7="" className="promote__cell">
           <div data-v-600663f7="" className="promote__cell-item">

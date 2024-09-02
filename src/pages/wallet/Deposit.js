@@ -9555,7 +9555,7 @@ const showSection = (sectionId) => {
                   </div>
                 </div>
                 <div data-v-12a80a3e="" className="navbar__content-right">
-                  <div data-v-36cc3380="" className="title"><a href="/wallet/deposithistory.html">Deposit history</a></div>
+                  <div data-v-36cc3380="" className="title">Deposit history</div>
                 </div>
               </div>
             </div>
