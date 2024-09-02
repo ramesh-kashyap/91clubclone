@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 export default function K3(){
     const [activeSection, setActiveSection] = useState('section1');
+    const [activeTime, setActiveTime] =useState('time1');
+
+    const [activeHistory, setActiveHistory] =useState('history1');
 
 const showSection = (sectionId) => {
     setActiveSection(sectionId);
@@ -9551,19 +9554,39 @@ const showSection = (sectionId) => {
           <button className="hotIcon">Detail</button>
         </div>
         <div data-v-17d56002="" data-v-d024c659="" className="GameList__C">
-          <div data-v-17d56002="" className="GameList__C-item active">
-            <div data-v-17d56002="">K3 Lotre <br />1Min</div>
-          </div>
-          <div data-v-17d56002=""  className="GameList__C-item">
-            <div data-v-17d56002="">K3 Lotre<br />3Min</div>
-          </div>
-          <div data-v-17d56002="" className="GameList__C-item">
-            <div data-v-17d56002="">K3 Lotre<br />5Min</div>
-          </div>
-          <div data-v-17d56002=""className="GameList__C-item">
-            <div data-v-17d56002="">K3 Lotre<br />10Min</div>
-          </div>
-        </div>
+  <div
+    data-v-17d56002=""
+    className={`GameList__C-item ${activeTime === 'time1' ? 'active' : ''}`}
+    onClick={() => setActiveTime('time1')}
+  >
+    <div data-v-17d56002="">K3 Lotre <br />1Min</div>
+  </div>
+
+  <div
+    data-v-17d56002=""
+    className={`GameList__C-item ${activeTime === 'time2' ? 'active' : ''}`}
+    onClick={() => setActiveTime('time2')}
+  >
+    <div data-v-17d56002="">K3 Lotre<br />3Min</div>
+  </div>
+
+  <div
+    data-v-17d56002=""
+    className={`GameList__C-item ${activeTime === 'time3' ? 'active' : ''}`}
+    onClick={() => setActiveTime('time3')}
+  >
+    <div data-v-17d56002="">K3 Lotre<br />5Min</div>
+  </div>
+
+  <div
+    data-v-17d56002=""
+    className={`GameList__C-item ${activeTime === 'time4' ? 'active' : ''}`}
+    onClick={() => setActiveTime('time4')}
+  >
+    <div data-v-17d56002="">K3 Lotre<br />10Min</div>
+  </div>
+</div>
+
         <div data-v-75b35bf5="" className="K3TL__C">
           <div data-v-75b35bf5="" className="K3TL__C-l1">
             <div data-v-75b35bf5="" className="left">
@@ -9785,7 +9808,7 @@ const showSection = (sectionId) => {
               <div data-v-4e09079f="" className="van-col van-col--10">Results</div>
             </div>
           </div>
-          <div data-v-4e09079f="" className="GameRecord__C-body">
+          <div data-v-4e09079f="" className={GameRecord__C-body}>
             <div data-v-4e09079f="" className="van-row">
               <div data-v-4e09079f="" className="van-col van-col--8">
                 20240814090781
@@ -9998,28 +10021,7 @@ const showSection = (sectionId) => {
               </div>
             </div>
           </div>
-          <div data-v-4e09079f="" className="GameRecord__C-foot" style={{display: 'none'}}>
-            <div
-              data-v-4e09079f=""
-              className="GameRecord__C-foot-previous disabled"
-            >
-              <i
-                data-v-4e09079f=""
-                className="van-badge__wrapper van-icon van-icon-arrow-left GameRecord__C-icon"
-                style={{fontSize: '20px'}}
-                ></i
-              >
-            </div>
-            <div data-v-4e09079f="" className="GameRecord__C-foot-page">1/1663</div>
-            <div data-v-4e09079f="" className="GameRecord__C-foot-next">
-              <i
-                data-v-4e09079f=""
-                className="van-badge__wrapper van-icon van-icon-arrow GameRecord__C-icon"
-                style={{fontSize: '20px'}}
-                ></i
-              >
-            </div>
-          </div>
+          
         </div>
         <div data-v-3e71d3da="" data-v-d024c659="" className="dialog inactive" style={{display: 'none'}}>
           <div
@@ -10301,7 +10303,28 @@ const showSection = (sectionId) => {
       </div>
       
     </div>
-
+    <div data-v-4e09079f="" className="GameRecord__C-foot" >
+            <div
+              data-v-4e09079f=""
+              className="GameRecord__C-foot-previous disabled"
+            >
+              <i
+                data-v-4e09079f=""
+                className="van-badge__wrapper van-icon van-icon-arrow-left GameRecord__C-icon"
+                style={{fontSize: '20px'}}
+                ></i
+              >
+            </div>
+            <div data-v-4e09079f="" className="GameRecord__C-foot-page">1/1663</div>
+            <div data-v-4e09079f="" className="GameRecord__C-foot-next">
+              <i
+                data-v-4e09079f=""
+                className="van-badge__wrapper van-icon van-icon-arrow GameRecord__C-icon"
+                style={{fontSize: '20px'}}
+                ></i
+              >
+            </div>
+          </div>
 
         <div
           data-v-2d418cc5=""
