@@ -39,9 +39,6 @@ import Server from './pages/promotion/Server';
 import AddUSDT from './pages/wallet/AddUSDT';
 
 
-
-
-
 import Receive from './pages/activity/Receive';
 import Wingo3 from  './pages/bet/wingo/Wingo3';
 import Wingo5 from  './pages/bet/wingo/Wingo5';
