@@ -1,16 +1,11 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
 
-export default function Activity() {
-  const navigate = useNavigate();
-
+export default function BetRecords() {
   return (
-    
     <div style={{fontSize: '12px'}}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
-     
-      style={{position: 'absolute', width: 0, height: 0}}
+      style={{position: 'absolute', width: '0', height: '0'}}
     >
       <symbol
         id="icon-privacyIcon"
@@ -3230,7 +3225,6 @@ export default function Activity() {
           strokeLinecap="round"
         ></path>
       </symbol>
-      
       <symbol
         id="icon-downArrow"
         xmlns="http://www.w3.org/2000/svg"
@@ -3612,17 +3606,16 @@ export default function Activity() {
           strokeLinejoin="round"
         ></path>
       </symbol>
-      
       <symbol
         id="icon-eye"
         t="1503993826520"
         className="icon"
-        
+      
         viewBox="0 0 1024 1024"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         p-id="7878"
-        
+  
       >
         <defs><style type="text/css"></style></defs>
         <path
@@ -9383,22 +9376,21 @@ export default function Activity() {
       <div
         data-v-647954c7=""
         className="ar-loading-view"
-        style={{  
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif" ,
+        style={{
+          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
           display: 'none'
         }}
       >
         <div data-v-647954c7="" className="loading-wrapper">
-          
           <div data-v-647954c7="" className="loading-animat">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-             
+        
               viewBox="0 0 200 200"
               width="200"
               height="200"
               preserveAspectRatio="xMidYMid meet"
-              style={{ 
+              style={{
                 width: '100%',
                 height: '100%',
                 transform: 'translate3d(0px, 0px, 0px)',
@@ -9446,23 +9438,18 @@ export default function Activity() {
               </g>
             </svg>
           </div>
-          <div data-v-647954c7="" className="com__box" style={{display: 'none'}}>
-            
+          <div data-v-647954c7="" className="com__box"   style={{display: 'none'}}>
             <div className="loading" data-v-647954c7="">
               <div className="shape shape-1" data-v-647954c7=""></div>
               <div className="shape shape-2" data-v-647954c7=""></div>
               <div className="shape shape-3" data-v-647954c7=""></div>
               <div className="shape shape-4" data-v-647954c7=""></div>
             </div>
-            
           </div>
-          
         </div>
         <div data-v-647954c7="" className="skeleton-wrapper" style={{display: 'none'}}>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
             <div className="van-skeleton__content">
-              
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9487,7 +9474,6 @@ export default function Activity() {
             </div>
           </div>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
             <div className="van-skeleton__content">
               <h3 className="van-skeleton-title"></h3>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9499,226 +9485,1033 @@ export default function Activity() {
           </div>
         </div>
       </div>
-      
       <div
-        data-v-12a80a3e=""
-        data-v-214b87c9=""
-        className="navbar main"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
+        data-v-1d8fbc24=""
+        className="bet-container"
+        style={{'--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'"}}
       >
-        <div data-v-12a80a3e="" className="navbar-fixed">
-          <div data-v-12a80a3e="" className="navbar__content">
-            <div data-v-12a80a3e="" className="navbar__content-left">
-              
+        <div data-v-12a80a3e="" data-v-1d8fbc24="" className="navbar">
+          <div data-v-12a80a3e="" className="navbar-fixed">
+            <div data-v-12a80a3e="" className="navbar__content">
+              <div data-v-12a80a3e="" className="navbar__content-left">
+                <a href="/account/account.html" style={{fontSize: 'large'}}>
+                  <i
+                    data-v-12a80a3e=""
+                    className="van-badge__wrapper van-icon van-icon-arrow-left"
+                    ></i
+                  >
+                </a>
+              </div>
+              <div data-v-12a80a3e="" className="navbar__content-center">
+                <div data-v-12a80a3e="" className="navbar__content-title">
+                  Bet history
+                </div>
+              </div>
+              <div data-v-12a80a3e="" className="navbar__content-right"></div>
             </div>
-            <div data-v-12a80a3e="" className="navbar__content-center">
+          </div>
+        </div>
+        <div data-v-1d8fbc24="" className="bet-container-sticky" >
+          <div className="van-sticky" >
+            <div data-v-1d8fbc24="" style={{background:'var(--bg_color_L1)'}}>
               <div
-                data-v-12a80a3e=""
-                className="headLogo"
-                style={{  
-                  backgroundImage: `url('assets/png/BDGPRO2.png')`
+                data-v-1d8fbc24=""
+                className="fun-tabs tabs"
+                is-auto-load="true"
+                activeclassnamename="tab_active"
+              >
+                <div
+                  className="fun-tabs__tab-list"
+                  style={{
+                    'transitionTimingFunction': 'cubicBezier( 0.25, 0.46,0.45,0.94)',
+                    'transitionDuration': '360ms',
+                    transform:"'translate3d(0px, 0px, 0px)'"
                 }}
-              ></div>
-              <div data-v-12a80a3e="" className="navbar__content-title"></div>
+                >
+                  <div
+                    className="fun-tab-item funtab_item activeClassName"
+                    style={{color: 'rgb(22, 119, 255)'}}
+                  >
+                    <div className="fun-tab-item__wrap">
+                      <div className="fun-tab-item__label">
+                        <div data-v-1d8fbc24="" className="tab_item tab_active">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-lottery">
+                            <use href="#icon-lottery"></use></svg
+                          ><span data-v-1d8fbc24="">Lottery</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="fun-tab-item funtab_item">
+                    <div className="fun-tab-item__wrap">
+                      <div className="fun-tab-item__label">
+                        <div data-v-1d8fbc24="" className="tab_item">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-video">
+                            <use href="#icon-video"></use></svg
+                          ><span data-v-1d8fbc24="">Casino</span>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="fun-tab-item funtab_item">
+                    <div className="fun-tab-item__wrap">
+                      <div className="fun-tab-item__label">
+                        <div data-v-1d8fbc24="" className="tab_item">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-fish">
+                            <use href="#icon-fish"></use></svg
+                          ><span data-v-1d8fbc24="">Fishing</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="fun-tab-item funtab_item">
+                    <div className="fun-tab-item__wrap">
+                      <div className="fun-tab-item__label">
+                        <div data-v-1d8fbc24="" className="tab_item">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-chess">
+                            <use href="#icon-chess"></use></svg
+                          ><span data-v-1d8fbc24="">Rummy</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="fun-tab-item funtab_item">
+                    <div className="fun-tab-item__wrap">
+                      <div className="fun-tab-item__label">
+                        <div data-v-1d8fbc24="" className="tab_item">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-flash">
+                            <use href="#icon-flash"></use></svg
+                          ><span data-v-1d8fbc24="">Original</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="fun-tab-item funtab_item">
+                    <div className="fun-tab-item__wrap">
+                      <div className="fun-tab-item__label">
+                        <div data-v-1d8fbc24="" className="tab_item">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-slot">
+                            <use href="#icon-slot"></use></svg
+                          ><span data-v-1d8fbc24="">Slots</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="fun-tabs__active-line"
+                    style={{
+                      transition: '300ms',
+                      width: '0px',
+                      height: '3px',
+                      transform: 'translate3d(53.5px, 0px, 0px)',
+                      backgroundColor:' rgb(22, 119, 255)'
+                    }}
+                  ></div>
+                </div>
+              </div>
+              <div data-v-1d8fbc24="" className="bet-container-searchBar">
+                <div data-v-1d8fbc24="" className="ar-searchbar">
+                  <div
+                    data-v-fa757a88=""
+                    data-v-1d8fbc24=""
+                    className="ar-searchbar__selector"
+                  >
+                    <div data-v-fa757a88="">
+                      <span
+                        data-v-fa757a88=""
+                        className="ar-searchbar__selector-default"
+                        >Win Go</span
+                      ><i
+                        data-v-fa757a88=""
+                        className="van-badge__wrapper van-icon van-icon-arrow-down"
+                        ></i
+                      >
+                      <div
+                        className="van-overlay"
+                        role="button"
+                        tabIndex="0"
+                        data-v-0a298b45=""
+                        style={{zindex: '2038'}}
+                      >
+                      </div>
+                      <div
+                        role="dialog"
+                        tabIndex="0"
+                        className="van-popup van-popup--round van-popup--bottom"
+                        data-v-0a298b45=""
+                        style={{zindex: '2038'}}
+                      >
+                        <div data-v-0a298b45="" className="list">
+                          <div data-v-0a298b45="" className="item active">
+                            <div data-v-0a298b45="">
+                              <img
+                                data-v-0a298b45=""
+                                className="img"
+                                data-origin="/assets/png/lotterycategory_202307140102511fow.png"
+                                src="/assets/png/lotterycategory_202307140102511fow.png"
+                              />Win Go
+                            </div>
+                          </div>
+                          <div data-v-0a298b45="" className="item">
+                            <div data-v-0a298b45="">
+                              <img
+                                data-v-0a298b45=""
+                                className="img"
+                                data-origin="/assets/png/lotterycategory_20230714010246lyuc.png"
+                                src="/assets/png/lotterycategory_20230714010246lyuc.png"
+                              />Trx Win Go
+                            </div>
+                          </div>
+                          <div data-v-0a298b45="" className="item">
+                            <div data-v-0a298b45="">
+                              <img
+                                data-v-0a298b45=""
+                                className="img"
+                                data-origin="/assets/png/lotterycategory_2023071401023322dy.png"
+                                src="/assets/png/lotterycategory_2023071401023322dy.png"
+                              />5D
+                            </div>
+                          </div>
+                          <div data-v-0a298b45="" className="item">
+                            <div data-v-0a298b45="">
+                              <img
+                                data-v-0a298b45=""
+                                className="img"
+                                data-origin="/assets/png/lotterycategory_20230714010227swu2.png"
+                                src="/assets/png/lotterycategory_20230714010227swu2.png"
+                              />K3
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    data-v-fa757a88=""
+                    data-v-1d8fbc24=""
+                    className="ar-searchbar__selector"
+                  >
+                    <div data-v-fa757a88="">
+                      <span
+                        data-v-fa757a88=""
+                        className="ar-searchbar__selector-default"
+                        >Choose a date</span
+                      ><i
+                        data-v-fa757a88=""
+                        className="van-badge__wrapper van-icon van-icon-arrow-down"
+                        ></i
+                      >
+                      <div
+                        className="van-overlay"
+                        role="button"
+                        tabIndex="0"
+                        data-v-1d8fbc24=""
+                        style={{zindex: '2004', display: 'none'}}
+                      >
+                      </div>
+                      <div
+                        role="dialog"
+                        tabIndex="0"
+                        className="van-popup van-popup--round van-popup--bottom"
+                        data-v-1d8fbc24=""
+                        style={{zindex: '2004'}}
+                      >
+                        <div data-v-1d8fbc24="" className="van-picker">
+                          <div className="van-picker__toolbar">
+                            <button
+                              type="button"
+                              className="van-picker__cancel van-haptics-feedback"
+                            >
+                              Cancel
+                            </button>
+                            <div className="van-picker__title van-ellipsis">
+                              Choose a date
+                            </div>
+                            <button
+                              type="button"
+                              className="van-picker__confirm van-haptics-feedback"
+                            >
+                              Confirm
+                            </button>
+                          </div>
+                          <div
+                            className="van-picker__columns"
+                            style={{height: '264px'}}
+                          >
+                            <div className="van-picker-column">
+                              <ul
+                                className="van-picker-column__wrapper"
+                                style={{
+                                  transform: 'translate3d(0px, 22px, 0px)',
+                                  transitionDuration: '0ms',
+                                  transitionProperty: 'none'
+                                }}
+                              >
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">2022</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">2023</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item van-picker-column__item--selected"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">2024</div>
+                                </li>
+                              </ul>
+                            </div>
+                            <div className="van-picker-column">
+                              <ul
+                                className="van-picker-column__wrapper"
+                                style={{
+                                  transform: 'translate3d(0px, -242px, 0px)',
+                                  transitionDuration: '0ms',
+                                  transitionDroperty: 'none'
+                                }}
+                              >
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">02</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">03</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">04</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">05</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">06</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">07</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">08</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item van-picker-column__item--selected"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">09</div>
+                                </li>
+                              </ul>
+                            </div>
+                            <div className="van-picker-column">
+                              <ul
+                                className="van-picker-column__wrapper"
+                                style={{
+                                  transform:'translate3d(0px, 66px, 0px)',
+                                  transitionDuration: '0ms',
+                                  transitionDroperty: 'none'
+                                }}
+                              >
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item van-picker-column__item--selected"
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">02</div>
+                                </li>
+                              </ul>
+                            </div>
+                            <div
+                              className="van-picker__mask"
+                              style={{backgroundSize: '100% 110px'}}
+                            ></div>
+                            <div
+                              className="van-hairline-unset--top-bottom van-picker__frame"
+                              style={{height: '44px'}}
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div data-v-1d8fbc24=""></div>
             </div>
-            <div data-v-12a80a3e="" className="navbar__content-right"></div>
+          </div>
+        </div>
+        <div data-v-1d8fbc24="" className="bet-content__box">
+          <div
+            data-v-61888f52=""
+            data-v-1d8fbc24=""
+            className="infiniteScroll"
+            id="refresh8ce27a635a33454cac941764efea769a"
+          >
+            <div data-v-1d8fbc24="" className="bet-container-items">
+              <div data-v-1d8fbc24="" className="bet-container-lottery">
+                <div data-v-1d8fbc24="" className="bet-container-lottery-items">
+                  <div data-v-1d8fbc24="" className="bet-container-lottery-card">
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-card-header ar-1px-b"
+                    >
+                      <div data-v-1d8fbc24="">
+                        <h2 data-v-1d8fbc24="">Win Go</h2>
+                        <span data-v-1d8fbc24="" className="colorE98613">Lose</span>
+                      </div>
+                      <p data-v-1d8fbc24="">2024-08-12 18:00:14</p>
+                    </div>
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-card-info"
+                    >
+                      <ul data-v-1d8fbc24="">
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Type</h2></span
+                          ><span data-v-1d8fbc24="">Win Go 30 second</span>
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Period</h2></span
+                          ><span data-v-1d8fbc24="">20240812302161</span>
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Order number</h2></span
+                          ><span data-v-1d8fbc24=""
+                            >WG2024081218001495850151c</span
+                          >
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Select</h2></span
+                          >
+                          <p data-v-1d8fbc24="">Red</p>
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Total bet</h2></span
+                          ><span data-v-1d8fbc24="">₹5.00</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <img
+                    data-v-1d8fbc24=""
+                    src="/assets/png/moonBar-f80ac733.png"
+                  />
+                  <div data-v-1d8fbc24="" className="bet-container-lottery-note">
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-note-result"
+                    >
+                      <div data-v-1d8fbc24="">
+                        <div data-v-1d8fbc24="">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-round">
+                            <use href="#icon-round"></use></svg
+                          >Lottery results
+                        </div>
+                        <h2 data-v-1d8fbc24="">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-round">
+                            <use href="#icon-round"></use>
+                          </svg>
+                          <p data-v-1d8fbc24="">1</p>
+                          <span data-v-1d8fbc24="" className="small">Small</span
+                          ><span data-v-1d8fbc24="" className="green">Green</span>
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-note-box"
+                    >
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h3 data-v-1d8fbc24="">₹4.90</h3>
+                          <span data-v-1d8fbc24="">Actual amount</span>
+                        </div>
+                      </div>
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h3 data-v-1d8fbc24="">₹0.00</h3>
+                          <span data-v-1d8fbc24="">Winnings</span>
+                        </div>
+                      </div>
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h3 data-v-1d8fbc24="">₹0.10</h3>
+                          <span data-v-1d8fbc24="">Handling fee</span>
+                        </div>
+                      </div>
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h4 data-v-1d8fbc24="" className="h4_red">-₹5.00</h4>
+                          <span data-v-1d8fbc24="">Profit/loss</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div data-v-1d8fbc24="" className="bet-container-lottery-items">
+                  <div data-v-1d8fbc24="" className="bet-container-lottery-card">
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-card-header ar-1px-b"
+                    >
+                      <div data-v-1d8fbc24="">
+                        <h2 data-v-1d8fbc24="">Win Go</h2>
+                        <span data-v-1d8fbc24="" className="colorE98613">Lose</span>
+                      </div>
+                      <p data-v-1d8fbc24="">2024-08-12 17:59:46</p>
+                    </div>
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-card-info"
+                    >
+                      <ul data-v-1d8fbc24="">
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Type</h2></span
+                          ><span data-v-1d8fbc24="">Win Go 30 second</span>
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Period</h2></span
+                          ><span data-v-1d8fbc24="">20240812302160</span>
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Order number</h2></span
+                          ><span data-v-1d8fbc24=""
+                            >WG2024081217594671730851d</span
+                          >
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Select</h2></span
+                          >
+                          <p data-v-1d8fbc24="">Green</p>
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Total bet</h2></span
+                          ><span data-v-1d8fbc24="">₹5.00</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <img
+                    data-v-1d8fbc24=""
+                    src="/assets/png/moonBar-f80ac733.png"
+                  />
+                  <div data-v-1d8fbc24="" className="bet-container-lottery-note">
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-note-result"
+                    >
+                      <div data-v-1d8fbc24="">
+                        <div data-v-1d8fbc24="">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-round">
+                            <use href="#icon-round"></use></svg
+                          >Lottery results
+                        </div>
+                        <h2 data-v-1d8fbc24="">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-round">
+                            <use href="#icon-round"></use>
+                          </svg>
+                          <p data-v-1d8fbc24="">2</p>
+                          <span data-v-1d8fbc24="" className="small">Small</span
+                          ><span data-v-1d8fbc24="" className="red">Red</span>
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-note-box"
+                    >
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h3 data-v-1d8fbc24="">₹4.90</h3>
+                          <span data-v-1d8fbc24="">Actual amount</span>
+                        </div>
+                      </div>
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h3 data-v-1d8fbc24="">₹0.00</h3>
+                          <span data-v-1d8fbc24="">Winnings</span>
+                        </div>
+                      </div>
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h3 data-v-1d8fbc24="">₹0.10</h3>
+                          <span data-v-1d8fbc24="">Handling fee</span>
+                        </div>
+                      </div>
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h4 data-v-1d8fbc24="" className="h4_red">-₹5.00</h4>
+                          <span data-v-1d8fbc24="">Profit/loss</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div data-v-1d8fbc24="" className="bet-container-lottery-items">
+                  <div data-v-1d8fbc24="" className="bet-container-lottery-card">
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-card-header ar-1px-b"
+                    >
+                      <div data-v-1d8fbc24="">
+                        <h2 data-v-1d8fbc24="">Win Go</h2>
+                        <span data-v-1d8fbc24="" className="color40C592">Win</span>
+                      </div>
+                      <p data-v-1d8fbc24="">2024-08-12 17:59:16</p>
+                    </div>
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-card-info"
+                    >
+                      <ul data-v-1d8fbc24="">
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Type</h2></span
+                          ><span data-v-1d8fbc24="">Win Go 30 second</span>
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Period</h2></span
+                          ><span data-v-1d8fbc24="">20240812302159</span>
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Order number</h2></span
+                          ><span data-v-1d8fbc24=""
+                            >WG2024081217591662948432f</span
+                          >
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Select</h2></span
+                          >
+                          <p data-v-1d8fbc24="">Green</p>
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Total bet</h2></span
+                          ><span data-v-1d8fbc24="">₹10.00</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <img
+                    data-v-1d8fbc24=""
+                    src="/assets/png/moonBar-f80ac733.png"
+                  />
+                  <div data-v-1d8fbc24="" className="bet-container-lottery-note">
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-note-result"
+                    >
+                      <div data-v-1d8fbc24="">
+                        <div data-v-1d8fbc24="">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-round">
+                            <use href="#icon-round"></use></svg
+                          >Lottery results
+                        </div>
+                        <h2 data-v-1d8fbc24="">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-round">
+                            <use href="#icon-round"></use>
+                          </svg>
+                          <p data-v-1d8fbc24="">3</p>
+                          <span data-v-1d8fbc24="" className="small">Small</span
+                          ><span data-v-1d8fbc24="" className="green">Green</span>
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-note-box"
+                    >
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h3 data-v-1d8fbc24="">₹9.80</h3>
+                          <span data-v-1d8fbc24="">Actual amount</span>
+                        </div>
+                      </div>
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h3 data-v-1d8fbc24="">₹19.60</h3>
+                          <span data-v-1d8fbc24="">Winnings</span>
+                        </div>
+                      </div>
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h3 data-v-1d8fbc24="">₹0.20</h3>
+                          <span data-v-1d8fbc24="">Handling fee</span>
+                        </div>
+                      </div>
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h4 data-v-1d8fbc24="" className="h4_green">₹9.60</h4>
+                          <span data-v-1d8fbc24="">Profit/loss</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div data-v-1d8fbc24="" className="bet-container-lottery-items">
+                  <div data-v-1d8fbc24="" className="bet-container-lottery-card">
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-card-header ar-1px-b"
+                    >
+                      <div data-v-1d8fbc24="">
+                        <h2 data-v-1d8fbc24="">Win Go</h2>
+                        <span data-v-1d8fbc24="" className="colorE98613">Lose</span>
+                      </div>
+                      <p data-v-1d8fbc24="">2024-08-12 17:58:43</p>
+                    </div>
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-card-info"
+                    >
+                      <ul data-v-1d8fbc24="">
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Type</h2></span
+                          ><span data-v-1d8fbc24="">Win Go 30 second</span>
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Period</h2></span
+                          ><span data-v-1d8fbc24="">20240812302158</span>
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Order number</h2></span
+                          ><span data-v-1d8fbc24=""
+                            >WG2024081217584331247700f</span
+                          >
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Select</h2></span
+                          >
+                          <p data-v-1d8fbc24="">Small</p>
+                        </li>
+                        <li data-v-1d8fbc24="">
+                          <span data-v-1d8fbc24=""
+                            ><svg
+                              data-v-1d8fbc24=""
+                              className="svg-icon icon-round"
+                            >
+                              <use href="#icon-round"></use>
+                            </svg>
+                            <h2 data-v-1d8fbc24="">Total bet</h2></span
+                          ><span data-v-1d8fbc24="">₹10.00</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <img
+                    data-v-1d8fbc24=""
+                    src="/assets/png/moonBar-f80ac733.png"
+                  />
+                  <div data-v-1d8fbc24="" className="bet-container-lottery-note">
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-note-result"
+                    >
+                      <div data-v-1d8fbc24="">
+                        <div data-v-1d8fbc24="">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-round">
+                            <use href="#icon-round"></use></svg
+                          >Lottery results
+                        </div>
+                        <h2 data-v-1d8fbc24="">
+                          <svg data-v-1d8fbc24="" className="svg-icon icon-round">
+                            <use href="#icon-round"></use>
+                          </svg>
+                          <p data-v-1d8fbc24="">5</p>
+                          <span data-v-1d8fbc24="" className="bigClass">Big</span
+                          ><span data-v-1d8fbc24="" className="green_violet"
+                            >Violet Green</span
+                          >
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      data-v-1d8fbc24=""
+                      className="bet-container-lottery-note-box"
+                    >
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h3 data-v-1d8fbc24="">₹9.80</h3>
+                          <span data-v-1d8fbc24="">Actual amount</span>
+                        </div>
+                      </div>
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h3 data-v-1d8fbc24="">₹0.00</h3>
+                          <span data-v-1d8fbc24="">Winnings</span>
+                        </div>
+                      </div>
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h3 data-v-1d8fbc24="">₹0.20</h3>
+                          <span data-v-1d8fbc24="">Handling fee</span>
+                        </div>
+                      </div>
+                      <div data-v-1d8fbc24="">
+                        <div
+                          data-v-1d8fbc24=""
+                          className="bet-container-lottery-note-box-para"
+                        >
+                          <h4 data-v-1d8fbc24="" className="h4_red">-₹10.00</h4>
+                          <span data-v-1d8fbc24="">Profit/loss</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div data-v-61888f52="" className="infiniteScroll__loading">
+              <div data-v-61888f52="">No more</div>
+            </div>
           </div>
         </div>
       </div>
-      <div
-        data-v-4a7709f3=""
-        data-v-214b87c9=""
-        className="activity-wrapper"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      >
-        <div data-v-4a7709f3="" className="activity-banner">
-          <div data-v-4a7709f3="">
-            <div data-v-4a7709f3="" className="banner-title">Activity</div>
-            <div data-v-4a7709f3="" className="banner-para">
-              Please remember to follow the event page
-            </div>
-            <div data-v-4a7709f3="" className="banner-para">
-              We will launch user feedback activities from time to time
-            </div>
-          </div>
-        </div>
-        <div data-v-4a7709f3="" className="activity-panel">
-          
-          <div data-v-4a7709f3="" className="activity-panel-header lg3">
-          <div data-v-4a7709f3="" className="header-item">
-  <div data-v-4a7709f3="" className="van-badge__wrapper">    
-      <div data-v-4a7709f3="" className="a4 bgcontainer" onClick={()=>navigate('/activity/DailyTasks')}></div>   
-  </div>
-
-  <span data-v-4a7709f3="" onClick={()=>navigate('/activity/DailyTasks')}>Activity Award</span>
-</div>
-
-            <div data-v-4a7709f3="" className="header-item">
-              <div data-v-4a7709f3="" className="van-badge__wrapper"onClick={()=>navigate('/main/InvitationBonus')}>             
-                <div data-v-4a7709f3="" className="a2 bgcontainer"></div>
-              </div>
-              <span data-v-4a7709f3=""onClick={()=>navigate('/main/InvitationBonus')}>Invitation bonus</span>
-            </div>
-            <div data-v-4a7709f3="" className="header-item">
-              <div data-v-4a7709f3="" className="van-badge__wrapper" onClick={()=>navigate('/main/Laundry')}>              
-                <div data-v-4a7709f3="" className="a3 bgcontainer"></div>
-              </div>
-              <span data-v-4a7709f3=""onClick={()=>navigate('/main/Laundry')}>Betting rebate</span>
-            </div>
-            <div data-v-4a7709f3="" className="header-item">
-              <div data-v-4a7709f3="" className="van-badge__wrapper" onClick={()=>navigate('/main/SuperJackpot')}>
-              <div data-v-4a7709f3="" className="a4 bgcontainer"></div>
-              </div>
-              <span data-v-4a7709f3=""onClick={()=>navigate('/main/SuperJackpot')}>Super Jackpot</span>
-            </div>
-            
-          </div>
-          <div data-v-4a7709f3="" className="activity-panel-content">
-          
-            <div data-v-4a7709f3="" className="content-title">
-           
-              <img
-                data-v-4a7709f3=""
-                className=""
-                data-origin="/assets/png/signInBanner-33f86d3f.png"
-                src="/assets/png/signInBanner-33f86d3f.png"
-              />
-            <a href="/main/RedeemGift">
-              <div data-v-4a7709f3="" className="content-para">Gifts</div>
-              
-              <p data-v-4a7709f3="">
-                Enter the redemption code to receive gift rewards
-              </p>
-              </a>
-            </div>
-            <div data-v-4a7709f3="" className="content-title">
-              
-              <img
-                data-v-4a7709f3=""
-                className=""
-                data-origin="/assets/png/giftRedeem-45917887.png"
-                src="/assets/png/giftRedeem-45917887.png"
-              />
-              <a href="/activity/DailySignIn">
-              <div data-v-4a7709f3="" className="content-para">
-                Attendance bonus
-              </div>
-              <p data-v-4a7709f3="">
-                The more consecutive days you sign in, the higher the reward
-                will be.
-              </p>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div data-v-4a7709f3="" role="feed" className="van-list" aria-busy="false">
-          <div data-v-4a7709f3="" className="activitySection__container">
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_202403021314318bw3.png"
-                className="act_0"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">
-                  New Member First Deposit Bonus
-                </div>
-              </div>
-            </div>
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_20240706170759bs74.png"
-                className="act_1"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">
-                  91CLUB Tips and Trick Avoid Scammer
-                </div>
-              </div>
-            </div>
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_2024020413014726oj.png"
-                className="act_2"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">
-                  91CLUB Official Channel
-                </div>
-              </div>
-            </div>
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_20240517135547cyn8.jpg"
-                className="act_3"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">Betting Rebate</div>
-              </div>
-            </div>
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_20240327152703xq8d.jpg"
-                className="act_4"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">Real-Time Rebate</div>
-              </div>
-            </div>
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_20240327152710ihgy.jpg"
-                className="act_5"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">Super Jackpot</div>
-              </div>
-            </div>
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_20240131164605jo9h.jpg"
-                className="act_6"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">
-                  Youtube Creative Video
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="van-list__finished-text">No more</div>
-          
-          <div className="van-list__placeholder"></div>
-        </div>
-        
-      </div>
-      <br
-        data-v-214b87c9=""
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      /><br
-        data-v-214b87c9=""
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      /><br
-        data-v-214b87c9=""
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      /><br
-        data-v-214b87c9=""
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      />
       <div
         className="customer"
         id="customerId"
-        style={{  
-          '--f13b4d11-currentFontFamily': " 'Roboto', 'Inter', sans-serif " ,
-          '--f6a705e1-currentFontFamily': "bahnschrift"
+        style={{
+          '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif",
+          '--f6a705e1CurrentFontFamily': 'bahnschrift'
         }}
       >
         <img
@@ -9727,42 +10520,15 @@ export default function Activity() {
           src="/assets/png/icon_sevice-9f0c8455.png"
         />
       </div>
-      <div data-v-6ab3f23e="" className="tabbar__container"
-            style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
-            <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-home" onClick={()=> navigate('/index')}>
-                    <use href="#icon-home"></use>
-                </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-activity" onClick={()=> navigate('/index')}><use href="#icon-activity"></use>
-                   
-                </svg>
-                <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
-                    <use href="#icon-promotion"></use>
-                </svg>
-                <div data-v-6ab3f23e="" className="promotionBg"></div>
-                <span data-v-6ab3f23e="" onClick={()=> navigate('/promotion')}>
-                    Promotion</span>
-            </div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
-            <use href="#icon-wallet" onClick={()=> navigate('/wallet')}></use>
-                </svg><span data-v-6ab3f23e=""  onClick={()=> navigate('/wallet')}>Wallet</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-main"  onClick={()=> navigate('/account')}>
-            <use href="#icon-main"></use>
-                </svg><span data-v-6ab3f23e="" onClick={()=> navigate('/account')}>Account</span></div>
-        </div>
-      
     </div>
 
     <div data-v-app=""></div>
-    <div className="van-overlay" style={{zIndex: 2001, display: 'none'}}></div>
+    <div className="van-overlay" style={{zIndex: '2005' ,display: 'none'}}></div>
     <div
       role="dialog"
       tabIndex="0"
       className="van-popup van-popup--center van-toast van-toast--middle van-toast--loading"
-      style={{zIndex: 2001, display: 'none'}}
+      style={{zIndex: '2005' ,display: 'none'}}
     >
       <div
         className="van-loading van-loading--circular van-toast__loading"
@@ -9774,9 +10540,7 @@ export default function Activity() {
             <circle cx="50" cy="50" r="20" fill="none"></circle></svg></span
         >
       </div>
-      
     </div>
-  
     </div>
   )
 }
