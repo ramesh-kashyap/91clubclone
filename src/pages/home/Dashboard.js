@@ -4694,7 +4694,7 @@ export default function Dashboard() {
       <Swiper
         modules={[Navigation, Autoplay]}
         spaceBetween={20}
-        slidesPerView={1.2}
+        slidesPerView={1}
         centeredSlides={true}
         loop={true}
         autoplay={{
