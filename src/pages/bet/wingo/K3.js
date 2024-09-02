@@ -5,6 +5,10 @@ export default function K3(){
 
     const [activeHistory, setActiveHistory] =useState('history1');
 
+    const showHistory =(historyID) =>{
+      setActiveHistory(historyID);
+    };
+
 const showSection = (sectionId) => {
     setActiveSection(sectionId);
   };
@@ -9788,9 +9792,9 @@ const showSection = (sectionId) => {
 
         </div>
         <div data-v-72f81e71="" data-v-d024c659="" className="RecordNav__C">
-          <div data-v-72f81e71="" className="active">Game history</div>
-          <div data-v-72f81e71="" className="">Chart</div>
-          <div data-v-72f81e71="" className="">My history</div>
+          <div data-v-72f81e71="" className={`${activeHistory === 'history1' ? 'active' : ''}`} onClick={()=>showHistory('history1')}>Game history</div>
+          <div data-v-72f81e71="" className={`${activeHistory === 'history2' ? 'active':''}`} onClick={()=>showHistory('history2')}>Chart</div>
+          <div data-v-72f81e71="" className={`${activeHistory === 'history3' ? 'active':''}`} onClick={()=>showHistory('history3')}>My history</div>
         </div>
         <div
           data-v-4e09079f=""
@@ -9799,7 +9803,7 @@ const showSection = (sectionId) => {
           apifun="e=>_(f.WinTxrGetTRXMyEmerdList,e).then(t=>t.data)"
           listapi="e=>_(f.GetK3NoaverageEmerdList,e).then(t=>t.data)"
           emerdapi="e=>_(f.WinTxrGetEmerdList,e).then(t=>t.data)"
-          gopathname="AllLotteryGames-BettingRecordK3"
+          gopathname="AllLotteryGames-BettingRecordK3"   id="history1" style={{ display: activeHistory === 'history1' ? 'block' : 'none' }}
         >
           <div data-v-4e09079f="" className="GameRecord__C-head">
             <div data-v-4e09079f="" className="van-row">
@@ -10021,7 +10025,25 @@ const showSection = (sectionId) => {
               </div>
             </div>
           </div>
-          
+          <div data-v-4159c83a="" className="Trend__C-foot">
+          <div data-v-4159c83a="" className="Trend__C-foot-previous disabled">
+            <i
+              data-v-4159c83a=""
+              className="van-badge__wrapper van-icon van-icon-arrow-left Trend__C-icon"
+              style={{fontSize: '20px'}}
+              ></i
+            >
+          </div>
+          <div data-v-4159c83a="" className="Trend__C-foot-page">1/1659</div>
+          <div data-v-4159c83a="" className="Trend__C-foot-next">
+            <i
+              data-v-4159c83a=""
+              className="van-badge__wrapper van-icon van-icon-arrow Trend__C-icon"
+              style={{fontSize: '20px'}}
+              ></i
+            >
+          </div>
+        </div>
         </div>
         <div data-v-3e71d3da="" data-v-d024c659="" className="dialog inactive" style={{display: 'none'}}>
           <div
@@ -10060,21 +10082,19 @@ const showSection = (sectionId) => {
         apifun="e=>_(f.WinTxrGetTRXMyEmerdList,e).then(t=>t.data)"
         listapi="e=>_(f.GetK3NoaverageEmerdList,e).then(t=>t.data)"
         emerdapi="e=>_(f.WinTxrGetEmerdList,e).then(t=>t.data)"
-        gopathname="AllLotteryGames-BettingRecordK3"
+        gopathname="AllLotteryGames-BettingRecordK3" id="history2" style={{ display: activeHistory === 'history2' ? 'block' : 'none' }}
       >
 
 
-      <div data-v-5f002ad4="" className="Betting__Popup-body" style={{display: 'none'}}><div data-v-5f002ad4="" className="Betting__Popup-type1"><p data-v-5f002ad4="" className="title">Total:</p><div data-v-5f002ad4="" className="list"><div data-v-5f002ad4="" className="red num3">3</div></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line">Balance <div data-v-5f002ad4="" className="Betting__Popup-body-line-list"></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line">Quantity <div data-v-5f002ad4="" className="Betting__Popup-body-line-btnL"><div data-v-5f002ad4="" className="Betting__Popup-btn bgcolor">-</div><div data-v-5f002ad4="" className="van-cell van-field Betting__Popup-input"><div className="van-cell__value van-field__value"><div className="van-field__body"><input type="tel" inputmode="numeric" id="van-field-6-input" className="van-field__control"/></div></div></div><div data-v-5f002ad4="" className="Betting__Popup-btn bgcolor">+</div></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line"><div data-v-5f002ad4=""></div><div data-v-5f002ad4="" className="Betting__Popup-body-line-list"><div data-v-5f002ad4="" className="Betting__Popup-body-line-item bgcolor"> X1</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X5</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X10</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X20</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X50</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X100</div></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line"><span data-v-5f002ad4="" className="Betting__Popup-agree active">I agree</span><span data-v-5f002ad4="" className="Betting__Popup-preSaleShow">《Pre-sale rules》</span></div></div>
-
-
-        <div data-v-4159c83a="" className="Trend__C-head"style={{display: 'none'}}>
+      
+        <div data-v-4159c83a="" className="Trend__C-head">
           <div data-v-4159c83a="" className="van-row">
             <div data-v-4159c83a="" className="van-col van-col--8">Period</div>
             <div data-v-4159c83a="" className="van-col van-col--6">Results</div>
             <div data-v-4159c83a="" className="van-col van-col--10">Number</div>
           </div>
         </div>
-        <div data-v-4159c83a="" className="Trend__C-body"style={{display: 'none'}}>
+        <div data-v-4159c83a="" className="Trend__C-body">
           <div data-v-4159c83a="" className="van-row">
             <div data-v-4159c83a="" className="van-col van-col--8">
               20240824090742
@@ -10246,7 +10266,7 @@ const showSection = (sectionId) => {
             </div>
           </div>
         </div>
-        <div data-v-4159c83a="" className="Trend__C-foot" style={{display: 'none'}}>
+        <div data-v-4159c83a="" className="Trend__C-foot">
           <div data-v-4159c83a="" className="Trend__C-foot-previous disabled">
             <i
               data-v-4159c83a=""
@@ -10266,11 +10286,7 @@ const showSection = (sectionId) => {
           </div>
         </div>
       </div>
-
-
-
-      
-
+       
       <div
       data-v-cffd8c9f=""
       data-v-d024c659=""
@@ -10278,7 +10294,7 @@ const showSection = (sectionId) => {
       apifun="e=>_(f.WinTxrGetTRXMyEmerdList,e).then(t=>t.data)"
       listapi="e=>_(f.GetK3NoaverageEmerdList,e).then(t=>t.data)"
       emerdapi="e=>_(f.WinTxrGetEmerdList,e).then(t=>t.data)"
-      style={{display: 'none'}}>
+      id="history3" style={{ display: activeHistory === 'history3' ? 'block' : 'none' }}>
       <div data-v-cffd8c9f="" className="MyGameRecord__C-head">
         <div data-v-cffd8c9f="" className="MyGameRecord__C-head-moreB">
           Detail
@@ -10301,30 +10317,35 @@ const showSection = (sectionId) => {
           </div>
         </div>
       </div>
+      <div data-v-4159c83a="" className="Trend__C-foot">
+          <div data-v-4159c83a="" className="Trend__C-foot-previous disabled">
+            <i
+              data-v-4159c83a=""
+              className="van-badge__wrapper van-icon van-icon-arrow-left Trend__C-icon"
+              style={{fontSize: '20px'}}
+              ></i
+            >
+          </div>
+          <div data-v-4159c83a="" className="Trend__C-foot-page">1/1659</div>
+          <div data-v-4159c83a="" className="Trend__C-foot-next">
+            <i
+              data-v-4159c83a=""
+              className="van-badge__wrapper van-icon van-icon-arrow Trend__C-icon"
+              style={{fontSize: '20px'}}
+              ></i
+            >
+          </div>
+        </div>
       
     </div>
-<div data-v-4e09079f="" className="GameRecord__C-foot" >
-            <div
-              data-v-4e09079f=""
-              className="GameRecord__C-foot-previous disabled"
-            >
-              <i
-                data-v-4e09079f=""
-                className="van-badge__wrapper van-icon van-icon-arrow-left GameRecord__C-icon"
-                style={{fontSize: '20px'}}
-                ></i
-              >
-            </div>
-            <div data-v-4e09079f="" className="GameRecord__C-foot-page">1/1663</div>
-            <div data-v-4e09079f="" className="GameRecord__C-foot-next">
-              <i
-                data-v-4e09079f=""
-                className="van-badge__wrapper van-icon van-icon-arrow GameRecord__C-icon"
-                style={{fontSize: '20px'}}
-                ></i
-              >
-            </div>
-          </div>
+
+      <div data-v-5f002ad4="" className="Betting__Popup-body" style={{display: 'none'}}><div data-v-5f002ad4="" className="Betting__Popup-type1"><p data-v-5f002ad4="" className="title">Total:</p><div data-v-5f002ad4="" className="list"><div data-v-5f002ad4="" className="red num3">3</div></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line">Balance <div data-v-5f002ad4="" className="Betting__Popup-body-line-list"></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line">Quantity <div data-v-5f002ad4="" className="Betting__Popup-body-line-btnL"><div data-v-5f002ad4="" className="Betting__Popup-btn bgcolor">-</div><div data-v-5f002ad4="" className="van-cell van-field Betting__Popup-input"><div className="van-cell__value van-field__value"><div className="van-field__body"><input type="tel" inputmode="numeric" id="van-field-6-input" className="van-field__control"/></div></div></div><div data-v-5f002ad4="" className="Betting__Popup-btn bgcolor">+</div></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line"><div data-v-5f002ad4=""></div><div data-v-5f002ad4="" className="Betting__Popup-body-line-list"><div data-v-5f002ad4="" className="Betting__Popup-body-line-item bgcolor"> X1</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X5</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X10</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X20</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X50</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X100</div></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line"><span data-v-5f002ad4="" className="Betting__Popup-agree active">I agree</span><span data-v-5f002ad4="" className="Betting__Popup-preSaleShow">《Pre-sale rules》</span></div></div>
+
+
+      
+
+      
+
 
         <div
           data-v-2d418cc5=""
