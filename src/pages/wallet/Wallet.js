@@ -9665,7 +9665,7 @@ export default function Promotion(){
                     src="/assets/png/rechargeHistory-b5a853c0.png"
                   />
                 </div>
-                <a href="/wallet/deposithistory.html"> <span data-v-0dabd3fc="">Deposit history</span></a>
+               <span data-v-0dabd3fc="">Deposit history</span>
               </div>
               <div data-v-0dabd3fc="">
                 <div data-v-0dabd3fc="" className="imgD">
@@ -9674,7 +9674,7 @@ export default function Promotion(){
                     src="/assets/png/withdrawHistory-fb2bafcf.png"
                   />
                 </div>
-                <a href="/wallet/withdrahistory.html"><span data-v-0dabd3fc="">Withdrawal history</span></a>
+               <span data-v-0dabd3fc="">Withdrawal history</span>
               </div>
             </div>
           </div>
