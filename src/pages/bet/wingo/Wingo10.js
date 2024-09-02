@@ -6,6 +6,8 @@ import GameList from './components/GameList';
 import ReactHowler from 'react-howler';
 import ChartList from './components/ChartList';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -58,7 +60,7 @@ export default function Wingo10() {
     const [period, setPeriod] = useState(null);
     const [time, setTime] = useState({
       minute: 0,
-      seconds1: 0,
+      seconds1: 0, 
       seconds2: 0,
     });
     const [showMark, setShowMark] = useState(false);
@@ -181,36 +183,56 @@ export default function Wingo10() {
         return false;
       }
     };
+
+    useEffect(() => {
+      if (error) {
+          toast.error(error); // Show the error in a toast notification
+      }
+  }, [error]);
     
     const [playAudio2, setPlayAudio2] = useState(false);
     const audio1Ref = useRef(null);
     const [audio2Played, setAudio2Played] = useState(false);
+    const [userInteracted, setUserInteracted] = useState(false); // Track user interaction
   
     useEffect(() => {
       const audio1 = new Audio('/assets/audio/di1.da40b233.mp3');
       audio1.loop = false; // Ensure audio1 does not loop
+      audio1Ref.current = audio1;
   
       let intervalId;
   
+      const handleUserInteraction = () => {
+        setUserInteracted(true);
+        // Remove the event listener after interaction
+        document.removeEventListener('click', handleUserInteraction);
+        document.removeEventListener('touchstart', handleUserInteraction);
+      };
+  
+      // Add event listeners to detect any user interaction
+      document.addEventListener('click', handleUserInteraction);
+      document.addEventListener('touchstart', handleUserInteraction);
+  
       const startCountdown = () => {
         intervalId = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const minute = Math.ceil(minutes % 10);
-            const seconds1 = Math.floor((distance % (1000 * 60)) / 10000);
-            const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
-          setTime({ minute,seconds1, seconds2 });
+          const now = new Date().getTime();
+          const distance = countDownDate - now;
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const minute = Math.ceil(minutes % 10);
+          const seconds1 = Math.floor((distance % (1000 * 60)) / 10000);
+          const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
+          setTime({ minute, seconds1, seconds2 });
   
-  
-          if (minute === 0 && seconds1 === 0 && seconds2 > 0 && seconds2 <= 5) {
-            if (audio1Ref.current && audio1Ref.current.paused) {
-              audio1Ref.current.play();
-            }
-          } else {
-            if (audio1Ref.current) {
-              audio1Ref.current.pause();
-              audio1Ref.current.currentTime = 0;
+          if (userInteracted) { // Only play audio if the user has interacted
+            if (minute === 0 && seconds1 === 0 && seconds2 > 0 && seconds2 <= 5) {
+              if (audio1Ref.current && audio1Ref.current.paused) {
+                audio1Ref.current.play();
+              }
+            } else {
+              if (audio1Ref.current) {
+                audio1Ref.current.pause();
+                audio1Ref.current.currentTime = 0;
+              }
             }
           }
   
@@ -223,10 +245,10 @@ export default function Wingo10() {
             }, 3000); // Adjust this duration based on the length of audio2
           }
   
-          if (minute === 0 && seconds1 !== 0 || seconds2 > 5) {
+          if (minute === 0 && (seconds1 !== 0 || seconds2 > 5)) {
             setShowMark(false);
-
-            if (audio1Ref.current) {
+  
+            if (userInteracted && audio1Ref.current) { // Only pause audio if user interacted
               audio1Ref.current.pause();
               audio1Ref.current.currentTime = 0;
             }
@@ -249,7 +271,7 @@ export default function Wingo10() {
           audio1Ref.current.currentTime = 0;
         }
       };
-    }, [audio2Played]);
+    }, [audio2Played, userInteracted]);
 
     const fetchGamelist = async (pageNumber = 1) => {
       try {
@@ -297,6 +319,22 @@ export default function Wingo10() {
       } 
     };
 
+    const fetchWingo = async () => {
+      try {
+        const response = await Api.get('/api/webapi/Wingo10');
+        const data = response.data;
+  
+        console.log('period:', data.data.data[0]);
+  
+        
+        setPeriod(data.data.data[0]?data.data.data[0].period : []); // Update state with the fetched data
+  
+      } catch (err) {
+        console.error('An error occurred:', err);
+        setError('An error occurred. Please try again.');
+      }
+    };
+
     const fetchMyBets = async (pageNumber = 1) => {
       try {
         const pageno = (pageNumber - 1) * 10; // Calculate pageno based on the page number
@@ -328,6 +366,7 @@ export default function Wingo10() {
     
     // Fetch the first page when the component mounts
     useEffect(() => {
+      fetchWingo();
       fetchMyBets(1);
       fetchGamelist(1);
     }, []);
@@ -465,6 +504,8 @@ export default function Wingo10() {
 
     return (
 <div className="" style={{fontSize: '12px'}}>
+<ToastContainer />
+
 <svg
   xmlns="http://www.w3.org/2000/svg"
   style={{position: 'absolute', width: '0', height: '0'}}
@@ -9956,7 +9997,7 @@ export default function Wingo10() {
           <div data-v-12a80a3e="" className="navbar__content-left">
             <i
               data-v-12a80a3e=""
-              className="van-badge__wrapper van-icon van-icon-arrow-left">
+              className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=> navigate('/index')}>
                 </i>
           </div>
           <div data-v-12a80a3e="" className="navbar__content-center">
