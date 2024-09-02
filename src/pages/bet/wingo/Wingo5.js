@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SOCKET_URL = 'http://localhost:3000';
 
+
 const socket = io(SOCKET_URL, {
   transports: ['websocket', 'polling'],
   reconnection: true,
@@ -185,32 +186,46 @@ export default function Wingo5() {
     const [playAudio2, setPlayAudio2] = useState(false);
     const audio1Ref = useRef(null);
     const [audio2Played, setAudio2Played] = useState(false);
+    const [userInteracted, setUserInteracted] = useState(false); // Track user interaction
   
     useEffect(() => {
       const audio1 = new Audio('/assets/audio/di1.da40b233.mp3');
       audio1.loop = false; // Ensure audio1 does not loop
+      audio1Ref.current = audio1;
   
       let intervalId;
   
+      const handleUserInteraction = () => {
+        setUserInteracted(true);
+        // Remove the event listener after interaction
+        document.removeEventListener('click', handleUserInteraction);
+        document.removeEventListener('touchstart', handleUserInteraction);
+      };
+  
+      // Add event listeners to detect any user interaction
+      document.addEventListener('click', handleUserInteraction);
+      document.addEventListener('touchstart', handleUserInteraction);
+  
       const startCountdown = () => {
         intervalId = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const minute = Math.ceil(minutes % 5);
-            const seconds1 = Math.floor((distance % (1000 * 60)) / 10000);
-            const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
-          setTime({ minute,seconds1, seconds2 });
+          const now = new Date().getTime();
+          const distance = countDownDate - now;
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const minute = Math.ceil(minutes % 5);
+          const seconds1 = Math.floor((distance % (1000 * 60)) / 10000);
+          const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
+          setTime({ minute, seconds1, seconds2 });
   
-  
-          if (minute === 0 && seconds1 === 0 && seconds2 > 0 && seconds2 <= 5) {
-            if (audio1Ref.current && audio1Ref.current.paused) {
-              audio1Ref.current.play();
-            }
-          } else {
-            if (audio1Ref.current) {
-              audio1Ref.current.pause();
-              audio1Ref.current.currentTime = 0;
+          if (userInteracted) { // Only play audio if the user has interacted
+            if (minute === 0 && seconds1 === 0 && seconds2 > 0 && seconds2 <= 5) {
+              if (audio1Ref.current && audio1Ref.current.paused) {
+                audio1Ref.current.play();
+              }
+            } else {
+              if (audio1Ref.current) {
+                audio1Ref.current.pause();
+                audio1Ref.current.currentTime = 0;
+              }
             }
           }
   
@@ -225,8 +240,8 @@ export default function Wingo5() {
   
           if (minute === 0 && seconds1 !== 0 || seconds2 > 5) {
             setShowMark(false);
-
-            if (audio1Ref.current) {
+  
+            if (userInteracted && audio1Ref.current) { // Only pause audio if user interacted
               audio1Ref.current.pause();
               audio1Ref.current.currentTime = 0;
             }
@@ -249,7 +264,7 @@ export default function Wingo5() {
           audio1Ref.current.currentTime = 0;
         }
       };
-    }, [audio2Played]);
+    }, [audio2Played, userInteracted]);
 
     const fetchGamelist = async (pageNumber = 1) => {
       try {
