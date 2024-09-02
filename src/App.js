@@ -45,7 +45,6 @@ import D5 from  './pages/bet/5d/D5';
 
 import AddUSDT from './pages/wallet/AddUSDT';
 import TransAction from './pages/wallet/TransAction';
-import DepositHistory from './pages/wallet/DepositHistory';
 
 
 
@@ -119,19 +118,8 @@ function App() {
         <Route path="/activity/FirstRecharge" element={<PrivateRoute><FirstRecharge/></PrivateRoute>}/>
         <Route path="/promotion/RebateRatio" element={<PrivateRoute><RebateRatio/></PrivateRoute>}/>
         <Route path="/promotion/Server" element={<PrivateRoute><Server/></PrivateRoute>}/>
-        <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
-        <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
-        <Route path="/deposit/ConfirmDeposit" element={<PrivateRoute><ConfirmDeposit/></PrivateRoute>}/>
-        <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
-        <Route path="home/AllLotteryGames/5D" element={<PrivateRoute><D5/></PrivateRoute>}/>
-        <Route path="main/SettingCenters" element={<PrivateRoute><SettingCenters/></PrivateRoute>}/>
-
-
-
-
-
-
-
+        <Route path="/wallet/Withdraw/AddUSDT" element={<PrivateRoute><AddUSDT/></PrivateRoute>}/>
+        <Route path="/wallet/TransAction" element={<PrivateRoute><TransAction/></PrivateRoute>}/>
 
 
 
