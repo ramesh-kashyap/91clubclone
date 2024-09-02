@@ -1,66 +1,460 @@
-import React, { useEffect, useState } from 'react';
-import Api from '../../../services/Api';
-import Loader from '../../../components/Loader';
+import { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import { io } from 'socket.io-client';
+import Api from '../../../services/Api';
+import MyGameRecordList from './components/MyGameRecordList';
+import GameList from './components/GameList';
+import ReactHowler from 'react-howler';
+import ChartList from './components/ChartList';
 
-const SOCKET_URL = 'http://localhost:3000'; // Ensure this matches your server URL
 
-export const socket = io(SOCKET_URL, {
-  transports: ['websocket'], // Ensures WebSocket transport is used
+const SOCKET_URL = 'https://bigdadypro.com/';
+
+
+
+const socket = io(SOCKET_URL, {
+  transports: ['websocket', 'polling'],
   reconnection: true,
   reconnectionAttempts: Infinity,
   timeout: 10000,
-  secure: false,
-  extraHeaders: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-  }
 });
 
-export default function Wingo(){
+
+const countDownDate = new Date("2030-07-16T23:59:59.9999999+01:00").getTime();
+
+const getPopupClass = (item) => {
+  switch (item) {
+    case '0': return 0;
+    case '1': return 1;
+    case '2': return 2;
+    case '3': return 3;
+    case '4': return 4;
+    case '5': return 5;
+    case '6': return 6;
+    case '7': return 7;
+    case '8': return 8;
+    case '9': return 9;
+    case 'Red': return 10;
+    case 'Violet': return 12;
+    case 'Green': return 11;
+    case 'Big': return 13;
+    case 'Small': return 14;
+    default: return 1; // Default class if nothing is selected
+  }
+};
+
+
+export default function Wingo() {
+
+
+  const [userInfo, setUserInfo] = useState(null);
     const [activeSection, setActiveSection] = useState('section1');
-    const [totalMoney, setTotalMoney] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
+      const [error, setError] = useState(null);
+    const [gamelist, setGamelist] = useState([]);
+    const [myBets,setMyBets] = useState(null);
+    const [last5Periods, setLast5Periods] = useState([]);
     const [period, setPeriod] = useState(null);
+    const [lastperiod, setLastPeriod] = useState(null);
 
+    const [time, setTime] = useState({
+      seconds1: 0,
+      seconds2: 0,
+    });
+    const [showMark, setShowMark] = useState(false);
+    const [isPopupVisible, setPopupVisible] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(''); // To track the selected item
+  const [balance, setBalance] = useState(1);  // State for balance
+  const [quantity, setQuantity] = useState(1);  // State for quantity
+  const [lastBet, setLastBet] = useState([]);  // State for quantity
+ 
+    const [join, setJoin] = useState(null);
+    const [totalGamePages, setTotalGamePages] = useState(null);
+    const [totalBetsPages, setTotalBetsPages] = useState(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [currentGamePage, setCurrentGamePage] = useState(1);
+    const [isVisible, setIsVisible] = useState(false);
+
+    const toggleVisibility = () => {
+      setIsVisible(!isVisible);
+    };
+
+    const navigate = useNavigate();
+
+    const handleNextPage = () => {
+      if (currentPage < totalBetsPages) {
+        setCurrentPage(prevPage => prevPage + 1);
+        fetchMyBets(currentPage + 1);
+      }
+    };
+    
+    const handlePreviousPage = () => {
+      if (currentPage > 1) {
+        setCurrentPage(prevPage => prevPage - 1);
+        fetchMyBets(currentPage - 1);
+      }
+    };
+
+    const handleNextGamePage = () => {
+      if (currentGamePage < totalGamePages) {
+        setCurrentGamePage(prevPage => {
+          const nextPage = prevPage + 1;
+          fetchGamelist(nextPage); // Pass the next page number to fetchGamelist
+          return nextPage;
+        });
+      }
+    };
+    
+    const handlePreviousGamePage = () => {
+      if (currentGamePage > 1) {
+        setCurrentGamePage(prevPage => {
+          const previousPage = prevPage - 1;
+          fetchGamelist(previousPage); // Pass the previous page number to fetchGamelist
+          return previousPage;
+        });
+      }
+    };
+    
+    
+
+
+  const handleOpenPopup = (item) => {
+    setSelectedItem(item);
+ 
+  if (item === 'Big') {
+      setJoin('l');
+    } else if (item === 'Small') {
+      setJoin('n');
+    } else if (item === 'Violet') {
+      setJoin('t');
+    } else if (item === 'Red') {
+      setJoin('d');
+    } else if (item === 'Green') {
+      setJoin('x');
+    } else if (!isNaN(item)) {
+      setJoin(item);
+    } 
+
+    setPopupVisible(true);
+  };
+
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+    setSelectedItem(''); // Reset the selected item when closing the popup
+    setBalance(1);  // Reset balance
+    setQuantity(1);  // Reset quantity
+  };
+
+
+    const getClassName = (amount) => {
+      return `n${amount}`; // Construct class name based on amount
+    };
+
+    const handleSelectBalance = (value) => {
+      setBalance(value);
+    };
   
-    useEffect(() => {
-      console.log("Connecting to socket...");
+    const handleSelectQuantity = (value) => {
+      setQuantity(value);
+    };
+  
+    const handleQuantityChange = (e) => {
+      setQuantity(e.target.value);
+    };
+
+    const checkPeriodAndStage = async (period) => {
+      try {
+        const response = await Api.post('/api/webapi/checkPeriodAndStage', { period });
+        console.log("hi");
+
+        console.log(response.data.status);
+        if (response.data.status == true) {
+          // Handle success case
+          // console.log(response.data);
+          return true;
+        } else {
+          // console.error('API response was not successful:', response.data.status);
+          return false;
+        }
+      } catch (error) {
+        console.error('An error occurred during the API request:', error);
+        return false;
+      }
+    };
     
-      // Assuming you initialize the socket connection somewhere
-      socket.on('connection', () => {
-        console.log("Connected to socket server.");
-      });
-    
-      // Listen for 'data-server' messages
-      socket.on('data-server', (msg) => {
-        console.log("hello");
-        if (msg.data[0].game !== 'wingo') return;
+    const [playAudio2, setPlayAudio2] = useState(false);
+  const audio1Ref = useRef(null);
+  const [audio2Played, setAudio2Played] = useState(false);
+  const [userInteracted, setUserInteracted] = useState(false); // New state to track user interaction
+
+  useEffect(() => {
+    const audio1 = new Audio('/assets/audio/di1.da40b233.mp3');
+    audio1.loop = false; // Ensure audio1 does not loop
+    audio1Ref.current = audio1; // Assign the audio to ref
+
+    let intervalId;
+
+    const handleUserInteraction = () => {
+      setUserInteracted(true);
+      // Remove the event listener after interaction
+      document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener('touchstart', handleUserInteraction);
+    };
+
+    // Add event listeners to detect any user interaction
+    document.addEventListener('click', handleUserInteraction);
+    document.addEventListener('touchstart', handleUserInteraction);
+
+    const startCountdown = () => {
+      intervalId = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+        const seconds1 = Math.floor((distance % (1000 * 60)) / 10000);
+        const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
+        setTime({ seconds1, seconds2 });
+
+        if (userInteracted) { // Play audio only if the user has interacted
+          if (seconds1 === 0 && seconds2 > 0 && seconds2 <= 5) {
+            if (audio1Ref.current && audio1Ref.current.paused) {
+              audio1Ref.current.play();
+            }
+          } else {
+            if (audio1Ref.current) {
+              audio1Ref.current.pause();
+              audio1Ref.current.currentTime = 0;
+            }
+          }
+        }
+
+        if (seconds1 === 0 && seconds2 === 0) {
+          console.log('Playing audio2');
+          setPlayAudio2(true);
+          setAudio2Played(true);
+          setTimeout(() => {
+            setPlayAudio2(false); // Stop audio2 after it has finished playing
+          }, 3000); // Adjust this duration based on the length of audio2
+        }
+
+        if (seconds1 !== 0 || seconds2 > 5) {
+          setShowMark(false);
+
+          if (userInteracted && audio1Ref.current) { // Only pause audio if user interacted
+            audio1Ref.current.pause();
+            audio1Ref.current.currentTime = 0;
+          }
+        }
+
+        if (seconds1 === 0 && seconds2 <= 5) {
+          handleClosePopup();
+          setShowMark(true);
+        }
+
+      }, 1000); // Check every second
+    };
+
+    startCountdown();
+
+    return () => {
+      clearInterval(intervalId); // Clean up on component unmount
+      if (audio1Ref.current) {
+        audio1Ref.current.pause();
+        audio1Ref.current.currentTime = 0;
+      }
+    };
+  }, [audio2Played, userInteracted]);
+
+    const fetchGamelist = async (pageNumber = 1) => {
+      try {
+        const pageno = (pageNumber - 1) * 10; // Calculate pageno based on the page number
+
+        const response = await Api.post('/api/webapi/GetNoaverageEmerdList', {
+          typeid: "1",
+          pageno: pageno.toString(),
+          pageto: "10",
+          language: "vi",
+        });
+  
+        const { gameslist } = response.data?response.data.data:[];
+        console.log(response.data.page);
+  
+        // Update gamelist state
+        setGamelist(gameslist);
+        setTotalGamePages(response.data.page);
+  
+        // Compute last5Periods
+        const last5 = gameslist.slice(0, 5).map(item => item.amount);
+        setLast5Periods(last5);
         
-        setTimeout(() => {
-          const data1 = msg.data[0]; // Get the latest game data
-          console.log(msg.data[0]);
-          const data2 = []; // Initialize array for old data
-          data2.push(msg.data[1]); // Add old data
-          setPeriod(data1.period);
+      } catch (err) {
+        console.error('An error occurred:', err);
+        setError('An error occurred. Please try again.');
+      }
+    };
+
+    const fetchUserInfo = async () => {
+      try {
+        const response = await Api.get('/api/webapi/GetUserInfo');
+        const data =  response.data;
+
+        console.log(data);
+
+        setUserInfo(data.data); // Assuming data.data contains the user's information
 
 
+      } catch (err) {
+        console.error('An error occurred:', err);
+        setError('An error occurred. Please try again.');
+      } 
+    };
 
-
-
-        }, 1000);
-      });
+    const fetchMyBets = async (pageNumber = 1) => {
+      try {
+        const pageno = (pageNumber - 1) * 10; // Calculate pageno based on the page number
+        const response = await Api.post('/api/webapi/GetMyEmerdList', {
+          typeid: "1",
+          pageno: pageno.toString(),
+          pageto: "10",
+          language: "vi",
+        });
     
-      // Clean up the socket connection when the component unmounts
-      return () => {
-        socket.disconnect();
-      };
+        const { gameslist } = response.data.data;
+
+        console.log(response.data.data);
+        
+    
+        // Set total pages based on the total number of records and page size
+        const totalRecords = response.data.page; // Assuming the API returns total records
+    
+        setTotalBetsPages(totalRecords);
+        setMyBets(gameslist);
+        console.log(gameslist[0]);
+        setLastBet(gameslist[0]);
+      } catch (err) {
+        console.error('An error occurred:', err);
+        setError('An error occurred. Please try again.');
+      }
+    };
+    
+    
+    // Fetch the first page when the component mounts
+    useEffect(() => {
+      console.log(SOCKET_URL);
+      
+      fetchMyBets(1);
+      fetchGamelist(1);
     }, []);
     
+
+    
+
+
+    useEffect(() => {
+      
+      fetchMyBets();
+      fetchGamelist();
+      fetchUserInfo();
+
+      const handleSocketData = async (msg) => {
+        console.log("Received message from server:", msg);
+        if (msg.data[0].game !== 'wingo') return;
+  
+        const data1 = msg.data[0];
+        const data2 = [msg.data[1]];
+  
+        setPeriod(data1.period);
+        setLastPeriod(data2.period);
+        // Handle other state updates here
+  
+        const isCheckSuccessful = await checkPeriodAndStage(data2.period);
+        if (isCheckSuccessful) {
+          fetchMyBets();
+          setIsVisible(true);
+
+        }
+
+        fetchUserInfo();
+
+        fetchGamelist();
+
+      };
+  
+
+        console.log("Connecting to socket...");
+
+        socket.on('connect', () => {
+          console.log('WebSocket Connection Established');
+      });
+      
+      socket.on('disconnect', (reason) => {
+          console.log('WebSocket Connection Closed:', reason);
+          if (reason === 'io client disconnect') {
+              // Handle client disconnect, maybe attempt a reconnect
+              socket.connect();  // Example of reconnecting
+          }
+      });
+      
+      socket.on('connect_error', (error) => {
+          console.error('WebSocket Connection Error:', error);
+      });
+
+      socket.on('data-server', handleSocketData);
+
+
+        socket.on('connect_error', (error) => {
+            console.error('Connection error:', error);
+            setError(error);
+        });
+
+        socket.on('disconnect', () => {
+            console.log('Socket disconnected');
+        });
+
+        // Clean up the socket connection when the component unmounts
+        return () => {
+          socket.off('data-server', handleSocketData);
+
+            socket.disconnect();
+        };
+    }, []);
+  
+    const handleJoin = async () => {
+      const totalAmount = quantity * balance;
+  
+      // Validate inputs
+      if (!join || !quantity || !balance || userInfo.money_user < totalAmount) {
+        alert('Invalid input or insufficient balance');
+        return;
+      }
+  
+      try {
+        // Make the AJAX request
+        const response = await Api.post('/api/webapi/action/join', {
+          typeid: '1',
+          join: join,
+          x: quantity,
+          money: balance,
+        });
+  
+        const { data } = response;
+  
+        handleClosePopup();
+        fetchMyBets();
+        fetchUserInfo();
   
   
+      
+        // Emit the event through socket
+        socket.emit('data-server_2', {
+          money: quantity * balance,
+          join,
+          time: Date.now(),
+          change: data.change,
+        });
+  
+      } catch (error) {
+        console.error('An error occurred:', error);
+      }
+    }
 
   
     // if (loading) {
@@ -73,7 +467,10 @@ export default function Wingo(){
 
 
     const showSection = (sectionId) => {
+      fetchGamelist(1);
+
         setActiveSection(sectionId);
+
       };
 
 
@@ -9448,6 +9845,15 @@ export default function Wingo(){
 </svg>
 
 <div id="app" data-v-app="">
+<audio ref={audio1Ref} src="/assets/audio/di1.da40b233.mp3" />
+      <ReactHowler
+        src="/assets/audio/di2.317de251.mp3"
+        playing={playAudio2}
+        loop={false} // Play only once
+        volume={1.0}
+        onEnd={() => setPlayAudio2(false)} // Ensure audio2 stops after playing
+      />
+
   <div
     data-v-647954c7=""
     className="ar-loading-view"
@@ -9561,7 +9967,7 @@ export default function Wingo(){
           <div data-v-12a80a3e="" className="navbar__content-left">
             <i
               data-v-12a80a3e=""
-              className="van-badge__wrapper van-icon van-icon-arrow-left">
+              className="van-badge__wrapper van-icon van-icon-arrow-left"  onClick={()=> navigate('/index')}>
                 </i>
           </div>
           <div data-v-12a80a3e="" className="navbar__content-center">
@@ -9586,7 +9992,7 @@ export default function Wingo(){
     <div data-v-7dd1adab="" data-v-5d71c3fd="" className="Wallet__C">
       <div data-v-7dd1adab="" className="Wallet__C-balance">
         <div data-v-7dd1adab="" className="Wallet__C-balance-l1">
-          <div data-v-7dd1adab="">₹{totalMoney??0.00}</div>
+          <div data-v-7dd1adab="">₹{userInfo?userInfo.money_user:0.00}</div>
         </div>
         <div data-v-7dd1adab="" className="Wallet__C-balance-l2">
           <svg data-v-7dd1adab="" className="svg-icon icon-lottyWallet">
@@ -9614,17 +10020,25 @@ export default function Wingo(){
       <button className="hotIcon">Detail</button>
     </div>
     <div data-v-17d56002="" data-v-5d71c3fd="" className="GameList__C">
-      <div data-v-17d56002="" className="GameList__C-item active">
-        <div data-v-17d56002="">Win Go<br />30s</div>
-      </div>
-      <div data-v-17d56002="" className="GameList__C-item">
+      <div data-v-17d56002="" className="GameList__C-item active" onClick={() => {
+    navigate('/wingo');
+  }}>
         <div data-v-17d56002="">Win Go<br />1Min</div>
       </div>
-      <div data-v-17d56002="" className="GameList__C-item">
+      <div data-v-17d56002="" className="GameList__C-item" onClick={() => {
+    navigate('/wingo3');
+  }}>
         <div data-v-17d56002="">Win Go<br />3Min</div>
       </div>
-      <div data-v-17d56002="" className="GameList__C-item">
+      <div data-v-17d56002="" className="GameList__C-item" onClick={() => {
+    navigate('/wingo5');
+  }}>
         <div data-v-17d56002="">Win Go<br />5Min</div>
+      </div>
+      <div data-v-17d56002="" className="GameList__C-item" onClick={() => {
+    navigate('/wingo10');
+  }}>
+        <div data-v-17d56002="">Win Go<br />10Min</div>
       </div>
     </div>
     <div data-v-3e4c6499="" className="TimeLeft__C">
@@ -9644,13 +10058,14 @@ export default function Wingo(){
           ></path></svg
         >How to play
       </div>
-      <div data-v-3e4c6499="" className="TimeLeft__C-name">Win Go 30s</div>
+      <div data-v-3e4c6499="" className="TimeLeft__C-name">Win Go 1 min</div>
       <div data-v-3e4c6499="" className="TimeLeft__C-num">
-        <div data-v-3e4c6499="" className="n7"></div>
-        <div data-v-3e4c6499="" className="n9"></div>
-        <div data-v-3e4c6499="" className="n6"></div>
-        <div data-v-3e4c6499="" className="n3"></div>
-        <div data-v-3e4c6499="" className="n6"></div>
+      {last5Periods.map((amount, index) => (
+    
+            <div data-v-3e4c6499="" key={index} className={getClassName(amount)}>
+            </div>
+          
+        ))}
       </div>
       <div data-v-3e4c6499="" className="TimeLeft__C-id">{period}</div>
       <div data-v-3e4c6499="" className="TimeLeft__C-text">Time remaining</div>
@@ -9658,8 +10073,8 @@ export default function Wingo(){
         <div data-v-3e4c6499="">0</div>
         <div data-v-3e4c6499="">0</div>
         <div data-v-3e4c6499="">:</div>
-        <div data-v-3e4c6499="">0</div>
-        <div data-v-3e4c6499="">6</div>
+        <div data-v-3e4c6499="">{time.seconds1}</div>
+        <div data-v-3e4c6499="">{time.seconds2}</div>
       </div>
     </div>
     <div
@@ -9669,41 +10084,49 @@ export default function Wingo(){
       voicetype="1"
       typeid="30"
     >
-      <div data-v-4aca9bd1="" className="Betting__C-mark" style={{display: 'none'}}>
-        <div data-v-4aca9bd1="">0</div>
-        <div data-v-4aca9bd1="">6</div>
+      <div data-v-4aca9bd1="" className="Betting__C-mark" style={{ display: showMark ? '' : 'none' }}
+      >
+        <div data-v-4aca9bd1="">{time.seconds1}</div>
+        <div data-v-4aca9bd1="">{time.seconds2}</div>
       </div>
       <div data-v-4aca9bd1="" className="Betting__C-head">
-        <div data-v-4aca9bd1="" className="Betting__C-head-g">Green</div>
-        <div data-v-4aca9bd1="" className="Betting__C-head-p">Violet</div>
-        <div data-v-4aca9bd1="" className="Betting__C-head-r">Red</div>
+        <div data-v-4aca9bd1="" className="Betting__C-head-g" onClick={() => handleOpenPopup('Green')}>Green</div>
+        <div data-v-4aca9bd1="" className="Betting__C-head-p" onClick={() => handleOpenPopup('Violet')}>Violet</div>
+        <div data-v-4aca9bd1="" className="Betting__C-head-r" onClick={() => handleOpenPopup('Red')}>Red</div>
       </div>
       <div data-v-4aca9bd1="" className="Betting__C-numC">
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item0"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item1"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item2"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item3"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item4"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item5"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item6"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item7"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item8"></div>
-        <div data-v-4aca9bd1="" className="Betting__C-numC-item9"></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item0" onClick={() => handleOpenPopup('0')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item1" onClick={() => handleOpenPopup('1')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item2" onClick={() => handleOpenPopup('2')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item3" onClick={() => handleOpenPopup('3')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item4" onClick={() => handleOpenPopup('4')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item5" onClick={() => handleOpenPopup('5')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item6" onClick={() => handleOpenPopup('6')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item7" onClick={() => handleOpenPopup('7')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item8" onClick={() => handleOpenPopup('8')}></div>
+        <div data-v-4aca9bd1="" className="Betting__C-numC-item9" onClick={() => handleOpenPopup('9')}></div>
       </div>
       <div data-v-4aca9bd1="" className="Betting__C-multiple">
         <div data-v-4aca9bd1="" className="Betting__C-multiple-l">Random</div>
-        <div data-v-4aca9bd1="" className="Betting__C-multiple-r active">
+        <div data-v-4aca9bd1="" className={`Betting__C-multiple-r ${quantity === '1' || quantity === 1 ? 'active' : ''}`}
+                    onClick={() => handleSelectQuantity('1')}>
           X1
         </div>
-        <div data-v-4aca9bd1="" className="Betting__C-multiple-r">X5</div>
-        <div data-v-4aca9bd1="" className="Betting__C-multiple-r">X10</div>
-        <div data-v-4aca9bd1="" className="Betting__C-multiple-r">X20</div>
-        <div data-v-4aca9bd1="" className="Betting__C-multiple-r">X50</div>
-        <div data-v-4aca9bd1="" className="Betting__C-multiple-r">X100</div>
+        <div data-v-4aca9bd1="" className={`Betting__C-multiple-r ${quantity === '5' || quantity === 5 ? 'active' : ''}`}
+                    onClick={() => handleSelectQuantity('5')}>X5</div>
+        <div data-v-4aca9bd1="" className={`Betting__C-multiple-r ${quantity === '10' || quantity === 10 ? 'active' : ''}`}
+                    onClick={() => handleSelectQuantity('10')}>X10</div>
+        <div data-v-4aca9bd1="" className={`Betting__C-multiple-r ${quantity === '20' || quantity === 20 ? 'active' : ''}`}
+                    onClick={() => handleSelectQuantity('20')}>X20</div>
+        <div data-v-4aca9bd1="" className={`Betting__C-multiple-r ${quantity === '50' || quantity === 50 ? 'active' : ''}`}
+                    onClick={() => handleSelectQuantity('50')}>X50</div>
+        <div data-v-4aca9bd1="" className={`Betting__C-multiple-r ${quantity === '100' || quantity === 100 ? 'active' : ''}`}
+                    onClick={() => handleSelectQuantity('100')}>X100</div>
+           
       </div>
       <div data-v-4aca9bd1="" className="Betting__C-foot">
-        <div data-v-4aca9bd1="" className="Betting__C-foot-b">Big</div>
-        <div data-v-4aca9bd1="" className="Betting__C-foot-s">Small</div>
+        <div data-v-4aca9bd1="" className="Betting__C-foot-b" onClick={() => handleOpenPopup('Big')}>Big</div>
+        <div data-v-4aca9bd1="" className="Betting__C-foot-s" onClick={() => handleOpenPopup('Small')}>Small</div>
       </div>
     </div>
     <div data-v-72f81e71="" data-v-5d71c3fd="" className="RecordNav__C">
@@ -9720,224 +10143,39 @@ export default function Wingo(){
       </div>
       <div data-v-4b21e13b="" className="MyGameRecord__C-body">
         <div data-v-2faec5cb="" data-v-4b21e13b="" className="MyGameRecordList__C">
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-small">small</div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240823301339</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-23 11:09:22</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
-              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹9.80</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-detail"><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-text">Details</div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Order number</span><div data-v-2faec5cb="">WG2024082311092233233210a <svg data-v-2faec5cb="" className="svg-icon icon-copy"><use href="#icon-copy"></use></svg></div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Period</span><div data-v-2faec5cb="">20240823301339</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Purchase amount</span><div data-v-2faec5cb="">₹5.00</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Quantity</span><div data-v-2faec5cb="">5</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Amount after tax</span><div data-v-2faec5cb="" className="red">₹4.90</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Tax</span><div data-v-2faec5cb="">₹0.10</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Result</span><div data-v-2faec5cb=""><div data-v-2faec5cb="" className="MyGameRecordList__C-inlineB">2</div><div data-v-2faec5cb="" className="MyGameRecordList__C-inlineB redColor">Red</div><div data-v-2faec5cb="" className="MyGameRecordList__C-inlineB small">Small</div></div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Select</span><div data-v-2faec5cb="">Small</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Status</span><div data-v-2faec5cb="" className="green">Succeed</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Win/lose</span><div data-v-2faec5cb="" className="green">+ ₹9.80</div></div><div data-v-2faec5cb="" className="MyGameRecordList__C-detail-line"><span data-v-2faec5cb="">Order time</span><div data-v-2faec5cb="">2024-08-23 11:09:22</div></div></div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-small">small</div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240823301338</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-23 11:08:50</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
-              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹9.80</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822302085</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 17:22:13</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
-              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹19.60</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301990</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 16:34:44</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
-              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹1.47</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-small">small</div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301701</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:10:17</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
-              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹1.96</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301700</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:09:41</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
-              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹0.98</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301685</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:02:10</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
-              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹19.60</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301684</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:01:54</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
-              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹0.98</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301683</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:01:15</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
-              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹4.90</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301682</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:00:48</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
-              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹1.96</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301681</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 14:00:11</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
-              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹1.96</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-small">small</div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240822301511</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-22 12:35:13</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
-              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹9.80</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240821301341</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-21 11:10:12</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
-              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹0.98</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302637</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:58:21</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
-              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹4.90</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302635</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:57:21</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
-              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹1.47</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-red"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302634</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:56:52</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
-              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹9.80</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-small">small</div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302633</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:56:21</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
-              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹9.80</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302632</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:55:49</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r success">
-              <div data-v-2faec5cb="" className="success">Succeed</div><span data-v-2faec5cb="">+₹9.80</span>
-            </div>
-          </div>
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302630</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:54:52</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
-              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹0.98</span>
-            </div>
-          </div>
-          
-          <div data-v-2faec5cb="" className="MyGameRecordList__C-item">
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-green"></div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m">
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-top">20240819302630</div>
-              <div data-v-2faec5cb="" className="MyGameRecordList__C-item-m-bottom">2024-08-19 21:54:45</div>
-            </div>
-            <div data-v-2faec5cb="" className="MyGameRecordList__C-item-r">
-              <div data-v-2faec5cb="" className="">Failed</div><span data-v-2faec5cb="">-₹0.98</span>
-            </div>
-          </div>
+         
+   <MyGameRecordList myBets={myBets}/>
+
           
         </div>
       </div>
       <div data-v-4b21e13b="" className="MyGameRecord__C-foot">
-        <div data-v-4b21e13b="" className="MyGameRecord__C-foot-previous disabled"><i data-v-4b21e13b=""
-            className="van-badge__wrapper van-icon van-icon-arrow-left MyGameRecord__C-icon" style={{fontSize: '20px'}}>
-            
-            
-            </i></div>
-        <div data-v-4b21e13b="" className="MyGameRecord__C-foot-page">1/2</div>
-        <div data-v-4b21e13b="" className="MyGameRecord__C-foot-next"><i data-v-4b21e13b=""
-            className="van-badge__wrapper van-icon van-icon-arrow MyGameRecord__C-icon" style={{fontSize: '20px'}}>
-            
-            
-            </i></div>
-      </div>
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-previous ${currentPage === 1 ? 'disabled' : ''}`} 
+    onClick={handlePreviousPage}
+  >
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow-left MyGameRecord__C-icon" 
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+  <div data-v-4b21e13b="" className="MyGameRecord__C-foot-page">
+    {currentPage}/{totalBetsPages}
+  </div>
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-next ${currentPage === totalBetsPages ? 'disabled' : ''}`} 
+    onClick={handleNextPage}
+  >
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow MyGameRecord__C-icon" 
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+</div>
     </div>
     <div data-v-d485a39d="" data-v-5d71c3fd="" className="Trend__C game-record" apifun="e=>_(f.WinGoGetMyEmerdList,e).then(t=>t.data)" gopathname="AllLotteryGames-BettingRecordWin" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
       <div data-v-d485a39d="" className="Trend__C-head">
@@ -10024,251 +10262,36 @@ export default function Wingo(){
           </div>
         </div>
       </div>
-      <div data-v-d485a39d="" className="Trend__C-body2">
-        <div data-v-d485a39d="" issuenumber="20240823301451" number="9" colour="green" rowid="0">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301451</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas0"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action9">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS isB">B</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301450" number="6" colour="red" rowid="1">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301450</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas1"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action6">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS isB">B</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301449" number="0" colour="red,violet" rowid="2">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301449</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas2"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action0">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS">S</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301448" number="0" colour="red,violet" rowid="3">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301448</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas3"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action0">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS">S</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301447" number="7" colour="green" rowid="4">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301447</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas4"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action7">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS isB">B</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301446" number="2" colour="red" rowid="5">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301446</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas5"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action2">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS">S</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301445" number="0" colour="red,violet" rowid="6">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301445</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas6"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action0">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS">S</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301444" number="5" colour="green,violet" rowid="7">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301444</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas7"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action5">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS isB">B</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301443" number="5" colour="green,violet" rowid="8">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301443</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas8"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action5">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS isB">B</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div data-v-d485a39d="" issuenumber="20240823301442" number="3" colour="green" rowid="9">
-          <div data-v-d485a39d="" className="van-row">
-            <div data-v-d485a39d="" className="van-col van-col--8">
-              <div data-v-d485a39d="" className="Trend__C-body2-IssueNumber">20240823301442</div>
-            </div>
-            <div data-v-d485a39d="" className="van-col van-col--16">
-              <div data-v-d485a39d="" className="Trend__C-body2-Num"><canvas data-v-d485a39d="" canvas="" id="myCanvas9"
-                  className="line-canvas"></canvas>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">0</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">1</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">2</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item action3">3</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">4</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">5</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">6</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">7</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">8</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-item">9</div>
-                <div data-v-d485a39d="" className="Trend__C-body2-Num-BS">S</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div data-v-d485a39d="" className="Trend__C-foot">
-        <div data-v-d485a39d="" className="Trend__C-foot-previous disabled"><i data-v-d485a39d=""
-            className="van-badge__wrapper van-icon van-icon-arrow-left Trend__C-icon" style={{fontSize: '20px'}}>
-            
-            
-            </i></div>
-        <div data-v-d485a39d="" className="Trend__C-foot-page">1/3314</div>
-        <div data-v-d485a39d="" className="Trend__C-foot-next"><i data-v-d485a39d=""
-            className="van-badge__wrapper van-icon van-icon-arrow Trend__C-icon" style={{fontSize: '20px'}}>
-            
-            
-            </i></div>
-      </div>
+      <ChartList gamelist={gamelist} />
+      
+      <div data-v-4b21e13b="" className="MyGameRecord__C-foot">
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-previous ${currentGamePage === 1 ? 'disabled' : ''}`} 
+    onClick={handlePreviousGamePage}
+  >
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow-left MyGameRecord__C-icon" 
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+  <div data-v-4b21e13b="" className="MyGameRecord__C-foot-page">
+    {currentGamePage}/{totalGamePages}
+  </div>
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-next ${currentGamePage === totalGamePages ? 'disabled' : ''}`} 
+    onClick={handleNextGamePage}
+    style={{ zIndex:10 }}
+  >
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow MyGameRecord__C-icon" 
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+</div>
     </div>
     <div data-v-481307ec="" data-v-5d71c3fd="" className="GameRecord__C game-record" apifun="e=>_(f.WinGoGetMyEmerdList,e).then(t=>t.data)" listapi="e=>_(f.WinGoGetNoaverageEmerdList,e).then(t=>t.data)" emerdapi="e=>_(f.WinGoGetEmerdList,e).then(t=>t.data)"  gopathname="AllLotteryGames-BettingRecordWin" id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
       <div data-v-481307ec="" className="GameRecord__C-head">
@@ -10280,292 +10303,42 @@ export default function Wingo(){
         </div>
       </div>
       <div data-v-481307ec="" className="GameRecord__C-body">
-        <div data-v-481307ec="" className="van-row">
-          <div data-v-481307ec="" className="van-col van-col--8">
-            20240814301952
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
-            <div
-              data-v-481307ec=""
-              className="GameRecord__C-body-num greenColor"
-            >
-              7
-            </div>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5">
-            <span data-v-481307ec="">Big</span>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--6">
-            <div data-v-481307ec="" className="GameRecord__C-origin">
-              
-              <div
-                data-v-481307ec=""
-                className="GameRecord__C-origin-I green"
-              ></div>
-              
-            </div>
-          </div>
-        </div>
-        <div data-v-481307ec="" className="van-row">
-          <div data-v-481307ec="" className="van-col van-col--8">
-            20240814301951
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
-            <div
-              data-v-481307ec=""
-              className="GameRecord__C-body-num greenColor"
-            >
-              9
-            </div>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5">
-            <span data-v-481307ec="">Big</span>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--6">
-            <div data-v-481307ec="" className="GameRecord__C-origin">
-              
-              <div
-                data-v-481307ec=""
-                className="GameRecord__C-origin-I green"
-              ></div>
-              
-            </div>
-          </div>
-        </div>
-        <div data-v-481307ec="" className="van-row">
-          <div data-v-481307ec="" className="van-col van-col--8">
-            20240814301950
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
-            <div
-              data-v-481307ec=""
-              className="GameRecord__C-body-num defaultColor"
-            >
-              6
-            </div>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5">
-            <span data-v-481307ec="">Big</span>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--6">
-            <div data-v-481307ec="" className="GameRecord__C-origin">
-              
-              <div
-                data-v-481307ec=""
-                className="GameRecord__C-origin-I red"
-              ></div>
-              
-            </div>
-          </div>
-        </div>
-        <div data-v-481307ec="" className="van-row">
-          <div data-v-481307ec="" className="van-col van-col--8">
-            20240814301949
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
-            <div
-              data-v-481307ec=""
-              className="GameRecord__C-body-num greenColor"
-            >
-              3
-            </div>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5">
-            <span data-v-481307ec="">Small</span>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--6">
-            <div data-v-481307ec="" className="GameRecord__C-origin">
-              
-              <div
-                data-v-481307ec=""
-                className="GameRecord__C-origin-I green"
-              ></div>
-              
-            </div>
-          </div>
-        </div>
-        <div data-v-481307ec="" className="van-row">
-          <div data-v-481307ec="" className="van-col van-col--8">
-            20240814301948
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
-            <div
-              data-v-481307ec=""
-              className="GameRecord__C-body-num defaultColor"
-            >
-              6
-            </div>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5">
-            <span data-v-481307ec="">Big</span>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--6">
-            <div data-v-481307ec="" className="GameRecord__C-origin">
-              
-              <div
-                data-v-481307ec=""
-                className="GameRecord__C-origin-I red"
-              ></div>
-              
-            </div>
-          </div>
-        </div>
-        <div data-v-481307ec="" className="van-row">
-          <div data-v-481307ec="" className="van-col van-col--8">
-            20240814301947
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
-            <div
-              data-v-481307ec=""
-              className="GameRecord__C-body-num greenColor"
-            >
-              1
-            </div>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5">
-            <span data-v-481307ec="">Small</span>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--6">
-            <div data-v-481307ec="" className="GameRecord__C-origin">
-              
-              <div
-                data-v-481307ec=""
-                className="GameRecord__C-origin-I green"
-              ></div>
-              
-            </div>
-          </div>
-        </div>
-        <div data-v-481307ec="" className="van-row">
-          <div data-v-481307ec="" className="van-col van-col--8">
-            20240814301946
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
-            <div
-              data-v-481307ec=""
-              className="GameRecord__C-body-num mixedColor0"
-            >
-              0
-            </div>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5">
-            <span data-v-481307ec="">Small</span>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--6">
-            <div data-v-481307ec="" className="GameRecord__C-origin">
-              <div
-                data-v-481307ec=""
-                className="GameRecord__C-origin-I red"
-              ></div>
-              <div
-                data-v-481307ec=""
-                className="GameRecord__C-origin-I violet"
-              ></div>
-              
-            </div>
-          </div>
-        </div>
-        <div data-v-481307ec="" className="van-row">
-          <div data-v-481307ec="" className="van-col van-col--8">
-            20240814301945
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
-            <div
-              data-v-481307ec=""
-              className="GameRecord__C-body-num greenColor"
-            >
-              1
-            </div>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5">
-            <span data-v-481307ec="">Small</span>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--6">
-            <div data-v-481307ec="" className="GameRecord__C-origin">
-              
-              <div
-                data-v-481307ec=""
-                className="GameRecord__C-origin-I green"
-              ></div>
-              
-            </div>
-          </div>
-        </div>
-        <div data-v-481307ec="" className="van-row">
-          <div data-v-481307ec="" className="van-col van-col--8">
-            20240814301944
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
-            <div
-              data-v-481307ec=""
-              className="GameRecord__C-body-num greenColor"
-            >
-              3
-            </div>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5">
-            <span data-v-481307ec="">Small</span>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--6">
-            <div data-v-481307ec="" className="GameRecord__C-origin">
-              
-              <div
-                data-v-481307ec=""
-                className="GameRecord__C-origin-I green"
-              ></div>
-              
-            </div>
-          </div>
-        </div>
-        <div data-v-481307ec="" className="van-row">
-          <div data-v-481307ec="" className="van-col van-col--8">
-            20240814301943
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5 numcenter">
-            <div
-              data-v-481307ec=""
-              className="GameRecord__C-body-num greenColor"
-            >
-              3
-            </div>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--5">
-            <span data-v-481307ec="">Small</span>
-          </div>
-          <div data-v-481307ec="" className="van-col van-col--6">
-            <div data-v-481307ec="" className="GameRecord__C-origin">
-              
-              <div
-                data-v-481307ec=""
-                className="GameRecord__C-origin-I green"
-              ></div>
-              
-            </div>
-          </div>
-        </div>
+      <GameList gamelist={gamelist} />
+
+       
+       
       </div>
-      <div data-v-481307ec="" className="GameRecord__C-foot">
-        <div
-          data-v-481307ec=""
-          className="GameRecord__C-foot-previous disabled"
-        >
-          <i
-            data-v-481307ec=""
-            className="van-badge__wrapper van-icon van-icon-arrow-left GameRecord__C-icon"
-            style={{fontSize: '20px'}}
-            ></i
-          >
-        </div>
-        <div data-v-481307ec="" className="GameRecord__C-foot-page">1/3364</div>
-        <div data-v-481307ec="" className="GameRecord__C-foot-next">
-          <i
-            data-v-481307ec=""
-            className="van-badge__wrapper van-icon van-icon-arrow GameRecord__C-icon"
-            style={{fontSize: '20px'}}
-            ></i
-          >
-        </div>
-      </div>
+     
+
+      <div data-v-4b21e13b="" className="MyGameRecord__C-foot">
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-previous ${currentGamePage === 1 ? 'disabled' : ''}`} 
+    onClick={handlePreviousGamePage}
+  >
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow-left MyGameRecord__C-icon" 
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+  <div data-v-4b21e13b="" className="MyGameRecord__C-foot-page">
+    {currentGamePage}/{totalGamePages}
+  </div>
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-next ${currentGamePage === totalGamePages ? 'disabled' : ''}`} 
+    onClick={handleNextGamePage}
+  >
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow MyGameRecord__C-icon" 
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+</div>
+
+
     </div>
     <div data-v-3e71d3da="" data-v-5d71c3fd="" className="dialog inactive">
       <div
@@ -10657,43 +10430,122 @@ export default function Wingo(){
 </div>
 
 <div data-v-app=""></div>
-<div className="van-overlay" style={{zIndex: '2005', display: 'none'}}></div>
-< div role = "dialog"
-tabIndex = "0"
-className = "van-popup van-popup--round van-popup--bottom"
-data-v-7 f36fe93 = ""
-style = {
-    {
-        zIndex: '2005',
-        display: 'none'
-    }
-} > <div data- v-7f36fe93 = ""className = "Betting__Popup-11" >
-     <div data-v-7 f36fe93 = ""className = "Betting__Popup-head" > < div data-v-7f36fe93 = ""
-className = "Betting__Popup-head-title" > Win Go 30 s </div>
-<div data-v-7f36fe93="" className="Betting__Popup-head-selectName">
-    <span data-v-7f36fe93="">Select</span > <span data-v-7f36fe93 = ""> Green </span></div> </div>
-    <div data-v-7f36fe93="" className="Betting__Popup-body">
-        <div data-v-7f36fe93="" className="Betting__Popup-body-line">Balance 
-            <div data-v-7f36fe93="" className="Betting__Popup-body-line-list">
-                <div data-v-7f36fe93="" className="Betting__Popup-body-line-item bgcolor">1</div>
-         <div data-v-7 f36fe93 = ""className = "Betting__Popup-body-line-item" > 10 </div>
-         <div data-v-7f36fe93="" className="Betting__Popup-body-line-item">100</div> 
-         <div data-v-7f36fe93 = ""className = "Betting__Popup-body-line-item" > 1000 </div></div> </div>
-         <div data-v-7f36fe93="" className="Betting__Popup-body-line">Quantity 
-            <div data-v-7f36fe93="" className="Betting__Popup-body-line-btnL">
-                <div data-v-7f36fe93="" className="Betting__Popup-btn bgcolor">-</div > < div data-v-7f36fe93 = ""
-className = "van-cell van-field Betting__Popup-input"
-modelmodifiers = "[object Object]"> <div className = "van-cell__value van-field__value"> <div className = "van-field__body"> 
-<input type = "tel"inputMode = "numeric" id = "van-field-1-input" className = "van-field__control"/> </div></div > </div><div data-v-7f36fe93="" className="Betting__Popup-btn bgcolor">+</div > </div></div > 
-<div data-v-7f36fe93 = ""className = "Betting__Popup-body-line"> <div data-v-7f36fe93 = "" > </div><div data-v-7f36fe93="" className="Betting__Popup-body-line-list">
-    <div data-v-7f36fe93="" className="Betting__Popup-body-line-item bgcolor"> X1</div > < div data-v-7f36fe93 = ""
-className = "Betting__Popup-body-line-item" > X5 </div><div data-v-7f36fe93="" className="Betting__Popup-body-line-item"> X10</div > < div data-v-7f36fe93 = ""
-className = "Betting__Popup-body-line-item" > X20 </div><div data-v-7f36fe93="" className="Betting__Popup-body-line-item"> X50</div > < div data-v-7f36fe93 = ""
-className = "Betting__Popup-body-line-item" > X100 </div></div > </div><div data-v-7f36fe93="" className="Betting__Popup-body-line"><span data-v-7f36fe93="" className="Betting__Popup-agree active">I agree</span > 
-< span data-v-7f36fe93 = ""
-className = "Betting__Popup-preSaleShow" > 《Pre - sale rules》 </span></div > </div>
-<div data-v-7f36fe93="" className="Betting__Popup-foot"><div data-v-7f36fe93="" className="Betting__Popup-foot-c">Cancel</div > < div data-v-7f36fe93 = ""
-className = "Betting__Popup-foot-s bgcolor" > Total amount₹ 1.00 </div></div > </div></div >
+{isPopupVisible && (
+<div className="van-overlay" style={{zIndex: '2005'}}></div>
+)
+}
+{isPopupVisible && (
+        <div
+          role="dialog"
+          tabIndex="0"
+          className={`van-popup van-popup--round van-popup--bottom Betting__Popup-${getPopupClass(selectedItem)}`}
+          data-v-7f36fe93=""
+          style={{ zIndex: 2009 }}
+        >
+          <div data-v-7f36fe93="" className="Betting__Popup-1">
+            <div data-v-7f36fe93="" className="Betting__Popup-head">
+              <div data-v-7f36fe93="" className="Betting__Popup-head-title">Win Go 1Min</div>
+              <div data-v-7f36fe93="" className="Betting__Popup-head-selectName">
+                <span data-v-7f36fe93="">Select</span>
+                <span data-v-7f36fe93="">{selectedItem}</span>
+              </div>
+            </div>
+            <div data-v-7f36fe93="" className="Betting__Popup-body">
+              <div data-v-7f36fe93="" className="Betting__Popup-body-line">
+                Balance
+                <div data-v-7f36fe93="" className="Betting__Popup-body-line-list">
+                  <div data-v-7f36fe93=""  className={`Betting__Popup-body-line-item ${balance === 1 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectBalance(1)}>1</div>
+                  <div data-v-7f36fe93=""  className={`Betting__Popup-body-line-item ${balance === 10 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectBalance(10)}>10</div>
+ <div data-v-7f36fe93=""  className={`Betting__Popup-body-line-item ${balance === 100 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectBalance(100)}>100</div>
+ <div data-v-7f36fe93=""  className={`Betting__Popup-body-line-item ${balance === 1000 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectBalance(1000)}>1000</div>
+                </div>
+              </div>
+              <div data-v-7f36fe93="" className="Betting__Popup-body-line">
+                Quantity
+                <div data-v-7f36fe93="" className="Betting__Popup-body-line-btnL">
+                  <div data-v-7f36fe93="" className="Betting__Popup-btn bgcolor" onClick={() => setQuantity((prev) => prev > 0 ? prev - 1 : 0)}>-</div>
+                  <div data-v-7f36fe93="" className="van-cell van-field Betting__Popup-input">
+                    <div className="van-cell__value van-field__value">
+                      <div className="van-field__body">
+                        <input
+                          type="tel"
+                          inputMode="numeric"
+                          id="van-field-1-input"
+                          className="van-field__control"
+                          data-v-7f36fe93=""
+                          value={quantity}
+                          onChange={handleQuantityChange}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div data-v-7f36fe93="" className="Betting__Popup-btn bgcolor" onClick={() => setQuantity((prev) => prev + 1)}>+</div>
+                </div>
+              </div>
+              <div data-v-7f36fe93="" className="Betting__Popup-body-line">
+                <div data-v-7f36fe93=""></div>
+                <div data-v-7f36fe93="" className="Betting__Popup-body-line-list">
+                <div
+                    data-v-7f36fe93=""
+                    className={`Betting__Popup-body-line-item ${quantity === '1' || quantity === 1 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectQuantity('1')}
+                  >
+                    X1
+                  </div>
+                  <div
+                    data-v-7f36fe93=""
+                    className={`Betting__Popup-body-line-item ${quantity === '5' || quantity === 5 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectQuantity('5')}
+                  >
+                    X5
+                  </div>  
+                  <div
+                    data-v-7f36fe93=""
+                    className={`Betting__Popup-body-line-item ${quantity === '10' || quantity === 10 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectQuantity('10')}
+                  >
+                    X10
+                  </div>
+                  <div
+                    data-v-7f36fe93=""
+                    className={`Betting__Popup-body-line-item ${quantity === '20' || quantity === 20 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectQuantity('20')}
+                  >
+                    X20
+                  </div>
+                  <div
+                    data-v-7f36fe93=""
+                    className={`Betting__Popup-body-line-item ${quantity === '50' || quantity === 50 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectQuantity('50')}
+                  >
+                    X50
+                  </div>
+                  <div
+                    data-v-7f36fe93=""
+                    className={`Betting__Popup-body-line-item ${quantity === '100' || quantity === 100 ? 'bgcolor' : ''}`}
+                    onClick={() => handleSelectQuantity('100')}
+                  >
+                    X100
+                  </div>
+                </div>
+              </div>
+
+              <div data-v-7f36fe93="" className="Betting__Popup-body-line"><span data-v-7f36fe93="" className="Betting__Popup-agree active">I
+        agree</span><span data-v-7f36fe93="" className="Betting__Popup-preSaleShow">《Pre-sale rules》</span></div>
+              
+            </div>
+            <div data-v-7f36fe93="" className="Betting__Popup-foot">
+              <div data-v-7f36fe93="" className="Betting__Popup-foot-c" onClick={handleClosePopup}>Cancel</div>
+              <div data-v-7f36fe93="" className="Betting__Popup-foot-s bgcolor"  onClick={handleJoin} >Total amount ₹{quantity*balance}</div>
+            </div>
+          </div>
+        </div>
+      )}
+
 <div
   role="dialog"
   tabIndex="0"
@@ -10712,7 +10564,74 @@ className = "Betting__Popup-foot-s bgcolor" > Total amount₹ 1.00 </div></div >
   </div>
   
 </div>
+{ lastBet && lastBet.result !== undefined ? (
+  lastBet.status === 2 ? (
+    <div data-v-e44179e3="" data-v-5d71c3fd="" className="WinningTip__C" style={{ display: isVisible ? '' : 'none' }}>
+      <div data-v-e44179e3="" className="WinningTip__C-body isL">
+        
+        <div data-v-e44179e3="" className="WinningTip__C-body-l1 isL">Sorry</div>
 
+        <div data-v-e44179e3="" className={`WinningTip__C-body-l2 type${lastBet.result}`}>Lottery results 
+          <div data-v-e44179e3="">
+            {lastBet.result === 0 ? 'Red Violet'
+              : lastBet.result === 5 ? 'Green Violet'
+              : lastBet.result % 2 === 0 ? 'Red' : 'Green'}
+          </div>
+
+          <div data-v-e44179e3="" className="WinningNum">{lastBet.result}</div>
+
+          <div data-v-e44179e3="">{lastBet.result < 5 ? 'Small' : 'Big'}</div>
+        </div>
+
+        <div data-v-e44179e3="" className="WinningTip__C-body-l3">
+          <div data-v-e44179e3="" className="isLose">Lose</div>
+          <div data-v-e44179e3="" className="gameDetail">Period: 1 min {lastBet.stage}</div>
+        </div>
+
+        <div data-v-e44179e3="" className="WinningTip__C-body-l4">
+          <div data-v-e44179e3="" className="acitveBtn"></div> 3 seconds auto close
+        </div>
+
+        <div data-v-e44179e3="" className="closeBtn" onClick={toggleVisibility}></div>
+
+        <i data-v-e44179e3="" className="van-badge__wrapper van-icon van-icon-arrow arrowBtn" style={{color: 'rgb(255, 255, 255)', fontSize: '30px', display: 'none'}}></i>
+      </div>
+    </div>
+  ) : (
+    <div data-v-e44179e3="" data-v-5d71c3fd="" className="WinningTip__C" style={{ display: isVisible ? '' : 'none' }}>
+      <div data-v-e44179e3="" className="WinningTip__C-body" style={{ backgroundImage : `url('/assets/png/win-popup.png')` }}>
+        <div data-v-e44179e3="" className="WinningTip__C-body-l1">Congratulations</div>
+        <div data-v-e44179e3="" className={`WinningTip__C-body-l2 type${lastBet.result}`}>
+          Lottery results
+          <div data-v-e44179e3="">
+            {lastBet.result === 0 ? 'Red Violet'
+              : lastBet.result === 5 ? 'Green Violet'
+              : lastBet.result % 2 === 0 ? 'Red' : 'Green'}
+          </div>
+          <div data-v-e44179e3="" className="WinningNum">{lastBet.result}</div>
+          <div data-v-e44179e3="">{lastBet.result < 5 ? 'Small' : 'Big'}</div>
+        </div>
+        <div data-v-e44179e3="" className="WinningTip__C-body-l3">
+          <div data-v-e44179e3="" className="head">Bonus</div>
+          <div data-v-e44179e3="" className="bonus">₹{lastBet.get}</div>
+          <div data-v-e44179e3="" className="gameDetail">
+            Period:1min {lastBet.stage}
+          </div>
+        </div>
+        <div data-v-e44179e3="" className="WinningTip__C-body-l4">
+          <div data-v-e44179e3="" className="acitveBtn"></div>
+          3 seconds auto close
+        </div>
+        <div data-v-e44179e3="" className="closeBtn" onClick={toggleVisibility}></div>
+        <i
+          data-v-e44179e3=""
+          className="van-badge__wrapper van-icon van-icon-arrow arrowBtn"
+          style={{color: 'rgb(255, 255, 255)', fontSize: '30px', display: 'none'}}
+          ></i>
+      </div>
+    </div>
+  )
+) : null }
 
 </div>
 );

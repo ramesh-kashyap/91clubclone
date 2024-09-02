@@ -1600,14 +1600,14 @@ html:lang(ar) .dropdown__list[data-v-5067ef5e] {
     position: relative
 }
 
-.dailySignIn__container .task-banner div[data-v-d7213382] {
+/* .dailySignIn__container .task-banner div[data-v-d7213382] {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     justify-content: space-between
-}
+} */
 
 .dailySignIn__container .task-banner .banner-title[data-v-d7213382] {
     margin-top: .4rem;

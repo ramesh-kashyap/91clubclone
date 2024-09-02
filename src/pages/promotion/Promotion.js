@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Promotion(){
+  const navigate = useNavigate();
     return (
   <div style={{fontSize: '12px'}}>
     <svg
@@ -35,8 +37,8 @@ export default function Promotion(){
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M32.5 4V24.84C32.5 26.12 32.12 27.08 31.46 27.46C30.78 27.86 29.7 27.66 28.5 26.94L25.86 25.36C24.84 24.74 23.16 24.74 22.14 25.36L19.5 26.94C18.3 27.66 17.22 27.84 16.54 27.46C15.88 27.08 15.5 26.12 15.5 24.84V4H32.5Z"
           fill="var(--main-color)"
         ></path>
@@ -121,8 +123,8 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M40.5616 47.7085C46.9614 44.2361 51.2765 37.6807 51.2765 30.1657C51.2765 19.022 41.7881 9.98828 30.0836 9.98828C18.379 9.98828 8.89062 19.022 8.89062 30.1657C8.89062 37.6852 13.2109 44.2439 19.617 47.7148C17.0174 45.1944 15.4141 41.7394 15.4141 37.9279C15.4141 33.9619 17.411 32.4952 18.6745 31.7193C19.0718 31.4753 20.4928 31.2313 22.3354 30.9149C26.3524 30.2251 32.3735 29.1913 34.1617 27.0632C35.9014 24.9928 35.7509 23.2028 35.6543 22.0531C35.6061 21.479 35.5712 21.0646 35.7919 20.8546C36.4544 20.2243 37.4221 20.3954 40.6826 23.959C43.943 27.5225 44.7581 32.7574 44.7581 37.9279C44.7581 41.7363 43.1574 45.1887 40.5616 47.7085Z"
           fill="var(--main-color)"
         ></path>
@@ -149,8 +151,8 @@ export default function Promotion(){
           ></path>
         </g>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M34.8954 42.6172C33.7028 43.5506 31.9855 44.1363 30.0767 44.1363C28.1698 44.1363 26.4541 43.5518 25.2617 42.6201C25.6652 44.8046 27.6682 46.4644 30.0783 46.4644C32.4895 46.4644 34.4931 44.8031 34.8954 42.6172Z"
           fill="var(--main-color)"
         ></path>
@@ -209,22 +211,22 @@ export default function Promotion(){
           d="M57.8205 43.1875C49.6245 43.1875 42.9805 49.8315 42.9805 58.0275C42.9805 65.8395 49.0165 72.2355 56.6805 72.8195C61.2405 71.7195 64.6325 67.6115 64.6325 62.7115V44.8395C62.5264 43.7526 60.1905 43.1862 57.8205 43.1875Z"
           fill="#3689FF"
         ></path>
-        <path d="M68 48H48V68H68V48Z" fill="white" fill-opacity="0.01"></path>
+        <path d="M68 48H48V68H68V48Z" fill="white" fillOpacity="0.01"></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M58.0026 46.4687C58.9231 46.4687 59.6693 47.2149 59.6693 48.1354L59.6693 68.1354C59.6693 69.0559 58.9231 69.8021 58.0026 69.8021C57.0821 69.8021 56.3359 69.0559 56.3359 68.1354L56.3359 48.1354C56.3359 47.2149 57.0821 46.4687 58.0026 46.4687Z"
           fill="var(--bg_color_L2)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M50.918 54.2487C50.918 51.2571 53.3431 48.832 56.3346 48.832H62.5834L62.5846 50.4987L62.5846 52.1654H56.3346C55.184 52.1654 54.2513 53.0981 54.2513 54.2487C54.2513 55.3993 55.184 56.332 56.3346 56.332C57.2551 56.332 58.0013 57.0782 58.0013 57.9987C58.0013 58.9192 57.2551 59.6654 56.3346 59.6654C53.3431 59.6654 50.918 57.2403 50.918 54.2487ZM64.2513 50.4987C64.2513 51.4192 63.5051 52.1654 62.5846 52.1654L62.5846 50.4987L62.5834 48.832C63.5039 48.832 64.2513 49.5782 64.2513 50.4987Z"
           fill="var(--bg_color_L2)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M54.6667 57.9987C54.6667 57.0782 55.4129 56.332 56.3333 56.332H59.6667C62.6582 56.332 65.0833 58.7571 65.0833 61.7487C65.0833 64.7403 62.6582 67.1654 59.6667 67.1654H53.4179L53.4167 65.4987L53.4167 63.832H59.6667C60.8173 63.832 61.75 62.8993 61.75 61.7487C61.75 60.5981 60.8173 59.6654 59.6667 59.6654H56.3333C55.4129 59.6654 54.6667 58.9192 54.6667 57.9987ZM51.75 65.4987C51.75 64.5782 52.4962 63.832 53.4167 63.832L53.4167 65.4987L53.4179 67.1654C52.4974 67.1654 51.75 66.4192 51.75 65.4987Z"
           fill="var(--bg_color_L2)"
         ></path>
@@ -254,37 +256,37 @@ export default function Promotion(){
           d="M12 8.07227H36L44 18.1617L24 42.3762L4 18.1617L12 8.07227Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M4 18.1602H44"
           stroke="white"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M24 42.3747L16 18.1602"
           stroke="white"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M24 42.3747L32 18.1602"
           stroke="white"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M8 13.1152L4 18.1599L24 42.3745L44 18.1599L40 13.1152"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -321,9 +323,9 @@ export default function Promotion(){
             width="112"
             height="112"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -391,14 +393,14 @@ export default function Promotion(){
         </g>
         <path
           opacity="0.4"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M55.5 75C70.6878 75 83 62.6878 83 47.5C83 32.3122 70.6878 20 55.5 20C40.3122 20 28 32.3122 28 47.5C28 62.6878 40.3122 75 55.5 75ZM55.4986 56.2607C50.6609 56.2607 46.7393 52.3391 46.7393 47.5014C46.7393 42.6638 50.6609 38.7422 55.4986 38.7422C60.3362 38.7422 64.2578 42.6638 64.2578 47.5014C64.2578 52.3391 60.3362 56.2607 55.4986 56.2607Z"
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M61.9771 20.7737C66.8866 21.9635 71.3735 24.4826 74.9454 28.0546L67.8936 35.1065C65.6169 32.8298 62.7572 31.2243 59.6282 30.466C56.4992 29.7077 53.2217 29.8259 50.1554 30.8076C47.0892 31.7894 44.3526 33.5968 42.2459 36.0315C40.1392 38.4661 38.7438 41.4341 38.2129 44.6096C37.6819 47.7851 38.0359 51.0456 39.236 54.0331C40.4361 57.0207 42.4359 59.62 45.016 61.5459C47.5962 63.4717 50.6569 64.6496 53.8624 64.9505C57.068 65.2513 60.2944 64.6633 63.1878 63.2511L67.5621 72.2135C63.0224 74.4292 57.9601 75.3517 52.9307 74.8797C47.9012 74.4077 43.0989 72.5596 39.0507 69.5379C35.0025 66.5163 31.8648 62.438 29.9818 57.7505C28.0989 53.063 27.5435 47.9474 28.3765 42.965C29.2096 37.9826 31.3989 33.3259 34.7043 29.5059C38.0097 25.6859 42.3034 22.8501 47.1144 21.3097C51.9254 19.7693 57.0677 19.5839 61.9771 20.7737ZM55.7013 26.9256C54.5762 26.9256 53.6642 26.0136 53.6642 24.8886C53.6642 23.7636 54.5762 22.8516 55.7013 22.8516C56.8263 22.8516 57.7383 23.7636 57.7383 24.8886C57.7383 26.0136 56.8263 26.9256 55.7013 26.9256ZM37.3712 31.6113C37.3712 32.7363 38.2833 33.6483 39.4083 33.6483C40.5333 33.6483 41.4453 32.7363 41.4453 31.6113C41.4453 30.4862 40.5333 29.5742 39.4083 29.5742C38.2833 29.5742 37.3712 30.4862 37.3712 31.6113ZM32.8888 49.5389C31.7637 49.5389 30.8517 48.6269 30.8517 47.5019C30.8517 46.3769 31.7637 45.4648 32.8888 45.4648C34.0138 45.4648 34.9258 46.3769 34.9258 47.5019C34.9258 48.6269 34.0138 49.5389 32.8888 49.5389ZM37.3712 63.7948C37.3712 64.9199 38.2833 65.8319 39.4083 65.8319C40.5333 65.8319 41.4453 64.9199 41.4453 63.7948C41.4453 62.6698 40.5333 61.7578 39.4083 61.7578C38.2833 61.7578 37.3712 62.6698 37.3712 63.7948ZM55.4981 72.3514C54.3731 72.3514 53.4611 71.4394 53.4611 70.3144C53.4611 69.1894 54.3731 68.2773 55.4981 68.2773C56.6232 68.2773 57.5352 69.1894 57.5352 70.3144C57.5352 71.4394 56.6232 72.3514 55.4981 72.3514Z"
           fill="var(--main-color)"
         ></path>
@@ -418,9 +420,9 @@ export default function Promotion(){
             width="112"
             height="112"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -473,16 +475,16 @@ export default function Promotion(){
         <path
           d="M14.5 8C13.8406 8.37652 13.2062 8.79103 12.6 9.24051C11.5625 10.0097 10.6074 10.8814 9.75 11.8402C6.79377 15.1463 5 19.4891 5 24.2455C5 34.6033 13.5066 43 24 43C34.4934 43 43 34.6033 43 24.2455C43 19.4891 41.2062 15.1463 38.25 11.8402C37.3926 10.8814 36.4375 10.0097 35.4 9.24051C34.7938 8.79103 34.1594 8.37652 33.5 8"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M24 4V24"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -492,8 +494,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M14.9946 30.4322C23.0148 30.4322 29.5165 23.7194 29.5165 15.4388C29.5165 7.15811 23.0148 0.445312 14.9946 0.445312C6.97433 0.445312 0.472656 7.15811 0.472656 15.4388C0.472656 23.7194 6.97433 30.4322 14.9946 30.4322ZM10.0356 7.31738C9.29556 7.31738 8.616 7.72604 8.26904 8.37971L5.96505 12.7204C5.5728 13.4594 5.68198 14.3644 6.23872 14.9889L13.5008 23.1351C14.2961 24.0273 15.6913 24.0273 16.4866 23.1351L23.7487 14.9889C24.3054 14.3644 24.4146 13.4594 24.0224 12.7204L21.7184 8.37971C21.3714 7.72603 20.6918 7.31738 19.9518 7.31738H10.0356Z"
           fill="var(--main-color)"
         ></path>
@@ -534,8 +536,8 @@ export default function Promotion(){
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M30.5 25.6016C26.2741 25.6016 22.4191 27.1614 19.5 29.7266C16.1244 32.693 14 37.0037 14 41.8016C14 50.7486 21.3873 58.0016 30.5 58.0016C39.6127 58.0016 47 50.7486 47 41.8016C47 37.0037 44.8756 32.693 41.5 29.7266C38.5809 27.1614 34.7259 25.6016 30.5 25.6016ZM30.9754 31.4666C30.8258 31.0059 30.1741 31.0059 30.0244 31.4666L28.1425 37.2584C28.0756 37.4644 27.8836 37.6039 27.667 37.6039H21.5771C21.0928 37.6039 20.8914 38.2237 21.2832 38.5084L26.21 42.0879C26.3853 42.2152 26.4586 42.4409 26.3917 42.6469L24.5098 48.4387C24.3601 48.8994 24.8874 49.2824 25.2792 48.9977L30.206 45.4182C30.3813 45.2909 30.6186 45.2909 30.7938 45.4182L35.7206 48.9977C36.1125 49.2824 36.6397 48.8994 36.49 48.4387L34.6082 42.6469C34.5412 42.4409 34.6145 42.2152 34.7898 42.0879L39.7166 38.5084C40.1084 38.2237 39.9071 37.6039 39.4227 37.6039H33.3328C33.1162 37.6039 32.9242 37.4644 32.8573 37.2584L30.9754 31.4666Z"
           fill="var(--main-color)"
         ></path>
@@ -589,15 +591,15 @@ export default function Promotion(){
       >
         <g filter="url(#filter0_i_2239_90691)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M29.7615 26.2029C30.1125 25.5623 30.7849 25.1641 31.5154 25.1641H66.4794C67.2099 25.1641 67.8823 25.5623 68.2333 26.2029L77.6407 43.3688C78.0531 44.1213 77.9395 45.053 77.3583 45.6844L50.4689 74.8986C49.6767 75.7594 48.3181 75.7594 47.5258 74.8986L20.6365 45.6844C20.0553 45.053 19.9417 44.1213 20.3541 43.3688L29.7615 26.2029Z"
             fill="#FFA522"
           ></path>
         </g>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M49 93C73.3005 93 93 73.3005 93 49C93 24.6995 73.3005 5 49 5C24.6995 5 5 24.6995 5 49C5 73.3005 24.6995 93 49 93ZM31.5154 25.168C30.7849 25.168 30.1125 25.5662 29.7615 26.2068L20.3541 43.3727C19.9417 44.1252 20.0553 45.0569 20.6365 45.6883L47.5258 74.9025C48.3181 75.7633 49.6767 75.7633 50.4689 74.9025L77.3583 45.6883C77.9395 45.0569 78.0531 44.1252 77.6407 43.3727L68.2333 26.2068C67.8823 25.5662 67.2099 25.168 66.4794 25.168H31.5154Z"
           fill="url(#paint0_linear_2239_90691)"
         ></path>
@@ -609,9 +611,9 @@ export default function Promotion(){
             width="57.7773"
             height="54.3809"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -650,8 +652,8 @@ export default function Promotion(){
             y2="93"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFF670"></stop>
-            <stop offset="1" stop-color="#FFD93E"></stop>
+            <stop stopColor="#FFF670"></stop>
+            <stop offset="1" stopColor="#FFD93E"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -663,15 +665,15 @@ export default function Promotion(){
       >
         <g filter="url(#filter0_i_2239_90697)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M12.4318 11.824C12.7829 11.1834 13.4553 10.7852 14.1857 10.7852H27.8165C28.547 10.7852 29.2193 11.1834 29.5704 11.824L32.8825 17.8677C33.2949 18.6202 33.1813 19.5519 32.6002 20.1833L22.4727 31.1864C21.6804 32.0471 20.3218 32.0471 19.5296 31.1864L9.40208 20.1833C8.82095 19.5519 8.70734 18.6202 9.11974 17.8677L12.4318 11.824Z"
             fill="#FFA522"
           ></path>
         </g>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M21.0017 39.8549C31.4162 39.8549 39.8588 31.4123 39.8588 20.9978C39.8588 10.5833 31.4162 2.14062 21.0017 2.14062C10.5872 2.14062 2.14453 10.5833 2.14453 20.9978C2.14453 31.4123 10.5872 39.8549 21.0017 39.8549ZM14.1857 10.7812C13.4553 10.7812 12.7829 11.1795 12.4318 11.8201L9.11974 17.8638C8.70734 18.6163 8.82095 19.548 9.40208 20.1794L19.5296 31.1825C20.3218 32.0432 21.6804 32.0432 22.4727 31.1825L32.6002 20.1794C33.1813 19.548 33.2949 18.6163 32.8825 17.8638L29.5704 11.8201C29.2193 11.1795 28.547 10.7812 27.8165 10.7812H14.1857Z"
           fill="url(#paint0_linear_2239_90697)"
         ></path>
@@ -683,9 +685,9 @@ export default function Promotion(){
             width="24.2539"
             height="25.0469"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -724,8 +726,8 @@ export default function Promotion(){
             y2="39.8549"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFF670"></stop>
-            <stop offset="1" stop-color="#FFD93E"></stop>
+            <stop stopColor="#FFF670"></stop>
+            <stop offset="1" stopColor="#FFD93E"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -813,9 +815,9 @@ export default function Promotion(){
           opacity="0.4"
           d="M14.25 7.5V52.5"
           stroke="var(--main-color)"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M14.25 11.25H31.75L40.5 15H49.25C50.6307 15 51.75 16.1193 51.75 17.5V38.75C51.75 40.1308 50.6307 41.25 49.25 41.25H40.5L31.75 37.5H14.25V11.25Z"
@@ -824,9 +826,9 @@ export default function Promotion(){
         <path
           d="M9.25 52.5H19.25"
           stroke="var(--main-color)"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -854,30 +856,30 @@ export default function Promotion(){
         <path
           d="M51.25 54.375H63.75"
           stroke="var(--bg_color_L2)"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M51.25 61.875H63.75"
           stroke="var(--bg_color_L2)"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M63.75 54.375L59.375 50"
           stroke="var(--bg_color_L2)"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M55.625 66.25L51.25 61.875"
           stroke="var(--bg_color_L2)"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -915,9 +917,9 @@ export default function Promotion(){
         <path
           d="M49 67.375C59.1483 67.375 67.375 59.1483 67.375 49C67.375 38.8517 59.1483 30.625 49 30.625C38.8517 30.625 30.625 38.8517 30.625 49C30.625 59.1483 38.8517 67.375 49 67.375Z"
           stroke="#FFA522"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <defs>
           <filter
@@ -927,9 +929,9 @@ export default function Promotion(){
             width="38.75"
             height="42.75"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -968,8 +970,8 @@ export default function Promotion(){
             y2="89.8307"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFF976"></stop>
-            <stop offset="1" stop-color="#FFD435"></stop>
+            <stop stopColor="#FFF976"></stop>
+            <stop offset="1" stopColor="#FFD435"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -1022,7 +1024,7 @@ export default function Promotion(){
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_4808_6957)">
+        <g clipPath="url(#clip0_4808_6957)">
           <rect
             opacity="0.4"
             x="4"
@@ -1052,9 +1054,9 @@ export default function Promotion(){
             d="M24 33.4297C28.9706 33.4297 33 29.4003 33 24.4297C33 19.4591 28.9706 15.4297 24 15.4297C19.0294 15.4297 15 19.4591 15 24.4297C15 29.4003 19.0294 33.4297 24 33.4297Z"
             fill="var(--main-color)"
             stroke="var(--main-color)"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           ></path>
         </g>
         <defs>
@@ -1126,8 +1128,8 @@ export default function Promotion(){
           </g>
           <path
             id="Subtract"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M7 2H6V36.4348L65.5 46L125 36.4348V2H124V35.5L65.5 44.5L7 35.5V2Z"
             fill="url(#paint1_linear_1246_6363)"
           ></path>
@@ -1140,9 +1142,9 @@ export default function Promotion(){
             width="131"
             height="54"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -1176,10 +1178,10 @@ export default function Promotion(){
             y2="48"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FF9E9F"></stop>
-            <stop offset="0.0686938" stop-color="#EE2526"></stop>
-            <stop offset="0.494792" stop-color="#FF3E3F"></stop>
-            <stop offset="1" stop-color="#FF3839"></stop>
+            <stop stopColor="#FF9E9F"></stop>
+            <stop offset="0.0686938" stopColor="#EE2526"></stop>
+            <stop offset="0.494792" stopColor="#FF3E3F"></stop>
+            <stop offset="1" stopColor="#FF3839"></stop>
           </linearGradient>
           <linearGradient
             id="paint1_linear_1246_6363"
@@ -1189,9 +1191,9 @@ export default function Promotion(){
             y2="46"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.0405212" stop-color="white"></stop>
-            <stop offset="0.0644429" stop-color="#FFA6A6"></stop>
-            <stop offset="1" stop-color="#FFC2C3"></stop>
+            <stop offset="0.0405212" stopColor="white"></stop>
+            <stop offset="0.0644429" stopColor="#FFA6A6"></stop>
+            <stop offset="1" stopColor="#FFC2C3"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -1206,7 +1208,7 @@ export default function Promotion(){
           cy="10"
           r="9.4"
           stroke="var(--main-color)"
-          stroke-width="1.2"
+          strokeWidth="1.2"
         ></circle>
         <circle cx="10" cy="10" r="5" fill="var(--main-color)"></circle>
       </symbol>
@@ -1222,7 +1224,7 @@ export default function Promotion(){
             cy="10"
             r="9.4"
             stroke="var(--main-color)"
-            stroke-width="1.2"
+            strokeWidth="1.2"
           ></circle>
           <circle cx="10" cy="10" r="5" fill="var(--main-color)"></circle>
         </g>
@@ -1252,7 +1254,7 @@ export default function Promotion(){
         <path
           d="M1 1L0.999999 21"
           stroke="#888888"
-          stroke-linecap="round"
+          strokeLinecap="round"
         ></path>
       </symbol>
       <symbol
@@ -1297,33 +1299,33 @@ export default function Promotion(){
           d="M19 20C22.866 20 26 16.866 26 13C26 9.13401 22.866 6 19 6C15.134 6 12 9.13401 12 13C12 16.866 15.134 20 19 20Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           opacity="0.4"
           d="M32.6074 7C34.6402 8.2249 35.9998 10.4537 35.9998 13C35.9998 15.5463 34.6402 17.7751 32.6074 19"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M4 40.8V42H34V40.8C34 36.3196 34 34.0794 33.1281 32.3681C32.3611 30.8628 31.1372 29.6389 29.6319 28.8719C27.9206 28 25.6804 28 21.2 28H16.8C12.3196 28 10.0794 28 8.36808 28.8719C6.86278 29.6389 5.63893 30.8628 4.87195 32.3681C4 34.0794 4 36.3196 4 40.8Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           opacity="0.4"
           d="M43.999 42.0001V40.8001C43.999 36.3197 43.999 34.0795 43.1271 32.3682C42.3601 30.8629 41.1362 29.6391 39.6309 28.8721"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -1353,39 +1355,39 @@ export default function Promotion(){
           d="M18.75 17.9814C23.9068 20.0007 30.0104 20.0007 30.0104 20.0007C30.0104 20.0007 36.1 20.0007 41.25 17.9814C46.8773 24.5487 50.8205 33.2062 53.4121 40.4976C56.0359 47.8791 50.2508 55.0007 42.4168 55.0007H17.5246C9.71023 55.0007 3.93235 47.9117 6.54287 40.5462C9.12242 33.2679 13.0685 24.6074 18.75 17.9814Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M30 25V47"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M35.5 27C35.5 27 30.4853 27 28 27C25.5147 27 23.5 29.0147 23.5 31.5C23.5 33.9853 25.5147 36 28 36"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M24.5 45C24.5 45 29.5147 45 32 45C34.4853 45 36.5 42.9853 36.5 40.5C36.5 38.0147 34.4853 36 32 36H28"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M30 20C38.9746 20 46.25 16.6421 46.25 12.5C46.25 8.35786 38.9746 5 30 5C21.0254 5 13.75 8.35786 13.75 12.5C13.75 16.6421 21.0254 20 30 20Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -1434,49 +1436,49 @@ export default function Promotion(){
           d="M24 20C27.866 20 31 16.866 31 13C31 9.13401 27.866 6 24 6C20.134 6 17 9.13401 17 13C17 16.866 20.134 20 24 20Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           opacity="0.4"
           d="M12 7.25488C10.1865 8.51983 9 10.6214 9 13.0002C9 15.5465 10.3596 17.7753 12.3924 19.0002"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           opacity="0.4"
           d="M36 7.25488C37.8135 8.51983 39 10.6214 39 13.0002C39 15.3789 37.8135 17.4806 36 18.7455"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M12 40V42H36V40C36 36.2725 36 34.4087 35.391 32.9385C34.5791 30.9783 33.0217 29.4209 31.0615 28.609C29.5913 28 27.7275 28 24 28C20.2725 28 18.4087 28 16.9385 28.609C14.9783 29.4209 13.4209 30.9783 12.609 32.9385C12 34.4087 12 36.2725 12 40Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           opacity="0.4"
           d="M43.999 42.0001V40.8001C43.999 36.3197 43.999 34.0795 43.1271 32.3682C42.3601 30.8629 41.1362 29.6391 39.6309 28.8721"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           opacity="0.4"
           d="M4 42.0001V40.8001C4 36.3197 4 34.0795 4.87195 32.3682C5.63893 30.8629 6.86278 29.6391 8.36807 28.8721"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -1515,14 +1517,14 @@ export default function Promotion(){
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M17.1855 30.0003C17.1855 28.8168 18.1449 27.8574 19.3284 27.8574H39.0427C40.2261 27.8574 41.1855 28.8168 41.1855 30.0003C41.1855 31.1837 40.2261 32.1431 39.0427 32.1431H19.3284C18.1449 32.1431 17.1855 31.1837 17.1855 30.0003Z"
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M14.5713 39.8567C14.5713 38.6733 15.5306 37.7139 16.7141 37.7139H36.4284C37.6119 37.7139 38.5713 38.6733 38.5713 39.8567C38.5713 41.0402 37.6119 41.9996 36.4284 41.9996H16.7141C15.5306 41.9996 14.5713 41.0402 14.5713 39.8567Z"
           fill="var(--main-color)"
         ></path>
@@ -1536,7 +1538,7 @@ export default function Promotion(){
         <path
           d="M22.3206 29.4914C20.713 30.1573 18.99 30.5 17.25 30.5C13.7359 30.5 10.3657 29.104 7.88084 26.6192C5.39598 24.1343 4 20.7641 4 17.25C4 13.7359 5.39598 10.3657 7.88083 7.88083C10.3657 5.39598 13.7359 4 17.25 4C18.99 4 20.713 4.34272 22.3206 5.0086C23.9281 5.67447 25.3888 6.65046 26.6192 7.88083C27.8495 9.11121 28.8255 10.5719 29.4914 12.1794C30.1573 13.787 30.5 15.51 30.5 17.25C30.5 18.99 30.1573 20.713 29.4914 22.3206C28.8255 23.9281 27.8495 25.3888 26.6192 26.6192C25.3888 27.8495 23.9281 28.8255 22.3206 29.4914ZM31.95 31.9985C31.9436 31.9985 31.9355 31.9971 31.9282 31.9941C31.9242 31.9925 31.922 31.9911 31.9214 31.9906L29.1369 29.2062C29.1268 29.1953 29.1211 29.1809 29.1211 29.166C29.1211 29.152 29.1261 29.1385 29.1351 29.1279C29.1381 29.1254 29.1407 29.124 29.1432 29.123C29.1472 29.1213 29.1535 29.1197 29.1619 29.1197C29.1774 29.1197 29.1952 29.1249 29.2127 29.1404L31.9929 31.9206C31.9948 31.9226 31.9963 31.9243 31.9975 31.926C31.9989 31.928 31.9998 31.9299 32.0005 31.9317C32.0022 31.9357 32.0037 31.942 32.0037 31.9504C32.0037 31.9608 32.0014 31.9723 31.9952 31.984C31.9756 31.9955 31.9587 31.9985 31.95 31.9985Z"
           stroke="currentColor"
-          stroke-width="2"
+          strokeWidth="2"
         ></path>
       </symbol>
       <symbol
@@ -1560,7 +1562,7 @@ export default function Promotion(){
         viewBox="0 0 48 48"
         fill="none"
       >
-        <g clip-path="url(#clip0_6360_21191)">
+        <g clipPath="url(#clip0_6360_21191)">
           <path
             d="M23.9955 47.9998C10.7874 48.0471 -0.23118 37.1883 0.00368673 23.5594C0.230542 10.3977 11.1372 -0.274265 24.5288 0.00537298C37.2674 0.271345 47.9986 10.6432 48 24.0104C48.0014 37.308 37.2675 47.9998 23.9955 47.9998ZM31.898 33.1019C31.9229 33.0378 31.9637 32.9372 32.0012 32.8354C33.1533 29.6991 34.3075 26.5635 35.4523 23.4244C35.536 23.1947 35.6523 23.088 35.8957 23.0243C37.2211 22.6772 38.0122 21.3663 37.7026 20.0709C37.4124 18.8567 36.2337 18.0384 34.9821 18.182C33.8198 18.3155 32.8786 19.3717 32.8533 20.572C32.8411 21.1496 33.0217 21.6654 33.3848 22.1331C32.2741 23.4385 31.1737 24.7319 30.0385 26.0661C29.6353 23.6602 29.2447 21.329 28.8523 18.9878C28.9398 18.952 29.0064 18.9252 29.0725 18.8975C30.322 18.3741 30.9078 17.1195 30.5141 15.8101C30.134 14.5463 28.8118 13.7321 27.5455 13.9871C26.5239 14.1927 25.8288 14.7962 25.5231 15.7839C25.2074 16.804 25.4546 17.7202 26.2156 18.4748C26.3696 18.6275 26.399 18.7449 26.3322 18.9462C25.6104 21.1204 24.8986 23.298 24.183 25.4742C24.1586 25.5481 24.1223 25.6181 24.0673 25.7465C23.2467 23.3546 22.4458 21.02 21.6468 18.6912C22.8623 17.9342 23.0229 16.5173 22.6448 15.5997C22.187 14.4887 21.0419 13.806 19.8796 13.9608C18.6987 14.118 17.751 15.0669 17.62 16.2404C17.5534 16.8374 17.6585 17.4066 17.9731 17.9268C18.3196 18.4997 18.8001 18.8909 19.5106 18.9992C19.0253 21.3552 18.5454 23.6849 18.0595 26.0437C17.9958 25.9875 17.9587 25.9614 17.9295 25.9282C16.8492 24.6989 15.7714 23.4675 14.6876 22.2414C14.5807 22.1205 14.601 22.0352 14.6673 21.905C14.8237 21.5976 15.0201 21.291 15.0871 20.961C15.3937 19.4526 13.9742 17.8363 12.2263 18.1747C11.1024 18.3924 10.2019 19.4713 10.2078 20.6228C10.214 21.8218 11.1066 22.8928 12.2555 23.0499C12.4471 23.0761 12.5109 23.1563 12.5678 23.3159C13.1845 25.044 13.8075 26.7699 14.4283 28.4965C14.9596 29.9743 15.491 31.4521 16.02 32.9307C16.0686 33.0664 16.1044 33.1693 16.298 33.1459C16.9872 33.0625 17.6799 33.0088 18.3697 32.9293C20.934 32.6341 23.5048 32.4656 26.0844 32.6334C28.007 32.7585 29.9258 32.9409 31.898 33.1019Z"
             fill="var(--main-color)"
@@ -1579,14 +1581,14 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M16 5C11.5817 5 8 8.58172 8 13V80C8 84.4183 11.5817 88 16 88H56.8008C53.8078 84.5039 52 79.9631 52 75C52 63.9543 60.9543 55 72 55C76.5024 55 80.6574 56.4878 84 58.9985V13C84 8.58172 80.4183 5 76 5H75V22.382C75 23.1253 74.2177 23.6088 73.5528 23.2764L68.4472 20.7236C68.1657 20.5828 67.8343 20.5828 67.5528 20.7236L62.4472 23.2764C61.7823 23.6088 61 23.1253 61 22.382V5H16ZM18 22.5C18 21.1193 19.1193 20 20.5 20H43.5C44.8807 20 46 21.1193 46 22.5C46 23.8807 44.8807 25 43.5 25H20.5C19.1193 25 18 23.8807 18 22.5ZM18 35.5C18 34.1193 19.1193 33 20.5 33H71.5C72.8807 33 74 34.1193 74 35.5C74 36.8807 72.8807 38 71.5 38H20.5C19.1193 38 18 36.8807 18 35.5ZM20.5 46C19.1193 46 18 47.1193 18 48.5C18 49.8807 19.1193 51 20.5 51H55.5C56.8807 51 58 49.8807 58 48.5C58 47.1193 56.8807 46 55.5 46H20.5Z"
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M56 75C56 66.1791 63.1791 59 72 59C80.8209 59 88 66.1791 88 75C88 83.8209 80.8209 91 72 91C63.1791 91 56 83.8209 56 75ZM63 77.5C64.3807 77.5 65.5 76.3807 65.5 75C65.5 73.6193 64.3807 72.5 63 72.5C61.6193 72.5 60.5 73.6193 60.5 75C60.5 76.3807 61.6193 77.5 63 77.5ZM72 77.5C73.3807 77.5 74.5 76.3807 74.5 75C74.5 73.6193 73.3807 72.5 72 72.5C70.6193 72.5 69.5 73.6193 69.5 75C69.5 76.3807 70.6193 77.5 72 77.5ZM83.5 75C83.5 76.3807 82.3807 77.5 81 77.5C79.6193 77.5 78.5 76.3807 78.5 75C78.5 73.6193 79.6193 72.5 81 72.5C82.3807 72.5 83.5 73.6193 83.5 75Z"
           fill="var(--main-color)"
         ></path>
@@ -1618,12 +1620,12 @@ export default function Promotion(){
         <path
           d="M72 77C75.3137 77 78 74.3137 78 71C78 67.6863 75.3137 65 72 65C68.6863 65 66 67.6863 66 71C66 71.4413 66.0476 71.8715 66.1381 72.2857"
           stroke="var(--text_color_L4)"
-          stroke-width="3.5"
-          stroke-linecap="round"
+          strokeWidth="3.5"
+          strokeLinecap="round"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M8 13C8 8.58172 11.5817 5 16 5H76C80.4183 5 84 8.58172 84 13V58.9985C80.6574 56.4878 76.5024 55 72 55C60.9543 55 52 63.9543 52 75C52 79.9631 53.8078 84.5039 56.8008 88H16C11.5817 88 8 84.4183 8 80V13ZM20.5 20C19.1193 20 18 21.1193 18 22.5C18 23.8807 19.1193 25 20.5 25H43.5C44.8807 25 46 23.8807 46 22.5C46 21.1193 44.8807 20 43.5 20H20.5ZM20.5 33C19.1193 33 18 34.1193 18 35.5C18 36.8807 19.1193 38 20.5 38H71.5C72.8807 38 74 36.8807 74 35.5C74 34.1193 72.8807 33 71.5 33H20.5ZM18 48.5C18 47.1193 19.1193 46 20.5 46H55.5C56.8807 46 58 47.1193 58 48.5C58 49.8807 56.8807 51 55.5 51H20.5C19.1193 51 18 49.8807 18 48.5Z"
           fill="var(--main-color)"
         ></path>
@@ -1639,8 +1641,8 @@ export default function Promotion(){
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M8 13C8 8.58172 11.5817 5 16 5H76C80.4183 5 84 8.58172 84 13V58.9985C80.6574 56.4878 76.5024 55 72 55C60.9543 55 52 63.9543 52 75C52 79.9631 53.8078 84.5039 56.8008 88H16C11.5817 88 8 84.4183 8 80V13ZM20.5 20C19.1193 20 18 21.1193 18 22.5C18 23.8807 19.1193 25 20.5 25H43.5C44.8807 25 46 23.8807 46 22.5C46 21.1193 44.8807 20 43.5 20H20.5ZM20.5 33C19.1193 33 18 34.1193 18 35.5C18 36.8807 19.1193 38 20.5 38H71.5C72.8807 38 74 36.8807 74 35.5C74 34.1193 72.8807 33 71.5 33H20.5ZM18 48.5C18 47.1193 19.1193 46 20.5 46H55.5C56.8807 46 58 47.1193 58 48.5C58 49.8807 56.8807 51 55.5 51H20.5C19.1193 51 18 49.8807 18 48.5Z"
           fill="var(--main-color)"
         ></path>
@@ -1677,7 +1679,7 @@ export default function Promotion(){
         viewBox="0 0 29 28"
         fill="none"
       >
-        <g clip-path="url(#clip0_4402_98617)">
+        <g clipPath="url(#clip0_4402_98617)">
           <path
             d="M25.1778 22.687C22.5234 25.998 18.623 28 14.3922 28C7.7044 28 1.9602 23.0048 0.5 16.0776L3.279 15.4C4.4466 20.937 9.0428 24.934 14.3922 24.934C17.8726 24.934 21.0716 23.24 23.1982 20.4596L20.1 16.975H28.5V26.425L25.1778 22.687ZM3.8222 5.313C6.4766 2.002 10.377 0 14.6078 0C21.2956 0 27.0398 4.9952 28.5 11.9224L25.721 12.6C24.5534 7.063 19.9572 3.066 14.6078 3.066C11.1274 3.066 7.9284 4.76 5.8018 7.5404L8.9 11.025H0.5V1.575L3.8222 5.313Z"
             fill="var(--text_color_L4)"
@@ -1729,50 +1731,50 @@ export default function Promotion(){
           d="M9.33203 16.6667C9.33203 12.9848 12.3168 10 15.9987 10C19.6806 10 22.6654 12.9848 22.6654 16.6667V27.3333H9.33203V16.6667Z"
           fill="#D23838"
           stroke="#D23838"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M16 3.33301V5.33301"
           stroke="#D23838"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M23.9262 6.21875L22.6406 7.75086"
           stroke="#D23838"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M28.1454 13.5244L26.1758 13.8717"
           stroke="#D23838"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M3.85547 13.5254L5.82508 13.8727"
           stroke="#D23838"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M8.07422 6.21875L9.35982 7.75087"
           stroke="#D23838"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M4 27.333H28.6667"
           stroke="#D23838"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -1789,14 +1791,14 @@ export default function Promotion(){
           fill="currentColor"
         ></circle>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M17.4489 16.6808C17.4491 16.6697 17.4492 16.6586 17.4492 16.6475C17.4492 15.681 16.6833 14.8975 15.7168 14.8975C14.7529 14.8975 13.9263 15.6767 13.9219 16.6396H13.9209C13.9212 16.6432 13.9215 16.6469 13.9219 16.6505C13.9221 16.7723 13.9355 16.8911 13.9606 17.0059C14.5925 21.9877 18.8462 25.8397 23.9996 25.8397C29.1037 25.8397 33.3252 22.0611 34.0195 17.1487C34.0666 16.9905 34.0918 16.8229 34.0918 16.6494C34.0918 15.6829 33.3083 14.8994 32.3418 14.8994C31.3753 14.8994 30.5469 15.6829 30.5469 16.6494C30.5469 16.6662 30.5471 16.6829 30.5476 16.6996C30.0741 19.8911 27.3228 22.3397 23.9996 22.3397C20.67 22.3397 17.9144 19.8815 17.4489 16.6808Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M10.5124 5.2H37.4875C40.0604 5.2 42.1758 7.22874 42.2833 9.79945L42.7935 22H42.8V22.0005C42.8 22.8841 43.5163 23.6005 44.4 23.6005C45.2837 23.6005 46 22.8841 46 22.0005C46 21.9341 45.996 21.8686 45.9881 21.8044L45.4805 9.66575C45.3013 5.38123 41.7757 2 37.4875 2H10.5124C6.2241 2 2.69852 5.38123 2.51935 9.66575L1.34844 37.6657C1.15836 42.2112 4.79203 46 9.34145 46H38.6584C43.2078 46 46.8415 42.2112 46.6514 37.6657L46.3308 30H46.3303C46.3069 29.1368 45.5998 28.4442 44.7309 28.4442C43.862 28.4442 43.1549 29.1368 43.1315 30H43.128L43.1312 30.0763C43.1317 30.1004 43.1327 30.1243 43.1342 30.148L43.4542 37.7994C43.5682 40.5267 41.388 42.8 38.6584 42.8H9.34145C6.6118 42.8 4.4316 40.5267 4.54565 37.7994L5.71656 9.79945C5.82406 7.22874 7.93941 5.2 10.5124 5.2Z"
           fill="currentColor"
         ></path>
@@ -1810,21 +1812,21 @@ export default function Promotion(){
         <path
           d="M18 33C22.1421 33 25.8921 31.3211 28.6066 28.6066C31.3211 25.8921 33 22.1421 33 18C33 13.8579 31.3211 10.1079 28.6066 7.39339C25.8921 4.67893 22.1421 3 18 3C13.8579 3 10.1079 4.67893 7.39339 7.39339C4.67893 10.1079 3 13.8579 3 18C3 22.1421 4.67893 25.8921 7.39339 28.6066C10.1079 31.3211 13.8579 33 18 33Z"
           stroke="#D23838"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M18 27.75C19.0355 27.75 19.875 26.9105 19.875 25.875C19.875 24.8395 19.0355 24 18 24C16.9645 24 16.125 24.8395 16.125 25.875C16.125 26.9105 16.9645 27.75 18 27.75Z"
           fill="#D23838"
         ></path>
         <path
           d="M18 9V21"
           stroke="#D23838"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -1833,11 +1835,11 @@ export default function Promotion(){
         viewBox="0 0 30 30"
         fill="none"
       >
-        <g clip-path="url(#clip0_2271_83618)">
-          <path d="M30 0H0V30H30V0Z" fill="white" fill-opacity="0.01"></path>
+        <g clipPath="url(#clip0_2271_83618)">
+          <path d="M30 0H0V30H30V0Z" fill="white" fillOpacity="0.01"></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M11.2422 7.48056L19.8688 2.5L22.7516 7.49306L11.2422 7.48056Z"
             fill="#FFA522"
           ></path>
@@ -1846,8 +1848,8 @@ export default function Promotion(){
             fill="#FDD95A"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M27.9688 21.25H22.5C20.6878 21.25 19.2188 19.8509 19.2188 18.125C19.2188 16.3991 20.6878 15 22.5 15H27.9688V21.25ZM21.9872 18.9581C22.505 18.9581 22.9247 18.5383 22.9247 18.0206C22.9247 17.5028 22.505 17.0831 21.9872 17.0831C21.4694 17.0831 21.0497 17.5028 21.0497 18.0206C21.0497 18.5383 21.4694 18.9581 21.9872 18.9581Z"
             fill="#FFA522"
           ></path>
@@ -1884,8 +1886,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M40.5 18.5C40.5 32.8 24 46 24 46C24 46 7.5 32.8 7.5 18.5C7.5 9.38727 14.8873 2 24 2C33.1127 2 40.5 9.38727 40.5 18.5ZM30.6004 18.5004C30.6004 22.1455 27.6455 25.1004 24.0004 25.1004C20.3553 25.1004 17.4004 22.1455 17.4004 18.5004C17.4004 14.8553 20.3553 11.9004 24.0004 11.9004C27.6455 11.9004 30.6004 14.8553 30.6004 18.5004Z"
           fill="var(--main-color)"
         ></path>
@@ -1937,8 +1939,8 @@ export default function Promotion(){
           ></path>
           <g filter="url(#filter1_f_186_36254)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M18.9941 54.2005C33.1553 63.2088 51.9376 59.0321 60.9459 44.8714C62.7462 42.0417 64.0197 39.0272 64.7923 35.9438C64.3629 40.3673 62.913 44.7595 60.3637 48.766C51.7109 62.3679 33.6703 66.38 20.0681 57.7272C13.8697 53.784 9.66276 47.891 7.73828 41.3576C10.0995 46.4562 13.9011 50.9604 18.9941 54.2005Z"
               fill="#F26565"
             ></path>
@@ -1984,9 +1986,9 @@ export default function Promotion(){
             width="75.1768"
             height="75.177"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -2018,9 +2020,9 @@ export default function Promotion(){
             width="63.0542"
             height="32.3481"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -2039,9 +2041,9 @@ export default function Promotion(){
             width="19.9863"
             height="15.2263"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -2060,9 +2062,9 @@ export default function Promotion(){
             width="33.7349"
             height="26.8772"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -2082,8 +2084,8 @@ export default function Promotion(){
             y2="66.2072"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#F22427"></stop>
-            <stop offset="1" stop-color="#960204"></stop>
+            <stop stopColor="#F22427"></stop>
+            <stop offset="1" stopColor="#960204"></stop>
           </linearGradient>
           <linearGradient
             id="paint1_linear_186_36254"
@@ -2093,8 +2095,8 @@ export default function Promotion(){
             y2="66.2072"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FB444C"></stop>
-            <stop offset="1" stop-color="#DF242E"></stop>
+            <stop stopColor="#FB444C"></stop>
+            <stop offset="1" stopColor="#DF242E"></stop>
           </linearGradient>
           <linearGradient
             id="paint2_linear_186_36254"
@@ -2104,9 +2106,9 @@ export default function Promotion(){
             y2="60.4738"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FA999A"></stop>
-            <stop offset="0.743552" stop-color="#FE474D"></stop>
-            <stop offset="1" stop-color="#DD2223" stop-opacity="0"></stop>
+            <stop stopColor="#FA999A"></stop>
+            <stop offset="0.743552" stopColor="#FE474D"></stop>
+            <stop offset="1" stopColor="#DD2223" stopOpacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="paint3_linear_186_36254"
@@ -2116,8 +2118,8 @@ export default function Promotion(){
             y2="58.6479"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.349342" stop-color="#FBF9FD"></stop>
-            <stop offset="0.889385" stop-color="#EBA3A5"></stop>
+            <stop offset="0.349342" stopColor="#FBF9FD"></stop>
+            <stop offset="0.889385" stopColor="#EBA3A5"></stop>
           </linearGradient>
           <linearGradient
             id="paint4_linear_186_36254"
@@ -2127,8 +2129,8 @@ export default function Promotion(){
             y2="49.2971"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FBF9FD"></stop>
-            <stop offset="0.373872" stop-color="#EBA3A5"></stop>
+            <stop stopColor="#FBF9FD"></stop>
+            <stop offset="0.373872" stopColor="#EBA3A5"></stop>
           </linearGradient>
           <linearGradient
             id="paint5_linear_186_36254"
@@ -2138,8 +2140,8 @@ export default function Promotion(){
             y2="39.7457"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FBF9FD"></stop>
-            <stop offset="0.601592" stop-color="#EBA3A5"></stop>
+            <stop stopColor="#FBF9FD"></stop>
+            <stop offset="0.601592" stopColor="#EBA3A5"></stop>
           </linearGradient>
           <linearGradient
             id="paint6_linear_186_36254"
@@ -2149,8 +2151,8 @@ export default function Promotion(){
             y2="-11.196"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.0664686" stop-color="#FBF9FD"></stop>
-            <stop offset="1" stop-color="#EBA3A5"></stop>
+            <stop offset="0.0664686" stopColor="#FBF9FD"></stop>
+            <stop offset="1" stopColor="#EBA3A5"></stop>
           </linearGradient>
           <linearGradient
             id="paint7_linear_186_36254"
@@ -2160,8 +2162,8 @@ export default function Promotion(){
             y2="91.1926"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#EBA3A6"></stop>
-            <stop offset="0.373872" stop-color="#EBA3A5"></stop>
+            <stop stopColor="#EBA3A6"></stop>
+            <stop offset="0.373872" stopColor="#EBA3A5"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -2227,8 +2229,8 @@ export default function Promotion(){
             fill="var(--text_color_L4)"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M14.0005 0.944336L0.822266 22.2056L14.0005 43.4669V39.2718L3.95444 22.2056L14.0005 5.13942V0.944336Z"
             fill="var(--text_color_L4)"
           ></path>
@@ -2252,8 +2254,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M4.11362 15.0854C3.3562 15.0854 2.74219 14.4713 2.74219 13.7139V10.9711C2.74219 7.94139 5.19823 5.48535 8.2279 5.48535H39.7708C42.8004 5.48535 45.2565 7.94139 45.2565 10.9711V13.7139C45.2565 14.4713 44.6425 15.0854 43.885 15.0854H4.11362ZM4.11362 18.5139C3.3562 18.5139 2.74219 19.1279 2.74219 19.8854V36.3425C2.74219 39.3722 5.19823 41.8282 8.2279 41.8282H39.7708C42.8004 41.8282 45.2565 39.3722 45.2565 36.3425V19.8854C45.2565 19.1279 44.6425 18.5139 43.885 18.5139H4.11362ZM35.6564 36.1001C35.1539 36.6695 34.4185 37.0287 33.5993 37.0287C32.0845 37.0287 30.8564 35.8007 30.8564 34.2858C30.8564 32.771 32.0845 31.543 33.5993 31.543C34.4185 31.543 35.1539 31.9021 35.6564 32.4715C36.159 31.9021 36.8944 31.543 37.7136 31.543C39.2284 31.543 40.4564 32.771 40.4564 34.2858C40.4564 35.8007 39.2284 37.0287 37.7136 37.0287C36.8944 37.0287 36.159 36.6695 35.6564 36.1001Z"
           fill="var(--main-color)"
         ></path>
@@ -2284,11 +2286,11 @@ export default function Promotion(){
             fill="white"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M690.847 21.138C707.178 38.335 706.477 65.5153 689.28 81.8469C672.083 98.1785 644.903 97.477 628.571 80.28C612.239 63.083 612.941 35.9027 630.138 19.5711C647.335 3.23949 674.515 3.94101 690.847 21.138ZM660.283 28.6248L659.005 44.5061L632.046 46.4145L660.283 28.6248ZM661.457 23.7932C661.233 23.846 661.009 23.9377 660.795 24.0729L625.31 46.4289C624.449 46.9712 624.179 47.8735 624.351 48.6804C624.235 49.5409 624.614 50.4685 625.587 50.9134L679.708 75.675C681.086 76.3053 682.419 75.4002 682.706 74.1949C682.944 73.8309 683.074 73.3786 683.035 72.8608L679.503 25.6135C679.455 24.9784 679.162 24.4698 678.745 24.1258C678.377 23.4952 677.694 23.0454 676.842 23.066L662.632 23.4093C662.197 23.4198 661.792 23.5598 661.457 23.7932ZM662.919 40.4756L664.007 26.9556L673.867 26.7174L662.919 40.4756ZM632.176 49.9929L659.809 48.0368L676.048 70.065L632.176 49.9929ZM676.207 29.5241L679.089 68.0688L662.92 46.2222L676.207 29.5241Z"
             fill="white"
-            fill-opacity="0.36"
+            fillOpacity="0.36"
           ></path>
         </g>
       </symbol>
@@ -2315,68 +2317,68 @@ export default function Promotion(){
           fill="#FCFDFD"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M21.0884 40.6238C21.0887 41.3164 21.089 42.0089 21.089 42.7015C21.0891 43.6093 21.089 44.5172 21.089 45.425C21.0889 46.8783 21.0888 48.3316 21.0891 49.7849C21.0894 50.8713 21.4417 51.4155 22.1295 51.3986C22.8009 51.3821 23.1313 50.8677 23.1334 49.827C23.134 49.4811 23.1369 49.1352 23.1397 48.7893C23.1472 47.8691 23.1547 46.9489 23.1218 46.0302C23.1005 45.4332 23.258 45.2511 23.8765 45.2508C24.3154 45.2506 24.7549 45.262 25.1945 45.2734C26.4101 45.305 27.6266 45.3367 28.8323 45.1227C30.9841 44.7409 32.7746 43.7992 33.6101 41.6409C35.0162 38.0089 32.6564 34.4384 28.709 34.2557C27.2127 34.1864 25.7128 34.1927 24.213 34.1989C23.643 34.2013 23.073 34.2037 22.5033 34.2019C21.3393 34.1982 21.0925 34.4485 21.0903 35.6181C21.0871 37.2867 21.0878 38.9552 21.0884 40.6238ZM23.1377 38.8178C23.1367 39.1145 23.1357 39.4112 23.1357 39.7079V41.8233C23.1355 43.3962 23.1357 43.412 24.6827 43.3914C25.0653 43.3863 25.4488 43.3952 25.8323 43.4041C26.7869 43.4263 27.7418 43.4484 28.6845 43.2546C30.0956 42.9644 31.2349 42.2759 31.7271 40.8334C32.551 38.4186 30.9715 36.2326 28.236 36.0686C27.3022 36.0126 26.3652 36.0137 25.428 36.0148C24.8327 36.0155 24.2374 36.0163 23.6428 36.0023C23.1958 35.992 23.1224 36.189 23.1293 36.5716C23.1427 37.3202 23.1402 38.069 23.1377 38.8178Z"
           fill="#FDFDFD"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M38.734 51.2647C41.0772 51.9584 43.1508 51.4437 45.0085 49.6021C45.0151 49.7141 45.0223 49.8099 45.0288 49.8953C45.0407 50.0537 45.0499 50.176 45.0474 50.298C45.0338 50.9304 45.3104 51.3348 45.9562 51.3991C46.506 51.4539 46.9605 51.042 46.9599 50.3869C46.9593 49.6329 46.972 48.8785 46.9848 48.1241C47.0173 46.2009 47.0499 44.2776 46.8608 42.3604C46.7303 41.0381 46.111 39.8972 44.9283 39.2489C42.4091 37.8681 39.8521 38.2446 37.3376 39.3164C36.9305 39.4899 36.7427 39.909 36.92 40.3667C37.1043 40.8424 37.4869 41.0184 37.9808 40.9072C38.1172 40.8765 38.2484 40.8239 38.3798 40.7712C38.4524 40.7421 38.525 40.713 38.5986 40.6876C39.8329 40.2606 41.0843 40.0298 42.3965 40.2792C43.9873 40.5815 44.8512 41.5257 45.0316 43.1465C45.0962 43.727 45.0088 43.9078 44.3548 43.7535C42.4875 43.3129 40.5957 43.1743 38.7266 43.7557C36.8003 44.3549 35.7754 45.7054 35.7872 47.5492C35.7986 49.334 36.8485 50.7066 38.734 51.2647ZM43.1475 49.4462C44.4057 48.8146 45.1065 47.8124 45.0657 46.2366L45.0657 46.2258C45.0689 45.3903 45.069 45.3681 44.1357 45.1893C42.6987 44.9145 41.249 44.7283 39.8042 45.1133C38.463 45.4707 37.7763 46.3326 37.8045 47.5372C37.831 48.6666 38.5825 49.5068 39.8871 49.8264C41.0163 50.1029 42.1144 49.9647 43.1475 49.4462Z"
           fill="#F2F5F7"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M51.7636 15.2574C52.5719 15.925 52.6936 17.1308 52.0355 17.9507L41.22 31.4252C40.5619 32.2451 39.3731 32.3686 38.5649 31.701C37.7566 31.0335 37.6349 29.8276 38.293 29.0078L49.1085 15.5333C49.7666 14.7134 50.9553 14.5899 51.7636 15.2574Z"
           fill="white"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M38.1596 16.4474C38.1596 15.5121 38.907 14.7539 39.8291 14.7539H50.572C51.494 14.7539 52.2415 15.5121 52.2415 16.4474C52.2415 17.3827 51.494 18.1409 50.572 18.1409H39.8291C38.907 18.1409 38.1596 17.3827 38.1596 16.4474Z"
           fill="white"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M38.3773 30.4373C38.3773 29.502 39.1248 28.7438 40.0468 28.7438H50.7897C51.7118 28.7438 52.4592 29.502 52.4592 30.4373C52.4592 31.3726 51.7118 32.1308 50.7897 32.1308H40.0468C39.1248 32.1308 38.3773 31.3726 38.3773 30.4373Z"
           fill="white"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M5.67079 14.7539C6.72082 14.7539 7.57204 15.6047 7.57204 16.6542V30.3946C7.57204 31.4441 6.72082 32.2949 5.67079 32.2949C4.62075 32.2949 3.76953 31.4441 3.76953 30.3946V16.6542C3.76953 15.6047 4.62075 14.7539 5.67079 14.7539Z"
           fill="white"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M17.1898 15.3317C17.9207 16.0853 17.902 17.2883 17.148 18.0188L7.94472 26.9353C7.19077 27.6658 5.98711 27.6471 5.25627 26.8935C4.52543 26.1399 4.54416 24.9369 5.29811 24.2064L14.5014 15.2899C15.2553 14.5594 16.459 14.5781 17.1898 15.3317Z"
           fill="white"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M17.2934 31.8506C16.4627 32.4925 15.2686 32.3398 14.6263 31.5095L9.06601 24.3214C8.42375 23.4911 8.57653 22.2976 9.40724 21.6557C10.238 21.0138 11.432 21.1665 12.0743 21.9967L17.6346 29.1849C18.2769 30.0152 18.1241 31.2087 17.2934 31.8506Z"
           fill="white"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M22.7383 14.918C23.7976 14.918 24.6564 15.6241 24.6564 16.6759V30.4464C24.6564 31.4982 23.7976 32.1311 22.7383 32.1311C21.679 32.1311 20.8203 31.4982 20.8203 30.4464V16.6759C20.8203 15.6241 21.679 14.918 22.7383 14.918Z"
           fill="white"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M30.4842 14.918H22.8859V23.2682H30.4842C32.8066 23.2682 34.6892 21.3989 34.6892 19.0931C34.6892 16.7872 32.8066 14.918 30.4842 14.918ZM24.9515 18.2873C24.87 18.2873 24.8039 18.3529 24.8039 18.4338V21.6567C24.8039 21.7376 24.87 21.8032 24.9515 21.8032H29.0826C30.0604 21.8032 30.8531 21.0162 30.8531 20.0453C30.8531 19.0744 30.0604 18.2873 29.0826 18.2873H24.9515Z"
           fill="white"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M30.4316 32.1311H22.8859V23.1949H31.7173C33.8475 23.1949 35.5744 24.9096 35.5744 27.0247C35.5744 29.8449 33.2719 32.1311 30.4316 32.1311ZM24.92 28.6885C24.8559 28.6885 24.8039 28.6369 24.8039 28.5732V25.1414C24.8039 25.0777 24.8559 25.0261 24.92 25.0261H30.0416C31.0602 25.0261 31.8859 25.8459 31.8859 26.8573C31.8859 27.8686 31.0602 28.6885 30.0416 28.6885H24.92Z"
           fill="white"
         ></path>
@@ -2387,7 +2389,7 @@ export default function Promotion(){
         viewBox="0 0 49 48"
         fill="none"
       >
-        <g clip-path="url(#clip0_2093_19994)">
+        <g clipPath="url(#clip0_2093_19994)">
           <path
             d="M44.9609 38V44H4.96094V38C4.96094 36.9 5.86094 36 6.96094 36H42.9609C44.0609 36 44.9609 36.9 44.9609 38Z"
             fill="var(--main-color)"
@@ -2426,7 +2428,7 @@ export default function Promotion(){
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_6487_39735)">
+        <g clipPath="url(#clip0_6487_39735)">
           <path
             opacity="0.4"
             d="M45.7147 17.1445V33.314C45.7147 38.2775 41.6758 42.2874 36.7033 42.2874H11.2976C6.32499 42.2874 2.28613 38.2775 2.28613 33.314V17.1445H45.7147Z"
@@ -2476,22 +2478,22 @@ export default function Promotion(){
           d="M7 37C7 29.2967 7 11 7 11C7 7.68629 9.68629 5 13 5H35V31C35 31 18.2326 31 13 31C9.7 31 7 33.6842 7 37Z"
           fill="var(--main-color)"
           stroke="#07DDD1"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M35 31C35 31 14.1537 31 13 31C9.68629 31 7 33.6863 7 37C7 40.3137 9.68629 43 13 43C15.2091 43 25.8758 43 41 43V7"
           stroke="#07DDD1"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M14 37H34"
           stroke="#07DDD1"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -2511,16 +2513,16 @@ export default function Promotion(){
         <path
           d="M5.21094 6.25L14.5859 12.5L19.7943 35.4167H40.6276L45.8359 17.7083H26.0443"
           stroke="var(--light-bg_white, var(--main-color))"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M26.0391 27.083H33.6148H42.7057"
           stroke="var(--light-bg_white, var(--main-color))"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -2535,8 +2537,8 @@ export default function Promotion(){
         ></path>
         <g filter="url(#filter0_i_234_67307)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M27.2127 22.7154C20.9535 27.0685 10.3928 38.0529 8.51501 54.2338C6.06343 75.3592 20.7729 99.4571 46.3545 103.385C66.8198 106.527 82.3109 94.5738 87.4983 88.2044C99.01 72.9176 97.7309 60.2849 97.7309 60.2849C97.7309 60.2849 96.5584 66.7604 92.0816 70.5822C86.5846 75.2749 82.7017 75.3593 81.849 75.3593C79.5395 73.4838 73.5989 68.6925 67.8857 65.805C60.7441 62.1956 50.1917 56.1446 50.5115 50.1999C50.8341 44.2033 56.5871 41.6011 66.7132 42.3442C67.033 42.3677 64.5814 46.8026 62.1298 48.8197C66.429 49.3859 76.2637 50.943 79.9304 53.9154C83.5971 56.8878 82.7372 59.4002 81.849 60.2849C82.9504 60.3556 85.7289 60.1362 88.0312 58.6925C90.3335 57.2487 91.4776 55.5432 91.7619 54.8708C90.8381 55.2601 88.7987 55.7201 88.0312 54.4462C87.2638 53.1723 87.4272 51.9338 87.6048 51.4738C84.4071 51.0845 78.3102 49.5842 79.504 46.6967C80.9963 43.0873 85.2599 42.9811 86.6455 43.4058C88.0312 43.8304 90.696 44.892 91.0157 50.6245C91.028 50.8438 91.3137 50.6318 91.8062 50.2665C92.9475 49.4199 95.1993 47.7495 97.7309 48.7137C99.5429 49.4037 99.2587 53.3138 97.7309 54.4462C99.5429 54.0923 104.233 51.686 105.405 45.9536C105.492 45.5296 105.076 45.4781 104.251 45.3761C102.851 45.2027 100.273 44.8837 96.9848 42.3442C92.8064 39.117 91.6197 38.1687 91.5487 38.0979L91.7619 34.17C91.328 33.8937 90.8607 33.5972 90.3688 33.2851C86.3885 30.76 80.798 27.2134 78.3315 25.0405C75.8009 22.8111 70.4438 16.4416 68.9516 3.91506C68.6652 1.51115 67.6725 17.1848 71.0205 23.7666C71.6774 25.0581 57.5901 12.7262 55.7781 7.20595C55.7093 6.99642 56.9069 15.0616 62.4496 22.3865C63.0004 23.1144 62.0893 22.9956 60.1669 22.7449C56.2017 22.2277 47.9341 21.1493 39.3195 25.7836C24.7167 33.6393 23.5442 47.8644 24.7167 54.4462C25.5677 59.2233 27.2749 65.9112 36.1218 74.6162C38.0053 76.4694 32.6044 81.3041 23.4376 75.3593C18.1081 71.903 12.2457 66.3358 13.3116 51.4738C14.4387 35.7572 24.0384 25.2296 27.2127 22.7154ZM80.7831 32.8961L88.0312 36.2931L85.3665 37.8855C84.8335 37.1424 83.5971 35.4863 82.9149 34.8069C82.2327 34.1275 81.2094 33.2499 80.7831 32.8961Z"
             fill="url(#paint0_linear_234_67307)"
           ></path>
@@ -2551,8 +2553,8 @@ export default function Promotion(){
           height="101"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M27.2127 22.7154C20.9535 27.0685 10.3928 38.0529 8.51501 54.2338C6.06343 75.3592 20.7729 99.4571 46.3545 103.385C66.8198 106.527 82.3109 94.5738 87.4983 88.2044C99.01 72.9176 97.7309 60.2849 97.7309 60.2849C97.7309 60.2849 96.5584 66.7604 92.0816 70.5822C86.5846 75.2749 82.7017 75.3593 81.849 75.3593C79.5395 73.4838 73.5989 68.6925 67.8857 65.805C60.7441 62.1956 50.1917 56.1446 50.5115 50.1999C50.8341 44.2033 56.5871 41.6011 66.7132 42.3442C67.033 42.3677 64.5814 46.8026 62.1298 48.8197C66.429 49.3859 76.2637 50.943 79.9304 53.9154C83.5971 56.8878 82.7372 59.4002 81.849 60.2849C82.9504 60.3556 85.7289 60.1362 88.0312 58.6925C90.3335 57.2487 91.4776 55.5432 91.7619 54.8708C90.8381 55.2601 88.7987 55.7201 88.0312 54.4462C87.2638 53.1723 87.4272 51.9338 87.6048 51.4738C84.4071 51.0845 78.3102 49.5842 79.504 46.6967C80.9963 43.0873 85.2599 42.9811 86.6455 43.4058C88.0312 43.8304 90.696 44.892 91.0157 50.6245C91.028 50.8438 91.3137 50.6318 91.8062 50.2665C92.9475 49.4199 95.1993 47.7495 97.7309 48.7137C99.5429 49.4037 99.2587 53.3138 97.7309 54.4462C99.5429 54.0923 104.233 51.686 105.405 45.9536C105.492 45.5296 105.076 45.4781 104.251 45.3761C102.851 45.2027 100.273 44.8837 96.9848 42.3442C92.8064 39.117 91.6197 38.1687 91.5487 38.0979L91.7619 34.17C91.328 33.8937 90.8607 33.5972 90.3688 33.2851C86.3885 30.76 80.798 27.2134 78.3315 25.0405C75.8009 22.8111 70.4438 16.4416 68.9516 3.91506C68.6652 1.51115 67.6725 17.1848 71.0205 23.7666C71.6774 25.0581 57.5901 12.7262 55.7781 7.20595C55.7093 6.99642 56.9069 15.0616 62.4496 22.3865C63.0004 23.1144 62.0893 22.9956 60.1669 22.7449C56.2017 22.2277 47.9341 21.1493 39.3195 25.7836C24.7167 33.6393 23.5442 47.8644 24.7167 54.4462C25.5677 59.2233 27.2749 65.9112 36.1218 74.6162C38.0053 76.4694 32.6044 81.3041 23.4376 75.3593C18.1081 71.903 12.2457 66.3358 13.3116 51.4738C14.4387 35.7572 24.0384 25.2296 27.2127 22.7154ZM80.7831 32.8961L88.0312 36.2931L85.3665 37.8855C84.8335 37.1424 83.5971 35.4863 82.9149 34.8069C82.2327 34.1275 81.2094 33.2499 80.7831 32.8961Z"
             fill="url(#paint1_linear_234_67307)"
           ></path>
@@ -2581,9 +2583,9 @@ export default function Promotion(){
             width="97.1665"
             height="102.235"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -2621,9 +2623,9 @@ export default function Promotion(){
             width="43.9805"
             height="83.3131"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -2662,8 +2664,8 @@ export default function Promotion(){
             y2="103.902"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FF7F79"></stop>
-            <stop offset="1" stop-color="#FB4B4B"></stop>
+            <stop stopColor="#FF7F79"></stop>
+            <stop offset="1" stopColor="#FB4B4B"></stop>
           </linearGradient>
           <linearGradient
             id="paint1_linear_234_67307"
@@ -2673,8 +2675,8 @@ export default function Promotion(){
             y2="103.902"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FF736D"></stop>
-            <stop offset="1" stop-color="#F73E46"></stop>
+            <stop stopColor="#FF736D"></stop>
+            <stop offset="1" stopColor="#F73E46"></stop>
           </linearGradient>
           <linearGradient
             id="paint2_linear_234_67307"
@@ -2684,8 +2686,8 @@ export default function Promotion(){
             y2="100.833"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#F3464A"></stop>
-            <stop offset="1" stop-color="#FFAA96"></stop>
+            <stop stopColor="#F3464A"></stop>
+            <stop offset="1" stopColor="#FFAA96"></stop>
           </linearGradient>
           <linearGradient
             id="paint3_linear_234_67307"
@@ -2695,8 +2697,8 @@ export default function Promotion(){
             y2="86.5664"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FF9C8B"></stop>
-            <stop offset="1" stop-color="#F7434A"></stop>
+            <stop stopColor="#FF9C8B"></stop>
+            <stop offset="1" stopColor="#F7434A"></stop>
           </linearGradient>
           <linearGradient
             id="paint4_linear_234_67307"
@@ -2706,8 +2708,8 @@ export default function Promotion(){
             y2="102.879"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.111391" stop-color="#FF9E8D"></stop>
-            <stop offset="1" stop-color="#EF323B"></stop>
+            <stop offset="0.111391" stopColor="#FF9E8D"></stop>
+            <stop offset="1" stopColor="#EF323B"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -2724,8 +2726,8 @@ export default function Promotion(){
           x2="17.4375"
           y2="23.375"
           stroke="#FFCDCB"
-          stroke-width="4"
-          stroke-linecap="round"
+          strokeWidth="4"
+          strokeLinecap="round"
         ></line>
         <line
           x1="29.125"
@@ -2733,16 +2735,16 @@ export default function Promotion(){
           x2="29.125"
           y2="23.375"
           stroke="#FFCDCB"
-          stroke-width="4"
-          stroke-linecap="round"
+          strokeWidth="4"
+          strokeLinecap="round"
         ></line>
         <path
           d="M39.5469 32.0192C42.1287 28.9816 43.6344 25.2175 43.6344 21.2328C43.6344 11.6544 34.9341 3.35014 23.5 3.35014C12.0659 3.35014 3.36559 11.6544 3.36559 21.2328C3.36559 29.4476 9.76503 36.7251 18.8 38.6308V42.0409C8.07347 40.0735 0 31.505 0 21.2328C0 9.50625 10.5213 0 23.5 0C36.4787 0 47 9.50625 47 21.2328C47 26.1009 45.1868 30.5864 42.1373 34.1679L39.5469 32.0192Z"
           fill="#FFCDCB"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M32.8274 39.1807C33.4277 39.8869 33.3392 40.9439 32.6297 41.5414L27.2077 47.1082C25.7525 48.3339 23.6088 48.2916 22.2035 47.0094L17.2588 41.4975C16.5737 40.8724 16.5274 39.8128 17.1554 39.1308C17.7834 38.4489 18.8479 38.4028 19.533 39.0279L24.4777 44.5398C24.6339 44.6823 24.8721 44.687 25.0338 44.5508L30.4558 38.984C31.1652 38.3864 32.2271 38.4745 32.8274 39.1807Z"
           fill="#FFCDCB"
         ></path>
@@ -2765,8 +2767,8 @@ export default function Promotion(){
           stroke="currentColor"
         ></ellipse>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M24 41.8538C33.9411 41.8538 42 33.8626 42 24.005C42 14.1474 33.9411 6.15625 24 6.15625C14.0589 6.15625 6 14.1474 6 24.005C6 33.8626 14.0589 41.8538 24 41.8538ZM27.695 20.2582C29.1348 21.6473 30.605 23.0657 30.9686 24.2357C31.8261 26.9953 30.214 29.1047 27.5731 29.1047C26.3543 29.1047 25.5007 28.5988 24.9348 28.0538C24.8988 28.3954 24.9022 28.8583 25.0286 29.3597C25.2343 30.1757 25.8001 30.8896 26.0572 31.1446V31.6546H21.9429V31.1446C22.2001 30.8896 22.6806 30.2252 22.9715 29.3597C23.1357 28.8713 23.1601 28.383 23.1117 28.0273C22.5608 28.5822 21.7345 29.1047 20.5764 29.1047C18.107 29.1047 16.0833 27.1281 17.0437 24.2357C17.4482 23.0175 18.9112 21.6047 20.3334 20.2313C20.6173 19.9571 20.8996 19.6846 21.1715 19.4154C22.613 17.9885 23.7554 16.6492 23.9699 16.3978C23.9935 16.3701 24.0058 16.3556 24.0061 16.3556C24.0064 16.3556 24.0181 16.3694 24.0404 16.3959C24.2493 16.6429 25.3886 17.9907 26.8286 19.4154C27.1097 19.6935 27.4019 19.9754 27.695 20.2582Z"
           fill="currentColor"
         ></path>
@@ -2804,8 +2806,8 @@ export default function Promotion(){
           height="26"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M23.9978 36.7541C31.0986 36.7541 36.8549 31.0461 36.8549 24.005C36.8549 16.9638 31.0986 11.2559 23.9978 11.2559C16.897 11.2559 11.1406 16.9638 11.1406 24.005C11.1406 31.0461 16.897 36.7541 23.9978 36.7541ZM23.9978 35.7342C30.5305 35.7342 35.8263 30.4828 35.8263 24.005C35.8263 17.5271 30.5305 12.2758 23.9978 12.2758C17.465 12.2758 12.1692 17.5271 12.1692 24.005C12.1692 30.4828 17.465 35.7342 23.9978 35.7342Z"
             fill="currentColor"
           ></path>
@@ -2871,7 +2873,7 @@ export default function Promotion(){
           d="M49.9046 27.0391C50.0517 27.7139 50.3656 28.3391 50.8158 28.8554H28.6882V25.7923C28.6882 20.1291 33.3609 15.6107 39.5384 15.6107C45.4703 15.6107 49.8701 19.9903 49.8701 25.8288V26.7195V26.8812L49.9046 27.0391ZM56.7053 28.9486C57.2005 28.4152 57.5444 27.755 57.7005 27.0391L57.7349 26.8812V26.7195V25.8559C57.7752 23.4025 57.3256 20.9657 56.4129 18.6958C55.4985 16.4217 54.1382 14.3621 52.4141 12.646L52.4042 12.6362L52.3941 12.6265C48.9558 9.32933 44.4187 7.49241 39.7005 7.50002L39.4816 7.50002L39.4809 7.50002C34.707 7.50203 30.106 9.30237 26.5465 12.55L26.5465 12.55L26.5429 12.5532C24.7253 14.2225 23.276 16.267 22.2885 18.5501C21.3016 20.8319 20.7978 23.3014 20.8092 25.7958V29.6025C18.5861 30.3692 16.6212 31.7782 15.1551 33.6654C13.4403 35.8728 12.507 38.6062 12.5 41.42V41.4237L12.5 59.939L12.5 59.9428C12.5085 63.2588 13.7938 66.4444 16.0873 68.8006C18.3821 71.1582 21.5008 72.4934 24.7634 72.5H24.7665L55.2406 72.5L55.2437 72.5C58.5059 72.4934 61.6239 71.1579 63.9177 68.7998C66.21 66.4432 67.4936 63.2573 67.5 59.9419V59.939L67.5 41.4237L67.5 41.4208C67.4936 38.1049 66.2104 34.9184 63.9184 32.5607C61.9702 30.5565 59.4269 29.2898 56.7053 28.9486Z"
           fill="currentColor"
           stroke="#333333"
-          stroke-width="3"
+          strokeWidth="3"
         ></path>
         <path
           d="M40.0473 39H40.0125C37.8143 39.0425 35.7039 39.888 34.0647 41.3828C32.4254 42.8777 31.366 44.9228 31.0787 47.1467C30.7915 49.3706 31.2956 51.6259 32.4994 53.503C33.7032 55.38 35.5269 56.7543 37.6393 57.3763V61.0402C37.7072 61.3594 37.8362 61.6616 38.0189 61.9297C38.2016 62.1978 38.4345 62.4264 38.7041 62.6024C39.0953 62.8626 39.5524 63.0008 40.0195 63C40.1926 62.9987 40.3651 62.9796 40.5345 62.9432C40.9997 62.8434 41.4263 62.6076 41.7624 62.2647C42.0986 61.9217 42.3296 61.4864 42.4275 61.0118V57.355C44.5245 56.7199 46.3306 55.3423 47.5209 53.4698C48.7112 51.5973 49.2075 49.3529 48.9206 47.1404C48.6337 44.9279 47.5824 42.8924 45.9558 41.4002C44.3292 39.9079 42.2341 39.0568 40.0473 39ZM44.4179 48.3444C44.4188 48.9318 44.3063 49.5137 44.0868 50.0568C43.8673 50.5999 43.5452 51.0936 43.1387 51.5096C42.7322 51.9257 42.2493 52.256 41.7177 52.4816C41.1861 52.7073 40.6161 52.8239 40.0404 52.8249C38.8787 52.8249 37.7645 52.3545 36.9425 51.5171C36.1204 50.6798 35.6577 49.5438 35.6558 48.3586C35.6503 47.1722 36.1069 46.0321 36.9253 45.1892C37.7436 44.3463 38.8566 43.8696 40.0195 43.8639C41.1823 43.8583 42.2998 44.3241 43.1259 45.1591C43.9521 45.994 44.4194 47.1296 44.4249 48.316L44.4179 48.3444Z"
@@ -2887,22 +2889,22 @@ export default function Promotion(){
         <path
           d="M30 57C44.9117 57 57 44.9117 57 30C57 15.0883 44.9117 3 30 3C15.0883 3 3 15.0883 3 30C3 44.9117 15.0883 57 30 57Z"
           stroke="white"
-          stroke-width="4"
-          stroke-linejoin="round"
+          strokeWidth="4"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M43 17L17 43"
           stroke="white"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M17 17L43 43"
           stroke="white"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -2914,15 +2916,15 @@ export default function Promotion(){
         <path
           d="M13 12.4316V7.8125C13 6.2592 14.2592 5 15.8125 5H40.1875C41.7408 5 43 6.2592 43 7.8125V32.1875C43 33.7408 41.7408 35 40.1875 35H35.5163"
           stroke="currentColor"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M32.1875 13H7.8125C6.2592 13 5 14.2592 5 15.8125V40.1875C5 41.7408 6.2592 43 7.8125 43H32.1875C33.7408 43 35 41.7408 35 40.1875V15.8125C35 14.2592 33.7408 13 32.1875 13Z"
           stroke="currentColor"
-          stroke-width="4"
-          stroke-linejoin="round"
+          strokeWidth="4"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -2934,16 +2936,16 @@ export default function Promotion(){
         <path
           d="M6.5 6.2158V3.90625C6.5 3.1296 7.1296 2.5 7.90625 2.5H20.0938C20.8704 2.5 21.5 3.1296 21.5 3.90625V16.0938C21.5 16.8704 20.8704 17.5 20.0938 17.5H17.7582"
           stroke="#E6EBF0"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M16.0938 6.5H3.90625C3.1296 6.5 2.5 7.1296 2.5 7.90625V20.0938C2.5 20.8704 3.1296 21.5 3.90625 21.5H16.0938C16.8704 21.5 17.5 20.8704 17.5 20.0938V7.90625C17.5 7.1296 16.8704 6.5 16.0938 6.5Z"
           fill="var(--text_color_L1)"
           stroke="#E6EBF0"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -2955,29 +2957,29 @@ export default function Promotion(){
         <g id="icon">
           <path
             id="Vector"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M8.60868 36.9866C5.32131 33.3783 3.32142 28.6145 3.32142 23.3913C3.32142 12.1271 12.6179 2.99561 24.0856 2.99561C35.5534 2.99561 44.8499 12.1271 44.8499 23.3913C44.8499 31.356 40.2004 38.2515 33.4234 41.6092C29.277 43.7709 24.5467 44.9956 19.5253 44.9956C13.3726 44.9956 7.6569 43.157 2.91699 40.0087C2.91699 40.0087 6.09557 39.662 8.60786 36.9874L8.60868 36.9866Z"
             fill="var(--main-color)"
           ></path>
           <path
             id="Vector_2"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M33.8397 33.4854C39.2117 28.1136 39.2117 19.4041 33.8397 14.0322C31.3487 11.5413 28.1401 10.2062 24.8794 10.0255C24.781 7.57907 26.0979 5.92609 26.1043 5.91803L26.103 5.91829L26.104 5.91699C22.3564 6.64093 18.7778 8.45398 15.8759 11.3559C13.6504 13.5813 12.0658 16.2048 11.1211 18.997C11.2594 18.6308 11.4136 18.2692 11.5837 17.9134C11.3879 18.4127 11.211 18.9229 11.051 19.4449C9.47773 24.2208 10.5882 29.6872 14.3864 33.4854C19.7584 38.8574 28.4679 38.8574 33.8397 33.4854Z"
             fill="white"
           ></path>
           <path
             id="Vector_3"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M17.1299 22.3449V24.0538V25.1921C17.1299 26.3283 18.0509 27.2493 19.1872 27.2493C20.3234 27.2493 21.2443 26.3283 21.2443 25.1921V24.0521V22.3449C21.2443 21.2089 20.3234 20.2876 19.1872 20.2876C18.0509 20.2876 17.1299 21.2089 17.1299 22.3449Z"
             fill="var(--main-color)"
           ></path>
           <path
             id="Vector_4"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M27.3125 22.3449V24.0538V25.1921C27.3125 26.3283 28.2336 27.2493 29.3697 27.2493C30.5059 27.2493 31.427 26.3283 31.427 25.1921V24.0521V22.3449C31.427 21.2089 30.5059 20.2876 29.3697 20.2876C28.2336 20.2876 27.3125 21.2089 27.3125 22.3449Z"
             fill="var(--main-color)"
           ></path>
@@ -2990,20 +2992,20 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M8.60575 36.9871C5.31838 33.3788 3.31849 28.615 3.31849 23.3918C3.31849 12.1276 12.615 2.99609 24.0827 2.99609C35.5505 2.99609 44.847 12.1276 44.847 23.3918C44.847 31.3565 40.1975 38.252 33.4205 41.6097C29.2741 43.7714 24.5438 44.9961 19.5224 44.9961C13.3697 44.9961 7.65397 43.1575 2.91406 40.0092C2.91406 40.0092 6.09264 39.6625 8.60493 36.9879L8.60575 36.9871ZM33.8368 33.4859C39.2088 28.1141 39.2088 19.4046 33.8368 14.0327C31.3458 11.5418 28.1372 10.2067 24.8765 10.026C24.7781 7.57955 26.095 5.92657 26.1014 5.91851L26.1001 5.91877L26.1011 5.91747C22.3535 6.64141 18.7749 8.45446 15.873 11.3564C13.6475 13.5818 12.0629 16.2053 11.1182 18.9975C11.2565 18.6313 11.4107 18.2697 11.5808 17.9139C11.385 18.4132 11.2081 18.9234 11.0481 19.4454C9.47482 24.2213 10.5853 29.6877 14.3835 33.4859C19.7555 38.8579 28.465 38.8579 33.8368 33.4859Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M17.127 22.3454V25.1926C17.127 26.3288 18.048 27.2498 19.1843 27.2498C20.3205 27.2498 21.2414 26.3288 21.2414 25.1926V22.3454C21.2414 21.2094 20.3205 20.2881 19.1843 20.2881C18.048 20.2881 17.127 21.2094 17.127 22.3454Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M27.3096 22.3454V25.1926C27.3096 26.3288 28.2307 27.2498 29.3668 27.2498C30.503 27.2498 31.4241 26.3288 31.4241 25.1926V22.3454C31.4241 21.2094 30.503 20.2881 29.3668 20.2881C28.2307 20.2881 27.3096 21.2094 27.3096 22.3454Z"
           fill="currentColor"
         ></path>
@@ -3064,35 +3066,35 @@ export default function Promotion(){
         <path
           d="M6.75 7.5V33H29.25V7.5H6.75Z"
           stroke="var(--text_color_L2)"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M15 15V24.75"
           stroke="var(--text_color_L2)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M21 15V24.75"
           stroke="var(--text_color_L2)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M3 7.5H33"
           stroke="var(--text_color_L2)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M12 7.5L14.4667 3H21.5828L24 7.5H12Z"
           stroke="var(--text_color_L2)"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -3107,34 +3109,34 @@ export default function Promotion(){
             d="M39 4H11C9.89543 4 9 4.89543 9 6V42C9 43.1046 9.89543 44 11 44H39C40.1046 44 41 43.1046 41 42V6C41 4.89543 40.1046 4 39 4Z"
             fill="var(--main-color)"
             stroke="var(--main-color)"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           ></path>
           <path
             id="Vector_2"
             d="M17 30H31"
             stroke="var(--bg_color_L2)"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           ></path>
           <path
             id="Vector_3"
             d="M17 36H24"
             stroke="var(--bg_color_L2)"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           ></path>
           <path
             id="Vector_4"
             d="M31 12H17V22H31V12Z"
             fill="var(--main-color)"
             stroke="var(--bg_color_L2)"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           ></path>
         </g>
       </symbol>
@@ -3165,35 +3167,35 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M10.6364 5H37.3636L45 18.3L24 43L3 18.3L10.6364 5Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M10.6328 5L23.9965 43L37.3601 5"
           stroke="var(--bg_color_L2)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M3 18.2998H45"
           stroke="var(--bg_color_L2)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M15.4062 18.3L23.9971 5L32.5881 18.3"
           stroke="var(--bg_color_L2)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -3203,26 +3205,26 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M23.9999 29.0001L12 17.0001H19.9999V6.00012H27.9999V17.0001H35.9999L23.9999 29.0001Z"
           fill="currentColor"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M42 37H6"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         ></path>
         <path
           d="M34 44H14"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         ></path>
       </symbol>
       
@@ -3233,8 +3235,8 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M25.7416 11.694C26.4622 10.8819 25.8857 9.59961 24.8 9.59961L15.8872 9.59961L6.8 9.59961C5.72151 9.59961 5.15333 10.8777 5.87586 11.6783L14.4434 21.1724C15.2295 21.9855 16.5448 21.9855 17.331 21.1724L25.7416 11.694Z"
           fill="var(--main-color)"
         ></path>
@@ -3246,8 +3248,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M25.7416 11.694C26.4622 10.8819 25.8857 9.59961 24.8 9.59961L15.8872 9.59961L6.8 9.59961C5.72151 9.59961 5.15333 10.8777 5.87586 11.6783L14.4434 21.1724C15.2295 21.9855 16.5448 21.9855 17.331 21.1724L25.7416 11.694Z"
           fill="currentColor"
         ></path>
@@ -3261,15 +3263,15 @@ export default function Promotion(){
         <path
           d="M5.25 31.5H32.25"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M8.25 20.0399V25.5H13.7379L29.25 9.98107L23.7713 4.5L8.25 20.0399Z"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -3281,15 +3283,15 @@ export default function Promotion(){
         <path
           d="M5.25 31.5H32.25"
           stroke="var(--text_color_L2)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M8.25 20.0399V25.5H13.7379L29.25 9.98107L23.7713 4.5L8.25 20.0399Z"
           stroke="var(--text_color_L2)"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -3377,20 +3379,20 @@ export default function Promotion(){
           fill="url(#paint7_linear_6306_124794)"
         ></rect>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M46.1844 105.961C41.438 115.8 25.098 145.98 47.9933 149.359C70.8901 152.738 69.8685 132.651 65.8517 125.462C61.8364 118.273 57.3036 114.249 57.3036 105.961C57.3036 97.6734 50.9292 96.1201 46.1829 105.961H46.1844Z"
           fill="url(#paint8_linear_6306_124794)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M343.974 165.449H344.221C344.921 165.449 345.491 166.016 345.491 166.717V180.068C345.491 180.405 345.357 180.727 345.119 180.965C344.881 181.203 344.558 181.337 344.221 181.337H343.974C343.637 181.337 343.314 181.204 343.075 180.966C342.837 180.728 342.703 180.405 342.703 180.068V166.717C342.703 166.016 343.272 165.449 343.974 165.449Z"
           fill="url(#paint9_linear_6306_124794)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M340.932 145.174C337.834 151.355 327.164 170.311 342.114 172.434C357.066 174.556 356.399 161.939 353.778 157.424C351.155 152.908 348.195 150.38 348.195 145.174C348.195 139.968 344.031 138.994 340.932 145.174Z"
           fill="url(#paint10_linear_6306_124794)"
         ></path>
@@ -3402,9 +3404,9 @@ export default function Promotion(){
           opacity="0.398"
           d="M284.309 32.6133C282.541 53.9608 273.212 64.0459 263.885 69.6786C249.04 78.6443 231.874 74.1814 227.627 69.6786C220.715 62.3476 233.578 51.1844 246.322 59.5164C259.065 67.8484 223.925 97.2125 187.223 92.0122C162.755 88.5459 140.684 82.0766 121.008 72.6045"
           stroke="#908E9B"
-          stroke-width="0.881"
-          stroke-linecap="round"
-          stroke-dasharray="2.64 2.64"
+          strokeWidth="0.881"
+          strokeLinecap="round"
+          strokeDasharray="2.64 2.64"
         ></path>
         <path
           d="M83.2109 50.6191L124.558 71.2914L116.173 82.6011L83.2109 50.6191Z"
@@ -3431,9 +3433,9 @@ export default function Promotion(){
             y2="227"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#484852"></stop>
-            <stop offset="0.615" stop-color="#777783" stop-opacity="0.1"></stop>
-            <stop offset="1" stop-color="#DEDEE6" stop-opacity="0"></stop>
+            <stop stopColor="#484852"></stop>
+            <stop offset="0.615" stopColor="#777783" stopOpacity="0.1"></stop>
+            <stop offset="1" stopColor="#DEDEE6" stopOpacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="paint1_linear_6306_124794"
@@ -3443,8 +3445,8 @@ export default function Promotion(){
             y2="79.5818"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#353240"></stop>
-            <stop offset="1" stop-color="#24212F" stop-opacity="0"></stop>
+            <stop stopColor="#353240"></stop>
+            <stop offset="1" stopColor="#24212F" stopOpacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="paint2_linear_6306_124794"
@@ -3454,8 +3456,8 @@ export default function Promotion(){
             y2="109.586"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#353240"></stop>
-            <stop offset="1" stop-color="#24212F" stop-opacity="0"></stop>
+            <stop stopColor="#353240"></stop>
+            <stop offset="1" stopColor="#24212F" stopOpacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="paint3_linear_6306_124794"
@@ -3465,10 +3467,10 @@ export default function Promotion(){
             y2="-1.70206e-05"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#100F15"></stop>
-            <stop offset="0.232" stop-color="#27252F"></stop>
-            <stop offset="0.925" stop-color="#514E5A"></stop>
-            <stop offset="1" stop-color="#33323C"></stop>
+            <stop stopColor="#100F15"></stop>
+            <stop offset="0.232" stopColor="#27252F"></stop>
+            <stop offset="0.925" stopColor="#514E5A"></stop>
+            <stop offset="1" stopColor="#33323C"></stop>
           </linearGradient>
           <linearGradient
             id="paint4_linear_6306_124794"
@@ -3478,8 +3480,8 @@ export default function Promotion(){
             y2="155.486"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#676570"></stop>
-            <stop offset="1" stop-color="#403F4B"></stop>
+            <stop stopColor="#676570"></stop>
+            <stop offset="1" stopColor="#403F4B"></stop>
           </linearGradient>
           <linearGradient
             id="paint5_linear_6306_124794"
@@ -3489,8 +3491,8 @@ export default function Promotion(){
             y2="177.424"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#504F5C"></stop>
-            <stop offset="1" stop-color="#2E2C3B"></stop>
+            <stop stopColor="#504F5C"></stop>
+            <stop offset="1" stopColor="#2E2C3B"></stop>
           </linearGradient>
           <linearGradient
             id="paint6_linear_6306_124794"
@@ -3500,8 +3502,8 @@ export default function Promotion(){
             y2="3.62035"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#31303A"></stop>
-            <stop offset="1" stop-color="#2B2930"></stop>
+            <stop stopColor="#31303A"></stop>
+            <stop offset="1" stopColor="#2B2930"></stop>
           </linearGradient>
           <linearGradient
             id="paint7_linear_6306_124794"
@@ -3511,8 +3513,8 @@ export default function Promotion(){
             y2="164"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#33303E"></stop>
-            <stop offset="1" stop-color="#3D3B46"></stop>
+            <stop stopColor="#33303E"></stop>
+            <stop offset="1" stopColor="#3D3B46"></stop>
           </linearGradient>
           <linearGradient
             id="paint8_linear_6306_124794"
@@ -3522,8 +3524,8 @@ export default function Promotion(){
             y2="149.74"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#302C3F"></stop>
-            <stop offset="1" stop-color="#494854"></stop>
+            <stop stopColor="#302C3F"></stop>
+            <stop offset="1" stopColor="#494854"></stop>
           </linearGradient>
           <linearGradient
             id="paint9_linear_6306_124794"
@@ -3533,8 +3535,8 @@ export default function Promotion(){
             y2="181.337"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#23202A"></stop>
-            <stop offset="1" stop-color="#42404B"></stop>
+            <stop stopColor="#23202A"></stop>
+            <stop offset="1" stopColor="#42404B"></stop>
           </linearGradient>
           <linearGradient
             id="paint10_linear_6306_124794"
@@ -3544,8 +3546,8 @@ export default function Promotion(){
             y2="172.673"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#302C3F"></stop>
-            <stop offset="1" stop-color="#494854"></stop>
+            <stop stopColor="#302C3F"></stop>
+            <stop offset="1" stopColor="#494854"></stop>
           </linearGradient>
           <linearGradient
             id="paint11_linear_6306_124794"
@@ -3555,8 +3557,8 @@ export default function Promotion(){
             y2="170.902"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#494855"></stop>
-            <stop offset="1" stop-color="#312F3B"></stop>
+            <stop stopColor="#494855"></stop>
+            <stop offset="1" stopColor="#312F3B"></stop>
           </linearGradient>
           <linearGradient
             id="paint12_linear_6306_124794"
@@ -3566,8 +3568,8 @@ export default function Promotion(){
             y2="80.8551"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#605D6A"></stop>
-            <stop offset="1" stop-color="#7D7B8B"></stop>
+            <stop stopColor="#605D6A"></stop>
+            <stop offset="1" stopColor="#7D7B8B"></stop>
           </linearGradient>
           <linearGradient
             id="paint13_linear_6306_124794"
@@ -3577,8 +3579,8 @@ export default function Promotion(){
             y2="69.6654"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#7C7A84"></stop>
-            <stop offset="1" stop-color="#ABAAB3"></stop>
+            <stop stopColor="#7C7A84"></stop>
+            <stop offset="1" stopColor="#ABAAB3"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -3591,20 +3593,20 @@ export default function Promotion(){
         <path
           d="M15 27.5C18.4517 27.5 21.5768 26.1009 23.8388 23.8388C26.1009 21.5768 27.5 18.4517 27.5 15C27.5 11.5482 26.1009 8.42325 23.8388 6.16116C21.5768 3.89911 18.4517 2.5 15 2.5C11.5482 2.5 8.42325 3.89911 6.16116 6.16116C3.89911 8.42325 2.5 11.5482 2.5 15C2.5 18.4517 3.89911 21.5768 6.16116 23.8388C8.42325 26.1009 11.5482 27.5 15 27.5Z"
           stroke="#FE6868"
-          stroke-linejoin="round"
+          strokeLinejoin="round"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M15 23.125C15.8629 23.125 16.5625 22.4254 16.5625 21.5625C16.5625 20.6996 15.8629 20 15 20C14.1371 20 13.4375 20.6996 13.4375 21.5625C13.4375 22.4254 14.1371 23.125 15 23.125Z"
           fill="#FF7172"
         ></path>
         <path
           d="M15 7.5V17.5"
           stroke="#FE6868"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       
@@ -3643,8 +3645,8 @@ export default function Promotion(){
         </mask>
         <g mask="url(#mask0_2094_41544)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M20.4705 12.992C17.2079 14.0478 13.802 13.3906 11.2254 11.5176C8.65115 14.157 6.94305 17.5424 6.35131 21.184C9.24189 22.2447 11.6331 24.5757 12.6547 27.7324C13.6762 30.8888 13.1042 34.1786 11.3832 36.7317C14.3198 39.6583 18.2092 41.4967 22.3564 41.8918C23.627 39.7355 25.661 38.0177 28.2295 37.1865C30.8181 36.3488 33.4945 36.5589 35.7997 37.5825C38.9641 34.833 41.0645 31.0476 41.7397 26.9331C39.0138 25.7686 36.7873 23.4755 35.8028 20.4338C34.7996 17.3337 35.2977 14.1078 36.8953 11.5428C34.2573 8.83606 30.8169 7.02579 27.0991 6.38029C26.1085 9.40788 23.7332 11.9361 20.4705 12.992ZM28.0728 35.9093C33.8105 34.0525 36.9566 27.8958 35.0998 22.158C33.243 16.4202 27.0863 13.2741 21.3485 15.131C15.6107 16.9879 12.4646 23.1445 14.3215 28.8823C16.1784 34.62 22.335 37.7661 28.0728 35.9093Z"
             fill="currentColor"
           ></path>
@@ -3657,8 +3659,8 @@ export default function Promotion(){
             fill="currentColor"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M27.4489 33.9791C32.1208 32.4673 34.6824 27.4544 33.1705 22.7825C31.6586 18.1106 26.6457 15.549 21.9739 17.0608C17.302 18.5727 14.7403 23.5857 16.2522 28.2575C17.7641 32.9294 22.777 35.4911 27.4489 33.9791ZM24.1012 32.3326C24.8904 32.3974 25.7311 32.2853 26.6234 31.9965C27.5159 31.7077 28.261 31.3066 28.8588 30.793C29.4591 30.2743 29.8745 29.6982 30.1047 29.0647C30.335 28.431 30.3483 27.793 30.1446 27.1504C29.9807 26.6571 29.716 26.2413 29.3504 25.903C28.9874 25.5596 28.5665 25.3138 28.0875 25.1658C27.6112 25.0126 27.123 24.9743 26.6227 25.0509L26.5965 24.9697C27.1772 24.6409 27.5878 24.1688 27.8282 23.5532C28.0686 22.9377 28.085 22.3029 27.8776 21.6487C27.6762 21.0396 27.3183 20.5536 26.8041 20.1909C26.2885 19.8242 25.6709 19.6037 24.9512 19.5294C24.2353 19.4537 23.4775 19.5453 22.6778 19.8041C21.8781 20.0629 21.2084 20.4332 20.6687 20.9152C20.1316 21.392 19.7617 21.9301 19.5586 22.5292C19.3543 23.1245 19.3516 23.7293 19.5504 24.3435C19.7605 24.9926 20.1419 25.4986 20.6947 25.8617C21.2463 26.221 21.8595 26.3619 22.5343 26.2843L22.5605 26.3655C22.1026 26.599 21.7237 26.918 21.4235 27.3224C21.1221 27.723 20.9249 28.1688 20.8319 28.6597C20.7417 29.1456 20.7766 29.6358 20.9366 30.1303C21.1441 30.7716 21.5268 31.2815 22.0846 31.66C22.6425 32.0386 23.3146 32.2628 24.1012 32.3326Z"
             fill="currentColor"
           ></path>
@@ -3687,8 +3689,8 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M15.0755 9.06172C13.0454 8.80636 10.726 9.37364 9.59674 10.2059C2.25733 15.6154 0.5 23.9377 0.5 29.5553C0.5 35.4849 3.70453 39.9582 6.8057 39.9582C9.75967 39.9582 11.213 38.4479 14.2925 35.2477C14.446 35.0882 14.6035 34.9246 14.7654 34.7567C18.4435 30.943 20.9677 29.8674 24.4823 29.8674C29.0413 29.8674 32.2056 33.208 34.7821 35.9281C35.187 36.3556 35.5775 36.7678 35.9566 37.1493C38.5492 39.7584 40.505 40.1502 41.7455 39.9582C42.8693 39.7842 46.9141 38.2937 47.6377 32.4681C48.4 26.3304 47.2242 21.129 43.9163 15.7195C40.6084 10.31 37.6106 9.06172 34.5094 9.06172C31.6052 9.06172 30.4231 10.1569 29.3508 11.1504C29.2782 11.2176 29.2062 11.2844 29.1341 11.3503C29.0006 11.4725 28.8379 11.6441 28.649 11.8433L28.6489 11.8434C27.7559 12.7856 26.274 14.349 24.4823 14.2631C22.5181 14.169 21.7946 13.7429 20.5542 12.4946L20.3523 12.2911C18.8758 10.8008 17.4485 9.36023 15.0755 9.06172ZM9.45478 23.0971H8.87411C7.20819 23.0971 5.94013 21.7517 5.94013 20.1926C5.94013 18.6335 7.20819 17.2881 8.87411 17.2881H9.45478V17.2798C9.45478 15.7207 10.7228 14.3754 12.3888 14.3754C14.0547 14.3754 15.3227 15.7207 15.3227 17.2798V17.2881H15.9034C17.5693 17.2881 18.8374 18.6335 18.8374 20.1926C18.8374 21.7517 17.5693 23.0971 15.9034 23.0971H15.3227V23.3135C15.3227 24.8726 14.0547 26.2179 12.3888 26.2179C10.7228 26.2179 9.45478 24.8726 9.45478 23.3135V23.0971ZM8.87411 21.8571C7.96066 21.8571 7.22016 21.1119 7.22016 20.1926C7.22016 19.2733 7.96066 18.5281 8.87411 18.5281H10.7348V17.2798C10.7348 16.3606 11.4753 15.6154 12.3888 15.6154C13.3022 15.6154 14.0427 16.3606 14.0427 17.2798V18.5281H15.9034C16.8169 18.5281 17.5574 19.2733 17.5574 20.1926C17.5574 21.1119 16.8169 21.8571 15.9034 21.8571H14.0427V23.3135C14.0427 24.2327 13.3022 24.9779 12.3888 24.9779C11.4753 24.9779 10.7348 24.2327 10.7348 23.3135V21.8571H8.87411ZM35.7019 18.2997C36.7623 18.2997 37.622 17.467 37.622 16.4397C37.622 15.4125 36.7623 14.5797 35.7019 14.5797C34.6415 14.5797 33.7819 15.4125 33.7819 16.4397C33.7819 17.467 34.6415 18.2997 35.7019 18.2997ZM35.7019 24.4997C36.7623 24.4997 37.622 23.667 37.622 22.6397C37.622 21.6125 36.7623 20.7797 35.7019 20.7797C34.6415 20.7797 33.7819 21.6125 33.7819 22.6397C33.7819 23.667 34.6415 24.4997 35.7019 24.4997ZM42.1021 19.5397C42.1021 20.567 41.2424 21.3997 40.182 21.3997C39.1216 21.3997 38.262 20.567 38.262 19.5397C38.262 18.5125 39.1216 17.6797 40.182 17.6797C41.2424 17.6797 42.1021 18.5125 42.1021 19.5397ZM31.2218 21.3997C32.2822 21.3997 33.1418 20.567 33.1418 19.5397C33.1418 18.5125 32.2822 17.6797 31.2218 17.6797C30.1614 17.6797 29.3018 18.5125 29.3018 19.5397C29.3018 20.567 30.1614 21.3997 31.2218 21.3997Z"
           fill="currentColor"
         ></path>
@@ -3700,8 +3702,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M25.6897 12.5431H49.2845L50.2904 8H78.7414L73.7586 38.6293H50.6035L50.4569 42H21L25.6897 12.5431ZM69.2153 20.3101H73.1723C72.928 17.8188 69.4943 13.1569 64.8191 12.6894C58.9568 12.1031 53.8275 14.6681 51.6294 20.8962C48.9916 28.3703 53.6835 34.3398 60.2757 34.5255C70.6809 34.8186 72.2928 24.1204 72.2928 24.1204H61.448V27.4911H66.8706C66.7241 28.6636 64.8191 30.9315 60.2757 30.7152C54.9997 30.4639 54.8532 26.0256 54.9997 24.1204C55.1463 22.2153 57.4911 15.7668 63.4997 16.2064C67.0171 16.4638 68.6292 18.4048 69.2153 20.3101ZM39.4654 15.1806L23.4913 37.6031H28.0344L32.5775 31.3013L42.3964 31.4479L44.7214 37.6031L46.0602 30.1289L40.4913 15.1806H39.4654ZM39.3189 22.2151H38.7326L35.2154 27.6375H41.0775L39.3189 22.2151Z"
           fill="currentColor"
         ></path>
@@ -3713,8 +3715,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M25.6897 12.5431H49.2845L50.2904 8H78.7414L73.7586 38.6293H50.6035L50.4569 42H21L25.6897 12.5431ZM69.2153 20.3101H73.1723C72.928 17.8188 69.4943 13.1569 64.8191 12.6894C58.9568 12.1031 53.8275 14.6681 51.6294 20.8962C48.9916 28.3703 53.6835 34.3398 60.2757 34.5255C70.6809 34.8186 72.2928 24.1204 72.2928 24.1204H61.448V27.4911H66.8706C66.7241 28.6636 64.8191 30.9315 60.2757 30.7152C54.9997 30.4639 54.8532 26.0256 54.9997 24.1204C55.1463 22.2153 57.4911 15.7668 63.4997 16.2064C67.0171 16.4638 68.6292 18.4048 69.2153 20.3101ZM39.4654 15.1806L23.4913 37.6031H28.0344L32.5775 31.3013L42.3964 31.4479L44.7214 37.6031L46.0602 30.1289L40.4913 15.1806H39.4654ZM39.3189 22.2151H38.7326L35.2154 27.6375H41.0775L39.3189 22.2151Z"
           fill="currentColor"
         ></path>
@@ -3726,8 +3728,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M25.6897 12.5431H49.2845L50.2904 8H78.7414L73.7586 38.6293H50.6035L50.4569 42H21L25.6897 12.5431ZM69.2153 20.3101H73.1723C72.928 17.8188 69.4943 13.1569 64.8191 12.6894C58.9568 12.1031 53.8275 14.6681 51.6294 20.8962C48.9916 28.3703 53.6835 34.3398 60.2757 34.5255C70.6809 34.8186 72.2928 24.1204 72.2928 24.1204H61.448V27.4911H66.8706C66.7241 28.6636 64.8191 30.9315 60.2757 30.7152C54.9997 30.4639 54.8532 26.0256 54.9997 24.1204C55.1463 22.2153 57.4911 15.7668 63.4997 16.2064C67.0171 16.4638 68.6292 18.4048 69.2153 20.3101ZM39.4654 15.1806L23.4913 37.6031H28.0344L32.5775 31.3013L42.3964 31.4479L44.7214 37.6031L46.0602 30.1289L40.4913 15.1806H39.4654ZM39.3189 22.2151H38.7326L35.2154 27.6375H41.0775L39.3189 22.2151Z"
           fill="currentColor"
         ></path>
@@ -3739,8 +3741,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M25.6897 12.5431H49.2845L50.2904 8H78.7414L73.7586 38.6293H50.6035L50.4569 42H21L25.6897 12.5431ZM69.2153 20.3101H73.1723C72.928 17.8188 69.4943 13.1569 64.8191 12.6894C58.9568 12.1031 53.8275 14.6681 51.6294 20.8962C48.9916 28.3703 53.6835 34.3398 60.2757 34.5255C70.6809 34.8186 72.2928 24.1204 72.2928 24.1204H61.448V27.4911H66.8706C66.7241 28.6636 64.8191 30.9315 60.2757 30.7152C54.9997 30.4639 54.8532 26.0256 54.9997 24.1204C55.1463 22.2153 57.4911 15.7668 63.4997 16.2064C67.0171 16.4638 68.6292 18.4048 69.2153 20.3101ZM39.4654 15.1806L23.4913 37.6031H28.0344L32.5775 31.3013L42.3964 31.4479L44.7214 37.6031L46.0602 30.1289L40.4913 15.1806H39.4654ZM39.3189 22.2151H38.7326L35.2154 27.6375H41.0775L39.3189 22.2151Z"
           fill="currentColor"
         ></path>
@@ -3752,8 +3754,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M25.6897 12.5431H49.2845L50.2904 8H78.7414L73.7586 38.6293H50.6035L50.4569 42H21L25.6897 12.5431ZM69.2153 20.3101H73.1723C72.928 17.8188 69.4943 13.1569 64.8191 12.6894C58.9568 12.1031 53.8275 14.6681 51.6294 20.8962C48.9916 28.3703 53.6835 34.3398 60.2757 34.5255C70.6809 34.8186 72.2928 24.1204 72.2928 24.1204H61.448V27.4911H66.8706C66.7241 28.6636 64.8191 30.9315 60.2757 30.7152C54.9997 30.4639 54.8532 26.0256 54.9997 24.1204C55.1463 22.2153 57.4911 15.7668 63.4997 16.2064C67.0171 16.4638 68.6292 18.4048 69.2153 20.3101ZM39.4654 15.1806L23.4913 37.6031H28.0344L32.5775 31.3013L42.3964 31.4479L44.7214 37.6031L46.0602 30.1289L40.4913 15.1806H39.4654ZM39.3189 22.2151H38.7326L35.2154 27.6375H41.0775L39.3189 22.2151Z"
           fill="currentColor"
         ></path>
@@ -3765,14 +3767,14 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M51.1216 14.2603L48.8091 9H66.8884C68.7805 9.07306 72.9429 10.2274 74.4565 14.2603C75.9701 18.2932 73.966 20.7626 72.7747 21.4932V22.1507C73.6156 23.1005 74.877 25.4384 74.877 27.411C74.877 29.1644 73.1952 33.5479 68.9907 34.4247C66.1899 35.0087 62.0288 35.6839 59.1773 36.1465C58.6043 36.2395 58.0841 36.3239 57.6386 36.3973L58.4795 30.9178L66.2578 29.8219C67.2388 29.6758 69.1168 28.8575 68.7805 26.7534C68.4441 24.6493 66.3979 24.4155 65.4169 24.5616L57.6386 25L55.7465 36.6164C54.6254 36.8356 52.2989 37.2301 51.9625 37.0548C51.9218 37.0336 51.8674 37.0083 51.8023 36.9781C51.1956 36.696 49.6704 35.9872 49.8603 34.2055C50.0284 32.6274 52.0326 21.5662 53.0136 16.2329C53.1538 15.5753 52.9716 14.2603 51.1216 14.2603ZM59.5306 14.0411H66.468C67.3089 14.0411 68.7805 15.0493 68.7805 16.4521C68.7805 17.8548 67.5191 19.0822 66.6782 19.0822L58.4795 19.5205L59.5306 14.0411Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M24.0027 9H41.0308C42.5026 9 46.7069 10.4904 48.3887 13.8219C50.4909 17.9863 47.3378 22.3699 46.4967 23.0274C46.3088 23.1743 46.3565 23.5388 46.4967 23.6849C47.3376 24.5616 49.0194 27.0164 49.0194 29.8219C49.0194 33.3288 45.6558 36.8356 44.1842 37.4932C42.7126 38.1507 32.8323 39.9041 31.3605 39.9041C31.1505 39.9041 32.2014 34.4247 32.2014 34.4247L39.7695 33.3288C40.6805 33.1096 42.5865 32.2329 42.9228 30.4795C43.3433 28.2877 41.8717 26.3151 39.5593 25.8767C37.7093 25.526 33.4628 25.8767 31.5707 26.0959L30.5196 32.8904L24.6333 33.5479L27.3663 15.5753C27.2962 15.0639 26.8197 14.0848 25.4742 14.2603C25.2642 14.2877 23.9326 12.1416 24.0027 10.9726V9ZM33.6732 14.0409H39.4806C41.4515 14.0411 43.1333 15.3562 43.1333 16.8902C43.1333 18.8749 41.6617 20.1779 40.6106 20.397C39.7697 20.5724 34.9345 20.7623 32.6221 20.8354L33.6732 14.0409Z"
           fill="currentColor"
         ></path>
@@ -3848,14 +3850,14 @@ export default function Promotion(){
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M11.0034 14.6928C11.0027 15.2789 11.002 15.8649 11.002 16.4509C11.002 16.6404 11.002 16.83 11.0021 17.0195C11.0022 17.392 11.0024 17.7645 11.0027 18.1369C11.0037 19.8931 11.0048 21.6492 10.9956 23.4052C10.9939 23.7322 11.0334 23.8809 11.4272 23.8782C14.151 23.8597 16.8751 23.8635 19.5991 23.8756C19.8995 23.8769 20.0546 23.7639 20.1874 23.5171C20.6198 22.7138 20.788 21.8553 20.7845 20.9536C20.7823 20.3691 20.7795 19.7846 20.7767 19.2001V19.1997C20.7686 17.505 20.7604 15.8103 20.7658 14.1157C20.7749 11.2264 18.6292 9.03889 15.726 9.01497C15.1706 9.01035 14.6151 9.01247 14.0597 9.0146C13.2141 9.01786 12.3685 9.02109 11.5235 9.00057C11.0631 8.98943 10.9887 9.14046 10.9923 9.55462C11.0074 11.2672 11.0054 12.98 11.0034 14.6928ZM14.3435 16.3502C14.3429 16.7679 14.3423 17.1856 14.3423 17.6034C14.3423 18.994 14.3423 20.3847 14.3422 21.7753C14.3422 22.2929 14.3422 22.5541 14.4737 22.6847C14.6077 22.8177 14.8782 22.8152 15.4242 22.8101C16.752 22.7977 17.3665 22.1804 17.3664 20.8468C17.3663 20.2066 17.3602 19.5661 17.3541 18.9257L17.354 18.9213C17.3411 17.5734 17.3282 16.2255 17.3719 14.8794C17.4369 12.8783 16.7471 12.2721 14.7772 12.38C14.4024 12.4006 14.3325 12.5168 14.3356 12.8522C14.3467 14.0181 14.3451 15.1841 14.3435 16.3502Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M11.0117 30.7746C11.011 31.3529 11.0104 31.9312 11.0104 32.5095C11.0104 33.0959 11.011 33.6823 11.0116 34.2688C11.0134 36.0202 11.0152 37.7717 11.0009 39.5231C10.9978 39.9079 11.1082 39.9999 11.4836 39.9945C12.4423 39.9805 13.4013 39.9824 14.3603 39.9843C14.8804 39.9853 15.4005 39.9864 15.9205 39.9849C18.9522 39.9762 21.1314 37.7851 21.1158 34.7804C21.1038 32.4426 21.1024 30.1049 21.1054 27.7672C21.1065 26.9783 20.9107 26.2449 20.5705 25.5375C20.4269 25.2389 20.2353 25.133 19.8928 25.1348C17.0906 25.1502 14.2882 25.1503 11.4858 25.1353C11.1099 25.1332 10.9972 25.224 11.0006 25.6119C11.0154 27.3313 11.0136 29.0507 11.0117 30.7702V30.7746ZM14.3937 30.1503C14.3928 30.5744 14.392 30.9985 14.392 31.4226C14.392 32.6971 14.3921 33.9716 14.3921 35.2461C14.3921 35.939 14.3921 36.2836 14.5656 36.4544C14.7373 36.6233 15.0788 36.622 15.7582 36.6194C17.0885 36.6144 17.6994 36.0013 17.7076 34.6636C17.71 34.2751 17.7127 33.8865 17.7155 33.498C17.7214 32.6701 17.7272 31.8423 17.7296 31.0144C17.73 30.8572 17.7312 30.6998 17.7328 30.5425C17.7341 30.4093 17.7356 30.2761 17.7372 30.1429C17.7465 29.3518 17.7557 28.5605 17.7129 27.7722C17.6617 26.8303 17.0138 26.2572 16.084 26.2114C15.9045 26.2025 15.7242 26.2052 15.5439 26.2078H15.543C15.3145 26.2112 15.0861 26.2146 14.8597 26.1944C14.4696 26.1597 14.3785 26.3002 14.3833 26.6723C14.3983 27.8306 14.396 28.989 14.3937 30.1475V30.1503Z"
           fill="currentColor"
         ></path>
@@ -3867,8 +3869,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M27.9793 19.0423L29.5005 16H10.7403C7.19096 16 4.90927 19.0423 4.40223 19.8028C3.89519 20.5634 0.345823 27.1549 1.10639 30.1972C1.71484 32.631 4.14857 33.493 5.6697 33.493H21.388L22.6556 30.4507C20.4955 30.389 16.4875 30.4174 13.6928 30.4372C12.6608 30.4446 11.7942 30.4507 11.2472 30.4507C9.21907 30.4507 9.10658 28.6024 9.47229 27.662C10.0638 26.1408 11.5005 22.693 12.5145 21.0704C13.5286 19.4479 14.6272 19.0423 15.0498 19.0423H27.9793ZM31.5289 34H26.205L33.8106 16L46.7402 16.2535L46.9937 27.4085L56.6275 16L69.8106 16.2535L62.712 34H52.5712L57.3881 21.5775L46.7402 34H38.374L37.3599 20.5634L31.5289 34ZM67.5289 34L73.867 16.2535H94.6557C95.6698 16.2535 97.698 16.7606 98.4586 18.0282C99.211 19.2823 98.543 22.507 97.9515 23.8592L95.1627 30.4507C94.4022 31.9718 91.5121 34 88.0642 34H67.5289ZM81.2192 19.549H88.5714C88.9939 19.6335 89.7375 20.1068 89.3319 21.3237C88.9263 22.5406 86.9657 27.4082 86.0361 29.6899C85.8671 30.1124 85.0728 30.9575 83.2474 30.9575H76.9094L81.2192 19.549Z"
           fill="currentColor"
         ></path>
@@ -3884,14 +3886,14 @@ export default function Promotion(){
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M49.3716 37.7817C56.4325 37.7817 62.1565 32.1049 62.1565 25.1022C62.1565 18.0995 56.4325 12.4227 49.3716 12.4227C42.3107 12.4227 36.5867 18.0995 36.5867 25.1022C36.5867 32.1049 42.3107 37.7817 49.3716 37.7817ZM49.3716 34.4005C54.5496 34.4005 58.7472 30.2375 58.7472 25.1022C58.7472 19.9669 54.5496 15.8039 49.3716 15.8039C44.1936 15.8039 39.996 19.9669 39.996 25.1022C39.996 30.2375 44.1936 34.4005 49.3716 34.4005Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M74.9414 32.2873C80.5902 32.2873 85.1694 27.7458 85.1694 22.1436C85.1694 16.5415 80.5902 12 74.9414 12C69.2927 12 64.7135 16.5415 64.7135 22.1436C64.7135 27.7458 69.2927 32.2873 74.9414 32.2873ZM74.9414 28.9061C78.7073 28.9061 81.7601 25.8784 81.7601 22.1436C81.7601 18.4089 78.7073 15.3812 74.9414 15.3812C71.1756 15.3812 68.1228 18.4089 68.1228 22.1436C68.1228 25.8784 71.1756 28.9061 74.9414 28.9061Z"
           fill="currentColor"
         ></path>
@@ -3954,8 +3956,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M11 23.0483C12.0007 23.4057 14.3453 24.1205 15.7177 24.1205H33.8382C33.4808 22.4764 33.3021 17.8326 33.3021 12.3261C33.3021 12.2637 33.847 12.2285 34.7069 12.173C36.8015 12.0378 40.7651 11.782 43.2736 10.7178C46.4903 9.35317 49.0636 7.39394 49.5997 6H49.9214C50.3503 7.39394 53.1378 9.75281 56.998 11.0395C59.6174 11.9125 63.4657 11.9664 65.5248 11.9952C65.7414 11.9982 65.9383 12.001 66.1118 12.0044C66.2548 14.4705 66.3262 20.2391 65.4685 24.4422C65.451 24.528 72.4611 24.4079 78.6695 24.3015L78.67 24.3015L78.6706 24.3015L78.6712 24.3015L78.6719 24.3015L78.6732 24.3014C80.2239 24.2749 81.7244 24.2492 83.0528 24.2277C85.9474 24.1811 87.8132 23.3443 88.3066 23.0483C88.4139 22.984 87.1302 27.5579 81.9806 27.6588C76.5123 27.7661 66.9696 27.8732 66.7551 27.8732C66.5407 27.8732 63.324 28.6222 63.324 32.4837C63.324 38.5954 68.3635 38.1664 68.3635 38.1664V33.3415H71.7945V41.4903L67.184 41.5975C65.6829 41.5975 61.8229 40.2037 60.5363 36.022C60.5117 35.942 60.1716 36.3599 59.7003 36.9391L59.7003 36.9392C59.3178 37.4092 58.8488 37.9856 58.3919 38.4882C57.3196 39.6676 53.0308 43.0986 49.8142 43.0986C44.3459 43.0986 38.9848 36.1292 38.9848 36.1292C38.9848 36.1292 38.2342 38.2445 36.197 40.0965C34.8032 41.3637 32.7659 41.5976 32.5515 41.5976L27.5121 41.4903V33.3415H31.0504L31.1576 38.0592H32.6587C33.8382 38.0592 36.0898 36.2365 36.0898 33.8776C36.0898 30.2321 35.232 27.766 31.6937 27.6587C31.2127 27.6442 29.5168 27.6555 27.38 27.6698L27.3787 27.6698L27.3772 27.6698L27.3767 27.6698H27.3763H27.3761H27.376H27.376H27.3759H27.3757H27.3755H27.3754H27.3753C23.7992 27.6937 18.9908 27.7259 16.5755 27.6587C15.0702 27.6169 11.1716 25.7932 11 23.0483ZM13.5733 27.8732C14.2524 28.2306 15.8679 28.9454 16.8972 28.9454H31.0504V32.4837H19.1488C17.5048 32.0191 14.088 30.4465 13.5733 27.8732ZM19.3633 33.4487C18.2911 33.4487 16.8614 32.8768 16.4683 32.5909C16.3611 34.6282 19.5777 36.8799 21.186 36.987H26.2254V33.4487H19.3633ZM18.9344 36.987C19.3633 37.3444 20.993 38.0592 21.9366 38.0592H26.2254V41.4903H23.0088C21.9366 41.3832 19.3633 39.5604 18.9344 36.987ZM82.0878 28.8382H68.3635V32.4837H78.9784C84.5539 32.4837 85.8405 27.7874 85.7333 27.8732C84.8755 28.5594 82.9456 28.8024 82.0878 28.8382ZM73.0812 33.3415H79.9434C81.0156 33.3415 82.4095 33.0199 83.0528 32.591C83.305 32.4229 81.7661 36.8798 77.4773 36.8798H73.0812V33.3415ZM77.6917 38.1664H73.0812V41.4903L75.5473 41.4904C79.4073 41.4904 80.5331 36.9871 80.3723 37.0943C79.5497 37.6427 78.335 38.1664 77.6917 38.1664ZM44.1312 13.3986C41.3435 14.4708 37.7337 15.0427 36.1968 15.1142C35.6607 16.0792 36.1968 20.5825 37.3762 25.3002C38.5557 30.018 40.5929 33.6635 41.0218 33.3418C41.2968 33.1355 44.4382 31.915 47.2786 30.8114C48.8672 30.1942 50.3617 29.6135 51.2078 29.2674C53.5667 28.3024 54.1028 27.0158 53.9956 25.0858C53.8883 23.1558 52.6017 22.7269 51.5295 22.5125C50.6717 22.3409 50.3143 22.8699 50.2428 23.1558C51.0291 23.2988 52.28 23.5847 50.9934 23.5847C49.7759 23.5847 49.6644 23.8304 49.589 23.9964C49.5648 24.0497 49.5444 24.0947 49.4923 24.1208C49.2778 24.228 49.385 24.7641 49.4923 25.0858C49.578 25.3431 49.8139 25.5504 49.9212 25.6219H47.6695V25.9436H47.2406C46.2756 25.9436 44.3027 26.2223 44.1312 27.3374C43.9596 28.4525 45.0604 28.8028 45.6323 28.8385L45.8467 29.2674C45.2034 29.2674 43.7452 29.246 43.059 29.1602C42.3728 29.0744 41.272 28.2667 40.8073 27.8735H40.0568C40.021 27.6948 39.971 27.0587 40.0568 25.9436C40.164 24.5497 41.0218 23.7991 41.2362 24.1208C41.297 24.2119 41.3147 24.3203 41.3308 24.4191C41.3717 24.6688 41.4025 24.857 42.094 24.5497C42.866 24.2066 43.3449 22.5482 43.4879 21.7619L42.6301 21.6547L42.8445 21.4403L43.9168 21.1186C44.1312 20.9399 44.603 20.5396 44.7745 20.368C44.9461 20.1965 44.846 19.7962 44.7745 19.6175C44.4529 18.724 44.3242 16.6582 46.3828 15.5431C48.4415 14.428 52.3872 15.0068 52.3872 15.0068C52.3872 15.0068 48.849 15.3285 47.3479 15.9718C46.147 16.4865 46.0612 17.9018 46.4901 17.7947L47.6695 16.7224L47.7767 17.4731L48.9562 16.5081C48.5273 17.3658 48.6988 18.4809 48.9562 17.3658C49.2778 15.972 51.315 15.4359 52.3872 15.3286C53.2377 15.2436 54.4255 15.4958 54.9339 15.6038L54.9339 15.6038C55.0665 15.632 55.1528 15.6503 55.175 15.6503C55.2008 15.6503 55.3812 15.706 55.6555 15.7906C56.5228 16.0582 58.3276 16.6151 59.1423 16.6151C60 16.6151 60.3217 16.2577 60.4289 16.079C60.5361 16.4007 60.3645 17.0656 59.2494 17.1514C58.2908 17.2251 57.6365 17.096 56.4844 16.8687C55.9612 16.7655 55.3353 16.642 54.5317 16.5081C51.9584 16.0792 51.3256 16.6047 50.7789 17.1514C50.4573 17.4731 50.3501 17.7947 50.4573 17.7947C50.4905 17.7947 50.5578 17.7885 50.6551 17.7796C51.2596 17.724 53.0212 17.5621 54.9606 18.1162C56.7619 18.6309 58.07 20.368 58.3916 21.1186L57.3194 20.7969C57.3194 20.9756 57.5694 21.7118 58.7134 22.5125C59.7856 23.2629 61.1795 23.3701 61.1795 23.3701C61.1795 23.3701 60.7506 24.1208 59.8928 24.0134C59.035 23.9061 58.4989 23.7991 58.4989 23.7991C58.4989 23.7991 59.1423 26.1578 58.7134 28.4095C58.2845 30.6611 54.9606 33.2346 53.3522 33.8779C52.0656 34.3926 51.1006 34.6642 50.7789 34.7357C53.0306 35.0572 53.674 35.8541 53.1378 35.8079C48.1627 35.379 45.6323 37.0588 44.989 37.9523C44.6674 38.399 47.6681 40.2962 49.814 40.0966C54.7462 39.6378 58.9278 34.0548 60.7506 29.5889C62.3602 25.6452 63.5383 17.6875 63.5383 14.8997L63.4842 14.8972C61.952 14.8243 58.3993 14.6554 56.2472 13.8275C53.4595 12.7552 50.4573 10.6108 49.9212 10.0747C49.7671 9.92051 49.5996 10.0747 49.5996 10.0747C48.9562 10.7179 46.8544 12.3513 44.1312 13.3986ZM46.0612 21.7616C45.9897 21.4042 46.0183 20.5608 46.7045 20.0461C47.3907 19.5314 48.0627 19.6887 48.3129 19.8316C48.3844 20.1176 48.3772 20.8181 47.7768 21.3328C47.1764 21.8474 46.3829 21.8331 46.0612 21.7616Z"
           fill="currentColor"
         ></path>
@@ -4099,8 +4101,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M47.8039 1.5C47.1109 1.5 46.549 2.06184 46.549 2.7549V3.38235C46.549 4.07542 47.1109 4.63725 47.8039 4.63725C48.497 4.63725 49.0588 4.07542 49.0588 3.38235V2.7549C49.0588 2.06184 48.497 1.5 47.8039 1.5ZM55.0196 10.598C55.0196 9.90498 55.5814 9.34314 56.2745 9.34314C56.9676 9.34314 57.5294 9.90498 57.5294 10.598V11.2255C57.5294 11.9186 56.9676 12.4804 56.2745 12.4804C55.5814 12.4804 55.0196 11.9186 55.0196 11.2255V10.598ZM56.2745 13.1078C55.5814 13.1078 55.0196 13.6697 55.0196 14.3627V16.8233L55.0129 16.82C54.962 17.2039 54.6333 17.5 54.2353 17.5C53.8021 17.5 53.451 17.1489 53.451 16.7157V16.0544V10.9118C53.451 10.2187 52.8891 9.65686 52.1961 9.65686C51.503 9.65686 50.9412 10.2187 50.9412 10.9118V14.8241V15.4608C50.9412 15.894 50.5901 16.2451 50.1569 16.2451C49.7237 16.2451 49.3725 15.894 49.3725 15.4608V14.6703V13.8922C49.3725 13.1125 48.7405 12.4804 47.9608 12.4804C47.1811 12.4804 46.549 13.1125 46.549 13.8922V16.0544V16.0882V17.3431C46.549 17.7764 46.1979 18.1275 45.7647 18.1275C45.3315 18.1275 44.9804 17.7764 44.9804 17.3431V16.8234V12.4804C44.9804 11.7873 44.4186 11.2255 43.7255 11.2255C43.0324 11.2255 42.4706 11.7873 42.4706 12.4804V18.0536V19.0686V19.5392C42.4706 19.9724 42.1195 20.3235 41.6863 20.3235C41.2531 20.3235 40.902 19.9724 40.902 19.5392V18.8226V17.1863C40.902 16.4932 40.3401 15.9314 39.6471 15.9314C38.954 15.9314 38.3922 16.4932 38.3922 17.1863V20.0529V20.6373V22.6765C38.3922 23.1097 38.0411 23.4608 37.6078 23.4608C37.1746 23.4608 36.8235 23.1097 36.8235 22.6765V20.8218V20.4804C36.8235 19.7007 36.1915 19.0686 35.4118 19.0686C34.6321 19.0686 34 19.7007 34 20.4804V22.2059V23.6176V39.5718C34 40.2805 34.3751 40.9363 34.986 41.2957L46.9579 48.338C48.8356 49.4425 51.1644 49.4425 53.0421 48.338L65.014 41.2957C65.6249 40.9363 66 40.2805 66 39.5718V23.6176V22.2059V20.4804C66 19.7007 65.3679 19.0686 64.5882 19.0686C63.8085 19.0686 63.1765 19.7007 63.1765 20.4804V20.8217V21.7353C63.1765 22.1685 62.8254 22.5196 62.3922 22.5196C61.9589 22.5196 61.6078 22.1685 61.6078 21.7353V20.951V20.0529V17.5C61.6078 16.8069 61.046 16.2451 60.3529 16.2451C59.6599 16.2451 59.098 16.8069 59.098 17.5V18.8225L59.0695 18.8085C58.9776 19.1394 58.674 19.3824 58.3137 19.3824C57.8805 19.3824 57.5294 19.0313 57.5294 18.598V18.0536L57.5085 18.0433C57.5222 17.9689 57.5294 17.8922 57.5294 17.8137V14.3627C57.5294 13.6697 56.9676 13.1078 56.2745 13.1078ZM47.9608 5.89216C47.1811 5.89216 46.549 6.52423 46.549 7.30392V9.81373C46.549 10.5934 47.1811 11.2255 47.9608 11.2255C48.7405 11.2255 49.3725 10.5934 49.3725 9.81373V7.30392C49.3725 6.52423 48.7405 5.89216 47.9608 5.89216ZM50.6275 4.16667C50.6275 3.38697 51.2595 2.7549 52.0392 2.7549C52.8189 2.7549 53.451 3.38697 53.451 4.16667V6.9902C53.451 7.76989 52.8189 8.40196 52.0392 8.40196C51.2595 8.40196 50.6275 7.76989 50.6275 6.9902V4.16667ZM42.4706 25.6567H48.1177V29.1077H52.1961V25.6567H57.8432V37.4214H52.353V34.1273H48.1177V37.4214H42.4706V25.6567Z"
           fill="currentColor"
         ></path>
@@ -4114,8 +4116,8 @@ export default function Promotion(){
         <g id="ODINç”µå&shy;">
           <path
             id="Union"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M53.8406 23.7016C53.2211 23.749 51.9071 23.6952 51.6027 21.969C51.4022 20.8318 51.3912 20.3863 51.3767 19.8005C51.3671 19.4134 51.356 18.965 51.2877 18.2154C51.139 16.5823 50.3053 15.1414 49.3325 14.6392C49.2212 14.5818 51.0516 14.0418 52.3114 15.223C52.5525 15.4491 52.399 11.528 50.3464 10.1138C50.151 9.9792 52.8472 9.44858 54.4454 11.6341C55.235 12.7138 55.3527 13.473 55.3936 13.7371C55.4006 13.7823 55.4054 13.813 55.4109 13.8283C55.8121 13.2432 56.6146 11.7445 56.6146 10.8316C56.6146 9.83848 56.2886 8.87968 56.1256 8.52441C56.9657 8.55371 58.565 9.67976 58.834 10.8316C59.1621 12.2364 59.0212 13.1197 58.9895 13.3183C58.9871 13.3335 58.9853 13.3446 58.9844 13.3518C60.0602 13.1556 62.368 12.2136 62.9938 10.2582C63.0265 10.1561 63.513 11.1834 63.5092 12.1717C63.5059 13.0116 63.0739 13.8192 63.0029 13.9519C62.9982 13.9607 62.995 13.9666 62.9938 13.9692C62.9889 13.9792 63.0423 13.9907 63.1448 14.0128C63.9602 14.1886 67.8856 15.035 70.4199 21.114C73.3102 28.0467 68.4091 37.0424 65.7616 39.4862C63.3217 41.7385 60.5549 44.265 55.7232 45.6698C56.1098 45.5315 56.5688 45.3394 57.079 45.0747C55.8822 45.5963 54.5776 45.995 53.1683 46.2073C45.5949 47.3484 40.1239 43.8168 40.3292 43.8407C45.2654 44.4154 48.9224 42.3333 50.1339 41.2205C50.1339 41.2205 46.8224 43.2779 40.3292 41.9389C32.9056 40.4081 29.9047 32.7095 30.0595 32.841C34.3393 36.476 39.8247 35.921 39.5685 35.8532C35.2578 34.7122 31.7604 32.5835 29.8061 27.8658C27.3243 21.8748 29.778 16.8778 29.8061 17.4272C30.0762 22.7014 34.1731 25.8795 36.1876 26.8092C34.9081 25.6266 32.6804 21.9564 32.7644 17.6385C32.9248 9.39552 39.1589 6.1019 39.1036 6.18556C35.9699 10.9322 38.4238 17.6385 38.512 16.8778C39.5263 8.1296 45.1185 4.65355 50.5143 3.73435C55.7353 2.84493 59.7115 5.75832 59.5454 5.74115C57.8451 5.56536 53.1683 5.72045 50.1339 8.76329C47.0996 11.8061 45.1048 15.2293 46.3304 20.7656C47.556 26.3019 53.1683 30.2745 57.6119 29.7673C62.0556 29.2602 62.8013 26.4236 62.6448 25.299C62.3979 23.524 59.7954 21.4633 57.6119 23.1385C55.7347 24.5788 56.589 26.6294 56.8768 27.3202C56.9404 27.4727 56.9763 27.5589 56.9491 27.5576C54.6318 27.4473 53.9276 25.0896 53.8406 23.7016ZM54.4445 46.003C54.8864 45.9006 55.3123 45.7893 55.7232 45.6698C54.8833 45.9702 54.3849 46.0168 54.4445 46.003Z"
             fill="currentColor"
           ></path>
@@ -4144,14 +4146,14 @@ export default function Promotion(){
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M76.0296 26.1576C77.4855 26.1931 78.9414 26.2288 80.3968 26.2802C80.7912 26.2942 80.8445 26.2087 80.7399 25.8406C79.4282 21.2254 78.1276 16.6069 76.8365 11.9859C76.7467 11.6649 76.6051 11.5523 76.271 11.5571C75.0345 11.5749 73.7971 11.5814 72.5608 11.5544C72.1515 11.5454 71.9788 11.6705 71.8649 12.07C70.5902 16.5456 69.3008 21.0171 67.9949 25.4837C67.876 25.8905 67.9602 25.9682 68.3541 25.975C69.8734 26.0013 71.3924 26.0402 72.9115 26.0792L76.0296 26.1576ZM74.5997 16.9156C74.5533 16.5423 74.5061 16.1633 74.3683 15.7875C74.3619 15.7943 74.3558 15.8006 74.3499 15.8065C74.3368 15.8196 74.3251 15.8305 74.3149 15.8399C74.2908 15.8622 74.2758 15.8761 74.2733 15.8921C74.1468 16.6705 74.021 17.4491 73.8952 18.2276C73.6748 19.5918 73.4544 20.9561 73.2305 22.3196C73.1909 22.5611 73.3039 22.5834 73.493 22.5813L73.7196 22.5785C74.189 22.5727 74.6586 22.5669 75.1272 22.585C75.4421 22.5972 75.4449 22.4728 75.4041 22.2151C75.3355 21.7812 75.2688 21.347 75.203 20.9127C75.1523 20.5783 75.1021 20.2437 75.0519 19.9091C74.9671 19.3444 74.8825 18.7796 74.7953 18.2153C74.7501 17.9232 74.7043 17.6312 74.6576 17.3393C74.635 17.1992 74.6174 17.0578 74.5997 16.9156Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M22.6343 24.6493C22.1375 24.6493 21.6407 24.6487 21.144 24.6481C19.7457 24.6465 18.3475 24.6449 16.9493 24.6561C16.5541 24.6593 16.5071 24.5592 16.6149 24.1896C17.7919 20.151 18.9548 16.1081 20.1059 12.062C20.2104 11.6944 20.3537 11.5442 20.7596 11.5536C21.9959 11.5824 23.2336 11.5786 24.4702 11.5553C24.849 11.5482 24.9962 11.6828 25.095 12.0375C26.2525 16.1979 27.4217 20.3552 28.6032 24.509C28.706 24.8704 28.6732 24.9712 28.2699 24.9562C26.886 24.905 25.5017 24.8694 24.1172 24.8338C23.7861 24.8253 23.4551 24.8168 23.124 24.808L22.6339 24.7949L22.6343 24.6493ZM22.7774 16.6323C22.7233 16.2939 22.6691 15.9555 22.6153 15.617L22.5429 15.6186L22.2846 17.2409C22.0145 18.9374 21.7445 20.634 21.4698 22.3297C21.429 22.582 21.5664 22.5812 21.7382 22.5802H21.7444C21.8195 22.5798 21.8947 22.5793 21.9698 22.5787L22.0899 22.5777C22.3366 22.5756 22.5833 22.5736 22.83 22.5747C23.014 22.5756 23.198 22.5784 23.3819 22.5842C23.6597 22.5932 23.692 22.4933 23.6514 22.2458C23.5453 21.5987 23.448 20.9502 23.3507 20.3016C23.2891 19.8903 23.2274 19.4789 23.1635 19.0679C23.1213 18.797 23.0787 18.5262 23.036 18.2554C22.9977 18.0136 22.9593 17.7717 22.9207 17.5299L22.7774 16.6323Z"
           fill="currentColor"
         ></path>
@@ -4200,8 +4202,8 @@ export default function Promotion(){
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M24.5024 38.6794C24.6423 38.6804 24.7847 38.6815 24.9306 38.6815C24.8275 38.2922 24.7262 37.9065 24.6256 37.5236C24.3712 36.5548 24.1214 35.6035 23.8573 34.6562C23.819 34.5185 23.7954 34.3635 23.7719 34.2082C23.7168 33.8459 23.6616 33.482 23.4173 33.3324C23.163 33.1767 22.7958 33.204 22.4287 33.2313C22.2684 33.2433 22.1082 33.2552 21.9574 33.2519C21.9454 33.2516 21.9333 33.252 21.9212 33.2523C21.901 33.2529 21.8809 33.2535 21.8611 33.2513C21.6705 33.2298 21.571 33.3094 21.5207 33.4995C21.1709 34.8242 20.817 36.1478 20.458 37.4902C20.3524 37.885 20.2464 38.2813 20.1399 38.6799C20.2658 38.6799 20.3881 38.6772 20.5078 38.6747C20.7735 38.6689 21.026 38.6635 21.2756 38.6878C21.6079 38.7202 21.7507 38.5918 21.7623 38.2827C21.7743 37.9594 21.9311 37.828 22.2544 37.8705C22.3965 37.8892 22.5461 37.8928 22.687 37.8701C23.0874 37.8053 23.2869 37.9554 23.3047 38.3673C23.3051 38.3774 23.3054 38.3878 23.3058 38.3983C23.3103 38.5354 23.3155 38.6949 23.5553 38.686C23.8663 38.6745 24.1777 38.6769 24.5024 38.6794ZM22.6343 35.3247C22.5933 35.1822 22.5446 35.0133 22.4725 35.0956C22.4643 35.1549 22.4578 35.2131 22.4516 35.2697C22.4456 35.3234 22.4399 35.3758 22.4328 35.4263C22.4074 35.5279 22.3817 35.6294 22.356 35.7309C22.2882 35.9984 22.2205 36.266 22.1572 36.5346C22.1557 36.541 22.1541 36.5475 22.1525 36.5541C22.1283 36.6534 22.0978 36.7786 22.2645 36.7851C22.3159 36.7871 22.3694 36.7935 22.4233 36.8C22.5834 36.8192 22.7469 36.8388 22.8682 36.744C22.9653 36.6681 22.9189 36.5428 22.8744 36.4224C22.8591 36.3813 22.8442 36.3408 22.8352 36.303C22.8013 36.1609 22.7773 36.0191 22.7533 35.8773C22.7279 35.7269 22.7025 35.5767 22.6654 35.4263C22.6553 35.3976 22.6451 35.362 22.6343 35.3247Z"
           fill="currentColor"
         ></path>
@@ -4249,8 +4251,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M50 44C60.4934 44 69 35.4934 69 25C69 14.5066 60.4934 6 50 6C39.5066 6 31 14.5066 31 25C31 35.4934 39.5066 44 50 44ZM36.0565 17.8302C35.2438 17.8302 34.5849 18.4988 34.5849 19.3236V30.2757C34.5849 31.1005 35.2438 31.7691 36.0565 31.7691C36.8692 31.7691 37.5281 31.1005 37.5281 30.2757V19.3236C37.5281 18.4988 36.8692 17.8302 36.0565 17.8302ZM43.4144 17.8302C42.6016 17.8302 41.9428 18.4988 41.9428 19.3236V30.2757C41.9428 31.1005 42.6016 31.7691 43.4144 31.7691C44.2271 31.7691 44.8859 31.1005 44.8859 30.2757V23.004L52.5702 31.3386C53.1085 31.9226 54.0047 31.972 54.6022 31.4507C55.2364 30.8974 55.2887 29.9194 54.7174 29.2997L44.6472 18.3771C44.492 18.2088 44.3072 18.0849 44.1083 18.0063C43.9016 17.8939 43.6653 17.8302 43.4144 17.8302ZM52.9161 18.2651C52.282 18.8184 52.2297 19.7963 52.801 20.4161L62.8712 31.3386C63.4096 31.9226 64.3058 31.972 64.9033 31.4507C65.5374 30.8974 65.5898 29.9194 65.0184 29.2997L54.9482 18.3771C54.4099 17.7932 53.5137 17.7438 52.9161 18.2651Z"
           fill="currentColor"
         ></path>
@@ -4266,8 +4268,8 @@ export default function Promotion(){
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M42.8229 8.15308L72.702 8C74.7525 8 79 9.98999 79 14.5823C79 18.103 77.0959 20.2461 76.0707 20.8584L76.0773 20.8661C76.5202 21.3804 77.5353 22.559 77.5353 25.9099C77.5353 30.043 72.9949 33.8699 68.4544 33.8699H40.4794L45.8987 12.8984L42.8229 8.15308ZM50.8785 12.7454L46.7775 28.8184L46.8117 28.8214C48.5785 28.9753 51.9227 29.2667 54.8331 27.5938C57.7624 25.9099 60.6917 21.7769 60.5453 17.6438C60.3988 13.5107 57.1766 12.7454 55.2725 12.7454H50.8785ZM70.4134 23.3076H63.914C63.3281 25.7568 61.2776 28.0529 60.2523 28.9714C62.216 28.9714 65.4706 28.8952 67.3863 28.8503L67.3873 28.8503C68.186 28.8316 68.7517 28.8183 68.8938 28.8183C70.0656 28.8184 72.8582 27.8999 72.702 25.4507C72.5848 23.6138 71.2373 23.3077 70.4134 23.3076ZM65.0857 18.4092H70.9993C71.9696 18.4092 74.0202 17.6438 74.0202 15.5007C74.0202 13.3577 72.7477 12.7454 71.3838 12.7454C71.1506 12.7454 70.0853 12.7454 68.7325 12.7454C67.2818 12.7454 65.5005 12.7454 64.0605 12.7454C64.6463 13.8169 65.2322 16.2661 65.0857 18.4092Z"
           fill="currentColor"
         ></path>
@@ -4310,14 +4312,14 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M30.2252 14.0019C24.5543 13.9231 21.4628 16.3648 20.2814 17.7431C20.254 17.7751 20.2125 17.8179 20.1581 17.8739L20.158 17.8741L20.1579 17.8742L20.1577 17.8744L20.1577 17.8744L20.1576 17.8744L20.1575 17.8746L20.1574 17.8747L20.1568 17.8753C20.1301 17.9028 20.1003 17.9336 20.0676 17.9677L21.069 14.8879H12.2082C11.5951 16.9544 10.4917 20.6866 9.68739 23.4422L7.87627 20.1059C6.89174 20.9264 4.80452 22.6854 4.33195 23.158C4.23896 23.251 4.12645 23.3537 4.00288 23.4664C3.34144 24.07 2.36291 24.963 2.36288 26.2101C2.36286 26.8992 2.85515 27.5884 3.05207 27.6869L2.73525 28.4789L2.55979 28.4745L0 36.2523C0.88608 36.2523 7.08864 36.3508 7.08864 36.3508C7.08864 36.3508 13.3897 36.3508 15.851 30.9358L16.1202 30.1077C16.908 33.3206 19.4031 34.8501 20.0448 35.2435L20.0845 35.2679C21.3644 36.0555 29.4375 38.2215 34.754 32.6096C34.8097 32.5509 34.8646 32.492 34.9188 32.433L33.7695 36.2523H43.1226L44.5994 31.8219L46.8638 36.2523H82.2086L83.9807 30.542H86.3436L87.525 36.2523H96.7796C96.6626 35.638 96.496 34.7952 96.3215 33.9121C95.9084 31.8229 95.4508 29.5079 95.4998 29.459C95.5369 29.4219 95.5975 29.3657 95.6776 29.2916L95.6776 29.2915C96.6597 28.382 100.567 24.7632 99.9302 20.3028C99.3788 16.4434 95.7951 14.8879 93.8261 14.9863H52.5741L48.8329 18.4322L50.0143 14.9863H40.169L38.6578 20.0081C38.6372 19.9032 38.6157 19.8045 38.5937 19.7122C38.1671 17.8416 35.8961 14.0806 30.2252 14.0019ZM84.4732 24.0439L84.473 24.0445H91.3647C91.9786 24.0445 92.905 23.357 93.1 22.4274C92.9047 23.3567 91.9786 24.0439 91.3648 24.0439H84.4732ZM76.1045 22.8625L72.8555 25.6192L74.4308 28.5728L77.7782 25.6192L76.1045 22.8625ZM55.3308 23.0595C53.7525 23.0596 53.493 24.1096 53.5587 24.7331C51.5896 24.3392 51.3411 27.0507 52.6726 27.2929C53.1813 27.3855 53.4407 27.2142 53.5658 27.1317C53.614 27.0998 53.6423 27.0811 53.6571 27.096C53.8039 27.2428 53.2961 27.8838 52.968 28.0807V28.2774H55.0355V28.0807C54.5432 27.4571 54.5687 27.0595 54.6417 27.096C55.9216 27.7368 57.0046 26.8006 57.103 25.8162C57.1934 24.9129 56.5451 24.7332 56.1185 24.7332C56.5123 24.2081 56.6107 23.0594 55.3308 23.0595ZM27.6654 24.2408C27.7967 23.9454 28.2758 23.3744 29.1422 23.4532C30.2252 23.5516 30.3721 24.98 29.7329 25.6192C29.2604 26.0918 27.3701 27.6539 26.484 28.3759C26.484 28.3759 25.2264 26.4737 25.0072 25.8161C24.788 25.1585 24.7709 24.2014 25.7948 23.6501C26.8187 23.0988 27.567 23.7486 27.6654 24.2408ZM8.66435 24.6347C8.55944 24.4948 8.36655 24.2139 8.14427 23.8901L8.14424 23.8901L8.14423 23.8901L8.14421 23.8901C7.86587 23.4847 7.54147 23.0123 7.28603 22.6656C7.19646 22.7328 7.00606 22.8385 6.75815 22.9762C5.91615 23.444 4.41065 24.2803 3.93813 25.2254C3.24901 26.6037 4.92313 27.096 5.41544 27.1944C5.54521 27.2204 5.08726 27.7852 4.72627 27.9821V28.2774H6.89177L6.89219 27.9821C6.89219 27.9821 6.30102 27.5883 6.3995 27.2929C6.41055 27.2598 6.58682 27.2532 6.81945 27.2446H6.81948H6.81949H6.8195C7.16721 27.2316 7.64079 27.214 7.87673 27.096C9.25508 26.4068 9.05817 25.1597 8.66435 24.6347ZM29.8153 15.5791C25.204 15.5792 22.3076 17.5992 21.2954 18.7775C21.2678 18.8095 21.2202 18.8554 21.1551 18.918C20.708 19.3482 19.4383 20.5699 18.2139 23.5522C15.3469 30.5353 19.8705 33.3128 20.9693 33.9875L20.9705 33.9883C22.0672 34.6616 29.3326 36.0961 33.671 31.5269C37.5876 27.4021 37.6652 22.2815 37.2154 20.4018C36.8498 18.8026 34.9509 15.5791 29.8153 15.5791ZM28.8468 19.9095C25.6176 19.752 24.1539 22.7318 23.8257 24.2414C23.3334 26.2761 22.843 30.234 26.1886 30.3455C29.1422 30.444 30.6846 27.5888 31.0128 26.3089C31.6363 24.1758 32.0761 20.067 28.8468 19.9095ZM47.6514 16.4636H41.6458L35.6401 34.6775H41.9411L44.304 27.4904L47.553 34.6775H54.5432L50.605 26.5058L60.7457 16.3651H53.4602L45.2885 23.8476L47.6514 16.4636ZM18.903 16.562H13.1394C12.7589 17.8347 11.9026 20.3856 11.0876 22.8133C10.2885 25.1939 9.52908 27.4561 9.29694 28.2789C8.82804 29.9409 7.76186 30.2456 7.28738 30.1902L3.34741 30.1071L1.96906 34.5944C2.72264 34.5944 7.60391 34.6775 7.60391 34.6775C7.60391 34.6775 12.1098 34.9728 14.4653 30.1071L18.903 16.562ZM81.224 16.4636L75.2184 34.6775H81.1256L82.9962 29.0656H87.4266L88.608 34.6775H94.909L93.6291 28.7703C95.1716 27.8185 97.9581 24.9851 98.158 21.2878C98.3549 17.645 95.2372 16.5292 93.826 16.4636L81.224 16.4636ZM76.3013 21.2878L78.9596 16.4636C75.6122 16.4636 67.3414 16.5176 65.9637 16.562C62.9117 16.6605 60.4503 19.1218 58.8751 22.1739C57.2998 25.2259 56.4138 28.7703 56.5122 31.4285C56.591 33.5551 58.4485 34.6118 59.3674 34.8744H71.9694L74.7261 29.7548C74.1788 29.7548 73.2824 29.7622 72.2179 29.7711C68.4943 29.802 62.7132 29.85 62.6163 29.6563C62.2225 28.8687 62.5179 27.7857 62.8132 27.7857L70.9849 27.7857L73.5446 23.06C73.0194 23.06 72.0517 23.0677 70.9315 23.0767H70.9314C68.062 23.0997 64.1916 23.1308 64.1916 23.06C64.1916 22.1148 65.0777 21.2878 65.4715 21.2878H76.3013Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M84.4722 24.0444L85.4567 21.1892L92.1515 21.2877C92.6438 21.2877 93.1361 21.583 93.1361 22.0753C93.1361 23.178 92.0531 24.0444 91.3639 24.0444H84.4722Z"
           fill="currentColor"
         ></path>
@@ -4329,14 +4331,14 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M110 130.476C137.877 130.476 160.476 107.877 160.476 80C160.476 52.1228 137.877 29.5238 110 29.5238C82.1228 29.5238 59.5238 52.1228 59.5238 80C59.5238 107.877 82.1228 130.476 110 130.476ZM110 133C139.271 133 163 109.271 163 80C163 50.7289 139.271 27 110 27C80.7289 27 57 50.7289 57 80C57 109.271 80.7289 133 110 133Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M76.6496 121.194C83.9231 111.56 96.1469 107.762 110 107.762C123.853 107.762 136.077 111.56 143.35 121.194C154.933 111.806 162.477 97.6313 162.974 81.6808C162.192 82.2271 161.351 82.5241 160.476 82.5241C156.295 82.5241 152.905 75.7443 152.905 67.3811C152.905 61.9503 154.334 57.1872 156.482 54.5147C147.471 38.1151 130.033 27 110 27C89.9666 27 72.5292 38.1151 63.5184 54.5147C65.6658 57.1872 67.0953 61.9503 67.0953 67.3811C67.0953 75.7443 63.7054 82.5241 59.5239 82.5241C58.6487 82.5241 57.8082 82.2271 57.0262 81.6808C57.523 97.6313 65.0675 111.806 76.6496 121.194ZM150.381 66.1192C150.381 86.3303 132.302 102.715 110 102.715C87.6982 102.715 69.6191 86.3303 69.6191 66.1192C69.6191 45.9081 87.6982 29.5238 110 29.5238C132.302 29.5238 150.381 45.9081 150.381 66.1192Z"
           fill="currentColor"
         ></path>
@@ -4352,8 +4354,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M50 45C61.0457 45 70 36.0457 70 25C70 13.9543 61.0457 5 50 5C38.9543 5 30 13.9543 30 25C30 27.0918 30.3211 29.1085 30.9168 31.0037C30.9236 30.9921 30.9307 30.9808 30.938 30.9698C33.2837 28.1303 37.2986 22.4097 38.7158 19.8587C40.5677 16.5254 42.4195 12.5748 43.1602 10.9698C43.4072 10.476 44.1973 9.19195 45.3825 9.48825C46.5041 9.76866 46.4979 11.322 46.494 12.2924C46.4938 12.3473 46.4936 12.4004 46.4936 12.4513C46.4936 13.8504 46.4497 15.5277 46.4026 17.3261C46.2128 24.5723 45.9716 33.7832 48.3454 34.6735C49.8962 35.2552 55.0108 26.1548 57.2331 19.1178C57.2534 19.0568 57.2735 18.9959 57.2935 18.9351C57.6388 17.8882 57.966 16.8957 59.0862 16.8957C60.0458 16.8957 60.1791 17.8669 60.3916 19.4162C60.4416 19.7803 60.4959 20.1764 60.5664 20.5993C60.5913 20.7488 60.6179 20.9133 60.6466 21.0911C61.0448 23.5555 61.8521 28.5514 64.2701 30.9696C65.5794 32.279 65.7516 33.5622 62.7886 31.34C62.2948 30.9696 60.5664 29.4882 59.8257 26.5252C59.0849 23.5622 58.4936 23.9324 58.3454 24.6733C57.9751 26.5252 52.7899 38.0069 48.7158 38.0069C42.888 38.0069 43.2868 28.384 43.4794 23.7355C43.5072 23.0664 43.5306 22.5004 43.5306 22.0809C43.5306 18.7476 41.6788 22.0809 40.5677 24.3032C40.4276 24.5833 40.2358 24.9794 40.0038 25.4587C38.5045 28.556 35.323 35.1283 33.5286 36.3475C37.1365 41.5746 43.1682 45 50 45Z"
           fill="currentColor"
         ></path>
@@ -4365,8 +4367,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M50 45C61.0457 45 70 36.0457 70 25C70 13.9543 61.0457 5 50 5C38.9543 5 30 13.9543 30 25C30 27.0918 30.3211 29.1085 30.9168 31.0037C30.9236 30.9921 30.9307 30.9808 30.938 30.9698C33.2837 28.1303 37.2986 22.4097 38.7158 19.8587C40.5677 16.5254 42.4195 12.5748 43.1602 10.9698C43.4072 10.476 44.1973 9.19195 45.3825 9.48825C46.5041 9.76866 46.4979 11.322 46.494 12.2924C46.4938 12.3473 46.4936 12.4004 46.4936 12.4513C46.4936 13.8504 46.4497 15.5277 46.4026 17.3261C46.2128 24.5723 45.9716 33.7832 48.3454 34.6735C49.8962 35.2552 55.0108 26.1548 57.2331 19.1178C57.2534 19.0568 57.2735 18.9959 57.2935 18.9351C57.6388 17.8882 57.966 16.8957 59.0862 16.8957C60.0458 16.8957 60.1791 17.8669 60.3916 19.4162C60.4416 19.7803 60.4959 20.1764 60.5664 20.5993C60.5913 20.7488 60.6179 20.9133 60.6466 21.0911C61.0448 23.5555 61.8521 28.5514 64.2701 30.9696C65.5794 32.279 65.7516 33.5622 62.7886 31.34C62.2948 30.9696 60.5664 29.4882 59.8257 26.5252C59.0849 23.5622 58.4936 23.9324 58.3454 24.6733C57.9751 26.5252 52.7899 38.0069 48.7158 38.0069C42.888 38.0069 43.2868 28.384 43.4794 23.7355C43.5072 23.0664 43.5306 22.5004 43.5306 22.0809C43.5306 18.7476 41.6788 22.0809 40.5677 24.3032C40.4276 24.5833 40.2358 24.9794 40.0038 25.4587C38.5045 28.556 35.323 35.1283 33.5286 36.3475C37.1365 41.5746 43.1682 45 50 45Z"
           fill="currentColor"
         ></path>
@@ -4378,8 +4380,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M50 45C61.0457 45 70 36.0457 70 25C70 13.9543 61.0457 5 50 5C38.9543 5 30 13.9543 30 25C30 27.0918 30.3211 29.1085 30.9168 31.0037C30.9236 30.9921 30.9307 30.9808 30.938 30.9698C33.2837 28.1303 37.2986 22.4097 38.7158 19.8587C40.5677 16.5254 42.4195 12.5748 43.1602 10.9698C43.4072 10.476 44.1973 9.19195 45.3825 9.48825C46.5041 9.76866 46.4979 11.322 46.494 12.2924C46.4938 12.3473 46.4936 12.4004 46.4936 12.4513C46.4936 13.8504 46.4497 15.5277 46.4026 17.3261C46.2128 24.5723 45.9716 33.7832 48.3454 34.6735C49.8962 35.2552 55.0108 26.1548 57.2331 19.1178C57.2534 19.0568 57.2735 18.9959 57.2935 18.9351C57.6388 17.8882 57.966 16.8957 59.0862 16.8957C60.0458 16.8957 60.1791 17.8669 60.3916 19.4162C60.4416 19.7803 60.4959 20.1764 60.5664 20.5993C60.5913 20.7488 60.6179 20.9133 60.6466 21.0911C61.0448 23.5555 61.8521 28.5514 64.2701 30.9696C65.5794 32.279 65.7516 33.5622 62.7886 31.34C62.2948 30.9696 60.5664 29.4882 59.8257 26.5252C59.0849 23.5622 58.4936 23.9324 58.3454 24.6733C57.9751 26.5252 52.7899 38.0069 48.7158 38.0069C42.888 38.0069 43.2868 28.384 43.4794 23.7355C43.5072 23.0664 43.5306 22.5004 43.5306 22.0809C43.5306 18.7476 41.6788 22.0809 40.5677 24.3032C40.4276 24.5833 40.2358 24.9794 40.0038 25.4587C38.5045 28.556 35.323 35.1283 33.5286 36.3475C37.1365 41.5746 43.1682 45 50 45Z"
           fill="currentColor"
         ></path>
@@ -4393,8 +4395,8 @@ export default function Promotion(){
         <g id="Marblesç”µå&shy;">
           <path
             id="Marbles logo"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M36.3138 25.0006C36.3138 16.0743 43.5499 8.83819 52.4762 8.83819C57.1891 8.83819 61.4279 10.852 64.3859 14.0742C65.3782 15.1552 67.0589 15.227 68.1398 14.2347C69.2208 13.2424 69.2926 11.5617 68.3003 10.4807C64.3783 6.20838 58.7387 3.52441 52.4762 3.52441C40.6152 3.52441 31 13.1396 31 25.0006C31 36.8615 40.6152 46.4767 52.4762 46.4767C58.5825 46.4767 64.0972 43.9248 68.0043 39.8365C69.0181 38.7757 68.9799 37.0939 67.9191 36.0801C66.8583 35.0663 65.1764 35.1044 64.1627 36.1652C61.2165 39.248 57.0722 41.163 52.4762 41.163C43.5499 41.163 36.3138 33.9268 36.3138 25.0006ZM65.542 25.0005C65.542 31.927 59.927 37.542 53.0005 37.542C46.074 37.542 40.459 31.927 40.459 25.0005C40.459 18.074 46.074 12.459 53.0005 12.459C59.927 12.459 65.542 18.074 65.542 25.0005ZM57.5809 16.36L61.6745 31.7196H59.6504L57.1605 22.4696L52.9414 32.427L48.7315 22.4696L46.1832 31.7242H44.1215L48.3212 16.3783L52.9414 27.3472L57.5809 16.36Z"
             fill="currentColor"
           ></path>
@@ -4411,8 +4413,8 @@ export default function Promotion(){
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M20 13.3636H22.449V11H45.7143V14.5455H44.4898V16.9091H48.1633V26.3636H44.4898V29.9091H39.5918V32.2727H26.1224V37H20V13.3636ZM24.898 15.7273H39.5918V19.2727H42.0408V24H39.5918V27.5455H24.898V15.7273Z"
           fill="currentColor"
         ></path>
@@ -4424,8 +4426,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M44.0417 9.02619C44.2715 9.04529 44.5012 9.06439 44.7307 9.08548C47.4998 9.33925 50.1173 10.0688 52.4777 11.5842C53.9298 12.5163 55.1381 13.6997 56.0725 15.1559C56.2841 15.4857 56.4796 15.5136 56.775 15.2521C58.2471 13.9485 59.8902 12.9299 61.7487 12.2726C63.4611 11.6668 65.2242 11.4068 67.0371 11.5503C69.0027 11.7059 70.8508 12.2619 72.5687 13.2362C72.7917 13.3626 73.0151 13.4917 73.221 13.6431L73.2295 13.6493C73.3287 13.722 73.4557 13.8151 73.3831 13.983C73.3066 14.1599 73.1283 14.2646 72.9412 14.2557C72.6809 14.2434 72.4206 14.2275 72.1603 14.2115C71.5646 14.1751 70.9688 14.1386 70.3735 14.1457C66.4437 14.1928 62.8353 15.3175 59.5375 17.4484C58.4654 18.1412 57.466 18.928 56.5227 19.7875C56.4473 19.8563 56.3518 19.9138 56.2553 19.9462C56.1359 19.9864 56.0261 19.9839 55.9315 19.8498C54.1034 17.2604 51.6447 15.5227 48.6627 14.5038C46.9942 13.9336 45.2726 13.7112 43.5183 13.8737C40.4003 14.1626 37.6052 15.2543 35.2383 17.343C33.3672 18.9941 32.2284 21.0857 31.607 23.4782C31.2008 25.0423 31.0731 26.635 31.18 28.2444C31.2896 29.8959 31.673 31.4966 32.1329 33.0803C32.3087 33.686 32.4859 34.2914 32.663 34.8968C32.9497 35.8768 33.2366 36.8573 33.518 37.8389C33.6102 38.1604 33.6692 38.4932 33.7188 38.8244C33.7416 38.9765 33.7249 39.1422 33.6897 39.2932C33.6252 39.5696 33.353 39.7481 33.062 39.6613C32.7581 39.5708 32.4404 39.4569 32.1888 39.2717C30.8487 38.285 29.7179 37.0919 28.8009 35.7008C27.5615 33.8207 26.7864 31.7552 26.3495 29.554C26.0017 27.8019 25.9613 26.033 26.0252 24.2554C26.0993 22.1964 26.5246 20.2176 27.3819 18.3426C28.709 15.4397 30.7425 13.159 33.4768 11.5076C35.2076 10.4622 37.0646 9.72977 39.0487 9.34879C39.6037 9.2422 40.1679 9.18378 40.7321 9.12536C40.994 9.09824 41.256 9.07112 41.517 9.03918C41.5701 9.03266 41.6228 9.02306 41.6755 9.01345C41.6999 9.00899 41.7244 9.00453 41.7489 9.00038C42.4091 9 43.069 9 43.7291 9C43.8332 9.00885 43.9376 9.01753 44.0417 9.02619ZM40.996 41C40.9758 40.9972 40.9556 40.994 40.9354 40.9909C40.891 40.9839 40.8466 40.9768 40.8019 40.9741C40.5588 40.9593 40.4702 40.8818 40.4527 40.6385C40.4428 40.501 40.4434 40.3626 40.444 40.2244C40.4442 40.1909 40.4443 40.1574 40.4443 40.1239L40.4447 35.972V35.9642C40.4451 31.3125 40.4455 26.6608 40.4432 22.0091C40.4431 21.7054 40.5719 21.479 40.814 21.3326C41.0487 21.1905 41.3033 21.0746 41.5609 20.9786C42.7339 20.5415 43.949 20.288 45.194 20.1717C46.1669 20.0809 47.1405 20.0102 48.1172 20.0988C49.8071 20.2523 51.3448 20.7578 52.5209 22.0605C53.3191 22.9444 53.7804 24.0014 54.0269 25.1531C54.4337 27.0529 54.4287 28.9503 53.8922 30.826C53.5226 32.1178 52.8982 33.2687 51.8508 34.1458C50.8867 34.9532 49.7631 35.3844 48.5131 35.4897C47.2419 35.597 45.985 35.4876 44.7384 35.2322C44.7223 35.2288 44.7059 35.2272 44.6846 35.2251C44.6726 35.2239 44.659 35.2226 44.6431 35.2207C44.6414 35.241 44.6392 35.2606 44.6372 35.2799C44.6329 35.3197 44.6288 35.3577 44.6286 35.3957L44.6268 35.9559C44.6217 37.4849 44.6167 39.014 44.6158 40.5431C44.6156 40.7233 44.5798 40.8783 44.4412 41H40.996ZM44.6194 31.3881C44.6183 31.5549 44.6721 31.617 44.8277 31.6499C45.5257 31.7974 46.2268 31.9073 46.9432 31.8961C48.264 31.8753 49.1612 31.2682 49.6055 30.0213C50.0835 28.68 50.0754 27.2984 49.7628 25.9284C49.4529 24.5697 48.67 23.8467 47.0613 23.7192C46.2888 23.6579 45.5388 23.7893 44.791 23.9586C44.656 23.9892 44.6136 24.0446 44.6142 24.1836C44.6254 26.5852 44.6362 28.9867 44.6194 31.3881ZM56.0892 40.5577C56.0811 40.7508 56.1475 40.904 56.3229 40.9998C57.5638 40.9998 58.8047 40.9998 60.0456 40.9999C60.0659 40.966 60.0881 40.9327 60.1103 40.8994C60.1616 40.8225 60.2128 40.7457 60.2407 40.6611C60.2692 40.5743 60.2674 40.4763 60.2655 40.38C60.265 40.3557 60.2646 40.3316 60.2646 40.3078C60.2658 38.6976 60.2654 37.0876 60.2654 35.4774V35.2235C60.3058 35.2297 60.3429 35.2351 60.3779 35.2401C60.4439 35.2497 60.5021 35.2581 60.56 35.2687C61.8433 35.5022 63.1316 35.6207 64.4345 35.4519C66.3539 35.2033 67.8112 34.2505 68.7908 32.5833C69.517 31.3472 69.85 29.9884 69.9259 28.5715C70.0043 27.1093 69.9103 25.6573 69.424 24.2578C68.8666 22.6534 67.8809 21.4205 66.3028 20.7134C65.2872 20.2583 64.2097 20.083 63.1088 20.0655C61.4409 20.0391 59.7909 20.2099 58.1807 20.661C57.6628 20.8061 57.1579 21.0058 56.6599 21.2115C56.3118 21.3551 56.0858 21.6088 56.0861 22.0281C56.0901 28.1518 56.0891 34.2756 56.0894 40.3994C56.0894 40.4521 56.0914 40.5051 56.0892 40.5577ZM60.2497 24.2812C60.2479 24.0734 60.302 23.9882 60.5149 23.9412C61.2258 23.7847 61.9366 23.6634 62.6689 23.7161C64.2763 23.8318 65.1349 24.5285 65.4513 26.1034C65.711 27.3966 65.7048 28.7011 65.2766 29.9719C64.9332 30.9912 64.2487 31.645 63.1733 31.8418C62.5426 31.9572 61.9106 31.8904 61.2825 31.8009C61.1518 31.7824 61.0221 31.7561 60.8925 31.7297C60.7639 31.7036 60.6353 31.6775 60.5057 31.659C60.3143 31.6316 60.251 31.5482 60.2527 31.3495C60.2722 28.9942 60.2701 26.6365 60.2497 24.2812Z"
           fill="currentColor"
         ></path>
@@ -4437,38 +4439,38 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M58.6378 27.9743C58.7561 27.9887 58.9218 28.0286 59.064 28.1489C59.2449 28.3021 59.4121 28.4906 59.5179 28.7325C59.6262 28.9801 59.6543 29.2475 59.6112 29.5303C59.5302 30.0628 59.1919 30.6736 58.6355 31.4226C57.7997 32.5477 56.9444 33.0525 56.136 33.2744C55.7416 33.3827 55.3743 33.4192 55.0571 33.438C54.9386 33.4451 54.8341 33.4496 54.7389 33.4537C54.7086 33.455 54.6793 33.4563 54.6507 33.4576C54.6409 33.9671 54.7327 34.3274 54.9021 34.7798C55.0715 35.2322 55.2468 35.3985 55.4103 35.5286C55.5658 35.6523 55.8337 35.7403 56.0877 35.7403C56.3418 35.7403 57.2613 35.6938 58.1339 35.033C59.8483 33.7346 61.7155 31.5502 62.8294 29.9837C62.9921 29.755 63.3093 29.7014 63.538 29.8641C63.7667 30.0267 63.8202 30.3439 63.6576 30.5726C62.5133 32.1818 60.5769 34.4576 58.7474 35.8431C57.848 36.5242 56.8893 37.0572 56.0184 37.101C55.5615 37.124 55.03 37.1006 54.6507 36.7988C54.2794 36.5034 54.0468 36.1836 53.8437 35.6979C52.8698 33.3691 54.1343 30.7419 55.4418 29.5098C56.0886 28.9003 56.8071 28.4708 57.4133 28.2234C57.7152 28.1002 58.0049 28.0157 58.2559 27.982C58.3808 27.9653 58.5118 27.9589 58.6378 27.9743ZM54.793 32.4338C54.8636 32.4306 54.9321 32.4274 54.9968 32.4236C55.2835 32.4066 55.5708 32.3757 55.867 32.2944C56.4396 32.1372 57.1086 31.774 57.8197 30.8166C58.3642 30.0836 58.5659 29.645 58.6066 29.3774C58.6244 29.2603 58.6089 29.1901 58.5868 29.1396C58.5678 29.0961 58.5336 29.0444 58.4706 28.982C58.4506 28.9827 58.4243 28.9847 58.3911 28.9892C58.2502 29.0081 58.0463 29.0627 57.7973 29.1643C57.302 29.3664 56.6907 29.7292 56.1387 30.2494C55.5492 30.8049 55.0331 31.5311 54.793 32.4338ZM58.519 28.9837C58.519 28.9837 58.5177 28.9836 58.5153 28.9831C58.5179 28.9834 58.519 28.9837 58.519 28.9837Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M63.0189 26.6314C63.2995 26.635 63.524 26.8655 63.5203 27.1461C63.5067 28.1943 63.7472 30.7464 64.7679 32.5646C65.4103 33.7089 66.0199 34.2234 66.5146 34.4622C67.0088 34.7008 67.4516 34.6972 67.8562 34.677C68.1487 34.6623 68.9318 34.4225 69.9625 33.7639C70.9712 33.1194 72.1694 32.1032 73.2962 30.6075C73.4651 30.3834 73.7837 30.3386 74.0078 30.5075C74.2319 30.6763 74.2767 30.9949 74.1079 31.219C72.9059 32.8144 71.6173 33.9125 70.5096 34.6203C69.424 35.3139 68.4612 35.6642 67.9069 35.6919C67.4646 35.714 66.8065 35.7316 66.0728 35.3774C65.3397 35.0235 64.5943 34.3312 63.8818 33.062C62.7346 31.0185 62.4896 28.2582 62.5042 27.1329C62.5078 26.8523 62.7383 26.6277 63.0189 26.6314Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M69.7466 27.6102C69.9309 27.8218 69.9088 28.1428 69.6972 28.3271C68.6177 29.2673 66.9411 30.8663 65.4328 32.5958C63.9064 34.3459 62.62 36.1548 62.2307 37.5251C62.154 37.795 61.873 37.9517 61.6031 37.875C61.3331 37.7983 61.1765 37.5173 61.2531 37.2474C61.7107 35.6368 63.1412 33.6773 64.6669 31.9278C66.2108 30.1576 67.9215 28.526 69.0298 27.5608C69.2414 27.3765 69.5623 27.3986 69.7466 27.6102Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M76.0865 27.3011C76.2779 27.5063 76.2666 27.8278 76.0614 28.0192C75.5819 28.4662 74.9256 29.2791 74.541 30.2313C74.1589 31.1772 74.0644 32.2032 74.593 33.1604C74.7178 33.3863 74.8348 33.4897 74.9208 33.5365C74.9997 33.5795 75.0891 33.5955 75.2108 33.573C75.4913 33.5211 75.8802 33.2743 76.3412 32.8073C77.2401 31.8967 78.3428 30.1072 78.8678 29.0502C78.9926 28.7989 79.0966 29.0208 79.3479 29.1456C79.5992 29.2705 79.7018 29.5754 79.5769 29.8267C79.0293 30.9292 78.0709 32.5016 77.0644 33.5212C76.5727 34.0193 75.9977 34.4608 75.3957 34.5722C75.0762 34.6314 74.7448 34.5978 74.4347 34.4289C74.1319 34.264 73.892 33.9932 73.7034 33.6517C72.9788 32.3395 73.1454 30.9731 73.5988 29.8506C74.0497 28.7344 74.8034 27.8027 75.3684 27.2759C75.5736 27.0846 75.8951 27.0958 76.0865 27.3011Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M51.6463 16.5443C53.0342 17.0197 54.3627 17.9057 54.4965 19.4312C54.547 20.0067 54.4318 20.4933 54.1496 20.87C53.8709 21.2419 53.4755 21.445 53.0822 21.5484C52.3162 21.7499 51.419 21.6124 50.8428 21.4456C50.5733 21.3676 50.418 21.0858 50.496 20.8162C50.5741 20.5467 50.8558 20.3914 51.1254 20.4695C51.6218 20.6132 52.3124 20.7001 52.8238 20.5656C53.0691 20.5011 53.2348 20.3961 53.3363 20.2606C53.4342 20.13 53.5184 19.9098 53.4842 19.52C53.4063 18.6319 52.6178 17.9512 51.317 17.5057C50.0492 17.0715 48.4888 16.9374 47.2924 17.0186C46.1272 17.0975 44.6077 17.5669 43.4819 18.4333C42.3763 19.2841 41.6841 20.4809 41.9981 22.088C42.3097 23.6824 43.8561 24.2847 45.714 25.4088C46.0409 25.6066 46.5139 25.8437 46.8572 26.044C47.4473 26.3882 48.1802 26.8784 48.7203 27.2295C49.6941 27.8627 50.3005 28.6028 50.8428 29.3466C51.8785 30.7673 51.9751 33.3535 50.8857 35.546C49.7802 37.7709 47.2437 39.6757 42.6556 40.1778C39.808 40.4894 37.1325 39.5885 35.183 38.1555C33.2512 36.7356 31.945 34.7208 32.0154 32.7528C32.0567 31.5992 32.399 30.0475 33.4661 29.0545C34.5872 28.0113 36.3396 27.7272 38.8597 28.7883C39.1183 28.8972 39.2397 29.1951 39.1308 29.4537C39.0219 29.7124 38.724 29.8337 38.4653 29.7248C36.1584 28.7535 34.8806 29.1264 34.1584 29.7984C33.3823 30.5207 33.0684 31.7424 33.031 32.7891C32.9771 34.2932 34.234 35.9958 36.0177 37.3069C37.7836 38.605 39.3762 39.2923 42.5451 39.1676C45.714 39.043 49.0652 36.9261 49.9757 35.0938C50.9023 33.229 50.5737 31.2102 49.769 30.1063C49.3389 29.5164 48.6623 28.9777 47.8272 28.4348C47.3033 28.0942 46.7502 27.7718 46.1789 27.4388C45.8309 27.236 45.4761 27.0292 45.1172 26.812C43.3011 25.7132 41.4091 24.3723 41.0008 22.2829C40.595 20.2062 41.533 18.6508 42.8621 17.628C44.1709 16.6208 45.8906 16.095 47.2236 16.0047C48.5254 15.9164 50.2253 16.0576 51.6463 16.5443Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M79.5981 25.1503C79.8783 25.1669 80.0918 25.4075 80.0751 25.6877C79.9875 27.1605 79.7188 29.8122 79.2071 32.2659L79.1022 32.9034L80.051 31.8783C81.3688 30.4191 82.6968 28.8723 83.7031 27.6249C83.8793 27.4065 84.1992 27.3723 84.4176 27.5485C84.636 27.7247 84.6702 28.0446 84.494 28.263C83.1304 29.9533 81.1915 32.1771 79.4726 34.0079C79.4093 34.0754 79.3448 34.1428 79.2792 34.2102L79.016 35.0052C78.8356 35.5502 78.6323 36.0676 78.4021 36.5281C77.5274 38.2775 76.1804 40.1483 74.8715 41.6482C74.2145 42.401 73.5528 43.0768 72.9471 43.6078C72.3684 44.1152 71.7541 44.5688 71.1993 44.7748C70.2803 45.1162 69.123 45.1388 68.38 44.3493C67.5794 43.4986 67.7816 42.2986 68.3612 41.3159C68.6783 40.7782 69.271 40.2263 69.889 39.7129C70.5377 39.174 71.3413 38.5771 72.1905 37.9555C72.3654 37.8275 72.5424 37.6982 72.7209 37.5679C74.3017 36.4139 76.0003 35.1739 77.3686 33.9331L78.0513 33.3268C78.7618 30.6448 78.9563 27.3826 79.0607 25.6273C79.0774 25.3472 79.318 25.1336 79.5981 25.1503ZM78.0513 34.6859C77.8093 34.9053 77.5576 35.1245 77.2985 35.3429C77.1421 35.4749 76.9829 35.6066 76.8217 35.7379C76.651 35.8769 76.4779 36.0154 76.3032 36.1533C75.3231 36.9268 74.2903 37.6806 73.3223 38.3871C71.3897 39.7976 70.2859 40.5032 69.8066 41.3159C68.5363 43.2348 69.7173 44.0393 71.1993 43.4889C72.5702 42.9797 75.3265 39.9414 77.0921 36.8245C77.2352 36.572 77.3694 36.3211 77.4932 36.0736C77.5477 35.9646 77.601 35.8509 77.6531 35.7328C77.7945 35.4127 77.9271 35.061 78.0513 34.6859Z"
           fill="currentColor"
         ></path>
@@ -4477,8 +4479,8 @@ export default function Promotion(){
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M24.735 14.9028C25.1553 14.9028 25.5714 14.9204 25.9827 14.9549V17.6766C25.5725 17.6343 25.1563 17.6127 24.735 17.6127C18.0937 17.6127 12.7098 22.9965 12.7098 29.6378C12.7098 36.2791 18.0937 41.6629 24.735 41.6629C27.1847 41.6629 29.4633 40.9304 31.3638 39.6725C31.6654 39.4728 31.9576 39.2599 32.2394 39.0345L33.4181 40.6524L33.8366 41.2267C33.5518 41.4507 33.2585 41.6644 32.9573 41.8673C32.7049 42.0374 32.4468 42.1998 32.1836 42.3544C29.9981 43.6373 27.4525 44.3729 24.735 44.3729C16.5971 44.3729 10 37.7758 10 29.6379C10 21.4999 16.5971 14.9028 24.735 14.9028ZM32.6407 20.5765C31.1721 19.2942 29.389 18.363 27.4223 17.9141V15.1473C31.322 15.8659 34.6838 18.1199 36.8576 21.2591L36.3249 21.7377L34.8216 23.0881C34.5821 22.7201 34.3231 22.366 34.0459 22.0274L34.197 21.7252L32.8421 20.1162L32.6407 20.5765Z"
           fill="currentColor"
         ></path>
@@ -4492,35 +4494,35 @@ export default function Promotion(){
           height="31"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M33.8366 41.2267C31.3308 43.1974 28.1702 44.3729 24.735 44.3729C16.5971 44.3729 10 37.7758 10 29.6379C10 21.4999 16.5971 14.9028 24.735 14.9028C29.7603 14.9028 34.1981 17.4185 36.8576 21.2591L34.8216 23.0881C32.6769 19.7921 28.9605 17.6127 24.735 17.6127C18.0937 17.6127 12.7098 22.9965 12.7098 29.6378C12.7098 36.2791 18.0937 41.6629 24.735 41.6629C27.5736 41.6629 30.1824 40.6794 32.2394 39.0345L33.8366 41.2267Z"
             fill="#D9D9D9"
           ></path>
         </mask>
         <g mask="url(#mask0_6245_8860)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M26.5135 41.536L26.5982 44.2459L26.566 44.2476C25.5271 44.3046 23.5736 44.4117 21.8136 44.0765C20.4562 43.818 18.8779 43.145 18.2568 42.8486L19.5271 40.5198C19.9929 40.7738 21.297 41.2904 22.6181 41.4936C23.9391 41.6969 25.7514 41.6207 26.5135 41.536ZM22.4989 42.1043C22.365 41.8748 22.0157 41.9508 21.9891 42.2151C21.9773 42.3334 21.8906 42.4305 21.7745 42.4558C21.5149 42.5122 21.4792 42.8679 21.7224 42.9748C21.8312 43.0226 21.8968 43.1351 21.8849 43.2533C21.8584 43.5176 22.1856 43.6615 22.3625 43.4632C22.4416 43.3746 22.5688 43.3469 22.6775 43.3947C22.9208 43.5016 23.1587 43.2349 23.0248 43.0054C22.9649 42.9028 22.9779 42.7733 23.057 42.6846C23.2338 42.4863 23.0537 42.1776 22.794 42.2341C22.6779 42.2593 22.5588 42.2069 22.4989 42.1043Z"
             fill="currentColor"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M15.1514 36.9193L12.9615 38.2989L12.9444 38.2732C12.3954 37.4455 11.3629 35.8891 10.7881 34.2781C10.3449 33.0357 10.136 31.4111 10.0798 30.7565L12.611 30.6766C12.6269 31.1828 12.8321 32.5061 13.3033 33.6919C13.7746 34.8777 14.7133 36.3328 15.1514 36.9193ZM12.4381 33.8083C12.3099 33.5757 11.9588 33.643 11.9258 33.9066C11.911 34.0245 11.822 34.1195 11.7053 34.1419C11.4444 34.1919 11.3999 34.5466 11.6404 34.6595C11.748 34.71 11.8108 34.824 11.7961 34.9419C11.763 35.2055 12.0866 35.3574 12.2683 35.1635C12.3496 35.0768 12.4774 35.0523 12.5849 35.1028C12.8255 35.2157 13.0699 34.9548 12.9417 34.7221C12.8843 34.6181 12.9005 34.4889 12.9818 34.4022C13.1634 34.2084 12.9909 33.8953 12.73 33.9453C12.6133 33.9677 12.4954 33.9124 12.4381 33.8083Z"
             fill="currentColor"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M13.5116 24.9897L11.248 23.7347L11.2623 23.7074L11.2623 23.7074C11.7233 22.8276 12.5903 21.1732 13.7254 19.8938C14.6009 18.907 15.9242 17.9416 16.4707 17.5772L17.7596 19.7571C17.3237 20.0149 16.2626 20.8319 15.4503 21.8159C14.6379 22.7999 13.8147 24.3233 13.5116 24.9897ZM14.5276 20.7395C14.3993 20.5068 14.0483 20.5741 14.0152 20.8378C14.0005 20.9557 13.9115 21.0506 13.7948 21.073C13.5338 21.1231 13.4894 21.4778 13.7299 21.5906C13.8375 21.6411 13.9003 21.7551 13.8855 21.873C13.8525 22.1366 14.1761 22.2885 14.3578 22.0947C14.439 22.008 14.5669 21.9834 14.6744 22.0339C14.9149 22.1468 15.1594 21.886 15.0311 21.6533C14.9738 21.5492 14.99 21.4201 15.0712 21.3334C15.2529 21.1395 15.0804 20.8264 14.8194 20.8765C14.7028 20.8989 14.5849 20.8436 14.5276 20.7395Z"
             fill="currentColor"
           ></path>
         </g>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M23.8882 11.5576C23.9729 11.3036 23.9729 10.4991 23.9729 9.8216C23.9729 8.97476 25.9207 6.0955 27.0215 5.41803C28.1224 4.74056 30.0834 4.90993 30.8323 5.75677C31.469 6.47658 32.0885 8.32552 32.1873 9.18647H35.8287C36.4638 9.18647 38.7488 9.65224 38.7911 10.7108C38.8335 11.7693 37.6056 14.1405 36.8011 14.945C36.1575 15.5886 34.811 16.8222 34.2182 17.3585V18.2477C34.2182 18.2715 34.2284 18.3626 34.2431 18.4934C34.2645 18.6846 34.2954 18.9607 34.3179 19.2361C34.2775 19.0642 34.2174 18.915 34.1349 18.7982C33.7284 18.2223 33.4856 18.4171 33.4151 18.5865C33.3868 18.897 33.2118 19.7297 32.7376 20.5765C32.1448 21.6351 30.5358 21.8891 30.0701 21.8468C29.6653 21.81 29.4524 21.3574 29.07 20.5447C29.0124 20.4223 28.951 20.2917 28.8845 20.1531C28.6667 19.6994 28.3167 19.3313 27.9878 18.9853C27.5494 18.5242 27.1485 18.1025 27.1485 17.5702C27.1485 16.825 27.0355 15.4814 26.9791 14.9027H26.3863C26.4286 15.6366 26.4879 17.1976 26.3863 17.5702C26.3035 17.8739 25.8426 18.3757 25.4262 18.8289L25.4262 18.8289C25.2041 19.0708 24.9946 19.2988 24.862 19.4756C24.4809 19.9837 23.4647 21.3387 24.862 22.1008C26.0298 22.7378 27.8483 22.5171 28.5871 22.4274C28.7323 22.4098 28.8358 22.3972 28.8845 22.3972C28.9553 22.3972 29.0601 22.3827 29.1819 22.3658C29.5697 22.3121 30.1308 22.2343 30.3241 22.5243C30.5782 22.9053 31.8061 23.9215 32.0178 23.8369C32.0484 23.8246 32.0933 23.8053 32.1493 23.7783C32.0345 23.8762 31.9572 24.1211 31.8509 24.4574C31.6406 25.1229 31.3172 26.1465 30.3666 27.0972C28.8846 28.5791 27.2741 30.8233 27.5705 32.1359C27.8669 33.4485 28.251 40.0538 28.1224 41.2394C28.1087 41.3664 24.227 41.8322 23.9291 41.8322C23.8027 41.4729 23.6581 41.0818 23.5055 40.6692C22.7893 38.7322 21.8982 36.3222 21.8982 34.507C21.8982 33.3207 20.7126 34.8881 20.4162 36.5394C20.2504 37.463 20.1095 38.8129 20.0107 39.7586C19.9682 40.1657 19.9336 40.4979 19.9081 40.689C19.8152 40.6507 19.708 40.6082 19.59 40.5614C18.4894 40.1247 16.4481 39.315 16.2652 38.1061C16.182 37.5556 16.0126 33.3214 16.0973 31.289C16.1389 30.2903 16.4797 29.2041 16.7136 28.4584C16.7698 28.2795 16.8197 28.1202 16.858 27.9863C16.784 28.0502 16.6925 28.1413 16.5834 28.2499C16.2346 28.5973 15.706 29.1236 14.9964 29.5107C14.4158 29.8274 12.733 30.4898 12.7295 30.4476C12.6872 29.9395 12.6874 28.0711 12.8567 27.7746C12.8627 27.7643 12.9254 27.7767 13.0279 27.7972C13.3439 27.8601 14.0383 27.9984 14.6138 27.7746C15.2593 27.5236 16.1414 26.3928 16.7788 25.5756C17.0171 25.2702 17.2212 25.0085 17.366 24.853C17.765 24.4245 18.3689 23.8939 18.8916 23.4346C19.092 23.2585 19.2804 23.0929 19.4408 22.9476C19.9081 22.5242 21.6568 19.4786 21.6018 17.9936C21.5171 15.7071 21.6018 13.8441 22.32 13.5477C23.2624 13.1588 22.9567 12.7855 22.7435 12.7855C22.2977 12.7855 22.5368 12.6509 22.9093 12.4412C23.3184 12.2109 23.8882 11.8901 23.8882 11.5576ZM32.1872 11.0496C32.1448 10.852 32.2295 10.5161 32.907 10.7532C33.4253 10.9346 33.785 10.9574 34.0929 10.9769C34.288 10.9893 34.4624 11.0003 34.643 11.0496C34.7291 11.073 34.8266 11.0951 34.9296 11.1183C35.3843 11.2209 35.9446 11.3473 36.0827 11.7271C36.252 12.1928 35.0241 13.082 34.643 13.2937C34.262 13.5054 33.3304 13.8865 32.9917 14.0135C32.653 14.1405 31.8908 13.2514 31.9332 12.4469C31.9562 12.0085 32.0296 11.7713 32.0916 11.5708C32.1433 11.4034 32.1872 11.2616 32.1872 11.0496ZM23.0836 20.3648C23.1965 20.0825 23.4562 19.6027 23.5917 19.9414C23.7611 20.3648 23.8034 21.6774 23.5917 22.863C23.41 23.8807 22.0114 24.3368 21.4315 24.5259C21.3359 24.5571 21.2625 24.581 21.2206 24.599C20.9242 24.7261 20.8395 24.472 21.2206 23.9216C21.2828 23.8317 21.3676 23.7204 21.467 23.5899C21.9766 22.9208 22.871 21.7466 23.0836 20.3648ZM17.6637 26.8432L18.8916 25.6152C19.0045 25.5588 19.2388 25.4797 19.2727 25.6152C19.2811 25.6487 19.2861 25.7004 19.2925 25.765C19.3181 26.0274 19.3648 26.5034 19.7385 26.8432C19.8068 26.9053 19.9225 27.0125 20.0738 27.1526L20.0739 27.1527C20.9531 27.9671 23.0369 29.8973 24.0573 30.6116C25.7512 31.7972 27.5069 31.8449 27.5069 31.8449C27.5069 31.8449 27.5691 32.2737 27.5916 32.6917C27.4628 32.7273 27.2748 32.7902 27.0472 32.8664L27.0472 32.8664C26.5515 33.0323 25.8681 33.2611 25.2006 33.4062C24.0354 33.6594 22.1946 34.0179 21.8557 33.8296C21.7697 33.7818 21.8077 33.6262 21.8571 33.4236C21.8952 33.2671 21.9402 33.0826 21.9402 32.8981C21.9402 32.4747 21.8416 31.0973 21.3475 30.0188C20.8818 29.0026 20.1619 27.817 19.5267 27.4783C19.4424 27.4333 19.3617 27.3883 19.2839 27.3449L19.2838 27.3448L19.2838 27.3448C18.776 27.0614 18.3892 26.8455 17.8754 27.1396C17.7909 27.1879 17.5367 27.0549 17.6637 26.8432Z"
           fill="currentColor"
         ></path>
@@ -4536,38 +4538,38 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M58.6378 27.9743C58.7561 27.9887 58.9218 28.0286 59.064 28.1489C59.2449 28.3021 59.4121 28.4906 59.5179 28.7325C59.6262 28.9801 59.6543 29.2475 59.6112 29.5303C59.5302 30.0628 59.1919 30.6736 58.6355 31.4226C57.7997 32.5477 56.9444 33.0525 56.136 33.2744C55.7416 33.3827 55.3743 33.4192 55.0571 33.438C54.9386 33.4451 54.8341 33.4496 54.7389 33.4537C54.7086 33.455 54.6793 33.4563 54.6507 33.4576C54.6409 33.9671 54.7327 34.3274 54.9021 34.7798C55.0715 35.2322 55.2468 35.3985 55.4103 35.5286C55.5658 35.6523 55.8337 35.7403 56.0877 35.7403C56.3418 35.7403 57.2613 35.6938 58.1339 35.033C59.8483 33.7346 61.7155 31.5502 62.8294 29.9837C62.9921 29.755 63.3093 29.7014 63.538 29.8641C63.7667 30.0267 63.8202 30.3439 63.6576 30.5726C62.5133 32.1818 60.5769 34.4576 58.7474 35.8431C57.848 36.5242 56.8893 37.0572 56.0184 37.101C55.5615 37.124 55.03 37.1006 54.6507 36.7988C54.2794 36.5034 54.0468 36.1836 53.8437 35.6979C52.8698 33.3691 54.1343 30.7419 55.4418 29.5098C56.0886 28.9003 56.8071 28.4708 57.4133 28.2234C57.7152 28.1002 58.0049 28.0157 58.2559 27.982C58.3808 27.9653 58.5118 27.9589 58.6378 27.9743ZM54.793 32.4338C54.8636 32.4306 54.9321 32.4274 54.9968 32.4236C55.2835 32.4066 55.5708 32.3757 55.867 32.2944C56.4396 32.1372 57.1086 31.774 57.8197 30.8166C58.3642 30.0836 58.5659 29.645 58.6066 29.3774C58.6244 29.2603 58.6089 29.1901 58.5868 29.1396C58.5678 29.0961 58.5336 29.0444 58.4706 28.982C58.4506 28.9827 58.4243 28.9847 58.3911 28.9892C58.2502 29.0081 58.0463 29.0627 57.7973 29.1643C57.302 29.3664 56.6907 29.7292 56.1387 30.2494C55.5492 30.8049 55.0331 31.5311 54.793 32.4338ZM58.519 28.9837C58.519 28.9837 58.5177 28.9836 58.5153 28.9831C58.5179 28.9834 58.519 28.9837 58.519 28.9837Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M63.0189 26.6314C63.2995 26.635 63.524 26.8655 63.5203 27.1461C63.5067 28.1943 63.7472 30.7464 64.7679 32.5646C65.4103 33.7089 66.0199 34.2234 66.5146 34.4622C67.0088 34.7008 67.4516 34.6972 67.8562 34.677C68.1487 34.6623 68.9318 34.4225 69.9625 33.7639C70.9712 33.1194 72.1694 32.1032 73.2962 30.6075C73.4651 30.3834 73.7837 30.3386 74.0078 30.5075C74.2319 30.6763 74.2767 30.9949 74.1079 31.219C72.9059 32.8144 71.6173 33.9125 70.5096 34.6203C69.424 35.3139 68.4612 35.6642 67.9069 35.6919C67.4646 35.714 66.8065 35.7316 66.0728 35.3774C65.3397 35.0235 64.5943 34.3312 63.8818 33.062C62.7346 31.0185 62.4896 28.2582 62.5042 27.1329C62.5078 26.8523 62.7383 26.6277 63.0189 26.6314Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M69.7466 27.6102C69.9309 27.8218 69.9088 28.1428 69.6972 28.3271C68.6177 29.2673 66.9411 30.8663 65.4328 32.5958C63.9064 34.3459 62.62 36.1548 62.2307 37.5251C62.154 37.795 61.873 37.9517 61.6031 37.875C61.3331 37.7983 61.1765 37.5173 61.2531 37.2474C61.7107 35.6368 63.1412 33.6773 64.6669 31.9278C66.2108 30.1576 67.9215 28.526 69.0298 27.5608C69.2414 27.3765 69.5623 27.3986 69.7466 27.6102Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M76.0865 27.3011C76.2779 27.5063 76.2666 27.8278 76.0614 28.0192C75.5819 28.4662 74.9256 29.2791 74.541 30.2313C74.1589 31.1772 74.0644 32.2032 74.593 33.1604C74.7178 33.3863 74.8348 33.4897 74.9208 33.5365C74.9997 33.5795 75.0891 33.5955 75.2108 33.573C75.4913 33.5211 75.8802 33.2743 76.3412 32.8073C77.2401 31.8967 78.3428 30.1072 78.8678 29.0502C78.9926 28.7989 79.0966 29.0208 79.3479 29.1456C79.5992 29.2705 79.7018 29.5754 79.5769 29.8267C79.0293 30.9292 78.0709 32.5016 77.0644 33.5212C76.5727 34.0193 75.9977 34.4608 75.3957 34.5722C75.0762 34.6314 74.7448 34.5978 74.4347 34.4289C74.1319 34.264 73.892 33.9932 73.7034 33.6517C72.9788 32.3395 73.1454 30.9731 73.5988 29.8506C74.0497 28.7344 74.8034 27.8027 75.3684 27.2759C75.5736 27.0846 75.8951 27.0958 76.0865 27.3011Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M51.6463 16.5443C53.0342 17.0197 54.3627 17.9057 54.4965 19.4312C54.547 20.0067 54.4318 20.4933 54.1496 20.87C53.8709 21.2419 53.4755 21.445 53.0822 21.5484C52.3162 21.7499 51.419 21.6124 50.8428 21.4456C50.5733 21.3676 50.418 21.0858 50.496 20.8162C50.5741 20.5467 50.8558 20.3914 51.1254 20.4695C51.6218 20.6132 52.3124 20.7001 52.8238 20.5656C53.0691 20.5011 53.2348 20.3961 53.3363 20.2606C53.4342 20.13 53.5184 19.9098 53.4842 19.52C53.4063 18.6319 52.6178 17.9512 51.317 17.5057C50.0492 17.0715 48.4888 16.9374 47.2924 17.0186C46.1272 17.0975 44.6077 17.5669 43.4819 18.4333C42.3763 19.2841 41.6841 20.4809 41.9981 22.088C42.3097 23.6824 43.8561 24.2847 45.714 25.4088C46.0409 25.6066 46.5139 25.8437 46.8572 26.044C47.4473 26.3882 48.1802 26.8784 48.7203 27.2295C49.6941 27.8627 50.3005 28.6028 50.8428 29.3466C51.8785 30.7673 51.9751 33.3535 50.8857 35.546C49.7802 37.7709 47.2437 39.6757 42.6556 40.1778C39.808 40.4894 37.1325 39.5885 35.183 38.1555C33.2512 36.7356 31.945 34.7208 32.0154 32.7528C32.0567 31.5992 32.399 30.0475 33.4661 29.0545C34.5872 28.0113 36.3396 27.7272 38.8597 28.7883C39.1183 28.8972 39.2397 29.1951 39.1308 29.4537C39.0219 29.7124 38.724 29.8337 38.4653 29.7248C36.1584 28.7535 34.8806 29.1264 34.1584 29.7984C33.3823 30.5207 33.0684 31.7424 33.031 32.7891C32.9771 34.2932 34.234 35.9958 36.0177 37.3069C37.7836 38.605 39.3762 39.2923 42.5451 39.1676C45.714 39.043 49.0652 36.9261 49.9757 35.0938C50.9023 33.229 50.5737 31.2102 49.769 30.1063C49.3389 29.5164 48.6623 28.9777 47.8272 28.4348C47.3033 28.0942 46.7502 27.7718 46.1789 27.4388C45.8309 27.236 45.4761 27.0292 45.1172 26.812C43.3011 25.7132 41.4091 24.3723 41.0008 22.2829C40.595 20.2062 41.533 18.6508 42.8621 17.628C44.1709 16.6208 45.8906 16.095 47.2236 16.0047C48.5254 15.9164 50.2253 16.0576 51.6463 16.5443Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M79.5981 25.1503C79.8783 25.1669 80.0918 25.4075 80.0751 25.6877C79.9875 27.1605 79.7188 29.8122 79.2071 32.2659L79.1022 32.9034L80.051 31.8783C81.3688 30.4191 82.6968 28.8723 83.7031 27.6249C83.8793 27.4065 84.1992 27.3723 84.4176 27.5485C84.636 27.7247 84.6702 28.0446 84.494 28.263C83.1304 29.9533 81.1915 32.1771 79.4726 34.0079C79.4093 34.0754 79.3448 34.1428 79.2792 34.2102L79.016 35.0052C78.8356 35.5502 78.6323 36.0676 78.4021 36.5281C77.5274 38.2775 76.1804 40.1483 74.8715 41.6482C74.2145 42.401 73.5528 43.0768 72.9471 43.6078C72.3684 44.1152 71.7541 44.5688 71.1993 44.7748C70.2803 45.1162 69.123 45.1388 68.38 44.3493C67.5794 43.4986 67.7816 42.2986 68.3612 41.3159C68.6783 40.7782 69.271 40.2263 69.889 39.7129C70.5377 39.174 71.3413 38.5771 72.1905 37.9555C72.3654 37.8275 72.5424 37.6982 72.7209 37.5679C74.3017 36.4139 76.0003 35.1739 77.3686 33.9331L78.0513 33.3268C78.7618 30.6448 78.9563 27.3826 79.0607 25.6273C79.0774 25.3472 79.318 25.1336 79.5981 25.1503ZM78.0513 34.6859C77.8093 34.9053 77.5576 35.1245 77.2985 35.3429C77.1421 35.4749 76.9829 35.6066 76.8217 35.7379C76.651 35.8769 76.4779 36.0154 76.3032 36.1533C75.3231 36.9268 74.2903 37.6806 73.3223 38.3871C71.3897 39.7976 70.2859 40.5032 69.8066 41.3159C68.5363 43.2348 69.7173 44.0393 71.1993 43.4889C72.5702 42.9797 75.3265 39.9414 77.0921 36.8245C77.2352 36.572 77.3694 36.3211 77.4932 36.0736C77.5477 35.9646 77.601 35.8509 77.6531 35.7328C77.7945 35.4127 77.9271 35.061 78.0513 34.6859Z"
           fill="currentColor"
         ></path>
@@ -4576,8 +4578,8 @@ export default function Promotion(){
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M24.735 14.9028C25.1553 14.9028 25.5714 14.9204 25.9827 14.9549V17.6766C25.5725 17.6343 25.1563 17.6127 24.735 17.6127C18.0937 17.6127 12.7098 22.9965 12.7098 29.6378C12.7098 36.2791 18.0937 41.6629 24.735 41.6629C27.1847 41.6629 29.4633 40.9304 31.3638 39.6725C31.6654 39.4728 31.9576 39.2599 32.2394 39.0345L33.4181 40.6524L33.8366 41.2267C33.5518 41.4507 33.2585 41.6644 32.9573 41.8673C32.7049 42.0374 32.4468 42.1998 32.1836 42.3544C29.9981 43.6373 27.4525 44.3729 24.735 44.3729C16.5971 44.3729 10 37.7758 10 29.6379C10 21.4999 16.5971 14.9028 24.735 14.9028ZM32.6407 20.5765C31.1721 19.2942 29.389 18.363 27.4223 17.9141V15.1473C31.322 15.8659 34.6838 18.1199 36.8576 21.2591L36.3249 21.7377L34.8216 23.0881C34.5821 22.7201 34.3231 22.366 34.0459 22.0274L34.197 21.7252L32.8421 20.1162L32.6407 20.5765Z"
           fill="currentColor"
         ></path>
@@ -4591,35 +4593,35 @@ export default function Promotion(){
           height="31"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M33.8366 41.2267C31.3308 43.1974 28.1702 44.3729 24.735 44.3729C16.5971 44.3729 10 37.7758 10 29.6379C10 21.4999 16.5971 14.9028 24.735 14.9028C29.7603 14.9028 34.1981 17.4185 36.8576 21.2591L34.8216 23.0881C32.6769 19.7921 28.9605 17.6127 24.735 17.6127C18.0937 17.6127 12.7098 22.9965 12.7098 29.6378C12.7098 36.2791 18.0937 41.6629 24.735 41.6629C27.5736 41.6629 30.1824 40.6794 32.2394 39.0345L33.8366 41.2267Z"
             fill="#D9D9D9"
           ></path>
         </mask>
         <g mask="url(#mask0_6245_8860)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M26.5135 41.536L26.5982 44.2459L26.566 44.2476C25.5271 44.3046 23.5736 44.4117 21.8136 44.0765C20.4562 43.818 18.8779 43.145 18.2568 42.8486L19.5271 40.5198C19.9929 40.7738 21.297 41.2904 22.6181 41.4936C23.9391 41.6969 25.7514 41.6207 26.5135 41.536ZM22.4989 42.1043C22.365 41.8748 22.0157 41.9508 21.9891 42.2151C21.9773 42.3334 21.8906 42.4305 21.7745 42.4558C21.5149 42.5122 21.4792 42.8679 21.7224 42.9748C21.8312 43.0226 21.8968 43.1351 21.8849 43.2533C21.8584 43.5176 22.1856 43.6615 22.3625 43.4632C22.4416 43.3746 22.5688 43.3469 22.6775 43.3947C22.9208 43.5016 23.1587 43.2349 23.0248 43.0054C22.9649 42.9028 22.9779 42.7733 23.057 42.6846C23.2338 42.4863 23.0537 42.1776 22.794 42.2341C22.6779 42.2593 22.5588 42.2069 22.4989 42.1043Z"
             fill="currentColor"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M15.1514 36.9193L12.9615 38.2989L12.9444 38.2732C12.3954 37.4455 11.3629 35.8891 10.7881 34.2781C10.3449 33.0357 10.136 31.4111 10.0798 30.7565L12.611 30.6766C12.6269 31.1828 12.8321 32.5061 13.3033 33.6919C13.7746 34.8777 14.7133 36.3328 15.1514 36.9193ZM12.4381 33.8083C12.3099 33.5757 11.9588 33.643 11.9258 33.9066C11.911 34.0245 11.822 34.1195 11.7053 34.1419C11.4444 34.1919 11.3999 34.5466 11.6404 34.6595C11.748 34.71 11.8108 34.824 11.7961 34.9419C11.763 35.2055 12.0866 35.3574 12.2683 35.1635C12.3496 35.0768 12.4774 35.0523 12.5849 35.1028C12.8255 35.2157 13.0699 34.9548 12.9417 34.7221C12.8843 34.6181 12.9005 34.4889 12.9818 34.4022C13.1634 34.2084 12.9909 33.8953 12.73 33.9453C12.6133 33.9677 12.4954 33.9124 12.4381 33.8083Z"
             fill="currentColor"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M13.5116 24.9897L11.248 23.7347L11.2623 23.7074L11.2623 23.7074C11.7233 22.8276 12.5903 21.1732 13.7254 19.8938C14.6009 18.907 15.9242 17.9416 16.4707 17.5772L17.7596 19.7571C17.3237 20.0149 16.2626 20.8319 15.4503 21.8159C14.6379 22.7999 13.8147 24.3233 13.5116 24.9897ZM14.5276 20.7395C14.3993 20.5068 14.0483 20.5741 14.0152 20.8378C14.0005 20.9557 13.9115 21.0506 13.7948 21.073C13.5338 21.1231 13.4894 21.4778 13.7299 21.5906C13.8375 21.6411 13.9003 21.7551 13.8855 21.873C13.8525 22.1366 14.1761 22.2885 14.3578 22.0947C14.439 22.008 14.5669 21.9834 14.6744 22.0339C14.9149 22.1468 15.1594 21.886 15.0311 21.6533C14.9738 21.5492 14.99 21.4201 15.0712 21.3334C15.2529 21.1395 15.0804 20.8264 14.8194 20.8765C14.7028 20.8989 14.5849 20.8436 14.5276 20.7395Z"
             fill="currentColor"
           ></path>
         </g>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M23.8882 11.5576C23.9729 11.3036 23.9729 10.4991 23.9729 9.8216C23.9729 8.97476 25.9207 6.0955 27.0215 5.41803C28.1224 4.74056 30.0834 4.90993 30.8323 5.75677C31.469 6.47658 32.0885 8.32552 32.1873 9.18647H35.8287C36.4638 9.18647 38.7488 9.65224 38.7911 10.7108C38.8335 11.7693 37.6056 14.1405 36.8011 14.945C36.1575 15.5886 34.811 16.8222 34.2182 17.3585V18.2477C34.2182 18.2715 34.2284 18.3626 34.2431 18.4934C34.2645 18.6846 34.2954 18.9607 34.3179 19.2361C34.2775 19.0642 34.2174 18.915 34.1349 18.7982C33.7284 18.2223 33.4856 18.4171 33.4151 18.5865C33.3868 18.897 33.2118 19.7297 32.7376 20.5765C32.1448 21.6351 30.5358 21.8891 30.0701 21.8468C29.6653 21.81 29.4524 21.3574 29.07 20.5447C29.0124 20.4223 28.951 20.2917 28.8845 20.1531C28.6667 19.6994 28.3167 19.3313 27.9878 18.9853C27.5494 18.5242 27.1485 18.1025 27.1485 17.5702C27.1485 16.825 27.0355 15.4814 26.9791 14.9027H26.3863C26.4286 15.6366 26.4879 17.1976 26.3863 17.5702C26.3035 17.8739 25.8426 18.3757 25.4262 18.8289L25.4262 18.8289C25.2041 19.0708 24.9946 19.2988 24.862 19.4756C24.4809 19.9837 23.4647 21.3387 24.862 22.1008C26.0298 22.7378 27.8483 22.5171 28.5871 22.4274C28.7323 22.4098 28.8358 22.3972 28.8845 22.3972C28.9553 22.3972 29.0601 22.3827 29.1819 22.3658C29.5697 22.3121 30.1308 22.2343 30.3241 22.5243C30.5782 22.9053 31.8061 23.9215 32.0178 23.8369C32.0484 23.8246 32.0933 23.8053 32.1493 23.7783C32.0345 23.8762 31.9572 24.1211 31.8509 24.4574C31.6406 25.1229 31.3172 26.1465 30.3666 27.0972C28.8846 28.5791 27.2741 30.8233 27.5705 32.1359C27.8669 33.4485 28.251 40.0538 28.1224 41.2394C28.1087 41.3664 24.227 41.8322 23.9291 41.8322C23.8027 41.4729 23.6581 41.0818 23.5055 40.6692C22.7893 38.7322 21.8982 36.3222 21.8982 34.507C21.8982 33.3207 20.7126 34.8881 20.4162 36.5394C20.2504 37.463 20.1095 38.8129 20.0107 39.7586C19.9682 40.1657 19.9336 40.4979 19.9081 40.689C19.8152 40.6507 19.708 40.6082 19.59 40.5614C18.4894 40.1247 16.4481 39.315 16.2652 38.1061C16.182 37.5556 16.0126 33.3214 16.0973 31.289C16.1389 30.2903 16.4797 29.2041 16.7136 28.4584C16.7698 28.2795 16.8197 28.1202 16.858 27.9863C16.784 28.0502 16.6925 28.1413 16.5834 28.2499C16.2346 28.5973 15.706 29.1236 14.9964 29.5107C14.4158 29.8274 12.733 30.4898 12.7295 30.4476C12.6872 29.9395 12.6874 28.0711 12.8567 27.7746C12.8627 27.7643 12.9254 27.7767 13.0279 27.7972C13.3439 27.8601 14.0383 27.9984 14.6138 27.7746C15.2593 27.5236 16.1414 26.3928 16.7788 25.5756C17.0171 25.2702 17.2212 25.0085 17.366 24.853C17.765 24.4245 18.3689 23.8939 18.8916 23.4346C19.092 23.2585 19.2804 23.0929 19.4408 22.9476C19.9081 22.5242 21.6568 19.4786 21.6018 17.9936C21.5171 15.7071 21.6018 13.8441 22.32 13.5477C23.2624 13.1588 22.9567 12.7855 22.7435 12.7855C22.2977 12.7855 22.5368 12.6509 22.9093 12.4412C23.3184 12.2109 23.8882 11.8901 23.8882 11.5576ZM32.1872 11.0496C32.1448 10.852 32.2295 10.5161 32.907 10.7532C33.4253 10.9346 33.785 10.9574 34.0929 10.9769C34.288 10.9893 34.4624 11.0003 34.643 11.0496C34.7291 11.073 34.8266 11.0951 34.9296 11.1183C35.3843 11.2209 35.9446 11.3473 36.0827 11.7271C36.252 12.1928 35.0241 13.082 34.643 13.2937C34.262 13.5054 33.3304 13.8865 32.9917 14.0135C32.653 14.1405 31.8908 13.2514 31.9332 12.4469C31.9562 12.0085 32.0296 11.7713 32.0916 11.5708C32.1433 11.4034 32.1872 11.2616 32.1872 11.0496ZM23.0836 20.3648C23.1965 20.0825 23.4562 19.6027 23.5917 19.9414C23.7611 20.3648 23.8034 21.6774 23.5917 22.863C23.41 23.8807 22.0114 24.3368 21.4315 24.5259C21.3359 24.5571 21.2625 24.581 21.2206 24.599C20.9242 24.7261 20.8395 24.472 21.2206 23.9216C21.2828 23.8317 21.3676 23.7204 21.467 23.5899C21.9766 22.9208 22.871 21.7466 23.0836 20.3648ZM17.6637 26.8432L18.8916 25.6152C19.0045 25.5588 19.2388 25.4797 19.2727 25.6152C19.2811 25.6487 19.2861 25.7004 19.2925 25.765C19.3181 26.0274 19.3648 26.5034 19.7385 26.8432C19.8068 26.9053 19.9225 27.0125 20.0738 27.1526L20.0739 27.1527C20.9531 27.9671 23.0369 29.8973 24.0573 30.6116C25.7512 31.7972 27.5069 31.8449 27.5069 31.8449C27.5069 31.8449 27.5691 32.2737 27.5916 32.6917C27.4628 32.7273 27.2748 32.7902 27.0472 32.8664L27.0472 32.8664C26.5515 33.0323 25.8681 33.2611 25.2006 33.4062C24.0354 33.6594 22.1946 34.0179 21.8557 33.8296C21.7697 33.7818 21.8077 33.6262 21.8571 33.4236C21.8952 33.2671 21.9402 33.0826 21.9402 32.8981C21.9402 32.4747 21.8416 31.0973 21.3475 30.0188C20.8818 29.0026 20.1619 27.817 19.5267 27.4783C19.4424 27.4333 19.3617 27.3883 19.2839 27.3449L19.2838 27.3448L19.2838 27.3448C18.776 27.0614 18.3892 26.8455 17.8754 27.1396C17.7909 27.1879 17.5367 27.0549 17.6637 26.8432Z"
           fill="currentColor"
         ></path>
@@ -4635,8 +4637,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M29.0777 11.3055C36.8551 10.5866 39.289 10.7395 39.415 16.2593C39.541 21.7791 39.2413 25.6941 32.5309 25.9013V29.9225V34.2044H29.0776C29.0777 26.6692 29.0777 19.071 29.0777 11.3055ZM32.6153 22.2102C35.4513 22.3654 35.8156 22.0272 35.8575 19.3824C35.8677 18.742 35.8669 18.101 35.8582 17.4605C35.8195 14.6403 35.4441 14.3347 32.6153 14.8919V22.2102ZM61.3405 11.0975C61.6053 11.0975 61.9395 11.0832 62.3244 11.0667C64.7917 10.9611 69.3413 10.7665 71.0119 13.6818C72.5615 16.386 71.9707 19.5961 69.817 22.2078C72.8746 24.775 72.5169 28.2863 71.5553 31.5055C71.1702 32.7945 69.1831 34.0206 67.7218 34.3851C65.7535 34.8761 61.3404 34.5069 61.3404 34.5069C61.3405 26.8356 61.3405 19.2014 61.3405 11.0975ZM64.8514 23.7742V31.5093C64.8868 31.5093 64.9271 31.5095 64.9717 31.5098C65.7213 31.5144 67.6819 31.5265 68.0151 30.4901C68.3682 29.392 68.752 26.7925 68.0015 25.1674C67.2511 23.5424 66.3541 23.3047 64.8514 23.7742ZM64.8048 21.137C65.2642 21.137 67.2014 20.9214 67.7587 19.6062C68.316 18.291 68.752 16.9831 67.7073 15.4577C66.6627 13.9324 64.8048 14.5048 64.8048 14.5048V21.137ZM84.4481 35.9482V39H16V35.9482H84.4481ZM45.3352 11.0984C43.9021 11.0984 42.9631 11.0667 41.7225 11.0984V34.1661H45.2984V25.2222C47.8101 24.7687 48.7427 25.7993 48.6796 28.0601C48.6402 29.4718 48.6497 30.8849 48.6592 32.3077L48.6592 32.3085C48.6634 32.9386 48.6676 33.5705 48.6676 34.2051H52.6219C52.3648 32.9226 52.4005 31.6022 52.4359 30.296C52.5065 27.6838 52.5757 25.1287 50.2975 23.0486C52.4583 20.7805 53.1759 16.7441 51.731 13.9452C50.2009 10.9815 47.8084 11.0984 45.3352 11.0984ZM48.6717 16.8885C48.6939 20.8126 48.5951 21.5931 45.2304 21.6571C45.2304 19.3881 45.2304 16.7306 45.2304 14.5048C47.0252 14.5048 48.6592 14.6866 48.6717 16.8885ZM23.8476 17.4073H26.8794C26.6814 13.7142 25.3735 11.5708 22.8953 11.2123C20.631 10.8848 18.5387 11.186 17.1024 13.1453C15.6698 15.0996 15.7605 18.7214 17.3857 20.8592C18.0493 21.7321 18.8059 22.5349 19.5624 23.3376C20.343 24.1658 21.1235 24.9939 21.8016 25.8989C22.5156 26.8519 23.0091 28.1447 23.0961 29.3214C23.142 29.9437 22.7576 31.3712 21.5552 31.3121C20.5777 31.1532 20.1418 30.9353 19.7058 29.8453C19.537 29.3388 19.5854 28.44 19.6159 27.8756C19.6248 27.7113 19.6321 27.5753 19.6321 27.4856H16.1138C16.0995 27.7324 16.079 27.9658 16.0594 28.1898C16.0191 28.6485 15.9823 29.0679 16.0092 29.4832C16.2182 32.6968 18.6357 34.753 22.0229 34.6363C24.9777 34.5346 26.8794 31.3121 26.8329 28.9659C26.7865 26.6196 25.5915 24.8316 24.2512 22.999C23.6338 22.1549 23.0247 21.534 22.4598 20.9583C21.7983 20.2841 21.1974 19.6716 20.7152 18.835C20.1361 17.8301 19.4878 16.5481 19.9238 15.4581C20.3598 14.3682 21.5611 14.0802 22.5473 14.5125C23.5023 14.9312 23.8476 15.7583 23.8476 16.7178C23.8476 16.9871 23.8066 17.2957 23.8476 17.4073ZM74.4219 11.534H84.3986V14.7742H78.193V21.0397H83.0441V24.0929H82.7052H78.3285V31.0495H84.4491V34.2047H74.4217C74.4219 26.7314 74.4219 19.2518 74.4219 11.534ZM54.8039 34.2047H58.2917V11.0984H54.8039V34.2047Z"
           fill="currentColor"
         ></path>
@@ -4679,8 +4681,8 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M23.0777 11.3055C30.8551 10.5866 33.289 10.7395 33.415 16.2593C33.541 21.7791 33.2413 25.6941 26.5309 25.9013V29.9225V34.2044H23.0776C23.0777 26.6692 23.0777 19.071 23.0777 11.3055ZM26.6153 22.2102C29.4513 22.3654 29.8156 22.0272 29.8575 19.3824C29.8677 18.742 29.8669 18.101 29.8582 17.4605C29.8195 14.6403 29.4441 14.3347 26.6153 14.8919V22.2102ZM55.3405 11.0975C55.6053 11.0975 55.9395 11.0832 56.3244 11.0667C58.7917 10.9611 63.3413 10.7665 65.0119 13.6818C66.5615 16.386 65.9707 19.5961 63.817 22.2078C66.8746 24.775 66.5169 28.2863 65.5553 31.5055C65.1702 32.7945 63.1831 34.0206 61.7218 34.3851C59.7535 34.8761 55.3404 34.5069 55.3404 34.5069C55.3405 26.8356 55.3405 19.2014 55.3405 11.0975ZM58.8514 23.7742V31.5093C58.8868 31.5093 58.9271 31.5095 58.9717 31.5098C59.7213 31.5144 61.6819 31.5265 62.0151 30.4901C62.3682 29.392 62.752 26.7925 62.0015 25.1674C61.2511 23.5424 60.3541 23.3047 58.8514 23.7742ZM58.8048 21.137C59.2642 21.137 61.2014 20.9214 61.7587 19.6062C62.316 18.291 62.752 16.9831 61.7073 15.4577C60.6627 13.9324 58.8048 14.5048 58.8048 14.5048V21.137ZM89.5 35.9482V39H10V35.9482H89.5ZM39.3352 11.0984C37.9021 11.0984 36.9631 11.0667 35.7225 11.0984V34.1661H39.2984V25.2222C41.8101 24.7687 42.7427 25.7993 42.6796 28.0601C42.6402 29.4718 42.6497 30.8849 42.6592 32.3077C42.6634 32.9377 42.6676 33.5705 42.6676 34.2051H46.6219C46.3648 32.9226 46.4005 31.6022 46.4359 30.296C46.5065 27.6838 46.5757 25.1287 44.2975 23.0486C46.4583 20.7805 47.1759 16.7441 45.731 13.9452C44.2009 10.9815 41.8084 11.0984 39.3352 11.0984ZM42.6717 16.8885C42.6939 20.8126 42.5951 21.5931 39.2304 21.6571C39.2304 19.3881 39.2304 16.7306 39.2304 14.5048C41.0252 14.5048 42.6592 14.6866 42.6717 16.8885ZM17.8476 17.4073H20.8794C20.6814 13.7142 19.3735 11.5708 16.8953 11.2123C14.631 10.8848 12.5387 11.186 11.1024 13.1453C9.66978 15.0996 9.76047 18.7214 11.3857 20.8592C12.0493 21.7321 12.8059 22.5349 13.5624 23.3376C14.343 24.1658 15.1235 24.9939 15.8016 25.8989C16.5156 26.8519 17.0091 28.1447 17.0961 29.3214C17.142 29.9437 16.7576 31.3712 15.5552 31.3121C14.5777 31.1532 14.1418 30.9353 13.7058 29.8453C13.537 29.3388 13.5854 28.44 13.6159 27.8756C13.6248 27.7113 13.6321 27.5753 13.6321 27.4856H10.1138C10.0995 27.7324 10.079 27.9658 10.0594 28.1898C10.0191 28.6485 9.98227 29.0679 10.0092 29.4832C10.2182 32.6968 12.6357 34.753 16.0229 34.6363C18.9777 34.5346 20.8794 31.3121 20.8329 28.9659C20.7865 26.6196 19.5915 24.8316 18.2512 22.999C17.6338 22.1549 17.0247 21.534 16.4598 20.9583C15.7983 20.2841 15.1974 19.6716 14.7152 18.835C14.1361 17.8301 13.4878 16.5481 13.9238 15.4581C14.3598 14.3682 15.5611 14.0802 16.5473 14.5125C17.5023 14.9312 17.8476 15.7583 17.8476 16.7178C17.8476 16.9871 17.8066 17.2957 17.8476 17.4073ZM68.4219 11.534H78.3986V14.7742H72.193V21.0397H77.0441V24.0929H76.7052H72.3285V31.0495H78.4491V34.2047H68.4217C68.4219 26.7314 68.4219 19.2518 68.4219 11.534ZM48.8038 34.2047H52.2916V11.0984H48.8038V34.2047Z"
           fill="currentColor"
         ></path>
@@ -4696,8 +4698,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M68.0002 24.4287C68.0002 34.0544 59.9413 41.8575 50.0001 41.8575C49.0978 41.8575 48.211 41.7932 47.3444 41.6691V38.4839C48.2059 38.6355 49.0935 38.7147 50.0002 38.7147C58.1487 38.7147 64.7544 32.3187 64.7544 24.4289C64.7544 16.539 58.1487 10.143 50.0002 10.143C47.2482 10.143 44.6722 10.8726 42.4672 12.1428H37.2329C40.4934 8.96647 45.0096 7 50.0001 7C59.9413 7 68.0002 14.8031 68.0002 24.4287ZM42.0329 36.4548V40.0615C36.0882 37.2157 32 31.2845 32 24.4287C32 21.8834 32.5635 19.4656 33.5763 17.2857H37.22C35.9645 19.387 35.246 21.8267 35.246 24.4289C35.246 29.4771 37.9504 33.9138 42.0329 36.4548ZM55.6063 12.9997H34.8029L32.7374 16.1426C35.5353 16.1426 39.049 16.1305 42.6227 16.1132V41.8571L46.4588 43V16.0931C53.768 16.0518 60.3277 15.9998 60.3277 15.9998C60.3277 15.9998 59.8851 15.0632 58.8523 14.2855C57.8195 13.5077 56.7867 12.9997 55.6063 12.9997ZM51.4752 17.2855H47.6391V33.7142H56.3441C59.4565 33.7142 61.6556 30.7142 61.9506 28.857V26.2856C61.9506 23.5713 59.4424 22.5712 59.4424 22.5712C59.4424 22.5712 60.9179 21.7141 60.9179 19.4284V17.2855H57.2293V19.4284C57.2293 20.6855 55.9014 21.2855 55.1637 21.2855H51.4752V17.2855ZM55.9014 24.7141H51.4752V30.4285H55.7539C57.5244 30.4285 58.2621 28.857 58.2621 28.1427V26.9999C58.2621 25.7427 56.7867 24.7141 55.9014 24.7141Z"
           fill="currentColor"
         ></path>
@@ -4709,8 +4711,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M68.0002 24.4287C68.0002 34.0544 59.9413 41.8575 50.0001 41.8575C49.0978 41.8575 48.211 41.7932 47.3444 41.6691V38.4839C48.2059 38.6355 49.0935 38.7147 50.0002 38.7147C58.1487 38.7147 64.7544 32.3187 64.7544 24.4289C64.7544 16.539 58.1487 10.143 50.0002 10.143C47.2482 10.143 44.6722 10.8726 42.4672 12.1428H37.2329C40.4934 8.96647 45.0096 7 50.0001 7C59.9413 7 68.0002 14.8031 68.0002 24.4287ZM42.0329 36.4548V40.0615C36.0882 37.2157 32 31.2845 32 24.4287C32 21.8834 32.5635 19.4656 33.5763 17.2857H37.22C35.9645 19.387 35.246 21.8267 35.246 24.4289C35.246 29.4771 37.9504 33.9138 42.0329 36.4548ZM55.6063 12.9997H34.8029L32.7374 16.1426C35.5353 16.1426 39.049 16.1305 42.6227 16.1132V41.8571L46.4588 43V16.0931C53.768 16.0518 60.3277 15.9998 60.3277 15.9998C60.3277 15.9998 59.8851 15.0632 58.8523 14.2855C57.8195 13.5077 56.7867 12.9997 55.6063 12.9997ZM51.4752 17.2855H47.6391V33.7142H56.3441C59.4565 33.7142 61.6556 30.7142 61.9506 28.857V26.2856C61.9506 23.5713 59.4424 22.5712 59.4424 22.5712C59.4424 22.5712 60.9179 21.7141 60.9179 19.4284V17.2855H57.2293V19.4284C57.2293 20.6855 55.9014 21.2855 55.1637 21.2855H51.4752V17.2855ZM55.9014 24.7141H51.4752V30.4285H55.7539C57.5244 30.4285 58.2621 28.857 58.2621 28.1427V26.9999C58.2621 25.7427 56.7867 24.7141 55.9014 24.7141Z"
           fill="currentColor"
         ></path>
@@ -4759,8 +4761,8 @@ export default function Promotion(){
         <g id="WMçœŸäººè§†è®¯">
           <path
             id="Union"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M37.2305 9.94264C40.6064 6.87323 45.0886 5 50 5C60.4766 5 69 13.5234 68.9999 24.0001C68.9999 27.5644 68.0125 30.902 66.2982 33.7555C65.7399 34.6846 65.1048 35.5625 64.4011 36.38L60.5296 26.3465L57.055 35.236H56.9975L53.523 26.3598L50.3033 34.6258H47.4335L53.5067 19.0436L53.5106 19.034L53.523 19.0385L53.5353 19.0343L53.5394 19.0444L57.0264 27.9924L60.5134 19.0445L60.5173 19.0344L60.5297 19.0387L60.5421 19.0344L60.546 19.0445L65.0141 30.467C65.8722 28.4825 66.3488 26.296 66.3488 24C66.3488 14.9852 59.0148 7.65114 50 7.65114C45.4048 7.65114 41.2473 9.55742 38.2743 12.6198L37.2305 9.94264ZM50 40.3488C54.4864 40.3488 58.556 38.532 61.513 35.596L62.5491 38.2531C59.1995 41.2058 54.8057 43.0001 50 43.0001C39.5234 43.0001 31 34.4767 31 24C31 20.5145 31.9444 17.2458 33.5893 14.4346C34.1322 13.5067 34.7514 12.6289 35.4385 11.8096L39.3835 21.9325L42.8581 13.0165H42.9155L46.3901 21.9325L49.631 13.6161H52.5033L46.4064 29.2611L46.4025 29.2712L46.3901 29.2669L46.3777 29.2712L46.3738 29.2611L42.8868 20.3131L39.3998 29.2611L39.3959 29.2712L39.3835 29.2669L39.3711 29.2712L39.3672 29.2611L34.8875 17.7657C34.0915 19.6879 33.6511 21.7933 33.6511 23.9999C33.6511 33.0147 40.9852 40.3488 50 40.3488Z"
             fill="currentColor"
           ></path>
@@ -4775,8 +4777,8 @@ export default function Promotion(){
         <g id="WMçœŸäººè§†è®¯">
           <path
             id="Union"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M37.2305 9.94264C40.6064 6.87323 45.0886 5 50 5C60.4766 5 69 13.5234 68.9999 24.0001C68.9999 27.5644 68.0125 30.902 66.2982 33.7555C65.7399 34.6846 65.1048 35.5625 64.4011 36.38L60.5296 26.3465L57.055 35.236H56.9975L53.523 26.3598L50.3033 34.6258H47.4335L53.5067 19.0436L53.5106 19.034L53.523 19.0385L53.5353 19.0343L53.5394 19.0444L57.0264 27.9924L60.5134 19.0445L60.5173 19.0344L60.5297 19.0387L60.5421 19.0344L60.546 19.0445L65.0141 30.467C65.8722 28.4825 66.3488 26.296 66.3488 24C66.3488 14.9852 59.0148 7.65114 50 7.65114C45.4048 7.65114 41.2473 9.55742 38.2743 12.6198L37.2305 9.94264ZM50 40.3488C54.4864 40.3488 58.556 38.532 61.513 35.596L62.5491 38.2531C59.1995 41.2058 54.8057 43.0001 50 43.0001C39.5234 43.0001 31 34.4767 31 24C31 20.5145 31.9444 17.2458 33.5893 14.4346C34.1322 13.5067 34.7514 12.6289 35.4385 11.8096L39.3835 21.9325L42.8581 13.0165H42.9155L46.3901 21.9325L49.631 13.6161H52.5033L46.4064 29.2611L46.4025 29.2712L46.3901 29.2669L46.3777 29.2712L46.3738 29.2611L42.8868 20.3131L39.3998 29.2611L39.3959 29.2712L39.3835 29.2669L39.3711 29.2712L39.3672 29.2611L34.8875 17.7657C34.0915 19.6879 33.6511 21.7933 33.6511 23.9999C33.6511 33.0147 40.9852 40.3488 50 40.3488Z"
             fill="currentColor"
           ></path>
@@ -4797,8 +4799,8 @@ export default function Promotion(){
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M26.0273 42.9075C25.9936 43.0364 25.9561 43.3709 26.1486 43.3786C26.4528 42.9221 26.8233 42.4911 27.1911 42.0633C27.2911 41.9469 27.3909 41.8308 27.4891 41.7145C28.8338 40.1227 30.3226 38.6676 31.9281 37.3318C32.0186 37.2565 32.1024 37.1878 32.1826 37.122C32.43 36.9191 32.6427 36.7446 32.9096 36.4948C33.1437 36.2759 33.4904 36.0899 33.7488 36.5158C34.4372 37.6496 35.1832 38.7609 36.0778 39.7441C37.3503 41.1423 38.7507 42.422 40.3658 43.4359C42.2444 44.6147 44.1964 45.6423 46.376 46.2142C46.6209 46.2785 46.887 46.3676 47.1472 46.4547C47.4959 46.5714 47.834 46.6846 48.0966 46.7299C48.555 46.809 49.9071 47 50.6797 47H53.7702C53.9227 47 54.2131 46.974 54.573 46.9418C54.8392 46.918 55.1434 46.8908 55.4581 46.8682C56.0034 46.829 56.5205 46.6823 57.0391 46.5353C57.2244 46.4827 57.41 46.4301 57.597 46.3823C59.658 45.8563 61.5818 45.0323 63.3766 43.9248C64.4995 43.2319 65.5352 42.4213 66.5655 41.5873C67.8484 40.5494 68.8521 39.293 69.8213 38.0312C70.6692 36.9276 71.3638 35.6769 71.9274 34.3746C72.4582 33.148 72.9353 31.916 73.2556 30.6149C73.4571 29.7971 73.5827 28.9731 73.7086 28.1472C73.7466 27.8984 73.7845 27.6494 73.8246 27.4003C74.1317 25.4926 73.988 23.6051 73.7562 21.7359C73.536 19.96 73.0029 18.2272 72.2998 16.5609C71.4372 14.5171 70.2625 12.6579 68.8988 10.9076C68.1951 10.004 67.3485 9.24222 66.5019 8.48049C66.2072 8.21526 65.9124 7.95004 65.6237 7.67883C65.3019 7.37628 64.8951 7.07373 64.5042 7.13906C64.1268 7.2021 63.7479 7.25315 63.3687 7.30422C62.8104 7.37942 62.2516 7.45469 61.6965 7.56843C59.3794 8.04327 57.1705 8.80155 55.018 9.74816C50.5844 11.6979 46.7098 14.4858 43.153 17.6851C40.7166 19.8771 38.4443 22.2455 36.4027 24.8245C34.7741 26.882 33.1863 28.9639 31.7292 31.1406C29.8687 33.9197 28.5545 36.9681 27.2515 40.0245C27.1326 40.3032 26.9824 40.6522 26.8283 41.0104C26.4515 41.8859 26.0512 42.8161 26.0273 42.9075ZM53.7245 31.5618C54.5942 31.5285 55.1205 31.5084 56.088 30.7647C56.2615 30.6314 56.481 30.4538 56.6429 30.2945C56.6609 30.2696 56.6738 30.2524 56.6738 30.2524C56.6738 30.2524 56.6921 30.2618 56.6675 30.3827C56.6429 30.5035 56.4743 30.9557 56.4393 30.9909C56.4267 31.0035 56.3784 31.1255 56.3106 31.2966C56.1897 31.6019 56.0069 32.0633 55.8556 32.3363C55.2985 33.3413 54.5101 34.1802 53.6227 34.89C52.2131 36.0177 50.6833 36.9353 48.7522 36.8657C48.3352 36.8508 47.9175 36.8545 47.4998 36.8582C47.13 36.8615 46.7602 36.8647 46.3907 36.8551C45.9723 36.844 45.7228 36.9372 45.5791 37.388C45.4205 37.8847 45.1974 38.3622 44.9746 38.8388C44.9119 38.9731 44.8491 39.1073 44.7879 39.2418C44.6175 39.6158 44.6836 39.7927 45.1367 39.785C45.9932 39.7705 46.8504 39.7705 47.7068 39.7831C49.4232 39.8083 51.1067 39.5983 52.7319 39.0497C54.3107 38.5168 55.7181 37.6817 57.0697 36.7087C58.9889 35.3274 60.5739 33.6714 61.7097 31.6257C62.2456 30.6601 62.6462 29.6285 63.0467 28.5972C63.1315 28.3789 63.2163 28.1605 63.3024 27.9428C63.7786 26.7384 64.2761 25.5421 64.7736 24.3459C65.3463 22.9686 65.9191 21.5914 66.4593 20.2018C66.8174 19.2812 66.8197 18.2979 66.4075 17.3345C65.718 15.7236 64.2801 15.3805 62.7743 15.298C61.2035 15.2121 59.6248 15.2453 58.0491 15.2784C57.8879 15.2818 57.7268 15.2852 57.5658 15.2884C57.0237 15.2994 56.4793 15.415 55.9434 15.5288C55.9026 15.5375 55.8619 15.5461 55.8212 15.5547C54.621 15.8084 53.5563 16.3837 52.621 17.1305C51.4718 18.0485 50.3812 19.0501 49.7987 20.4505C49.6244 20.8695 49.447 21.2873 49.2697 21.7052C48.802 22.8072 48.3342 23.9091 47.9228 25.0312C47.8356 25.269 47.7388 25.5044 47.642 25.7399C47.2483 26.6979 46.8538 27.6578 47.0972 28.7905C47.4754 30.5508 48.4385 31.4344 50.1896 31.5394C50.7605 31.5736 51.3341 31.5639 51.9078 31.5542C52.47 31.5447 53.0322 31.5352 53.5918 31.5669C53.637 31.5651 53.6812 31.5634 53.7245 31.5618Z"
           fill="currentColor"
         ></path>
@@ -4829,8 +4831,8 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M15 12.0769C15 13.1282 15.8139 14 16.8498 14C17.8857 14 18.6996 13.1282 18.6996 12.0513V7H29.3005V12.0769C29.3005 13.1282 30.1144 14 31.1502 14C32.1861 14 33 13.1282 33 12.0513V7H33.24C34.5191 7 35.7856 7.25193 36.9673 7.74141C38.149 8.23089 39.2228 8.94834 40.1272 9.85278C41.0317 10.7572 41.7491 11.831 42.2386 13.0127C42.7281 14.1944 42.98 15.4609 42.98 16.74V34.26C42.98 35.5391 42.7281 36.8056 42.2386 37.9873C41.7491 39.169 41.0317 40.2428 40.1272 41.1472C39.2228 42.0517 38.149 42.7691 36.9673 43.2586C35.7856 43.7481 34.5191 44 33.24 44H14.74C9.36 44 5 39.64 5 34.24V16.74C5 14.1568 6.02618 11.6794 7.85278 9.85278C9.67938 8.02618 12.1568 7 14.74 7H15V12.0769Z"
           fill="var(--main-color)"
         ></path>
@@ -4855,14 +4857,14 @@ export default function Promotion(){
       >
         <path
           opacity="0.4"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M39.5 67C54.6878 67 67 54.6878 67 39.5C67 24.3122 54.6878 12 39.5 12C24.3122 12 12 24.3122 12 39.5C12 54.6878 24.3122 67 39.5 67ZM39.4992 48.2601C34.6616 48.2601 30.7399 44.3384 30.7399 39.5008C30.7399 34.6632 34.6616 30.7415 39.4992 30.7415C44.3368 30.7415 48.2585 34.6632 48.2585 39.5008C48.2585 44.3384 44.3368 48.2601 39.4992 48.2601Z"
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M45.9771 12.7737C50.8866 13.9635 55.3735 16.4826 58.9454 20.0546L51.8936 27.1065C49.6169 24.8298 46.7572 23.2243 43.6282 22.466C40.4992 21.7077 37.2217 21.8259 34.1554 22.8076C31.0892 23.7894 28.3526 25.5968 26.2459 28.0315C24.1392 30.4661 22.7438 33.4341 22.2129 36.6096C21.6819 39.7851 22.0359 43.0456 23.236 46.0331C24.4361 49.0207 26.4359 51.62 29.016 53.5459C31.5962 55.4717 34.6569 56.6496 37.8624 56.9505C41.068 57.2513 44.2944 56.6633 47.1878 55.2511L51.5621 64.2135C47.0224 66.4292 41.9601 67.3517 36.9307 66.8797C31.9012 66.4077 27.0989 64.5596 23.0507 61.5379C19.0025 58.5163 15.8648 54.438 13.9818 49.7505C12.0989 45.063 11.5435 39.9474 12.3765 34.965C13.2096 29.9826 15.3989 25.3259 18.7043 21.5059C22.0097 17.6859 26.3034 14.8501 31.1144 13.3097C35.9254 11.7693 41.0677 11.5839 45.9771 12.7737ZM39.7009 18.9243C38.5759 18.9243 37.6639 18.0123 37.6639 16.8873C37.6639 15.7623 38.5759 14.8503 39.7009 14.8503C40.826 14.8503 41.738 15.7623 41.738 16.8873C41.738 18.0123 40.826 18.9243 39.7009 18.9243ZM21.3716 23.6119C21.3716 24.7369 22.2836 25.6489 23.4086 25.6489C24.5336 25.6489 25.4456 24.7369 25.4456 23.6119C25.4456 22.4869 24.5336 21.5749 23.4086 21.5749C22.2836 21.5749 21.3716 22.4869 21.3716 23.6119ZM16.8881 41.5402C15.7631 41.5402 14.8511 40.6282 14.8511 39.5032C14.8511 38.3782 15.7631 37.4661 16.8881 37.4661C18.0131 37.4661 18.9251 38.3782 18.9251 39.5032C18.9251 40.6282 18.0131 41.5402 16.8881 41.5402ZM21.3716 55.7955C21.3716 56.9205 22.2836 57.8325 23.4086 57.8325C24.5336 57.8325 25.4456 56.9205 25.4456 55.7955C25.4456 54.6705 24.5336 53.7585 23.4086 53.7585C22.2836 53.7585 21.3716 54.6705 21.3716 55.7955ZM39.4968 64.353C38.3718 64.353 37.4598 63.441 37.4598 62.316C37.4598 61.191 38.3718 60.279 39.4968 60.279C40.6219 60.279 41.5339 61.191 41.5339 62.316C41.5339 63.441 40.6219 64.353 39.4968 64.353Z"
           fill="var(--main-color)"
         ></path>
@@ -4896,29 +4898,29 @@ export default function Promotion(){
           d="M41 10H13V44H41V10Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M35 10V4H8C7.44772 4 7 4.44772 7 5V38H13"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M21 22H33"
           stroke="var(--bg_color_L2)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M21 30H33"
           stroke="var(--bg_color_L2)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -4935,8 +4937,8 @@ export default function Promotion(){
           fill="currentColor"
         ></circle>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M23.6599 5.27799L5.76039 17.3574V42.8644H15.8404V32.4244C15.8404 29.6409 18.0969 27.3844 20.8804 27.3844H27.2404C30.0239 27.3844 32.2804 29.6409 32.2804 32.4244V36.8044H28.9204V32.4244C28.9204 31.4965 28.1682 30.7444 27.2404 30.7444H20.8804C19.9526 30.7444 19.2004 31.4965 19.2004 32.4244V43.5844C19.2004 45.0424 18.0184 46.2244 16.5604 46.2244H5.04039C3.58236 46.2244 2.40039 45.0424 2.40039 43.5844V16.9747C2.40039 16.0973 2.83631 15.2772 3.56361 14.7863L22.4377 2.04925C23.1552 1.56501 24.0926 1.55594 24.8194 2.02622L44.5146 14.7702C45.2664 15.2567 45.7204 16.0911 45.7204 16.9866V43.5844C45.7204 45.0424 44.5384 46.2244 43.0804 46.2244H30.6004V42.8644H42.3604V17.3783L23.6599 5.27799Z"
           fill="currentColor"
         ></path>
@@ -4970,12 +4972,12 @@ export default function Promotion(){
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g id="Frame" clip-path="url(#clip0_621_12387)">
+        <g id="Frame" clipPath="url(#clip0_621_12387)">
           <path
             id="Vector"
             d="M24.0001 0H0.000106812V24H24.0001V0Z"
             fill="currentColor"
-            fill-opacity="0.01"
+            fillOpacity="0.01"
           ></path>
           <path
             id="Vector_2"
@@ -5012,20 +5014,20 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M5.69169 33.991C2.40432 30.3827 0.40443 25.6189 0.40443 20.3957C0.40443 9.13149 9.70091 0 21.1686 0C32.6364 0 41.9329 9.13149 41.9329 20.3957C41.9329 28.3604 37.2834 35.2559 30.5064 38.6136C26.36 40.7753 21.6297 42 16.6083 42C10.4556 42 4.73991 40.1614 0 37.0131C0 37.0131 3.17858 36.6664 5.69087 33.9918L5.69169 33.991ZM30.9227 30.4898C36.2947 25.118 36.2947 16.4085 30.9227 11.0366C28.4317 8.54569 25.2231 7.21059 21.9624 7.02989C21.864 4.58346 23.1809 2.93048 23.1873 2.92242L23.186 2.92268L23.187 2.92138C19.4394 3.64532 15.8608 5.45837 12.9589 8.36029C10.7334 10.5857 9.14881 13.2092 8.20411 16.0014C8.34241 15.6352 8.49661 15.2736 8.66671 14.9178C8.47091 15.4171 8.29401 15.9273 8.13401 16.4493C6.56076 21.2252 7.67121 26.6916 11.4694 30.4898C16.8414 35.8618 25.5509 35.8618 30.9227 30.4898Z"
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M14.2129 19.3493V22.1965C14.2129 23.3327 15.1339 24.2537 16.2702 24.2537C17.4064 24.2537 18.3273 23.3327 18.3273 22.1965V19.3493C18.3273 18.2133 17.4064 17.292 16.2702 17.292C15.1339 17.292 14.2129 18.2133 14.2129 19.3493Z"
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M24.3955 19.3493V22.1965C24.3955 23.3327 25.3166 24.2537 26.4527 24.2537C27.5889 24.2537 28.51 23.3327 28.51 22.1965V19.3493C28.51 18.2133 27.5889 17.292 26.4527 17.292C25.3166 17.292 24.3955 18.2133 24.3955 19.3493Z"
           fill="var(--main-color)"
         ></path>
@@ -5050,37 +5052,37 @@ export default function Promotion(){
         <path
           d="M38 15V7H10V15"
           stroke="var(--text_white, var(--text_color_L2))"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M43 27V15H5V41H43"
           stroke="var(--text_white, var(--text_color_L2))"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M29 27L24 34H43"
           stroke="var(--text_white, var(--text_color_L2))"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M26 21H22"
           stroke="var(--text_white, var(--text_color_L2))"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M16 21H12"
           stroke="var(--text_white, var(--text_color_L2))"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -5127,8 +5129,8 @@ export default function Promotion(){
         </mask>
         <g mask="url(#mask0_2094_41544)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M20.4705 12.992C17.2079 14.0478 13.802 13.3906 11.2254 11.5176C8.65115 14.157 6.94305 17.5424 6.35131 21.184C9.24189 22.2447 11.6331 24.5757 12.6547 27.7324C13.6762 30.8888 13.1042 34.1786 11.3832 36.7317C14.3198 39.6583 18.2092 41.4967 22.3564 41.8918C23.627 39.7355 25.661 38.0177 28.2295 37.1865C30.8181 36.3488 33.4945 36.5589 35.7997 37.5825C38.9641 34.833 41.0645 31.0476 41.7397 26.9331C39.0138 25.7686 36.7873 23.4755 35.8028 20.4338C34.7996 17.3337 35.2977 14.1078 36.8953 11.5428C34.2573 8.83606 30.8169 7.02579 27.0991 6.38029C26.1085 9.40788 23.7332 11.9361 20.4705 12.992ZM28.0728 35.9093C33.8105 34.0525 36.9566 27.8958 35.0998 22.158C33.243 16.4202 27.0863 13.2741 21.3485 15.131C15.6107 16.9879 12.4646 23.1445 14.3215 28.8823C16.1784 34.62 22.335 37.7661 28.0728 35.9093Z"
             fill="currentColor"
           ></path>
@@ -5141,8 +5143,8 @@ export default function Promotion(){
             fill="currentColor"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M27.4489 33.9791C32.1208 32.4673 34.6824 27.4544 33.1705 22.7825C31.6586 18.1106 26.6457 15.549 21.9739 17.0608C17.302 18.5727 14.7403 23.5857 16.2522 28.2575C17.7641 32.9294 22.777 35.4911 27.4489 33.9791ZM24.1012 32.3326C24.8904 32.3974 25.7311 32.2853 26.6234 31.9965C27.5159 31.7077 28.261 31.3066 28.8588 30.793C29.4591 30.2743 29.8745 29.6982 30.1047 29.0647C30.335 28.431 30.3483 27.793 30.1446 27.1504C29.9807 26.6571 29.716 26.2413 29.3504 25.903C28.9874 25.5596 28.5665 25.3138 28.0875 25.1658C27.6112 25.0126 27.123 24.9743 26.6227 25.0509L26.5965 24.9697C27.1772 24.6409 27.5878 24.1688 27.8282 23.5532C28.0686 22.9377 28.085 22.3029 27.8776 21.6487C27.6762 21.0396 27.3183 20.5536 26.8041 20.1909C26.2885 19.8242 25.6709 19.6037 24.9512 19.5294C24.2353 19.4537 23.4775 19.5453 22.6778 19.8041C21.8781 20.0629 21.2084 20.4332 20.6687 20.9152C20.1316 21.392 19.7617 21.9301 19.5586 22.5292C19.3543 23.1245 19.3516 23.7293 19.5504 24.3435C19.7605 24.9926 20.1419 25.4986 20.6947 25.8617C21.2463 26.221 21.8595 26.3619 22.5343 26.2843L22.5605 26.3655C22.1026 26.599 21.7237 26.918 21.4235 27.3224C21.1221 27.723 20.9249 28.1688 20.8319 28.6597C20.7417 29.1456 20.7766 29.6358 20.9366 30.1303C21.1441 30.7716 21.5268 31.2815 22.0846 31.66C22.6425 32.0386 23.3146 32.2628 24.1012 32.3326Z"
             fill="currentColor"
           ></path>
@@ -5176,8 +5178,8 @@ export default function Promotion(){
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M29.066 25.2993C28.966 24.2493 29.366 23.266 30.066 22.5827C30.6827 21.9493 31.5327 21.5827 32.466 21.5827H35.8327V19.1827C35.8327 15.7327 33.016 12.916 29.566 12.916H10.4327C6.98268 12.916 4.16602 15.7327 4.16602 19.1827V30.3993C4.16602 33.8493 6.98268 36.666 10.4327 36.666H29.566C33.016 36.666 35.8327 33.8493 35.8327 30.3993V28.416H32.666C30.866 28.416 29.216 27.0993 29.066 25.2993ZM22.4167 22.5H10.75C10.0667 22.5 9.5 21.9333 9.5 21.25C9.5 20.5667 10.0667 20 10.75 20H22.4167C23.1 20 23.6667 20.5667 23.6667 21.25C23.6667 21.9333 23.1 22.5 22.4167 22.5Z"
           fill="var(--main-color)"
         ></path>
@@ -5196,8 +5198,8 @@ export default function Promotion(){
           fill="currentColor"
         ></circle>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M24.08 5.27992C13.7412 5.27992 5.36 13.6612 5.36 23.9999C5.36 34.3387 13.7412 42.7199 24.08 42.7199C34.4188 42.7199 42.8 34.3387 42.8 23.9999V15.2399H46.16V23.9999C46.16 36.1944 36.2744 46.0799 24.08 46.0799C11.8856 46.0799 2 36.1944 2 23.9999C2 11.8055 11.8856 1.91992 24.08 1.91992H44.36V5.27992H24.08Z"
           fill="currentColor"
         ></path>
@@ -5210,8 +5212,8 @@ export default function Promotion(){
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M15.8061 29.5825C16.5007 28.9674 17.5624 29.0317 18.1776 29.7263C19.3272 31.0242 20.9262 32.5202 23.64 32.5202C26.5114 32.5202 28.4968 31.0925 29.4445 29.9868C30.0483 29.2824 31.1089 29.2008 31.8133 29.8046C32.5178 30.4085 32.5994 31.469 31.9956 32.1735C30.5432 33.8679 27.6806 35.8802 23.64 35.8802C19.4418 35.8802 16.9928 33.4562 15.6624 31.9541C15.0472 31.2595 15.1115 30.1977 15.8061 29.5825Z"
           fill="currentColor"
         ></path>
@@ -5300,8 +5302,8 @@ export default function Promotion(){
             fill="#CACFE0"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M405.454 279.532H412.816L418.265 261.723H410.903L405.454 279.532ZM419.17 279.532H426.532L431.981 261.723H424.62L419.17 279.532ZM440.246 279.532H432.884L438.334 261.723H445.695L440.246 279.532ZM391.916 279.532H399.273L404.722 261.723H397.366L391.916 279.532Z"
             fill="url(#paint10_linear_3021_93)"
           ></path>
@@ -5388,9 +5390,9 @@ export default function Promotion(){
           <path
             d="M302.017 76.4956L302.015 76.4937C301.659 76.1495 301.46 75.6788 301.46 75.1817V58.9538H356.459V93.4406H320.14C319.661 93.4406 319.199 93.2503 318.857 92.9159L318.857 92.9157L302.017 76.4956ZM328.317 75.9378C329.457 75.9378 330.38 75.0161 330.38 73.8765V66.0501C330.38 64.9105 329.457 63.9888 328.317 63.9888H313.578C312.438 63.9888 311.515 64.9105 311.515 66.0501V73.8765C311.515 75.0161 312.438 75.9378 313.578 75.9378H328.317ZM350.925 75.9378C352.064 75.9378 352.987 75.0161 352.987 73.8765V66.0501C352.987 64.9105 352.064 63.9888 350.925 63.9888H336.186C335.046 63.9888 334.123 64.9105 334.123 66.0501V73.8765C334.123 75.0161 335.046 75.9378 336.186 75.9378H350.925Z"
             fill="#AFB0B4"
-            fill-opacity="0.7"
+            fillOpacity="0.7"
             stroke="#A0A8BD"
-            stroke-width="1.15714"
+            strokeWidth="1.15714"
           ></path>
           <path
             d="M229.563 37.3814L228.947 35.387L343.679 0.0459015C343.966 -0.0428558 344.279 -0.00108766 344.535 0.155543L401.721 35.4966L400.624 37.2718L343.841 2.1813L229.563 37.3814Z"
@@ -5433,20 +5435,20 @@ export default function Promotion(){
               d="M91.7632 299.261V301.837H32.7982V299.261H91.7632Z"
               fill="#9099B1"
               stroke="#5C6C80"
-              stroke-width="1.15714"
+              strokeWidth="1.15714"
             ></path>
             <path
               opacity="0.5"
               d="M83.9411 284.66H40.6193V278.51C40.6193 277.753 41.2335 277.136 41.9948 277.136H82.5656C83.3238 277.136 83.9411 277.75 83.9411 278.51V284.66Z"
               fill="#9099B1"
               stroke="#4A5766"
-              stroke-width="1.15714"
+              strokeWidth="1.15714"
             ></path>
             <path
               d="M91.5607 298.104H33.0014L36.2006 287.617C36.2006 287.617 36.2007 287.617 36.2007 287.617C36.5446 286.496 37.5799 285.729 38.751 285.729H85.811C86.9823 285.729 88.0177 286.496 88.3615 287.617L91.5607 298.104Z"
               fill="#9099B1"
               stroke="#5C6C80"
-              stroke-width="1.15714"
+              strokeWidth="1.15714"
             ></path>
             <path
               d="M51.1445 277.298V56.9778C51.1445 56.7638 51.2281 56.5601 51.3744 56.4035L61.6882 45.6795C62.0017 45.3558 62.566 45.3558 62.8795 45.6795L73.1933 56.4035C73.3396 56.5549 73.4232 56.7638 73.4232 56.9778V277.298C73.4232 277.752 73.0522 278.123 72.5977 278.123H51.97C51.5155 278.123 51.1445 277.752 51.1445 277.298ZM71.7722 57.3068L62.2839 47.4442L52.7956 57.3068V276.467H71.7722V57.3068Z"
@@ -5503,9 +5505,9 @@ export default function Promotion(){
             <path
               d="M52.5457 110.141H95.763V122.839C95.763 123.202 95.6206 123.543 95.3638 123.792L95.3629 123.793L82.0553 136.772L82.0533 136.774C81.8081 137.016 81.474 137.151 81.1269 137.151H52.5457V110.141ZM74.6638 113.876C73.6968 113.876 72.9096 114.661 72.9096 115.629V121.816C72.9096 122.783 73.6968 123.569 74.6638 123.569H86.3099C87.277 123.569 88.0641 122.783 88.0641 121.816V115.629C88.0641 114.661 87.277 113.876 86.3099 113.876H74.6638ZM56.7949 113.876C55.8279 113.876 55.0407 114.661 55.0407 115.629V121.816C55.0407 122.783 55.8279 123.569 56.7949 123.569H68.441C69.408 123.569 70.1952 122.783 70.1952 121.816V115.629C70.1952 114.661 69.408 113.876 68.441 113.876H56.7949Z"
               fill="#AFB0B4"
-              fill-opacity="0.7"
+              fillOpacity="0.7"
               stroke="#6E7689"
-              stroke-width="1.15714"
+              strokeWidth="1.15714"
             ></path>
             <path
               d="M152.702 74.9696L153.188 73.3928L62.5211 45.4656C62.2965 45.3977 62.0457 45.429 61.8419 45.5543L16.6523 73.4816L17.5197 74.886L62.3905 47.152L152.696 74.9696H152.702Z"
@@ -5529,8 +5531,8 @@ export default function Promotion(){
             fill="#CACFE0"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M24.8107 276.374H33.1129L39.2625 256.283H30.9603L24.8107 276.374ZM40.0884 276.374H48.3855L54.5351 256.283H46.2328L40.0884 276.374ZM55.5584 276.374H63.8555L70.0051 256.283H61.7028L55.5584 276.374ZM79.3262 276.374H71.0239L77.1735 256.283H85.4758L79.3262 276.374Z"
             fill="url(#paint19_linear_3021_93)"
           ></path>
@@ -5547,8 +5549,8 @@ export default function Promotion(){
             fill="#B6B9BC"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M211.171 110.52L211.172 110.507L212.566 109.949L212.081 109.695C210.336 108.782 208.319 108.536 206.406 109.001L183.375 114.593L183.642 115.699L206.673 110.108C208.182 109.739 209.762 109.889 211.171 110.52Z"
             fill="#B3BACC"
           ></path>
@@ -5591,9 +5593,9 @@ export default function Promotion(){
             width="139.908"
             height="124.722"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -5626,8 +5628,8 @@ export default function Promotion(){
             y2="153.706"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ADB8C9"></stop>
-            <stop offset="0.99" stop-color="#98A0B0"></stop>
+            <stop stopColor="#ADB8C9"></stop>
+            <stop offset="0.99" stopColor="#98A0B0"></stop>
           </linearGradient>
           <linearGradient
             id="paint1_linear_3021_93"
@@ -5637,8 +5639,8 @@ export default function Promotion(){
             y2="177.279"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ADB8C9"></stop>
-            <stop offset="0.99" stop-color="#98A0B0"></stop>
+            <stop stopColor="#ADB8C9"></stop>
+            <stop offset="0.99" stopColor="#98A0B0"></stop>
           </linearGradient>
           <linearGradient
             id="paint2_linear_3021_93"
@@ -5648,8 +5650,8 @@ export default function Promotion(){
             y2="168.226"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ADB8C9"></stop>
-            <stop offset="0.99" stop-color="#98A0B0"></stop>
+            <stop stopColor="#ADB8C9"></stop>
+            <stop offset="0.99" stopColor="#98A0B0"></stop>
           </linearGradient>
           <linearGradient
             id="paint3_linear_3021_93"
@@ -5659,8 +5661,8 @@ export default function Promotion(){
             y2="186.332"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ADB8C9"></stop>
-            <stop offset="0.99" stop-color="#98A0B0"></stop>
+            <stop stopColor="#ADB8C9"></stop>
+            <stop offset="0.99" stopColor="#98A0B0"></stop>
           </linearGradient>
           <linearGradient
             id="paint4_linear_3021_93"
@@ -5670,8 +5672,8 @@ export default function Promotion(){
             y2="195.955"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ADB8C9"></stop>
-            <stop offset="0.99" stop-color="#98A0B0"></stop>
+            <stop stopColor="#ADB8C9"></stop>
+            <stop offset="0.99" stopColor="#98A0B0"></stop>
           </linearGradient>
           <linearGradient
             id="paint5_linear_3021_93"
@@ -5681,8 +5683,8 @@ export default function Promotion(){
             y2="205.232"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ADB8C9"></stop>
-            <stop offset="0.99" stop-color="#98A0B0"></stop>
+            <stop stopColor="#ADB8C9"></stop>
+            <stop offset="0.99" stopColor="#98A0B0"></stop>
           </linearGradient>
           <linearGradient
             id="paint6_linear_3021_93"
@@ -5692,8 +5694,8 @@ export default function Promotion(){
             y2="214.51"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ADB8C9"></stop>
-            <stop offset="0.99" stop-color="#98A0B0"></stop>
+            <stop stopColor="#ADB8C9"></stop>
+            <stop offset="0.99" stopColor="#98A0B0"></stop>
           </linearGradient>
           <linearGradient
             id="paint7_linear_3021_93"
@@ -5703,8 +5705,8 @@ export default function Promotion(){
             y2="223.438"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ADB8C9"></stop>
-            <stop offset="0.99" stop-color="#98A0B0"></stop>
+            <stop stopColor="#ADB8C9"></stop>
+            <stop offset="0.99" stopColor="#98A0B0"></stop>
           </linearGradient>
           <linearGradient
             id="paint8_linear_3021_93"
@@ -5714,8 +5716,8 @@ export default function Promotion(){
             y2="232.997"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ADB8C9"></stop>
-            <stop offset="0.99" stop-color="#98A0B0"></stop>
+            <stop stopColor="#ADB8C9"></stop>
+            <stop offset="0.99" stopColor="#98A0B0"></stop>
           </linearGradient>
           <linearGradient
             id="paint9_linear_3021_93"
@@ -5725,8 +5727,8 @@ export default function Promotion(){
             y2="241.925"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ADB8C9"></stop>
-            <stop offset="0.99" stop-color="#98A0B0"></stop>
+            <stop stopColor="#ADB8C9"></stop>
+            <stop offset="0.99" stopColor="#98A0B0"></stop>
           </linearGradient>
           <linearGradient
             id="paint10_linear_3021_93"
@@ -5736,8 +5738,8 @@ export default function Promotion(){
             y2="261.514"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#B6BBC4"></stop>
-            <stop offset="0.99" stop-color="#C8CDD3"></stop>
+            <stop stopColor="#B6BBC4"></stop>
+            <stop offset="0.99" stopColor="#C8CDD3"></stop>
           </linearGradient>
           <linearGradient
             id="paint11_linear_3021_93"
@@ -5747,8 +5749,8 @@ export default function Promotion(){
             y2="299.712"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#CED5E0"></stop>
-            <stop offset="0.99" stop-color="#DFE5EC"></stop>
+            <stop stopColor="#CED5E0"></stop>
+            <stop offset="0.99" stopColor="#DFE5EC"></stop>
           </linearGradient>
           <linearGradient
             id="paint12_linear_3021_93"
@@ -5758,8 +5760,8 @@ export default function Promotion(){
             y2="296.01"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#B3B8BE"></stop>
-            <stop offset="0.99" stop-color="#808488"></stop>
+            <stop stopColor="#B3B8BE"></stop>
+            <stop offset="0.99" stopColor="#808488"></stop>
           </linearGradient>
           <linearGradient
             id="paint13_linear_3021_93"
@@ -5769,8 +5771,8 @@ export default function Promotion(){
             y2="281.981"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#B3B8BE"></stop>
-            <stop offset="0.99" stop-color="#808488"></stop>
+            <stop stopColor="#B3B8BE"></stop>
+            <stop offset="0.99" stopColor="#808488"></stop>
           </linearGradient>
           <linearGradient
             id="paint14_linear_3021_93"
@@ -5780,8 +5782,8 @@ export default function Promotion(){
             y2="299.712"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#CED5E0"></stop>
-            <stop offset="0.99" stop-color="#DFE5EC"></stop>
+            <stop stopColor="#CED5E0"></stop>
+            <stop offset="0.99" stopColor="#DFE5EC"></stop>
           </linearGradient>
           <linearGradient
             id="paint15_linear_3021_93"
@@ -5791,8 +5793,8 @@ export default function Promotion(){
             y2="296.01"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#B3B8BE"></stop>
-            <stop offset="0.99" stop-color="#808488"></stop>
+            <stop stopColor="#B3B8BE"></stop>
+            <stop offset="0.99" stopColor="#808488"></stop>
           </linearGradient>
           <linearGradient
             id="paint16_linear_3021_93"
@@ -5802,8 +5804,8 @@ export default function Promotion(){
             y2="281.981"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#B3B8BE"></stop>
-            <stop offset="0.99" stop-color="#808488"></stop>
+            <stop stopColor="#B3B8BE"></stop>
+            <stop offset="0.99" stopColor="#808488"></stop>
           </linearGradient>
           <linearGradient
             id="paint17_linear_3021_93"
@@ -5813,8 +5815,8 @@ export default function Promotion(){
             y2="300.056"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ADB8C9"></stop>
-            <stop offset="0.99" stop-color="#98A0B0"></stop>
+            <stop stopColor="#ADB8C9"></stop>
+            <stop offset="0.99" stopColor="#98A0B0"></stop>
           </linearGradient>
           <linearGradient
             id="paint18_linear_3021_93"
@@ -5824,8 +5826,8 @@ export default function Promotion(){
             y2="275.653"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ADB8C9"></stop>
-            <stop offset="0.99" stop-color="#98A0B0"></stop>
+            <stop stopColor="#ADB8C9"></stop>
+            <stop offset="0.99" stopColor="#98A0B0"></stop>
           </linearGradient>
           <linearGradient
             id="paint19_linear_3021_93"
@@ -5835,8 +5837,8 @@ export default function Promotion(){
             y2="256.047"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#B6BBC4"></stop>
-            <stop offset="0.99" stop-color="#C8CDD3"></stop>
+            <stop stopColor="#B6BBC4"></stop>
+            <stop offset="0.99" stopColor="#C8CDD3"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -5847,8 +5849,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M45.2104 47.6695H36.1491L36.147 47.6715H26.952C25.0998 47.6715 23.2559 47.297 21.5766 46.5129C19.6256 45.6033 17.5676 44.0289 17.1416 41.3741C16.2896 36.0645 14.3757 22.7618 14.3757 22.7618C14.3757 22.7618 13.6328 18.3968 16.5037 15.8079C19.3766 13.219 31.9426 6.30004 31.9426 6.30004C31.9426 6.30004 34.194 4.88621 35.9433 4.78125H36.2191C37.9684 4.88621 40.2198 6.30004 40.2198 6.30004C40.2198 6.30004 52.7878 13.219 55.6587 15.8079C58.5296 18.3968 57.7867 22.7597 57.7867 22.7597C57.7867 22.7597 55.8748 36.0645 55.0207 41.3721C54.5927 44.0269 52.5368 45.6012 50.5858 46.5108C48.9065 47.297 47.0646 47.6695 45.2104 47.6695ZM29.7955 33.453C28.7136 33.0309 27.4944 33.5657 27.0724 34.6476C26.6503 35.7294 27.1851 36.9486 28.267 37.3707L29.2979 37.7729C33.7044 39.4894 38.5996 39.4712 42.9945 37.7242L43.8956 37.3653C44.9745 36.9356 45.5008 35.7127 45.0711 34.6338C44.6414 33.555 43.4185 33.0287 42.3396 33.4584L41.4391 33.817C38.0326 35.1709 34.2387 35.1841 30.8243 33.8544L29.7955 33.453Z"
           fill="white"
         ></path>
@@ -5875,14 +5877,14 @@ export default function Promotion(){
         </mask>
         <g mask="url(#mask0_2654_24939)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M35.5282 5.49028C35.5882 6.35397 34.9367 7.10277 34.073 7.16277C30.4802 7.41237 27.0346 8.68803 24.1455 10.8383C21.2564 12.9885 19.0453 15.9229 17.7748 19.2928C16.5043 22.6627 16.2279 26.3264 16.9784 29.8488C17.7288 33.3712 19.4747 36.6042 22.0085 39.1635C24.5422 41.7229 27.7574 43.5011 31.2721 44.2869C34.7867 45.0728 38.4531 44.8332 41.8356 43.5966C45.2181 42.3601 48.1745 40.1785 50.3537 37.3112C52.5329 34.4438 53.8431 31.0112 54.1288 27.4211C54.1975 26.5581 54.9528 25.9141 55.8158 25.9828C56.6789 26.0515 57.3228 26.8068 57.2541 27.6698C56.9208 31.8583 55.3922 35.863 52.8499 39.2083C50.3075 42.5535 46.8583 45.0986 42.9121 46.5412C38.9658 47.9839 34.6884 48.2634 30.588 47.3466C26.4875 46.4298 22.7365 44.3552 19.7804 41.3692C16.8243 38.3833 14.7875 34.6116 13.912 30.5022C13.0364 26.3927 13.3589 22.1183 14.8411 18.1868C16.3234 14.2552 18.903 10.8318 22.2736 8.32318C25.6443 5.81458 29.6642 4.32628 33.8557 4.03508C34.7194 3.97508 35.4682 4.62659 35.5282 5.49028Z"
             fill="#768096"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M48.3339 4.04129C48.8782 4.19205 49.2993 4.62392 49.4363 5.17182L50.7758 10.5298L56.1337 11.8693C56.6816 12.0062 57.1135 12.4274 57.2643 12.9717C57.415 13.5159 57.2613 14.0992 56.862 14.4986L50.5916 20.769C50.2022 21.1583 49.6371 21.3149 49.1029 21.1813L43.6935 19.829L36.4831 27.0394C35.8708 27.6516 34.8783 27.6516 34.2661 27.0394C33.6539 26.4273 33.6539 25.4347 34.2661 24.8225L41.4766 17.6121L40.1242 12.2027C39.9907 11.6685 40.1472 11.1034 40.5365 10.714L46.807 4.44356C47.2064 4.0442 47.7897 3.89054 48.3339 4.04129ZM44.5053 16.8002L49.0022 17.9245L52.6873 14.2394L49.1029 13.3433C48.5412 13.2029 48.1027 12.7643 47.9623 12.2027L47.0662 8.61826L43.3811 12.3033L44.5053 16.8002ZM33.3855 16.6122C33.7012 17.4184 33.3035 18.3278 32.4973 18.6435C31.2841 19.1183 30.2085 19.8882 29.3677 20.8833C28.5268 21.8784 27.9473 23.0675 27.6814 24.3428C27.4156 25.6182 27.4719 26.9398 27.8452 28.188C28.2185 29.4361 28.897 30.5715 29.8194 31.4916C30.7418 32.4116 31.879 33.0872 33.1281 33.4573C34.3773 33.8274 35.6989 33.8802 36.9737 33.6111C38.2484 33.3421 39.4359 32.7594 40.4288 31.9161C41.4218 31.0726 42.1888 29.995 42.6607 28.7807C42.9742 27.9737 43.8825 27.5736 44.6895 27.8872C45.4966 28.2007 45.8966 29.1091 45.583 29.9161C44.9225 31.6162 43.8486 33.1248 42.4585 34.3056C41.0684 35.4864 39.4058 36.302 37.6213 36.6788C35.8367 37.0555 33.9863 36.9815 32.2376 36.4634C30.4888 35.9453 28.8967 34.9994 27.6054 33.7114C26.314 32.4233 25.364 30.8337 24.8414 29.0863C24.3188 27.3388 24.24 25.4887 24.6122 23.7031C24.9844 21.9176 25.7957 20.253 26.9729 18.8598C28.1501 17.4666 29.656 16.3889 31.3544 15.724C32.1606 15.4083 33.07 15.806 33.3855 16.6122Z"
             fill="#768096"
           ></path>
@@ -5901,7 +5903,7 @@ export default function Promotion(){
           height="14.3831"
           rx="1.19859"
           stroke="#768096"
-          stroke-width="2.39718"
+          strokeWidth="2.39718"
         ></rect>
         <rect
           x="20.7538"
@@ -5910,7 +5912,7 @@ export default function Promotion(){
           height="14.3831"
           rx="1.19859"
           stroke="#768096"
-          stroke-width="2.39718"
+          strokeWidth="2.39718"
         ></rect>
         <rect
           x="39.9315"
@@ -5919,14 +5921,14 @@ export default function Promotion(){
           height="14.3831"
           rx="1.19859"
           stroke="#768096"
-          stroke-width="2.39718"
+          strokeWidth="2.39718"
         ></rect>
         <circle
           cx="47.123"
           cy="16.3432"
           r="7.19153"
           stroke="#768096"
-          stroke-width="2.39718"
+          strokeWidth="2.39718"
         ></circle>
       </symbol>
       <symbol
@@ -5936,8 +5938,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M57.5699 28.3477L58.0524 23.2146C58.4317 19.1856 58.6213 17.169 57.9323 16.3367C57.7585 16.1197 57.5432 15.9395 57.299 15.8067C57.0548 15.674 56.7865 15.5912 56.51 15.5634C55.5079 15.475 54.2513 16.9051 51.738 19.7654L51.7308 19.7735C50.4286 21.257 49.7775 21.9966 49.0526 22.1125C48.648 22.1757 48.2392 22.1104 47.8683 21.9229C47.1961 21.5857 46.7494 20.6712 45.856 18.8379L41.1422 9.17859L41.1402 9.17442C39.4516 5.7151 38.6068 3.98438 37.3219 3.98438C36.037 3.98438 35.1922 5.71502 33.5037 9.1742L33.5015 9.17859L28.7877 18.8379L28.7686 18.8772C27.8858 20.6822 27.4428 21.5881 26.7754 21.9229C26.4105 22.1093 25.996 22.1756 25.5912 22.1125C24.8663 21.9966 24.2152 21.257 22.9129 19.7735L22.9056 19.7652C20.3924 16.905 19.1358 15.475 18.1338 15.5634C17.8572 15.5912 17.589 15.674 17.3447 15.8067C17.1005 15.9395 16.8852 16.1197 16.7115 16.3367C16.0203 17.169 16.2099 19.1856 16.5892 23.2146L17.0739 28.3477L17.0762 28.3719C17.8712 36.8098 18.2689 41.0312 20.7594 43.5784C23.2522 46.1282 26.9861 46.1282 34.4561 46.1282H40.1876C47.6597 46.1282 51.3937 46.1282 53.8822 43.5784C56.3749 41.0311 56.7733 36.8024 57.5697 28.3496L57.5699 28.3477ZM39.8554 36.4375L40.6039 36.7521C41.3187 37.0525 42.0971 36.4869 42.0323 35.7143L41.771 32.5985C41.7477 32.3221 41.8368 32.0479 42.0181 31.8379L44.0609 29.4708C44.5675 28.8838 44.2702 27.9688 43.5154 27.7917L40.4713 27.0773C40.2012 27.014 39.968 26.8446 39.8243 26.6073L38.2043 23.9329C37.8026 23.2698 36.8405 23.2698 36.4388 23.9329L34.8187 26.6073C34.675 26.8446 34.4418 27.014 34.1718 27.0773L31.1277 27.7917C30.3729 27.9688 30.0755 28.8838 30.5821 29.4708L32.625 31.8379C32.8062 32.0479 32.8953 32.3221 32.8721 32.5985L32.6107 35.7143C32.5459 36.4869 33.3243 37.0525 34.0391 36.7521L34.7805 36.4405C34.9676 36.3691 35.1744 36.2809 35.4041 36.1784L36.9216 35.5407C37.1774 35.4332 37.4656 35.4332 37.7214 35.5407L39.2511 36.1836C39.4731 36.2825 39.6735 36.3679 39.8554 36.4375Z"
           fill="#768096"
         ></path>
@@ -5949,8 +5951,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M37.1975 32.0121C39.1776 32.0474 41.1506 32.2947 42.97 32.7381C46.0294 33.5295 48.9048 34.9513 51.5246 36.7036C52.5598 37.3956 53.5086 38.1202 54.438 38.83L54.4381 38.8301C56.7136 40.5679 58.8731 42.2171 61.9018 43.0837C64.2336 43.7514 67.7275 44.299 69.6636 42.4107C71.4413 40.678 71.0852 37.7984 70.7984 35.4794C70.7694 35.2453 70.7412 35.0169 70.7159 34.7959C69.81 26.8879 67.9379 17.3901 62.165 11.4816C58.9963 8.2385 54.1761 6.23545 50.2155 9.39017C43.7684 14.5268 37.005 14.5409 37.005 14.5409H36.5916C36.5916 14.5409 29.8264 14.525 23.3809 9.39017C19.4207 6.23545 14.6003 8.23677 11.4314 11.4816C5.6589 17.3901 3.78476 26.8861 2.88042 34.7942C2.85505 35.016 2.82666 35.2454 2.79755 35.4806C2.51065 37.7988 2.15465 40.6754 3.93316 42.409C5.87087 44.2972 9.36475 43.7497 11.6946 43.0819C14.7223 42.2153 16.8825 40.5658 19.1587 38.8279L19.1587 38.8279C20.0882 38.1182 21.037 37.3937 22.072 36.7018C24.6915 34.9496 27.5672 33.5295 30.6266 32.7363C32.6791 32.2047 34.9436 31.9697 37.1992 32.0104L37.1975 32.0121ZM22.3734 17.5703C22.3734 18.7147 21.4457 19.6424 20.3012 19.6424C19.1568 19.6424 18.229 18.7147 18.229 17.5703C18.229 16.4258 19.1568 15.498 20.3012 15.498C21.4457 15.498 22.3734 16.4258 22.3734 17.5703ZM22.3734 26.4121C22.3734 27.5565 21.4457 28.4843 20.3012 28.4843C19.1568 28.4843 18.229 27.5565 18.229 26.4121C18.229 25.2676 19.1568 24.3398 20.3012 24.3398C21.4457 24.3398 22.3734 25.2676 22.3734 26.4121ZM15.8813 24.0624C17.0258 24.0624 17.9535 23.1346 17.9535 21.9902C17.9535 20.8457 17.0258 19.918 15.8813 19.918C14.7368 19.918 13.8091 20.8457 13.8091 21.9902C13.8091 23.1346 14.7368 24.0624 15.8813 24.0624ZM26.7992 21.9902C26.7992 23.1346 25.8714 24.0624 24.727 24.0624C23.5825 24.0624 22.6548 23.1346 22.6548 21.9902C22.6548 20.8457 23.5825 19.918 24.727 19.918C25.8714 19.918 26.7992 20.8457 26.7992 21.9902ZM56.6606 16.814C57.4494 16.814 58.0888 17.4534 58.0888 18.2422V21.3394H61.2291C62.0178 21.3394 62.6572 21.9788 62.6572 22.7676C62.6572 23.5563 62.0178 24.1957 61.2291 24.1957H58.0888V27.4014C58.0888 28.1902 57.4494 28.8296 56.6606 28.8296C55.8719 28.8296 55.2325 28.1902 55.2325 27.4014V24.1957H52.0688C51.2801 24.1957 50.6407 23.5563 50.6407 22.7676C50.6407 21.9788 51.2801 21.3394 52.0688 21.3394H55.2325V18.2422C55.2325 17.4534 55.8719 16.814 56.6606 16.814Z"
           fill="#768096"
         ></path>
@@ -5964,8 +5966,8 @@ export default function Promotion(){
         <g id="ä¿¡æ¯">
           <path
             id="Subtract"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M30.8162 0.537109H5.97017C4.41822 0.538169 2.93015 1.10858 1.83275 2.12308C0.735353 3.13758 0.118333 4.51323 0.117188 5.94795V24.4522C0.118316 25.8835 0.732365 27.2561 1.82509 28.2701C2.91782 29.284 4.40034 29.8567 5.94854 29.8631L12.8305 35.8157C13.4978 36.3929 14.5312 35.886 14.4832 35.0051L14.3182 31.9717C14.2559 30.8262 15.168 29.8631 16.3152 29.8631H30.8162C32.3682 29.862 33.8562 29.2916 34.9536 28.2771C36.051 27.2626 36.668 25.887 36.6692 24.4522V5.94795C36.668 4.51323 36.051 3.13758 34.9536 2.12308C33.8562 1.10858 32.3682 0.538169 30.8162 0.537109ZM8.71766 10.551C8.71766 9.53372 9.54234 8.70904 10.5596 8.70904H16.5685C17.5858 8.70904 18.4105 9.53372 18.4105 10.551C18.4105 11.5683 17.5858 12.393 16.5685 12.393H10.5596C9.54234 12.393 8.71766 11.5683 8.71766 10.551ZM10.7177 16.881C9.61309 16.881 8.71766 17.7764 8.71766 18.881V18.9669C8.71766 20.0715 9.61309 20.9669 10.7177 20.9669H26.0687C27.1733 20.9669 28.0687 20.0715 28.0687 18.9669V18.881C28.0687 17.7764 27.1733 16.881 26.0687 16.881H10.7177Z"
             fill="var(--main-color)"
           ></path>
@@ -5980,35 +5982,35 @@ export default function Promotion(){
         <path
           d="M6.75 7.5V33H29.25V7.5H6.75Z"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M15 15V24.75"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M21 15V24.75"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M3 7.5H33"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M12 7.5L14.4667 3H21.5828L24 7.5H12Z"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -6039,11 +6041,11 @@ export default function Promotion(){
           r="14.25"
           transform="matrix(-1 0 0 1 30 0)"
           stroke="currentColor"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         ></circle>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M11.7772 6.35976C11.4516 6.03895 10.9286 6.0392 10.6033 6.36031C10.2715 6.68782 10.2717 7.22349 10.6037 7.55075L17.8806 14.722C18.0793 14.9178 18.0793 15.2384 17.8806 15.4343L10.6038 22.6055C10.2717 22.9328 10.2715 23.4684 10.6033 23.7959C10.9287 24.1171 11.4516 24.1173 11.7772 23.7965L19.435 16.2526C20.0897 15.6065 20.0897 14.5498 19.435 13.9036L11.7772 6.35976Z"
           fill="currentColor"
         ></path>
@@ -6055,8 +6057,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M17.0354 24.7852C10.6292 26.8741 6 32.8965 6 40V42C6 43.1046 6.89543 44 8 44H40C41.1046 44 42 43.1046 42 42V40C42 32.8965 37.3708 26.8741 30.9646 24.7852C29.0008 26.1871 26.5967 27.0119 24 27.0119C21.4033 27.0119 18.9992 26.1871 17.0354 24.7852Z"
           fill="var(--main-color)"
         ></path>
@@ -6091,8 +6093,8 @@ export default function Promotion(){
             fill="url(#paint1_linear_186_36273)"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M20.8571 54.4386C14.5344 49.7312 10.5774 42.0774 10.9416 33.6084C11.5261 20.0175 23.0175 9.47379 36.6083 10.0583C50.1991 10.6427 60.7429 22.1341 60.1584 35.7249C59.8057 43.9262 55.4813 51.0179 49.1206 55.2243C57.638 50.6342 63.5916 41.8044 64.0375 31.4358C64.7112 15.771 52.5585 2.52612 36.8937 1.85245C21.229 1.17879 7.98407 13.3315 7.3104 28.9962C6.85128 39.6721 12.3497 49.2241 20.8571 54.4386Z"
             fill="url(#paint2_linear_186_36273)"
           ></path>
@@ -6118,8 +6120,8 @@ export default function Promotion(){
           ></path>
           <g filter="url(#filter0_f_186_36273)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M18.9941 54.2005C33.1553 63.2088 51.9376 59.0322 60.9459 44.8715C62.7462 42.0417 64.0197 39.0272 64.7923 35.9438C64.3629 40.3674 62.913 44.7596 60.3637 48.766C51.7109 62.368 33.6703 66.3801 20.0681 57.7273C13.8697 53.7841 9.66276 47.8911 7.73828 41.3577C10.0995 46.4563 13.9011 50.9604 18.9941 54.2005Z"
               fill="#B6B6B6"
             ></path>
@@ -6139,9 +6141,9 @@ export default function Promotion(){
             width="63.0542"
             height="32.3481"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -6160,9 +6162,9 @@ export default function Promotion(){
             width="19.9863"
             height="15.2263"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -6182,8 +6184,8 @@ export default function Promotion(){
             y2="66.2072"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#F22427"></stop>
-            <stop offset="1" stop-color="#960204"></stop>
+            <stop stopColor="#F22427"></stop>
+            <stop offset="1" stopColor="#960204"></stop>
           </linearGradient>
           <linearGradient
             id="paint1_linear_186_36273"
@@ -6193,9 +6195,9 @@ export default function Promotion(){
             y2="65.7889"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#BABABA"></stop>
-            <stop offset="0.538037" stop-color="#AAAAAA"></stop>
-            <stop offset="1" stop-color="#9D9D9D"></stop>
+            <stop stopColor="#BABABA"></stop>
+            <stop offset="0.538037" stopColor="#AAAAAA"></stop>
+            <stop offset="1" stopColor="#9D9D9D"></stop>
           </linearGradient>
           <linearGradient
             id="paint2_linear_186_36273"
@@ -6205,9 +6207,9 @@ export default function Promotion(){
             y2="60.4738"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#DCDCDC"></stop>
-            <stop offset="0.743552" stop-color="#C2C2C2"></stop>
-            <stop offset="1" stop-color="#CDCDCD" stop-opacity="0"></stop>
+            <stop stopColor="#DCDCDC"></stop>
+            <stop offset="0.743552" stopColor="#C2C2C2"></stop>
+            <stop offset="1" stopColor="#CDCDCD" stopOpacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="paint3_linear_186_36273"
@@ -6217,8 +6219,8 @@ export default function Promotion(){
             y2="58.6479"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.349342" stop-color="#FDFDFD"></stop>
-            <stop offset="1" stop-color="#E1E1E1"></stop>
+            <stop offset="0.349342" stopColor="#FDFDFD"></stop>
+            <stop offset="1" stopColor="#E1E1E1"></stop>
           </linearGradient>
           <linearGradient
             id="paint4_linear_186_36273"
@@ -6228,8 +6230,8 @@ export default function Promotion(){
             y2="49.2971"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FBF9FD"></stop>
-            <stop offset="0.373872" stop-color="#EAEAEA"></stop>
+            <stop stopColor="#FBF9FD"></stop>
+            <stop offset="0.373872" stopColor="#EAEAEA"></stop>
           </linearGradient>
           <linearGradient
             id="paint5_linear_186_36273"
@@ -6239,8 +6241,8 @@ export default function Promotion(){
             y2="41.9999"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FBF9FD"></stop>
-            <stop offset="0.744724" stop-color="#CDCDCD"></stop>
+            <stop stopColor="#FBF9FD"></stop>
+            <stop offset="0.744724" stopColor="#CDCDCD"></stop>
           </linearGradient>
           <linearGradient
             id="paint6_linear_186_36273"
@@ -6250,8 +6252,8 @@ export default function Promotion(){
             y2="-11.196"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.0664686" stop-color="#FBF9FD"></stop>
-            <stop offset="1" stop-color="#BFBFBF"></stop>
+            <stop offset="0.0664686" stopColor="#FBF9FD"></stop>
+            <stop offset="1" stopColor="#BFBFBF"></stop>
           </linearGradient>
           <linearGradient
             id="paint7_linear_186_36273"
@@ -6261,8 +6263,8 @@ export default function Promotion(){
             y2="81.5"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#DBDBDB"></stop>
-            <stop offset="0.373872" stop-color="#D6D6D6"></stop>
+            <stop stopColor="#DBDBDB"></stop>
+            <stop offset="0.373872" stopColor="#D6D6D6"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -6272,7 +6274,7 @@ export default function Promotion(){
         viewBox="0 0 32 32"
         fill="none"
       >
-        <g clip-path="url(#clip0_9095_3163)">
+        <g clipPath="url(#clip0_9095_3163)">
           <path
             d="M15.9993 4V28C11.3327 28 7.86502 21.8927 7.86502 21.8927H3.99935C3.26297 21.8927 2.66602 21.2958 2.66602 20.5594V11.3405C2.66602 10.6041 3.26297 10.0072 3.99935 10.0072H7.86502C7.86502 10.0072 11.3327 4 15.9993 4Z"
             fill="url(#paint0_linear_9095_3163)"
@@ -6280,15 +6282,15 @@ export default function Promotion(){
           <path
             d="M21.334 10C21.7495 10.371 22.1261 10.7865 22.4567 11.2392C23.4265 12.5669 24.0007 14.2149 24.0007 16C24.0007 17.7697 23.4363 19.4045 22.4819 20.7262C22.1452 21.1923 21.7601 21.6195 21.334 22"
             stroke="url(#paint1_linear_9095_3163)"
-            stroke-width="1.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           ></path>
           <path
             d="M22.8242 27.4568C26.7227 25.1298 29.3336 20.8696 29.3336 15.9996C29.3336 11.2053 26.8031 7.00197 23.005 4.65234"
             stroke="url(#paint2_linear_9095_3163)"
-            stroke-width="1.8"
-            stroke-linecap="round"
+            strokeWidth="1.8"
+            strokeLinecap="round"
           ></path>
         </g>
         <defs>
@@ -6300,8 +6302,8 @@ export default function Promotion(){
             y2="28"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="var(--blackGoldN,var(--main-color))"></stop>
-            <stop offset="0.74876" stop-color="var(--main-color)"></stop>
+            <stop stopColor="var(--blackGoldN,var(--main-color))"></stop>
+            <stop offset="0.74876" stopColor="var(--main-color)"></stop>
           </linearGradient>
           <linearGradient
             id="paint1_linear_9095_3163"
@@ -6311,8 +6313,8 @@ export default function Promotion(){
             y2="22"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="var(--blackGoldN,var(--main-color))"></stop>
-            <stop offset="0.74876" stop-color="var(--main-color)"></stop>
+            <stop stopColor="var(--blackGoldN,var(--main-color))"></stop>
+            <stop offset="0.74876" stopColor="var(--main-color)"></stop>
           </linearGradient>
           <linearGradient
             id="paint2_linear_9095_3163"
@@ -6322,8 +6324,8 @@ export default function Promotion(){
             y2="27.4568"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="var(--blackGoldN,var(--main-color))"></stop>
-            <stop offset="0.74876" stop-color="var(--main-color)"></stop>
+            <stop stopColor="var(--blackGoldN,var(--main-color))"></stop>
+            <stop offset="0.74876" stopColor="var(--main-color)"></stop>
           </linearGradient>
           <clipPath id="clip0_9095_3163">
             <rect width="32" height="32" fill="white"></rect>
@@ -6336,7 +6338,7 @@ export default function Promotion(){
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_2085_65071)">
+        <g clipPath="url(#clip0_2085_65071)">
           <path
             d="M0 16.9334C0 16.004 0.327564 15.2161 0.982692 14.5725C1.63846 13.9283 2.42628 13.6065 3.34808 13.6065H6.69487V28.686H3.34744C2.42628 28.686 1.63846 28.3642 0.982692 27.72C0.327564 27.0758 0 26.2886 0 25.3584V16.9334ZM37.1942 3.08857C38.7179 1.6219 40.0994 0.816776 41.3397 0.673186C42.5795 0.529597 43.6776 0.861007 44.6346 1.66549C45.5904 2.47062 46.4051 3.65139 47.0782 5.20716C47.7513 6.76357 48.3 8.49883 48.7256 10.4123C49.1618 12.3955 49.4811 14.4026 49.6821 16.4232C49.8942 18.5161 50.0006 20.5104 50.0006 22.4065C50.0006 24.3027 49.868 26.1988 49.6019 28.095C49.3365 29.9911 48.9468 31.7706 48.4333 33.4347C47.9192 35.0982 47.3173 36.5559 46.6263 37.8078C45.9359 39.0604 45.1654 39.9905 44.3154 40.5982C43.4654 41.2072 42.5526 41.4213 41.5782 41.2424C40.6045 41.0636 39.5859 40.3661 38.5237 39.1495C37.4962 37.9334 36.1058 36.9225 34.3526 36.1174C32.5987 35.3129 30.6859 34.6328 28.6141 34.079C26.5396 33.5237 24.4379 33.0757 22.3173 32.7366C20.1917 32.3969 18.2436 32.0931 16.4724 31.8245C14.7013 31.5559 13.2224 31.2969 12.0359 31.0463C10.8494 30.7963 10.1846 30.4918 10.0429 30.1341V13.3379C10.1846 12.8373 10.7429 12.4258 11.7167 12.104C12.691 11.7822 13.9308 11.4777 15.4365 11.1918C16.9417 10.9052 18.6417 10.5924 20.5372 10.2527C22.4927 9.89819 24.4264 9.43226 26.3288 8.85716C28.308 8.26174 30.236 7.50803 32.0942 6.60331C33.9628 5.69708 35.6827 4.51195 37.1949 3.08857H37.1942ZM18.066 35.9841C18.2429 36.4136 18.4558 36.8783 18.7032 37.3796C18.9606 37.9296 19.2444 38.4667 19.5538 38.9892C19.9531 39.6673 20.3786 40.3296 20.8295 40.9745C21.4308 41.8334 22.0423 42.7373 22.6622 43.6847C23.2821 44.6334 23.7519 45.4918 24.0699 46.261C24.3891 47.0302 24.4865 47.6649 24.3622 48.1655C24.2385 48.6668 23.734 48.9168 22.8481 48.9168H19.8192C19.1109 48.9168 18.4558 48.7828 17.8532 48.5149C17.2506 48.2456 16.6756 47.8354 16.1263 47.2802C15.5776 46.7257 15.0109 46.0193 14.4263 45.1604C13.8417 44.3014 13.2128 43.2822 12.5397 42.1014C11.7256 40.7424 11.1583 39.5527 10.8397 38.5334C10.5205 37.5136 10.3077 36.6636 10.2019 35.9841C10.0603 35.1969 10.0603 34.5174 10.2019 33.945C10.4853 33.9809 10.8218 34.052 11.2115 34.1597C11.5301 34.2309 11.9199 34.32 12.3808 34.4277C12.841 34.5354 13.3724 34.6424 13.9744 34.7501C14.5769 34.8931 15.1167 35.027 15.5949 35.152C16.0731 35.2777 16.5071 35.4116 16.8968 35.5546C17.2907 35.6862 17.6806 35.8295 18.066 35.9841Z"
             fill="var(--main-color)"
@@ -6357,7 +6359,7 @@ export default function Promotion(){
         <path
           d="M93.3035 35L112.161 2H589.839L608.696 35L589.839 68H112.161L93.3035 35Z"
           stroke="var(--main-color)"
-          stroke-width="4"
+          strokeWidth="4"
         ></path>
         <path
           d="M121 4H581L597 35L581 66H121L105 35L121 4Z"
@@ -6367,7 +6369,7 @@ export default function Promotion(){
         <path
           d="M52.2228 35L60.7081 26.5147L69.1934 35L60.7081 43.4853L52.2228 35Z"
           stroke="var(--main-color)"
-          stroke-width="2"
+          strokeWidth="2"
         ></path>
         <path
           d="M55 35L60.7081 29.2919L66.4162 35L60.7081 40.7081L55 35Z"
@@ -6377,7 +6379,7 @@ export default function Promotion(){
         <path
           d="M649.777 35L641.292 26.5147L632.807 35L641.292 43.4853L649.777 35Z"
           stroke="var(--main-color)"
-          stroke-width="2"
+          strokeWidth="2"
         ></path>
         <path
           d="M647 35L641.292 29.2919L635.584 35L641.292 40.7081L647 35Z"
@@ -6400,8 +6402,8 @@ export default function Promotion(){
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M28.9289 43.0711C27.0536 41.1957 26 38.6522 26 36C26 33.3478 27.0536 30.8043 28.9289 28.9289C30.8043 27.0536 33.3478 26 36 26C38.6522 26 41.1957 27.0536 43.0711 28.9289C44.9464 30.8043 46 33.3478 46 36C46 38.6522 44.9464 41.1957 43.0711 43.0711C41.1957 44.9464 38.6522 46 36 46C33.3478 46 30.8043 44.9464 28.9289 43.0711ZM35.9196 39.658V40.2991C35.9196 40.7858 36.0172 41.235 36.2125 41.6466C36.4077 42.0542 36.6931 42.3807 37.0686 42.626C37.4441 42.8753 37.9078 43 38.4598 43C39.0043 43 39.4661 42.8753 39.8454 42.626C40.2246 42.3807 40.5119 42.0542 40.7071 41.6466C40.9024 41.235 41 40.7858 41 40.2991V39.658C41 39.1673 40.9024 38.7181 40.7071 38.3105C40.5156 37.8989 40.2302 37.5705 39.851 37.3251C39.4755 37.0798 39.0118 36.9571 38.4598 36.9571C37.9153 36.9571 37.4535 37.0817 37.0742 37.331C36.6988 37.5764 36.4115 37.9049 36.2125 38.3164C36.0172 38.724 35.9196 39.1712 35.9196 39.658ZM37.5586 40.2991V39.658C37.5586 39.3691 37.6243 39.1 37.7558 38.8507C37.8872 38.6014 38.1219 38.4767 38.4598 38.4767C38.8128 38.4767 39.0493 38.6014 39.1695 38.8507C39.2896 39.1 39.3497 39.3691 39.3497 39.658V40.2991C39.3497 40.588 39.2859 40.8551 39.1582 41.1005C39.0343 41.3458 38.8015 41.4685 38.4598 41.4685C38.1181 41.4685 37.8815 41.3438 37.7501 41.0945C37.6225 40.8452 37.5586 40.5801 37.5586 40.2991ZM30 32.7009V33.342C30 33.8288 30.0958 34.276 30.2873 34.6836C30.4825 35.0872 30.7679 35.4137 31.1434 35.663C31.5226 35.9084 31.9863 36.0311 32.5346 36.0311C33.0828 36.0311 33.5446 35.9104 33.9201 35.669C34.2994 35.4236 34.5866 35.0971 34.7819 34.6895C34.9809 34.2819 35.0804 33.8327 35.0804 33.342V32.7009C35.0804 32.2102 34.9828 31.761 34.7875 31.3534C34.5923 30.9419 34.3069 30.6134 33.9314 30.368C33.5559 30.1227 33.0903 30 32.5346 30C31.9976 30 31.5395 30.1227 31.1603 30.368C30.7848 30.6134 30.4975 30.9419 30.2985 31.3534C30.0995 31.761 30 32.2102 30 32.7009ZM31.6503 33.342V32.7009C31.6503 32.4199 31.7141 32.1528 31.8418 31.8995C31.9694 31.6463 32.2004 31.5196 32.5346 31.5196C32.8913 31.5196 33.1297 31.6443 33.2499 31.8936C33.37 32.1429 33.4301 32.412 33.4301 32.7009V33.342C33.4301 33.6309 33.3663 33.898 33.2386 34.1434C33.1147 34.3887 32.88 34.5114 32.5346 34.5114C32.2041 34.5114 31.9732 34.3887 31.8418 34.1434C31.7141 33.898 31.6503 33.6309 31.6503 33.342ZM38.6738 30.4215L30.7435 42.5785H32.2192L40.1495 30.4215H38.6738Z"
           fill="var(--main-color)"
         ></path>
@@ -6415,44 +6417,44 @@ export default function Promotion(){
         <path
           d="M30 37L35 32L30.0004 27"
           stroke="var(--text_white, var(--text_color_L2))"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M38 37L43 32L38.0004 27"
           stroke="var(--text_white, var(--text_color_L2))"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M43 22V9C43 7.89543 42.1046 7 41 7H7C5.89543 7 5 7.89543 5 9V39C5 40.1046 5.89543 41 7 41H28.4706"
           stroke="var(--text_white, var(--text_color_L2))"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M19 13V35"
           stroke="var(--text_white, var(--text_color_L2))"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M24.5 15C24.5 15 19.4853 15 17 15C14.5147 15 12.5 17.0147 12.5 19.5C12.5 21.9853 14.5147 24 17 24"
           stroke="var(--text_white, var(--text_color_L2))"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M13.5 33C13.5 33 18.5147 33 21 33C23.4853 33 25.5 30.9853 25.5 28.5C25.5 26.0147 23.4853 24 21 24H17"
           stroke="var(--text_white, var(--text_color_L2))"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -6478,8 +6480,8 @@ export default function Promotion(){
             y2="60.8047"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#42BBFF"></stop>
-            <stop offset="1" stop-color="#1762F2"></stop>
+            <stop stopColor="#42BBFF"></stop>
+            <stop offset="1" stopColor="#1762F2"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -6489,7 +6491,7 @@ export default function Promotion(){
         viewBox="0 0 61 61"
         fill="none"
       >
-        <g clip-path="url(#clip0_6048_105312)">
+        <g clipPath="url(#clip0_6048_105312)">
           <path
             d="M26.6817 15.5322H34.8635C35.576 15.5322 36.1818 15.9877 36.4064 16.6232H25.1388C25.3635 15.9876 25.9693 15.5322 26.6817 15.5322ZM21.0159 25.2868H25.0454V18.2595H36.4999V25.2868H40.0476C41.5105 25.2868 41.9817 25.5603 40.5934 26.9344L33.0444 34.3873C30.5105 36.8904 30.5415 36.8836 28.0121 34.3873L20.4644 26.9333C19.0761 25.5603 19.3956 25.2868 21.0159 25.2868ZM46.8636 43.0438C46.8636 44.1162 46.019 44.9869 44.9758 44.9869H16.0239C14.9807 44.9869 14.1362 44.1162 14.1362 43.0438V33.3272C14.1362 32.2548 14.9807 31.3842 16.0239 31.3842C17.067 31.3842 17.9136 32.2548 17.9136 33.3272V41.1011H43.0882V33.3272C43.0882 32.2548 43.9349 31.3842 44.9759 31.3842C46.019 31.3842 46.8636 32.2548 46.8636 33.3272V43.0438Z"
             fill="white"
@@ -6508,8 +6510,8 @@ export default function Promotion(){
             y2="60.8048"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#2DE38B"></stop>
-            <stop offset="1" stop-color="#0FB6BC"></stop>
+            <stop stopColor="#2DE38B"></stop>
+            <stop offset="1" stopColor="#0FB6BC"></stop>
           </linearGradient>
           <clipPath id="clip0_6048_105312">
             <rect
@@ -6527,7 +6529,7 @@ export default function Promotion(){
         viewBox="0 0 60 61"
         fill="none"
       >
-        <g clip-path="url(#clip0_6101_28743)">
+        <g clipPath="url(#clip0_6101_28743)">
           <circle
             cx="30"
             cy="30.8047"
@@ -6548,8 +6550,8 @@ export default function Promotion(){
             y2="60.8047"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FF6341"></stop>
-            <stop offset="1" stop-color="#FF2524"></stop>
+            <stop stopColor="#FF6341"></stop>
+            <stop offset="1" stopColor="#FF2524"></stop>
           </linearGradient>
           <clipPath id="clip0_6101_28743">
             <rect
@@ -6567,7 +6569,7 @@ export default function Promotion(){
         viewBox="0 0 60 61"
         fill="none"
       >
-        <g clip-path="url(#clip0_6101_28737)">
+        <g clipPath="url(#clip0_6101_28737)">
           <circle
             cx="30"
             cy="30.8047"
@@ -6592,8 +6594,8 @@ export default function Promotion(){
             y2="60.8047"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#6CEF1D"></stop>
-            <stop offset="1" stop-color="#1AC81F"></stop>
+            <stop stopColor="#6CEF1D"></stop>
+            <stop offset="1" stopColor="#1AC81F"></stop>
           </linearGradient>
           <clipPath id="clip0_6101_28737">
             <rect
@@ -6611,7 +6613,7 @@ export default function Promotion(){
         viewBox="0 0 60 61"
         fill="none"
       >
-        <g clip-path="url(#clip0_6048_105291)">
+        <g clipPath="url(#clip0_6048_105291)">
           <path
             d="M17.0595 33.0852H13V23.9051H17.0595V33.0852ZM31.3884 46.8481C30.8154 48.4183 27.0175 48.2485 27.0175 48.2485C22.6469 42.6046 22.0527 37.2156 22.0527 37.2156L26.1901 37.2155C26.7528 40.9497 30.1951 43.8574 30.5821 44.4718C31.7914 45.8084 31.3884 46.8481 31.3884 46.8481ZM41.0244 41.5048C41.0244 41.5048 36.1659 35.2035 19.4262 34.4394L19.4219 22.6814C19.4219 22.6814 33.5527 22.1651 40.9649 13.3388C40.9649 13.3388 47.3047 11.8229 46.8209 28.4456C46.8209 28.4456 47.4953 39.8923 41.0244 41.5048Z"
             fill="white"
@@ -6630,8 +6632,8 @@ export default function Promotion(){
             y2="0.701172"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#F26919"></stop>
-            <stop offset="1" stop-color="#FFBF22"></stop>
+            <stop stopColor="#F26919"></stop>
+            <stop offset="1" stopColor="#FFBF22"></stop>
           </linearGradient>
           <clipPath id="clip0_6048_105291">
             <rect
@@ -6649,7 +6651,7 @@ export default function Promotion(){
         viewBox="0 0 61 61"
         fill="none"
       >
-        <g clip-path="url(#clip0_6101_28729)">
+        <g clipPath="url(#clip0_6101_28729)">
           <circle
             cx="30.5"
             cy="30.8047"
@@ -6670,8 +6672,8 @@ export default function Promotion(){
             y2="60.8047"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#42DDFF"></stop>
-            <stop offset="1" stop-color="#198AF3"></stop>
+            <stop stopColor="#42DDFF"></stop>
+            <stop offset="1" stopColor="#198AF3"></stop>
           </linearGradient>
           <clipPath id="clip0_6101_28729">
             <rect
@@ -6690,8 +6692,8 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M18.2138 7.95772C18.2139 7.34191 17.9981 6.74166 17.5989 6.27114L14.2509 2.32449C11.8088 -0.554352 7.19912 1.22067 7.19912 5.03992C7.19912 6.89382 8.40058 8.52081 10.138 9.0197L15.0449 10.4287C16.4915 10.8441 17.9649 9.86246 18.1864 8.33581C18.2047 8.20978 18.2137 8.08342 18.2138 7.95772ZM18.2138 7.95772C18.2138 8.08342 18.2228 8.20978 18.2411 8.33581C18.4626 9.86246 19.936 10.8441 21.3826 10.4287L26.2895 9.0197C28.0269 8.52081 29.2284 6.89382 29.2284 5.03992C29.2284 1.22067 24.6188 -0.554352 22.1766 2.32449L18.8286 6.27114C18.4294 6.74166 18.2137 7.34191 18.2138 7.95772Z"
           fill="var(--text_color_L3)"
         ></path>
@@ -6715,8 +6717,8 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M18.2138 7.95772C18.2139 7.34191 17.9981 6.74166 17.5989 6.27114L14.2509 2.32449C11.8088 -0.554352 7.19912 1.22067 7.19912 5.03992C7.19912 6.89382 8.40058 8.52081 10.138 9.0197L15.0449 10.4287C16.4915 10.8441 17.9649 9.86246 18.1864 8.33581C18.2047 8.20978 18.2137 8.08342 18.2138 7.95772ZM18.2138 7.95772C18.2138 8.08342 18.2228 8.20978 18.2411 8.33581C18.4626 9.86246 19.936 10.8441 21.3826 10.4287L26.2895 9.0197C28.0269 8.52081 29.2284 6.89382 29.2284 5.03992C29.2284 1.22067 24.6188 -0.554352 22.1766 2.32449L18.8286 6.27114C18.4294 6.74166 18.2137 7.34191 18.2138 7.95772Z"
           fill="url(#paint0_linear_6071_102691)"
         ></path>
@@ -6741,8 +6743,8 @@ export default function Promotion(){
             y2="37.4069"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="var(--tab1)"></stop>
-            <stop offset="0.985" stop-color="var(--tab2)"></stop>
+            <stop stopColor="var(--tab1)"></stop>
+            <stop offset="0.985" stopColor="var(--tab2)"></stop>
           </linearGradient>
           <linearGradient
             id="paint1_linear_6071_102691"
@@ -6752,8 +6754,8 @@ export default function Promotion(){
             y2="37.4069"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="var(--tab1)"></stop>
-            <stop offset="0.985" stop-color="var(--tab2)"></stop>
+            <stop stopColor="var(--tab1)"></stop>
+            <stop offset="0.985" stopColor="var(--tab2)"></stop>
           </linearGradient>
           <linearGradient
             id="paint2_linear_6071_102691"
@@ -6763,8 +6765,8 @@ export default function Promotion(){
             y2="37.4069"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="var(--tab1)"></stop>
-            <stop offset="0.985" stop-color="var(--tab2)"></stop>
+            <stop stopColor="var(--tab1)"></stop>
+            <stop offset="0.985" stopColor="var(--tab2)"></stop>
           </linearGradient>
           <linearGradient
             id="paint3_linear_6071_102691"
@@ -6774,8 +6776,8 @@ export default function Promotion(){
             y2="37.4069"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="var(--tab1)"></stop>
-            <stop offset="0.985" stop-color="var(--tab2)"></stop>
+            <stop stopColor="var(--tab1)"></stop>
+            <stop offset="0.985" stopColor="var(--tab2)"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -6785,7 +6787,7 @@ export default function Promotion(){
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g id="app/game" clip-path="url(#clip0_6131_4738)">
+        <g id="app/game" clipPath="url(#clip0_6131_4738)">
           <g id="Vector">
             <path
               d="M11.4893 13.4156C10.8243 13.4089 10.1723 13.5999 9.61611 13.9645C9.05989 14.329 8.62455 14.8506 8.36537 15.4631C8.10619 16.0755 8.03487 16.7512 8.16046 17.4043C8.28604 18.0573 8.60288 18.6583 9.07072 19.131C9.53857 19.6036 10.1363 19.9266 10.7881 20.0588C11.4398 20.1911 12.1162 20.1267 12.7313 19.8737C13.3463 19.6208 13.8723 19.1908 14.2425 18.6384C14.6128 18.0859 14.8104 17.4359 14.8105 16.7708C14.8083 15.8875 14.4588 15.0405 13.8374 14.4127C13.216 13.785 12.3726 13.4268 11.4893 13.4156Z"
@@ -6815,8 +6817,8 @@ export default function Promotion(){
           y2="37.7282"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="var(--bgColor-6)"></stop>
-          <stop offset="0.985" stop-color="var(--bgColor-6)"></stop>
+          <stop stopColor="var(--bgColor-6)"></stop>
+          <stop offset="0.985" stopColor="var(--bgColor-6)"></stop>
         </linearGradient>
       </symbol>
       <symbol
@@ -6825,7 +6827,7 @@ export default function Promotion(){
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g id="app/game" clip-path="url(#clip0_6131_4738)">
+        <g id="app/game" clipPath="url(#clip0_6131_4738)">
           <g id="Vector">
             <path
               d="M11.4893 13.4156C10.8243 13.4089 10.1723 13.5999 9.61611 13.9645C9.05989 14.329 8.62455 14.8506 8.36537 15.4631C8.10619 16.0755 8.03487 16.7512 8.16046 17.4043C8.28604 18.0573 8.60288 18.6583 9.07072 19.131C9.53857 19.6036 10.1363 19.9266 10.7881 20.0588C11.4398 20.1911 12.1162 20.1267 12.7313 19.8737C13.3463 19.6208 13.8723 19.1908 14.2425 18.6384C14.6128 18.0859 14.8104 17.4359 14.8105 16.7708C14.8083 15.8875 14.4588 15.0405 13.8374 14.4127C13.216 13.785 12.3726 13.4268 11.4893 13.4156Z"
@@ -6855,8 +6857,8 @@ export default function Promotion(){
           y2="37.7282"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="var(--tab1)"></stop>
-          <stop offset="0.985" stop-color="var(--tab2)"></stop>
+          <stop stopColor="var(--tab1)"></stop>
+          <stop offset="0.985" stopColor="var(--tab2)"></stop>
         </linearGradient>
       </symbol>
       <symbol
@@ -6870,8 +6872,8 @@ export default function Promotion(){
           fill="var(--text_color_L3)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M30.0536 1.3266L19.0599 2.57018C11.5381 3.49927 6.83687 8.90685 6.83687 15.5775C6.83687 22.2481 12.3093 27.6557 19.0599 27.6557C25.2496 27.6557 30.3647 23.1095 31.1721 17.2119L32.8764 11.0433C33.0539 10.3999 32.869 9.71192 32.3918 9.2404L30.9088 7.77494C30.109 6.98461 30.1912 5.68044 31.084 4.99424L32.8764 3.49928C35.044 1.32659 31.9994 0.942053 30.0536 1.3266ZM23.4592 20.3337C22.788 22.4405 21.0715 23.9388 19.0598 23.9388C17.0481 23.9388 15.3315 22.4405 14.6604 20.3337C14.3252 19.2813 15.254 18.3643 16.3586 18.3643H21.761C22.8655 18.3643 23.7944 19.2813 23.4592 20.3337Z"
           fill="var(--text_color_L3)"
         ></path>
@@ -6887,8 +6889,8 @@ export default function Promotion(){
           fill="url(#paint0_linear_6079_60206)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M30.0536 1.3266L19.0599 2.57018C11.5381 3.49927 6.83687 8.90685 6.83687 15.5775C6.83687 22.2481 12.3093 27.6557 19.0599 27.6557C25.2496 27.6557 30.3647 23.1095 31.1721 17.2119L32.8764 11.0433C33.0539 10.3999 32.869 9.71192 32.3918 9.2404L30.9088 7.77494C30.109 6.98461 30.1912 5.68044 31.084 4.99424L32.8764 3.49928C35.044 1.32659 31.9994 0.942053 30.0536 1.3266ZM23.4592 20.3337C22.788 22.4405 21.0715 23.9388 19.0598 23.9388C17.0481 23.9388 15.3315 22.4405 14.6604 20.3337C14.3252 19.2813 15.254 18.3643 16.3586 18.3643H21.761C22.8655 18.3643 23.7944 19.2813 23.4592 20.3337Z"
           fill="url(#paint1_linear_6079_60206)"
         ></path>
@@ -6901,8 +6903,8 @@ export default function Promotion(){
             y2="38.2056"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="var(--tab1)"></stop>
-            <stop offset="0.985" stop-color="var(--tab2)"></stop>
+            <stop stopColor="var(--tab1)"></stop>
+            <stop offset="0.985" stopColor="var(--tab2)"></stop>
           </linearGradient>
           <linearGradient
             id="paint1_linear_6079_60206"
@@ -6912,8 +6914,8 @@ export default function Promotion(){
             y2="38.2056"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="var(--tab1)"></stop>
-            <stop offset="0.985" stop-color="var(--tab2)"></stop>
+            <stop stopColor="var(--tab1)"></stop>
+            <stop offset="0.985" stopColor="var(--tab2)"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -6923,7 +6925,7 @@ export default function Promotion(){
         viewBox="0 0 40 40"
         fill="none"
       >
-        <g clip-path="url(#clip0_6079_60205)">
+        <g clipPath="url(#clip0_6079_60205)">
           <path
             d="M18.5142 4.69292L12.4561 10.7451L12.169 11.0459C8.98571 14.6647 9.11851 19.924 12.4132 23.2187C13.9519 24.7574 16.0068 25.6706 18.1801 25.7813C20.3534 25.8921 22.4906 25.1926 24.1778 23.8182L24.3672 23.6561L24.7832 23.2734L26.91 21.1466L32.4349 26.6696L22.7677 36.3367C22.0353 37.0689 21.042 37.4803 20.0063 37.4803C18.9705 37.4803 17.9772 37.0689 17.2448 36.3367L3.43736 22.5293C1.35745 20.452 0.134259 17.6689 0.0104128 14.732C-0.113434 11.795 0.871112 8.9188 2.76876 6.67382C4.66641 4.42885 7.33853 2.97911 10.2551 2.61219C13.1717 2.24526 16.1196 2.98794 18.5142 4.69292ZM36.2783 5.67135L36.6122 5.99359L36.7372 6.12249L37.0107 6.41152C37.3544 6.7943 37.6707 7.19661 37.9559 7.61064L37.7782 7.35871C37.8778 7.49737 37.9754 7.63798 38.0711 7.78055L37.9559 7.61064C38.0633 7.76688 38.1648 7.92311 38.2625 8.07935L38.0711 7.78055C38.1551 7.90749 38.2352 8.03443 38.3133 8.16528L38.2625 8.07935C38.3445 8.2141 38.4246 8.34886 38.5027 8.48556L38.3133 8.16528C38.4129 8.32738 38.5086 8.49338 38.5984 8.65938L38.5008 8.48556C38.573 8.61251 38.6414 8.73945 38.7078 8.86639L38.5984 8.65938C38.6765 8.80585 38.7546 8.95232 38.8269 9.1027L38.7097 8.86834C38.7976 9.03825 38.8796 9.21011 38.9597 9.38393L38.8269 9.1027C38.8913 9.2355 38.9538 9.37025 39.0124 9.50501L38.9597 9.38393C39.0417 9.56555 39.1198 9.74522 39.1921 9.93075L39.0124 9.50501C39.89 11.5108 40.1912 13.7215 39.8821 15.889C39.573 18.0565 38.6659 20.0949 37.2626 21.7754L36.915 22.1778L36.7294 22.3691L36.579 22.5293L33.8156 25.2888L28.2926 19.7658C27.9264 19.3997 27.4298 19.194 26.9119 19.194C26.3941 19.194 25.8974 19.3997 25.5312 19.7658L23.461 21.8379L23.0939 22.1758L22.9435 22.3047C21.6312 23.3734 19.9691 23.9173 18.2789 23.831C16.5887 23.7448 14.9906 23.0346 13.7939 21.8379C11.341 19.385 11.1262 15.5025 13.3193 12.7098L13.583 12.3934L13.8369 12.1259L20.057 5.90766L20.1254 5.84126L20.4496 5.5366C20.6933 5.31651 20.9461 5.10671 21.2073 4.90775L20.9554 5.10695C21.0921 4.99758 21.2288 4.89212 21.3655 4.78862L21.2093 4.90775C21.3323 4.81401 21.4573 4.72222 21.5842 4.63433L21.3675 4.79057C21.5059 4.68853 21.6465 4.58955 21.7893 4.49372L21.5842 4.63433C21.7164 4.54106 21.8506 4.45056 21.9865 4.36287L21.7893 4.49372C21.9299 4.39998 22.0705 4.31014 22.2131 4.22226L21.9865 4.36287C22.1233 4.27694 22.26 4.19297 22.3986 4.11289L22.2131 4.22226C22.3537 4.13633 22.4963 4.05431 22.6408 3.97619L22.3986 4.11289C22.5392 4.03087 22.6818 3.9508 22.8244 3.87659L22.6408 3.97423C22.7775 3.90002 22.9181 3.82581 23.0587 3.7555L22.8244 3.87659C22.965 3.80237 23.1075 3.73011 23.2501 3.66176L23.0587 3.7555L23.4923 3.55044L23.2501 3.66176C23.4005 3.59145 23.5528 3.5231 23.7052 3.4567L23.4923 3.55044C23.6427 3.48404 23.795 3.41959 23.9473 3.35905L23.7052 3.4567C23.8594 3.39225 24.0137 3.32976 24.17 3.27117L23.9473 3.35905C26.0117 2.54426 28.2642 2.3292 30.4455 2.73864C32.6267 3.14808 34.648 4.16536 36.2763 5.67331L36.2783 5.67135Z"
             fill="var(--text_color_L3)"
@@ -6941,7 +6943,7 @@ export default function Promotion(){
         viewBox="0 0 40 40"
         fill="none"
       >
-        <g clip-path="url(#clip0_6079_60199)">
+        <g clipPath="url(#clip0_6079_60199)">
           <path
             d="M18.5142 4.69292L12.4561 10.7451L12.169 11.0459C8.98571 14.6647 9.11851 19.924 12.4132 23.2187C13.9519 24.7574 16.0068 25.6706 18.1801 25.7813C20.3534 25.8921 22.4906 25.1926 24.1778 23.8182L24.3672 23.6561L24.7832 23.2734L26.91 21.1466L32.4349 26.6696L22.7677 36.3367C22.0353 37.0689 21.042 37.4803 20.0063 37.4803C18.9705 37.4803 17.9772 37.0689 17.2448 36.3367L3.43736 22.5293C1.35745 20.452 0.134259 17.6689 0.0104128 14.732C-0.113434 11.795 0.871112 8.9188 2.76876 6.67382C4.66641 4.42885 7.33853 2.97911 10.2551 2.61219C13.1717 2.24526 16.1196 2.98794 18.5142 4.69292ZM36.2783 5.67135L36.6122 5.99359L36.7372 6.12249L37.0107 6.41152C37.3544 6.7943 37.6707 7.19661 37.9559 7.61064L37.7782 7.35871C37.8778 7.49737 37.9754 7.63798 38.0711 7.78055L37.9559 7.61064C38.0633 7.76688 38.1648 7.92311 38.2625 8.07935L38.0711 7.78055C38.1551 7.90749 38.2352 8.03443 38.3133 8.16528L38.2625 8.07935C38.3445 8.2141 38.4246 8.34886 38.5027 8.48556L38.3133 8.16528C38.4129 8.32738 38.5086 8.49338 38.5984 8.65938L38.5008 8.48556C38.573 8.61251 38.6414 8.73945 38.7078 8.86639L38.5984 8.65938C38.6765 8.80585 38.7546 8.95232 38.8269 9.1027L38.7097 8.86834C38.7976 9.03825 38.8796 9.21011 38.9597 9.38393L38.8269 9.1027C38.8913 9.2355 38.9538 9.37025 39.0124 9.50501L38.9597 9.38393C39.0417 9.56555 39.1198 9.74522 39.1921 9.93075L39.0124 9.50501C39.89 11.5108 40.1912 13.7215 39.8821 15.889C39.573 18.0565 38.6659 20.0949 37.2626 21.7754L36.915 22.1778L36.7294 22.3691L36.579 22.5293L33.8156 25.2888L28.2926 19.7658C27.9264 19.3997 27.4298 19.194 26.9119 19.194C26.3941 19.194 25.8974 19.3997 25.5312 19.7658L23.461 21.8379L23.0939 22.1758L22.9435 22.3047C21.6312 23.3734 19.9691 23.9173 18.2789 23.831C16.5887 23.7448 14.9906 23.0346 13.7939 21.8379C11.341 19.385 11.1262 15.5025 13.3193 12.7098L13.583 12.3934L13.8369 12.1259L20.057 5.90766L20.1254 5.84126L20.4496 5.5366C20.6933 5.31651 20.9461 5.10671 21.2073 4.90775L20.9554 5.10695C21.0921 4.99758 21.2288 4.89212 21.3655 4.78862L21.2093 4.90775C21.3323 4.81401 21.4573 4.72222 21.5842 4.63433L21.3675 4.79057C21.5059 4.68853 21.6465 4.58955 21.7893 4.49372L21.5842 4.63433C21.7164 4.54106 21.8506 4.45056 21.9865 4.36287L21.7893 4.49372C21.9299 4.39998 22.0705 4.31014 22.2131 4.22226L21.9865 4.36287C22.1233 4.27694 22.26 4.19297 22.3986 4.11289L22.2131 4.22226C22.3537 4.13633 22.4963 4.05431 22.6408 3.97619L22.3986 4.11289C22.5392 4.03087 22.6818 3.9508 22.8244 3.87659L22.6408 3.97423C22.7775 3.90002 22.9181 3.82581 23.0587 3.7555L22.8244 3.87659C22.965 3.80237 23.1075 3.73011 23.2501 3.66176L23.0587 3.7555L23.4923 3.55044L23.2501 3.66176C23.4005 3.59145 23.5528 3.5231 23.7052 3.4567L23.4923 3.55044C23.6427 3.48404 23.795 3.41959 23.9473 3.35905L23.7052 3.4567C23.8594 3.39225 24.0137 3.32976 24.17 3.27117L23.9473 3.35905C26.0117 2.54426 28.2642 2.3292 30.4455 2.73864C32.6267 3.14808 34.648 4.16536 36.2763 5.67331L36.2783 5.67135Z"
             fill="url(#paint0_linear_6079_60199)"
@@ -6956,8 +6958,8 @@ export default function Promotion(){
             y2="36.9235"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="var(--tab1)"></stop>
-            <stop offset="0.985" stop-color="var(--tab2)"></stop>
+            <stop stopColor="var(--tab1)"></stop>
+            <stop offset="0.985" stopColor="var(--tab2)"></stop>
           </linearGradient>
           <clipPath id="clip0_6079_60199">
             <rect width="40" height="40" fill="white"></rect>
@@ -6997,8 +6999,8 @@ export default function Promotion(){
             y2="36.7439"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="var(--tab1)"></stop>
-            <stop offset="0.985" stop-color="var(--tab2)"></stop>
+            <stop stopColor="var(--tab1)"></stop>
+            <stop offset="0.985" stopColor="var(--tab2)"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -7046,7 +7048,7 @@ export default function Promotion(){
         viewBox="0 0 50 53"
         fill="none"
       >
-        <g clip-path="url(#clip0_6079_59714)">
+        <g clipPath="url(#clip0_6079_59714)">
           <path
             d="M36.9386 50.3403C35.4684 50.3406 34.0126 50.0512 32.6542 49.4887C31.2959 48.9261 30.0617 48.1015 29.0221 47.0619C27.9825 46.0224 27.1579 44.7881 26.5954 43.4298C26.0329 42.0715 25.7435 40.6156 25.7437 39.1454V30.4441C25.7437 30.1175 25.8081 29.794 25.9331 29.4922C26.0582 29.1905 26.2415 28.9163 26.4726 28.6854C26.7037 28.4545 26.978 28.2714 27.2798 28.1465C27.5817 28.0217 27.9052 27.9576 28.2319 27.9578H36.9386C38.6827 27.9584 40.4026 28.3665 41.961 29.1495C43.5195 29.9325 44.8734 31.0689 45.9149 32.4679C46.9563 33.8669 47.6565 35.4899 47.9595 37.2075C48.2626 38.9251 48.1602 40.6897 47.6604 42.3607C47.5841 42.6934 47.4403 43.0069 47.2377 43.2817C47.0351 43.5564 46.7781 43.7866 46.4828 43.9577C46.1875 44.1289 45.8601 44.2375 45.521 44.2767C45.1818 44.316 44.8383 44.285 44.5117 44.1857C44.1851 44.0865 43.8823 43.9211 43.6224 43.6999C43.3624 43.4786 43.1508 43.2062 43.0006 42.8997C42.8504 42.5931 42.7649 42.2589 42.7494 41.9179C42.7339 41.5769 42.7888 41.2364 42.9106 40.9175C43.0752 40.343 43.1589 39.7484 43.159 39.1509C43.159 37.5036 42.5046 35.9237 41.3398 34.7589C40.1749 33.594 38.5951 32.9396 36.9478 32.9396H30.7365V39.1509C30.7399 40.1174 30.9678 41.07 31.4022 41.9334C31.8365 42.7969 32.4655 43.5476 33.2396 44.1264C34.0136 44.7053 34.9116 45.0964 35.8626 45.269C36.8136 45.4416 37.7917 45.391 38.7198 45.121C39.0387 44.9992 39.3792 44.9444 39.7203 44.9599C40.0613 44.9754 40.3955 45.0609 40.702 45.211C41.0086 45.3612 41.281 45.5729 41.5022 45.8328C41.7235 46.0928 41.8888 46.3955 41.9881 46.7221C42.0873 47.0487 42.1183 47.3923 42.0791 47.7314C42.0398 48.0705 41.9313 48.3979 41.7601 48.6933C41.5889 48.9886 41.3588 49.2455 41.084 49.4481C40.8092 49.6507 40.4957 49.7946 40.163 49.8708C39.1226 50.1849 38.0418 50.3443 36.9551 50.344L36.9386 50.3403Z"
             fill="currentColor"
@@ -7073,8 +7075,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M20.5 4.32812C20.5 4.80026 20.4182 5.2533 20.268 5.67383H22.5C24.1569 5.67383 25.5 7.01697 25.5 8.67383V11.6738C25.5 13.3307 24.1569 14.3281 22.5 14.3281H14V7.32812H12.0378V14.3281H3.5C1.84315 14.3281 0.5 13.3307 0.5 11.6738V8.67383C0.5 7.01697 1.84315 5.67383 3.5 5.67383H5.732C5.5818 5.2533 5.5 4.80026 5.5 4.32812C5.5 2.11899 7.29086 0.328125 9.5 0.328125C11.006 0.328125 12.3176 1.16041 13 2.39012C13.6824 1.16041 14.994 0.328125 16.5 0.328125C18.7091 0.328125 20.5 2.11899 20.5 4.32812ZM19.5 4.32812C19.5 4.812 19.3854 5.26911 19.182 5.67383H13.818C13.6146 5.26911 13.5 4.812 13.5 4.32812C13.5 2.67127 14.8431 1.32812 16.5 1.32812C18.1569 1.32812 19.5 2.67127 19.5 4.32812ZM12.182 5.67383H6.81802C6.61455 5.26911 6.5 4.812 6.5 4.32812C6.5 2.67127 7.84315 1.32812 9.5 1.32812C11.1569 1.32812 12.5 2.67127 12.5 4.32812C12.5 4.812 12.3854 5.26911 12.182 5.67383Z"
         ></path>
         <path
@@ -7105,8 +7107,8 @@ export default function Promotion(){
           d="M4.77118 12.3633C1.99794 13.2941 0 15.9142 0 19.001C0 22.867 3.13401 26.001 7 26.001H17C20.866 26.001 24 22.867 24 19.001C24 15.9142 22.0021 13.2941 19.2288 12.3633C17.5887 14.5707 14.9614 16.001 12 16.001C9.03864 16.001 6.41133 14.5707 4.77118 12.3633Z"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M12 14C15.866 14 19 10.866 19 7C19 3.13401 15.866 0 12 0C8.13401 0 5 3.13401 5 7C5 10.866 8.13401 14 12 14ZM14 10C14 11.1046 13.1046 12 12 12C10.8954 12 10 11.1046 10 10H14Z"
         ></path>
       </symbol>
@@ -7127,13 +7129,13 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M4 0.5C1.79086 0.5 0 2.29086 0 4.5V19.5C0 21.7091 1.79086 23.5 4 23.5H22C24.2091 23.5 26 21.7091 26 19.5V16.5H21.5C19.0147 16.5 17 14.4853 17 12C17 9.51472 19.0147 7.5 21.5 7.5H26V4.5C26 2.29086 24.2091 0.5 22 0.5H4ZM5 5.5C4.44772 5.5 4 5.94772 4 6.5C4 7.05228 4.44772 7.5 5 7.5H12C12.5523 7.5 13 7.05228 13 6.5C13 5.94772 12.5523 5.5 12 5.5H5Z"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M26 9.5H21.5C20.1193 9.5 19 10.6193 19 12C19 13.3807 20.1193 14.5 21.5 14.5H26V9.5ZM23 12C23 12.5523 22.5523 13 22 13C21.4477 13 21 12.5523 21 12C21 11.4477 21.4477 11 22 11C22.5523 11 23 11.4477 23 12Z"
         ></path>
       </symbol>
@@ -7149,8 +7151,8 @@ export default function Promotion(){
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M40.8 29.6H7.20001V38.8C7.20001 42.1137 9.88631 44.8 13.2 44.8H34.8C38.1137 44.8 40.8 42.1137 40.8 38.8V29.6ZM20 33.6C19.1164 33.6 18.4 34.3163 18.4 35.2C18.4 36.0836 19.1164 36.8 20 36.8H28C28.8837 36.8 29.6 36.0836 29.6 35.2C29.6 34.3163 28.8837 33.6 28 33.6H20Z"
           fill="currentColor"
         ></path>
@@ -7162,8 +7164,8 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M29.7208 7.00916C26.5966 3.88497 21.5313 3.88497 18.4071 7.00916L12.1304 13.2858H14.1409C14.9937 13.2858 15.7612 13.6269 17.1256 14.9913L23.5214 21.3871H24.8006L31.1964 14.9913C31.7649 14.4228 33.1577 13.2858 34.1811 13.2858H35.9974L29.7208 7.00916ZM37.703 14.9913H34.1811C33.8968 15.1335 33.1577 15.5883 32.4755 16.2705C32.2177 16.5284 31.505 17.1801 30.6183 17.991C29.1592 19.3254 27.229 21.0906 26.0797 22.2399C25.6533 22.6663 25.2269 23.0927 23.9478 23.0927C23.095 23.0927 22.2422 22.6663 21.8158 22.2399L15.8464 15.8441C15.4201 15.4177 14.7063 14.9913 13.7145 14.9913H10.4249L7.00623 18.41C3.88204 21.5342 3.88204 26.5995 7.00623 29.7237L10.1821 32.8996H13.7145C14.7063 32.8996 15.4201 32.4732 15.8464 32.0468L21.8158 25.651C22.2422 25.2246 23.095 24.7982 23.9478 24.7982C25.2269 24.7982 25.6533 25.2246 26.0797 25.651C27.229 26.8003 29.1592 28.5655 30.6183 29.8999L30.6184 29.9C31.505 30.7108 32.2177 31.3626 32.4755 31.6204C33.1577 32.3026 33.8968 32.7574 34.1811 32.8996H37.9458L41.1216 29.7237C44.2458 26.5995 44.2458 21.5342 41.1216 18.41L37.703 14.9913ZM36.2402 34.6051H34.1811C33.1577 34.6051 31.7649 33.4681 31.1964 32.8996L24.8006 26.5038H23.5214L17.1256 32.8996C15.7612 34.264 14.9937 34.6051 14.1409 34.6051H11.8876L18.4071 41.1246C21.5313 44.2488 26.5966 44.2488 29.7208 41.1246L36.2402 34.6051Z"
           fill="var(--main-color)"
         ></path>
@@ -7175,8 +7177,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48ZM15.0028 11C14.2723 11 13.6 11.3982 13.2489 12.0388L8.69005 20.3575C8.27765 21.11 8.39126 22.0417 8.97239 22.6731L22.5284 37.4012C23.3207 38.262 24.6793 38.262 25.4716 37.4012L39.0276 22.6731C39.6087 22.0418 39.7223 21.11 39.3099 20.3575L34.7511 12.0388C34.4 11.3982 33.7277 11 32.9972 11H15.0028Z"
           fill="currentColor"
         ></path>
@@ -7187,14 +7189,14 @@ export default function Promotion(){
         viewBox="0 0 100 100"
         fill="none"
       >
-        <g clip-path="url(#clip0_4009_102098)">
+        <g clipPath="url(#clip0_4009_102098)">
           <path
             d="M49.7917 91.4583C72.8035 91.4583 91.4583 72.8035 91.4583 49.7917C91.4583 26.7798 72.8035 8.125 49.7917 8.125C26.7798 8.125 8.125 26.7798 8.125 49.7917C8.125 72.8035 26.7798 91.4583 49.7917 91.4583Z"
             fill="var(--norm_red-color)"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M50 74.167C53.1066 74.167 55.625 71.6486 55.625 68.542C55.625 65.4354 53.1066 62.917 50 62.917C46.8934 62.917 44.375 65.4354 44.375 68.542C44.375 71.6486 46.8934 74.167 50 74.167Z"
             fill="white"
           ></path>
@@ -7218,16 +7220,16 @@ export default function Promotion(){
         <path
           d="M6.5 6.2158V3.90625C6.5 3.1296 7.1296 2.5 7.90625 2.5H20.0938C20.8704 2.5 21.5 3.1296 21.5 3.90625V16.0938C21.5 16.8704 20.8704 17.5 20.0938 17.5H17.7582"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M16.0938 6.5H3.90625C3.1296 6.5 2.5 7.1296 2.5 7.90625V20.0938C2.5 20.8704 3.1296 21.5 3.90625 21.5H16.0938C16.8704 21.5 17.5 20.8704 17.5 20.0938V7.90625C17.5 7.1296 16.8704 6.5 16.0938 6.5Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -7243,24 +7245,24 @@ export default function Promotion(){
         <path
           d="M17 30H31"
           stroke="var(--text_color_L4)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M17 36H24"
           stroke="var(--text_color_L4)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M31 12H17V22H31V12Z"
           fill="var(--main-color)"
           stroke="var(--text_color_L4)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -7273,15 +7275,15 @@ export default function Promotion(){
           d="M4 6.17075L16.0057 2.66699L28 6.17075V13.3561C28 20.9085 23.1668 27.6133 16.0017 30.0007C8.83473 27.6133 4 20.907 4 13.3528V6.17075Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M10 15.3333L14.6667 20L22.6667 12"
           stroke="var(--text_color_L4)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -7297,8 +7299,8 @@ export default function Promotion(){
           x2="38"
           y2="26.5"
           stroke="var(--text_color_L4)"
-          stroke-width="4"
-          stroke-linecap="round"
+          strokeWidth="4"
+          strokeLinecap="round"
         ></line>
       </symbol>
       <symbol
@@ -7314,14 +7316,14 @@ export default function Promotion(){
           x2="38"
           y2="25"
           stroke="var(--text_color_L4)"
-          stroke-width="4"
-          stroke-linecap="round"
+          strokeWidth="4"
+          strokeLinecap="round"
         ></line>
         <path
           d="M25 10L25 40"
           stroke="var(--text_color_L4)"
-          stroke-width="4"
-          stroke-linecap="round"
+          strokeWidth="4"
+          strokeLinecap="round"
         ></path>
       </symbol>
       <symbol
@@ -7368,7 +7370,7 @@ export default function Promotion(){
             opacity="0.4"
             d="M63 21V51C63 60 58.5 66 48 66H24C13.5 66 9 60 9 51V21C9 12 13.5 6 24 6H48C58.5 6 63 12 63 21Z"
             fill="var(--main-color)"
-            fill-opacity="0.6"
+            fillOpacity="0.6"
           ></path>
           <path
             id="Vector_2"
@@ -7384,8 +7386,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M8.93876 1.50122C9.69785 0.55236 10.8471 0 12.0622 0H44.2172C45.4324 0 46.5816 0.552359 47.3407 1.50122L55.0792 11.1744C55.5056 11.7073 55.828 12.2943 56.0469 12.9092H0.232598C0.451468 12.2943 0.773925 11.7073 1.20023 11.1744L8.93876 1.50122ZM0 16.091H56.2795C56.0896 17.0496 55.664 17.9709 55.0034 18.7637L31.2126 47.3125C29.6134 49.2316 26.666 49.2316 25.0669 47.3125L1.27612 18.7637C0.615521 17.9709 0.189841 17.0496 0 16.091ZM20.5563 22.0266L27.7513 32.1286C27.9512 32.4093 28.3685 32.4083 28.5671 32.1267L35.6853 22.0338C36.1425 21.3856 36.8863 21 37.6795 21C39.0272 21 40.1198 22.0925 40.1198 23.4403V23.6393H39.8972C39.5712 23.6393 39.1148 23.8877 38.5931 24.5708C38.0874 25.2331 32.1271 33.2938 28.9417 37.6047C28.7578 37.8535 28.467 38 28.1577 38C27.8515 38 27.5632 37.8562 27.379 37.6117L17.3204 24.2603C17.3204 24.2603 16.9258 23.6393 16.2608 23.6393H16.1198V23.445C16.1198 22.0947 17.2144 21 18.5648 21C19.3556 21 20.0975 21.3825 20.5563 22.0266Z"
           fill="white"
         ></path>
@@ -7439,44 +7441,44 @@ export default function Promotion(){
         <path
           d="M21.3742 33.0555V37.3185C21.3742 40.9305 18.0143 43.8494 13.8773 43.8494C9.74038 43.8494 6.35938 40.9305 6.35938 37.3185V33.0555C6.35938 36.6675 9.71938 39.2295 13.8773 39.2295C18.0143 39.2295 21.3742 36.6465 21.3742 33.0555Z"
           stroke="currentColor"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M21.3737 27.2808C21.3737 28.3308 21.0797 29.2968 20.5757 30.1368C19.3367 32.1738 16.7957 33.4547 13.8557 33.4547C10.9158 33.4547 8.37476 32.1528 7.13578 30.1368C6.63178 29.2968 6.33789 28.3308 6.33789 27.2808C6.33789 25.4748 7.17784 23.8578 8.52183 22.6819C9.88681 21.4849 11.7557 20.7709 13.8347 20.7709C15.9137 20.7709 17.7827 21.5059 19.1477 22.6819C20.5337 23.8368 21.3737 25.4748 21.3737 27.2808Z"
           stroke="currentColor"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M21.3742 27.2808V33.0558C21.3742 36.6677 18.0143 39.2297 13.8773 39.2297C9.74038 39.2297 6.35938 36.6467 6.35938 33.0558V27.2808C6.35938 23.6688 9.71938 20.7499 13.8773 20.7499C15.9563 20.7499 17.8254 21.4849 19.1903 22.6609C20.5344 23.8368 21.3742 25.4748 21.3742 27.2808Z"
           stroke="currentColor"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M44.9996 20.6867V25.0128C44.9996 26.1678 44.0756 27.1126 42.8996 27.1546H38.7836C36.5157 27.1546 34.4367 25.4956 34.2477 23.2276C34.1217 21.9047 34.6257 20.6657 35.5077 19.8047C36.2847 19.0067 37.3556 18.5448 38.5316 18.5448H42.8996C44.0756 18.5868 44.9996 19.5317 44.9996 20.6867Z"
           stroke="currentColor"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M32.4003 5C32.9463 5 33.4713 5.02098 33.9753 5.10498C39.3933 5.73497 42.9002 9.74595 42.9002 15.4999V18.5449H38.5323C37.3563 18.5449 36.2853 19.0069 35.5083 19.8049C34.6263 20.6658 34.1223 21.9048 34.2483 23.2278C34.4373 25.4958 36.5163 27.1548 38.7843 27.1548H42.9002V30.1997C42.9002 36.4997 38.7003 40.6996 32.4003 40.6996H27.1504"
           stroke="currentColor"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M3 19.6999V15.4999C3 9.78795 6.44397 5.79799 11.7989 5.126C12.3449 5.042 12.9119 5 13.4999 5H23.9998"
           stroke="currentColor"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -7502,8 +7504,8 @@ export default function Promotion(){
           fill="var(--norm_secondary-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M21.3 19.1117C21.225 18.3242 21.525 17.5867 22.05 17.0742C22.5125 16.5992 23.15 16.3242 23.85 16.3242H26.375V14.5242C26.375 11.9367 24.2625 9.82422 21.675 9.82422H7.325C4.7375 9.82422 2.625 11.9367 2.625 14.5242V22.9367C2.625 25.5242 4.7375 27.6367 7.325 27.6367H21.675C24.2625 27.6367 26.375 25.5242 26.375 22.9367V21.4492H24C22.65 21.4492 21.4125 20.4617 21.3 19.1117ZM16.3145 17.0122H7.56445C7.05195 17.0122 6.62695 16.5872 6.62695 16.0747C6.62695 15.5622 7.05195 15.1372 7.56445 15.1372H16.3145C16.827 15.1372 17.252 15.5622 17.252 16.0747C17.252 16.5872 16.827 17.0122 16.3145 17.0122Z"
           fill="var(--norm_secondary-color)"
         ></path>
@@ -7531,26 +7533,26 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M40.3353 19.3759C40.8118 19.7572 40.889 20.4525 40.5078 20.929L35.3979 27.1654C34.6613 27.902 32.8157 28.1662 31.7148 27.1654L25.8086 21.0111C25.3571 20.6006 25.3238 19.9018 25.7343 19.4503C26.1448 18.9987 26.8436 18.9655 27.2951 19.3759L33.3342 25.7318C33.4915 25.8747 33.7368 25.8553 33.8696 25.6893L38.7822 19.5485C39.1634 19.072 39.8588 18.9947 40.3353 19.3759Z"
           fill="#A3A3A3"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M33.5563 26.4288C34.1666 26.4288 34.6613 25.9341 34.6613 25.3239V17.5894C34.6613 12.7075 30.7037 8.75 25.8219 8.75H10.7212C10.111 8.75 9.6163 9.24469 9.6163 9.85493C9.6163 10.4652 10.111 10.9599 10.7212 10.9599H25.8219C29.4833 10.9599 32.4514 13.928 32.4514 17.5894V25.3239C32.4514 25.9341 32.9461 26.4288 33.5563 26.4288Z"
           fill="#A3A3A3"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M2.66472 23.0877C2.18821 22.7064 2.11095 22.0111 2.49216 21.5346L7.60211 15.2982C8.33873 14.5616 10.1843 14.2974 11.2852 15.2982L17.1914 21.4525C17.6429 21.863 17.6762 22.5618 17.2657 23.0133C16.8552 23.4649 16.1564 23.4981 15.7049 23.0877L9.66577 16.7318C9.5085 16.5889 9.2632 16.6083 9.13042 16.7743L4.21777 22.9151C3.83656 23.3916 3.14124 23.4689 2.66472 23.0877Z"
           fill="#A3A3A3"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M9.44366 16.0348C8.83342 16.0348 8.33873 16.5295 8.33873 17.1397V24.8742C8.33873 29.7561 12.2963 33.7136 17.1781 33.7136H32.2788C32.889 33.7136 33.3837 33.2189 33.3837 32.6087C33.3837 31.9984 32.889 31.5037 32.2788 31.5037H17.1781C13.5167 31.5037 10.5486 28.5356 10.5486 24.8742V17.1397C10.5486 16.5295 10.0539 16.0348 9.44366 16.0348Z"
           fill="#A3A3A3"
         ></path>
@@ -7588,8 +7590,8 @@ export default function Promotion(){
           ></path>
           <g filter="url(#filter1_f_1148_26793)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M16.2817 46.4576C28.4198 54.179 44.5189 50.599 52.2403 38.4613C53.7834 36.0357 54.875 33.4519 55.5372 30.809C55.1692 34.6006 53.9264 38.3653 51.7413 41.7994C44.3246 53.4583 28.8612 56.8972 17.2022 49.4805C11.8893 46.1006 8.28334 41.0495 6.63379 35.4494C8.65765 39.8197 11.9162 43.6803 16.2817 46.4576Z"
               fill="#F26565"
             ></path>
@@ -7635,9 +7637,9 @@ export default function Promotion(){
             width="65.5801"
             height="65.5803"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -7669,9 +7671,9 @@ export default function Promotion(){
             width="54.9033"
             height="28.5841"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -7690,9 +7692,9 @@ export default function Promotion(){
             width="18.8457"
             height="14.7654"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -7711,9 +7713,9 @@ export default function Promotion(){
             width="30.3438"
             height="24.4662"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -7733,8 +7735,8 @@ export default function Promotion(){
             y2="56.749"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#F22427"></stop>
-            <stop offset="1" stop-color="#960204"></stop>
+            <stop stopColor="#F22427"></stop>
+            <stop offset="1" stopColor="#960204"></stop>
           </linearGradient>
           <linearGradient
             id="paint1_linear_1148_26793"
@@ -7744,8 +7746,8 @@ export default function Promotion(){
             y2="56.749"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FB444C"></stop>
-            <stop offset="1" stop-color="#DF242E"></stop>
+            <stop stopColor="#FB444C"></stop>
+            <stop offset="1" stopColor="#DF242E"></stop>
           </linearGradient>
           <linearGradient
             id="paint2_linear_1148_26793"
@@ -7755,9 +7757,9 @@ export default function Promotion(){
             y2="51.8347"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FA999A"></stop>
-            <stop offset="0.743552" stop-color="#FE474D"></stop>
-            <stop offset="1" stop-color="#DD2223" stop-opacity="0"></stop>
+            <stop stopColor="#FA999A"></stop>
+            <stop offset="0.743552" stopColor="#FE474D"></stop>
+            <stop offset="1" stopColor="#DD2223" stopOpacity="0"></stop>
           </linearGradient>
           <linearGradient
             id="paint3_linear_1148_26793"
@@ -7767,8 +7769,8 @@ export default function Promotion(){
             y2="50.2696"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.349342" stop-color="#FBF9FD"></stop>
-            <stop offset="0.889385" stop-color="#EBA3A5"></stop>
+            <stop offset="0.349342" stopColor="#FBF9FD"></stop>
+            <stop offset="0.889385" stopColor="#EBA3A5"></stop>
           </linearGradient>
           <linearGradient
             id="paint4_linear_1148_26793"
@@ -7778,8 +7780,8 @@ export default function Promotion(){
             y2="42.2546"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FBF9FD"></stop>
-            <stop offset="0.373872" stop-color="#EBA3A5"></stop>
+            <stop stopColor="#FBF9FD"></stop>
+            <stop offset="0.373872" stopColor="#EBA3A5"></stop>
           </linearGradient>
           <linearGradient
             id="paint5_linear_1148_26793"
@@ -7789,8 +7791,8 @@ export default function Promotion(){
             y2="34.0678"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FBF9FD"></stop>
-            <stop offset="0.601592" stop-color="#EBA3A5"></stop>
+            <stop stopColor="#FBF9FD"></stop>
+            <stop offset="0.601592" stopColor="#EBA3A5"></stop>
           </linearGradient>
           <linearGradient
             id="paint6_linear_1148_26793"
@@ -7800,8 +7802,8 @@ export default function Promotion(){
             y2="-9.59654"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.0664686" stop-color="#FBF9FD"></stop>
-            <stop offset="1" stop-color="#EBA3A5"></stop>
+            <stop offset="0.0664686" stopColor="#FBF9FD"></stop>
+            <stop offset="1" stopColor="#EBA3A5"></stop>
           </linearGradient>
           <linearGradient
             id="paint7_linear_1148_26793"
@@ -7811,8 +7813,8 @@ export default function Promotion(){
             y2="78.165"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#EBA3A6"></stop>
-            <stop offset="0.373872" stop-color="#EBA3A5"></stop>
+            <stop stopColor="#EBA3A6"></stop>
+            <stop offset="0.373872" stopColor="#EBA3A5"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -7830,12 +7832,12 @@ export default function Promotion(){
             r="14.25"
             transform="matrix(-1 0 0 1 30 0)"
             stroke="var(--main-color)"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           ></circle>
           <path
             id="Vector"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M11.7772 6.35976C11.4516 6.03895 10.9286 6.0392 10.6033 6.36031C10.2715 6.68782 10.2717 7.22349 10.6037 7.55075L14.1194 11.0154C16.3864 13.2495 16.3864 16.9067 14.1194 19.1408L10.6038 22.6055C10.2717 22.9328 10.2715 23.4684 10.6033 23.7959C10.9287 24.1171 11.4516 24.1173 11.7772 23.7965L19.435 16.2526C20.0897 15.6065 20.0897 14.5498 19.435 13.9036L11.7772 6.35976Z"
             fill="var(--main-color)"
           ></path>
@@ -7864,7 +7866,7 @@ export default function Promotion(){
           r="9.4"
           fill="white"
           stroke="var(--main-color)"
-          stroke-width="1.2"
+          strokeWidth="1.2"
         ></circle>
         <circle cx="10" cy="10" r="5" fill="var(--main-color)"></circle>
       </symbol>
@@ -7888,8 +7890,8 @@ export default function Promotion(){
         <g id="Frame">
           <path
             id="Subtract"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M4.26288 4.9454C3.40437 5.19078 2.8125 5.97551 2.8125 6.8684V12.5036C2.8125 20.0174 7.72278 26.6878 15.0018 29.0624C22.2788 26.6878 27.1875 20.0188 27.1875 12.5069V6.868C27.1875 5.9753 26.5959 5.19069 25.7376 4.94514L15.5557 2.03222C15.1963 1.92941 14.8153 1.92936 14.4559 2.03208L4.26288 4.9454ZM22.2444 12.2443C22.7935 11.6951 22.7935 10.8047 22.2444 10.2555C21.6952 9.70637 20.8048 9.70637 20.2556 10.2555L13.75 16.7612L10.3694 13.3805C9.82019 12.8314 8.92981 12.8314 8.38063 13.3805C7.83146 13.9297 7.83146 14.8201 8.38063 15.3693L12.7556 19.7443C13.3048 20.2935 14.1952 20.2935 14.7444 19.7443L22.2444 12.2443Z"
             fill="currentColor"
           ></path>
@@ -7902,8 +7904,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M29.7 15.4996V7.89961C29.7 5.71961 27.9 4.09961 25.9 4.09961C25.46 4.09961 25 4.17961 24.56 4.33961L8.68004 10.3396C6.46004 11.1796 5.00004 13.2996 5.00004 15.6796V23.0196C5.00004 20.5596 6.18004 18.3796 8.00004 17.0196V15.6796C8.00004 14.5396 8.68004 13.5396 9.74004 13.1396L25.6 7.15961C25.7 7.11961 25.8 7.09961 25.9 7.09961C26.22 7.09961 26.7 7.35961 26.7 7.89961V15.4996H29.7ZM43 30.9996V28.9996C43 28.4596 42.58 28.0196 42 27.9996H38.98C38.7194 27.9951 38.4606 28.0442 38.2197 28.144C37.9789 28.2438 37.7611 28.3921 37.58 28.5796C37.18 28.9796 36.94 29.5596 37 30.1796C37.08 31.2196 38.04 31.9996 39.1 31.9996H42.02C42.2818 31.9944 42.531 31.8867 42.7142 31.6997C42.8975 31.5128 43.0001 31.2614 43 30.9996ZM5.00004 31.7596C6.38004 30.6596 8.12004 29.9996 10 29.9996C14.42 29.9996 18 33.5796 18 37.9996C18 39.4996 17.58 40.9196 16.84 42.1196C16.42 42.8396 15.88 43.4796 15.26 43.9996C13.86 45.2596 12.02 45.9996 10 45.9996C8.62116 46.0025 7.26531 45.6462 6.06596 44.9659C4.86661 44.2855 3.8651 43.3046 3.16004 42.1196C2.42004 40.9196 2.00004 39.4996 2.00004 37.9996C1.99643 36.8005 2.26448 35.6161 2.78406 34.5354C3.30363 33.4547 4.06125 32.5057 5.00004 31.7596ZM7.62669 34.2867C7.24931 33.8621 6.59918 33.8238 6.17459 34.2012C5.75 34.5786 5.71173 35.2287 6.08911 35.6533L8.22438 38.0557L6.08892 40.4581C5.71152 40.8826 5.74976 41.5328 6.17434 41.9102C6.59892 42.2876 7.24905 42.2493 7.62645 41.8248L10.3693 38.739C10.7157 38.3493 10.7157 37.7621 10.3693 37.3724L7.62669 34.2867ZM11.741 34.2867C11.3636 33.8621 10.7135 33.8238 10.2889 34.2012C9.86428 34.5786 9.82601 35.2287 10.2034 35.6533L12.3387 38.0557L10.2032 40.4581C9.8258 40.8826 9.86405 41.5328 10.2886 41.9102C10.7132 42.2876 11.3633 42.2493 11.7407 41.8248L14.4836 38.739C14.83 38.3493 14.83 37.7621 14.4836 37.3724L11.741 34.2867Z"
           fill="var(--main-color)"
         ></path>
@@ -7923,8 +7925,8 @@ export default function Promotion(){
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M57.3763 10.166C47.8724 10.166 40.168 17.8705 40.168 27.3743C40.168 36.8782 47.8724 44.5827 57.3763 44.5827C60.5588 44.5827 63.5396 43.7187 66.0968 42.2126L72.6931 48.8089C74.0599 50.1757 76.276 50.1757 77.6428 48.8089C79.0097 47.442 79.0097 45.2259 77.6428 43.8591L71.2883 37.5046C73.3613 34.6626 74.5846 31.1613 74.5846 27.3743C74.5846 17.8705 66.8802 10.166 57.3763 10.166ZM44.8346 27.3743C44.8346 20.4478 50.4498 14.8327 57.3763 14.8327C64.3028 14.8327 69.918 20.4478 69.918 27.3743C69.918 34.3009 64.3028 39.916 57.3763 39.916C50.4498 39.916 44.8346 34.3009 44.8346 27.3743Z"
           fill="var(--bg_color_L2)"
         ></path>
@@ -7938,20 +7940,20 @@ export default function Promotion(){
         <g id="icon">
           <g id="Vector">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M8.60575 36.9871C5.31838 33.3788 3.31849 28.615 3.31849 23.3918C3.31849 12.1276 12.615 2.99609 24.0827 2.99609C35.5505 2.99609 44.847 12.1276 44.847 23.3918C44.847 31.3565 40.1975 38.252 33.4205 41.6097C29.2741 43.7714 24.5438 44.9961 19.5224 44.9961C13.3697 44.9961 7.65397 43.1575 2.91406 40.0092C2.91406 40.0092 6.09264 39.6625 8.60493 36.9879L8.60575 36.9871ZM33.8368 33.4859C39.2088 28.1141 39.2088 19.4046 33.8368 14.0327C31.3458 11.5418 28.1372 10.2067 24.8765 10.026C24.7781 7.57955 26.095 5.92657 26.1014 5.91851L26.1001 5.91877L26.1011 5.91747C22.3535 6.64141 18.7749 8.45446 15.873 11.3564C13.6475 13.5818 12.0629 16.2053 11.1182 18.9975C11.2565 18.6313 11.4107 18.2697 11.5808 17.9139C11.385 18.4132 11.2081 18.9234 11.0481 19.4454C9.47482 24.2213 10.5853 29.6877 14.3835 33.4859C19.7555 38.8579 28.465 38.8579 33.8368 33.4859Z"
               fill="white"
             ></path>
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M17.127 22.3454V25.1926C17.127 26.3288 18.048 27.2498 19.1843 27.2498C20.3205 27.2498 21.2414 26.3288 21.2414 25.1926V22.3454C21.2414 21.2094 20.3205 20.2881 19.1843 20.2881C18.048 20.2881 17.127 21.2094 17.127 22.3454Z"
               fill="white"
             ></path>
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M27.3096 22.3454V25.1926C27.3096 26.3288 28.2307 27.2498 29.3668 27.2498C30.503 27.2498 31.4241 26.3288 31.4241 25.1926V22.3454C31.4241 21.2094 30.503 20.2881 29.3668 20.2881C28.2307 20.2881 27.3096 21.2094 27.3096 22.3454Z"
               fill="white"
             ></path>
@@ -7967,30 +7969,30 @@ export default function Promotion(){
         <g id="Group 1420069177">
           <path
             id="Union"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M0.501486 25.2499C0.501486 31.7163 2.98132 37.6138 7.0576 42.0809L7.05658 42.0819C3.94138 45.3931 0 45.8223 0 45.8223C5.87741 49.7199 12.9648 51.9961 20.594 51.9961C26.8205 51.9961 32.686 50.4799 37.8274 47.8037C46.2308 43.6469 51.9961 35.1102 51.9961 25.2499C51.9961 11.3048 40.4686 0 26.2487 0C12.029 0 0.501486 11.3048 0.501486 25.2499ZM38.3417 13.6638C45.0029 20.3143 45.0029 31.0966 38.3417 37.747C31.6808 44.3975 20.8812 44.3975 14.22 37.747C9.51028 33.0448 8.13334 26.2774 10.0841 20.3648C10.2825 19.7185 10.5019 19.0869 10.7447 18.4688C10.5338 18.9093 10.3426 19.3569 10.1711 19.8103C11.3425 16.3535 13.3074 13.1056 16.0669 10.3506C19.6652 6.75799 24.1026 4.51343 28.7496 3.61719L28.7484 3.6188L28.7499 3.61854C28.7366 3.63528 27.1093 5.67989 27.2311 8.70353C31.2743 8.92724 35.2529 10.5801 38.3417 13.6638Z"
             fill="var(--main-color)"
           ></path>
           <path
             id="Vector"
             opacity="0.4"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M38.3417 37.747C45.0029 31.0966 45.0029 20.3143 38.3417 13.6638C35.2529 10.5801 31.2743 8.92724 27.2311 8.70353C27.1091 5.67485 28.742 3.62845 28.75 3.61847L28.7484 3.6188L28.7496 3.61719C24.1026 4.51343 19.6652 6.75799 16.0669 10.3506C13.3074 13.1056 11.3425 16.3535 10.1711 19.8103C10.3426 19.3569 10.5338 18.9093 10.7447 18.4688C10.5019 19.0869 10.2825 19.7185 10.0841 20.3648C8.13334 26.2774 9.51028 33.0448 14.22 37.747C20.8812 44.3975 31.6808 44.3975 38.3417 37.747Z"
             fill="var(--main-color)"
           ></path>
           <path
             id="Vector_2"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M17.625 23.9571V26.0727V27.4819C17.625 28.8886 18.767 30.0288 20.176 30.0288C21.5849 30.0288 22.7268 28.8886 22.7268 27.4819V26.0706V23.9571C22.7268 22.5507 21.5849 21.4102 20.176 21.4102C18.767 21.4102 17.625 22.5507 17.625 23.9571Z"
             fill="var(--main-color)"
           ></path>
           <path
             id="Vector_3"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M30.25 23.9571V26.0727V27.4819C30.25 28.8886 31.3921 30.0288 32.8009 30.0288C34.2098 30.0288 35.3519 28.8886 35.3519 27.4819V26.0706V23.9571C35.3519 22.5507 34.2098 21.4102 32.8009 21.4102C31.3921 21.4102 30.25 22.5507 30.25 23.9571Z"
             fill="var(--main-color)"
           ></path>
@@ -8006,8 +8008,8 @@ export default function Promotion(){
           <g id="Group 1420069177">
             <g id="Union">
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M16.6836 59.7951C11.6659 54.2964 8.61339 47.0368 8.61339 39.0771C8.61339 21.9116 22.803 7.99609 40.3066 7.99609C57.8104 7.99609 72 21.9116 72 39.0771C72 51.2146 64.9033 61.7226 54.5593 66.8395C48.2305 70.1337 41.0104 72 33.346 72C23.9549 72 15.2308 69.1982 7.99609 64.4004C7.99609 64.4004 12.8477 63.8721 16.6823 59.7963L16.6836 59.7951Z"
                 fill="var(--main-color)"
               ></path>
@@ -8018,22 +8020,22 @@ export default function Promotion(){
             </g>
             <path
               id="Vector"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M55.1905 54.4608C63.39 46.2747 63.39 33.0023 55.1905 24.816C51.3884 21.0201 46.491 18.9856 41.514 18.7102C41.3638 14.9821 43.3739 12.4631 43.3837 12.4508L43.3817 12.4512L43.3832 12.4492C37.6631 13.5524 32.2009 16.3153 27.7716 20.7376C24.3748 24.1289 21.9561 28.1268 20.5142 32.3819C20.7253 31.8238 20.9606 31.2728 21.2203 30.7306C20.9214 31.4915 20.6514 32.269 20.4072 33.0644C18.0059 40.3424 19.7008 48.6727 25.4981 54.4608C33.6977 62.6472 46.9913 62.6472 55.1905 54.4608Z"
               fill="var(--bg_color_L2)"
             ></path>
             <path
               id="Vector_2"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M29.6875 37.4847V40.0889V41.8236C29.6875 43.555 31.0933 44.9586 32.8276 44.9586C34.5619 44.9586 35.9675 43.555 35.9675 41.8236V40.0863V37.4847C35.9675 35.7536 34.5619 34.3496 32.8276 34.3496C31.0933 34.3496 29.6875 35.7536 29.6875 37.4847Z"
               fill="var(--main-color)"
             ></path>
             <path
               id="Vector_3"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M45.2305 37.4847V40.0889V41.8236C45.2305 43.5551 46.6364 44.9586 48.3705 44.9586C50.1047 44.9586 51.5106 43.5551 51.5106 41.8236V40.0863V37.4847C51.5106 35.7536 50.1047 34.3496 48.3705 34.3496C46.6364 34.3496 45.2305 35.7536 45.2305 37.4847Z"
               fill="var(--main-color)"
             ></path>
@@ -8065,22 +8067,22 @@ export default function Promotion(){
           d="M7 37C7 29.2967 7 11 7 11C7 7.68629 9.68629 5 13 5H35V31C35 31 18.2326 31 13 31C9.7 31 7 33.6842 7 37Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M35 31C35 31 14.1537 31 13 31C9.68629 31 7 33.6863 7 37C7 40.3137 9.68629 43 13 43C15.2091 43 25.8758 43 41 43V7"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M14 37H34"
           stroke="var(--main-color)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -8090,8 +8092,8 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M44.3345 12.4706C44.3345 12.5712 44.3284 12.6703 44.3166 12.7677C45.1351 13.5954 45.7981 14.8116 46.551 16.8628C47.3071 18.9227 47.4185 21.2382 47.3249 23.112C47.4636 23.6175 47.5791 24.1858 47.6596 24.8235V26.4706V28.1176C47.6596 31.1373 45.997 33.0588 45.997 33.0588C45.997 33.0588 45.178 33.8702 44.3529 34.1507C43.2807 37.1286 41.7029 38 41.0047 38H32.4196C32.4196 38 34.3592 36.6275 34.3592 26.4706C34.3592 16.3137 32.1425 14.9412 32.1425 14.9412H41.0047C41.7436 14.9412 43.4678 15.9172 44.5351 19.3333H44.8887C44.8887 19.3333 45.1166 19.4463 45.4446 19.7445C45.0423 18.0423 43.024 15.3901 42.1176 14.9412L42.112 14.9355L42.1045 14.9275C42.0178 14.9365 41.9298 14.9412 41.8407 14.9412C40.4634 14.9412 39.3469 13.8351 39.3469 12.4706C39.3469 11.1061 40.4634 10 41.8407 10C43.218 10 44.3345 11.1061 44.3345 12.4706ZM3.19266 34.1086C2.40779 33.7971 1.66254 33.0588 1.66254 33.0588C1.66254 33.0588 0 31.1373 0 28.1176V26.4706V24.8235C0.554181 20.4314 2.77091 19.3333 2.77091 19.3333H3.1877C3.72876 17.677 4.54266 16.2484 5.73962 15.4199C6.2972 15.034 6.97712 14.9412 7.6573 14.9412H15.7942C15.7942 14.9412 13.3003 15.6103 13.3003 26.4706C13.3003 37.3309 15.5171 38 15.5171 38H7.65711C6.97693 38 6.30146 37.9043 5.72691 37.5436C4.54065 36.799 3.73188 35.6083 3.19266 34.1086ZM14.1316 26.4706C14.1316 16.0392 16.3483 14.9412 16.3483 14.9412H31.4844C31.4844 14.9412 33.7011 16.0392 33.7011 26.4706C33.7011 36.902 31.5883 38 31.5883 38H16.0713C16.0713 38 14.1316 36.902 14.1316 26.4706ZM16.6658 18.809C16.9429 18.5345 18.4295 18.8795 19.1595 19.3581C19.2651 19.4274 19.4042 19.3209 19.6288 19.1489C19.997 18.8669 20.5952 18.4088 21.6533 18.26C22.4623 18.1462 23.9874 18.4453 25.3594 18.7143C26.3399 18.9066 27.2422 19.0835 27.7493 19.0835C28.9129 19.0836 29.758 18.7737 30.2448 18.5344C30.6653 18.3276 30.9773 19.2982 31.234 20.0966L31.2341 20.0967L31.2341 20.0968C31.2745 20.2226 31.3136 20.3441 31.3515 20.4561C31.5467 21.0326 31.3319 21.4747 31.091 21.9706C30.9879 22.183 30.8799 22.4053 30.7973 22.6522C30.613 23.203 30.1752 23.9704 29.789 24.6474L29.7889 24.6474L29.7888 24.6476C29.5978 24.9824 29.4195 25.295 29.2906 25.5484C29.2026 25.7216 29.1039 25.9059 28.9999 26.1003L28.9999 26.1003C28.5289 26.9802 27.9487 28.0643 27.7493 29.2404L27.7379 29.3079C27.5295 30.536 27.3821 31.4051 27.6211 33.7554C27.6211 33.8537 27.6236 33.9412 27.6259 34.0181C27.6346 34.3158 27.6387 34.456 27.4722 34.4561C26.4988 34.4567 22.2316 34.4577 20.4469 34.4561C20.2909 34.4559 20.2772 34.0312 20.2706 33.8259L20.2695 33.7923C20.269 33.7783 20.2685 33.7659 20.2679 33.7554C19.9924 28.6912 24.1488 24.5736 26.9181 22.9267C27.4493 22.6108 27.1952 22.6522 27.1952 22.6522C27.1952 22.6522 25.5326 23.4757 24.4242 23.4757C23.5301 23.4757 22.6857 23.1532 21.9679 22.8791C21.3511 22.6435 20.8278 22.4436 20.4469 22.5149C19.7137 22.6522 19.7137 23.4757 19.9908 23.7502C20.0966 23.8551 20.1882 23.9411 20.2664 24.0147C20.3929 24.1336 20.4844 24.2197 20.545 24.2992C20.6869 24.4856 20.1979 25.2068 19.7137 25.3973C19.2295 25.5877 17.4985 25.9463 16.9428 24.8482C16.3171 23.3992 16.7617 22.3209 17.0179 21.6997C17.1014 21.4971 17.1649 21.3431 17.1647 21.2407C17.1645 21.1684 17.1844 21.0557 17.2078 20.9226C17.2628 20.6105 17.3375 20.1863 17.2207 19.9071C17.0687 19.4563 16.8728 19.2136 16.7507 19.0625C16.6497 18.9375 16.5993 18.875 16.6658 18.809ZM37.3923 22.6865C37.0097 22.4273 36.2306 22.2405 36.0854 22.3891C36.0505 22.4248 36.0769 22.4587 36.1298 22.5264C36.1938 22.6082 36.2965 22.7396 36.3762 22.9837C36.4374 23.1349 36.3982 23.3646 36.3694 23.5336C36.3571 23.6057 36.3467 23.6667 36.3468 23.7059C36.3469 23.7614 36.3136 23.8447 36.2699 23.9545C36.1356 24.2909 35.9026 24.8748 36.2305 25.6594C36.5218 26.254 37.429 26.0599 37.6828 25.9567C37.9366 25.8536 38.1928 25.463 38.1184 25.3621C38.0867 25.3191 38.0387 25.2725 37.9724 25.2081L37.9724 25.208L37.9723 25.2079C37.9313 25.1681 37.8834 25.1215 37.828 25.0648C37.6828 24.9162 37.6828 24.4702 38.0671 24.3959C38.2667 24.3573 38.5409 24.4655 38.8642 24.5931C39.2404 24.7415 39.683 24.9162 40.1516 24.9162C40.7325 24.9162 41.6038 24.4702 41.6038 24.4702C41.6038 24.4702 41.737 24.4478 41.4586 24.6189C40.0072 25.5107 37.8289 27.7405 37.9732 30.4828C37.9737 30.4927 37.9741 30.5057 37.9746 30.5209C37.9781 30.6321 37.9853 30.8621 38.0671 30.8622C39.0024 30.8631 41.2389 30.8625 41.749 30.8622C41.8363 30.8622 41.8341 30.7863 41.8296 30.625C41.8284 30.5834 41.8271 30.536 41.8271 30.4828C41.7018 29.2101 41.7791 28.7394 41.8883 28.0744L41.8943 28.0378C41.9987 27.401 42.3029 26.8139 42.5497 26.3375L42.5498 26.3372C42.6043 26.2321 42.656 26.1323 42.7021 26.0386C42.7696 25.9013 42.8631 25.732 42.9633 25.5507C43.1657 25.1841 43.3951 24.7685 43.4917 24.4702C43.535 24.3365 43.5916 24.2162 43.6457 24.1012C43.7719 23.8326 43.8845 23.5932 43.7822 23.281C43.7623 23.2204 43.7418 23.1546 43.7207 23.0865L43.7206 23.0864C43.5861 22.654 43.4225 22.1284 43.2021 22.2404C42.947 22.37 42.5041 22.5378 41.8943 22.5378C41.6285 22.5377 41.1556 22.4419 40.6417 22.3378C39.9226 22.1921 39.1233 22.0302 38.6993 22.0918C38.1448 22.1724 37.8312 22.4205 37.6383 22.5732C37.5205 22.6663 37.4477 22.7239 37.3923 22.6865ZM3.9429 22.3891C4.08813 22.2405 4.86726 22.4273 5.24985 22.6865C5.30519 22.724 5.37806 22.6663 5.49577 22.5732C5.68877 22.4205 6.00231 22.1724 6.55686 22.0918C6.98086 22.0302 7.78014 22.1922 8.49924 22.3378C9.01309 22.442 9.48601 22.5378 9.75179 22.5378C10.3616 22.5378 10.8045 22.37 11.0597 22.2404C11.2801 22.1285 11.4436 22.654 11.5781 23.0864C11.5993 23.1545 11.6198 23.2204 11.6397 23.281C11.742 23.5932 11.6294 23.8326 11.5032 24.1012C11.4491 24.2162 11.3925 24.3366 11.3493 24.4703C11.2527 24.7686 11.0232 25.1841 10.8208 25.5507C10.7207 25.732 10.6271 25.9014 10.5596 26.0386C10.5134 26.1324 10.4617 26.2322 10.4072 26.3375C10.1604 26.8139 9.85626 27.401 9.75179 28.0379L9.7458 28.0744C9.6366 28.7394 9.55932 29.2101 9.68458 30.4828C9.68458 30.536 9.68592 30.5834 9.6871 30.6251C9.69166 30.7863 9.69381 30.8622 9.60657 30.8622C9.09638 30.8625 6.85993 30.8631 5.92459 30.8622C5.84282 30.8622 5.83563 30.6322 5.83215 30.521C5.83167 30.5057 5.83126 30.4927 5.83074 30.4828C5.68638 27.7405 7.86474 25.5107 9.31612 24.6189C9.59454 24.4478 9.46135 24.4703 9.46135 24.4703C9.46135 24.4703 8.59 24.9162 8.00911 24.9162C7.54049 24.9162 7.09793 24.7416 6.72175 24.5931C6.39846 24.4655 6.1242 24.3573 5.92459 24.3959C5.5403 24.4703 5.5403 24.9162 5.68552 25.0649C5.74099 25.1216 5.78896 25.1682 5.82994 25.2081C5.89624 25.2725 5.94421 25.3191 5.97597 25.3622C6.05037 25.4631 5.79407 25.8536 5.5403 25.9568C5.28652 26.0599 4.37932 26.2541 4.08805 25.6595C3.76014 24.8748 3.99315 24.2909 4.12739 23.9545C4.17117 23.8448 4.20444 23.7614 4.20433 23.7059C4.20426 23.6668 4.21466 23.6057 4.22695 23.5336C4.25575 23.3647 4.2949 23.1349 4.23368 22.9837C4.15404 22.7396 4.05135 22.6082 3.98735 22.5264C3.93445 22.4587 3.908 22.4249 3.9429 22.3891Z"
           fill="currentColor"
         ></path>
@@ -8103,8 +8105,8 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M30.5807 40.7596C28.5427 41.5603 26.3232 42 24.001 42C21.7102 42 19.5194 41.5721 17.5041 40.7919C17.6912 40.6619 17.8138 40.4454 17.8138 40.2002V33.5958L19.7803 30.9393H28.3478L30.314 33.5952V40.2002C30.314 40.4261 30.418 40.6276 30.5807 40.7596ZM31.7524 40.2503C34.6556 38.8631 37.129 36.7209 38.9183 34.0778H31.7541V40.2002C31.7541 40.217 31.7535 40.2338 31.7524 40.2503ZM39.662 32.8809C41.1105 30.3323 41.9548 27.3955 42 24.2653C41.7916 24.3841 41.5286 24.3962 41.3018 24.2743L34.8635 20.8137L31.6365 22.1214L29.4966 30.0706L31.3971 32.6378H39.1226C39.3373 32.6378 39.5301 32.7318 39.662 32.8809ZM41.9747 23.0011C41.7722 19.2999 40.4515 15.8964 38.3447 13.1227L35.8071 19.686L41.9747 23.0011ZM37.5377 12.1347C37.3057 12.1823 37.1021 12.3433 37.0104 12.5805L34.347 19.4691L31.1511 20.7642L24.7839 15.747V12.5486L31.2539 8.03046C31.3926 7.93355 31.4868 7.79656 31.5316 7.64604C33.8387 8.71005 35.8823 10.2478 37.5377 12.1347ZM30.1192 7.06639L24.0712 11.2899L18.1179 6.98324C19.9615 6.34607 21.9408 6 24.001 6C26.149 6 28.2092 6.37623 30.1192 7.06639ZM16.8033 7.49658C14.47 8.51551 12.3945 10.0147 10.7018 11.8692C10.83 11.9491 10.9343 12.0698 10.9927 12.2216L13.7812 19.4692L16.9767 20.7641L23.3438 15.747V12.541L17.0991 8.0235C16.921 7.89472 16.8193 7.69968 16.8033 7.49658ZM9.74992 13.0018C7.69314 15.6627 6.3651 18.9154 6.06487 22.461L12.3052 19.6433L9.74992 13.0018ZM6 24.0003C6.00005 27.1541 6.81124 30.1184 8.23633 32.6961C8.32354 32.6586 8.41966 32.6378 8.52062 32.6378H16.7308L18.6317 30.0702L16.4919 22.1216L13.2369 20.8026L6.29682 23.9363C6.20036 23.9799 6.09937 24.0004 6 24.0003ZM9.08365 34.0778C10.9002 36.7612 13.4218 38.9283 16.3825 40.3132C16.3767 40.2764 16.3737 40.2386 16.3737 40.2002V34.0778H9.08365ZM28.159 29.4993L30.2154 21.8603L24.0638 17.013L17.9128 21.8598L19.9693 29.4993H28.159Z"
           fill="currentColor"
         ></path>
@@ -8116,8 +8118,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M25.0566 25.0562C22.4829 27.6299 18.9273 29.2218 15 29.2218C11.0727 29.2218 7.51711 27.6299 4.94336 25.0562C2.36965 22.4824 0.777771 18.9269 0.777771 14.9996C0.777771 11.0722 2.36965 7.51668 4.94336 4.94293C7.51711 2.36922 11.0727 0.777344 15 0.777344C18.9273 0.777344 22.4829 2.36922 25.0566 4.94293C27.6303 7.51668 29.2222 11.0722 29.2222 14.9996C29.2222 18.9269 27.6303 22.4824 25.0566 25.0562ZM22.7492 11.1747C23.091 10.8222 23.0823 10.2595 22.7299 9.91775C22.3775 9.576 21.8147 9.58465 21.473 9.93709L12.6296 17.279L8.52702 14.826C8.18527 14.4735 7.62252 14.4649 7.27009 14.8066C6.91766 15.1484 6.909 15.7111 7.25076 16.0636L11.9915 20.9525C12.1589 21.1251 12.3891 21.2225 12.6296 21.2225C12.8701 21.2225 13.1003 21.1251 13.2678 20.9525L22.7492 11.1747Z"
           fill="white"
         ></path>
@@ -8129,8 +8131,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M60 30C60 46.5684 46.5689 60 30.0003 60C13.4311 60 0 46.5684 0 30C0 13.4316 13.4311 0 30.0003 0C46.5689 0 60 13.4316 60 30ZM12.8438 34.4695L18.0305 28.9754C19.7594 30.3905 23.2172 33.4705 26.675 37.7161C26.7354 37.7902 26.9185 37.3878 27.2718 36.6113C28.8189 33.2115 33.6292 22.6402 45.6929 13.4919C45.8032 13.4083 45.778 14.2746 45.7395 15.601C45.7045 16.8053 45.6586 18.3888 45.6929 19.9848C45.7564 22.9318 46.1869 25.9784 46.1869 25.9784C46.1869 25.9784 39.2713 27.7266 27.4159 46.9562C27.3878 47.0018 27.0549 46.6275 26.474 45.9741C24.3405 43.575 18.8616 37.4137 12.8438 34.4695Z"
           fill="var(--main-color)"
         ></path>
@@ -8156,7 +8158,7 @@ export default function Promotion(){
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_10_105884)">
+        <g clipPath="url(#clip0_10_105884)">
           <path
             d="M24 48C10.7454 48 0 37.2546 0 24C0 10.7454 10.7454 0 24 0C37.2546 0 48 10.7454 48 24C48 37.2546 37.2546 48 24 48ZM15 12.6C14.0452 12.6 13.1295 12.9793 12.4544 13.6544C11.7793 14.3295 11.4 15.2452 11.4 16.2V20.7276C11.4 21.6824 11.7793 22.5981 12.4544 23.2732C13.1295 23.9483 14.0452 24.3276 15 24.3276H19.485C20.4398 24.3276 21.3555 23.9483 22.0306 23.2732C22.7057 22.5981 23.085 21.6824 23.085 20.7276V16.2C23.085 15.2452 22.7057 14.3295 22.0306 13.6544C21.3555 12.9793 20.4398 12.6 19.485 12.6H15ZM28.146 12.6C27.1912 12.6 26.2755 12.9793 25.6004 13.6544C24.9253 14.3295 24.546 15.2452 24.546 16.2V20.7276C24.546 21.6824 24.9253 22.5981 25.6004 23.2732C26.2755 23.9483 27.1912 24.3276 28.146 24.3276H32.631C33.5858 24.3276 34.5015 23.9483 35.1766 23.2732C35.8517 22.5981 36.231 21.6824 36.231 20.7276V16.2C36.231 15.2452 35.8517 14.3295 35.1766 13.6544C34.5015 12.9793 33.5858 12.6 32.631 12.6H28.146ZM15 25.7934C14.0452 25.7934 13.1295 26.1727 12.4544 26.8478C11.7793 27.5229 11.4 28.4386 11.4 29.3934V33.921C11.4 34.8758 11.7793 35.7915 12.4544 36.4666C13.1295 37.1417 14.0452 37.521 15 37.521H19.485C20.4398 37.521 21.3555 37.1417 22.0306 36.4666C22.7057 35.7915 23.085 34.8758 23.085 33.921V29.3934C23.085 28.4386 22.7057 27.5229 22.0306 26.8478C21.3555 26.1727 20.4398 25.7934 19.485 25.7934H15ZM30.3882 25.7934C27.1614 25.7934 24.546 28.4094 24.546 31.6362V31.6782C24.546 34.905 27.162 37.521 30.3882 37.521C33.615 37.521 36.231 34.905 36.231 31.6782V31.6362C36.231 28.4094 33.615 25.7934 30.3882 25.7934Z"
             fill="#07DDD1"
@@ -8174,7 +8176,7 @@ export default function Promotion(){
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_10_106001)">
+        <g clipPath="url(#clip0_10_106001)">
           <path
             d="M24 48C10.7454 48 0 37.2546 0 24C0 10.7454 10.7454 0 24 0C37.2546 0 48 10.7454 48 24C48 37.2546 37.2546 48 24 48ZM15 12.6C14.0452 12.6 13.1295 12.9793 12.4544 13.6544C11.7793 14.3295 11.4 15.2452 11.4 16.2V20.7276C11.4 21.6824 11.7793 22.5981 12.4544 23.2732C13.1295 23.9483 14.0452 24.3276 15 24.3276H19.485C20.4398 24.3276 21.3555 23.9483 22.0306 23.2732C22.7057 22.5981 23.085 21.6824 23.085 20.7276V16.2C23.085 15.2452 22.7057 14.3295 22.0306 13.6544C21.3555 12.9793 20.4398 12.6 19.485 12.6H15ZM28.146 12.6C27.1912 12.6 26.2755 12.9793 25.6004 13.6544C24.9253 14.3295 24.546 15.2452 24.546 16.2V20.7276C24.546 21.6824 24.9253 22.5981 25.6004 23.2732C26.2755 23.9483 27.1912 24.3276 28.146 24.3276H32.631C33.5858 24.3276 34.5015 23.9483 35.1766 23.2732C35.8517 22.5981 36.231 21.6824 36.231 20.7276V16.2C36.231 15.2452 35.8517 14.3295 35.1766 13.6544C34.5015 12.9793 33.5858 12.6 32.631 12.6H28.146ZM15 25.7934C14.0452 25.7934 13.1295 26.1727 12.4544 26.8478C11.7793 27.5229 11.4 28.4386 11.4 29.3934V33.921C11.4 34.8758 11.7793 35.7915 12.4544 36.4666C13.1295 37.1417 14.0452 37.521 15 37.521H19.485C20.4398 37.521 21.3555 37.1417 22.0306 36.4666C22.7057 35.7915 23.085 34.8758 23.085 33.921V29.3934C23.085 28.4386 22.7057 27.5229 22.0306 26.8478C21.3555 26.1727 20.4398 25.7934 19.485 25.7934H15ZM30.3882 25.7934C27.1614 25.7934 24.546 28.4094 24.546 31.6362V31.6782C24.546 34.905 27.162 37.521 30.3882 37.521C33.615 37.521 36.231 34.905 36.231 31.6782V31.6362C36.231 28.4094 33.615 25.7934 30.3882 25.7934Z"
             fill="currentColor"
@@ -8195,8 +8197,8 @@ export default function Promotion(){
         <g filter="url(#filter0_d_6325_15449)">
           <g filter="url(#filter1_di_6325_15449)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M17.2706 0H4V3.5459C5.9579 3.54614 7.54501 5.1334 7.54501 7.09135C7.54501 9.04931 5.9579 10.6366 4 10.6368V13C5.9579 13.0002 7.54501 14.5875 7.54501 16.5455C7.54501 18.5034 5.9579 20.0907 4 20.0909V22.4551C5.95788 22.4553 7.54497 24.0426 7.54497 26.0005C7.54497 27.9585 5.95788 29.5457 4 29.546V31.9092C5.9579 31.9094 7.54501 33.4967 7.54501 35.4546C7.54501 37.4126 5.9579 38.9998 4 39.0001V42.5455H17.2706C18.0236 40.1481 20.2633 38.4091 22.9092 38.4091C25.555 38.4091 27.7947 40.1481 28.5477 42.5455H82V39.0001H81.9996C80.0415 39.0001 78.4541 37.4127 78.4541 35.4546C78.4541 33.4965 80.0415 31.9092 81.9996 31.9092H82V29.546H81.9995C80.0414 29.546 78.4541 27.9586 78.4541 26.0005C78.4541 24.0424 80.0414 22.4551 81.9995 22.4551H82V20.0909H81.9996C80.0415 20.0909 78.4541 18.5036 78.4541 16.5455C78.4541 14.5874 80.0415 13 81.9996 13H82V10.6368H81.9996C80.0415 10.6368 78.4541 9.04945 78.4541 7.09135C78.4541 5.13325 80.0415 3.5459 81.9996 3.5459H82V0H28.5477C27.7948 2.3974 25.5551 4.1364 22.9092 4.1364C20.2633 4.1364 18.0235 2.3974 17.2706 0ZM24.091 14.1818C24.091 13.5291 23.5619 13 22.9092 13C22.2565 13 21.7273 13.5291 21.7273 14.1818V16.5454C21.7273 17.1981 22.2565 17.7272 22.9092 17.7272C23.5619 17.7272 24.091 17.1981 24.091 16.5454V14.1818ZM22.9092 7.09091C23.5619 7.09091 24.091 7.62003 24.091 8.27273V10.6364C24.091 11.2891 23.5619 11.8182 22.9092 11.8182C22.2565 11.8182 21.7273 11.2891 21.7273 10.6364V8.27273C21.7273 7.62003 22.2565 7.09091 22.9092 7.09091ZM24.091 20.0909C24.091 19.4382 23.5619 18.9091 22.9092 18.9091C22.2565 18.9091 21.7273 19.4382 21.7273 20.0909V22.4546C21.7273 23.1073 22.2565 23.6364 22.9092 23.6364C23.5619 23.6364 24.091 23.1073 24.091 22.4546V20.0909ZM22.9092 24.8182C23.5619 24.8182 24.091 25.3473 24.091 26V28.3636C24.091 29.0163 23.5619 29.5455 22.9092 29.5455C22.2565 29.5455 21.7273 29.0163 21.7273 28.3636V26C21.7273 25.3473 22.2565 24.8182 22.9092 24.8182ZM24.0908 31.9094C24.0908 31.2567 23.5617 30.7275 22.909 30.7275C22.2563 30.7275 21.7272 31.2567 21.7272 31.9094V34.273C21.7272 34.9257 22.2563 35.4548 22.909 35.4548C23.5617 35.4548 24.0908 34.9257 24.0908 34.273V31.9094Z"
               fill="url(#paint0_linear_6325_15449)"
             ></path>
@@ -8216,9 +8218,9 @@ export default function Promotion(){
             width="86"
             height="50.5459"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -8251,9 +8253,9 @@ export default function Promotion(){
             width="78"
             height="43.5459"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -8307,9 +8309,9 @@ export default function Promotion(){
             width="23.7773"
             height="22.6611"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -8347,11 +8349,11 @@ export default function Promotion(){
             y2="21.2727"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FBE46B"></stop>
-            <stop offset="0.191469" stop-color="#FEFEC8"></stop>
-            <stop offset="0.316469" stop-color="#FAE061"></stop>
-            <stop offset="0.889385" stop-color="#E28B25"></stop>
-            <stop offset="1" stop-color="#F5C054"></stop>
+            <stop stopColor="#FBE46B"></stop>
+            <stop offset="0.191469" stopColor="#FEFEC8"></stop>
+            <stop offset="0.316469" stopColor="#FAE061"></stop>
+            <stop offset="0.889385" stopColor="#E28B25"></stop>
+            <stop offset="1" stopColor="#F5C054"></stop>
           </linearGradient>
           <linearGradient
             id="paint1_linear_6325_15449"
@@ -8361,8 +8363,8 @@ export default function Promotion(){
             y2="34.2726"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FF7F22"></stop>
-            <stop offset="1" stop-color="#E36306"></stop>
+            <stop stopColor="#FF7F22"></stop>
+            <stop offset="1" stopColor="#E36306"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -8407,7 +8409,7 @@ export default function Promotion(){
         <path
           d="M9.67074 29.1107L9.66322 29.1182L9.65598 29.126C9.02654 29.8017 8.45747 30.2157 7.98006 30.4218C7.50853 30.6254 7.16285 30.6135 6.91422 30.5064C6.6612 30.3975 6.39655 30.1416 6.18925 29.6333C5.98114 29.123 5.85 28.3992 5.85 27.45V10.56C5.85 7.52835 6.21824 5.86758 7.1019 4.92303C7.97224 3.99272 9.4962 3.6 12.33 3.6H23.67C26.5041 3.6 28.0275 3.99282 28.8959 4.92264C29.7774 5.86659 30.1425 7.52679 30.135 10.5585V10.56V27.435C30.135 28.3846 30.0047 29.1087 29.7975 29.6192C29.5911 30.1278 29.3276 30.383 29.076 30.4916C28.8287 30.5983 28.4837 30.6106 28.011 30.4067C27.5326 30.2004 26.9615 29.7861 26.3282 29.1102C25.6005 28.3296 24.6554 27.9468 23.7086 27.9984C22.7618 28.0499 21.8639 28.5332 21.225 29.385L21.2246 29.3856L19.7116 31.4079C19.7113 31.4083 19.711 31.4087 19.7107 31.4091C19.1996 32.0836 18.5725 32.3738 17.9925 32.3738C17.4125 32.3738 16.7854 32.0836 16.2743 31.4091C16.274 31.4087 16.2737 31.4083 16.2734 31.4079L14.7606 29.3858C14.7605 29.3857 14.7605 29.3856 14.7604 29.3856C13.4723 27.6623 11.1634 27.5349 9.67973 29.1017L9.67074 29.1107ZM9.57 16.5C9.57 17.6564 10.5136 18.6 11.67 18.6C12.8264 18.6 13.77 17.6564 13.77 16.5C13.77 15.3436 12.8264 14.4 11.67 14.4C10.5136 14.4 9.57 15.3436 9.57 16.5ZM9.57 10.5C9.57 11.6564 10.5136 12.6 11.67 12.6C12.8264 12.6 13.77 11.6564 13.77 10.5C13.77 9.34363 12.8264 8.4 11.67 8.4C10.5136 8.4 9.57 9.34363 9.57 10.5ZM16.095 18.225H24.345C25.2914 18.225 26.07 17.4464 26.07 16.5C26.07 15.5536 25.2914 14.775 24.345 14.775H16.095C15.1486 14.775 14.37 15.5536 14.37 16.5C14.37 17.4464 15.1486 18.225 16.095 18.225ZM16.095 12.225H24.345C25.2914 12.225 26.07 11.4464 26.07 10.5C26.07 9.55363 25.2914 8.775 24.345 8.775H16.095C15.1486 8.775 14.37 9.55363 14.37 10.5C14.37 11.4464 15.1486 12.225 16.095 12.225Z"
           stroke="currentColor"
-          stroke-width="1.2"
+          strokeWidth="1.2"
         ></path>
       </symbol>
       <symbol
@@ -8550,7 +8552,7 @@ export default function Promotion(){
         viewBox="0 0 42 42"
         fill="none"
       >
-        <g clip-path="url(#clip0_2238_60810)">
+        <g clipPath="url(#clip0_2238_60810)">
           <mask
             id="mask0_2238_60810"
             style={{maskType: 'alpha'}}
@@ -8566,23 +8568,23 @@ export default function Promotion(){
             <path
               d="M5.25 21.0073V36.75H36.75V21"
               stroke="var(--main-color)"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></path>
             <path
               d="M28.875 13.125L21 5.25L13.125 13.125"
               stroke="var(--main-color)"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></path>
             <path
               d="M20.9922 28V5.25"
               stroke="var(--main-color)"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></path>
           </g>
         </g>
@@ -8628,7 +8630,7 @@ export default function Promotion(){
           cy="21"
           r="20"
           stroke="var(--main-color)"
-          stroke-width="2"
+          strokeWidth="2"
         ></circle>
         <path
           d="M31.1591 13.9751V9H11.1371V13.9751H18.5185V17.2253C12.5183 17.4999 8 18.7033 8 20.147C8 21.5907 12.5183 22.7942 18.5185 23.0687V33.5H23.7777V23.0664C29.7547 22.7876 34.25 21.5865 34.25 20.147C34.25 18.7075 29.7547 17.506 23.7777 17.2277V13.9751H31.1591ZM31.9895 19.8532C31.9895 20.8027 28.4958 21.5992 23.7777 21.8203L23.4727 21.8334H23.4391L23.153 21.8442H23.1221C22.9096 21.8517 22.6943 21.858 22.4763 21.863H22.4629L22.1704 21.8691H22.0878L21.8571 21.8724H20.3961L20.1677 21.8691H20.0884L19.8157 21.8634H19.7857C19.4625 21.8559 19.144 21.8459 18.8303 21.8334H18.8262L18.5138 21.8198C13.7722 21.602 10.2559 20.8027 10.2559 19.8485C10.2559 18.8943 13.7727 18.0974 18.5138 17.8773V20.8947C19.3369 20.9384 20.2125 20.9623 21.1204 20.9623C22.0431 20.9623 22.9362 20.9379 23.7731 20.8924V17.8862C28.4953 18.1068 31.9895 18.9037 31.9895 19.8532Z"
@@ -8670,8 +8672,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24ZM26.1014 21.2149L32.7316 15.2706L14.4413 11.6125L26.1014 21.2149ZM35.0672 13.7646C34.9557 13.6994 34.8298 13.6506 34.6908 13.6228L11.706 9.02585C11.1479 8.91424 10.6909 9.17665 10.4502 9.57042C10.0728 9.87477 9.86981 10.396 10.0925 10.9501L22.4961 41.8149C22.812 42.6009 23.7011 42.7469 24.2811 42.3681C24.5174 42.3121 24.7439 42.1791 24.9273 41.9546L41.6796 21.4474C41.9048 21.1717 41.9816 20.8526 41.9453 20.553C42.0387 20.1556 41.9351 19.7107 41.5816 19.3908L35.6909 14.0611C35.5104 13.8978 35.2927 13.799 35.0672 13.7646ZM34.8833 16.0275L29.2389 21.0881L38.9707 19.7256L34.8833 16.0275ZM13.1172 13.1131L25.0686 22.9554L23.1715 38.132L13.1172 13.1131ZM38.8388 21.7637L25.1724 38.4932L27.0279 23.4171L38.8388 21.7637Z"
           fill="white"
         ></path>
@@ -8737,14 +8739,14 @@ export default function Promotion(){
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M11.625 13.8957C8.5184 13.8957 6 16.3978 6 19.4843V36.2501C6 39.3366 8.5184 41.8387 11.625 41.8387H36.375C39.4816 41.8387 42 39.3366 42 36.2501V19.4843C42 16.3978 39.4816 13.8957 36.375 13.8957H11.625ZM14.4375 16.1312C11.3309 16.1312 8.8125 18.6333 8.8125 21.7198V34.0147C8.8125 37.1012 11.3309 39.6033 14.4375 39.6033H33.5625C36.6691 39.6033 39.1875 37.1012 39.1875 34.0147V21.7198C39.1875 18.6333 36.6691 16.1312 33.5625 16.1312H14.4375Z"
           fill="currentColor"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M16.8065 17.8086C13.5996 17.8086 11 20.4082 11 23.615V32.1211C11 35.3279 13.5996 37.9275 16.8065 37.9275H31.0685C34.2754 37.9275 36.875 35.3279 36.875 32.1211V23.615C36.875 20.4082 34.2754 17.8086 31.0685 17.8086H16.8065ZM27.3776 29.5791C28.8784 28.6765 28.8784 26.5008 27.3776 25.5982L23.5195 23.2782C21.9715 22.3473 20 23.4623 20 25.2686L20 29.9087C20 31.715 21.9715 32.83 23.5195 31.8991L27.3776 29.5791Z"
           fill="currentColor"
         ></path>
@@ -8761,7 +8763,7 @@ export default function Promotion(){
           r="9.4"
           fill="white"
           stroke="var(--main-color)"
-          stroke-width="1.2"
+          strokeWidth="1.2"
         ></circle>
         <circle cx="10" cy="10" r="5" fill="var(--main-color)"></circle>
       </symbol>
@@ -8777,7 +8779,7 @@ export default function Promotion(){
           r="9.4"
           fill="white"
           stroke="var(--main-color)"
-          stroke-width="1.2"
+          strokeWidth="1.2"
         ></circle>
         <circle cx="10" cy="10" r="5" fill="var(--main-color)"></circle>
       </symbol>
@@ -8800,8 +8802,8 @@ export default function Promotion(){
             y2="39.1333"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#F84948"></stop>
-            <stop offset="1" stop-color="#FF7857"></stop>
+            <stop stopColor="#F84948"></stop>
+            <stop offset="1" stopColor="#FF7857"></stop>
           </linearGradient>
         </defs>
       </symbol>
@@ -8823,8 +8825,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M29.7208 7.00916C26.5966 3.88497 21.5313 3.88497 18.4071 7.00916L12.1304 13.2858H14.1409C14.9937 13.2858 15.7612 13.6269 17.1256 14.9913L23.5214 21.3871H24.8006L31.1964 14.9913C31.7649 14.4228 33.1577 13.2858 34.1811 13.2858H35.9974L29.7208 7.00916ZM37.703 14.9913H34.1811C33.8968 15.1335 33.1577 15.5883 32.4755 16.2705C32.2177 16.5284 31.505 17.1801 30.6183 17.991C29.1592 19.3254 27.229 21.0906 26.0797 22.2399C25.6533 22.6663 25.2269 23.0927 23.9478 23.0927C23.095 23.0927 22.2422 22.6663 21.8158 22.2399L15.8464 15.8441C15.4201 15.4177 14.7063 14.9913 13.7145 14.9913H10.4249L7.00623 18.41C3.88204 21.5342 3.88204 26.5995 7.00623 29.7237L10.1821 32.8996H13.7145C14.7063 32.8996 15.4201 32.4732 15.8464 32.0468L21.8158 25.651C22.2422 25.2246 23.095 24.7982 23.9478 24.7982C25.2269 24.7982 25.6533 25.2246 26.0797 25.651C27.229 26.8003 29.1592 28.5655 30.6183 29.8999L30.6184 29.9C31.505 30.7108 32.2177 31.3626 32.4755 31.6204C33.1577 32.3026 33.8968 32.7574 34.1811 32.8996H37.9458L41.1216 29.7237C44.2458 26.5995 44.2458 21.5342 41.1216 18.41L37.703 14.9913ZM36.2402 34.6051H34.1811C33.1577 34.6051 31.7649 33.4681 31.1964 32.8996L24.8006 26.5038H23.5214L17.1256 32.8996C15.7612 34.264 14.9937 34.6051 14.1409 34.6051H11.8876L18.4071 41.1246C21.5313 44.2488 26.5966 44.2488 29.7208 41.1246L36.2402 34.6051Z"
           fill="#37B4AA"
         ></path>
@@ -8836,8 +8838,8 @@ export default function Promotion(){
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24ZM26.1014 21.2149L32.7316 15.2706L14.4413 11.6125L26.1014 21.2149ZM35.0672 13.7646C34.9557 13.6994 34.8298 13.6506 34.6908 13.6228L11.706 9.02585C11.1479 8.91424 10.6909 9.17665 10.4502 9.57042C10.0728 9.87477 9.86981 10.396 10.0925 10.9501L22.4961 41.8149C22.812 42.6009 23.7011 42.7469 24.2811 42.3681C24.5174 42.3121 24.7439 42.1791 24.9273 41.9546L41.6796 21.4474C41.9048 21.1717 41.9816 20.8526 41.9453 20.553C42.0387 20.1556 41.9351 19.7107 41.5816 19.3908L35.6909 14.0611C35.5104 13.8978 35.2927 13.799 35.0672 13.7646ZM34.8833 16.0275L29.2389 21.0881L38.9707 19.7256L34.8833 16.0275ZM13.1172 13.1131L25.0686 22.9554L23.1715 38.132L13.1172 13.1131ZM38.8388 21.7637L25.1724 38.4932L27.0279 23.4171L38.8388 21.7637Z"
           fill="#221F2E"
         ></path>
@@ -8858,16 +8860,16 @@ export default function Promotion(){
         <path
           d="M3 23C3 17.016 6.526 12.836 12.0085 12.132C12.5675 12.044 13.148 12 13.75 12H35.25C35.809 12 36.3465 12.022 36.8625 12.11C42.4095 12.77 46 16.972 46 23V34C46 40.6 41.7 45 35.25 45H13.75C7.3 45 3 40.6 3 34V31.822"
           stroke="currentColor"
-          stroke-width="3.2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M46 23.7241H39.548C37.1822 23.7241 35.2466 25.5862 35.2466 27.8621C35.2466 30.1379 37.1822 32 39.548 32H46M37 12C36.4838 11.9172 35.8058 12 35.2466 12H14C13.3978 12 12.5592 11.9172 12 12C12 12 12.7312 11.3517 13.2474 10.8551L20.2371 4.11027C21.6566 2.75836 23.5733 2 25.5708 2C27.5682 2 29.4849 2.75836 30.9044 4.11027L34.6681 7.77235C36.0445 9.0758 39.548 12 37 12Z"
           stroke="currentColor"
-          stroke-width="3.2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -8892,10 +8894,10 @@ export default function Promotion(){
         viewBox="0 0 36 36"
         fill="none"
       >
-        <g clip-path="url(#clip0_2123_4419)">
+        <g clipPath="url(#clip0_2123_4419)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M13.4844 8.97668L23.8363 3L27.2956 8.99168L13.4844 8.97668Z"
             fill="#80849C"
           ></path>
@@ -8904,8 +8906,8 @@ export default function Promotion(){
             fill="#001534"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M33.5625 25.5H27C24.8254 25.5 23.0625 23.8211 23.0625 21.75C23.0625 19.679 24.8254 18 27 18H33.5625V25.5ZM26.3848 22.75C27.0061 22.75 27.5098 22.2463 27.5098 21.625C27.5098 21.0037 27.0061 20.5 26.3848 20.5C25.7634 20.5 25.2598 21.0037 25.2598 21.625C25.2598 22.2463 25.7634 22.75 26.3848 22.75Z"
             fill="#80849C"
           ></path>
@@ -8936,23 +8938,23 @@ export default function Promotion(){
         <path
           d="M5.82031 6.72656V13.9993H13.0931"
           stroke="var(--text_color_L1)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C16.598 4 10.1351 8.02111 6.67677 13.9981"
           stroke="var(--text_color_L1)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
         <path
           d="M24.0012 12L24 24.0088L32.4794 32.4882"
           stroke="var(--text_color_L1)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </symbol>
       <symbol
@@ -8999,22 +9001,22 @@ export default function Promotion(){
         ></path>
         <path
           opacity="0.4"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M0.398438 7.00039C0.398438 6.11673 1.11478 5.40039 1.99844 5.40039H9.99844C10.8821 5.40039 11.5984 6.11673 11.5984 7.00039V17.0004C11.5984 17.884 10.8821 18.6004 9.99844 18.6004C4.96038 18.6004 0.398438 14.388 0.398438 7.00039ZM3.68806 8.60039C4.1374 12.4509 6.21008 14.5052 8.39844 15.1627V8.60039H3.68806Z"
           fill="var(--main-color)"
         ></path>
         <path
           opacity="0.4"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M32.3984 7.00039C32.3984 6.11673 33.1148 5.40039 33.9984 5.40039H41.9984C42.8821 5.40039 43.5984 6.11673 43.5984 7.00039C43.5984 14.388 39.0365 18.6004 33.9984 18.6004C33.1148 18.6004 32.3984 17.884 32.3984 17.0004V7.00039ZM35.5984 8.60039V15.1627C37.7868 14.5052 39.8595 12.4509 40.3088 8.60039H35.5984Z"
           fill="var(--main-color)"
         ></path>
         <path
           opacity="0.4"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M21.9984 24.8008C22.8821 24.8008 23.5984 25.6763 23.5984 26.7563V31.6452C23.5984 32.7252 22.8821 33.6008 21.9984 33.6008C21.1148 33.6008 20.3984 32.7252 20.3984 31.6452V26.7563C20.3984 25.6763 21.1148 24.8008 21.9984 24.8008Z"
           fill="var(--main-color)"
         ></path>
@@ -9066,8 +9068,8 @@ export default function Promotion(){
       >
         <path
           opacity="0.4"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M42.7953 28.0008V11.2008C42.7953 5.50158 39.3217 1.52876 33.9553 0.904761C33.4561 0.821561 32.9361 0.800781 32.3953 0.800781H11.5953C11.0129 0.800781 10.4513 0.842381 9.91051 0.925581C4.60651 1.59118 1.19531 5.54318 1.19531 11.2008V13.951C2.85213 11.8076 5.63808 10.4008 8.7957 10.4008C11.3434 10.4008 13.6363 11.308 15.3065 12.7768C16.9625 14.26 17.9957 16.2902 17.9957 18.5366V25.7366V31.0647C17.9957 34.2959 15.8653 37.0877 12.7787 38.4008H32.3953C38.6353 38.4008 42.7953 34.2408 42.7953 28.0008Z"
           fill="var(--main-color)"
         ></path>
@@ -9128,8 +9130,8 @@ export default function Promotion(){
         </mask>
         <g mask="url(#mask0_6140_40993)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M14.4705 6.99197C11.2079 8.0478 7.80195 7.39064 5.22541 5.51765C2.65115 8.15702 0.943046 11.5424 0.351307 15.184C3.24189 16.2447 5.63314 18.5757 6.65472 21.7324C7.6762 24.8888 7.10417 28.1786 5.38322 30.7317C8.31981 33.6583 12.2092 35.4967 16.3564 35.8918C17.627 33.7355 19.661 32.0177 22.2295 31.1865C24.8181 30.3488 27.4945 30.5589 29.7997 31.5825C32.9641 28.833 35.0645 25.0476 35.7397 20.9331C33.0138 19.7686 30.7873 17.4755 29.8028 14.4338C28.7996 11.3337 29.2977 8.10784 30.8953 5.54284C28.2573 2.83606 24.8169 1.02579 21.0991 0.380288C20.1085 3.40788 17.7332 5.93614 14.4705 6.99197ZM22.0728 29.9093C27.8105 28.0525 30.9566 21.8958 29.0998 16.158C27.243 10.4202 21.0863 7.27415 15.3485 9.13101C9.61072 10.9879 6.46464 17.1445 8.3215 22.8823C10.1784 28.62 16.335 31.7661 22.0728 29.9093Z"
             fill="var(--main-color)"
           ></path>
@@ -9142,8 +9144,8 @@ export default function Promotion(){
             fill="var(--main-color)"
           ></path>
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M21.4489 27.9791C26.1208 26.4673 28.6824 21.4544 27.1705 16.7825C25.6586 12.1106 20.6457 9.54899 15.9739 11.0608C11.302 12.5727 8.74029 17.5857 10.2522 22.2575C11.7641 26.9294 16.777 29.4911 21.4489 27.9791ZM18.1012 26.3326C18.8904 26.3974 19.7311 26.2853 20.6234 25.9965C21.5159 25.7077 22.261 25.3066 22.8588 24.793C23.4591 24.2743 23.8745 23.6982 24.1047 23.0647C24.335 22.431 24.3483 21.793 24.1446 21.1504C23.9807 20.6571 23.716 20.2413 23.3504 19.903C22.9874 19.5596 22.5665 19.3138 22.0875 19.1658C21.6112 19.0126 21.123 18.9743 20.6227 19.0509L20.5965 18.9697C21.1772 18.6409 21.5878 18.1688 21.8282 17.5532C22.0686 16.9377 22.085 16.3029 21.8776 15.6487C21.6762 15.0396 21.3183 14.5536 20.8041 14.1909C20.2885 13.8242 19.6709 13.6037 18.9512 13.5294C18.2353 13.4537 17.4775 13.5453 16.6778 13.8041C15.8781 14.0629 15.2084 14.4332 14.6687 14.9152C14.1316 15.392 13.7617 15.9301 13.5586 16.5292C13.3543 17.1245 13.3516 17.7293 13.5504 18.3435C13.7605 18.9926 14.1419 19.4986 14.6947 19.8617C15.2463 20.221 15.8595 20.3619 16.5343 20.2843L16.5605 20.3655C16.1026 20.599 15.7237 20.918 15.4235 21.3224C15.1221 21.723 14.9249 22.1688 14.8319 22.6597C14.7417 23.1456 14.7766 23.6358 14.9366 24.1303C15.1441 24.7716 15.5268 25.2815 16.0846 25.66C16.6425 26.0386 17.3146 26.2628 18.1012 26.3326Z"
             fill="var(--main-color)"
           ></path>
@@ -9172,8 +9174,8 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M44.3345 2.47059C44.3345 2.57115 44.3284 2.67032 44.3166 2.76773C45.1351 3.5954 45.7981 4.81163 46.551 6.86283C47.3071 8.92275 47.4185 11.2382 47.3249 13.112C47.4636 13.6175 47.5791 14.1858 47.6596 14.8235V16.4706V18.1176C47.6596 21.1373 45.997 23.0588 45.997 23.0588C45.997 23.0588 45.178 23.8702 44.3529 24.1507C43.2807 27.1286 41.7029 28 41.0047 28H32.4196C32.4196 28 34.3592 26.6275 34.3592 16.4706C34.3592 6.31373 32.1425 4.94118 32.1425 4.94118H41.0047C41.7436 4.94116 43.4678 5.9172 44.5351 9.33333H44.8887C44.8887 9.33333 45.1166 9.44625 45.4446 9.74449C45.0423 8.04228 43.024 5.39015 42.1176 4.94115L42.112 4.93551L42.1045 4.92751C42.0178 4.93655 41.9298 4.94118 41.8407 4.94118C40.4634 4.94118 39.3469 3.83506 39.3469 2.47059C39.3469 1.10612 40.4634 0 41.8407 0C43.218 0 44.3345 1.10612 44.3345 2.47059ZM3.19266 24.1086C2.40779 23.7971 1.66254 23.0588 1.66254 23.0588C1.66254 23.0588 0 21.1373 0 18.1176V16.4706V14.8235C0.554181 10.4314 2.77091 9.33333 2.77091 9.33333H3.1877C3.72876 7.67702 4.54266 6.24839 5.73962 5.4199C6.2972 5.03397 6.97712 4.94118 7.6573 4.94118H15.7942C15.7942 4.94118 13.3003 5.61029 13.3003 16.4706C13.3003 27.3309 15.5171 28 15.5171 28H7.65711C6.97693 28 6.30146 27.9043 5.72691 27.5436C4.54065 26.799 3.73188 25.6083 3.19266 24.1086ZM14.1316 16.4706C14.1316 6.03922 16.3483 4.94118 16.3483 4.94118H31.4844C31.4844 4.94118 33.7011 6.03922 33.7011 16.4706C33.7011 26.902 31.5883 28 31.5883 28H16.0713C16.0713 28 14.1316 26.902 14.1316 16.4706ZM16.6658 8.80903C16.9429 8.53452 18.4295 8.87954 19.1595 9.35812C19.2651 9.42735 19.4042 9.32089 19.6288 9.1489C19.997 8.86693 20.5952 8.40882 21.6533 8.26001C22.4623 8.14623 23.9874 8.44527 25.3594 8.71431C26.3399 8.90656 27.2422 9.0835 27.7493 9.08354C28.9129 9.08364 29.758 8.77365 30.2448 8.53435C30.6653 8.32764 30.9773 9.29816 31.234 10.0966L31.2341 10.0967L31.2341 10.0968C31.2745 10.2226 31.3136 10.3441 31.3515 10.4561C31.5467 11.0326 31.3319 11.4747 31.091 11.9706C30.9879 12.183 30.8799 12.4053 30.7973 12.6522C30.613 13.203 30.1752 13.9704 29.789 14.6474L29.7889 14.6474L29.7888 14.6476C29.5978 14.9824 29.4195 15.295 29.2906 15.5484C29.2026 15.7216 29.1039 15.9059 28.9999 16.1003L28.9999 16.1003C28.5289 16.9802 27.9487 18.0643 27.7493 19.2404L27.7379 19.3079C27.5295 20.536 27.3821 21.4051 27.6211 23.7554C27.6211 23.8537 27.6236 23.9412 27.6259 24.0181C27.6346 24.3158 27.6387 24.456 27.4722 24.4561C26.4988 24.4567 22.2316 24.4577 20.4469 24.4561C20.2909 24.4559 20.2772 24.0312 20.2706 23.8259L20.2695 23.7923C20.269 23.7783 20.2685 23.7659 20.2679 23.7554C19.9924 18.6912 24.1488 14.5736 26.9181 12.9267C27.4493 12.6108 27.1952 12.6522 27.1952 12.6522C27.1952 12.6522 25.5326 13.4757 24.4242 13.4757C23.5301 13.4757 22.6857 13.1532 21.9679 12.8791C21.3511 12.6435 20.8278 12.4436 20.4469 12.5149C19.7137 12.6522 19.7137 13.4757 19.9908 13.7502C20.0966 13.8551 20.1882 13.9411 20.2664 14.0147C20.3929 14.1336 20.4844 14.2197 20.545 14.2992C20.6869 14.4856 20.1979 15.2068 19.7137 15.3973C19.2295 15.5877 17.4985 15.9463 16.9428 14.8482C16.3171 13.3992 16.7617 12.3209 17.0179 11.6997C17.1014 11.4971 17.1649 11.3431 17.1647 11.2407C17.1645 11.1684 17.1844 11.0557 17.2078 10.9226C17.2628 10.6105 17.3375 10.1863 17.2207 9.90707C17.0687 9.45625 16.8728 9.21365 16.7507 9.06248C16.6497 8.93749 16.5993 8.87501 16.6658 8.80903ZM37.3923 12.6867C37.0097 12.4275 36.2306 12.2407 36.0854 12.3894C36.0505 12.4251 36.0769 12.4589 36.1298 12.5266C36.1938 12.6085 36.2965 12.7398 36.3762 12.984C36.4374 13.1352 36.3982 13.3649 36.3694 13.5339C36.3571 13.606 36.3467 13.667 36.3468 13.7062C36.3469 13.7616 36.3136 13.845 36.2699 13.9547C36.1356 14.2911 35.9026 14.875 36.2305 15.6597C36.5218 16.2543 37.429 16.0601 37.6828 15.957C37.9366 15.8538 38.1928 15.4633 38.1184 15.3624C38.0867 15.3193 38.0387 15.2727 37.9724 15.2083L37.9724 15.2083L37.9723 15.2081C37.9313 15.1683 37.8834 15.1218 37.828 15.0651C37.6828 14.9164 37.6828 14.4705 38.0671 14.3961C38.2667 14.3575 38.5409 14.4658 38.8642 14.5933C39.2404 14.7418 39.683 14.9164 40.1516 14.9164C40.7325 14.9164 41.6038 14.4705 41.6038 14.4705C41.6038 14.4705 41.737 14.448 41.4586 14.6191C40.0072 15.5109 37.8289 17.7407 37.9732 20.483C37.9737 20.4929 37.9741 20.5059 37.9746 20.5212C37.9781 20.6324 37.9853 20.8624 38.0671 20.8625C39.0024 20.8633 41.2389 20.8628 41.749 20.8625C41.8363 20.8624 41.8341 20.7865 41.8296 20.6253C41.8284 20.5836 41.8271 20.5363 41.8271 20.483C41.7018 19.2103 41.7791 18.7397 41.8883 18.0746L41.8943 18.0381C41.9987 17.4012 42.3029 16.8141 42.5497 16.3377L42.5498 16.3375C42.6043 16.2323 42.656 16.1325 42.7021 16.0388C42.7696 15.9016 42.8631 15.7322 42.9633 15.5509C43.1657 15.1843 43.3951 14.7688 43.4917 14.4705C43.535 14.3368 43.5916 14.2164 43.6457 14.1014C43.7719 13.8329 43.8845 13.5934 43.7822 13.2813C43.7623 13.2206 43.7418 13.1548 43.7207 13.0867L43.7206 13.0866C43.5861 12.6542 43.4225 12.1287 43.2021 12.2406C42.947 12.3702 42.5041 12.5381 41.8943 12.538C41.6285 12.538 41.1556 12.4422 40.6417 12.3381C39.9226 12.1924 39.1233 12.0304 38.6993 12.0921C38.1448 12.1726 37.8312 12.4207 37.6383 12.5734C37.5205 12.6665 37.4477 12.7242 37.3923 12.6867ZM3.9429 12.3891C4.08813 12.2405 4.86726 12.4273 5.24985 12.6865C5.30519 12.724 5.37806 12.6663 5.49577 12.5732C5.68877 12.4205 6.00231 12.1724 6.55686 12.0918C6.98086 12.0302 7.78014 12.1922 8.49924 12.3378C9.01309 12.442 9.48601 12.5378 9.75179 12.5378C10.3616 12.5378 10.8045 12.37 11.0597 12.2404C11.2801 12.1285 11.4436 12.654 11.5781 13.0864C11.5993 13.1545 11.6198 13.2204 11.6397 13.281C11.742 13.5932 11.6294 13.8326 11.5032 14.1012C11.4491 14.2162 11.3925 14.3366 11.3493 14.4703C11.2527 14.7686 11.0232 15.1841 10.8208 15.5507C10.7207 15.732 10.6271 15.9014 10.5596 16.0386C10.5134 16.1324 10.4617 16.2322 10.4072 16.3375C10.1604 16.8139 9.85626 17.401 9.75179 18.0379L9.7458 18.0744C9.6366 18.7394 9.55932 19.2101 9.68458 20.4828C9.68458 20.536 9.68592 20.5834 9.6871 20.6251C9.69166 20.7863 9.69381 20.8622 9.60657 20.8622C9.09638 20.8625 6.85993 20.8631 5.92459 20.8622C5.84282 20.8622 5.83563 20.6322 5.83215 20.521C5.83167 20.5057 5.83126 20.4927 5.83074 20.4828C5.68638 17.7405 7.86474 15.5107 9.31612 14.6189C9.59454 14.4478 9.46135 14.4703 9.46135 14.4703C9.46135 14.4703 8.59 14.9162 8.00911 14.9162C7.54049 14.9162 7.09793 14.7416 6.72175 14.5931C6.39846 14.4655 6.1242 14.3573 5.92459 14.3959C5.5403 14.4703 5.5403 14.9162 5.68552 15.0649C5.74099 15.1216 5.78896 15.1682 5.82994 15.2081C5.89624 15.2725 5.94421 15.3191 5.97597 15.3622C6.05037 15.4631 5.79407 15.8536 5.5403 15.9568C5.28652 16.0599 4.37932 16.2541 4.08805 15.6595C3.76014 14.8748 3.99315 14.2909 4.12739 13.9545C4.17117 13.8448 4.20444 13.7614 4.20433 13.7059C4.20426 13.6668 4.21466 13.6057 4.22695 13.5336C4.25575 13.3647 4.2949 13.1349 4.23368 12.9837C4.15404 12.7396 4.05135 12.6082 3.98735 12.5264C3.93445 12.4587 3.908 12.4249 3.9429 12.3891Z"
           fill="var(--main-color)"
         ></path>
@@ -9193,14 +9195,14 @@ export default function Promotion(){
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M5.625 6.89572C2.5184 6.89572 0 9.39782 0 12.4843V29.2501C0 32.3366 2.5184 34.8387 5.625 34.8387H30.375C33.4816 34.8387 36 32.3366 36 29.2501V12.4843C36 9.39782 33.4816 6.89572 30.375 6.89572H5.625ZM8.4375 9.13116C5.3309 9.13116 2.8125 11.6333 2.8125 14.7198V27.0147C2.8125 30.1012 5.3309 32.6033 8.4375 32.6033H27.5625C30.6691 32.6033 33.1875 30.1012 33.1875 27.0147V14.7198C33.1875 11.6333 30.6691 9.13116 27.5625 9.13116H8.4375Z"
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M10.8065 10.8086C7.59964 10.8086 5 13.4082 5 16.615V25.1211C5 28.3279 7.59964 30.9275 10.8065 30.9275H25.0685C28.2754 30.9275 30.875 28.3279 30.875 25.1211V16.615C30.875 13.4082 28.2754 10.8086 25.0685 10.8086H10.8065ZM21.3776 22.5791C22.8784 21.6765 22.8784 19.5008 21.3776 18.5982L17.5195 16.2782C15.9715 15.3473 14 16.4623 14 18.2686L14 22.9087C14 24.715 15.9715 25.83 17.5195 24.8991L21.3776 22.5791Z"
           fill="var(--main-color)"
         ></path>
@@ -9212,8 +9214,8 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M30.5806 40.7597C28.5426 41.5603 26.3231 42 24.001 42C21.7102 42 19.5195 41.5721 17.5042 40.792C17.6913 40.662 17.8138 40.4454 17.8138 40.2003V33.5959L19.7803 30.9395H28.3478L30.314 33.5954V40.2003C30.314 40.4261 30.418 40.6276 30.5806 40.7597ZM31.7524 40.2503C34.6556 38.8631 37.1289 36.721 38.9182 34.0779H31.7541V40.2003C31.7541 40.2171 31.7535 40.2338 31.7524 40.2503ZM39.662 32.881C41.1105 30.3324 41.9547 27.3956 42 24.2655C41.7916 24.3842 41.5286 24.3963 41.3018 24.2744L34.8635 20.8138L31.6365 22.1216L29.4966 30.0707L31.3971 32.6379H39.1226C39.3373 32.6379 39.53 32.7319 39.662 32.881ZM41.9747 23.0012C41.7722 19.3 40.4516 15.8965 38.3447 13.1228L35.8071 19.6861L41.9747 23.0012ZM37.5377 12.1348C37.3058 12.1824 37.1021 12.3434 37.0104 12.5806L34.347 19.4692L31.1511 20.7644L24.7839 15.7471V12.5488L31.2539 8.03058C31.3927 7.93365 31.4868 7.79662 31.5316 7.64606C33.8387 8.71009 35.8824 10.2479 37.5377 12.1348ZM30.1194 7.06644L24.0712 11.29L18.1178 6.98328C19.9614 6.34608 21.9407 6 24.001 6C26.1491 6 28.2093 6.37625 30.1194 7.06644ZM16.8033 7.49658C14.47 8.51553 12.3945 10.0148 10.7017 11.8693C10.83 11.9491 10.9343 12.0699 10.9927 12.2217L13.7812 19.4693L16.9767 20.7642L23.3438 15.7471V12.5412L17.0991 8.02363C16.921 7.89482 16.8193 7.69973 16.8033 7.49658ZM9.74989 13.0018C7.6931 15.6627 6.36507 18.9155 6.06486 22.4612L12.3052 19.6434L9.74989 13.0018ZM6 24.0004C6.00007 27.1542 6.81127 30.1185 8.23638 32.6962C8.32358 32.6587 8.41968 32.6379 8.52062 32.6379H16.7308L18.6317 30.0703L16.4919 22.1218L13.2369 20.8027L6.29682 23.9364C6.20036 23.98 6.09937 24.0005 6 24.0004ZM9.08373 34.0779C10.9003 36.7612 13.4219 38.9283 16.3825 40.3132C16.3767 40.2764 16.3737 40.2387 16.3737 40.2003V34.0779H9.08373ZM28.159 29.4995L30.2154 21.8604L24.0638 17.0131L17.9128 21.86L19.9693 29.4995H28.159Z"
           fill="var(--main-color)"
         ></path>
@@ -9232,8 +9234,8 @@ export default function Promotion(){
           stroke="var(--main-color)"
         ></ellipse>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M24 41.8538C33.9411 41.8538 42 33.8626 42 24.005C42 14.1474 33.9411 6.15625 24 6.15625C14.0589 6.15625 6 14.1474 6 24.005C6 33.8626 14.0589 41.8538 24 41.8538ZM27.695 20.2582C29.1348 21.6473 30.605 23.0657 30.9686 24.2357C31.8261 26.9953 30.214 29.1047 27.5731 29.1047C26.3543 29.1047 25.5007 28.5988 24.9348 28.0538C24.8988 28.3954 24.9022 28.8583 25.0286 29.3597C25.2343 30.1757 25.8001 30.8896 26.0572 31.1446V31.6546H21.9429V31.1446C22.2001 30.8896 22.6806 30.2252 22.9715 29.3597C23.1357 28.8713 23.1601 28.383 23.1117 28.0273C22.5608 28.5822 21.7345 29.1047 20.5764 29.1047C18.107 29.1047 16.0833 27.1281 17.0437 24.2357C17.4482 23.0175 18.9112 21.6047 20.3334 20.2313C20.6173 19.9571 20.8996 19.6846 21.1715 19.4154C22.613 17.9885 23.7554 16.6492 23.9699 16.3978C23.9935 16.3701 24.0058 16.3556 24.0061 16.3556C24.0064 16.3556 24.0181 16.3694 24.0404 16.3959C24.2493 16.6429 25.3886 17.9907 26.8286 19.4154C27.1097 19.6935 27.4019 19.9754 27.695 20.2582Z"
           fill="var(--main-color)"
         ></path>
@@ -9271,8 +9273,8 @@ export default function Promotion(){
           height="26"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M23.9978 36.7541C31.0986 36.7541 36.8549 31.0461 36.8549 24.005C36.8549 16.9638 31.0986 11.2559 23.9978 11.2559C16.897 11.2559 11.1406 16.9638 11.1406 24.005C11.1406 31.0461 16.897 36.7541 23.9978 36.7541ZM23.9978 35.7342C30.5305 35.7342 35.8263 30.4828 35.8263 24.005C35.8263 17.5271 30.5305 12.2758 23.9978 12.2758C17.465 12.2758 12.1692 17.5271 12.1692 24.005C12.1692 30.4828 17.465 35.7342 23.9978 35.7342Z"
             fill="white"
           ></path>
@@ -9351,14 +9353,14 @@ export default function Promotion(){
         fill="none"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M17 7H31V10C31 11.1046 31.8954 12 33 12C34.1046 12 35 11.1046 35 10V7H39C41.2091 7 43 8.79086 43 11V16H5V11C5 8.79086 6.79086 7 9 7H13V10C13 11.1046 13.8954 12 15 12C16.1046 12 17 11.1046 17 10V7ZM5 18V39C5 41.2091 6.79086 43 9 43H39C41.2091 43 43 41.2091 43 39V18H5Z"
           fill="var(--main-color)"
         ></path>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M32.6961 24.2821C33.0926 24.6666 33.1024 25.2997 32.7179 25.6961L22.0512 36.6961C21.8629 36.8904 21.6039 37 21.3333 37C21.0628 37 20.8038 36.8904 20.6154 36.6961L15.2821 31.1961C14.8976 30.7997 14.9074 30.1666 15.3039 29.7821C15.7003 29.3976 16.3334 29.4074 16.7179 29.8039L21.3333 32.5635L31.2821 24.3039C31.6666 23.9074 32.2997 23.8976 32.6961 24.2821Z"
           fill="#221F2E"
         ></path>
@@ -9400,7 +9402,7 @@ export default function Promotion(){
                   href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIBAMAAABfdrOtAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAHlBMVEVHcEy/GyDCGiHCGiDBGiHBGiLBGiG/GyC/HCDBGiEYgX5lAAAACXRSTlMAFupex4emMEAHMN8rAAAEw0lEQVR42u1cy1ITQRTtYTKZsAsQLLODUsDeoVWC2YGSSHYC8ZEdolU6Owopq9gpisJOhwS5f2vPDENek2QefW5ZyF0BReZM9z3nPjrdLURimxJwM+p0Dw5SIqJl9ECaCmQO93z7pLFBvv1BjeDkPV3bJQbicZ267DcC4ySAcGsvT3+W1Q+7+iHMPR+huhr8RtQqasf4IRVEa+f6wbM17Qw2tr1RvCsiZVFwFMbCPlR6pvK4+xorb1O542IZj7FQxGIUFAY64Np1PIYXbuGJ4xEDhspNbbDPPWK10BiGQy46x4pjoi00hsXgdFX1XKAdIg7wRY/HrCV4+VbBs1fkIYVCnzl0LvADwctQ0Rfv9RK5+wweWWfwCJ6+aiDzcAyLwyMVBmrZHAOZZhC7EuIyA38vBIPb8UK0pYsXYonB7aJJL+AYBWoJBpEsccwWXiQ2x2zlMCsm/UrEc8uQLn4gFmgRq8fKtIYHcQgftwyOKJ/nIHCZgcDCcW+ISywOl0wzNFcqcOGLOlFnCPM2RwmRR35ZEdoEhxRZ/O4wJCyDw+8mh97zHFmRhVxHHORqMpBL1BmSieBgcIGDwRZHeMxzpEUWmZTpCx7kjKEM5tGi0+IQfJsBRDIIXnA0cjZsX0UPyC+O+MgAYnJk+JsDYnFEeosj0t+CxLXDIh7EkGt4kCCg3IL8SyCmX5+CY5flP/4mgUCL+pwf5ME5Pufzysb2QBPBNybYumsy6BmwLWM56N+xtfAZBVU9tMO+akya0NbhqjGpEENjcgTtGa9oNYn87i/sGXLI6s68iicWMkKGC3bQtZVwJQK6zlkOHY6UfCVciUCuFlwvElSA6x6y3T9vCJlcXtMMJpTOgh1whbsjdOB3NF2ewK3ZNjucwtFLXkQNSje5zruiGKi+636wiaqKprs7BgnyfI+zmyDPy1YPnSGNUKFHgHnM9sdcD6EKGM2f9U5QHZJS+vYrVBByNKjdl+/nEFKc7yuPzuEu8ZyiXykDzzzTrxST2gOU1p4dJwbEZ+vfuRKxiU/7vj5DtiKi8rxuAl/GcFPmMB9RaNX1NlxG5HZazfOVj5S3pXe+KtFlqdbN1caQzcda5ys3JBiaOnenDt187Oir7s2hZyY07q8+GLr52Ja6tn0YcjiJtB11KI2Qg6Xr9MlI72o6RzP6qExOD4ubIxVn1HWw2BxzwqSkI0GO449i8W72gYwLggfZh1IZq2k1lPWs1BofzQ+yaiXOAb+sh+finYtT/5Uh2dvx3lENJUMwPqbWfkzPvc1A3/W4HIz3NhGz4MRWQEGmPVt8nOAw72HKCbOIHiQJo2kOmipmJdGYKdMclG4mPPl8J8WRb+WQ58k+8YhoM9kn1Hu1k5MxmfNnZQrie7dIbCXyYhquqFdztxJgpGO9muS4KDMysQs78ZjoQ8xBp8UQ4rtCeTZeLyuU6Y6Dz+rji2M4498tsykymDcRo291+eTd9PMxW1kw4z1jcSg5Cw2iBCQcGvW82aBqZEa2V7ybfrTcLeM/iapPBiaq4V+JpOmmH3M7uGCp+uZr+Ke7314Fty4tPtTWZs7shddE3d9Q9jT8bXFV60rJTIMGrKYXwtfDSUN2ANzazr7AmDF16ttUUfyf9hdhzrd5F3WCHQAAAABJRU5ErkJggg=="
                 ></image>
               </defs>
-              <g clip-path="url(#__lottie_element_2)">
+              <g clipPath="url(#__lottie_element_2)">
                 <g
                   className="ai"
                   transform="matrix(1,0,0,1,0,0)"
@@ -9575,14 +9577,14 @@ export default function Promotion(){
         style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sans-serif'"}}
       >
         <div data-v-600663f7="" className="shareBtnContainer">
-          <button data-v-600663f7="" className="shareBtn"><a href="/promotion/invitelink.html">INVITATION LINK</a></button>
+          <button data-v-600663f7="" className="shareBtn"><a href="/promotion/PromotionShare">INVITATION LINK</a></button>
         </div>
         <div data-v-600663f7="" className="promote__cell">
           <div data-v-600663f7="" className="promote__cell-item">
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-team_partner">
                 <use href="#icon-team_partner"></use></svg
-              > <a href="/promotion/partnereward.html"><span data-v-600663f7="">Partner rewards</span></a>
+              > <a href="/promotion/TeamPartner"><span data-v-600663f7="">Partner rewards</span></a>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9611,7 +9613,7 @@ export default function Promotion(){
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-team_port">
                 <use href="#icon-team_port"></use></svg
-              > <a href="/promotion/subordinatedata.html"><span data-v-600663f7="">Subordinate data</span></a>
+              > <a href="/promotion/TeamReport"><span data-v-600663f7="">Subordinate data</span></a>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9626,7 +9628,7 @@ export default function Promotion(){
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-commission">
                 <use href="#icon-commission"></use></svg
-              > <a href="/promotion/commissiondetail.html"><span data-v-600663f7="">Commission detail</span></a>
+              > <a href="/promotion/MyCommission"><span data-v-600663f7="">Commission detail</span></a>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9641,7 +9643,7 @@ export default function Promotion(){
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-invite_reg">
                 <use href="#icon-invite_reg"></use></svg
-              > <a href="/promotion/invitationrule.html"><span data-v-600663f7="">Invitation rules</span></a>
+              > <a href="/promotion/PromotionRule"><span data-v-600663f7="">Invitation rules</span></a>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9656,7 +9658,7 @@ export default function Promotion(){
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-server">
                 <use href="#icon-server"></use></svg
-              ><a href="/promotion/agenttlineservice.html"><span data-v-600663f7="">Agent line customer service</span></a>
+              ><a href="/promotion/Server"><span data-v-600663f7="">Agent line customer service</span></a>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9671,7 +9673,7 @@ export default function Promotion(){
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-rebateRatio">
                 <use href="#icon-rebateRatio"></use></svg
-              > <a href="/promotion/rebateratio.html"><span data-v-600663f7="">Rebate ratio</span></a>
+              > <a href="/promotion/RebateRatio"><span data-v-600663f7="">Rebate ratio</span></a>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9702,7 +9704,7 @@ export default function Promotion(){
               ><span data-v-600663f7="">Total commission</span>
             </div>
           </div>
-          <div data-v-600663f7="" className="commission__body">
+          <div data-v-600663f7="" className="commission__body" style={{"marginBottom": '2rem'}}>
             <div data-v-600663f7="">
               <span data-v-600663f7="">0</span
               ><span data-v-600663f7="">direct subordinate</span>
@@ -9733,39 +9735,32 @@ export default function Promotion(){
           src="/assets/png/icon_sevice-9f0c8455.png"
         />
       </div>
-      <div
-        data-v-6ab3f23e=""
-        className="tabbar__container"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sans-serif'"}}
-      >
-        <div data-v-6ab3f23e="" className="tabbar__container-item">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-home">
-            <use href="#icon-home"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/home/index.html">Home</a></span>
+      <div data-v-6ab3f23e="" className="tabbar__container"
+            style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
+            <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
+                    className="svg-icon icon-home" onClick={()=> navigate('/index')}>
+                    <use href="#icon-home"></use>
+                </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
+                    className="svg-icon icon-activity" onClick={()=> navigate('/index')}><use href="#icon-activity"></use>
+                   
+                </svg>
+                <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
+                    className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
+                    <use href="#icon-promotion"></use>
+                </svg>
+                <div data-v-6ab3f23e="" className="promotionBg"></div>
+                <span data-v-6ab3f23e="" onClick={()=> navigate('/promotion')}>
+                    Promotion</span>
+            </div>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
+            <use href="#icon-wallet" onClick={()=> navigate('/wallet')}></use>
+                </svg><span data-v-6ab3f23e=""  onClick={()=> navigate('/wallet')}>Wallet</span></div>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-main"  onClick={()=> navigate('/account')}>
+            <use href="#icon-main"></use>
+                </svg><span data-v-6ab3f23e="" onClick={()=> navigate('/account')}>Account</span></div>
         </div>
-        <div data-v-6ab3f23e="" className="tabbar__container-item">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-activity">
-            <use href="#icon-activity"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/activity/activity.html">Activity</a></span>
-        </div>
-        <div data-v-6ab3f23e="" className="tabbar__container-item active">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-promotion">
-            <use href="#icon-promotion"></use>
-          </svg>
-          <div data-v-6ab3f23e="" className="promotionBg"></div>
-          <span data-v-6ab3f23e=""><a href="/promotion/promotion.html">Promotion</a></span>
-        </div>
-        <div data-v-6ab3f23e="" className="tabbar__container-item">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
-            <use href="#icon-wallet"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/wallet/wallet.html">Wallet</a></span>
-        </div>
-        <div data-v-6ab3f23e="" className="tabbar__container-item">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-main">
-            <use href="#icon-main"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/account/account.html">Account</a></span>
-        </div>
-      </div>
       
     </div>
 
@@ -9773,7 +9768,7 @@ export default function Promotion(){
     <div className="van-overlay" style={{zIndex: '2001', display: 'none'}}></div>
     <div
       role="dialog"
-      tabindex="0"
+      tabIndex="0"
       className="van-popup van-popup--center van-toast van-toast--middle van-toast--loading"
       style={{zIndex: '2001', display: 'none'}}
     >
