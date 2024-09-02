@@ -45,7 +45,9 @@ import D5 from  './pages/bet/5d/D5';
 
 import AddUSDT from './pages/wallet/AddUSDT';
 import TransAction from './pages/wallet/TransAction';
-import DepositHistory from './pages/wallet/DepositHistory';
+
+
+
 
 
 import Receive from './pages/activity/Receive';
