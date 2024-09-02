@@ -2358,7 +2358,7 @@ html:lang(ar) .Recharge__content-paymoney__money-list__item .amount span[data-v-
 }
 
 .Recharge__content-paymoney__money-list__item.active[data-v-9e03166f] {
-    background: var(--main_gradient-color);
+    background: var(--main_gradient-color2);
     border-radius: .13333rem;
     color: var(--text_color_L4);
     border: none
