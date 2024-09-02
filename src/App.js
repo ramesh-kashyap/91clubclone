@@ -49,6 +49,7 @@ import Wingo5 from  './pages/bet/wingo/Wingo5';
 import Wingo10 from  './pages/bet/wingo/Wingo10';
 import AllLotteryGames from  './pages/bet/k3/AllLotteryGames';
 
+import TransAction from './pages/account/TransAction';
 
 
 
@@ -114,6 +115,8 @@ function App() {
         <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
         <Route path="/deposit/ConfirmDeposit" element={<PrivateRoute><ConfirmDeposit/></PrivateRoute>}/>
+        <Route path="wallet/TransAction" element={<PrivateRoute><TransAction/></PrivateRoute>}/>
+
 
 
 
