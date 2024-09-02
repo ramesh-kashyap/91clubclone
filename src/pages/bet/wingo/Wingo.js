@@ -6,9 +6,12 @@ import MyGameRecordList from './components/MyGameRecordList';
 import GameList from './components/GameList';
 import ReactHowler from 'react-howler';
 import ChartList from './components/ChartList';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SOCKET_URL = 'http://localhost:3000';
+
 
 
 const socket = io(SOCKET_URL, {
@@ -49,7 +52,7 @@ export default function Wingo() {
   const [userInfo, setUserInfo] = useState(null);
     const [activeSection, setActiveSection] = useState('section1');
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+      const [error, setError] = useState(null);
     const [gamelist, setGamelist] = useState([]);
     const [myBets,setMyBets] = useState(null);
     const [last5Periods, setLast5Periods] = useState([]);
@@ -77,6 +80,12 @@ export default function Wingo() {
     const toggleVisibility = () => {
       setIsVisible(!isVisible);
     };
+
+    useEffect(() => {
+      if (error) {
+          toast.error(error); // Show the error in a toast notification
+      }
+  }, [error]);
 
     const navigate = useNavigate();
 
@@ -182,24 +191,37 @@ export default function Wingo() {
     };
     
     const [playAudio2, setPlayAudio2] = useState(false);
-    const audio1Ref = useRef(null);
-    const [audio2Played, setAudio2Played] = useState(false);
-  
-    useEffect(() => {
-      const audio1 = new Audio('/assets/audio/di1.da40b233.mp3');
-      audio1.loop = false; // Ensure audio1 does not loop
-  
-      let intervalId;
-  
-      const startCountdown = () => {
-        intervalId = setInterval(() => {
-          const now = new Date().getTime();
-          const distance = countDownDate - now;
-          const seconds1 = Math.floor((distance % (1000 * 60)) / 10000);
-          const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
-          setTime({ seconds1, seconds2 });
-  
-  
+  const audio1Ref = useRef(null);
+  const [audio2Played, setAudio2Played] = useState(false);
+  const [userInteracted, setUserInteracted] = useState(false); // New state to track user interaction
+
+  useEffect(() => {
+    const audio1 = new Audio('/assets/audio/di1.da40b233.mp3');
+    audio1.loop = false; // Ensure audio1 does not loop
+    audio1Ref.current = audio1; // Assign the audio to ref
+
+    let intervalId;
+
+    const handleUserInteraction = () => {
+      setUserInteracted(true);
+      // Remove the event listener after interaction
+      document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener('touchstart', handleUserInteraction);
+    };
+
+    // Add event listeners to detect any user interaction
+    document.addEventListener('click', handleUserInteraction);
+    document.addEventListener('touchstart', handleUserInteraction);
+
+    const startCountdown = () => {
+      intervalId = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+        const seconds1 = Math.floor((distance % (1000 * 60)) / 10000);
+        const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
+        setTime({ seconds1, seconds2 });
+
+        if (userInteracted) { // Play audio only if the user has interacted
           if (seconds1 === 0 && seconds2 > 0 && seconds2 <= 5) {
             if (audio1Ref.current && audio1Ref.current.paused) {
               audio1Ref.current.play();
@@ -210,43 +232,44 @@ export default function Wingo() {
               audio1Ref.current.currentTime = 0;
             }
           }
-  
-          if (seconds1 === 0 && seconds2 === 0) {
-            console.log('Playing audio2');
-            setPlayAudio2(true);
-            setAudio2Played(true);
-            setTimeout(() => {
-              setPlayAudio2(false); // Stop audio2 after it has finished playing
-            }, 3000); // Adjust this duration based on the length of audio2
-          }
-  
-          if (seconds1 !== 0 || seconds2 > 5) {
-            setShowMark(false);
-
-            if (audio1Ref.current) {
-              audio1Ref.current.pause();
-              audio1Ref.current.currentTime = 0;
-            }
-          }
-  
-          if (seconds1 === 0 && seconds2 <= 5) {
-            handleClosePopup();
-            setShowMark(true);
-          }
-  
-        }, 1000); // Check every second
-      };
-  
-      startCountdown();
-  
-      return () => {
-        clearInterval(intervalId); // Clean up on component unmount
-        if (audio1Ref.current) {
-          audio1Ref.current.pause();
-          audio1Ref.current.currentTime = 0;
         }
-      };
-    }, [audio2Played]);
+
+        if (seconds1 === 0 && seconds2 === 0) {
+          console.log('Playing audio2');
+          setPlayAudio2(true);
+          setAudio2Played(true);
+          setTimeout(() => {
+            setPlayAudio2(false); // Stop audio2 after it has finished playing
+          }, 3000); // Adjust this duration based on the length of audio2
+        }
+
+        if (seconds1 !== 0 || seconds2 > 5) {
+          setShowMark(false);
+
+          if (userInteracted && audio1Ref.current) { // Only pause audio if user interacted
+            audio1Ref.current.pause();
+            audio1Ref.current.currentTime = 0;
+          }
+        }
+
+        if (seconds1 === 0 && seconds2 <= 5) {
+          handleClosePopup();
+          setShowMark(true);
+        }
+
+      }, 1000); // Check every second
+    };
+
+    startCountdown();
+
+    return () => {
+      clearInterval(intervalId); // Clean up on component unmount
+      if (audio1Ref.current) {
+        audio1Ref.current.pause();
+        audio1Ref.current.currentTime = 0;
+      }
+    };
+  }, [audio2Played, userInteracted]);
 
     const fetchGamelist = async (pageNumber = 1) => {
       try {
@@ -259,7 +282,7 @@ export default function Wingo() {
           language: "vi",
         });
   
-        const { gameslist } = response.data.data;
+        const { gameslist } = response.data?response.data.data:[];
         console.log(response.data.page);
   
         // Update gamelist state
@@ -290,6 +313,22 @@ export default function Wingo() {
         console.error('An error occurred:', err);
         setError('An error occurred. Please try again.');
       } 
+    };
+
+    const fetchWingo = async () => {
+      try {
+        const response = await Api.get('/api/webapi/Wingo1');
+        const data = response.data;
+  
+        console.log('period:', data.data.data[0]);
+  
+        
+        setPeriod(data.data.data[0]?data.data.data[0].period : []); // Update state with the fetched data
+  
+      } catch (err) {
+        console.error('An error occurred:', err);
+        setError('An error occurred. Please try again.');
+      }
     };
 
     const fetchMyBets = async (pageNumber = 1) => {
@@ -323,6 +362,7 @@ export default function Wingo() {
     
     // Fetch the first page when the component mounts
     useEffect(() => {
+      fetchWingo();      
       fetchMyBets(1);
       fetchGamelist(1);
     }, []);
@@ -336,6 +376,8 @@ export default function Wingo() {
       fetchMyBets();
       fetchGamelist();
       fetchUserInfo();
+      fetchWingo();
+
 
       const handleSocketData = async (msg) => {
         console.log("Received message from server:", msg);
@@ -458,7 +500,10 @@ export default function Wingo() {
 
 
     return (
+
+      
 <div className="" style={{fontSize: '12px'}}>
+<ToastContainer />
 <svg
   xmlns="http://www.w3.org/2000/svg"
   style={{position: 'absolute', width: '0', height: '0'}}
