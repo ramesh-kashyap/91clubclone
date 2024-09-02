@@ -150,7 +150,7 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-justify-content: flex-end;
     justify-content: flex-end;
     gap: .11707rem;
-    color: var(--text4, var(--text_color_L2))
+    color: #bfbfbf;
 }
 
 .tabbar__container-item[data-v-6ab3f23e]:nth-of-type(3) {
@@ -1498,7 +1498,8 @@ textarea {
     overflow: hidden;
     text-overflow: ellipsis;
     word-wrap: break-word;
-    word-break: break-all
+    word-break: break-all;
+    color: #fff;
 }
 
 @-webkit-keyframes marquee {
@@ -1591,12 +1592,13 @@ textarea {
 }
 
 #app .lotterySlotItem {
-    background: var(--main_gradient-color)
+    background: url('../bottom-ccedfa9a.png');
+    background-position: right;
 }
 
 #app .lotterySlotItem span,
 #app .lotterySlotItem h4 {
-    color: #fff
+    color: #333;
 }
 
 #app .firstSaveDialog .header {
@@ -1671,12 +1673,12 @@ textarea {
 }
 
 :root {
-    --main-color: #f95959;
-    --main_gradient-color: linear-gradient(90deg, #f95959 0%, #ff9a8e 100%);
-    --main_gradient-color2: linear-gradient(180deg, #f95959 0%, #ff9a8e 100%);
+    --main-color: #d9ac4f;
+    --main_gradient-color: linear-gradient(90deg, #333332 0%, #333332 100%);
+    --main_gradient-color2: linear-gradient(90deg, #FAE59F 0%, #C4933F 100%);
     --light-main_gradient-color: var(--main_gradient-color);
     --text_white: #fff;
-    --light-bg_white: #fff;
+    --light-bg_white: #4D4D4C;
     --light-main-color: var(--main-color);
     --norm_red-color: #FB5B5B;
     --norm_green-color: #18B660;
@@ -1684,13 +1686,13 @@ textarea {
     --norm_Purple-color: #C86EFF;
     --norm_bule-color: #6EA8F4;
     --button_dis_color: linear-gradient(90deg, #CCCEDC 15.38%, #CDCFDD 98.73%);
-    --text_color_L1: #1E2637;
-    --text_color_L2: #768096;
+    --text_color_L1: #ffffff;
+    --text_color_L2: #A8A5A1;
     --text_color_L3: #B6BCC8;
-    --text_color_L4: #FFF;
-    --bg_color_L1: #F7F8FF;
-    --bg_color_L2: #FFF;
-    --bg_color_L3: #F6F6F6;
+    --text_color_L4: #8F5206;
+    --bg_color_L1: #242424;
+    --bg_color_L2: #333332;
+    --bg_color_L3: #4D4D4C;
     --Dividing-line_color: #E1E1E1;
     --sheet_nva_color: var(--main-color);
     --sheet_detail_bg_color: #F6F6F6;
@@ -2156,6 +2158,8 @@ html:lang(ar) .shape-2[data-v-647954c7] {
 .cg-default.van-button .van-button__icon>img[data-v-fa757a88] {
     height: 80%
 }
+
+
 
 .ar-searchbar__selector[data-v-fa757a88] {
     position: relative;

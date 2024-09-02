@@ -197,7 +197,7 @@
     letter-spacing: .016rem;
     border: none;
     border-radius: 1.06667rem;
-    background: var(--main_gradient-color)
+    background: var(--main_gradient-color2);
 }
 
 .wallet-container-content .container .recycleBtnD .recycleBtn.disable[data-v-0dabd3fc] {
@@ -236,8 +236,8 @@
 }
 
 .wallet-container-content .container .userDetail>div .imgD[data-v-0dabd3fc] {
-    width: 1.30667rem;
-    height: 1.30667rem;
+    width: 1rem;
+    height: 1.1rem;
     border-radius: .4rem;
     background: var(--bg_color_L2);
     display: -webkit-box;
@@ -1703,7 +1703,7 @@ html:lang(ar) .Recharge__container-intro__lists .item p[data-v-7cba6004]:after {
 }
 
 .Recharge__container-tabcard__items.active[data-v-4f3d8608] {
-    background: var(--main_gradient-color);
+    background: var(--main_gradient-color2);
     color: var(--text_color_L4)
 }
 
@@ -2614,7 +2614,7 @@ html:lang(ar) .Recharge__content-paymoney__money-input .place-right[data-v-9e031
 }
 
 .Recharge__content-quickInfo .item_active[data-v-9e03166f] {
-    background: var(--main_gradient-color)
+    background: var(--main_gradient-color2);
 }
 
 .Recharge__content-quickInfo .item_active div[data-v-9e03166f] {
@@ -3034,7 +3034,7 @@ html:lang(ar) .Recharge__content-paymoney__money-input .place-right[data-v-9e031
 }
 
 .rechage_active[data-v-9e03166f] {
-    background: var(--main_gradient-color);
+    background: var(--main_gradient-color2);
     color: var(--text_color_L4)
 }
 
@@ -7690,7 +7690,7 @@ html:lang(ar) .explain .input .place-div[data-v-cb5583fe]:after {
 
 .recycleBtnD button[data-v-80a607a5] {
     width: 95%;
-    background: var(--main_gradient-color);
+    background: var(--main_gradient-color2);
     border-radius: .66667rem;
     border: none;
     color: var(--text_color_L4);

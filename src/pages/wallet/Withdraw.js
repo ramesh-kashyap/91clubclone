@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export default function Withdraw() {
 
-
-  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('section1');
   const showSection = (sectionID) =>{
      setActiveSection(sectionID);
@@ -9566,19 +9563,10 @@ export default function Withdraw() {
               <div data-v-9bae072d="">
                 <img
                   data-v-9bae072d=""
-                  src="/assets/png/usdt.png"
+                  src="https://ossimg.91admin123admin.com/91club/payNameIcon/WithBeforeImgIcon_20230912183344vmsx.png"
                 />
               </div>
               <span data-v-9bae072d="">USDT</span>
-            </div>
-            <div data-v-9bae072d="" className={`${activeSection === 'section3' ? 'select' : ''}`} onClick={() => showSection('section3')}>
-              <div data-v-9bae072d="">
-                <img
-                  data-v-9bae072d=""
-                  src="/assets/png/trx.png"
-                />
-              </div>
-              <span data-v-9bae072d="">USDT BEP20</span>
             </div>
           </div>
           <div data-v-80a607a5="" className="bankInfo" id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
@@ -9600,20 +9588,10 @@ export default function Withdraw() {
             </div>
             
           </div>
-          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}><div data-v-ef5c8333="" className="addWithdrawType-top"><img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png"/><span data-v-ef5c8333="">Add a bank account number</span></div><div data-v-ef5c8333="" className="addWithdrawType-text">Need to add beneficiary information to be able to withdraw money</div></div>
           <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
-            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')}>
-              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" />
-              <span data-v-ef5c8333="">Add Address</span>
-            </div>
-            <div data-v-ef5c8333="" className="addWithdrawType-text">
-              Need to add beneficiary information to be able to withdraw money
-            </div>
-          </div>
-          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section3" style={{ display: activeSection === 'section3' ? 'block' : 'none' }}>
-            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')}>
-              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" />
-              <span data-v-ef5c8333="">Add Address</span>
+            <div data-v-ef5c8333="" className="addWithdrawType-top">
+              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
+                data-v-ef5c8333="">Add a bank account number</span>
             </div>
             <div data-v-ef5c8333="" className="addWithdrawType-text">
               Need to add beneficiary information to be able to withdraw money

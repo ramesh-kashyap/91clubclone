@@ -10057,10 +10057,10 @@ export default function Account() {
                 <svg data-v-159bf81f="" className="svg-icon icon-settingCenter">
                   <use href="#icon-settingCenter"></use></svg
                 >
-                <a href="/account/settingcenter.html"><span
+               <span
                   data-v-159bf81f=""
                   >Settings</span
-                ></a>
+                >
 
               </div>
               <div
@@ -10070,10 +10070,10 @@ export default function Account() {
                 <svg data-v-159bf81f="" className="svg-icon icon-feedback">
                   <use href="#icon-feedback"></use></svg
                 >
-                <a href="/account/feedback.html"><span
+               <span
                   data-v-159bf81f=""
                   >Feedback</span
-                ></a>
+                >
               </div>
               <div
                 data-v-159bf81f=""
@@ -10085,10 +10085,10 @@ export default function Account() {
                 >
                   <use href="#icon-notificationCenter"></use></svg
                 >
-                <a href="/account/notification.html"><span
+                <span
                   data-v-159bf81f=""
                   >Notification</span
-                ></a>
+                >
               </div>
               <div
                 data-v-159bf81f=""
@@ -10097,10 +10097,10 @@ export default function Account() {
                 <svg data-v-159bf81f="" className="svg-icon icon-server">
                   <use href="#icon-server"></use></svg
                 >
-                <a href="/account/customerService.html"><span
+               <span
                   data-v-159bf81f=""
                   >24/7 Customer service</span
-                ></a>
+                >
               </div>
               <div
                 data-v-159bf81f=""
@@ -10109,10 +10109,10 @@ export default function Account() {
                 <svg data-v-159bf81f="" className="svg-icon icon-guide">
                   <use href="#icon-guide"></use></svg
                 >
-                <a href="/account/BeginnerGuide.html"><span
+               <span
                   data-v-159bf81f=""
                   >Beginner's Guide</span
-                ></a>
+                >
               </div>
               <div
                 data-v-159bf81f=""
@@ -10122,10 +10122,10 @@ export default function Account() {
                   <use href="#icon-about"></use></svg
                 >
 
-                <a href="/account/Aboutus.html"><span
+                <span
                   data-v-159bf81f=""
                   >About us</span
-                ></a>
+                >
               </div>
             </div>
           </div>
