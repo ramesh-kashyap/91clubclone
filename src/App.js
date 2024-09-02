@@ -116,6 +116,8 @@ function App() {
         <Route path="/promotion/Server" element={<PrivateRoute><Server/></PrivateRoute>}/>
         <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
+        <Route path="/deposit/ConfirmDeposit" element={<PrivateRoute><ConfirmDeposit/></PrivateRoute>}/>
+
 
 
 
