@@ -37,14 +37,7 @@ import FirstRecharge from './pages/activity/FirstRecharge';
 import RebateRatio from './pages/promotion/RebateRatio';
 import Server from './pages/promotion/Server';
 import BetRecords from './pages/account/BetRecords';
-import ConfirmDeposit from './pages/wallet/ConfirmDeposit';
-import D5 from  './pages/bet/5d/D5';
 
-
-
-
-import AddUSDT from './pages/wallet/AddUSDT';
-import TransAction from './pages/wallet/TransAction';
 
 
 
@@ -123,20 +116,6 @@ function App() {
         <Route path="/promotion/Server" element={<PrivateRoute><Server/></PrivateRoute>}/>
         <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
-        <Route path="/deposit/ConfirmDeposit" element={<PrivateRoute><ConfirmDeposit/></PrivateRoute>}/>
-        
-        
-        <Route path="home/AllLotteryGames/5D" element={<PrivateRoute><D5/></PrivateRoute>}/>
-        <Route path="main/SettingCenters" element={<PrivateRoute><SettingCenters/></PrivateRoute>}/>
-        <Route path="main/SettingCenter/LoginPassword" element={<PrivateRoute><LoginPassword/></PrivateRoute>}/>
-        <Route path="main/SettingCenter/BindEmail" element={<PrivateRoute><BindEmail/></PrivateRoute>}/>
-
-
-
-
-
-
-
 
 
 
