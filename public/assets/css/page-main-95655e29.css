@@ -195,7 +195,7 @@
     -webkit-align-items: flex-end;
     align-items: flex-end;
     border-radius: 0 0 .8rem .8rem;
-    background: var(--light-main_gradient-color, var(--bg_color_L2))
+    background: var(--main_gradient-color2, var(--bg_color_L2));
 }
 
 .userInfo__container-nav[data-v-5bd44e74] {

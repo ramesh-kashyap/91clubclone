@@ -4691,17 +4691,17 @@ export default function Dashboard() {
             
             
             <div className="swiper-container">
-      <Swiper
-        modules={[Navigation, Autoplay]}
-        spaceBetween={20}
-        slidesPerView={1.2}
-        centeredSlides={true}
-        loop={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-      >
+            <Swiper
+                modules={[Navigation, Autoplay]}
+                spaceBetween={20}
+                slidesPerView={1.2}
+                centeredSlides={true}
+                loop={true}
+                autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                }}
+            >
         <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 1" /></SwiperSlide>
         <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 2" /></SwiperSlide>
         <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 3" /></SwiperSlide>
@@ -5258,7 +5258,7 @@ export default function Dashboard() {
                         </div>
                     </div>
                     <button data-v-df3cc798="" className="look_all"><img data-v-df3cc798=""
-                            src="/assets/png/all-5227f2a4.png" alt=""/> <a href="">View All</a></button>
+                            src="/assets/png/all-5227f2a4.png" alt=""/>View All</button>
                 </div>
             </div>
             
@@ -5455,7 +5455,9 @@ export default function Dashboard() {
                    
                 </svg>
                 <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
+            <div data-v-6ab3f23e="" className="tabbar__container-item">
+            
+            <svg data-v-6ab3f23e=""
                     className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
                     <use href="#icon-promotion"></use>
                 </svg>
