@@ -45,6 +45,8 @@ import Receive from './pages/activity/Receive';
 import Wingo3 from  './pages/bet/wingo/Wingo3';
 import Wingo5 from  './pages/bet/wingo/Wingo5';
 import Wingo10 from  './pages/bet/wingo/Wingo10';
+import AllLotteryGames from  './pages/bet/k3/AllLotteryGames';
+
 
 
 
@@ -106,6 +108,8 @@ function App() {
         <Route path="/activity/FirstRecharge" element={<PrivateRoute><FirstRecharge/></PrivateRoute>}/>
         <Route path="/promotion/RebateRatio" element={<PrivateRoute><RebateRatio/></PrivateRoute>}/>
         <Route path="/promotion/Server" element={<PrivateRoute><Server/></PrivateRoute>}/>
+        <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
+
 
 
 
