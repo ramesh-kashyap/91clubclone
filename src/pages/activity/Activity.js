@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Activity() {
+  const navigate = useNavigate();
+
   return (
     
     <div style={{fontSize: '12px'}}>
@@ -9542,50 +9545,73 @@ export default function Activity() {
         <div data-v-4a7709f3="" className="activity-panel">
           
           <div data-v-4a7709f3="" className="activity-panel-header lg3">
-            
+          <div data-v-4a7709f3="" className="header-item">
+  <div data-v-4a7709f3="" className="van-badge__wrapper">
+    <a href="/activity/DailyTasks">
+      <div data-v-4a7709f3="" className="a4 bgcontainer"></div>
+    </a>
+  </div>
+
+  <span data-v-4a7709f3="">Activity Award</span>
+</div>
+
             <div data-v-4a7709f3="" className="header-item">
               <div data-v-4a7709f3="" className="van-badge__wrapper">
+              <a href="/main/InvitationBonus">
+
                 <div data-v-4a7709f3="" className="a2 bgcontainer"></div>
-                
+                </a>
               </div>
+
               <span data-v-4a7709f3="">Invitation bonus</span>
             </div>
             <div data-v-4a7709f3="" className="header-item">
               <div data-v-4a7709f3="" className="van-badge__wrapper">
+              <a href="/main/Laundry">
+
                 <div data-v-4a7709f3="" className="a3 bgcontainer"></div>
-                
+                </a>
               </div>
               <span data-v-4a7709f3="">Betting rebate</span>
             </div>
             <div data-v-4a7709f3="" className="header-item">
               <div data-v-4a7709f3="" className="van-badge__wrapper">
+              <a href="/main/SuperJackpot">
+
                 <div data-v-4a7709f3="" className="a4 bgcontainer"></div>
-                
+                </a>
               </div>
               <span data-v-4a7709f3="">Super Jackpot</span>
             </div>
             
           </div>
           <div data-v-4a7709f3="" className="activity-panel-content">
+          
             <div data-v-4a7709f3="" className="content-title">
+           
               <img
                 data-v-4a7709f3=""
                 className=""
                 data-origin="/assets/png/signInBanner-33f86d3f.png"
                 src="/assets/png/signInBanner-33f86d3f.png"
               />
+            <a href="/main/RedeemGift">
               <div data-v-4a7709f3="" className="content-para">Gifts</div>
+              
               <p data-v-4a7709f3="">
                 Enter the redemption code to receive gift rewards
               </p>
+              </a>
             </div>
             <div data-v-4a7709f3="" className="content-title">
+              
               <img
                 data-v-4a7709f3=""
                 className=""
                 data-origin="/assets/png/giftRedeem-45917887.png"
                 src="/assets/png/giftRedeem-45917887.png"
               />
+              <a href="/activity/DailySignIn">
               <div data-v-4a7709f3="" className="content-para">
                 Attendance bonus
               </div>
@@ -9593,6 +9619,7 @@ export default function Activity() {
                 The more consecutive days you sign in, the higher the reward
                 will be.
               </p>
+              </a>
             </div>
           </div>
         </div>
@@ -9712,48 +9739,32 @@ export default function Activity() {
           src="/assets/png/icon_sevice-9f0c8455.png"
         />
       </div>
-      <div
-        data-v-6ab3f23e=""
-        className="tabbar__container"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      >
-        <div data-v-6ab3f23e="" className="tabbar__container-item">
-        <a href="/home/index">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-home">
-            <use href="#icon-home"></use></svg
-          ><span data-v-6ab3f23e="">Home</span>
-          </a>
+      <div data-v-6ab3f23e="" className="tabbar__container"
+            style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
+            <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
+                    className="svg-icon icon-home" onClick={()=> navigate('/index')}>
+                    <use href="#icon-home"></use>
+                </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
+                    className="svg-icon icon-activity" onClick={()=> navigate('/index')}><use href="#icon-activity"></use>
+                   
+                </svg>
+                <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
+                    className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
+                    <use href="#icon-promotion"></use>
+                </svg>
+                <div data-v-6ab3f23e="" className="promotionBg"></div>
+                <span data-v-6ab3f23e="" onClick={()=> navigate('/promotion')}>
+                    Promotion</span>
+            </div>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
+            <use href="#icon-wallet" onClick={()=> navigate('/wallet')}></use>
+                </svg><span data-v-6ab3f23e=""  onClick={()=> navigate('/wallet')}>Wallet</span></div>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-main"  onClick={()=> navigate('/account')}>
+            <use href="#icon-main"></use>
+                </svg><span data-v-6ab3f23e="" onClick={()=> navigate('/account')}>Account</span></div>
         </div>
-       
-          <div data-v-6ab3f23e="" className="tabbar__container-item active">
-          <a href="/activity/activity">
-            <svg data-v-6ab3f23e="" className="svg-icon icon-activity">
-              <use href="#icon-activity"></use>
-          </svg>
-          <span data-v-6ab3f23e="">Activity</span>
-          </a>
-          </div>
-        
-         
-       
-        <div data-v-6ab3f23e="" className="tabbar__container-item">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-promotion">
-            <use href="#icon-promotion"></use>
-          </svg>
-          <div data-v-6ab3f23e="" className="promotionBg"></div>
-          <span data-v-6ab3f23e=""><a href="/promotion/promotion.html">Promotion</a></span>
-        </div>
-        <div data-v-6ab3f23e="" className="tabbar__container-item">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
-            <use href="#icon-wallet"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/wallet/wallet.html">Wallet</a></span>
-        </div>
-        <div data-v-6ab3f23e="" className="tabbar__container-item">
-          <svg data-v-6ab3f23e="" className="svg-icon icon-main">
-            <use href="#icon-main"></use></svg
-          ><span data-v-6ab3f23e=""><a href="/account/account.html">Account</a></span>
-        </div>
-      </div>
       
     </div>
 

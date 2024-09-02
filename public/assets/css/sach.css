@@ -1,0 +1,311 @@
+.upi_content {
+    padding: 0.3rem !important;
+  }
+
+  
+  .copy {
+    border-radius: 0.1rem;
+    box-shadow: 0 0.04rem 0.1rem 0 rgb(68 98 147);
+    line-height: 30px;
+    background: linear-gradient(-45deg, #446293, #4c6994 50%, #446293);
+    color: #fff;
+    float: right;
+    width: 70px;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: Microsoft YaHei;
+    box-sizing: border-box
+}
+body {
+    color: #333;
+    background: #fff;
+    padding-top: 1.2rem;
+    font-size: 12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+button, input, select {
+    outline-style: none;
+    border: 0;
+}
+.main {
+    padding: 7px;
+    background: #f9f9f9;
+    position: fixed;
+    padding-top: 1.2rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(-45deg,#0d2d87,#6d4166 50%,#ed221e);
+    color: #fff;
+    font-size: .373333rem;
+    z-index: 999;
+}
+.header .left_btn {
+    position: absolute;
+    left: .4rem;
+    top: -0.01rem;
+    line-height: 1.2rem;
+}
+.header .left_btn img {
+    vertical-align: middle;
+    width: .48rem;
+}
+
+.header .Maintitle {
+    line-height: 1.2rem;
+    height: 1.2rem;
+    text-align: center;
+}
+.money_content {
+    margin-top:0.25rem;
+    padding:.24rem .3rem .24rem .3rem
+}
+.money_content .help{
+    position: absolute;
+    right: .45rem;
+}
+.money_content .help span{
+    position: relative;
+    margin-top:0.1rem;
+    top: -0.2rem;
+    right: -2.65rem;
+    font-size:12px;
+    color: #272727;
+}
+.money_content .logo{
+    position: relative;
+    width: 1.6rem;
+    height: 1.6rem;
+    opacity: 0.4;
+}
+.money_content .play{
+    position: relative;
+    left: 1.43rem;
+    bottom: 0.45rem;
+    z-index: 999;
+}
+.money_content .money_title{
+    margin-top:0.1rem;
+    font-size:12px;
+    font-weight:bold;
+    margin-right:8px;
+    color:#232323
+}
+.money_content .money{
+   padding-top:10px;
+   font-weight:bold;
+   font-size:18px
+}
+.money_content .money font{
+   color:#446293;
+   font-size:32px
+}
+
+.content {
+    box-shadow: 0.01rem 0.06rem 0.18rem 0 rgb(0 0 0 / 15%);
+    background-color: #fff;
+    padding:0.24rem .45rem .45rem;
+    margin-bottom: 2.8rem;
+}
+.content .title{
+    margin: 0.3rem 0 0.6rem 0;
+    color:#446293;
+    font-size: 14px;
+}
+.upi_content {
+    box-shadow: 0 0.04rem 0.133333rem 0 rgb(0 0 0 / 15%);
+    background-color: #fff;
+    border-radius: .08rem;
+    margin-top:0.25rem;
+    margin-bottom: 0.4rem;
+    padding: 0.4rem;
+}
+.upi_content.select{
+    box-shadow:0 0.01rem 0.1rem 0 rgb(127 140 160);
+}
+.upi_content img{
+    width:auto;
+    height:20px;
+    margin-top: 0.08rem;
+}
+.tip{
+    margin-top: 0.8rem;
+    color: #446293;
+    border-top: solid 2px #eee;
+    padding: 15px 0;
+}
+.tip_content{
+    font-size:14px;
+    line-height: 24px;
+    word-break:break-all;
+}
+.error{
+    font-size: 22px;
+    text-align: center;
+    margin-top: inherit;
+    color: #446293;
+    padding: 45px 0;
+}
+
+.foot{
+    position:fixed;
+    padding:10px 12px 18px 12px;
+    background:#fff;
+    bottom:0px;
+    width:100%;
+    box-shadow: 0px -2px 4px #cccccc;
+    left:0px
+}
+.foot button{
+    width: 100%;
+    font-size: .4rem;
+    line-height: 1.2rem;
+    color: #fff;
+    text-align: center;
+    border-radius: 0.1rem;
+    margin-top: 0;
+    /*background: #446293;*/
+    /*background: linear-gradient(-45deg,#0d2d87,#6d4166 50%,#ed221e);*/
+    background: linear-gradient(-45deg,#446293,#4c6994 50%,#446293);
+    box-shadow: 0 0.04rem 0.1rem 0 rgb(68 98 147);
+}
+.foot.back button{
+    background: #929292;
+    box-shadow: 0 0.04rem 0.1rem 0 rgb(146 146 146);
+}
+.time{
+    text-align: center;
+    padding-bottom: 9px;
+    font-size: 14px;
+    color: #b82f3c;
+    font-weight: bold;
+}
+.video{
+    display:none;
+    background: #0000009e;
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width:100%;
+    text-align:center
+}
+.player{
+    height: 80%;
+    margin-top:10%
+}
+.closevideo{
+    margin-top:5%; 
+    width:1rem
+}
+
+.radio {
+  margin: 0.15rem;
+}
+.radio input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+.radio input[type="radio"] + .radio-label:before {
+  content: '';
+  background: #f4f4f4;
+  border-radius: 50%;
+  border: 1px solid #b4b4b4;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  position: relative;
+  top: -0.2em;
+  margin-right: 1em;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+.radio input[type="radio"]:checked + .radio-label:before {
+  background-color: #446293;
+  box-shadow: inset 0 0 0 4px #f4f4f4;
+}
+.radio input[type="radio"]:focus + .radio-label:before {
+  outline: none;
+  border-color: #446293;
+}
+.radio input[type="radio"]:disabled + .radio-label:before {
+  box-shadow: inset 0 0 0 4px #f4f4f4;
+  border-color: #b4b4b4;
+  background: #b4b4b4;
+}
+.radio input[type="radio"] + .radio-label:empty:before {
+  margin-right: 0;
+}
+
+.qr_content {
+    box-shadow: 0 0.04rem 0.133333rem 0 rgb(0 0 0 / 15%);
+    background-color: #fff;
+    border-radius: .08rem;
+    height: 3.5rem;
+    margin-top:0.25rem;
+    margin-bottom: 0.4rem;
+    padding: 0.4rem;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    height: 2.27778rem;
+}
+
+.lelf {
+    font-size: 24px;
+    font-family: PingFangSC-Semibold,PingFang SC;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top {
+    font-family: PingFangSC-Semibold,PingFang SC;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: .25rem;
+    font-size: .44444rem;
+    font-weight: 600;
+    color: #07448d;
+    line-height: .61111rem;
+}
+
+.right {
+    width: 2.27778rem;
+    height: 2.27778rem;
+    margin-right: .5rem;
+}
+
+.option {
+    font-family: PingFangSC-Semibold,PingFang SC;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: .25rem;
+    font-size: .44444rem;
+    font-weight: 600;
+    color: indianred;
+    line-height: .61111rem;
+}

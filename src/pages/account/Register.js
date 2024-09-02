@@ -9,6 +9,7 @@ export default function Register() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [invitecode, setInvitecode] = useState(''); // New state for invite code
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -9780,7 +9781,7 @@ export default function Register() {
                 <div data-v-e26f70e7="" className="account">
                   I have an account
                 </div>
-                <div data-v-e26f70e7="" className="loginin">Login</div>
+                <div data-v-e26f70e7="" className="loginin" onClick={()=>navigate('/login')}>Login</div>
               </button>
             </div>
             </form>
