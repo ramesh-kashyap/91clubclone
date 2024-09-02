@@ -9808,7 +9808,7 @@ const showSection = (sectionId) => {
               <div data-v-4e09079f="" className="van-col van-col--10">Results</div>
             </div>
           </div>
-          <div data-v-4e09079f="" className={GameRecord__C-body}>
+          <div data-v-4e09079f="" className="GameRecord__C-body">
             <div data-v-4e09079f="" className="van-row">
               <div data-v-4e09079f="" className="van-col van-col--8">
                 20240814090781
@@ -10303,7 +10303,7 @@ const showSection = (sectionId) => {
       </div>
       
     </div>
-    <div data-v-4e09079f="" className="GameRecord__C-foot" >
+<div data-v-4e09079f="" className="GameRecord__C-foot" >
             <div
               data-v-4e09079f=""
               className="GameRecord__C-foot-previous disabled"
