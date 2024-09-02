@@ -37,7 +37,9 @@ import FirstRecharge from './pages/activity/FirstRecharge';
 import RebateRatio from './pages/promotion/RebateRatio';
 import Server from './pages/promotion/Server';
 import BetRecords from './pages/account/BetRecords';
-import DepositHistory from './pages/wallet/DepositHistory';
+import ConfirmDeposit from './pages/wallet/ConfirmDeposit';
+
+
 
 
 
@@ -111,6 +113,8 @@ function App() {
         <Route path="/promotion/Server" element={<PrivateRoute><Server/></PrivateRoute>}/>
         <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
+        <Route path="/deposit/ConfirmDeposit" element={<PrivateRoute><ConfirmDeposit/></PrivateRoute>}/>
+
 
 
 
