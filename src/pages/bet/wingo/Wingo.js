@@ -6,6 +6,8 @@ import MyGameRecordList from './components/MyGameRecordList';
 import GameList from './components/GameList';
 import ReactHowler from 'react-howler';
 import ChartList from './components/ChartList';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SOCKET_URL = 'http://localhost:3000';
@@ -78,6 +80,12 @@ export default function Wingo() {
     const toggleVisibility = () => {
       setIsVisible(!isVisible);
     };
+
+    useEffect(() => {
+      if (error) {
+          toast.error(error); // Show the error in a toast notification
+      }
+  }, [error]);
 
     const navigate = useNavigate();
 
@@ -492,7 +500,10 @@ export default function Wingo() {
 
 
     return (
+
+      
 <div className="" style={{fontSize: '12px'}}>
+<ToastContainer />
 <svg
   xmlns="http://www.w3.org/2000/svg"
   style={{position: 'absolute', width: '0', height: '0'}}

@@ -6,6 +6,9 @@ import GameList from './components/GameList';
 import ReactHowler from 'react-howler';
 import ChartList from './components/ChartList';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const SOCKET_URL = 'http://localhost:3000';
@@ -186,6 +189,12 @@ export default function Wingo3() {
     const audio1Ref = useRef(null);
     const [audio2Played, setAudio2Played] = useState(false);
     const [userInteracted, setUserInteracted] = useState(false); // Track user interaction
+
+    useEffect(() => {
+      if (error) {
+          toast.error(error); // Show the error in a toast notification
+      }
+  }, [error]);
   
     useEffect(() => {
       const audio1 = new Audio('/assets/audio/di1.da40b233.mp3');
@@ -311,6 +320,23 @@ export default function Wingo3() {
       } 
     };
 
+    const fetchWingo = async () => {
+      try {
+        const response = await Api.get('/api/webapi/Wingo3');
+        const data = response.data;
+  
+        console.log('period:', data.data.data[0]);
+  
+        
+        setPeriod(data.data.data[0]?data.data.data[0].period : []); // Update state with the fetched data
+  
+      } catch (err) {
+        console.error('An error occurred:', err);
+        setError('An error occurred. Please try again.');
+      }
+    };
+
+
     const fetchMyBets = async (pageNumber = 1) => {
       try {
         const pageno = (pageNumber - 1) * 10; // Calculate pageno based on the page number
@@ -342,6 +368,7 @@ export default function Wingo3() {
     
     // Fetch the first page when the component mounts
     useEffect(() => {
+      fetchWingo();
       fetchMyBets(1);
       fetchGamelist(1);
     }, []);
@@ -479,6 +506,7 @@ export default function Wingo3() {
 
     return (
 <div className="" style={{fontSize: '12px'}}>
+<ToastContainer />
 <svg
   xmlns="http://www.w3.org/2000/svg"
   style={{position: 'absolute', width: '0', height: '0'}}

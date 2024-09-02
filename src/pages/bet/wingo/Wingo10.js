@@ -6,6 +6,8 @@ import GameList from './components/GameList';
 import ReactHowler from 'react-howler';
 import ChartList from './components/ChartList';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -58,7 +60,7 @@ export default function Wingo10() {
     const [period, setPeriod] = useState(null);
     const [time, setTime] = useState({
       minute: 0,
-      seconds1: 0,
+      seconds1: 0, 
       seconds2: 0,
     });
     const [showMark, setShowMark] = useState(false);
@@ -181,6 +183,12 @@ export default function Wingo10() {
         return false;
       }
     };
+
+    useEffect(() => {
+      if (error) {
+          toast.error(error); // Show the error in a toast notification
+      }
+  }, [error]);
     
     const [playAudio2, setPlayAudio2] = useState(false);
     const audio1Ref = useRef(null);
@@ -311,6 +319,22 @@ export default function Wingo10() {
       } 
     };
 
+    const fetchWingo = async () => {
+      try {
+        const response = await Api.get('/api/webapi/Wingo10');
+        const data = response.data;
+  
+        console.log('period:', data.data.data[0]);
+  
+        
+        setPeriod(data.data.data[0]?data.data.data[0].period : []); // Update state with the fetched data
+  
+      } catch (err) {
+        console.error('An error occurred:', err);
+        setError('An error occurred. Please try again.');
+      }
+    };
+
     const fetchMyBets = async (pageNumber = 1) => {
       try {
         const pageno = (pageNumber - 1) * 10; // Calculate pageno based on the page number
@@ -342,6 +366,7 @@ export default function Wingo10() {
     
     // Fetch the first page when the component mounts
     useEffect(() => {
+      fetchWingo();
       fetchMyBets(1);
       fetchGamelist(1);
     }, []);
@@ -479,6 +504,8 @@ export default function Wingo10() {
 
     return (
 <div className="" style={{fontSize: '12px'}}>
+<ToastContainer />
+
 <svg
   xmlns="http://www.w3.org/2000/svg"
   style={{position: 'absolute', width: '0', height: '0'}}
