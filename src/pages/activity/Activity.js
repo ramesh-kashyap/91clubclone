@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Activity() {
@@ -9546,42 +9546,30 @@ export default function Activity() {
           
           <div data-v-4a7709f3="" className="activity-panel-header lg3">
           <div data-v-4a7709f3="" className="header-item">
-  <div data-v-4a7709f3="" className="van-badge__wrapper">
-    <a href="/activity/DailyTasks">
-      <div data-v-4a7709f3="" className="a4 bgcontainer"></div>
-    </a>
+  <div data-v-4a7709f3="" className="van-badge__wrapper">    
+      <div data-v-4a7709f3="" className="a4 bgcontainer" onClick={()=>navigate('/activity/DailyTasks')}></div>   
   </div>
 
-  <span data-v-4a7709f3="">Activity Award</span>
+  <span data-v-4a7709f3="" onClick={()=>navigate('/activity/DailyTasks')}>Activity Award</span>
 </div>
 
             <div data-v-4a7709f3="" className="header-item">
-              <div data-v-4a7709f3="" className="van-badge__wrapper">
-              <a href="/main/InvitationBonus">
-
+              <div data-v-4a7709f3="" className="van-badge__wrapper"onClick={()=>navigate('/main/InvitationBonus')}>             
                 <div data-v-4a7709f3="" className="a2 bgcontainer"></div>
-                </a>
               </div>
-
-              <span data-v-4a7709f3="">Invitation bonus</span>
+              <span data-v-4a7709f3=""onClick={()=>navigate('/main/InvitationBonus')}>Invitation bonus</span>
             </div>
             <div data-v-4a7709f3="" className="header-item">
-              <div data-v-4a7709f3="" className="van-badge__wrapper">
-              <a href="/main/Laundry">
-
+              <div data-v-4a7709f3="" className="van-badge__wrapper" onClick={()=>navigate('/main/Laundry')}>              
                 <div data-v-4a7709f3="" className="a3 bgcontainer"></div>
-                </a>
               </div>
-              <span data-v-4a7709f3="">Betting rebate</span>
+              <span data-v-4a7709f3=""onClick={()=>navigate('/main/Laundry')}>Betting rebate</span>
             </div>
             <div data-v-4a7709f3="" className="header-item">
-              <div data-v-4a7709f3="" className="van-badge__wrapper">
-              <a href="/main/SuperJackpot">
-
-                <div data-v-4a7709f3="" className="a4 bgcontainer"></div>
-                </a>
+              <div data-v-4a7709f3="" className="van-badge__wrapper" onClick={()=>navigate('/main/SuperJackpot')}>
+              <div data-v-4a7709f3="" className="a4 bgcontainer"></div>
               </div>
-              <span data-v-4a7709f3="">Super Jackpot</span>
+              <span data-v-4a7709f3=""onClick={()=>navigate('/main/SuperJackpot')}>Super Jackpot</span>
             </div>
             
           </div>

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 export default function K3(){
+  const navigate = useNavigate();
     const [activeSection, setActiveSection] = useState('section1');
     const [activeTime, setActiveTime] =useState('time1');
 
@@ -9506,7 +9508,7 @@ const showSection = (sectionId) => {
               <div data-v-12a80a3e="" className="navbar__content-left">
                 <i
                   data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left"
+                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/index')}
                   ></i
                 >
               </div>
@@ -9539,8 +9541,8 @@ const showSection = (sectionId) => {
               <div data-v-7dd1adab="">Wallet balance</div>
             </div>
             <div data-v-7dd1adab="" className="Wallet__C-balance-l3">
-              <div data-v-7dd1adab="">Withdraw</div>
-              <div data-v-7dd1adab="">Deposit</div>
+              <div data-v-7dd1adab="" onClick={()=>navigate('/wallet/withdraw')}>Withdraw</div>
+              <div data-v-7dd1adab="" onClick={()=>navigate('/wallet/deposit')}>Deposit</div>
             </div>
           </div>
         </div>
