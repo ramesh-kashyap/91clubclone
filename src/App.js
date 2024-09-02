@@ -42,9 +42,6 @@ import BetRecords from './pages/account/BetRecords';
 
 
 
-
-
-
 import Receive from './pages/activity/Receive';
 import Wingo3 from  './pages/bet/wingo/Wingo3';
 import Wingo5 from  './pages/bet/wingo/Wingo5';
@@ -117,6 +114,7 @@ function App() {
         <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
 
+        <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
 
 
 
