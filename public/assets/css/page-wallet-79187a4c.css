@@ -197,7 +197,7 @@
     letter-spacing: .016rem;
     border: none;
     border-radius: 1.06667rem;
-    background: var(--main_gradient-color)
+    background: var(--main_gradient-color2);
 }
 
 .wallet-container-content .container .recycleBtnD .recycleBtn.disable[data-v-0dabd3fc] {
@@ -236,8 +236,8 @@
 }
 
 .wallet-container-content .container .userDetail>div .imgD[data-v-0dabd3fc] {
-    width: 1.30667rem;
-    height: 1.30667rem;
+    width: 1rem;
+    height: 1.1rem;
     border-radius: .4rem;
     background: var(--bg_color_L2);
     display: -webkit-box;

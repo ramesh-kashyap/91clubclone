@@ -8,7 +8,7 @@ import ReactHowler from 'react-howler';
 import ChartList from './components/ChartList';
 
 
-const SOCKET_URL = 'https://bigdadypro.com/';
+const SOCKET_URL = 'http://localhost:3000/';
 
 
 
@@ -9975,7 +9975,7 @@ export default function Wingo() {
               data-v-12a80a3e=""
               className="headLogo"
               style={{
-                backgroundImage: `url('images/png/h5setting_20230714005938hfia.png')`
+                backgroundImage: `url('/assets/png/BDGPRO2.png')`
               }}
             ></div>
             <div data-v-12a80a3e="" className="navbar__content-title"></div>
