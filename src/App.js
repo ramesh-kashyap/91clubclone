@@ -37,7 +37,7 @@ import FirstRecharge from './pages/activity/FirstRecharge';
 import RebateRatio from './pages/promotion/RebateRatio';
 import Server from './pages/promotion/Server';
 import BetRecords from './pages/account/BetRecords';
-
+import DepositHistory from './pages/wallet/DepositHistory';
 
 
 

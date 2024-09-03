@@ -9551,6 +9551,7 @@ export default function Promotion(){
                   <i
                     data-v-12a80a3e=""
                     className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/index')}
+                    className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/index')}
                     ></i
                   >
                 </div>
@@ -9645,10 +9646,12 @@ export default function Promotion(){
                   <img
                     data-v-0dabd3fc=""
                     src="/assets/png/rechargeIcon-e515aee4.png" onClick={()=>navigate('/wallet/deposit')}
+                    src="/assets/png/rechargeIcon-e515aee4.png" onClick={()=>navigate('/wallet/deposit')}
                   />
                 </div>
                 <span data-v-0dabd3fc="" onClick={()=>navigate('/wallet/deposit')}>Deposit</span>
               </div>
+              <div data-v-0dabd3fc=""onClick={()=>navigate('/wallet/withdraw')}>
               <div data-v-0dabd3fc=""onClick={()=>navigate('/wallet/withdraw')}>
                 <div data-v-0dabd3fc="" className="imgD">
                   <img
@@ -9659,14 +9662,16 @@ export default function Promotion(){
                <span data-v-0dabd3fc="" onClick={()=>navigate('/wallet/withdraw')}>Withdraw</span>
               </div>
               <div data-v-0dabd3fc=""  onClick={()=>navigate('/wallet/DepositHistory')}>
+              <div data-v-0dabd3fc=""  onClick={()=>navigate('/wallet/DepositHistory')}>
                 <div data-v-0dabd3fc="" className="imgD">
                   <img
                     data-v-0dabd3fc=""
                     src="/assets/png/rechargeHistory-b5a853c0.png"
                   />
                 </div>
-               <span data-v-0dabd3fc="">Deposit history</span>
+                <span data-v-0dabd3fc="">Deposit history</span>
               </div>
+              <div data-v-0dabd3fc=""onClick={()=>navigate('/wallet/WithdrawHistory')}>
               <div data-v-0dabd3fc=""onClick={()=>navigate('/wallet/WithdrawHistory')}>
                 <div data-v-0dabd3fc="" className="imgD">
                   <img
@@ -9674,7 +9679,7 @@ export default function Promotion(){
                     src="/assets/png/withdrawHistory-fb2bafcf.png"
                   />
                 </div>
-               <span data-v-0dabd3fc="">Withdrawal history</span>
+                <span data-v-0dabd3fc="" onClick={()=>navigate('/wallet/WithdrawHistory')}>Withdrawal history</span>
               </div>
             </div>
           </div>
