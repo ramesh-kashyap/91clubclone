@@ -257,8 +257,7 @@ export default function Withdraw() {
             <div data-v-cb5583fe="" className="explain usdt">
             <div data-v-cb5583fe="" className="head">
               <img
-                data-v-cb5583fe=""
-                src="/assets/png/usdt.png"
+                data-v-cb5583fe="" src="/assets/png/usdt.png"
               />
             </div>
             <div data-v-cb5583fe="" className="input">
