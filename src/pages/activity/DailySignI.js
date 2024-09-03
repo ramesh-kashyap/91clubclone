@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import {useNavigate} from 'react-router-dom';
 
 export default function DailySignI() {
+  const navigate = useNavigate();
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -9508,11 +9510,10 @@ export default function DailySignI() {
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
               <div data-v-12a80a3e="" className="navbar__content-left">
-              <a href="/activity">
                 <i
                   data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left"
-                  ></i></a>
+                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/activity')}
+                  ></i>
               </div>
               <div data-v-12a80a3e="" className="navbar__content-center">
             
@@ -9537,8 +9538,8 @@ export default function DailySignI() {
             <h1 data-v-f1e983bd="">₹0.00</h1>
           </div>
           <div data-v-f1e983bd="" className="dailySignIn__container-hero__footer">
-            <button data-v-f1e983bd=""><a href="/activity/DailySignIn/Rules">Game Rules</a></button
-            ><button data-v-f1e983bd=""><a href="/activity/DailySignIn/Record">Attendance history</a></button>
+            <button data-v-f1e983bd="" onClick={()=>navigate('/activity/DailySignIn/Rules')}> Game Rules</button
+            ><button data-v-f1e983bd="" onClick={()=>navigate('/activity/DailySignIn/Record')}>Attendance history</button>
           </div>
         </div>
         <div data-v-f1e983bd="" className="dailySignIn__container-content">

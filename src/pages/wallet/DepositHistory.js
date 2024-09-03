@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-export default function Withdraw() {
-
-  const [activeSection, setActiveSection] = useState('section1');
-  const showSection = (sectionID) =>{
-     setActiveSection(sectionID);
-  };
-  const navigate = useNavigate();
+import React from 'react'
+import { useNavigate } from "react-router-dom";
+export default function DepositHistory() {
+    const navigate = useNavigate();
   return (
-    <div style={{fontSize: '12px'}}>
- 
+    <div>
+
 
     <div id="app" data-v-app="">
       <div
         data-v-647954c7=""
         className="ar-loading-view"
         style={{
-          "--f13b4d11-currentFontFamily": "{'Roboto', 'Inter', 'sansSerif'}",
-          display: 'none',
+          '--f13b4d11-currentFontFamily':"'Roboto', 'Inter', 'sansSerif'",
+          display: 'none'
         }}
       >
         <div data-v-647954c7="" className="loading-wrapper">
@@ -33,8 +28,8 @@ export default function Withdraw() {
                 width: '100%',
                 height: '100%',
                 transform: 'translate3d(0px, 0px, 0px)',
-                contentVisibility: 'visible'}}
-              
+                contentVisibility: 'visible'
+              }}
             >
               <defs>
                 <clipPath id="__lottie_element_2">
@@ -77,18 +72,19 @@ export default function Withdraw() {
               </g>
             </svg>
           </div>
-          <div data-v-647954c7="" className="com__box" style={{display: 'none'}}>
+          <div data-v-647954c7="" className="com__box"  style={{display: 'none'}}>
+          
             <div className="loading" data-v-647954c7="">
               <div className="shape shape-1" data-v-647954c7=""></div>
               <div className="shape shape-2" data-v-647954c7=""></div>
               <div className="shape shape-3" data-v-647954c7=""></div>
               <div className="shape shape-4" data-v-647954c7=""></div>
             </div>
-            
+           
           </div>
-          
+         
         </div>
-        <div data-v-647954c7="" className="skeleton-wrapper" style={{display: 'none'}}>
+        <div data-v-647954c7="" className="skeleton-wrapper"  style={{display: 'none'}}>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
             
             <div className="van-skeleton__content">
@@ -129,13 +125,13 @@ export default function Withdraw() {
           </div>
         </div>
       </div>
-      
+     
       <div
-        data-v-80a607a5=""
-        className="withdraw__container"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
+        data-v-e4760c44=""
+        className="rechargeh__container"
+        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sansSerif"}}
       >
-        <div data-v-12a80a3e="" data-v-80a607a5="" className="navbar">
+        <div data-v-12a80a3e="" data-v-e4760c44="" className="navbar white">
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
               <div data-v-12a80a3e="" className="navbar__content-left">
@@ -146,319 +142,193 @@ export default function Withdraw() {
                 >
               </div>
               <div data-v-12a80a3e="" className="navbar__content-center">
-                
+               
                 <div data-v-12a80a3e="" className="navbar__content-title">
-                  Withdraw
+                  Deposit history
                 </div>
               </div>
-              <div data-v-12a80a3e="" className="navbar__content-right">
-                <span data-v-80a607a5="">Withdrawal history</span>
-              </div>
+              <div data-v-12a80a3e="" className="navbar__content-right"></div>
             </div>
           </div>
         </div>
-        <div data-v-80a607a5="" className="withdraw__container-content">
-          
-          <div data-v-0879c174="" data-v-80a607a5="" className="balanceAssets">
-            <div data-v-0879c174="" className="balanceAssets__header">
-              <div data-v-0879c174="" className="balanceAssets__header__left">
-                <img
-                  data-v-0879c174=""
-                  src="/assets/png/balance-e39ce400.png"
-                />
-                Available balance
-              </div>
-            </div>
-            <div data-v-0879c174="" className="balanceAssets__main">
-              <p data-v-0879c174="">₹93.18</p>
-              <img
-                data-v-0879c174=""
-                src="/assets/png/refresh-8e0efe26.png"
-                alt=""
-              />
-            </div>
-          </div>
-        
-          <div data-v-9bae072d="" data-v-80a607a5="" className="withdrawWay">
-            
-            <div data-v-9bae072d="" className={`${activeSection === 'section1' ? 'select' : ''}`} onClick={()=> showSection('section1')}>
-              <div data-v-9bae072d="">
-                <img
-                  data-v-9bae072d=""
-                  src="https://ossimg.91admin123admin.com/91club/payNameIcon/WithBeforeImgIcon2_20230912183258ejvp.png"
-                />
-              </div>
-              <span data-v-9bae072d=""> BANK CARD</span>
-            </div>
-            <div data-v-9bae072d="" className={`${activeSection === 'section2' ? 'select' : ''}`} onClick={() => showSection('section2')}>
-              <div data-v-9bae072d="">
-                <img
-                  data-v-9bae072d=""
-                  src="https://ossimg.91admin123admin.com/91club/payNameIcon/WithBeforeImgIcon_20230912183344vmsx.png"
-                />
-              </div>
-              <span data-v-9bae072d="">USDT</span>
-            </div>
-          </div>
-          <div data-v-80a607a5="" className="bankInfo" id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
-            <div data-v-80a607a5="" className="bankInfoItem type1">
-              <div data-v-80a607a5="">
-                <svg data-v-80a607a5="" className="svg-icon icon-1">
-                  <use href="#icon-1"></use></svg
-                ><span data-v-80a607a5="">Yes Bank</span>
-              </div>
-              <div data-v-80a607a5="">
-                <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">084399****495</span>
-              </div>
-              <i
-                data-v-80a607a5=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                ></i
-              >
-            </div>
-            
-          </div>
-          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
-            <div data-v-ef5c8333="" className="addWithdrawType-top">
-              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
-                data-v-ef5c8333="">Add a bank account number</span>
-            </div>
-            <div data-v-ef5c8333="" className="addWithdrawType-text">
-              Need to add beneficiary information to be able to withdraw money
-            </div>
-          </div>
-          <div data-v-cb5583fe="" className="explain">
-            <div data-v-cb5583fe="" className="input">
-              <div data-v-cb5583fe="" className="place-div">₹</div>
-              <input
-                data-v-cb5583fe=""
-                placeholder="Please enter the amount"
-                className="inp"
-              />
-            </div>
-            
-            <div data-v-cb5583fe="" className="balance bank">
-              <div data-v-cb5583fe="">
-                <span data-v-cb5583fe=""
-                  >Withdrawable balance
-                  <h6 data-v-cb5583fe="" className="yellow">₹93.18</h6></span
-                ><input data-v-cb5583fe="" type="button" value="All" />
-              </div>
-              <div data-v-cb5583fe="">
-                <span data-v-cb5583fe="">Withdrawal amount received</span>
-                <div data-v-cb5583fe="" className="rightD">
-                  <span data-v-cb5583fe="" className="yellow">₹0.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div data-v-cb5583fe="" className="explain usdt">
-            <div data-v-cb5583fe="" className="head">
-              <img
-                data-v-cb5583fe=""
-                src="/assets/png/usdt.png"
-              />
-            </div>
-            <div data-v-cb5583fe="" className="input">
-              <div data-v-cb5583fe="" className="place-div">₹</div>
-              <input
-                data-v-cb5583fe=""
-                type="number"
-                placeholder="Please enter withdrawal amount"
-                className="inp"
-              />
-            </div>
-            
-            <div data-v-cb5583fe="" className="balance usdt">
-              <div data-v-cb5583fe="">
-                <span data-v-cb5583fe=""
-                  >Withdrawable balance
-                  <h6 data-v-cb5583fe="" className="yellow">₹93.18</h6></span
-                ><input data-v-cb5583fe="" type="button" value="All" />
-              </div>
-            </div>
-          </div>
-          <div data-v-80a607a5="" className="recycleBtnD">
-            <button data-v-80a607a5="" className="recycleBtn">Withdraw</button>
-          </div>
+        <div data-v-e4760c44="" className="rechargeh__container_header">
           <div
-            data-v-76eb7f31=""
-            data-v-80a607a5=""
-            className="Recharge__container-intro"
+            data-v-e4760c44=""
+            className="van-tabs van-tabs--card onlineGames__container-tabBar"
           >
-            <div data-v-76eb7f31="" className="br">
-              
-              <p data-v-76eb7f31="">
-                Need to bet <span data-v-470caa86="" className="red">₹0.00</span> to
-                be able to withdraw
-              </p>
-              <p data-v-76eb7f31="">
-                Withdraw time
-                <span data-v-76eb7f31="" className="red">00:05-23:55</span>
-              </p>
-              <p data-v-76eb7f31="">
-                Inday Remaining Withdrawal Times<span
-                  data-v-76eb7f31=""
-                  className="red"
-                  >3</span
-                >
-              </p>
-              <p data-v-76eb7f31="">
-                Withdrawal amount range
-                <span data-v-76eb7f31="" className="red">₹110.00-₹200,000.00</span>
-              </p>
-              
-              <p data-v-76eb7f31="">
-                Please confirm your beneficial account information before
-                withdrawing. If your information is incorrect, our company will
-                not be liable for the amount of loss
-              </p>
-              <p data-v-76eb7f31="">
-                If your beneficial information is incorrect, please contact
-                customer service
-              </p>
-            </div>
-          </div>
-          <div
-            data-v-30972a14=""
-            data-v-80a607a5=""
-            className="rechargeh__container"
-          >
-            <div data-v-30972a14="" className="rechargeh__container-head">
-              <svg data-v-30972a14="" className="svg-icon icon-historyHead">
-                <use href="#icon-historyHead"></use>
-              </svg>
-              <h1 data-v-30972a14="">Withdrawal history</h1>
-            </div>
-            <div data-v-30972a14="" className="rechargeh__container-content">
+            <div className="van-tabs__wrap">
               <div
-                data-v-30972a14=""
-                className="rechargeh__container-content__item"
+                role="tablist"
+                className="van-tabs__nav van-tabs__nav--card"
+                aria-orientation="horizontal"
               >
+                
                 <div
-                  data-v-30972a14=""
-                  className="rechargeh__container-content__item-header ar-1px-b"
+                  id="van-tabs-1-0"
+                  role="tab"
+                  className="van-tab van-tab--card van-tab--active"
+                  tabIndex="0"
+                  aria-selected="true"
+                  aria-controls="van-tab-2"
                 >
-                  <span data-v-30972a14="">Withdraw</span
-                  ><span data-v-30972a14="" className="stateG"
-                    >Completed
-                    </span
+                  <span className="van-tab__text van-tab__text--ellipsis"
+                    ><div data-v-e4760c44="" className="tabDiv">
+                      <svg data-v-e4760c44="" className="svg-icon icon-all">
+                        <use href="#icon-all"></use>
+                      </svg>
+                      All
+                    </div></span
                   >
                 </div>
                 <div
-                  data-v-30972a14=""
-                  className="rechargeh__container-content__item-body"
+                  id="van-tabs-1-1"
+                  role="tab"
+                  className="van-tab van-tab--card"
+                  tabIndex="-1"
+                  aria-selected="false"
+                  aria-controls="van-tab-3"
                 >
-                  <div data-v-30972a14="">
-                    <span data-v-30972a14="">Balance</span
-                    ><span data-v-30972a14="">₹110.00</span>
-                  </div>
-                  <div data-v-30972a14="">
-                    <span data-v-30972a14="">Type</span
-                    ><span data-v-30972a14=""> BANK CARD</span>
-                  </div>
-                  <div data-v-30972a14="">
-                    <span data-v-30972a14="">Time</span
-                    ><span data-v-30972a14="">2024-07-09 15:53:08</span>
-                  </div>
-                  <div data-v-30972a14="">
-                    <span data-v-30972a14="">Order number</span
-                    ><span data-v-30972a14="">WD2024070915530896076538c</span
-                    ><svg data-v-30972a14="" className="svg-icon icon-copy">
-                      <use href="#icon-copy"></use>
-                    </svg>
-                  </div>
+                  <span className="van-tab__text van-tab__text--ellipsis"
+                    ><div data-v-e4760c44="" className="tabDiv">
+                      <img
+                        data-v-e4760c44=""
+                        src="https://ossimg.91admin123admin.com/91club/payNameIcon/WithBeforeImgIcon_2023091218325895iy.png"
+                      />
+                      BANK CARD
+                    </div></span
+                  >
+                </div>
+                <div
+                  id="van-tabs-1-2"
+                  role="tab"
+                  className="van-tab van-tab--card"
+                  tabIndex="-1"
+                  aria-selected="false"
+                  aria-controls="van-tab-4"
+                >
+                  <span className="van-tab__text van-tab__text--ellipsis"
+                    ><div data-v-e4760c44="" className="tabDiv">
+                      <img
+                        data-v-e4760c44=""
+                        src="https://ossimg.91admin123admin.com/91club/payNameIcon/WithBeforeImgIcon_20230912183344vmsx.png"
+                      />
+                      USDT
+                    </div></span
+                  >
+                </div>
+                
+              </div>
+            </div>
+            
+            <div className="van-tabs__content"></div>
+          </div>
+         
+          <div data-v-e4760c44="" className="ar">
+            <div data-v-e4760c44="" className="ar-searchbar">
+              <div
+                data-v-fa757a88=""
+                data-v-e4760c44=""
+                className="ar-searchbar__selector"
+              >
+                <div data-v-fa757a88="">
+                  <span
+                    data-v-fa757a88=""
+                    className="ar-searchbar__selector-default"
+                    >All</span
+                  ><i
+                    data-v-fa757a88=""
+                    className="van-badge__wrapper van-icon van-icon-arrow-down"
+                    ></i
+                  >
+                </div>
+              </div>
+              <div className="ar-searchbar__selector">
+                <div>
+                  <span className="noSelect">Choose a date</span
+                  ><i className="van-badge__wrapper van-icon van-icon-arrow-down"
+                    ></i
+                  >
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+        <div
+          data-v-cbab7763=""
+          data-v-e4760c44=""
+          className="infiniteScroll"
+          id="refreshd17a3e4580ef4fedaf1f391b2d85bdd0"
+        >
+          <div data-v-e4760c44="" className="rechargeh__container-content">
+            <div data-v-e4760c44="" className="rechargeh__container-content__item">
+            
+              <div
+                data-v-e4760c44=""
+                className="rechargeh__container-content__item-header ar-1px-b"
+              >
+                <span data-v-e4760c44="">Deposit</span
+                ><span
+                  data-v-e4760c44=""
+                  className="stateG"
+                  >Completed
+                 </span
+                >
+              </div>
+              <div
+                data-v-e4760c44=""
+                className="rechargeh__container-content__item-body"
+              >
+                <div data-v-e4760c44="">
+                  <span data-v-e4760c44="">Balance</span
+                  ><span data-v-e4760c44="">₹110.00</span>
+                </div>
+                <div data-v-e4760c44="">
+                  <span data-v-e4760c44="">Type</span
+                  ><span data-v-e4760c44=""> BANK CARD</span>
+                </div>
+                <div data-v-e4760c44="">
+                  <span data-v-e4760c44="">Time</span
+                  ><span data-v-e4760c44="">2024-07-09 15:53:08</span>
+                </div>
+                <div data-v-e4760c44="">
+                  <span data-v-e4760c44="">Order number</span
+                  ><span data-v-e4760c44="">WD2024070915530896076538c</span
+                  ><svg data-v-e4760c44="" className="svg-icon icon-copy">
+                    <use href="#icon-copy"></use>
+                  </svg>
+                </div>
+                <div data-v-e4760c44="">
+                  <span data-v-e4760c44="">Remarks</span>
+                </div>
+                <div data-v-e4760c44="">
+                  <textarea
+                    data-v-e4760c44=""
+                    className="textarea"
+                    name="remark"
+                    cols="30"
+                    rows="10"
+                    readOnly=""
+                     style={{display: 'none'}}
+                  ></textarea>
                 </div>
               </div>
             </div>
-            <div data-v-30972a14="" className="rechargeh__container-footer">
-              <button data-v-30972a14="" onClick={()=>navigate('/wallet')}>All history</button>
-            </div>
           </div>
-        </div>
-        <div data-v-3e71d3da="" data-v-80a607a5="" className="dialog inactive c2c">
-          <div
-            data-v-3e71d3da=""
-            className="dialog__container"
-            role="dialog"
-            tabIndex="0"
-          >
-            <div data-v-3e71d3da="" className="dialog__container-img">
-              <img
-                data-v-80a607a5=""
-                className="succeedImg"
-                data-origin="/assets/png/succeed-83674414.png"
-                src="/assets/png/succeed-83674414.png"
-              />
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-title">
-              <h1 data-v-3e71d3da="">C2C withdrawal successful</h1>
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-content">
-              <div data-v-80a607a5="" className="c2cTip">
-                <h1 data-v-80a607a5="">
-                  Please come back and click [Confirm Payment] after receiving
-                  the transfer
-                </h1>
-                <p data-v-80a607a5="">
-                  C2C withdrawal rewards will be automatically issued after you
-                  click <span>[Confirm Arrival]</span>!
-                </p>
-              </div>
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-footer">
-              <button data-v-3e71d3da="">Confirm</button
-              >
-            </div>
-            
+          <div data-v-cbab7763="" className="infiniteScroll__loading">
+           
+            <div data-v-cbab7763="">No more</div>
           </div>
-          <div data-v-3e71d3da="" className="dialog__outside"></div>
-        </div>
-        <div data-v-3e71d3da="" data-v-80a607a5="" className="dialog inactive">
-          <div
-            data-v-3e71d3da=""
-            className="dialog__container"
-            role="dialog"
-            tabIndex="0"
-          >
-            <div data-v-3e71d3da="" className="dialog__container-img">
-              <img
-                data-v-3e71d3da=""
-                className=""
-                alt=""
-                data-origin="/assets/png/tip-0498e3f9.png"
-                src="/assets/png/tip-0498e3f9.png"
-              />
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-title">
-              <h1 data-v-3e71d3da=""></h1>
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-content">
-              <h1 data-v-80a607a5="">
-                You must recharge to enable the withdrawal function
-              </h1>
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-footer">
-              <button data-v-3e71d3da="">Confirm</button
-              >
-            </div>
-            <img
-              data-v-3e71d3da=""
-              className="close_img"
-              src="/assets/png/close-84ce5e6a.png"
-            />
-          </div>
-          <div data-v-3e71d3da="" className="dialog__outside"></div>
         </div>
       </div>
+     
       <div
         className="customer"
         id="customerId"
         style={{
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-          '--f6a705e1-currentFontFamily': "bahnschrift"
-    }}
+          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sansSerif",
+         '--f6a705e1-currentFontFamily': 'bahnschrift'
+        }}
       >
         <img
           className=""
@@ -466,9 +336,10 @@ export default function Withdraw() {
           src="/assets/png/icon_sevice-9f0c8455.png"
         />
       </div>
-      
+    
     </div>
-  
+
+    
     </div>
   )
 }

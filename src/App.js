@@ -37,7 +37,7 @@ import FirstRecharge from './pages/activity/FirstRecharge';
 import RebateRatio from './pages/promotion/RebateRatio';
 import Server from './pages/promotion/Server';
 import BetRecords from './pages/account/BetRecords';
-
+import DepositHistory from './pages/wallet/DepositHistory';
 
 
 
@@ -90,6 +90,7 @@ function App() {
         <Route path="/wallet" element={<PrivateRoute><Withdraw/></PrivateRoute>}/>
         <Route path="/wallet" element={<PrivateRoute><WithdrawHistory/></PrivateRoute>}/>
         <Route path="/wallet/paymentPage" element={<PrivateRoute><Paymentpage/></PrivateRoute>}/>
+        <Route path="/wallet/DepositHistory" element={<PrivateRoute><DepositHistory/></PrivateRoute>}/>
         <Route path="/activity/Rule" element={<PrivateRoute><Rule/></PrivateRoute>}/>
         <Route path="/main/InvitationBonus" element={<PrivateRoute><InvitationBonu/></PrivateRoute>}/>
         <Route path="/main/Laundry" element={<PrivateRoute><Laundry/></PrivateRoute>}/>
