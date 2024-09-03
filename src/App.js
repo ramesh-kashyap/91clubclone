@@ -58,6 +58,8 @@ import AllLotteryGames from  './pages/bet/k3/AllLotteryGames';
 import Deposit from './pages/wallet/Deposit';
 import SettingCenters from './pages/account/SettingCenters';
 import LoginPassword from './pages/account/LoginPassword';
+import BindEmail from './pages/account/BindEmail';
+
 
 
 
@@ -120,10 +122,13 @@ function App() {
         <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
         <Route path="/deposit/ConfirmDeposit" element={<PrivateRoute><ConfirmDeposit/></PrivateRoute>}/>
-        <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
+        
+        
         <Route path="home/AllLotteryGames/5D" element={<PrivateRoute><D5/></PrivateRoute>}/>
         <Route path="main/SettingCenters" element={<PrivateRoute><SettingCenters/></PrivateRoute>}/>
         <Route path="main/SettingCenter/LoginPassword" element={<PrivateRoute><LoginPassword/></PrivateRoute>}/>
+        <Route path="main/SettingCenter/BindEmail" element={<PrivateRoute><BindEmail/></PrivateRoute>}/>
+
 
 
 
