@@ -9669,7 +9669,7 @@ export default function Promotion(){
                     src="/assets/png/rechargeHistory-b5a853c0.png"
                   />
                 </div>
-               <span data-v-0dabd3fc="">Deposit history</span>
+                <span data-v-0dabd3fc="">Deposit history</span>
               </div>
               <div data-v-0dabd3fc=""onClick={()=>navigate('/wallet/WithdrawHistory')}>
               <div data-v-0dabd3fc=""onClick={()=>navigate('/wallet/WithdrawHistory')}>
@@ -9679,7 +9679,7 @@ export default function Promotion(){
                     src="/assets/png/withdrawHistory-fb2bafcf.png"
                   />
                 </div>
-               <span data-v-0dabd3fc="">Withdrawal history</span>
+                <span data-v-0dabd3fc="" onClick={()=>navigate('/wallet/WithdrawHistory')}>Withdrawal history</span>
               </div>
             </div>
           </div>

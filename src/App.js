@@ -36,8 +36,8 @@ import ActivityDetail from './pages/activity/ActivityDetail';
 import FirstRecharge from './pages/activity/FirstRecharge';
 import RebateRatio from './pages/promotion/RebateRatio';
 import Server from './pages/promotion/Server';
-import AddUSDT from './pages/wallet/AddUSDT';
-import TransAction from './pages/wallet/TransAction';
+import BetRecords from './pages/account/BetRecords';
+import DepositHistory from './pages/wallet/DepositHistory';
 
 
 
