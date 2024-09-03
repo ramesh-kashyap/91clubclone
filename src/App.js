@@ -13,7 +13,7 @@ import Commission from './pages/promotion/Commission';
 import Promotionrule from './pages/promotion/PromotionRule';
 import Wallet from './pages/wallet/Wallet';
 import Wingo from  './pages/bet/wingo/Wingo';
-import K3 from './pages/bet/wingo/K3';
+import K3 from './pages/bet/k3/K3';
 import PrivateRoute from './components/PrivateRoute'; // Import the PrivateRoute component
 import Account from './pages/account/Account';
 import Withdraw from'./pages/wallet/Withdraw';
