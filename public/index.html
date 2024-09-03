@@ -34,4 +34,25 @@
     <div id="app"></div>
    
   </body>
+  <script>
+   document.addEventListener('DOMContentLoaded', () => {
+  // Function to set font size based on the width of the #app element
+  function updateFontSize() {
+    const appElement = document.getElementById('app');
+    if (appElement) {
+      const checkWidth = appElement.offsetWidth;
+      const fontSize = checkWidth / 10;
+      document.documentElement.style.fontSize = `${fontSize}px`;
+    }
+  }
+
+  // Initial call to set font size
+  updateFontSize();
+
+  // Update font size on window resize
+  window.addEventListener('resize', updateFontSize);
+});
+
+
+  </script>
 </html>
