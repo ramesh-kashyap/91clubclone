@@ -1,6 +1,8 @@
 import React from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 export default function DailyTasks() {
+    const navigate = useNavigate();
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -4492,9 +4494,9 @@ export default function DailyTasks() {
             <div data-v-12a80a3e="" data-v-d7213382="" className="navbar">
                 <div data-v-12a80a3e="" className="navbar-fixed">
                     <div data-v-12a80a3e="" className="navbar__content">
-                        <div data-v-12a80a3e="" className="navbar__content-left"><a href="/activity"><i data-v-12a80a3e=""
+                        <div data-v-12a80a3e="" className="navbar__content-left" onClick={()=>navigate('/activity')}><i data-v-12a80a3e=""
                                 className="van-badge__wrapper van-icon van-icon-arrow-left">
-                                    </i></a></div>
+                                    </i></div>
                         <div data-v-12a80a3e="" className="navbar__content-center">
                             <div data-v-12a80a3e="" className="navbar__content-title"></div>
                         </div>

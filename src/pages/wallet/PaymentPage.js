@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-export default function PaymentPage() {
+export default function PaymentPage() { 
   const [amount, setAmount] = useState(0);
   const [txtUtr, setTxtUtr] = useState('');
   const [selectedMethod, setSelectedMethod] = useState('Paytm');

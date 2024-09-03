@@ -1,9 +1,8 @@
 import React from "react";
  
-
+import { useNavigate } from 'react-router-dom';
 export default function TeamPartner(){
-
-
+    const navigate =  useNavigate();
 return(
 <div className="" style={{fontSize: '12px'}}>
 <svg xmlns="http://www.w3.org/2000/svg" 
@@ -4574,7 +4573,7 @@ return(
                 <div data-v-12a80a3e="" className="navbar-fixed">
                     <div data-v-12a80a3e="" className="navbar__content">
                         <div data-v-12a80a3e="" className="navbar__content-left"><i data-v-12a80a3e=""
-                                className="van-badge__wrapper van-icon van-icon-arrow-left"></i></div>
+                                className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/promotion')}></i></div>
                         <div data-v-12a80a3e="" className="navbar__content-center">
                             <div data-v-12a80a3e="" className="navbar__content-title">Partner rewards</div>
                         </div>

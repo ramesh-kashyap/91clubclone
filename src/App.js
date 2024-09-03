@@ -39,7 +39,7 @@ import Server from './pages/promotion/Server';
 import AddUSDT from './pages/wallet/AddUSDT';
 import TransAction from './pages/wallet/TransAction';
 import BetRecords from './pages/account/BetRecords';
-
+import DepositHistory from './pages/wallet/DepositHistory';
 
 
 import Receive from './pages/activity/Receive';
@@ -91,6 +91,7 @@ function App() {
         <Route path="/wallet" element={<PrivateRoute><Withdraw/></PrivateRoute>}/>
         <Route path="/wallet" element={<PrivateRoute><WithdrawHistory/></PrivateRoute>}/>
         <Route path="/wallet/paymentPage" element={<PrivateRoute><Paymentpage/></PrivateRoute>}/>
+        <Route path="/wallet/DepositHistory" element={<PrivateRoute><DepositHistory/></PrivateRoute>}/>
         <Route path="/activity/Rule" element={<PrivateRoute><Rule/></PrivateRoute>}/>
         <Route path="/main/InvitationBonus" element={<PrivateRoute><InvitationBonu/></PrivateRoute>}/>
         <Route path="/main/Laundry" element={<PrivateRoute><Laundry/></PrivateRoute>}/>
