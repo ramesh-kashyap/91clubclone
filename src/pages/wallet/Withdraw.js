@@ -245,29 +245,24 @@ export default function Withdraw() {
           </div>
           <div  id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
           <div data-v-80a607a5="" className="bankInfo">
-      {bankInfo.map((bank, index) => (
-        <div key={index} data-v-80a607a5="" className="bankInfoItem type1">
-          <div data-v-80a607a5="">
-            <svg data-v-80a607a5="" className="svg-icon icon-1">
-              <use href="#icon-1"></use>
-            </svg>
-            <span data-v-80a607a5="">{bank.bank_name || 'Bank Name'}</span>
+            <div data-v-80a607a5="" className="bankInfoItem type1">
+              <div data-v-80a607a5="">
+                <svg data-v-80a607a5="" className="svg-icon icon-1">
+                  <use href="#icon-1"></use></svg
+                ><span data-v-80a607a5="">Yes Bank</span>
+              </div>
+              <div data-v-80a607a5="">
+                <span data-v-80a607a5=""></span
+                ><span data-v-80a607a5="">084399****495</span>
+              </div>
+              <i
+                data-v-80a607a5=""
+                className="van-badge__wrapper van-icon van-icon-arrow"
+                ></i
+              >
+            </div>        
+
           </div>
-          <div data-v-80a607a5="">
-            <span data-v-80a607a5="">****{bank.account_number.slice(-4)}</span>
-          </div>
-          <i
-            data-v-80a607a5=""
-            className="van-badge__wrapper van-icon van-icon-arrow"
-          ></i>
-        </div>
-      ))}
-      <div>
-        <p>User Info: {userInfo && userInfo[0].phone}</p>
-        <p>Total Withdrawn: {withdrawn}</p>
-        <p>Result: {result}</p>
-      </div>
-    </div>
           <div data-v-cb5583fe="" className="explain">
             <div data-v-cb5583fe="" className="input">
               <div data-v-cb5583fe="" className="place-div">₹</div>
