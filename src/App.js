@@ -43,6 +43,10 @@ import D5 from  './pages/bet/5d/D5';
 
 
 import AddUSDT from './pages/wallet/AddUSDT';
+import AddUSDT from './pages/wallet/AddUSDT';
+import TransAction from './pages/wallet/TransAction';
+import BetRecords from './pages/account/BetRecords';
+import DepositHistory from './pages/wallet/DepositHistory';
 
 
 import Receive from './pages/activity/Receive';
@@ -98,6 +102,7 @@ function App() {
         <Route path="/wallet" element={<PrivateRoute><Withdraw/></PrivateRoute>}/>
         <Route path="/wallet" element={<PrivateRoute><WithdrawHistory/></PrivateRoute>}/>
         <Route path="/wallet/paymentPage" element={<PrivateRoute><Paymentpage/></PrivateRoute>}/>
+        <Route path="/wallet/DepositHistory" element={<PrivateRoute><DepositHistory/></PrivateRoute>}/>
         <Route path="/activity/Rule" element={<PrivateRoute><Rule/></PrivateRoute>}/>
         <Route path="/main/InvitationBonus" element={<PrivateRoute><InvitationBonu/></PrivateRoute>}/>
         <Route path="/main/Laundry" element={<PrivateRoute><Laundry/></PrivateRoute>}/>
@@ -117,6 +122,7 @@ function App() {
         <Route path="/promotion/RebateRatio" element={<PrivateRoute><RebateRatio/></PrivateRoute>}/>
         <Route path="/promotion/Server" element={<PrivateRoute><Server/></PrivateRoute>}/>
         <Route path="/wallet/Withdraw/AddUSDT" element={<PrivateRoute><AddUSDT/></PrivateRoute>}/>
+        <Route path="/wallet/TransAction" element={<PrivateRoute><TransAction/></PrivateRoute>}/>
         <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
         <Route path="/deposit/ConfirmDeposit" element={<PrivateRoute><ConfirmDeposit/></PrivateRoute>}/>
@@ -132,6 +138,7 @@ function App() {
 
 
 
+        <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
 
 
 

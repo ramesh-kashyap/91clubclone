@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
  export default function PromotionShare(){
+    const navigate = useNavigate();
 
     
         const [activeSection, setActiveSection] = useState(1);
@@ -4593,7 +4595,7 @@ return(
                 <div data-v-12a80a3e="" className="navbar-fixed">
                     <div data-v-12a80a3e="" className="navbar__content">
                         <div data-v-12a80a3e="" className="navbar__content-left"><i data-v-12a80a3e=""
-                                className="van-badge__wrapper van-icon van-icon-arrow-left"></i></div>
+                                className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/promotion')}></i></div>
                         <div data-v-12a80a3e="" className="navbar__content-center">
                             <div data-v-12a80a3e="" className="navbar__content-title">Invite</div>
                         </div>

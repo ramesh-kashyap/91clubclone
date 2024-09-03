@@ -9580,11 +9580,11 @@ export default function Promotion(){
           <button data-v-600663f7="" className="shareBtn" onClick={()=>navigate('/promotion/PromotionShare')}> INVITATION LINK </button>
         </div>
         <div data-v-600663f7="" className="promote__cell">
-          <div data-v-600663f7="" className="promote__cell-item">
+          <div data-v-600663f7="" className="promote__cell-item" onClick={()=>navigate('/promotion/TeamPartner')}>
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-team_partner">
                 <use href="#icon-team_partner"></use></svg
-              > <a href="/promotion/TeamPartner"><span data-v-600663f7="">Partner rewards</span></a>
+              > <span data-v-600663f7="">Partner rewards</span>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9609,11 +9609,11 @@ export default function Promotion(){
               ></span>
             </div>
           </div>
-          <div data-v-600663f7="" className="promote__cell-item">
+          <div data-v-600663f7="" className="promote__cell-item" onClick={()=>navigate('/promotion/TeamReport')}>
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-team_port">
                 <use href="#icon-team_port"></use></svg
-              > <a href="/promotion/TeamReport"><span data-v-600663f7="">Subordinate data</span></a>
+              ><span data-v-600663f7="">Subordinate data</span>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9624,11 +9624,11 @@ export default function Promotion(){
               >
             </div>
           </div>
-          <div data-v-600663f7="" className="promote__cell-item">
+          <div data-v-600663f7="" className="promote__cell-item" onClick={()=>navigate('/promotion/MyCommission')}>
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-commission">
                 <use href="#icon-commission"></use></svg
-              > <a href="/promotion/MyCommission"><span data-v-600663f7="">Commission detail</span></a>
+              ><span data-v-600663f7="">Commission detail</span>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9639,11 +9639,11 @@ export default function Promotion(){
               >
             </div>
           </div>
-          <div data-v-600663f7="" className="promote__cell-item">
+          <div data-v-600663f7="" className="promote__cell-item" onClick={()=>navigate('/promotion/PromotionRule')}>
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-invite_reg">
                 <use href="#icon-invite_reg"></use></svg
-              > <a href="/promotion/PromotionRule"><span data-v-600663f7="">Invitation rules</span></a>
+              ><span data-v-600663f7="">Invitation rules</span>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9654,11 +9654,11 @@ export default function Promotion(){
               >
             </div>
           </div>
-          <div data-v-600663f7="" className="promote__cell-item">
+          <div data-v-600663f7="" className="promote__cell-item" onClick={()=>navigate('/promotion/Server')}>
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-server">
                 <use href="#icon-server"></use></svg
-              ><a href="/promotion/Server"><span data-v-600663f7="">Agent line customer service</span></a>
+              ><span data-v-600663f7="">Agent line customer service</span>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9669,11 +9669,11 @@ export default function Promotion(){
               >
             </div>
           </div>
-          <div data-v-600663f7="" className="promote__cell-item">
+          <div data-v-600663f7="" className="promote__cell-item" onClick={()=>navigate('/promotion/RebateRatio')}>
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-rebateRatio">
                 <use href="#icon-rebateRatio"></use></svg
-              > <a href="/promotion/RebateRatio"><span data-v-600663f7="">Rebate ratio</span></a>
+              ><span data-v-600663f7="">Rebate ratio</span>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9742,12 +9742,12 @@ export default function Promotion(){
                     <use href="#icon-home"></use>
                 </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-activity" onClick={()=> navigate('/index')}><use href="#icon-activity"></use>
+                    className="svg-icon icon-activity" onClick={()=> navigate('/activity')}><use href="#icon-activity"></use>
                    
                 </svg>
                 <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
+                    className="svg-icon icon-promotion" onClick={()=> navigate('/promotion')}>
                     <use href="#icon-promotion"></use>
                 </svg>
                 <div data-v-6ab3f23e="" className="promotionBg"></div>

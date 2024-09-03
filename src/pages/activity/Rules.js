@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router';
+
 
 export default function Rules() {
+  const navigate = useNavigate();
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -9509,7 +9512,7 @@ export default function Rules() {
         <div data-v-12a80a3e="" data-v-c1e312a2="" className="navbar">
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
-              <div data-v-12a80a3e="" className="navbar__content-left">
+              <div data-v-12a80a3e="" className="navbar__content-left"  onClick={()=>navigate('/main/SuperJackpot')}>
                 <i
                   data-v-12a80a3e=""
                   className="van-badge__wrapper van-icon van-icon-arrow-left"

@@ -4815,12 +4815,12 @@ export default function Dashboard() {
                                 <div data-v-acaadf81="">Green/Red/Violet to win</div>
                             </h4>
                         </div>
-                        <div data-v-acaadf81="" className="lotterySlotItem"><img 
+                        <div data-v-acaadf81="" className="lotterySlotItem" onClick={()=>navigate('/AllLotteryGames/K3')}><img 
                             src="/assets/lotterycategory_20230714010227swu2.png"
                             data-v-acaadf81="" className="ar-lazyload"
                                 data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_20230714010227swu2.png"/>
-                                <a href=""><span
-                                    data-v-acaadf81="">K3</span></a>
+                                <span
+                                    data-v-acaadf81="">K3</span>
                             <h4 data-v-acaadf81="">
                                 <div data-v-acaadf81="">Guess Number</div>
                                 <div data-v-acaadf81="">Big/Small/Odd/Even</div>
@@ -5451,7 +5451,7 @@ export default function Dashboard() {
                     <use href="#icon-home"></use>
                 </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-activity" onClick={()=> navigate('/index')}><use href="#icon-activity"></use>
+                    className="svg-icon icon-activity" onClick={()=> navigate('/activity')}><use href="#icon-activity"></use>
                    
                 </svg>
                 <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
