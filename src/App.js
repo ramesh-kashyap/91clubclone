@@ -42,10 +42,9 @@ import D5 from  './pages/bet/5d/D5';
 
 
 
-import AddUSDT from './pages/wallet/AddUSDT';
+
 import AddUSDT from './pages/wallet/AddUSDT';
 import TransAction from './pages/wallet/TransAction';
-import BetRecords from './pages/account/BetRecords';
 import DepositHistory from './pages/wallet/DepositHistory';
 
 
@@ -55,7 +54,7 @@ import Wingo5 from  './pages/bet/wingo/Wingo5';
 import Wingo10 from  './pages/bet/wingo/Wingo10';
 import AllLotteryGames from  './pages/bet/k3/AllLotteryGames';
 
-import TransAction from './pages/account/TransAction';
+
 
 
 
@@ -126,7 +125,6 @@ function App() {
         <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
         <Route path="/deposit/ConfirmDeposit" element={<PrivateRoute><ConfirmDeposit/></PrivateRoute>}/>
-        <Route path="wallet/TransAction" element={<PrivateRoute><TransAction/></PrivateRoute>}/>
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
         <Route path="home/AllLotteryGames/5D" element={<PrivateRoute><D5/></PrivateRoute>}/>
         <Route path="main/SettingCenters" element={<PrivateRoute><SettingCenters/></PrivateRoute>}/>
