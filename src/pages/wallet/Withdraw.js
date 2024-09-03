@@ -200,7 +200,8 @@ export default function Withdraw() {
               <span data-v-9bae072d="">USDT</span>
             </div>
           </div>
-          <div data-v-80a607a5="" className="bankInfo" id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
+          <div  id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
+          <div data-v-80a607a5="" className="bankInfo">
             <div data-v-80a607a5="" className="bankInfoItem type1">
               <div data-v-80a607a5="">
                 <svg data-v-80a607a5="" className="svg-icon icon-1">
@@ -216,17 +217,8 @@ export default function Withdraw() {
                 className="van-badge__wrapper van-icon van-icon-arrow"
                 ></i
               >
-            </div>
-            
-          </div>
-          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
-            <div data-v-ef5c8333="" className="addWithdrawType-top">
-              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
-                data-v-ef5c8333="">Add a bank account number</span>
-            </div>
-            <div data-v-ef5c8333="" className="addWithdrawType-text">
-              Need to add beneficiary information to be able to withdraw money
-            </div>
+            </div>        
+
           </div>
           <div data-v-cb5583fe="" className="explain">
             <div data-v-cb5583fe="" className="input">
@@ -253,7 +245,16 @@ export default function Withdraw() {
               </div>
             </div>
           </div>
-          <div data-v-cb5583fe="" className="explain usdt">
+          </div>
+          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
+            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')}>
+              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
+                data-v-ef5c8333="">Add a bank account number</span>
+            </div>
+            <div data-v-ef5c8333="" className="addWithdrawType-text">
+              Need to add beneficiary information to be able to withdraw money
+            </div>
+            <div data-v-cb5583fe="" className="explain usdt">
             <div data-v-cb5583fe="" className="head">
               <img
                 data-v-cb5583fe=""
@@ -279,6 +280,9 @@ export default function Withdraw() {
               </div>
             </div>
           </div>
+          </div>
+          
+          
           <div data-v-80a607a5="" className="recycleBtnD">
             <button data-v-80a607a5="" className="recycleBtn">Withdraw</button>
           </div>
