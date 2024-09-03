@@ -27,13 +27,35 @@
 
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/assets/woff2/bahnschrift-610d57ac.woff2">
     
-    <title>Big Daddy Pro </title>
+    
+    <title>React App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="app"></div>
    
   </body>
+  <script>
+   document.addEventListener('DOMContentLoaded', () => {
+  // Function to set font size based on the width of the #app element
+  function updateFontSize() {
+    const appElement = document.getElementById('app');
+    if (appElement) {
+      const checkWidth = appElement.offsetWidth;
+      const fontSize = checkWidth / 10;
+      document.documentElement.style.fontSize = `${fontSize}px`;
+    }
+  }
+
+  // Initial call to set font size
+  updateFontSize();
+
+  // Update font size on window resize
+  window.addEventListener('resize', updateFontSize);
+});
+
+
+  </script>
   <script>
    document.addEventListener('DOMContentLoaded', () => {
   // Function to set font size based on the width of the #app element
