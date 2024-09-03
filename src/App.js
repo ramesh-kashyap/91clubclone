@@ -36,6 +36,13 @@ import ActivityDetail from './pages/activity/ActivityDetail';
 import FirstRecharge from './pages/activity/FirstRecharge';
 import RebateRatio from './pages/promotion/RebateRatio';
 import Server from './pages/promotion/Server';
+import BetRecords from './pages/account/BetRecords';
+import ConfirmDeposit from './pages/wallet/ConfirmDeposit';
+import D5 from  './pages/bet/5d/D5';
+
+
+
+import AddUSDT from './pages/wallet/AddUSDT';
 import AddUSDT from './pages/wallet/AddUSDT';
 import TransAction from './pages/wallet/TransAction';
 import BetRecords from './pages/account/BetRecords';
@@ -48,10 +55,14 @@ import Wingo5 from  './pages/bet/wingo/Wingo5';
 import Wingo10 from  './pages/bet/wingo/Wingo10';
 import AllLotteryGames from  './pages/bet/k3/AllLotteryGames';
 
+import TransAction from './pages/account/TransAction';
 
 
 
 import Deposit from './pages/wallet/Deposit';
+import SettingCenters from './pages/account/SettingCenters';
+import LoginPassword from './pages/account/LoginPassword';
+
 
 
 function App() {
@@ -114,6 +125,18 @@ function App() {
         <Route path="/wallet/TransAction" element={<PrivateRoute><TransAction/></PrivateRoute>}/>
         <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
+        <Route path="/deposit/ConfirmDeposit" element={<PrivateRoute><ConfirmDeposit/></PrivateRoute>}/>
+        <Route path="wallet/TransAction" element={<PrivateRoute><TransAction/></PrivateRoute>}/>
+        <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
+        <Route path="home/AllLotteryGames/5D" element={<PrivateRoute><D5/></PrivateRoute>}/>
+        <Route path="main/SettingCenters" element={<PrivateRoute><SettingCenters/></PrivateRoute>}/>
+        <Route path="main/SettingCenter/LoginPassword" element={<PrivateRoute><LoginPassword/></PrivateRoute>}/>
+
+
+
+
+
+
 
         <Route path="/home/AllLotteryGames" element={<PrivateRoute><AllLotteryGames/></PrivateRoute>}/>
 
