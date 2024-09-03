@@ -221,8 +221,9 @@ export default function Withdraw() {
                 className="van-badge__wrapper van-icon van-icon-arrow"
                 ></i
               >
-            </div>       
-    </div>
+            </div>        
+
+          </div>
           <div data-v-cb5583fe="" className="explain">
             <div data-v-cb5583fe="" className="input">
               <div data-v-cb5583fe="" className="place-div">₹</div>
