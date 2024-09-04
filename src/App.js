@@ -13,7 +13,7 @@ import Commission from './pages/promotion/Commission';
 import Promotionrule from './pages/promotion/PromotionRule';
 import Wallet from './pages/wallet/Wallet';
 import Wingo from  './pages/bet/wingo/Wingo';
-import K3 from './pages/bet/wingo/K3';
+import K3 from './pages/bet/k3/K3';
 import PrivateRoute from './components/PrivateRoute'; // Import the PrivateRoute component
 import Account from './pages/account/Account';
 import Withdraw from'./pages/wallet/Withdraw';
@@ -61,6 +61,8 @@ import AllLotteryGames from  './pages/bet/k3/AllLotteryGames';
 import Deposit from './pages/wallet/Deposit';
 import SettingCenters from './pages/account/SettingCenters';
 import LoginPassword from './pages/account/LoginPassword';
+import BindEmail from './pages/account/BindEmail';
+
 
 
 
@@ -126,9 +128,13 @@ function App() {
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
         <Route path="/deposit/ConfirmDeposit" element={<PrivateRoute><ConfirmDeposit/></PrivateRoute>}/>
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
+        
+        
         <Route path="home/AllLotteryGames/5D" element={<PrivateRoute><D5/></PrivateRoute>}/>
         <Route path="main/SettingCenters" element={<PrivateRoute><SettingCenters/></PrivateRoute>}/>
         <Route path="main/SettingCenter/LoginPassword" element={<PrivateRoute><LoginPassword/></PrivateRoute>}/>
+        <Route path="main/SettingCenter/BindEmail" element={<PrivateRoute><BindEmail/></PrivateRoute>}/>
+
 
 
 

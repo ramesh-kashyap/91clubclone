@@ -1,8 +1,89 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Api from '../../services/Api';
+
 
 export default function Promotion(){
+
+  const [promotion, setPromotion] = useState(null);
+  const [directTeamDetails, setDirectTeamDetails] = useState(null);
+  const [teamSubordinatesDetails, setTeamSubordinatesDetails] = useState(null);
+  const [error, setError] = useState(null);
+
+
+
+
+  const fetchPromotion = async () => {
+    try {
+      const response = await Api.post('/api/webapi/promotion');
+      const data =  response.data;
+
+      console.log(data.yesterdayComm);
+
+      setPromotion(data.yesterdayComm); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+
+  
+  
+  
+  
+  const fetchDirectTeamDetails = async () => {
+    try {
+      const response = await Api.get('/api/webapi/directTeamDetails');
+      const data = response.data;
+  
+      console.log(data.directSubordinates);
+  
+      setDirectTeamDetails(data.directSubordinates); // Update the state
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    }
+  };
+  
+  // Use useEffect to log the updated state after it changes
+  useEffect(() => {
+    console.log(directTeamDetails); // This will log the updated state
+  }, [directTeamDetails]); // The effect runs whenever directTeamDetails changes
+
+
+
+  const fetchTeamSubordinatesDetails = async () => {
+    try {
+      const response = await Api.get('/api/webapi/teamSubordinatesDetails');
+      const data =  response.data;
+
+      console.log(data.directSubordinates);
+
+      setTeamSubordinatesDetails(data.directSubordinates); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+
+  useEffect(() => {
+    fetchPromotion();  
+    fetchDirectTeamDetails(); 
+    fetchTeamSubordinatesDetails();   
+
+   
+  }, []);
+
+
   const navigate = useNavigate();
+
+
     return (
   <div style={{fontSize: '12px'}}>
     <svg
@@ -9514,7 +9595,7 @@ export default function Promotion(){
         className="container"
         style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sans-serif'"}}
       >
-        <div data-v-6cf5705a="" className="amount">0</div>
+        <div data-v-6cf5705a="" className="amount">{promotion}</div>
         <div data-v-6cf5705a="" className="amount_txt">
           Yesterday's total commission
         </div>
@@ -9530,19 +9611,20 @@ export default function Promotion(){
               Direct subordinates
             </div>
             <div data-v-6cf5705a="" className="line1 r">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">      {directTeamDetails ? directTeamDetails.numberOfRegister : 0}
+              </div>
               number of register
             </div>
             <div data-v-6cf5705a="" className="line2 r">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{directTeamDetails ? directTeamDetails.depositNumber : 0}</div>
               Deposit number
             </div>
             <div data-v-6cf5705a="" className="line3 r">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{directTeamDetails ? directTeamDetails.depositAmount : 0}</div>
               Deposit amount
             </div>
             <div data-v-6cf5705a="" className="line1 r">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{directTeamDetails ? directTeamDetails.firstDepositCount : 0}</div>
               Number of people making first deposit
             </div>
           </div>
@@ -9553,19 +9635,19 @@ export default function Promotion(){
               >Team subordinates
             </div>
             <div data-v-6cf5705a="" className="line1">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.totalNumberOfRegister : 0}</div>
               number of register
             </div>
             <div data-v-6cf5705a="" className="line2">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.totalDepositNumber : 0}</div>
               Deposit number
             </div>
             <div data-v-6cf5705a="" className="line3">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.totalDepositAmount : 0}</div>
               Deposit amount
             </div>
             <div data-v-6cf5705a="" className="line1">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.totalFirstDepositCount : 0}</div>
               Number of people making first deposit
             </div>
           </div>
@@ -9693,29 +9775,29 @@ export default function Promotion(){
           </div>
           <div data-v-600663f7="" className="commission__body">
             <div data-v-600663f7="">
-              <span data-v-600663f7="">0</span
-              ><span data-v-600663f7="">This Week</span>
+              <span data-v-600663f7="">{teamSubordinatesDetails ? teamSubordinatesDetails.todayRegisterCount : 0}</span
+              ><span data-v-600663f7="">Today Register</span>
             </div>
            <span
               data-v-600663f7=""
             > </span>
             <div data-v-600663f7="">
-              <span data-v-600663f7="">0</span
-              ><span data-v-600663f7="">Total commission</span>
+              <span data-v-600663f7="">{teamSubordinatesDetails ? teamSubordinatesDetails.todayDepositNumber : 0}</span
+              ><span data-v-600663f7="">Today Deposit</span>
             </div>
           </div>
           <div data-v-600663f7="" className="commission__body" style={{"marginBottom": '2rem'}}>
             <div data-v-600663f7="">
-              <span data-v-600663f7="">0</span
-              ><span data-v-600663f7="">direct subordinate</span>
+              <span data-v-600663f7="">{teamSubordinatesDetails ? teamSubordinatesDetails.todayDepositAmount : 0}</span
+              ><span data-v-600663f7="">Today Deposit Amount </span>
             </div>
             <span
               data-v-600663f7=""
             ></span>
             <div data-v-600663f7="">
-              <span data-v-600663f7="">0</span
+              <span data-v-600663f7="">{teamSubordinatesDetails ? teamSubordinatesDetails.todayFirstDepositCount : 0}</span
               ><span data-v-600663f7=""
-                >Total number of subordinates in the team</span
+                >Today First Deposit </span
               >
             </div>
           </div>
