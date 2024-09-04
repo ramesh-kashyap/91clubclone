@@ -1,8 +1,11 @@
 
 
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function SettingCenters() {
+  const navigate = useNavigate();
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -9500,7 +9503,7 @@ style={{maskType: 'alpha'}}
           <div data-v-12a80a3e="" className="navbar__content-left">
             <i
               data-v-12a80a3e=""
-              className="van-badge__wrapper van-icon van-icon-arrow-left"
+              className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/account')}
               ></i
             >
           </div>
@@ -9646,14 +9649,14 @@ style={{maskType: 'alpha'}}
         <div data-v-6af1b9df="">Security information</div>
       </div>
       <div data-v-6af1b9df="" className="phone_container">
-        <div data-v-6af1b9df="" className="phone_container-item">
+        <div data-v-6af1b9df="" className="phone_container-item" onClick={()=>navigate('/main/SettingCenter/LoginPassword')}>
           <div data-v-6af1b9df="" className="phone_container-item-left">
             <figure data-v-6af1b9df="" className="icon">
               <svg data-v-6af1b9df="" className="svg-icon icon-editIcon">
                 <use href="#icon-editIcon"></use>
               </svg>
             </figure>
-           <a href="/account/changeloginpass.html"> <span data-v-6af1b9df="">Login password</span></a>
+            <span data-v-6af1b9df="">Login password</span>
           </div>
           <div data-v-6af1b9df="" className="phone_container-item-right">
             <span data-v-6af1b9df="">Edit</span
