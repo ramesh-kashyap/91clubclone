@@ -9782,7 +9782,7 @@ export default function Account() {
               </svg>
               <div
                 data-v-acd6d46f=""
-                className="financialServices__container-box-para" onClick={()=>navigate('/wallet/WithdrawHistory')}
+                className="financialServices__container-box-para" onClick={()=>navigate('/main/BetRecords')}
               >
                <h3 data-v-acd6d46f="">Game History</h3>
                 <span data-v-acd6d46f="">My game history</span>
@@ -9794,7 +9794,7 @@ export default function Account() {
               </svg>
               <div
                 data-v-acd6d46f=""
-                className="financialServices__container-box-para"  onClick={()=>navigate('/main/BetRecords')}
+                className="financialServices__container-box-para"  onClick={()=>navigate('/wallet/TransAction')}
               >
                
                 <span data-v-acd6d46f="">My transaction history</span>
