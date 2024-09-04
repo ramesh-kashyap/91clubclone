@@ -2,16 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 export default function Withdraw() {
-  const [bankName, setBankName] = useState('');
-  const [accountName, setAccountName] = useState('');
-  const [accountNumber, setAccountNumber] = useState('');
-  const [ifscCode, setIfscCode] = useState('');
-  const [usdtBep20, setUsdtBep20] = useState('');
-  const [usdttrc20, setUsdttrc20] = useState('');
-  const navigate = useNavigate();
-
-  const handleAddBank = async (e) => {
-      e.preventDefault();
+ 
   
 
 
