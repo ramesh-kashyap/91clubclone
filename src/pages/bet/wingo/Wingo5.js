@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-const SOCKET_URL = 'http://localhost:3000';
+const SOCKET_URL = 'http://localhost:3000/';
 
 
 const socket = io(SOCKET_URL, {
@@ -10089,7 +10089,7 @@ export default function Wingo5() {
           ></path></svg
         >How to play
       </div>
-      <div data-v-3e4c6499="" className="TimeLeft__C-name">Win Go 1 min</div>
+      <div data-v-3e4c6499="" className="TimeLeft__C-name">Win Go 5 min</div>
       <div data-v-3e4c6499="" className="TimeLeft__C-num">
       {last5Periods.map((amount, index) => (
     

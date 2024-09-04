@@ -767,7 +767,8 @@
     display: flex;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
-    justify-content: center
+    justify-content: center;
+    cursor: pointer;
 }
 
 .totalSavings__container-content-item div[data-v-7d799898] {

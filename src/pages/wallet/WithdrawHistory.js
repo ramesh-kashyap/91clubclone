@@ -1,5 +1,4 @@
 import React from 'react'
-
 export default function WithdrawHistory() {
   return (
     <div>
@@ -9501,7 +9500,7 @@ export default function WithdrawHistory() {
         <div data-v-12a80a3e="" data-v-e4760c44="" className="navbar white">
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
-              <div data-v-12a80a3e="" className="navbar__content-left">
+              <div data-v-12a80a3e="" className="navbar__content-left"  >
                 <i
                   data-v-12a80a3e=""
                   className="van-badge__wrapper van-icon van-icon-arrow-left"

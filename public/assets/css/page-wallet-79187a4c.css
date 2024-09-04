@@ -8334,7 +8334,7 @@ html:lang(ar) .explain .input .place-div[data-v-cb5583fe]:after {
     max-width: 10rem;
     -webkit-user-select: none;
     user-select: none;
-    margin-bottom: .38667rem;
+    margin-bottom: 0.38667rem;
     -webkit-transform: translateX(-50%);
     transform: translate(-50%)
 }
@@ -8407,7 +8407,7 @@ html:lang(ar) .explain .input .place-div[data-v-cb5583fe]:after {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translate(-50%);
-    padding: 0 .32rem;
+    padding: 10px .32rem;
     background: var(--bg_color_L1);
     z-index: 99
 }
