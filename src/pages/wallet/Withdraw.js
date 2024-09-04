@@ -1,12 +1,56 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-export default function Withdraw() {
 
-  const [activeSection, setActiveSection] = useState('section1');
-  const showSection = (sectionID) =>{
-     setActiveSection(sectionID);
+export default function Withdraw() {
+  // Declare all hooks at the top level
+  const [bankInfo, setBankInfo] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
+  const [withdrawn, setWithdrawn] = useState(0);
+  const [result, setResult] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [activeSection, setActiveSection] = useState('section1'); // Moved this to the top
+  const navigate = useNavigate(); // Moved this to the top
+
+  useEffect(() => {
+    const fetchBankInfo = async () => {
+      try {
+        const response = await axios.post('/api/webapi/check/Info', {}, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}` // Assuming you store the auth token in localStorage
+          }
+        });
+
+        if (response.data.status) {
+          setBankInfo(response.data.datas);
+          setUserInfo(response.data.userInfo);
+          setWithdrawn(response.data.withdrawn);
+          setResult(response.data.result);
+        } else {
+          console.error('Failed to fetch data');
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBankInfo();
+  }, []);
+
+  // Conditional rendering logic should come after hooks are declared
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!bankInfo || bankInfo.length === 0) {
+    return <div>No Bank Information Found</div>;
+  }
+
+  const showSection = (sectionID) => {
+    setActiveSection(sectionID);
   };
-  const navigate = useNavigate();
   return (
     <div style={{fontSize: '12px'}}>
  
@@ -202,24 +246,29 @@ export default function Withdraw() {
           </div>
           <div  id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
           <div data-v-80a607a5="" className="bankInfo">
-            <div data-v-80a607a5="" className="bankInfoItem type1">
-              <div data-v-80a607a5="">
-                <svg data-v-80a607a5="" className="svg-icon icon-1">
-                  <use href="#icon-1"></use></svg
-                ><span data-v-80a607a5="">Yes Bank</span>
-              </div>
-              <div data-v-80a607a5="">
-                <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">084399****495</span>
-              </div>
-              <i
-                data-v-80a607a5=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                ></i
-              >
-            </div>        
-
+      {bankInfo.map((bank, index) => (
+        <div key={index} data-v-80a607a5="" className="bankInfoItem type1">
+          <div data-v-80a607a5="">
+            <svg data-v-80a607a5="" className="svg-icon icon-1">
+              <use href="#icon-1"></use>
+            </svg>
+            <span data-v-80a607a5="">{bank.bank_name || 'Bank Name'}</span>
           </div>
+          <div data-v-80a607a5="">
+            <span data-v-80a607a5="">****{bank.account_number.slice(-4)}</span>
+          </div>
+          <i
+            data-v-80a607a5=""
+            className="van-badge__wrapper van-icon van-icon-arrow"
+          ></i>
+        </div>
+      ))}
+      <div>
+        <p>User Info: {userInfo && userInfo[0].phone}</p>
+        <p>Total Withdrawn: {withdrawn}</p>
+        <p>Result: {result}</p>
+      </div>
+    </div>
           <div data-v-cb5583fe="" className="explain">
             <div data-v-cb5583fe="" className="input">
               <div data-v-cb5583fe="" className="place-div">₹</div>
@@ -246,6 +295,41 @@ export default function Withdraw() {
             </div>
           </div>
           </div>
+          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType"  style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
+            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')}>
+              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
+                data-v-ef5c8333="">Add a bank account number</span>
+            </div>
+            <div data-v-ef5c8333="" className="addWithdrawType-text">
+              Need to add beneficiary information to be able to withdraw money
+            </div>
+            <div data-v-cb5583fe="" className="explain usdt">
+            <div data-v-cb5583fe="" className="head">
+              <img
+                data-v-cb5583fe="" src="/assets/png/usdt.png"
+              />
+            </div>
+            <div data-v-cb5583fe="" className="input">
+              <div data-v-cb5583fe="" className="place-div">₹</div>
+              <input
+                data-v-cb5583fe=""
+                type="number"
+                placeholder="Please enter withdrawal amount"
+                className="inp"
+              />
+            </div>
+            
+            <div data-v-cb5583fe="" className="balance usdt">
+              <div data-v-cb5583fe="">
+                <span data-v-cb5583fe=""
+                  >Withdrawable balance
+                  <h6 data-v-cb5583fe="" className="yellow">₹93.18</h6></span
+                ><input data-v-cb5583fe="" type="button" value="All" />
+              </div>
+            </div>
+          </div>
+          </div>
+
           <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
             <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')}>
               <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
