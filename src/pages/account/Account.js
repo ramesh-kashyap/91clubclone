@@ -9733,7 +9733,7 @@ export default function Account() {
               <div data-v-7d799898="" onClick={()=>navigate('/wallet')}>
                 <svg data-v-7d799898="" className="svg-icon icon-wallets">
                   <use href="#icon-wallets"></use></svg
-                > <a href="/wallet"><span data-v-7d799898="">Wallet</span></a>
+                > <span data-v-7d799898="">Wallet</span>
               </div>
             </div>
             <div
@@ -9743,7 +9743,7 @@ export default function Account() {
               <div data-v-7d799898="" onClick={()=>navigate('/wallet/deposit')}>
                 <svg data-v-7d799898="" className="svg-icon icon-rechargeIcon">
                   <use href="#icon-rechargeIcon"></use></svg
-                > <span data-v-7d799898="" onClick={()=> navigate('/wallet/deposit')} >Deposit</span>
+                > <span data-v-7d799898="">Deposit</span>
               </div>
             </div>
             <div
@@ -9753,7 +9753,7 @@ export default function Account() {
               <div data-v-7d799898="" onClick={()=>navigate('/wallet/withdraw')}>
                 <svg data-v-7d799898="" className="svg-icon icon-widthdrawBlue">
                   <use href="#icon-widthdrawBlue"></use></svg
-                > <span data-v-7d799898="" onClick={()=>navigate('/wallet/withdraw')}>Withdraw</span>
+                ><span data-v-7d799898="">Withdraw</span>
               </div>
             </div>
             <div
@@ -9826,7 +9826,7 @@ export default function Account() {
                 className="financialServices__container-box-para" onClick={()=>navigate('/wallet/WithdrawHistory')}
                 className="financialServices__container-box-para" onClick={()=>navigate('/wallet/WithdrawHistory')}
               >
-                 <a href="wallet/WithdrawHistory"><h3 data-v-acd6d46f="">Withdraw</h3></a>
+                 <h3 data-v-acd6d46f="">Withdraw</h3>
                 <span data-v-acd6d46f="">My withdraw history</span>
               </div>
             </div>
