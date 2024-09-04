@@ -9733,7 +9733,7 @@ export default function Account() {
               <div data-v-7d799898="" onClick={()=>navigate('/wallet')}>
                 <svg data-v-7d799898="" className="svg-icon icon-wallets">
                   <use href="#icon-wallets"></use></svg
-                > <a href="/wallet"><span data-v-7d799898="">Wallet</span></a>
+                > <span data-v-7d799898="">Wallet</span>
               </div>
             </div>
             <div
@@ -9743,7 +9743,7 @@ export default function Account() {
               <div data-v-7d799898="" onClick={()=>navigate('/wallet/deposit')}>
                 <svg data-v-7d799898="" className="svg-icon icon-rechargeIcon">
                   <use href="#icon-rechargeIcon"></use></svg
-                > <span data-v-7d799898="" onClick={()=> navigate('/wallet/deposit')} >Deposit</span>
+                > <span data-v-7d799898="">Deposit</span>
               </div>
             </div>
             <div
@@ -9753,7 +9753,7 @@ export default function Account() {
               <div data-v-7d799898="" onClick={()=>navigate('/wallet/withdraw')}>
                 <svg data-v-7d799898="" className="svg-icon icon-widthdrawBlue">
                   <use href="#icon-widthdrawBlue"></use></svg
-                > <span data-v-7d799898="" onClick={()=>navigate('/wallet/withdraw')}>Withdraw</span>
+                ><span data-v-7d799898="">Withdraw</span>
               </div>
             </div>
             <div
@@ -9763,6 +9763,7 @@ export default function Account() {
               <div data-v-7d799898="">
                 <svg data-v-7d799898="" className="svg-icon icon-VipIcon">
                   <use href="#icon-VipIcon"></use></svg
+                > <span data-v-7d799898="">VIP</span>
                 > <span data-v-7d799898="">VIP</span>
               </div>
             </div>
@@ -9782,8 +9783,9 @@ export default function Account() {
               </svg>
               <div
                 data-v-acd6d46f=""
-                className="financialServices__container-box-para" onClick={()=>navigate('/main/BetRecords')}
+                className="financialServices__container-box-para" onClick={()=>navigate('/wallet/WithdrawHistory')}
               >
+               <h3 data-v-acd6d46f="">Game History</h3>
                <h3 data-v-acd6d46f="">Game History</h3>
                 <span data-v-acd6d46f="">My game history</span>
               </div>
@@ -9794,8 +9796,9 @@ export default function Account() {
               </svg>
               <div
                 data-v-acd6d46f=""
-                className="financialServices__container-box-para"  onClick={()=>navigate('/wallet/TransAction')}
+                className="financialServices__container-box-para"  onClick={()=>navigate('/main/BetRecords')}
               >
+               
                
                 <span data-v-acd6d46f="">My transaction history</span>
               </div>
@@ -9807,7 +9810,9 @@ export default function Account() {
               <div
                 data-v-acd6d46f=""
                 className="financialServices__container-box-para" onClick={()=>navigate('/wallet/DepositHistory')}
+                className="financialServices__container-box-para" onClick={()=>navigate('/wallet/DepositHistory')}
               >
+               <h3 data-v-acd6d46f="">Deposit</h3>
                <h3 data-v-acd6d46f="">Deposit</h3>
                 <span data-v-acd6d46f="">My deposit history</span>
               </div>
@@ -9819,8 +9824,9 @@ export default function Account() {
               <div
                 data-v-acd6d46f=""
                 className="financialServices__container-box-para" onClick={()=>navigate('/wallet/WithdrawHistory')}
+                className="financialServices__container-box-para" onClick={()=>navigate('/wallet/WithdrawHistory')}
               >
-                 <a href="wallet/WithdrawHistory"><h3 data-v-acd6d46f="">Withdraw</h3></a>
+                 <h3 data-v-acd6d46f="">Withdraw</h3>
                 <span data-v-acd6d46f="">My withdraw history</span>
               </div>
             </div>
@@ -10049,6 +10055,7 @@ export default function Account() {
         <div data-v-159bf81f="" data-v-a78765c7="" className="serviceCenter-wrap">
           <div data-v-159bf81f="" className="serviceCenter__container">
             <h1 data-v-159bf81f="">Service center</h1>
+            <div data-v-159bf81f="" className="serviceCenter__container-items" onClick={()=>navigate('/main/SettingCenters')}>
             <div data-v-159bf81f="" className="serviceCenter__container-items" onClick={()=>navigate('/main/SettingCenters')}>
               <div
                 data-v-159bf81f=""
