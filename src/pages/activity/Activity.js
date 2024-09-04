@@ -9613,7 +9613,7 @@ export default function Activity() {
             <div data-v-4a7709f3="" className="box">
               <img
                 data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_202403021314318bw3.png"
+                src="assets/png/banner/Banner_2024083115215341su.png"
                 className="act_0"
               />
               <div data-v-4a7709f3="" className="box-content">
@@ -9625,7 +9625,7 @@ export default function Activity() {
             <div data-v-4a7709f3="" className="box">
               <img
                 data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_20240706170759bs74.png"
+                src="assets/png/banner/Banner_202408272256577vru.png"
                 className="act_1"
               />
               <div data-v-4a7709f3="" className="box-content">
@@ -9637,7 +9637,7 @@ export default function Activity() {
             <div data-v-4a7709f3="" className="box">
               <img
                 data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_2024020413014726oj.png"
+                src="assets/png/banner/Banner_20240309122254d64f.png"
                 className="act_2"
               />
               <div data-v-4a7709f3="" className="box-content">
@@ -9649,7 +9649,7 @@ export default function Activity() {
             <div data-v-4a7709f3="" className="box">
               <img
                 data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_20240517135547cyn8.jpg"
+                src="assets/png/banner/Banner_20240413224931qr21.png"
                 className="act_3"
               />
               <div data-v-4a7709f3="" className="box-content">
@@ -9659,7 +9659,7 @@ export default function Activity() {
             <div data-v-4a7709f3="" className="box">
               <img
                 data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_20240327152703xq8d.jpg"
+                src="assets/png/banner/Banner_20240110083259g1n2.png"
                 className="act_4"
               />
               <div data-v-4a7709f3="" className="box-content">
@@ -9669,7 +9669,7 @@ export default function Activity() {
             <div data-v-4a7709f3="" className="box">
               <img
                 data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_20240327152710ihgy.jpg"
+                src="assets/png/banner/Banner_20231125141026uw34.png"
                 className="act_5"
               />
               <div data-v-4a7709f3="" className="box-content">
@@ -9679,7 +9679,7 @@ export default function Activity() {
             <div data-v-4a7709f3="" className="box">
               <img
                 data-v-4a7709f3=""
-                src="https://ossimg.91admin123admin.com/91club/banner/Banner_20240131164605jo9h.jpg"
+                src="assets/png/banner/Banner_20240502120432m8f3.png"
                 className="act_6"
               />
               <div data-v-4a7709f3="" className="box-content">
