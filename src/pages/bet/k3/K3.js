@@ -6,6 +6,7 @@ import MyGameRecordList from '../wingo/components/MyGameRecordList';
 import GameList from '../k3/components/GameList';
 import ReactHowler from 'react-howler';
 import ChartList from '../k3/components/ChartList';
+import BetPopup from '../k3/components/BetPopup';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -24,31 +25,10 @@ const socket = io(SOCKET_URL, {
 
 const countDownDate =new Date("2030-07-16T23:59:59.9999999+01:00").getTime();
 
-const getPopupClass = (item) => {
-  switch (item) {
-    case '0': return 0;
-    case '1': return 1;
-    case '2': return 2;
-    case '3': return 3;
-    case '4': return 4;
-    case '5': return 5;
-    case '6': return 6;
-    case '7': return 7;
-    case '8': return 8;
-    case '9': return 9;
-    case 'Red': return 10;
-    case 'Violet': return 12;
-    case 'Green': return 11;
-    case 'Big': return 13;
-    case 'Small': return 14;
-    default: return 1; // Default class if nothing is selected
-  }
-};
-
 
 export default function K3(){
 
-    const [gameJoin, setGameJoin] = useState('section1');
+    const [gameJoin, setGameJoin] = useState('game1');
     const [activeTime, setActiveTime] =useState('time1');
 
     const [activeHistory, setActiveHistory] =useState('history1');
@@ -65,13 +45,11 @@ const showSection = (sectionId) => {
 
 
   const [userInfo, setUserInfo] = useState(null);
-  const [activeSection, setActiveSection] = useState('section1');
   const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
   const [gamelist, setGamelist] = useState([]);
   const [myBets,setMyBets] = useState(null);
   const [period, setPeriod] = useState(null);
-  const [lastperiod, setLastPeriod] = useState(null);
 
   const [time, setTime] = useState({
     seconds1: 0,
@@ -331,11 +309,10 @@ useEffect(() => {
   const fetchMyBets = async (pageNumber = 1) => {
     try {
       const pageno = (pageNumber - 1) * 10; // Calculate pageno based on the page number
-      const response = await Api.post('/api/webapi/GetMyEmerdList', {
-        typeid: "1",
+      const response = await Api.post('/api/webapi/k3/GetMyEmerdList', {
+        gameJoin: "1",
         pageno: pageno.toString(),
         pageto: "10",
-        language: "vi",
       });
   
       const { gameslist } = response.data.data;
@@ -378,7 +355,7 @@ useEffect(() => {
 
       if (msg.game !== '1') return;
 
-        console.log(msg);
+        console.log(msg.data[0]);
 
       fetchGamelist();
 
@@ -624,7 +601,7 @@ useEffect(() => {
         <div data-v-7dd1adab="" data-v-d024c659="" className="Wallet__C">
           <div data-v-7dd1adab="" className="Wallet__C-balance">
             <div data-v-7dd1adab="" className="Wallet__C-balance-l1">
-              <div data-v-7dd1adab="">₹0.07</div>
+              <div data-v-7dd1adab="">₹{userInfo?userInfo.money_user:0.00}</div>
             </div>
             <div data-v-7dd1adab="" className="Wallet__C-balance-l2">
               <svg data-v-7dd1adab="" className="svg-icon icon-lottyWallet">
@@ -740,10 +717,10 @@ useEffect(() => {
             <div data-v-8a4509d7="">{time.seconds2}</div>
           </div>
           <div data-v-8a4509d7="" className="K3B__C-nav" >
-            <div data-v-8a4509d7="" className={`${gameJoin === 'section1' ? 'active' : ''}`}  onClick={() => showSection('section1')}>Total</div>
-            <div data-v-8a4509d7="" className={`${gameJoin === 'section2' ? 'active' : ''}`}  onClick={() => showSection('section2')}>2 same</div>
-            <div data-v-8a4509d7="" className={`${gameJoin === 'section3' ? 'active' : ''}`}  onClick={() => showSection('section3')}>3 same</div>
-            <div data-v-8a4509d7="" className={`${gameJoin === 'section4' ? 'active' : ''}`}  onClick={() => showSection('section4')}>Different</div>
+            <div data-v-8a4509d7="" className={`${gameJoin === 'game1' ? 'active' : ''}`}  onClick={() => showSection('game1')}>Total</div>
+            <div data-v-8a4509d7="" className={`${gameJoin === 'game2' ? 'active' : ''}`}  onClick={() => showSection('game2')}>2 same</div>
+            <div data-v-8a4509d7="" className={`${gameJoin === 'game3' ? 'active' : ''}`}  onClick={() => showSection('game3')}>3 same</div>
+            <div data-v-8a4509d7="" className={`${gameJoin === 'game4' ? 'active' : ''}`}  onClick={() => showSection('game4')}>Different</div>
           </div>
           <div
             data-v-ed0c8e79=""
@@ -752,7 +729,7 @@ useEffect(() => {
             numlist="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
             numtow=""
             numone=""
-            numchack="false" id="section1" style={{ display: gameJoin === 'section1' ? 'flex' : 'none' }}
+            numchack="false" id="game1" style={{ display: gameJoin === 'game1' ? 'flex' : 'none' }}
           >
 
 
@@ -872,7 +849,7 @@ useEffect(() => {
               <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
             </div>
           </div>
-          <div data-v-5c28a69e="" data-v-8a4509d7="" className="K3B__C-betting2"  id="section2" style={{ display: gameJoin === 'section2' ? 'block' : 'none' }}> <div data-v-5c28a69e="" className="K3B__C-betting2-tip1">2 matching numbers: odds<span data-v-5c28a69e="">(13.83)</span><i data-v-5c28a69e="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-5c28a69e="" className="K3B__C-betting2-line1 mb30"><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">11</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">22</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">33</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">44</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">55</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">66</div></div></div><div data-v-5c28a69e="" className="K3B__C-betting2-tip1">A pair of unique numbers: odds<span data-v-5c28a69e="">(69.12)</span><i data-v-5c28a69e="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-5c28a69e="" className="K3B__C-betting2-line2"><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">11</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">22</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">33</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">44</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">55</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">66</div></div></div><div data-v-5c28a69e="" className="K3B__C-betting2-line3"><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">1</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">2</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">3</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">4</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">5</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">6</div></div></div></div>
+          <div data-v-5c28a69e="" data-v-8a4509d7="" className="K3B__C-betting2"  id="game2" style={{ display: gameJoin === 'game2' ? 'block' : 'none' }}> <div data-v-5c28a69e="" className="K3B__C-betting2-tip1">2 matching numbers: odds<span data-v-5c28a69e="">(13.83)</span><i data-v-5c28a69e="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-5c28a69e="" className="K3B__C-betting2-line1 mb30"><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">11</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">22</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">33</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">44</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">55</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">66</div></div></div><div data-v-5c28a69e="" className="K3B__C-betting2-tip1">A pair of unique numbers: odds<span data-v-5c28a69e="">(69.12)</span><i data-v-5c28a69e="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-5c28a69e="" className="K3B__C-betting2-line2"><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">11</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">22</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">33</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">44</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">55</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">66</div></div></div><div data-v-5c28a69e="" className="K3B__C-betting2-line3"><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">1</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">2</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">3</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">4</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">5</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">6</div></div></div></div>
 
 
 <div data-v-8a4509d7="" data-v-d024c659="" className="K3B__C" voicetype="1" typeid="9" style={{ display: 'none' }}>
@@ -880,9 +857,9 @@ useEffect(() => {
         <div data-v-8a4509d7="">{time.seconds1}</div>
         <div data-v-8a4509d7="">{time.seconds2}</div>
         </div></div>
-        <div data-v-3deb049d="" data-v-8a4509d7="" className="K3B__C-betting3" id="section3" style={{ display: gameJoin === 'section3' ? 'block' : 'none' }}><div data-v-3deb049d="" className="K3B__C-betting3-tip1">3 of the same number: odds <span data-v-3deb049d="">(207.36)</span><i data-v-3deb049d="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-3deb049d="" className="K3B__C-betting3-line1 mb30"><div data-v-3deb049d="" className=""><div data-v-3deb049d="">111</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">222</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">333</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">444</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">555</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">666</div></div></div><div data-v-3deb049d="" className="K3B__C-betting3-tip1">Any 3 of the same number: odds <span data-v-3deb049d="">(34.56)</span><i data-v-3deb049d="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-3deb049d="" className="K3B__C-betting3-btn">Any 3 of the same number: odds</div></div>
+        <div data-v-3deb049d="" data-v-8a4509d7="" className="K3B__C-betting3" id="game3" style={{ display: gameJoin === 'game3' ? 'block' : 'none' }}><div data-v-3deb049d="" className="K3B__C-betting3-tip1">3 of the same number: odds <span data-v-3deb049d="">(207.36)</span><i data-v-3deb049d="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-3deb049d="" className="K3B__C-betting3-line1 mb30"><div data-v-3deb049d="" className=""><div data-v-3deb049d="">111</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">222</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">333</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">444</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">555</div></div><div data-v-3deb049d="" className=""><div data-v-3deb049d="">666</div></div></div><div data-v-3deb049d="" className="K3B__C-betting3-tip1">Any 3 of the same number: odds <span data-v-3deb049d="">(34.56)</span><i data-v-3deb049d="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-3deb049d="" className="K3B__C-betting3-btn">Any 3 of the same number: odds</div></div>
 
-          <div data-v-bcf2c3f9="" data-v-8a4509d7="" className="K3B__C-betting4" id="section4" style={{ display: gameJoin === 'section4' ? 'block' : 'none' }}><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 different numbers: odds <span data-v-bcf2c3f9="">(34.56)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1 mb30"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 continuous numbers: odds <span data-v-bcf2c3f9="">(8.64)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-btn">3 continuous numbers</div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">2 different numbers: odds <span data-v-bcf2c3f9="">(6.91)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div></div>
+          <div data-v-bcf2c3f9="" data-v-8a4509d7="" className="K3B__C-betting4" id="game4" style={{ display: gameJoin === 'game4' ? 'block' : 'none' }}><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 different numbers: odds <span data-v-bcf2c3f9="">(34.56)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1 mb30"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">3 continuous numbers: odds <span data-v-bcf2c3f9="">(8.64)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-btn">3 continuous numbers</div><div data-v-bcf2c3f9="" className="K3B__C-betting4-tip1">2 different numbers: odds <span data-v-bcf2c3f9="">(6.91)</span><i data-v-bcf2c3f9="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-bcf2c3f9="" className="K3B__C-betting4-line1"><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">1</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">2</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">3</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">4</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">5</div></div><div data-v-bcf2c3f9="" className=""><div data-v-bcf2c3f9="">6</div></div></div></div>
 
         </div>
         <div data-v-72f81e71="" data-v-d024c659="" className="RecordNav__C">
@@ -1038,18 +1015,77 @@ useEffect(() => {
         </div>
       </div>
       <div data-v-cffd8c9f="" className="MyGameRecord__C-body" >
-        <div data-v-cffd8c9f="" className="MyGameRecord__C-body-empty">
-          <div
-            data-v-f84b843f=""
-            data-v-cffd8c9f=""
-            className="empty__container"
-          >
-            <svg data-v-f84b843f="" className="svg-icon icon-empty">
-              <use href="#icon-empty"></use>
-            </svg>
-            <p data-v-f84b843f="">No data</p>
-          </div>
+      <div data-v-a5ef3154="" data-v-cffd8c9f="" className="MyGameRecordList__C">
+    <div data-v-a5ef3154="" className="MyGameRecordList__C-item">
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-num">22|1,3,4</div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-item-m">
+            <div data-v-a5ef3154="" className="MyGameRecordList__C-item-m-top">20240902090960</div>
+            <div data-v-a5ef3154="" className="MyGameRecordList__C-item-m-bottom">2024-09-02 15:59:21</div>
         </div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-item-r">
+            <div data-v-a5ef3154="" className="">Failed</div><span data-v-a5ef3154="">-₹14.70</span>
+        </div>
+    </div>
+    <div data-v-a5ef3154="" className="MyGameRecordList__C-detail">
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-text">Details</div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-line">Order number <div data-v-a5ef3154="">
+                K32024090215592148858774f <svg data-v-a5ef3154="" className="svg-icon icon-copy">
+                    <use href="#icon-copy"></use>
+                </svg></div>
+        </div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-line">Period <div data-v-a5ef3154="">
+                20240902090960</div>
+        </div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-line">Purchase amount <div data-v-a5ef3154="">
+                ₹15.00</div>
+        </div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-line">Quantity <div data-v-a5ef3154="">1</div>
+        </div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-line">Amount after tax <div data-v-a5ef3154=""
+                className="red">₹14.70</div>
+        </div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-line">Tax <div data-v-a5ef3154="">₹0.30</div>
+        </div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-line">Result <div data-v-a5ef3154=""
+                className="numList">
+                <div data-v-a5ef3154="" className="n5"></div>
+                <div data-v-a5ef3154="" className="n6"></div>
+                <div data-v-a5ef3154="" className="n1"></div>
+            </div>
+        </div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-line noLine">Select <div data-v-a5ef3154=""
+                className="line1"><span data-v-a5ef3154="" className="">2 same numbers:</span><span data-v-a5ef3154=""
+                    className="btn actionViolet">11</span><span data-v-a5ef3154=""
+                    className="btn actionViolet">22</span><span data-v-a5ef3154=""
+                    className="btn actionViolet">33</span><span data-v-a5ef3154=""
+                    className="btn actionViolet">44</span><span data-v-a5ef3154=""
+                    className="btn actionViolet">55</span><span data-v-a5ef3154=""
+                    className="btn actionViolet">66</span><span data-v-a5ef3154="" className="">2 same and 1 different
+                    numbers:</span><span data-v-a5ef3154="" className="btn actionRedGreen">22|1,3,4</span><span
+                    data-v-a5ef3154="" className="btn actionRedGreen">55|1,3,4</span><span data-v-a5ef3154=""
+                    className="btn actionRedGreen">66|1,3,4</span></div>
+        </div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-line">Status <div data-v-a5ef3154=""
+                className="red">Failed</div>
+        </div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-line">Win/lose <div data-v-a5ef3154=""
+                className="red">- ₹14.70</div>
+        </div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-line">Order time <div data-v-a5ef3154="">
+                2024-09-02 15:59:21</div>
+        </div>
+    </div>
+    <div data-v-a5ef3154="" className="MyGameRecordList__C-item">
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-3">3</div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-item-m">
+            <div data-v-a5ef3154="" className="MyGameRecordList__C-item-m-top">20240902090715</div>
+            <div data-v-a5ef3154="" className="MyGameRecordList__C-item-m-bottom">2024-09-02 11:54:13</div>
+        </div>
+        <div data-v-a5ef3154="" className="MyGameRecordList__C-item-r">
+            <div data-v-a5ef3154="" className="">Failed</div><span data-v-a5ef3154="">-₹0.98</span>
+        </div>
+    </div>
+</div>
       </div>
       <div data-v-4159c83a="" className="Trend__C-foot">
           <div data-v-4159c83a="" className="Trend__C-foot-previous disabled">
@@ -1073,8 +1109,7 @@ useEffect(() => {
       
     </div>
 
-      <div data-v-5f002ad4="" className="Betting__Popup-body" style={{display: 'none'}}><div data-v-5f002ad4="" className="Betting__Popup-type1"><p data-v-5f002ad4="" className="title">Total:</p><div data-v-5f002ad4="" className="list"><div data-v-5f002ad4="" className="red num3">3</div></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line">Balance <div data-v-5f002ad4="" className="Betting__Popup-body-line-list"></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line">Quantity <div data-v-5f002ad4="" className="Betting__Popup-body-line-btnL"><div data-v-5f002ad4="" className="Betting__Popup-btn bgcolor">-</div><div data-v-5f002ad4="" className="van-cell van-field Betting__Popup-input"><div className="van-cell__value van-field__value"><div className="van-field__body"><input type="tel" inputMode="numeric" id="van-field-6-input" className="van-field__control"/></div></div></div><div data-v-5f002ad4="" className="Betting__Popup-btn bgcolor">+</div></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line"><div data-v-5f002ad4=""></div><div data-v-5f002ad4="" className="Betting__Popup-body-line-list"><div data-v-5f002ad4="" className="Betting__Popup-body-line-item bgcolor"> X1</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X5</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X10</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X20</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X50</div><div data-v-5f002ad4="" className="Betting__Popup-body-line-item"> X100</div></div></div><div data-v-5f002ad4="" className="Betting__Popup-body-line"><span data-v-5f002ad4="" className="Betting__Popup-agree active">I agree</span><span data-v-5f002ad4="" className="Betting__Popup-preSaleShow">《Pre-sale rules》</span></div></div>
-
+   <BetPopup gameJoin={gameJoin}/>
 
       
 
