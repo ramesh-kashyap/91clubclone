@@ -180,6 +180,7 @@ const showSection = (sectionId) => {
             <div data-v-12a80a3e="" className="navbar-fixed">
               <div data-v-12a80a3e="" className="navbar__content">
                 <div data-v-12a80a3e="" className="navbar__content-left"  onClick={()=> navigate('/wallet')}>
+                <div data-v-12a80a3e="" className="navbar__content-left"  onClick={()=> navigate('/wallet')}>
                   <i
                     data-v-12a80a3e=""
                     className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/wallet')}
@@ -193,7 +194,7 @@ const showSection = (sectionId) => {
                   </div>
                 </div>
                 <div data-v-12a80a3e="" className="navbar__content-right">
-                  <div data-v-36cc3380="" className="title">Deposit history</div>
+                  <div data-v-36cc3380="" className="title" onClick={()=> navigate('/wallet/deposit')} >Deposit history </div>
                 </div>
               </div>
             </div>
