@@ -1,9 +1,35 @@
 import React, { useState } from 'react';
 
-const BetPopup = ({ gameJoin }) => {
+const BetPopup = ({ gameJoin,listOrder }) => {
   // State for balance and quantity
   const [balance, setBalance] = useState(1);
   const [quantity, setQuantity] = useState(1);
+
+  const calculateTotalMoney = (quantity, balance, listOrder, gameJoin) => {
+    console.log(listOrder)
+    switch (gameJoin) {
+      case 'game1':
+        console.log("hi");
+        return calculateTotalMoney1(quantity, balance, listOrder);
+      case 'game2':
+        // return calculateTotalMoney2(quantity, balance, listJoin);
+      case 'game3':
+        // return calculateTotalMoney3(quantity, balance, listJoin);
+      case 'game4':
+        // return calculateTotalMoney4(quantity, balance, listJoin);
+      default:
+        console.log("hi1");
+
+        return 0;
+    }
+  };
+
+  const calculateTotalMoney1 = (quantity, balance, listOrder) => {
+    return Number(quantity) * Number(balance) * listOrder.length;
+  };
+
+  const totalAmount = calculateTotalMoney(quantity, balance, listOrder, gameJoin);
+
 
   // Determine the title based on the gameJoin prop
   const getTitle = () => {
@@ -219,7 +245,7 @@ const BetPopup = ({ gameJoin }) => {
           data-v-5f002ad4=""
           className="Betting__Popup-foot-s bgcolor"
         >
-          Total amount ₹{balance * quantity}.00
+          Total amount ₹{totalAmount}.00
         </div>
       </div>
     </div>
