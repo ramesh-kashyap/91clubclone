@@ -1,10 +1,10 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-export default function WithdrawHistory() {
-  const navigate = useNavigate();
+export default function DepositHistory() {
+    const navigate = useNavigate();
   return (
     <div>
- 
+
 
     <div id="app" data-v-app="">
       <div
@@ -144,7 +144,7 @@ export default function WithdrawHistory() {
               <div data-v-12a80a3e="" className="navbar__content-center">
                
                 <div data-v-12a80a3e="" className="navbar__content-title">
-                  Withdrawal history
+                  Deposit history
                 </div>
               </div>
               <div data-v-12a80a3e="" className="navbar__content-right"></div>
@@ -267,7 +267,7 @@ export default function WithdrawHistory() {
                 data-v-e4760c44=""
                 className="rechargeh__container-content__item-header ar-1px-b"
               >
-                <span data-v-e4760c44="">Withdraw</span
+                <span data-v-e4760c44="">Deposit</span
                 ><span
                   data-v-e4760c44=""
                   className="stateG"

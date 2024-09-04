@@ -9575,7 +9575,7 @@ export default function Activity() {
           </div>
           <div data-v-4a7709f3="" className="activity-panel-content">
           
-            <div data-v-4a7709f3="" className="content-title">
+            <div data-v-4a7709f3="" className="content-title" onClick={()=>navigate('/main/RedeemGift')}>
            
               <img
                 data-v-4a7709f3=""
@@ -9583,15 +9583,13 @@ export default function Activity() {
                 data-origin="/assets/png/signInBanner-33f86d3f.png"
                 src="/assets/png/signInBanner-33f86d3f.png"
               />
-            <a href="/main/RedeemGift">
               <div data-v-4a7709f3="" className="content-para">Gifts</div>
               
               <p data-v-4a7709f3="">
                 Enter the redemption code to receive gift rewards
               </p>
-              </a>
             </div>
-            <div data-v-4a7709f3="" className="content-title">
+            <div data-v-4a7709f3="" className="content-title" onClick={()=>navigate('/activity/DailySignIn')}>
               
               <img
                 data-v-4a7709f3=""
@@ -9599,7 +9597,6 @@ export default function Activity() {
                 data-origin="/assets/png/giftRedeem-45917887.png"
                 src="/assets/png/giftRedeem-45917887.png"
               />
-              <a href="/activity/DailySignIn">
               <div data-v-4a7709f3="" className="content-para">
                 Attendance bonus
               </div>
@@ -9607,7 +9604,6 @@ export default function Activity() {
                 The more consecutive days you sign in, the higher the reward
                 will be.
               </p>
-              </a>
             </div>
           </div>
         </div>
@@ -9734,12 +9730,12 @@ export default function Activity() {
                     <use href="#icon-home"></use>
                 </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-activity" onClick={()=> navigate('/index')}><use href="#icon-activity"></use>
+                    className="svg-icon icon-activity" onClick={()=> navigate('/activity')}><use href="#icon-activity"></use>
                    
                 </svg>
                 <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
+                    className="svg-icon icon-promotion" onClick={()=> navigate('/promotion')}>
                     <use href="#icon-promotion"></use>
                 </svg>
                 <div data-v-6ab3f23e="" className="promotionBg"></div>

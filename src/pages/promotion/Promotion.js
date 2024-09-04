@@ -1,8 +1,89 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Api from '../../services/Api';
+
 
 export default function Promotion(){
+
+  const [promotion, setPromotion] = useState(null);
+  const [directTeamDetails, setDirectTeamDetails] = useState(null);
+  const [teamSubordinatesDetails, setTeamSubordinatesDetails] = useState(null);
+  const [error, setError] = useState(null);
+
+
+
+
+  const fetchPromotion = async () => {
+    try {
+      const response = await Api.post('/api/webapi/promotion');
+      const data =  response.data;
+
+      console.log(data.yesterdayComm);
+
+      setPromotion(data.yesterdayComm); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+
+  
+  
+  
+  
+  const fetchDirectTeamDetails = async () => {
+    try {
+      const response = await Api.get('/api/webapi/directTeamDetails');
+      const data = response.data;
+  
+      console.log(data.directSubordinates);
+  
+      setDirectTeamDetails(data.directSubordinates); // Update the state
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    }
+  };
+  
+  // Use useEffect to log the updated state after it changes
+  useEffect(() => {
+    console.log(directTeamDetails); // This will log the updated state
+  }, [directTeamDetails]); // The effect runs whenever directTeamDetails changes
+
+
+
+  const fetchTeamSubordinatesDetails = async () => {
+    try {
+      const response = await Api.get('/api/webapi/teamSubordinatesDetails');
+      const data =  response.data;
+
+      console.log(data.directSubordinates);
+
+      setTeamSubordinatesDetails(data.directSubordinates); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+
+  useEffect(() => {
+    fetchPromotion();  
+    fetchDirectTeamDetails(); 
+    fetchTeamSubordinatesDetails();   
+
+   
+  }, []);
+
+
   const navigate = useNavigate();
+
+
     return (
   <div style={{fontSize: '12px'}}>
     <svg
@@ -9514,7 +9595,7 @@ export default function Promotion(){
         className="container"
         style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sans-serif'"}}
       >
-        <div data-v-6cf5705a="" className="amount">0</div>
+        <div data-v-6cf5705a="" className="amount">{promotion}</div>
         <div data-v-6cf5705a="" className="amount_txt">
           Yesterday's total commission
         </div>
@@ -9530,19 +9611,20 @@ export default function Promotion(){
               Direct subordinates
             </div>
             <div data-v-6cf5705a="" className="line1 r">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">      {directTeamDetails ? directTeamDetails.numberOfRegister : 0}
+              </div>
               number of register
             </div>
             <div data-v-6cf5705a="" className="line2 r">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{directTeamDetails ? directTeamDetails.depositNumber : 0}</div>
               Deposit number
             </div>
             <div data-v-6cf5705a="" className="line3 r">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{directTeamDetails ? directTeamDetails.depositAmount : 0}</div>
               Deposit amount
             </div>
             <div data-v-6cf5705a="" className="line1 r">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{directTeamDetails ? directTeamDetails.firstDepositCount : 0}</div>
               Number of people making first deposit
             </div>
           </div>
@@ -9553,19 +9635,19 @@ export default function Promotion(){
               >Team subordinates
             </div>
             <div data-v-6cf5705a="" className="line1">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.totalNumberOfRegister : 0}</div>
               number of register
             </div>
             <div data-v-6cf5705a="" className="line2">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.totalDepositNumber : 0}</div>
               Deposit number
             </div>
             <div data-v-6cf5705a="" className="line3">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.totalDepositAmount : 0}</div>
               Deposit amount
             </div>
             <div data-v-6cf5705a="" className="line1">
-              <div data-v-6cf5705a="">0</div>
+              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.totalFirstDepositCount : 0}</div>
               Number of people making first deposit
             </div>
           </div>
@@ -9580,11 +9662,11 @@ export default function Promotion(){
           <button data-v-600663f7="" className="shareBtn" onClick={()=>navigate('/promotion/PromotionShare')}> INVITATION LINK </button>
         </div>
         <div data-v-600663f7="" className="promote__cell">
-          <div data-v-600663f7="" className="promote__cell-item">
+          <div data-v-600663f7="" className="promote__cell-item" onClick={()=>navigate('/promotion/TeamPartner')}>
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-team_partner">
                 <use href="#icon-team_partner"></use></svg
-              > <a href="/promotion/TeamPartner"><span data-v-600663f7="">Partner rewards</span></a>
+              > <span data-v-600663f7="">Partner rewards</span>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9609,11 +9691,11 @@ export default function Promotion(){
               ></span>
             </div>
           </div>
-          <div data-v-600663f7="" className="promote__cell-item">
+          <div data-v-600663f7="" className="promote__cell-item" onClick={()=>navigate('/promotion/TeamReport')}>
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-team_port">
                 <use href="#icon-team_port"></use></svg
-              > <a href="/promotion/TeamReport"><span data-v-600663f7="">Subordinate data</span></a>
+              ><span data-v-600663f7="">Subordinate data</span>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9624,11 +9706,11 @@ export default function Promotion(){
               >
             </div>
           </div>
-          <div data-v-600663f7="" className="promote__cell-item">
+          <div data-v-600663f7="" className="promote__cell-item" onClick={()=>navigate('/promotion/MyCommission')}>
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-commission">
                 <use href="#icon-commission"></use></svg
-              > <a href="/promotion/MyCommission"><span data-v-600663f7="">Commission detail</span></a>
+              ><span data-v-600663f7="">Commission detail</span>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9639,11 +9721,11 @@ export default function Promotion(){
               >
             </div>
           </div>
-          <div data-v-600663f7="" className="promote__cell-item">
+          <div data-v-600663f7="" className="promote__cell-item" onClick={()=>navigate('/promotion/PromotionRule')}>
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-invite_reg">
                 <use href="#icon-invite_reg"></use></svg
-              > <a href="/promotion/PromotionRule"><span data-v-600663f7="">Invitation rules</span></a>
+              ><span data-v-600663f7="">Invitation rules</span>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9654,11 +9736,11 @@ export default function Promotion(){
               >
             </div>
           </div>
-          <div data-v-600663f7="" className="promote__cell-item">
+          <div data-v-600663f7="" className="promote__cell-item" onClick={()=>navigate('/promotion/Server')}>
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-server">
                 <use href="#icon-server"></use></svg
-              ><a href="/promotion/Server"><span data-v-600663f7="">Agent line customer service</span></a>
+              ><span data-v-600663f7="">Agent line customer service</span>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9669,11 +9751,11 @@ export default function Promotion(){
               >
             </div>
           </div>
-          <div data-v-600663f7="" className="promote__cell-item">
+          <div data-v-600663f7="" className="promote__cell-item" onClick={()=>navigate('/promotion/RebateRatio')}>
             <div data-v-600663f7="" className="label">
               <svg data-v-600663f7="" className="svg-icon icon-rebateRatio">
                 <use href="#icon-rebateRatio"></use></svg
-              > <a href="/promotion/RebateRatio"><span data-v-600663f7="">Rebate ratio</span></a>
+              ><span data-v-600663f7="">Rebate ratio</span>
             </div>
             <div data-v-600663f7="" className="arrow">
               <i
@@ -9693,29 +9775,29 @@ export default function Promotion(){
           </div>
           <div data-v-600663f7="" className="commission__body">
             <div data-v-600663f7="">
-              <span data-v-600663f7="">0</span
-              ><span data-v-600663f7="">This Week</span>
+              <span data-v-600663f7="">{teamSubordinatesDetails ? teamSubordinatesDetails.todayRegisterCount : 0}</span
+              ><span data-v-600663f7="">Today Register</span>
             </div>
            <span
               data-v-600663f7=""
             > </span>
             <div data-v-600663f7="">
-              <span data-v-600663f7="">0</span
-              ><span data-v-600663f7="">Total commission</span>
+              <span data-v-600663f7="">{teamSubordinatesDetails ? teamSubordinatesDetails.todayDepositNumber : 0}</span
+              ><span data-v-600663f7="">Today Deposit</span>
             </div>
           </div>
           <div data-v-600663f7="" className="commission__body" style={{"marginBottom": '2rem'}}>
             <div data-v-600663f7="">
-              <span data-v-600663f7="">0</span
-              ><span data-v-600663f7="">direct subordinate</span>
+              <span data-v-600663f7="">{teamSubordinatesDetails ? teamSubordinatesDetails.todayDepositAmount : 0}</span
+              ><span data-v-600663f7="">Today Deposit Amount </span>
             </div>
             <span
               data-v-600663f7=""
             ></span>
             <div data-v-600663f7="">
-              <span data-v-600663f7="">0</span
+              <span data-v-600663f7="">{teamSubordinatesDetails ? teamSubordinatesDetails.todayFirstDepositCount : 0}</span
               ><span data-v-600663f7=""
-                >Total number of subordinates in the team</span
+                >Today First Deposit </span
               >
             </div>
           </div>
@@ -9742,12 +9824,12 @@ export default function Promotion(){
                     <use href="#icon-home"></use>
                 </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-activity" onClick={()=> navigate('/index')}><use href="#icon-activity"></use>
+                    className="svg-icon icon-activity" onClick={()=> navigate('/activity')}><use href="#icon-activity"></use>
                    
                 </svg>
                 <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
+                    className="svg-icon icon-promotion" onClick={()=> navigate('/promotion')}>
                     <use href="#icon-promotion"></use>
                 </svg>
                 <div data-v-6ab3f23e="" className="promotionBg"></div>

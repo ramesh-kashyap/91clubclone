@@ -1,5 +1,7 @@
   import React from "react";
+  import { useNavigate } from "react-router-dom";
    export default function Promotionrule(){
+    const navigate = useNavigate();
 
   return(  
 <div className="" style={{fontSize: '12px'}}>
@@ -9503,7 +9505,7 @@
                 <div data-v-12a80a3e="" className="navbar__content-left">
                   <i
                     data-v-12a80a3e=""
-                    className="van-badge__wrapper van-icon van-icon-arrow-left"
+                    className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/promotion')}
                     ></i
                   >
                 </div>

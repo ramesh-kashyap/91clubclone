@@ -1,29 +1,10 @@
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
 
-export default function TeamReport(){
-  const navigate =  useNavigate();
-  const [isVisible, setIsVisible] = useState(false);
-  const [isSecondVisible, setIsSecondVisible] = useState(false);
-  
-    const handleToggle = () => {
-      setIsVisible(!isVisible);
-    };
-  
-    const handleCancel = () => {
-      setIsVisible(false);
-    };
-    const handleSecondToggle = () => {
-      setIsSecondVisible(!isSecondVisible);
-    };
-    const handleSecondCancel = () => {
-      setIsSecondVisible(false);
-    };
- 
+export default function Register() {
+  return (
+    <div style={{fontSize: '12px'}}> 
 
-    return(
-  <div style={{fontSize: '12px'}}>
-  <svg
+<svg
   xmlns="http://www.w3.org/2000/svg"
   style={{position: 'absolute', width: '0', height: '0'}}
 >
@@ -3245,7 +3226,6 @@ export default function TeamReport(){
       strokeLinecap="round"
     ></path>
   </symbol>
-  
   <symbol
     id="icon-downArrow"
     xmlns="http://www.w3.org/2000/svg"
@@ -3631,10 +3611,12 @@ export default function TeamReport(){
     id="icon-eye"
     t="1503993826520"
     className="icon"
+   
     viewBox="0 0 1024 1024"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     p-id="7878"
+  
   >
     <defs><style type="text/css"></style></defs>
     <path
@@ -9391,732 +9373,261 @@ export default function TeamReport(){
   </symbol>
 </svg>
 
-    <div id="app" data-v-app="">
-      <div
-        data-v-647954c7=""
-        className="ar-loading-view"
-        style={{  
-            '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-            display: 'none'
+<div id="app" data-v-app="">
+  <div
+    data-v-647954c7=""
+    className="ar-loading-view"
+    style={{
+      '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
+      display: 'none'
+    }}
+  >
+    <div data-v-647954c7="" className="loading-wrapper">
+      <div data-v-647954c7="" className="loading-animat">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+        
+          viewBox="0 0 200 200"
+          width="200"
+          height="200"
+          preserveAspectRatio="xMidYMid meet"
+          style={{
+            width: '100%',
+            height: '100%',
+            transform: 'translate3d(0px, 0px, 0px)',
+            contentVisibility: 'visible'
           }}
-      >
-        <div data-v-647954c7="" className="loading-wrapper">
-          
-          <div data-v-647954c7="" className="loading-animat">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 200 200"
-              width="200"
-              height="200"
-              preserveAspectRatio="xMidYMid meet"
-              style={{  
-                width: '100%',
-                height: '100%',
-                transform: 'translate3d(0px, 0px, 0px)',
-                contentVisibility: 'visible'
-            }}
+        >
+          <defs>
+            <clipPath id="__lottie_element_2">
+              <rect width="200" height="200" x="0" y="0"></rect>
+            </clipPath>
+            <image
+              href="data:image/png;base64,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"
+            ></image>
+            <image
+              href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIBAMAAABfdrOtAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAHlBMVEVHcEy/GyDCGiHCGiDBGiHBGiLBGiG/GyC/HCDBGiEYgX5lAAAACXRSTlMAFupex4emMEAHMN8rAAAEw0lEQVR42u1cy1ITQRTtYTKZsAsQLLODUsDeoVWC2YGSSHYC8ZEdolU6Owopq9gpisJOhwS5f2vPDENek2QefW5ZyF0BReZM9z3nPjrdLURimxJwM+p0Dw5SIqJl9ECaCmQO93z7pLFBvv1BjeDkPV3bJQbicZ267DcC4ySAcGsvT3+W1Q+7+iHMPR+huhr8RtQqasf4IRVEa+f6wbM17Qw2tr1RvCsiZVFwFMbCPlR6pvK4+xorb1O542IZj7FQxGIUFAY64Np1PIYXbuGJ4xEDhspNbbDPPWK10BiGQy46x4pjoi00hsXgdFX1XKAdIg7wRY/HrCV4+VbBs1fkIYVCnzl0LvADwctQ0Rfv9RK5+wweWWfwCJ6+aiDzcAyLwyMVBmrZHAOZZhC7EuIyA38vBIPb8UK0pYsXYonB7aJJL+AYBWoJBpEsccwWXiQ2x2zlMCsm/UrEc8uQLn4gFmgRq8fKtIYHcQgftwyOKJ/nIHCZgcDCcW+ISywOl0wzNFcqcOGLOlFnCPM2RwmRR35ZEdoEhxRZ/O4wJCyDw+8mh97zHFmRhVxHHORqMpBL1BmSieBgcIGDwRZHeMxzpEUWmZTpCx7kjKEM5tGi0+IQfJsBRDIIXnA0cjZsX0UPyC+O+MgAYnJk+JsDYnFEeosj0t+CxLXDIh7EkGt4kCCg3IL8SyCmX5+CY5flP/4mgUCL+pwf5ME5Pufzysb2QBPBNybYumsy6BmwLWM56N+xtfAZBVU9tMO+akya0NbhqjGpEENjcgTtGa9oNYn87i/sGXLI6s68iicWMkKGC3bQtZVwJQK6zlkOHY6UfCVciUCuFlwvElSA6x6y3T9vCJlcXtMMJpTOgh1whbsjdOB3NF2ewK3ZNjucwtFLXkQNSje5zruiGKi+636wiaqKprs7BgnyfI+zmyDPy1YPnSGNUKFHgHnM9sdcD6EKGM2f9U5QHZJS+vYrVBByNKjdl+/nEFKc7yuPzuEu8ZyiXykDzzzTrxST2gOU1p4dJwbEZ+vfuRKxiU/7vj5DtiKi8rxuAl/GcFPmMB9RaNX1NlxG5HZazfOVj5S3pXe+KtFlqdbN1caQzcda5ys3JBiaOnenDt187Oir7s2hZyY07q8+GLr52Ja6tn0YcjiJtB11KI2Qg6Xr9MlI72o6RzP6qExOD4ubIxVn1HWw2BxzwqSkI0GO449i8W72gYwLggfZh1IZq2k1lPWs1BofzQ+yaiXOAb+sh+finYtT/5Uh2dvx3lENJUMwPqbWfkzPvc1A3/W4HIz3NhGz4MRWQEGmPVt8nOAw72HKCbOIHiQJo2kOmipmJdGYKdMclG4mPPl8J8WRb+WQ58k+8YhoM9kn1Hu1k5MxmfNnZQrie7dIbCXyYhquqFdztxJgpGO9muS4KDMysQs78ZjoQ8xBp8UQ4rtCeTZeLyuU6Y6Dz+rji2M4498tsykymDcRo291+eTd9PMxW1kw4z1jcSg5Cw2iBCQcGvW82aBqZEa2V7ybfrTcLeM/iapPBiaq4V+JpOmmH3M7uGCp+uZr+Ke7314Fty4tPtTWZs7shddE3d9Q9jT8bXFV60rJTIMGrKYXwtfDSUN2ANzazr7AmDF16ttUUfyf9hdhzrd5F3WCHQAAAABJRU5ErkJggg=="
+            ></image>
+          </defs>
+          <g clipPath="url(#__lottie_element_2)">
+            <g
+              className="ai"
+              transform="matrix(1,0,0,1,0,0)"
+              opacity="1"
+              style={{display: 'block'}}
             >
-              <defs>
-                <clipPath id="__lottie_element_2">
-                  <rect width="200" height="200" x="0" y="0"></rect>
-                </clipPath>
-                <image
-                  href="data:image/png;base64,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"
-                ></image>
-                <image
-                  href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIBAMAAABfdrOtAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAHlBMVEVHcEy/GyDCGiHCGiDBGiHBGiLBGiG/GyC/HCDBGiEYgX5lAAAACXRSTlMAFupex4emMEAHMN8rAAAEw0lEQVR42u1cy1ITQRTtYTKZsAsQLLODUsDeoVWC2YGSSHYC8ZEdolU6Owopq9gpisJOhwS5f2vPDENek2QefW5ZyF0BReZM9z3nPjrdLURimxJwM+p0Dw5SIqJl9ECaCmQO93z7pLFBvv1BjeDkPV3bJQbicZ267DcC4ySAcGsvT3+W1Q+7+iHMPR+huhr8RtQqasf4IRVEa+f6wbM17Qw2tr1RvCsiZVFwFMbCPlR6pvK4+xorb1O542IZj7FQxGIUFAY64Np1PIYXbuGJ4xEDhspNbbDPPWK10BiGQy46x4pjoi00hsXgdFX1XKAdIg7wRY/HrCV4+VbBs1fkIYVCnzl0LvADwctQ0Rfv9RK5+wweWWfwCJ6+aiDzcAyLwyMVBmrZHAOZZhC7EuIyA38vBIPb8UK0pYsXYonB7aJJL+AYBWoJBpEsccwWXiQ2x2zlMCsm/UrEc8uQLn4gFmgRq8fKtIYHcQgftwyOKJ/nIHCZgcDCcW+ISywOl0wzNFcqcOGLOlFnCPM2RwmRR35ZEdoEhxRZ/O4wJCyDw+8mh97zHFmRhVxHHORqMpBL1BmSieBgcIGDwRZHeMxzpEUWmZTpCx7kjKEM5tGi0+IQfJsBRDIIXnA0cjZsX0UPyC+O+MgAYnJk+JsDYnFEeosj0t+CxLXDIh7EkGt4kCCg3IL8SyCmX5+CY5flP/4mgUCL+pwf5ME5Pufzysb2QBPBNybYumsy6BmwLWM56N+xtfAZBVU9tMO+akya0NbhqjGpEENjcgTtGa9oNYn87i/sGXLI6s68iicWMkKGC3bQtZVwJQK6zlkOHY6UfCVciUCuFlwvElSA6x6y3T9vCJlcXtMMJpTOgh1whbsjdOB3NF2ewK3ZNjucwtFLXkQNSje5zruiGKi+636wiaqKprs7BgnyfI+zmyDPy1YPnSGNUKFHgHnM9sdcD6EKGM2f9U5QHZJS+vYrVBByNKjdl+/nEFKc7yuPzuEu8ZyiXykDzzzTrxST2gOU1p4dJwbEZ+vfuRKxiU/7vj5DtiKi8rxuAl/GcFPmMB9RaNX1NlxG5HZazfOVj5S3pXe+KtFlqdbN1caQzcda5ys3JBiaOnenDt187Oir7s2hZyY07q8+GLr52Ja6tn0YcjiJtB11KI2Qg6Xr9MlI72o6RzP6qExOD4ubIxVn1HWw2BxzwqSkI0GO449i8W72gYwLggfZh1IZq2k1lPWs1BofzQ+yaiXOAb+sh+finYtT/5Uh2dvx3lENJUMwPqbWfkzPvc1A3/W4HIz3NhGz4MRWQEGmPVt8nOAw72HKCbOIHiQJo2kOmipmJdGYKdMclG4mPPl8J8WRb+WQ58k+8YhoM9kn1Hu1k5MxmfNnZQrie7dIbCXyYhquqFdztxJgpGO9muS4KDMysQs78ZjoQ8xBp8UQ4rtCeTZeLyuU6Y6Dz+rji2M4498tsykymDcRo291+eTd9PMxW1kw4z1jcSg5Cw2iBCQcGvW82aBqZEa2V7ybfrTcLeM/iapPBiaq4V+JpOmmH3M7uGCp+uZr+Ke7314Fty4tPtTWZs7shddE3d9Q9jT8bXFV60rJTIMGrKYXwtfDSUN2ANzazr7AmDF16ttUUfyf9hdhzrd5F3WCHQAAAABJRU5ErkJggg=="
-                ></image>
-              </defs>
-              <g clip-path="url(#__lottie_element_2)">
-                <g
-                  className="ai"
-                  transform="matrix(0.26992830634117126,-0.9628804326057434,0.9628804326057434,0.26992830634117126,-23.280868530273438,169.2952117919922)"
-                  opacity="1"
-                  style={{display: 'block'}}
-                >
-                  <image
-                    width="200px"
-                    height="200px"
-                    preserveAspectRatio="xMidYMid slice"
-                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIBAMAAABfdrOtAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAHlBMVEVHcEy/GyDCGiHCGiDBGiHBGiLBGiG/GyC/HCDBGiEYgX5lAAAACXRSTlMAFupex4emMEAHMN8rAAAEw0lEQVR42u1cy1ITQRTtYTKZsAsQLLODUsDeoVWC2YGSSHYC8ZEdolU6Owopq9gpisJOhwS5f2vPDENek2QefW5ZyF0BReZM9z3nPjrdLURimxJwM+p0Dw5SIqJl9ECaCmQO93z7pLFBvv1BjeDkPV3bJQbicZ267DcC4ySAcGsvT3+W1Q+7+iHMPR+huhr8RtQqasf4IRVEa+f6wbM17Qw2tr1RvCsiZVFwFMbCPlR6pvK4+xorb1O542IZj7FQxGIUFAY64Np1PIYXbuGJ4xEDhspNbbDPPWK10BiGQy46x4pjoi00hsXgdFX1XKAdIg7wRY/HrCV4+VbBs1fkIYVCnzl0LvADwctQ0Rfv9RK5+wweWWfwCJ6+aiDzcAyLwyMVBmrZHAOZZhC7EuIyA38vBIPb8UK0pYsXYonB7aJJL+AYBWoJBpEsccwWXiQ2x2zlMCsm/UrEc8uQLn4gFmgRq8fKtIYHcQgftwyOKJ/nIHCZgcDCcW+ISywOl0wzNFcqcOGLOlFnCPM2RwmRR35ZEdoEhxRZ/O4wJCyDw+8mh97zHFmRhVxHHORqMpBL1BmSieBgcIGDwRZHeMxzpEUWmZTpCx7kjKEM5tGi0+IQfJsBRDIIXnA0cjZsX0UPyC+O+MgAYnJk+JsDYnFEeosj0t+CxLXDIh7EkGt4kCCg3IL8SyCmX5+CY5flP/4mgUCL+pwf5ME5Pufzysb2QBPBNybYumsy6BmwLWM56N+xtfAZBVU9tMO+akya0NbhqjGpEENjcgTtGa9oNYn87i/sGXLI6s68iicWMkKGC3bQtZVwJQK6zlkOHY6UfCVciUCuFlwvElSA6x6y3T9vCJlcXtMMJpTOgh1whbsjdOB3NF2ewK3ZNjucwtFLXkQNSje5zruiGKi+636wiaqKprs7BgnyfI+zmyDPy1YPnSGNUKFHgHnM9sdcD6EKGM2f9U5QHZJS+vYrVBByNKjdl+/nEFKc7yuPzuEu8ZyiXykDzzzTrxST2gOU1p4dJwbEZ+vfuRKxiU/7vj5DtiKi8rxuAl/GcFPmMB9RaNX1NlxG5HZazfOVj5S3pXe+KtFlqdbN1caQzcda5ys3JBiaOnenDt187Oir7s2hZyY07q8+GLr52Ja6tn0YcjiJtB11KI2Qg6Xr9MlI72o6RzP6qExOD4ubIxVn1HWw2BxzwqSkI0GO449i8W72gYwLggfZh1IZq2k1lPWs1BofzQ+yaiXOAb+sh+finYtT/5Uh2dvx3lENJUMwPqbWfkzPvc1A3/W4HIz3NhGz4MRWQEGmPVt8nOAw72HKCbOIHiQJo2kOmipmJdGYKdMclG4mPPl8J8WRb+WQ58k+8YhoM9kn1Hu1k5MxmfNnZQrie7dIbCXyYhquqFdztxJgpGO9muS4KDMysQs78ZjoQ8xBp8UQ4rtCeTZeLyuU6Y6Dz+rji2M4498tsykymDcRo291+eTd9PMxW1kw4z1jcSg5Cw2iBCQcGvW82aBqZEa2V7ybfrTcLeM/iapPBiaq4V+JpOmmH3M7uGCp+uZr+Ke7314Fty4tPtTWZs7shddE3d9Q9jT8bXFV60rJTIMGrKYXwtfDSUN2ANzazr7AmDF16ttUUfyf9hdhzrd5F3WCHQAAAABJRU5ErkJggg=="
-                  ></image>
-                </g>
-                <g
-                  className="png"
-                  transform="matrix(0.8826000094413757,0,0,0.8826000094413757,55.869998931884766,55.869998931884766)"
-                  opacity="1"
-                  style={{display: 'block'}}
-                >
-                  <image
-                    width="100px"
-                    height="100px"
-                    preserveAspectRatio="xMidYMid slice"
-                    href="data:image/png;base64,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"
-                  ></image>
-                </g>
-              </g>
-            </svg>
-          </div>
-          <div data-v-647954c7="" className="com__box" style={{display: 'none'}}>
-           
-            <div className="loading" data-v-647954c7="">
-              <div className="shape shape-1" data-v-647954c7=""></div>
-              <div className="shape shape-2" data-v-647954c7=""></div>
-              <div className="shape shape-3" data-v-647954c7=""></div>
-              <div className="shape shape-4" data-v-647954c7=""></div>
-            </div>
-          </div>
-        </div>
-        <div data-v-647954c7="" className="skeleton-wrapper" style={{display: 'none'}}>
-          <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
-            <div className="van-skeleton__content">
-              
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '60%'}}></div>
-            </div>
-          </div>
-          <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            <div className="van-skeleton-avatar van-skeleton-avatar--round"></div>
-            <div className="van-skeleton__content">
-              <h3 className="van-skeleton-title"></h3>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '60%'}}></div>
-            </div>
-          </div>
-          <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
-            <div className="van-skeleton__content">
-              <h3 className="van-skeleton-title"></h3>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
-              <div className="van-skeleton-paragraph" style={{width: '60%'}}></div>
-            </div>
-          </div>
+              <image
+                width="200px"
+                height="200px"
+                preserveAspectRatio="xMidYMid slice"
+                href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIBAMAAABfdrOtAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAHlBMVEVHcEy/GyDCGiHCGiDBGiHBGiLBGiG/GyC/HCDBGiEYgX5lAAAACXRSTlMAFupex4emMEAHMN8rAAAEw0lEQVR42u1cy1ITQRTtYTKZsAsQLLODUsDeoVWC2YGSSHYC8ZEdolU6Owopq9gpisJOhwS5f2vPDENek2QefW5ZyF0BReZM9z3nPjrdLURimxJwM+p0Dw5SIqJl9ECaCmQO93z7pLFBvv1BjeDkPV3bJQbicZ267DcC4ySAcGsvT3+W1Q+7+iHMPR+huhr8RtQqasf4IRVEa+f6wbM17Qw2tr1RvCsiZVFwFMbCPlR6pvK4+xorb1O542IZj7FQxGIUFAY64Np1PIYXbuGJ4xEDhspNbbDPPWK10BiGQy46x4pjoi00hsXgdFX1XKAdIg7wRY/HrCV4+VbBs1fkIYVCnzl0LvADwctQ0Rfv9RK5+wweWWfwCJ6+aiDzcAyLwyMVBmrZHAOZZhC7EuIyA38vBIPb8UK0pYsXYonB7aJJL+AYBWoJBpEsccwWXiQ2x2zlMCsm/UrEc8uQLn4gFmgRq8fKtIYHcQgftwyOKJ/nIHCZgcDCcW+ISywOl0wzNFcqcOGLOlFnCPM2RwmRR35ZEdoEhxRZ/O4wJCyDw+8mh97zHFmRhVxHHORqMpBL1BmSieBgcIGDwRZHeMxzpEUWmZTpCx7kjKEM5tGi0+IQfJsBRDIIXnA0cjZsX0UPyC+O+MgAYnJk+JsDYnFEeosj0t+CxLXDIh7EkGt4kCCg3IL8SyCmX5+CY5flP/4mgUCL+pwf5ME5Pufzysb2QBPBNybYumsy6BmwLWM56N+xtfAZBVU9tMO+akya0NbhqjGpEENjcgTtGa9oNYn87i/sGXLI6s68iicWMkKGC3bQtZVwJQK6zlkOHY6UfCVciUCuFlwvElSA6x6y3T9vCJlcXtMMJpTOgh1whbsjdOB3NF2ewK3ZNjucwtFLXkQNSje5zruiGKi+636wiaqKprs7BgnyfI+zmyDPy1YPnSGNUKFHgHnM9sdcD6EKGM2f9U5QHZJS+vYrVBByNKjdl+/nEFKc7yuPzuEu8ZyiXykDzzzTrxST2gOU1p4dJwbEZ+vfuRKxiU/7vj5DtiKi8rxuAl/GcFPmMB9RaNX1NlxG5HZazfOVj5S3pXe+KtFlqdbN1caQzcda5ys3JBiaOnenDt187Oir7s2hZyY07q8+GLr52Ja6tn0YcjiJtB11KI2Qg6Xr9MlI72o6RzP6qExOD4ubIxVn1HWw2BxzwqSkI0GO449i8W72gYwLggfZh1IZq2k1lPWs1BofzQ+yaiXOAb+sh+finYtT/5Uh2dvx3lENJUMwPqbWfkzPvc1A3/W4HIz3NhGz4MRWQEGmPVt8nOAw72HKCbOIHiQJo2kOmipmJdGYKdMclG4mPPl8J8WRb+WQ58k+8YhoM9kn1Hu1k5MxmfNnZQrie7dIbCXyYhquqFdztxJgpGO9muS4KDMysQs78ZjoQ8xBp8UQ4rtCeTZeLyuU6Y6Dz+rji2M4498tsykymDcRo291+eTd9PMxW1kw4z1jcSg5Cw2iBCQcGvW82aBqZEa2V7ybfrTcLeM/iapPBiaq4V+JpOmmH3M7uGCp+uZr+Ke7314Fty4tPtTWZs7shddE3d9Q9jT8bXFV60rJTIMGrKYXwtfDSUN2ANzazr7AmDF16ttUUfyf9hdhzrd5F3WCHQAAAABJRU5ErkJggg=="
+              ></image>
+            </g>
+            <g
+              className="png"
+              transform="matrix(0.800000011920929,0,0,0.800000011920929,60,60)"
+              opacity="1"
+              style={{display: 'block'}}
+            >
+              <image
+                width="100px"
+                height="100px"
+                preserveAspectRatio="xMidYMid slice"
+                href="data:image/png;base64,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"
+              ></image>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div data-v-647954c7="" className="com__box"  style={{display: 'none'}}>
+        <div className="loading" data-v-647954c7="">
+          <div className="shape shape-1" data-v-647954c7=""></div>
+          <div className="shape shape-2" data-v-647954c7=""></div>
+          <div className="shape shape-3" data-v-647954c7=""></div>
+          <div className="shape shape-4" data-v-647954c7=""></div>
         </div>
       </div>
-      
-      <div
-        data-v-10d1559c=""
-        className="TeamReport__C"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      >
-        <div data-v-12a80a3e="" data-v-10d1559c="" className="navbar white">
-          <div data-v-12a80a3e="" className="navbar-fixed">
-            <div data-v-12a80a3e="" className="navbar__content">
-              <div data-v-12a80a3e="" className="navbar__content-left">
-                <i
-                  data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/promotion')}
-                  ></i
-                >
-              </div>
-              <div data-v-12a80a3e="" className="navbar__content-center">
-                
-                <div data-v-12a80a3e="" className="navbar__content-title">
-                  Subordinate data
-                </div>
-              </div>
-              <div data-v-12a80a3e="" className="navbar__content-right"></div>
+    </div>
+    <div data-v-647954c7="" className="skeleton-wrapper"  style={{display: 'none'}}>
+      <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
+        <div className="van-skeleton__content">
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '60%'}}></div>
+        </div>
+      </div>
+      <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
+        <div className="van-skeleton-avatar van-skeleton-avatar--round"></div>
+        <div className="van-skeleton__content">
+          <h3 className="van-skeleton-title"></h3>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '60%'}}></div>
+        </div>
+      </div>
+      <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
+        
+        <div className="van-skeleton__content">
+          <h3 className="van-skeleton-title"></h3>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
+          <div className="van-skeleton-paragraph" style={{width: '60%'}}></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    data-v-eca8202a=""
+    className="bind-container"
+    style={{'--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'"}}
+  >
+    <div data-v-12a80a3e="" data-v-eca8202a="" className="navbar white">
+      <div data-v-12a80a3e="" className="navbar-fixed">
+        <div data-v-12a80a3e="" className="navbar__content">
+          <div data-v-12a80a3e="" className="navbar__content-left">
+            <i
+              data-v-12a80a3e=""
+              className="van-badge__wrapper van-icon van-icon-arrow-left"
+              ></i
+            >
+          </div>
+          <div data-v-12a80a3e="" className="navbar__content-center">
+            <div data-v-12a80a3e="" className="navbar__content-title">
+              Bind mailbox
             </div>
           </div>
+          <div data-v-12a80a3e="" className="navbar__content-right"></div>
         </div>
-        <div data-v-10d1559c="" className="TeamReport__C-head">
-          <div data-v-10d1559c="" className="TeamReport__C-head-fixed">
-            <div
-              data-v-c06f3394=""
-              data-v-10d1559c=""
-              className="searchbar-container"
-            >
+      </div>
+    </div>
+    <div data-v-eca8202a="" className="email-container">
+      <div data-v-eca8202a="">
+        <div data-v-4499df08="" data-v-eca8202a="" className="emailcontainer">
+          <div data-v-4499df08="" className="emailinput__container">
+            <div data-v-4499df08="" className="emailinput__container-label">
+              <svg
+                data-v-4499df08=""
+                className="svg-icon icon-email emailinput__container-label__icon emailinput__container-label__icon"
+              >
+                <use href="#icon-email"></use></svg
+              ><span data-v-4499df08="">Mail</span>
+            </div>
+            <div data-v-4499df08="" className="emailinput__container-input">
               <input
-                data-v-c06f3394=""
+                data-v-4499df08=""
                 type="text"
-                auto-complete="new-password"
-                autocomplete="off"
-                className="searchbar-container__searchbar"
-                placeholder="Search subordinate UID"
-                maxlength="30"
-              /><svg
-                data-v-c06f3394=""
-                className="svg-icon icon-searchBtn searchIcon searchIcon"
-              >
-                <use href="#icon-searchBtn"></use>
-              </svg>
-            </div>
-            <div data-v-10d1559c="" className="TeamReport__C-head-line2">
-              <div data-v-10d1559c="">
-                <span data-v-10d1559c="" className="default">All</span
-                ><i
-                  data-v-10d1559c=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleToggle}
-                  >
-                    </i
-                >
-              </div>
-              <div data-v-10d1559c="">
-                <span data-v-10d1559c="" className="default">2024-08-12</span
-                ><i
-                  data-v-10d1559c=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleSecondToggle}
-                  ></i
-                >
-              </div>
+                name="userEmail"
+                maxLength="250"
+                placeholder="please input your email"
+              />
             </div>
           </div>
         </div>
-        <div data-v-10d1559c="" className="TeamReport__C-body">
-          <div data-v-10d1559c="" className="header-container">
-            <div data-v-10d1559c="">
-              <div data-v-10d1559c="" className="num">0</div>
-              <div data-v-10d1559c="">Deposit number</div>
-            </div>
-            <div data-v-10d1559c="">
-              <div data-v-10d1559c="" className="num">0</div>
-              <div data-v-10d1559c="">Deposit amount</div>
-            </div>
-            <div data-v-10d1559c="">
-              <div data-v-10d1559c="" className="num">0</div>
-              <div data-v-10d1559c="">Number of bettors</div>
-            </div>
-            <div data-v-10d1559c="">
-              <div data-v-10d1559c="" className="num">0</div>
-              <div data-v-10d1559c="">Total bet</div>
-            </div>
-            <div data-v-10d1559c="">
-              <div data-v-10d1559c="" className="num">0</div>
-              <div data-v-10d1559c="">
-                Number of people making first deposit
-              </div>
-            </div>
-            <div data-v-10d1559c="">
-              <div data-v-10d1559c="" className="num">0</div>
-              <div data-v-10d1559c="">First deposit amount</div>
-            </div>
-          </div>
-          <div
-            data-v-cbab7763=""
-            data-v-10d1559c=""
-            className="infiniteScroll"
-            id="refreshe884edb8e39f4e8fae8bfcf400dd17f3"
+      </div>
+      <div
+        data-v-484b25b1=""
+        data-v-eca8202a=""
+        className="verifyInput__container"
+      >
+        <div data-v-484b25b1="" className="verifyInput__container-label">
+          <svg
+            data-v-484b25b1=""
+            className="svg-icon icon-safeIcon verifyInput__container-label__icon verifyInput__container-label__icon"
           >
-            <div data-v-cbab7763="" className="infiniteScroll__loading">
-              
-              <div
-                data-v-f84b843f=""
-                data-v-cbab7763=""
-                className="empty__container"
-              >
-                <svg data-v-f84b843f="" className="svg-icon icon-empty">
-                  <use href="#icon-empty"></use>
-                </svg>
-                <p data-v-f84b843f="">No data</p>
-              </div>
-            </div>
-          </div>
+            <use href="#icon-safeIcon"></use></svg
+          ><span data-v-484b25b1="">Verification Code</span>
         </div>
-        <div className="van-overlay" role="button" tabindex="0" data-v-10d1559c="" style={{zIndex: '2001', display: isVisible ? 'block' : 'none'}}></div>
+        <div data-v-484b25b1="" className="verifyInput__container-input">
+          <input
+            data-v-484b25b1=""
+            type="text"
+            placeholder="Please enter the confirmation code"
+            maxLength="6"
+          /><button data-v-484b25b1="" className="">
+            <span data-v-484b25b1="">Send</span>
+          </button>
+        </div>
         <div
-  role="dialog"
-  tabindex="0"
-  className="van-popup van-popup--round van-popup--bottom"
-  data-v-10d1559c=""
-  style={{zIndex: '2001', display: isVisible ? 'block' : 'none'}}
->
-  <div data-v-10d1559c="" className="van-picker">
-    <div className="van-picker__toolbar">
-      <button type="button" className="van-picker__cancel van-haptics-feedback" onClick={handleCancel}>
-        Cancel</button
-      ><button
-        type="button"
-        className="van-picker__confirm van-haptics-feedback"
+          data-v-484b25b1=""
+          className="verifyInput__container-tip"
+          style={{display: 'none'}}
+        >
+          <i
+            data-v-484b25b1=""
+            className="van-badge__wrapper van-icon van-icon-warning-o"
+            ></i
+          ><span data-v-484b25b1="">Did not receive verification code?</span
+          ><span data-v-484b25b1="">Contact customer service</span>
+        </div>
+      </div>
+      <div
+        data-v-eca8202a=""
+        className="updateP-container-tips"
+        style={{display: 'none'}}
+        >
+        <span data-v-eca8202a="">Please enter the confirmation code!</span>
+      </div>
+      <div data-v-eca8202a="" className="bind-button">
+        <button data-v-eca8202a=""           style={{display: 'none'}}
+        >Next step</button
+        ><button data-v-eca8202a="">Bind</button>
+      </div>
+    </div>
+    <div data-v-c0caae78="" data-v-eca8202a="" className="dialog inactive">
+      <div
+        data-v-c0caae78=""
+        className="dialog__container"
+        role="dialog"
+        tabIndex="0"
       >
-        Confirm
-      </button>
-    </div>
-    
-    <div className="van-picker__columns" style={{height: '264px'}}>
-      <div className="van-picker-column">
-        <ul
-          className="van-picker-column__wrapper"
-          style={{
-            transform: 'translate3d(0px, 110px, 0px)',
-            transitionDuration: '0ms',
-            transitionProperty: 'none',
-          }}
-        >
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">All</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">Tier 1</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">Tier 2</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">Tier 3</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">Tier 4</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">Tier 5</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">Tier 6</div>
-          </li>
-        </ul>
+        <div data-v-c0caae78="" className="dialog__container-img">
+          <img
+            data-v-c0caae78=""
+            alt=""
+            className=""
+            data-origin="/assets/png/succeed-83674414.png"
+            src="/assets/png/succeed-83674414.png"
+          />
+        </div>
+        <div data-v-c0caae78="" className="dialog__container-title">
+          <h1 data-v-c0caae78="">bind successfully</h1>
+        </div>
+        <div data-v-c0caae78="" className="dialog__container-content"></div>
+        <div data-v-c0caae78="" className="dialog__container-footer">
+        <button data-v-c0caae78="">Confirm</button>
+        </div>
       </div>
-      <div className="van-picker__mask" style={{backgroundSize: '100% 110px'}}></div>
-      <div
-        className="van-hairline-unset--top-bottom van-picker__frame"
-        style={{height: '44px'}}
-      ></div>
+      <div data-v-c0caae78="" className="dialog__outside"></div>
     </div>
-    
   </div>
-  
+  <div
+    className="customer"
+    id="customerId"
+
+    style={{
+     ' --f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
+      '--f6a705e1-currentFontFamily': 'bahnschrift'
+    }}
+  >
+    <img
+      className=""
+      data-origin="/assets/png/icon_sevice-9f0c8455.png"
+      src="/assets/png/icon_sevice-9f0c8455.png"
+    />
+  </div>
 </div>
-<div className="van-overlay" role="button" tabindex="0" data-v-10d1559c="" style={{zIndex: '2002', display: isSecondVisible ? 'block' : 'none'}}></div>
-<div
-  role="dialog"
-  tabindex="0"
-  className="van-popup van-popup--round van-popup--bottom"
-  data-v-10d1559c=""
-  style={{zIndex: '2002', display: isSecondVisible ? 'block' : 'none'}}
->
-  <div data-v-10d1559c="" className="van-picker">
-    <div className="van-picker__toolbar">
-      <button type="button" className="van-picker__cancel van-haptics-feedback" onClick={handleSecondCancel}>
-        Cancel
-      </button>
-      <div className="van-picker__title van-ellipsis">Choose a date</div>
-      <button type="button" className="van-picker__confirm van-haptics-feedback">
-        Confirm
-      </button>
+
     </div>
-    
-    <div className="van-picker__columns" style={{height: '264px'}}>
-      <div className="van-picker-column">
-        <ul
-          className="van-picker-column__wrapper"
-          style={{
-            transform: 'translate3d(0px, 22px, 0px)',
-            transitionDuration: '0ms',
-            transitionProperty: 'none',
-          }}
-        >
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">2022</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">2023</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">2024</div>
-          </li>
-        </ul>
-      </div>
-      <div className="van-picker-column">
-        <ul
-          className="van-picker-column__wrapper"
-          style={{
-            transform: 'translate3d(0px, -198px, 0px)',
-            transitionDuration: '0ms',
-            transitionProperty: 'none',
-          }}
-        >
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">01</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">02</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">03</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">04</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">05</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">06</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">07</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">08</div>
-          </li>
-        </ul>
-      </div>
-      <div className="van-picker-column">
-        <ul
-          className="van-picker-column__wrapper"
-          style={{
-            transform: 'translate3d(0px, -1078px, 0px)',
-            transitionDuration: '0ms',
-            transitionProperty: 'none',
-          }}
-        >
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">01</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">02</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">03</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">04</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">05</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">06</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">07</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">08</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">09</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">10</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">11</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">12</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">13</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">14</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">15</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">16</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">17</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">18</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">19</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">20</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">21</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">22</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">23</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">24</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">25</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">26</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">27</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected"
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">28</div>
-          </li>
-        </ul>
-      </div>
-      <div className="van-picker__mask" style={{backgroundSize: '100% 110px'}}></div>
-      <div
-        className="van-hairline-unset--top-bottom van-picker__frame"
-        style={{height: '44px'}}
-      ></div>
-    </div>
-    
-  </div>
-  
-</div>
-     
-      </div>
-      <div
-        className="customer"
-        id="customerId"
-        style={{  
-            '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-            '--f6a705e1-currentFontFamily': "bahnschrift"
-          }}
-      >
-        <img
-          className=""
-          data-origin="/assets/png/icon_sevice-9f0c8455.png"
-          src="/assets/png/icon_sevice-9f0c8455.png"
-        />
-      </div>
-      
-    </div>
-  </div>
-)}
+  )
+}

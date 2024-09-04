@@ -9559,7 +9559,7 @@ export default function Account() {
               <div data-v-12a80a3e="" className="navbar__content-left">
                 <i
                   data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left"
+                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/index')}
                   ></i
                 >
               </div>
@@ -9730,7 +9730,7 @@ export default function Account() {
               data-v-7d799898=""
               className="totalSavings__container-content-item"
             >
-              <div data-v-7d799898="">
+              <div data-v-7d799898="" onClick={()=>navigate('/wallet')}>
                 <svg data-v-7d799898="" className="svg-icon icon-wallets">
                   <use href="#icon-wallets"></use></svg
                 > <a href="/wallet/wallet.html"><span data-v-7d799898="">Wallet</span></a>
@@ -9740,7 +9740,7 @@ export default function Account() {
               data-v-7d799898=""
               className="totalSavings__container-content-item"
             >
-              <div data-v-7d799898="">
+              <div data-v-7d799898="" onClick={()=>navigate('/wallet/deposit')}>
                 <svg data-v-7d799898="" className="svg-icon icon-rechargeIcon">
                   <use href="#icon-rechargeIcon"></use></svg
                 > <a href="/account/deposit.html"><span data-v-7d799898="">Deposit</span></a>
@@ -9750,7 +9750,7 @@ export default function Account() {
               data-v-7d799898=""
               className="totalSavings__container-content-item"
             >
-              <div data-v-7d799898="">
+              <div data-v-7d799898="" onClick={()=>navigate('/wallet/withdraw')}>
                 <svg data-v-7d799898="" className="svg-icon icon-widthdrawBlue">
                   <use href="#icon-widthdrawBlue"></use></svg
                 > <a href="/account/withdraw.html"><span data-v-7d799898="">Withdraw</span></a>

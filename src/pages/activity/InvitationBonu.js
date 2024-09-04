@@ -9515,7 +9515,7 @@ export default function InvitationBonu() {
             <div data-v-12a80a3e="" className="navbar__content-left">
             <a href="/activity">
               <i data-v-12a80a3e=""
-                className="van-badge__wrapper van-icon van-icon-arrow-left"
+                className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/activity')}
                 ></i></a>
             </div>
             <div data-v-12a80a3e="" className="navbar__content-center">
