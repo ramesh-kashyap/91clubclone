@@ -47,6 +47,37 @@ export default function Withdraw() {
     } 
   };
 
+  const handleSubmit = async (e) => {
+    if (amount< 900) {
+      setError('Amount need to be greater than 900');
+      return;
+    }
+    if (needToBet < 0) {
+      setError('You need to bet more to Withdraw');
+      return;
+    }
+    try {
+        
+      const paymentMode= activeSection == 'section2' ? "USDT(TRC20)" : null ;
+
+
+      const response = await Api.post('/api/webapi/withdrawalUsdt', {
+        money: amount, 
+        paymentMode,
+      });
+      console.log(response.data);
+      if (response.data.status == true) {
+        // Redirect to login or home page
+
+        fetchUserInfo();
+
+      } else {
+        setError(response.data.message);
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+    }
+};
 
   useEffect(() => {
 
@@ -317,6 +348,7 @@ export default function Withdraw() {
                 data-v-cb5583fe="" src="/assets/png/usdt.png"
               />
             </div>
+            
             <div data-v-cb5583fe="" className="input">
               <div data-v-cb5583fe="" className="place-div">₹</div>
               <input
@@ -340,8 +372,9 @@ export default function Withdraw() {
           
           
           <div data-v-80a607a5="" className="recycleBtnD">
-            <button data-v-80a607a5="" className="recycleBtn">Withdraw</button>
+            <button data-v-80a607a5="" className="recycleBtn" onClick={handleSubmit}>Withdraw</button>
           </div>
+      
           <div
             data-v-76eb7f31=""
             data-v-80a607a5=""
