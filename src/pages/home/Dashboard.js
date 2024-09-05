@@ -4702,16 +4702,16 @@ export default function Dashboard() {
                 disableOnInteraction: false,
                 }}
             >
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 1" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 2" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 3" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 4" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 5" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 6" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 7" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 8" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240131163932lnmf.jpg" alt="Slide 9" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/Banner_20240204130106kabs.png" alt="Slide 10" /></SwiperSlide>
+        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240110082959xdnc.png" alt="Slide 1" /></SwiperSlide>
+        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240110083058enng.png" alt="Slide 2" /></SwiperSlide>
+        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240131163932lnmf.png" alt="Slide 3" /></SwiperSlide>
+        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240131163950k45k.png" alt="Slide 4" /></SwiperSlide>
+        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240413225400fvef.png" alt="Slide 5" /></SwiperSlide>
+        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240505153831soys.png" alt="Slide 6" /></SwiperSlide>
+        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240514165448xobn.png" alt="Slide 7" /></SwiperSlide>
+        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_202405021207257vp2.png" alt="Slide 8" /></SwiperSlide>
+        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_202408301343434jiv.png" alt="Slide 9" /></SwiperSlide>
+        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240505153831soys.png" alt="Slide 10" /></SwiperSlide>
       </Swiper>
     </div>
             
@@ -5417,7 +5417,7 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-            <div data-v-0ac3de13="" data-v-003e4505="" className="changlongEnter changlong"></div>
+            
            
             <div data-v-c0caae78="" data-v-003e4505="" className="dialog inactive">
                 <div data-v-c0caae78="" className="dialog__container" role="dialog" tabIndex="0">

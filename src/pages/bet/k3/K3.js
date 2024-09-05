@@ -39,6 +39,8 @@ export default function K3(){
 
 const showSection = (sectionId) => {
     setGameJoin(sectionId);
+    setListJoin([]);
+    setShowBetPopup(false);
   };
 
 
@@ -50,6 +52,8 @@ const showSection = (sectionId) => {
   const [gamelist, setGamelist] = useState([]);
   const [myBets,setMyBets] = useState(null);
   const [period, setPeriod] = useState(null);
+  const [showBetPopup , setShowBetPopup] = useState(false);
+
 
   const [time, setTime] = useState({
     seconds1: 0,
@@ -60,6 +64,8 @@ const showSection = (sectionId) => {
 const [selectedItem, setSelectedItem] = useState(''); // To track the selected item
 const [balance, setBalance] = useState(1);  // State for balance
 const [quantity, setQuantity] = useState(1);  // State for quantity
+const [listJoin, setListJoin] = useState([]);
+
 const [lastBet, setLastBet] = useState([]);  // State for quantity
 
   const [join, setJoin] = useState(null);
@@ -68,6 +74,53 @@ const [lastBet, setLastBet] = useState([]);  // State for quantity
   const [currentPage, setCurrentPage] = useState(1);
   const [currentGamePage, setCurrentGamePage] = useState(1);
   const [isVisible, setIsVisible] = useState(false);
+
+
+  const addToListJoin = (item) => {
+    setListJoin((prevListJoin) => {
+      // Create a new list without the item if it already exists
+      const itemIndex = prevListJoin.indexOf(item);
+      let newList;
+      
+      if (itemIndex > -1) {
+        // Item exists, remove it
+        newList = prevListJoin.filter((_, index) => index !== itemIndex);
+      } else {
+        // Item does not exist, add it
+        newList = [...prevListJoin, item];
+      }
+      
+      // Only show BetPopup if gameJoin is 'game1' and newList is not empty
+      if (gameJoin === 'game1' && newList.length > 0) {
+        setShowBetPopup(true); // Show the BetPopup
+      } else {
+        // Hide the BetPopup if newList is empty
+        setShowBetPopup(false);
+      }
+      
+      console.log('Updated List:', newList);
+      
+      return newList;
+    });
+  };
+  
+  const betGame1 = async ({ listJoin, game, gameJoin, xvalue, money }) => {
+    try {
+      const response = await Api.post('/api/webapi/action/k3/join', {
+        listJoin,
+        game,
+        gameJoin,
+        xvalue,
+        money,
+      });
+      console.log('Response:', response.data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+  
+  
+  
 
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
@@ -118,26 +171,6 @@ const [lastBet, setLastBet] = useState([]);  // State for quantity
   
 
 
-const handleOpenPopup = (item) => {
-  setSelectedItem(item);
-
-if (item === 'Big') {
-    setJoin('l');
-  } else if (item === 'Small') {
-    setJoin('n');
-  } else if (item === 'Violet') {
-    setJoin('t');
-  } else if (item === 'Red') {
-    setJoin('d');
-  } else if (item === 'Green') {
-    setJoin('x');
-  } else if (!isNaN(item)) {
-    setJoin(item);
-  } 
-
-  setPopupVisible(true);
-};
-
 const handleClosePopup = () => {
   setPopupVisible(false);
   setSelectedItem(''); // Reset the selected item when closing the popup
@@ -146,41 +179,6 @@ const handleClosePopup = () => {
 };
 
 
-  const getClassName = (amount) => {
-    return `n${amount}`; // Construct class name based on amount
-  };
-
-  const handleSelectBalance = (value) => {
-    setBalance(value);
-  };
-
-  const handleSelectQuantity = (value) => {
-    setQuantity(value);
-  };
-
-  const handleQuantityChange = (e) => {
-    setQuantity(e.target.value);
-  };
-
-  const checkPeriodAndStage = async (period) => {
-    try {
-      const response = await Api.post('/api/webapi/checkPeriodAndStage', { period });
-      // console.log("hi");
-
-      // console.log(response.data.status);
-      if (response.data.status == true) {
-        // Handle success case
-        // console.log(response.data);
-        return true;
-      } else {
-        // console.error('API response was not successful:', response.data.status);
-        return false;
-      }
-    } catch (error) {
-      console.error('An error occurred during the API request:', error);
-      return false;
-    }
-  };
   
   const [playAudio2, setPlayAudio2] = useState(false);
 const audio1Ref = useRef(null);
@@ -246,7 +244,10 @@ useEffect(() => {
 
       if (seconds1 === 0 && seconds2 <= 5) {
         handleClosePopup();
+        setListJoin([]);
         setShowMark(true);
+        setShowBetPopup(false);
+
       }
 
     }, 1000); // Check every second
@@ -701,7 +702,7 @@ useEffect(() => {
             <div data-v-75b35bf5="" className="box">
               <div data-v-75b35bf5="" className="num1"></div>
               <div data-v-75b35bf5="" className="num2"></div>
-              <div data-v-75b35bf5="" className="num5"></div>
+              <div data-v-75b35bf5="" className="num6"></div>
             </div>
           </div>
         </div>
@@ -723,133 +724,217 @@ useEffect(() => {
             <div data-v-8a4509d7="" className={`${gameJoin === 'game4' ? 'active' : ''}`}  onClick={() => showSection('game4')}>Different</div>
           </div>
           <div
-            data-v-ed0c8e79=""
-            data-v-8a4509d7=""
-            className="K3B__C-bettingList"
-            numlist="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
-            numtow=""
-            numone=""
-            numchack="false" id="game1" style={{ display: gameJoin === 'game1' ? 'flex' : 'none' }}
-          >
+  data-v-ed0c8e79=""
+  data-v-8a4509d7=""
+  className="K3B__C-bettingList"
+  id="game1"
+  style={{ display: gameJoin === 'game1' ? 'flex' : 'none' }}
+>
+  <div data-v-ed0c8e79="" className="num num3" onClick={() => addToListJoin(3)}>
+    <div data-v-ed0c8e79="" className="ball rball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num3">3</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">207.36X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num4" onClick={() => addToListJoin(4)}>
+    <div data-v-ed0c8e79="" className="ball gball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num4">4</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">69.12X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num5" onClick={() => addToListJoin(5)}>
+    <div data-v-ed0c8e79="" className="ball rball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num5">5</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">34.56X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num6" onClick={() => addToListJoin(6)}>
+    <div data-v-ed0c8e79="" className="ball gball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num6">6</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">20.74X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num7" onClick={() => addToListJoin(7)}>
+    <div data-v-ed0c8e79="" className="ball rball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num7">7</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">13.83X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num8" onClick={() => addToListJoin(8)}>
+    <div data-v-ed0c8e79="" className="ball gball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num8">8</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">9.88X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num9" onClick={() => addToListJoin(9)}>
+    <div data-v-ed0c8e79="" className="ball rball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num9">9</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">8.3X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num10" onClick={() => addToListJoin(10)}>
+    <div data-v-ed0c8e79="" className="ball gball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num10">10</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">7.68X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num11" onClick={() => addToListJoin(11)}>
+    <div data-v-ed0c8e79="" className="ball rball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num11">11</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">7.68X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num12" onClick={() => addToListJoin(12)}>
+    <div data-v-ed0c8e79="" className="ball gball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num12">12</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">8.3X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num13" onClick={() => addToListJoin(13)}>
+    <div data-v-ed0c8e79="" className="ball rball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num13">13</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">9.88X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num14" onClick={() => addToListJoin(14)}>
+    <div data-v-ed0c8e79="" className="ball gball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num14">14</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">13.83X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num15" onClick={() => addToListJoin(15)}>
+    <div data-v-ed0c8e79="" className="ball rball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num15">15</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">20.74X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num16" onClick={() => addToListJoin(16)}>
+    <div data-v-ed0c8e79="" className="ball gball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num16">16</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">34.56X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num17" onClick={() => addToListJoin(17)}>
+    <div data-v-ed0c8e79="" className="ball rball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num17">17</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">69.12X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num num18" onClick={() => addToListJoin(18)}>
+    <div data-v-ed0c8e79="" className="ball gball">
+      <div data-v-ed0c8e79="" className="K3B__C-odds-bet num18">18</div>
+    </div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">207.36X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num numA" onClick={() => addToListJoin('b')}>
+    <div data-v-ed0c8e79="" className="">Big</div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num numB" onClick={() => addToListJoin('s')}>
+    <div data-v-ed0c8e79="" className="">Small</div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num numC" onClick={() => addToListJoin('l')}>
+    <div data-v-ed0c8e79="" className="">Odd</div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
+  </div>
+  <div data-v-ed0c8e79="" className="num numD" onClick={() => addToListJoin('c')}>
+    <div data-v-ed0c8e79="" className="">Even</div>
+    <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
+  </div>
+</div>
 
 
-
-
-
-            <div data-v-ed0c8e79="" className="num num3">
-              <div data-v-ed0c8e79="" className="ball rball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num3">3</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">207.36X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num4">
-              <div data-v-ed0c8e79="" className="ball gball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num4">4</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">69.12X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num5">
-              <div data-v-ed0c8e79="" className="ball rball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num5">5</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">34.56X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num6">
-              <div data-v-ed0c8e79="" className="ball gball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num6">6</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">20.74X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num7">
-              <div data-v-ed0c8e79="" className="ball rball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num7">7</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">13.83X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num8">
-              <div data-v-ed0c8e79="" className="ball gball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num8">8</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">9.88X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num9">
-              <div data-v-ed0c8e79="" className="ball rball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num9">9</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">8.3X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num10">
-              <div data-v-ed0c8e79="" className="ball gball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num10">10</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">7.68X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num11">
-              <div data-v-ed0c8e79="" className="ball rball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num11">11</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">7.68X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num12">
-              <div data-v-ed0c8e79="" className="ball gball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num12">12</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">8.3X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num13">
-              <div data-v-ed0c8e79="" className="ball rball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num13">13</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">9.88X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num14">
-              <div data-v-ed0c8e79="" className="ball gball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num14">14</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">13.83X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num15">
-              <div data-v-ed0c8e79="" className="ball rball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num15">15</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">20.74X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num16">
-              <div data-v-ed0c8e79="" className="ball gball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num16">16</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">34.56X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num17">
-              <div data-v-ed0c8e79="" className="ball rball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num17">17</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">69.12X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num num18">
-              <div data-v-ed0c8e79="" className="ball gball">
-                <div data-v-ed0c8e79="" className="K3B__C-odds-bet num18">18</div>
-              </div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">207.36X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num numA">
-              <div data-v-ed0c8e79="" className="">Big</div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num numB">
-              <div data-v-ed0c8e79="" className="">Small</div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num numC">
-              <div data-v-ed0c8e79="" className="">Odd</div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
-            </div>
-            <div data-v-ed0c8e79="" className="num numD">
-              <div data-v-ed0c8e79="" className="">Even</div>
-              <div data-v-ed0c8e79="" className="K3B__C-odds-rate">2X</div>
-            </div>
-          </div>
-          <div data-v-5c28a69e="" data-v-8a4509d7="" className="K3B__C-betting2"  id="game2" style={{ display: gameJoin === 'game2' ? 'block' : 'none' }}> <div data-v-5c28a69e="" className="K3B__C-betting2-tip1">2 matching numbers: odds<span data-v-5c28a69e="">(13.83)</span><i data-v-5c28a69e="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-5c28a69e="" className="K3B__C-betting2-line1 mb30"><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">11</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">22</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">33</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">44</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">55</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="">66</div></div></div><div data-v-5c28a69e="" className="K3B__C-betting2-tip1">A pair of unique numbers: odds<span data-v-5c28a69e="">(69.12)</span><i data-v-5c28a69e="" className="van-badge__wrapper van-icon van-icon-question icon" style={{color: 'rgb(250, 87, 74)', fontSize: '16px'}}></i></div><div data-v-5c28a69e="" className="K3B__C-betting2-line2"><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">11</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">22</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">33</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">44</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">55</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">66</div></div></div><div data-v-5c28a69e="" className="K3B__C-betting2-line3"><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">1</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">2</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">3</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">4</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">5</div></div><div data-v-5c28a69e="" className=""><div data-v-5c28a69e="" className="">6</div></div></div></div>
+          <div 
+  data-v-5c28a69e="" 
+  data-v-8a4509d7="" 
+  className="K3B__C-betting2"  
+  id="game2" 
+  style={{ display: gameJoin === 'game2' ? 'block' : 'none' }}
+>
+  <div data-v-5c28a69e="" className="K3B__C-betting2-tip1">
+    2 matching numbers: odds
+    <span data-v-5c28a69e="">(13.83)</span>
+    <i 
+      data-v-5c28a69e="" 
+      className="van-badge__wrapper van-icon van-icon-question icon" 
+      style={{ color: 'rgb(250, 87, 74)', fontSize: '16px' }}
+    ></i>
+  </div>
+  
+  <div data-v-5c28a69e="" className="K3B__C-betting2-line1 mb30">
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">11</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">22</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">33</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">44</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">55</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">66</div>
+    </div>
+  </div>
+  
+  <div data-v-5c28a69e="" className="K3B__C-betting2-tip1">
+    A pair of unique numbers: odds
+    <span data-v-5c28a69e="">(69.12)</span>
+    <i 
+      data-v-5c28a69e="" 
+      className="van-badge__wrapper van-icon van-icon-question icon" 
+      style={{ color: 'rgb(250, 87, 74)', fontSize: '16px' }}
+    ></i>
+  </div>
+  
+  <div data-v-5c28a69e="" className="K3B__C-betting2-line2">
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">11</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">22</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">33</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">44</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">55</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">66</div>
+    </div>
+  </div>
+  
+  <div data-v-5c28a69e="" className="K3B__C-betting2-line3">
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">1</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">2</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">3</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">4</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">5</div>
+    </div>
+    <div data-v-5c28a69e="">
+      <div data-v-5c28a69e="">6</div>
+    </div>
+  </div>
+</div>
 
 
 <div data-v-8a4509d7="" data-v-d024c659="" className="K3B__C" voicetype="1" typeid="9" style={{ display: 'none' }}>
@@ -1109,8 +1194,16 @@ useEffect(() => {
       
     </div>
 
-   <BetPopup gameJoin={gameJoin}/>
-
+    {showBetPopup && (
+        <BetPopup
+          gameJoin={gameJoin}
+          listOrder={listJoin}
+          game={"1"}
+          setShowBetPopup={setShowBetPopup}
+          setListJoin={setListJoin}
+          betGame1={betGame1}
+        />
+      )}
       
 
       

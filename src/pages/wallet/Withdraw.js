@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Api from '../../services/Api';
 import { useNavigate } from 'react-router-dom';
+import Api from '../../services/Api'
+
+
 export default function Withdraw() {
   const [userInfo, setUserInfo] = useState({});
   const [withdrawableAmount, setWithdrawableAmount] = useState(0);
@@ -69,10 +71,90 @@ export default function Withdraw() {
 
 
   const [activeSection, setActiveSection] = useState('section1');
+  const [error, setError] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
+  const [amount, setAmount] = useState(null);
+  const [needToBet, setNeedToBet] = useState(0);
+
+
+
   const showSection = (sectionID) =>{
      setActiveSection(sectionID);
   };
   const navigate = useNavigate();
+ 
+
+
+  const fetchUserInfo = async () => {
+    try {
+      const response = await Api.post('/api/webapi/check/Info');
+      const data =  response.data;
+
+      console.log(data.userInfo[0].money);
+
+      setUserInfo(data.userInfo[0]); // Assuming data.data contains the user's information
+
+      if(data.userInfo[0].total_bet > data.userInfo[0].able_to_bet){
+        setNeedToBet(0);
+      }
+      else{
+        setNeedToBet( parseFloat(data.userInfo[0].able_to_bet) - parseFloat(data.userInfo[0].total_bet) );
+      }
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+  const handleSubmit = async (e) => {
+    if (amount< 900) {
+      setError('Amount need to be greater than 900');
+      return;
+    }
+    if (needToBet < 0) {
+      setError('You need to bet more to Withdraw');
+      return;
+    }
+    try {
+        
+      const paymentMode= activeSection == 'section2' ? "USDT(TRC20)" : null ;
+
+
+      const response = await Api.post('/api/webapi/withdrawalUsdt', {
+        money: amount, 
+        paymentMode,
+      });
+      console.log(response.data);
+      if (response.data.status == true) {
+        // Redirect to login or home page
+
+        fetchUserInfo();
+
+      } else {
+        setError(response.data.message);
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+    }
+};
+
+  useEffect(() => {
+
+    fetchUserInfo();
+
+    console.log();
+
+
+}, []);
+
+
+
+
+
+
+
   return (
     <div style={{fontSize: '12px'}}>
  
@@ -236,7 +318,7 @@ export default function Withdraw() {
               </div>
             </div>
             <div data-v-0879c174="" className="balanceAssets__main">
-              <p data-v-0879c174="">₹93.18</p>
+              <p data-v-0879c174="">₹{userInfo?userInfo.money:0}</p>
               <img
                 data-v-0879c174=""
                 src="/assets/png/refresh-8e0efe26.png"
@@ -292,6 +374,8 @@ export default function Withdraw() {
                 data-v-cb5583fe=""
                 placeholder="Please enter the amount"
                 className="inp"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
               />
             </div>
             
@@ -299,7 +383,7 @@ export default function Withdraw() {
               <div data-v-cb5583fe="">
                 <span data-v-cb5583fe=""
                   >Withdrawable balance
-                  <h6 data-v-cb5583fe="" className="yellow">₹93.18</h6></span
+                  <h6 data-v-cb5583fe="" className="yellow">₹{userInfo ? userInfo.money :0}</h6></span
                 ><input data-v-cb5583fe="" type="button" value="All" />
               </div>
               <div data-v-cb5583fe="">
@@ -343,6 +427,7 @@ export default function Withdraw() {
                 data-v-cb5583fe="" src="/assets/png/usdt.png"
               />
             </div>
+            
             <div data-v-cb5583fe="" className="input">
               <div data-v-cb5583fe="" className="place-div">₹</div>
               <input
@@ -358,7 +443,7 @@ export default function Withdraw() {
               <div data-v-cb5583fe="">
                 <span data-v-cb5583fe=""
                   >Withdrawable balance
-                  <h6 data-v-cb5583fe="" className="yellow">onClick={() => setWithdrawAmount(withdrawableAmount)}</h6></span
+                  <h6 data-v-cb5583fe="" className="yellow">₹{userInfo?userInfo.money:0}</h6></span
                 ><input data-v-cb5583fe="" type="button" value="All" />
               </div>
             </div>
@@ -367,8 +452,9 @@ export default function Withdraw() {
           
           
           <div data-v-80a607a5="" className="recycleBtnD">
-            <button data-v-80a607a5="" className="recycleBtn" onClick={handleWithdraw} >Withdraw</button>
+            <button data-v-80a607a5="" className="recycleBtn" onClick={handleSubmit}>Withdraw</button>
           </div>
+      
           <div
             data-v-76eb7f31=""
             data-v-80a607a5=""
@@ -377,7 +463,7 @@ export default function Withdraw() {
             <div data-v-76eb7f31="" className="br">
               
               <p data-v-76eb7f31="">
-                Need to bet <span data-v-470caa86="" className="red">₹0.00</span> to
+                Need to bet <span data-v-470caa86="" className="red">₹{needToBet}</span> to
                 be able to withdraw
               </p>
               <p data-v-76eb7f31="">
