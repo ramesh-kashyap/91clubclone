@@ -4,70 +4,9 @@ import Api from '../../services/Api'
 
 
 export default function Withdraw() {
-  const [userInfo, setUserInfo] = useState({});
-  const [withdrawableAmount, setWithdrawableAmount] = useState(0);
-  const [withdrawAmount, setWithdrawAmount] = useState('');
-  const [walletAddress, setWalletAddress] = useState('');
-
-
-  const handleWithdrawAmountChange = (e) => {
-    setWithdrawAmount(e.target.value);
-  };
-
-  const handleWithdraw = async () => {
-    if (withdrawAmount <= 0 || withdrawAmount > withdrawableAmount) {
-      alert('Invalid withdrawal amount');
-      return;
-    }
-
-    try {
-      // Sending the withdraw request
-      const response = await Api.post('/api/webapi/withdraw', {
-        money: userInfo.phone,
-        paymentmode: withdrawAmount,
-      });
-      if (response.data.status) {
-        alert('Withdrawal successful!');
-        // Reset the form or update UI accordingly
-      } else {
-        alert('Withdrawal failed. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error processing withdrawal', error);
-    }
-  };
-
-
  
   
-  useEffect(() => {
-    const fetchUserInfo = async () => {
-      try {
-        const response = await Api.post('/api/webapi/check/Info');
 
-         console.log(response.data);
-
-        const user = response.data.userInfo[0];
-        const totalBet = user.total_bet;
-                 console.log(response.data);
-
-        const ableBet = user.ableBet;
-
-        // Calculate remaining bet
-        const remainingBet = totalBet >= ableBet ? 0 : ableBet - totalBet;
-        const withdrawable = remainingBet <= 0 ? user.money : 0;
-
-        setUserInfo(user);
-        setWithdrawableAmount(withdrawable);
-        setWalletAddress(response.data.datas[0]?.usdtBep20 || '');
-      } catch (error) {
-        console.error('Error fetching user info', error);
-      }
-    };
-
-   
-    fetchUserInfo();
-  }, []);
 
 
   const [activeSection, setActiveSection] = useState('section1');
@@ -75,7 +14,7 @@ export default function Withdraw() {
   const [userInfo, setUserInfo] = useState(null);
   const [amount, setAmount] = useState(null);
   const [needToBet, setNeedToBet] = useState(0);
-
+  const [walletAddress, setWalletAddress] = useState(null);
 
 
   const showSection = (sectionID) =>{
@@ -93,6 +32,7 @@ export default function Withdraw() {
       console.log(data.userInfo[0].money);
 
       setUserInfo(data.userInfo[0]); // Assuming data.data contains the user's information
+      setWalletAddress(data.datas[0].usdtBep20)
 
       if(data.userInfo[0].total_bet > data.userInfo[0].able_to_bet){
         setNeedToBet(0);
@@ -360,7 +300,7 @@ export default function Withdraw() {
               </div>
               <div data-v-80a607a5="">
                 <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">921738****</span>
+                ><span data-v-80a607a5="">084399****495</span>
               </div>
               <i
                 data-v-80a607a5=""
@@ -376,8 +316,7 @@ export default function Withdraw() {
                 data-v-cb5583fe=""
                 placeholder="Please enter the amount"
                 className="inp"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
+                
               />
             </div>
             
@@ -398,7 +337,7 @@ export default function Withdraw() {
           </div>
           </div>
           <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
-          <div data-v-80a607a5="" className="bankInfo">
+          <div data-v-80a607a5="" className="bankInfo" style={{display: walletAddress == null ? 'none':'block'}}>
             <div data-v-80a607a5="" className="bankInfoItem type1">
               <div data-v-80a607a5="">
                 <svg data-v-80a607a5="" className="svg-icon icon-1">
@@ -416,7 +355,7 @@ export default function Withdraw() {
               >
             </div>       
     </div>
-            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')}>
+            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')} style={{display: walletAddress !== null ? 'none':'block'}}>
               <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
                 data-v-ef5c8333="">Add a bank account number</span>
             </div>
@@ -433,11 +372,12 @@ export default function Withdraw() {
             <div data-v-cb5583fe="" className="input">
               <div data-v-cb5583fe="" className="place-div">₹</div>
               <input
+                data-v-cb5583fe=""
                 type="number"
                 placeholder="Please enter withdrawal amount"
                 className="inp"
-                value={withdrawAmount}
-                onChange={handleWithdrawAmountChange}
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
               />
             </div>
             
