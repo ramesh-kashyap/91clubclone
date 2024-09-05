@@ -1,11 +1,14 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 export default function Register() {
+  const navigate = useNavigate();
+  
+  const [activeSection, setActiveSection] = useState('section1');
+  const showSection = (sectionId) => {
+    setActiveSection(sectionId);
+  };
   return (
     <div style={{fontSize: '12px'}}>
-
-
-
     <svg
       xmlns="http://www.w3.org/2000/svg"
      
@@ -9508,11 +9511,11 @@ export default function Register() {
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
               <div data-v-12a80a3e="" className="navbar__content-left">
-              <a href="/activity">
+              
                 <i
                   data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left"
-                  ></i></a>
+                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/activity')}
+                  ></i>
               </div>
               <div data-v-12a80a3e="" className="navbar__content-center">
                
@@ -9537,13 +9540,17 @@ export default function Register() {
                   style={{
                     'transitionTimingFunction': "cubicBezier('0.25','0.46','0.45','0.94')",
                     transitionDuration: '360ms',
-                    transform: 'translate3d(0px, 0px, 0px)'
+                    transform: activeSection === 'section2' ? 'translate3d(0px, 0px, 0px)' :
+                    activeSection === 'section3' ? 'translate3d(0px, 0px, 0px)' :
+                    activeSection === 'section4' ? 'translate3d(-90.5px, 0px, 0px)' :
+                    activeSection === 'section5' ? 'translate3d(-180px, 0px, 0px)' : 
+                    'translate3d(0px, 0px, 0px)'  // Default transform for unknown section
                 }}
                 >
-                  <div className="fun-tab-item funtab_item" >
+                  <div className={`fun-tab-item funtab_item ${activeSection === 'section1' ?  'activeClassName':''}`} id="section1"  onClick={() => showSection('section1')}>
                     <div className="fun-tab-item__wrap">
                       <div className="fun-tab-item__label">
-                        <div data-v-cdf0e578="" className="tab_item">
+                        <div data-v-cdf0e578="" className={`tab_item ${activeSection === 'section1'? 'tab_active':''}`}>
                           <svg data-v-cdf0e578="" className="svg-icon icon-all">
                             <use href="#icon-all"></use></svg
                           ><span data-v-cdf0e578="">All</span>
@@ -9553,12 +9560,11 @@ export default function Register() {
                     </div>
                   </div>
                   <div
-                    className="fun-tab-item funtab_item activeClassName"
-                    style={{color: 'rgb(22, 119, 255)'}}
+                    className={`fun-tab-item funtab_item ${activeSection === 'section2' ?  'activeClassName':''}`} id="section2"  onClick={() => showSection('section2')}
                   >
                     <div className="fun-tab-item__wrap">
                       <div className="fun-tab-item__label">
-                        <div data-v-cdf0e578="" className="tab_item tab_active">
+                        <div data-v-cdf0e578="" className={`tab_item ${activeSection === 'section2'? 'tab_active':''}`}>
                           <svg data-v-cdf0e578="" className="svg-icon icon-lottery">
                             <use href="#icon-lottery"></use></svg
                           ><span data-v-cdf0e578="">Lottery</span>
@@ -9567,10 +9573,10 @@ export default function Register() {
                      
                     </div>
                   </div>
-                  <div className="fun-tab-item funtab_item">
+                  <div className={`fun-tab-item funtab_item ${activeSection === 'section3' ?  'activeClassName':''}`} id="section3"  onClick={() => showSection('section3')}>
                     <div className="fun-tab-item__wrap">
                       <div className="fun-tab-item__label">
-                        <div data-v-cdf0e578="" className="tab_item">
+                        <div data-v-cdf0e578="" className={`tab_item ${activeSection === 'section3'? 'tab_active':''}`}>
                           <svg data-v-cdf0e578="" className="svg-icon icon-video">
                             <use href="#icon-video"></use></svg
                           ><span data-v-cdf0e578="">Casino</span>
@@ -9579,10 +9585,10 @@ export default function Register() {
                      
                     </div>
                   </div>
-                  <div className="fun-tab-item funtab_item">
+                  <div className={`fun-tab-item funtab_item ${activeSection === 'section4' ?  'activeClassName':''}`} id="section4"  onClick={() => showSection('section4')}>
                     <div className="fun-tab-item__wrap">
                       <div className="fun-tab-item__label">
-                        <div data-v-cdf0e578="" className="tab_item">
+                        <div data-v-cdf0e578="" className={`tab_item ${activeSection === 'section4'? 'tab_active':''}`}>
                           <svg data-v-cdf0e578="" className="svg-icon icon-chess">
                             <use href="#icon-chess"></use></svg
                           ><span data-v-cdf0e578="">Rummy</span>
@@ -9591,10 +9597,10 @@ export default function Register() {
                      
                     </div>
                   </div>
-                  <div className="fun-tab-item funtab_item">
+                  <div className={`fun-tab-item funtab_item ${activeSection === 'section5' ?  'activeClassName':''}`} id="section5"  onClick={() => showSection('section5')}>
                     <div className="fun-tab-item__wrap">
                       <div className="fun-tab-item__label">
-                        <div data-v-cdf0e578="" className="tab_item">
+                        <div data-v-cdf0e578="" className={`tab_item ${activeSection === 'section5'? 'tab_active':''}`}>
                           <svg data-v-cdf0e578="" className="svg-icon icon-slot">
                             <use href="#icon-slot"></use></svg
                           ><span data-v-cdf0e578="">Slots</span>

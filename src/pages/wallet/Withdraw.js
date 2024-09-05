@@ -1,10 +1,71 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import Api from '../../services/Api';
 import { useNavigate } from 'react-router-dom';
 export default function Withdraw() {
+  const [userInfo, setUserInfo] = useState({});
+  const [withdrawableAmount, setWithdrawableAmount] = useState(0);
+  const [withdrawAmount, setWithdrawAmount] = useState('');
+  const [walletAddress, setWalletAddress] = useState('');
+
+
+  const handleWithdrawAmountChange = (e) => {
+    setWithdrawAmount(e.target.value);
+  };
+
+  const handleWithdraw = async () => {
+    if (withdrawAmount <= 0 || withdrawAmount > withdrawableAmount) {
+      alert('Invalid withdrawal amount');
+      return;
+    }
+
+    try {
+      // Sending the withdraw request
+      const response = await Api.post('/api/webapi/withdraw', {
+        phone: userInfo.phone,
+        amount: withdrawAmount,
+      });
+      if (response.data.status) {
+        alert('Withdrawal successful!');
+        // Reset the form or update UI accordingly
+      } else {
+        alert('Withdrawal failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error processing withdrawal', error);
+    }
+  };
+
+
  
   
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const response = await Api.post('/api/webapi/check/Info');
 
+         console.log(response.data);
+
+        const user = response.data.userInfo[0];
+        const totalBet = user.total_bet;
+                 console.log(response.data);
+
+        const ableBet = user.ableBet;
+
+        // Calculate remaining bet
+        const remainingBet = totalBet >= ableBet ? 0 : ableBet - totalBet;
+        const withdrawable = remainingBet <= 0 ? user.money : 0;
+
+        setUserInfo(user);
+        setWithdrawableAmount(withdrawable);
+        setWalletAddress(response.data.datas[0]?.usdtBep20 || '');
+      } catch (error) {
+        console.error('Error fetching user info', error);
+      }
+    };
+
+   
+    fetchUserInfo();
+  }, []);
 
 
   const [activeSection, setActiveSection] = useState('section1');
@@ -215,7 +276,7 @@ export default function Withdraw() {
               </div>
               <div data-v-80a607a5="">
                 <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">084399****495</span>
+                ><span data-v-80a607a5="">921738****</span>
               </div>
               <i
                 data-v-80a607a5=""
@@ -251,6 +312,24 @@ export default function Withdraw() {
           </div>
           </div>
           <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
+          <div data-v-80a607a5="" className="bankInfo">
+            <div data-v-80a607a5="" className="bankInfoItem type1">
+              <div data-v-80a607a5="">
+                <svg data-v-80a607a5="" className="svg-icon icon-1">
+                  <use href="#icon-1"></use></svg
+                ><span data-v-80a607a5="">Yes Bank</span>
+              </div>
+              <div data-v-80a607a5="">
+                <span data-v-80a607a5=""></span
+                ><span data-v-80a607a5="">{walletAddress.substring(0, 9)}...{walletAddress.substring(walletAddress.length - 6)}</span>
+              </div>
+              <i
+                data-v-80a607a5=""
+                className="van-badge__wrapper van-icon van-icon-arrow"
+                ></i
+              >
+            </div>       
+    </div>
             <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')}>
               <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
                 data-v-ef5c8333="">Add a bank account number</span>
@@ -267,10 +346,11 @@ export default function Withdraw() {
             <div data-v-cb5583fe="" className="input">
               <div data-v-cb5583fe="" className="place-div">₹</div>
               <input
-                data-v-cb5583fe=""
                 type="number"
                 placeholder="Please enter withdrawal amount"
                 className="inp"
+                value={withdrawAmount}
+                onChange={handleWithdrawAmountChange}
               />
             </div>
             
@@ -278,7 +358,7 @@ export default function Withdraw() {
               <div data-v-cb5583fe="">
                 <span data-v-cb5583fe=""
                   >Withdrawable balance
-                  <h6 data-v-cb5583fe="" className="yellow">₹93.18</h6></span
+                  <h6 data-v-cb5583fe="" className="yellow">onClick={() => setWithdrawAmount(withdrawableAmount)}</h6></span
                 ><input data-v-cb5583fe="" type="button" value="All" />
               </div>
             </div>
@@ -287,7 +367,7 @@ export default function Withdraw() {
           
           
           <div data-v-80a607a5="" className="recycleBtnD">
-            <button data-v-80a607a5="" className="recycleBtn">Withdraw</button>
+            <button data-v-80a607a5="" className="recycleBtn" onClick={handleWithdraw} >Withdraw</button>
           </div>
           <div
             data-v-76eb7f31=""
