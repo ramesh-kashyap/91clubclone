@@ -723,7 +723,7 @@ useEffect(() => {
             <div data-v-75b35bf5="" className="box">
               <div data-v-75b35bf5="" className="num1"></div>
               <div data-v-75b35bf5="" className="num2"></div>
-              <div data-v-75b35bf5="" className="num5"></div>
+              <div data-v-75b35bf5="" className="num6"></div>
             </div>
           </div>
         </div>
