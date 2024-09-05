@@ -257,7 +257,7 @@ useEffect(() => {
 
       if (seconds1 !== 0 || seconds2 > 5) {
         setShowMark(false);
-        setShowBetPopup(true);
+        setShowBetPopup(false);
 
         if (userInteracted && audio1Ref.current) { // Only pause audio if user interacted
           audio1Ref.current.pause();
@@ -268,7 +268,7 @@ useEffect(() => {
       if (seconds1 === 0 && seconds2 <= 5) {
         handleClosePopup();
         setShowMark(true);
-        setShowBetPopup(false);
+        // setShowBetPopup(true);
 
       }
 
