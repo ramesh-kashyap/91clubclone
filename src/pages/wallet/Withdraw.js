@@ -21,8 +21,8 @@ export default function Withdraw() {
     try {
       // Sending the withdraw request
       const response = await Api.post('/api/webapi/withdraw', {
-        phone: userInfo.phone,
-        amount: withdrawAmount,
+        money: userInfo.phone,
+        paymentmode: withdrawAmount,
       });
       if (response.data.status) {
         alert('Withdrawal successful!');
