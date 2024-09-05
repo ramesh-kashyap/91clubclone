@@ -223,7 +223,7 @@ const showSection = (sectionId) => {
             <div data-v-4f3d8608="" className="Recharge__container-tabcard">
             <div
                 data-v-4f3d8608=""
-                className={`Recharge__container-tabcard__items ${activeSection === 'section1' || 'section4' ? 'active' : ''}`}  onClick={() => showSection('section1')}
+                className={`Recharge__container-tabcard__items ${activeSection === 'section1' && 'section4' ? 'active' : ''}`}  onClick={() => showSection('section1')}
               >
                 <div data-v-4f3d8608="" className="centers">
                   
@@ -248,7 +248,7 @@ const showSection = (sectionId) => {
               </div>
               <div
                 data-v-4f3d8608=""
-                 className={`Recharge__container-tabcard__items ${activeSection === 'section2' || 'section5' ? 'active' : ''}`}  onClick={() => showSection('section2')}
+                 className={`Recharge__container-tabcard__items ${activeSection === 'section2' && 'section5' ? 'active' : ''}`}  onClick={() => showSection('section2')}
               >
                 <div data-v-4f3d8608="" className="centers">
                   
@@ -273,7 +273,7 @@ const showSection = (sectionId) => {
               </div>              
               <div
                 data-v-4f3d8608=""
-                className={`Recharge__container-tabcard__items ${activeSection === 'section3' || 'section6' ? 'active' : ''}`} onClick={() => showSection('section3')}
+                className={`Recharge__container-tabcard__items ${activeSection === 'section3' && 'section6' ? 'active' : ''}`} onClick={() => showSection('section3')}
               >
                 <div data-v-4f3d8608="" className="centers">
                   
@@ -565,8 +565,8 @@ const showSection = (sectionId) => {
                 className="Recharge__content-paymoney__money-input"
               >
                 <div data-v-9e03166f="" className="place-div">{activeSection === 'section1'&& 'section4' ? '₹' 
- : activeSection === 'section3' || 'section6' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
- : activeSection === 'section2' || 'section5' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section3' && 'section6' ? <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+ : activeSection === 'section2' && 'section5' ? <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
  : '$'}</div>
                 <div
                   data-v-9e03166f=""
