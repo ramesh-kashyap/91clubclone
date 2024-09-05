@@ -121,7 +121,8 @@ export default function Withdraw() {
         
       const paymentMode= activeSection == 'section2' ? "USDT(TRC20)" : null ;
 
-
+            
+      
       const response = await Api.post('/api/webapi/withdrawalUsdt', {
         money: amount, 
         paymentMode,
