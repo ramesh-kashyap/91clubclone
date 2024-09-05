@@ -102,7 +102,8 @@ export default function AddUSDT() {
                       <input
                         type="text"
                         data-v-fa757a88=""
-                        className="ar-searchbar__selector-default"
+                          placeholder="Payment Mode"
+                        className="ar-searchbar__selector-default" style={{background:'#333332'}}
                         onClick={handleToggle}
                         value={selectedValue}
                         onChange={(e) => setSelectedValue(e.target.value.replace(/[^\w\/]/ig, ''))}
@@ -174,12 +175,13 @@ export default function AddUSDT() {
                   type="button"
                   className="van-picker__confirm van-haptics-feedback"
                   onClick={handleCancel}
-                >
+               style={{ color: 'green'}} >
                   Confirm
                 </button>
               </div>
               <div className="van-picker__columns" style={{ height: '264px' }}>
-                <div className="van-picker-column">
+                <div className="van-picker-column" style={{background: '#d9ac4f'}}
+>
                   <ul
                     className="van-picker-column__wrapper"
                     style={{
