@@ -1,6 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function BetRecords() {
+  const navigate =  useNavigate();
+  const [isVisible, setIsVisible] = useState(false);
+  const [isSecondVisible, setIsSecondVisible] = useState(false);
+  const [selectSection, isSelectSection] =useState();
+
+  const handleSection = () => {
+    isSelectSection(selectSection);
+    };   
+  
+    const handleToggle = () => {
+      setIsVisible(!isVisible);
+    };  
+    const handleCancel = () => {
+      setIsVisible(false);
+    };
+    const handleSecondToggle = () => {
+      setIsSecondVisible(!isSecondVisible);
+    };
+    const handleSecondCancel = () => {
+      setIsSecondVisible(false);
+    };
   return (
     <div style={{fontSize: '12px'}}>
     <svg
@@ -9497,7 +9519,7 @@ export default function BetRecords() {
                 <a href="/account/account.html" style={{fontSize: 'large'}}>
                   <i
                     data-v-12a80a3e=""
-                    className="van-badge__wrapper van-icon van-icon-arrow-left"
+                    className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/account')}
                     ></i
                   >
                 </a>
@@ -9617,7 +9639,7 @@ export default function BetRecords() {
                     data-v-1d8fbc24=""
                     className="ar-searchbar__selector"
                   >
-                    <div data-v-fa757a88="">
+                    <div data-v-fa757a88=""  onClick={handleToggle}>
                       <span
                         data-v-fa757a88=""
                         className="ar-searchbar__selector-default"
@@ -9632,7 +9654,7 @@ export default function BetRecords() {
                         role="button"
                         tabIndex="0"
                         data-v-0a298b45=""
-                        style={{zindex: '2038'}}
+                        style={{zIndex: '2001', display: isVisible ? 'block' : 'none'}}
                       >
                       </div>
                       <div
@@ -9640,10 +9662,10 @@ export default function BetRecords() {
                         tabIndex="0"
                         className="van-popup van-popup--round van-popup--bottom"
                         data-v-0a298b45=""
-                        style={{zindex: '2038'}}
+                        style={{zIndex: '2001', display: isVisible ? 'block' : 'none'}}
                       >
                         <div data-v-0a298b45="" className="list">
-                          <div data-v-0a298b45="" className="item active">
+                          <div data-v-0a298b45="" className={`item ${selectSection ? 'active':''}`} onClick={handleSection}>
                             <div data-v-0a298b45="">
                               <img
                                 data-v-0a298b45=""
@@ -9653,7 +9675,7 @@ export default function BetRecords() {
                               />Win Go
                             </div>
                           </div>
-                          <div data-v-0a298b45="" className="item">
+                          <div data-v-0a298b45="" className={`item ${selectSection ? 'active':''}`}>
                             <div data-v-0a298b45="">
                               <img
                                 data-v-0a298b45=""
@@ -9663,7 +9685,7 @@ export default function BetRecords() {
                               />Trx Win Go
                             </div>
                           </div>
-                          <div data-v-0a298b45="" className="item">
+                          <div data-v-0a298b45="" className={`item ${selectSection ? 'active':''}`} >
                             <div data-v-0a298b45="">
                               <img
                                 data-v-0a298b45=""
@@ -9673,7 +9695,7 @@ export default function BetRecords() {
                               />5D
                             </div>
                           </div>
-                          <div data-v-0a298b45="" className="item">
+                          <div data-v-0a298b45="" className={`item ${selectSection ? 'active':''}`} >
                             <div data-v-0a298b45="">
                               <img
                                 data-v-0a298b45=""
@@ -9695,11 +9717,11 @@ export default function BetRecords() {
                     <div data-v-fa757a88="">
                       <span
                         data-v-fa757a88=""
-                        className="ar-searchbar__selector-default"
+                        className="ar-searchbar__selector-default" onClick={handleSecondToggle}
                         >Choose a date</span
                       ><i
                         data-v-fa757a88=""
-                        className="van-badge__wrapper van-icon van-icon-arrow-down"
+                        className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleSecondToggle}
                         ></i
                       >
                       <div
@@ -9707,7 +9729,7 @@ export default function BetRecords() {
                         role="button"
                         tabIndex="0"
                         data-v-1d8fbc24=""
-                        style={{zindex: '2004', display: 'none'}}
+                        style={{zIndex: '2002', display: isSecondVisible ? 'block' : 'none'}}
                       >
                       </div>
                       <div
@@ -9715,13 +9737,13 @@ export default function BetRecords() {
                         tabIndex="0"
                         className="van-popup van-popup--round van-popup--bottom"
                         data-v-1d8fbc24=""
-                        style={{zindex: '2004'}}
+                        style={{zIndex: '2002', display: isSecondVisible  ? 'block' : 'none'}}
                       >
-                        <div data-v-1d8fbc24="" className="van-picker">
+                        <div data-v-1d8fbc24="" className="van-picker" style={{zIndex: '2002', display: isSecondVisible ? 'block' : 'none'}}>
                           <div className="van-picker__toolbar">
                             <button
                               type="button"
-                              className="van-picker__cancel van-haptics-feedback"
+                              className="van-picker__cancel van-haptics-feedback"  onClick={handleSecondCancel}
                             >
                               Cancel
                             </button>
@@ -9730,7 +9752,7 @@ export default function BetRecords() {
                             </div>
                             <button
                               type="button"
-                              className="van-picker__confirm van-haptics-feedback"
+                              className="van-picker__confirm van-haptics-feedback"  onClick={handleSecondCancel}
                             >
                               Confirm
                             </button>

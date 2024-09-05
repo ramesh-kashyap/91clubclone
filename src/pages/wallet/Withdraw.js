@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 export default function Withdraw() {
+ 
+  
+
+
 
   const [activeSection, setActiveSection] = useState('section1');
   const showSection = (sectionID) =>{
@@ -217,9 +222,8 @@ export default function Withdraw() {
                 className="van-badge__wrapper van-icon van-icon-arrow"
                 ></i
               >
-            </div>        
-
-          </div>
+            </div>       
+    </div>
           <div data-v-cb5583fe="" className="explain">
             <div data-v-cb5583fe="" className="input">
               <div data-v-cb5583fe="" className="place-div">₹</div>
@@ -257,8 +261,7 @@ export default function Withdraw() {
             <div data-v-cb5583fe="" className="explain usdt">
             <div data-v-cb5583fe="" className="head">
               <img
-                data-v-cb5583fe=""
-                src="/assets/png/usdt.png"
+                data-v-cb5583fe="" src="/assets/png/usdt.png"
               />
             </div>
             <div data-v-cb5583fe="" className="input">

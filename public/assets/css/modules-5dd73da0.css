@@ -6041,7 +6041,7 @@ ul {
     -webkit-justify-content: center;
     justify-content: center;
     padding: var(--van-picker-option-padding);
-    color: var(--van-picker-option-text-color)
+    color: #fff
 }
 
 .van-picker-column__item--disabled {
