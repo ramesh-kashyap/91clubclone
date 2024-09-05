@@ -104,7 +104,20 @@ const [lastBet, setLastBet] = useState([]);  // State for quantity
     });
   };
   
-  
+  const betGame1 = async ({ listJoin, game, gameJoin, xvalue, money }) => {
+    try {
+      const response = await Api.post('/api/webapi/action/k3/join', {
+        listJoin,
+        game,
+        gameJoin,
+        xvalue,
+        money,
+      });
+      console.log('Response:', response.data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
   
   
   
@@ -166,41 +179,6 @@ const handleClosePopup = () => {
 };
 
 
-  const getClassName = (amount) => {
-    return `n${amount}`; // Construct class name based on amount
-  };
-
-  const handleSelectBalance = (value) => {
-    setBalance(value);
-  };
-
-  const handleSelectQuantity = (value) => {
-    setQuantity(value);
-  };
-
-  const handleQuantityChange = (e) => {
-    setQuantity(e.target.value);
-  };
-
-  const checkPeriodAndStage = async (period) => {
-    try {
-      const response = await Api.post('/api/webapi/checkPeriodAndStage', { period });
-      // console.log("hi");
-
-      // console.log(response.data.status);
-      if (response.data.status == true) {
-        // Handle success case
-        // console.log(response.data);
-        return true;
-      } else {
-        // console.error('API response was not successful:', response.data.status);
-        return false;
-      }
-    } catch (error) {
-      console.error('An error occurred during the API request:', error);
-      return false;
-    }
-  };
   
   const [playAudio2, setPlayAudio2] = useState(false);
 const audio1Ref = useRef(null);
@@ -266,6 +244,7 @@ useEffect(() => {
 
       if (seconds1 === 0 && seconds2 <= 5) {
         handleClosePopup();
+        setListJoin([]);
         setShowMark(true);
         setShowBetPopup(false);
 
@@ -1215,8 +1194,16 @@ useEffect(() => {
       
     </div>
 
-    {showBetPopup && <BetPopup listOrder={listJoin} gameJoin={gameJoin} />}
-
+    {showBetPopup && (
+        <BetPopup
+          gameJoin={gameJoin}
+          listOrder={listJoin}
+          game={"1"}
+          setShowBetPopup={setShowBetPopup}
+          setListJoin={setListJoin}
+          betGame1={betGame1}
+        />
+      )}
       
 
       

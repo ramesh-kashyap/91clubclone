@@ -9616,7 +9616,7 @@ export default function Register() {
                 type="text"
                 name="phone"
                 placeholder="Please enter the phone number"
-                value={phone}
+                value={phone} 
                 onChange={(e) => setPhone(e.target.value)}
               />
               </div>

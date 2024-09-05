@@ -447,7 +447,15 @@ export default function Wingo() {
   
       // Validate inputs
       if (!join || !quantity || !balance || userInfo.money_user < totalAmount) {
-        alert('Invalid input or insufficient balance');
+        toast.error('Invalid input or insufficient balance',{ icon: false, // No icon
+          progressBar: false, // No progress bar
+          style: {
+            backgroundColor: 'black', // Black background
+            color: 'white', // White text
+          }});
+       
+        
+
         return;
       }
   
@@ -460,7 +468,13 @@ export default function Wingo() {
           money: balance,
         });
   
+        toast.success('Bet placed successfully!');
+
+        
+
         const { data } = response;
+
+
   
         handleClosePopup();
         fetchMyBets();
@@ -1065,11 +1079,7 @@ export default function Wingo() {
         >
       </div>
     </div>
-    <div
-      data-v-0ac3de13=""
-      data-v-5d71c3fd=""
-      className="changlongEnter changlong"
-    ></div>
+ 
     <audio id="voice1">
       <source src="/assets/mp3/di1-0f3d86cb.mp3" type="audio/mpeg" /></audio
     ><audio id="voice2">
