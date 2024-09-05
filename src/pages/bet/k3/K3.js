@@ -104,20 +104,7 @@ const [lastBet, setLastBet] = useState([]);  // State for quantity
     });
   };
   
-  const betGame1 = async ({ listJoin, game, gameJoin, xvalue, money }) => {
-    try {
-      const response = await Api.post('/api/webapi/action/k3/join', {
-        listJoin,
-        game,
-        gameJoin,
-        xvalue,
-        money,
-      });
-      console.log('Response:', response.data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
+  
   
   
   
@@ -1194,16 +1181,9 @@ useEffect(() => {
       
     </div>
 
-    {showBetPopup && (
-        <BetPopup
-          gameJoin={gameJoin}
-          listOrder={listJoin}
-          game={"1"}
-          setShowBetPopup={setShowBetPopup}
-          setListJoin={setListJoin}
-          betGame1={betGame1}
-        />
-      )}
+    {showBetPopup && <BetPopup listOrder={listJoin} gameJoin={gameJoin} game={1} userBalance={userInfo?userInfo.money_user:0.00} setListJoin={setListJoin}   
+  setShowBetPopup={setShowBetPopup}  />}
+
       
 
       
