@@ -1,6 +1,37 @@
-import React from 'react'
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Api from '../../services/Api';
+
 export default function DepositHistory() {
+
+
+  const [getUserInfo, setGetUserInfo] = useState(null);
+  const [error, setError] = useState(null);
+
+
+  const fetchGetUserInfo = async () => {
+    try {
+      const response = await Api.get('/api/webapi/GetUserInfo');
+      const data =  response.data;
+
+      console.log(data.data);
+
+      setGetUserInfo(data.data); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+  useEffect(() => {
+    fetchGetUserInfo();  
+       
+
+   
+  }, []);
+
     const navigate = useNavigate();
   return (
     <div>
@@ -156,7 +187,7 @@ export default function DepositHistory() {
             data-v-e4760c44=""
             className="van-tabs van-tabs--card onlineGames__container-tabBar"
           >
-            <div className="van-tabs__wrap">
+            {/* <div className="van-tabs__wrap">
               <div
                 role="tablist"
                 className="van-tabs__nav van-tabs__nav--card"
@@ -218,7 +249,7 @@ export default function DepositHistory() {
                 </div>
                 
               </div>
-            </div>
+            </div> */}
             
             <div className="van-tabs__content"></div>
           </div>
