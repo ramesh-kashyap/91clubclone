@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Api from '../../../../services/Api'
 
-const BetPopup = ({ gameJoin,listOrder,game,userBalance, setListJoin, setShowBetPopup }) => {
+const BetPopup = ({ gameJoin,listOrder,game,userBalance, setListJoin, setShowBetPopup,fetchUserInfo,fetchMyBets }) => {
   // State for balance and quantity
   const [balance, setBalance] = useState(1);
   const [quantity, setQuantity] = useState(1);
@@ -47,7 +47,9 @@ const BetPopup = ({ gameJoin,listOrder,game,userBalance, setListJoin, setShowBet
       console.log('Bet successfully placed:', response.data);
       
       setListJoin([]);       
-        setShowBetPopup(false)
+        setShowBetPopup(false);
+        fetchUserInfo();
+        fetchMyBets();
 
 
       // You can handle the success message here or update the state

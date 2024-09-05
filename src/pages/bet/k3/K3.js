@@ -1182,7 +1182,7 @@ useEffect(() => {
     </div>
 
     {showBetPopup && <BetPopup listOrder={listJoin} gameJoin={gameJoin} game={1} userBalance={userInfo?userInfo.money_user:0.00} setListJoin={setListJoin}   
-  setShowBetPopup={setShowBetPopup}  />}
+setShowBetPopup={setShowBetPopup} fetchMyBets={fetchMyBets} fetchUserInfo={fetchUserInfo} />}
 
       
 
