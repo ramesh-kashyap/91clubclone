@@ -1052,7 +1052,7 @@ useEffect(() => {
       <div data-v-cffd8c9f="" className="MyGameRecord__C-body" >
       <div data-v-a5ef3154="" data-v-cffd8c9f="" className="MyGameRecordList__C">
    
-      <MyGameRecordList myBets={myBets}/>
+      <MyGameRecordList myBets={myBets} gameJoin={gameJoin}/>
 
       
 
