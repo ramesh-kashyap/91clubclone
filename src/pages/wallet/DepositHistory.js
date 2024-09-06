@@ -5,18 +5,41 @@ import Api from '../../services/Api';
 export default function DepositHistory() {
 
 
-  const [getUserInfo, setGetUserInfo] = useState(null);
+  const [depositHistory, setDepositHistory] = useState([]);
   const [error, setError] = useState(null);
 
 
-  const fetchGetUserInfo = async () => {
+  const formatTimestampToIST = (timestamp) => {
     try {
-      const response = await Api.get('/api/webapi/GetUserInfo');
+      // Convert the timestamp to a number if it's in string format
+      const numericTimestamp = Number(timestamp);
+  
+      // If the timestamp is in seconds (10 digits), convert it to milliseconds
+      const validTimestamp = numericTimestamp.toString().length === 13 ? numericTimestamp : numericTimestamp * 1000;
+  
+      // Create a Date object from the valid timestamp
+      const date = new Date(validTimestamp);
+  
+      // Check if the Date object is valid
+      if (isNaN(date.getTime())) {
+        throw new Error('Invalid Date');
+      }
+  
+      // Format the date in IST
+      return date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+    } catch (error) {
+      return 'Invalid Timestamp';
+    }
+  };
+
+  const fetchDepositHistory = async () => {
+    try {
+      const response = await Api.get('/api/webapi/recharge/list?page=1&limit=5');
       const data =  response.data;
 
-      console.log(data.data);
+      console.log(data.datas);
 
-      setGetUserInfo(data.data); // Assuming data.data contains the user's information
+      setDepositHistory(data.datas); // Assuming data.data contains the user's information
 
 
     } catch (err) {
@@ -26,11 +49,27 @@ export default function DepositHistory() {
   };
 
   useEffect(() => {
-    fetchGetUserInfo();  
+    fetchDepositHistory();  
        
 
    
   }, []);
+
+  
+
+  const getStatusTextAndColor = (status) => {
+    switch (status) {
+      case 0:
+        return { text: 'Pending', color: 'yellow' };
+      case 1:
+        return { text: 'Complete', color: 'green' };
+      case 2:
+        return { text: 'Failed', color: 'red' };
+      default:
+        return { text: 'Unknown', color: 'grey' };
+    }
+  };
+
 
     const navigate = useNavigate();
   return (
@@ -187,7 +226,7 @@ export default function DepositHistory() {
             data-v-e4760c44=""
             className="van-tabs van-tabs--card onlineGames__container-tabBar"
           >
-            {/* <div className="van-tabs__wrap">
+            <div className="van-tabs__wrap">
               <div
                 role="tablist"
                 className="van-tabs__nav van-tabs__nav--card"
@@ -249,7 +288,7 @@ export default function DepositHistory() {
                 </div>
                 
               </div>
-            </div> */}
+            </div>
             
             <div className="van-tabs__content"></div>
           </div>
@@ -292,59 +331,63 @@ export default function DepositHistory() {
           id="refreshd17a3e4580ef4fedaf1f391b2d85bdd0"
         >
           <div data-v-e4760c44="" className="rechargeh__container-content">
-            <div data-v-e4760c44="" className="rechargeh__container-content__item">
             
-              <div
-                data-v-e4760c44=""
-                className="rechargeh__container-content__item-header ar-1px-b"
-              >
-                <span data-v-e4760c44="">Deposit</span
-                ><span
-                  data-v-e4760c44=""
-                  className="stateG"
-                  >Completed
-                 </span
-                >
+          {depositHistory.length === 0 ? (
+        <div>No Data</div>
+      ) : (
+        depositHistory.map((history, index) => (
+
+          
+          <div key={index} data-v-e4760c44="" className="rechargeh__container-content__item">
+            <div data-v-e4760c44="" className="rechargeh__container-content__item-header ar-1px-b">
+              <span data-v-e4760c44="">Deposit</span>
+              <span
+  data-v-e4760c44=""
+  className="stateG"
+  style={{ color: history.status === 0 ? "yellow" : history.status === 1 ? "green" : "red" }} // Set the dynamic color here
+>
+  {history.status === 0 ? "Pending" : history.status === 1 ? "Complete" : "Failed"}
+</span>
+
+            </div>
+            <div data-v-e4760c44="" className="rechargeh__container-content__item-body">
+              <div data-v-e4760c44="">
+                <span data-v-e4760c44="">Balance</span>
+                <span data-v-e4760c44="">{history.money}</span>
               </div>
-              <div
-                data-v-e4760c44=""
-                className="rechargeh__container-content__item-body"
-              >
-                <div data-v-e4760c44="">
-                  <span data-v-e4760c44="">Balance</span
-                  ><span data-v-e4760c44="">₹110.00</span>
-                </div>
-                <div data-v-e4760c44="">
-                  <span data-v-e4760c44="">Type</span
-                  ><span data-v-e4760c44=""> BANK CARD</span>
-                </div>
-                <div data-v-e4760c44="">
-                  <span data-v-e4760c44="">Time</span
-                  ><span data-v-e4760c44="">2024-07-09 15:53:08</span>
-                </div>
-                <div data-v-e4760c44="">
-                  <span data-v-e4760c44="">Order number</span
-                  ><span data-v-e4760c44="">WD2024070915530896076538c</span
-                  ><svg data-v-e4760c44="" className="svg-icon icon-copy">
-                    <use href="#icon-copy"></use>
-                  </svg>
-                </div>
-                <div data-v-e4760c44="">
-                  <span data-v-e4760c44="">Remarks</span>
-                </div>
-                <div data-v-e4760c44="">
-                  <textarea
-                    data-v-e4760c44=""
-                    className="textarea"
-                    name="remark"
-                    cols="30"
-                    rows="10"
-                    readOnly=""
-                     style={{display: 'none'}}
-                  ></textarea>
-                </div>
+              <div data-v-e4760c44="">
+                <span data-v-e4760c44="">Type</span>
+                <span data-v-e4760c44="">{history.type}</span>
+              </div>
+              <div data-v-e4760c44="">
+                <span data-v-e4760c44="">Time</span>
+                <span data-v-e4760c44="">{formatTimestampToIST(history.time)}</span>
+              </div>
+              <div data-v-e4760c44="">
+                <span data-v-e4760c44="">Order number</span>
+                <span data-v-e4760c44="">{history.id_order}</span>
+                <svg data-v-e4760c44="" className="svg-icon icon-copy">
+                  <use href="#icon-copy"></use>
+                </svg>
+              </div>
+             
+              <div data-v-e4760c44="">
+                <textarea
+                  data-v-e4760c44=""
+                  className="textarea"
+                  name="remark"
+                  cols="30"
+                  rows="10"
+                  readOnly
+                  style={{ display: 'none' }}
+                >
+                  {history.remarks}
+                </textarea>
               </div>
             </div>
+          </div>
+        ))
+      )}
           </div>
           <div data-v-cbab7763="" className="infiniteScroll__loading">
            
