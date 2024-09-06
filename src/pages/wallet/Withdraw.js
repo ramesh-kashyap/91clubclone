@@ -15,7 +15,7 @@ export default function Withdraw() {
   const [amount, setAmount] = useState(null);
   const [needToBet, setNeedToBet] = useState(0);
   const [walletAddress, setWalletAddress] = useState(null);
-
+  const [withdrawAddress, setWithdrawAddress] =useState(null);
 
   const showSection = (sectionID) =>{
      setActiveSection(sectionID);
@@ -32,8 +32,9 @@ export default function Withdraw() {
       console.log(data.userInfo[0].money);
 
       setUserInfo(data.userInfo[0]); // Assuming data.data contains the user's information
-      setWalletAddress(data.datas[0].usdtBep20)
+      setWalletAddress(data.datas[0].usdtBep20);
 
+      setWithdrawAddress(data.datas[0].usdttrc20)
       if(data.userInfo[0].total_bet > data.userInfo[0].able_to_bet){
         setNeedToBet(0);
       }
@@ -59,9 +60,10 @@ export default function Withdraw() {
     }
     try {
         
-      const paymentMode= activeSection == 'section2' ? "USDT(TRC20)" : null ;
-
-            
+      // const paymentMode= activeSection == 'section2' ? "USDT(TRC20)" : null ;
+      const paymentMode = activeSection === 'section2' ? "USDT(TRC20)" :
+      activeSection === 'section3' ? "USDT(BEP20)" :
+      null;
 
       const response = await Api.post('/api/webapi/withdrawalUsdt', {
         money: amount, 
@@ -402,8 +404,9 @@ export default function Withdraw() {
           </div>
           </div>
           
-          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
-          <div data-v-80a607a5="" className="bankInfo" style={{display: walletAddress == null ? 'none':'block'}}>
+          
+          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section3" style={{ display: activeSection === 'section3' ? 'block' : 'none' }}>
+          <div data-v-80a607a5="" className="bankInfo" style={{display: withdrawAddress == null ? 'none':'block'}}>
             <div data-v-80a607a5="" className="bankInfoItem type1">
               <div data-v-80a607a5="">
                 <svg data-v-80a607a5="" className="svg-icon icon-1">
@@ -412,7 +415,7 @@ export default function Withdraw() {
               </div>
               <div data-v-80a607a5="">
                 <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">{walletAddress ? `${walletAddress.substring(0, 9)}...${walletAddress.substring(walletAddress.length - 6)}` : ""}
+                ><span data-v-80a607a5="">{withdrawAddress ? `${withdrawAddress.substring(0, 9)}...${withdrawAddress.substring(withdrawAddress.length - 6)}` : ""}
                 </span>
               </div>
               <i
@@ -422,7 +425,7 @@ export default function Withdraw() {
               >
             </div>       
     </div>
-            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')} style={{display: walletAddress !== null ? 'none':'block'}}>
+            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')} style={{display: withdrawAddress !== null ? 'none':'block'}}>
               <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
                 data-v-ef5c8333="">Add a bank account number</span>
             </div>

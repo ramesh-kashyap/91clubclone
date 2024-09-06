@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Register() {
+export default function BindEmail() {
   return (
     <div style={{fontSize: '12px'}} >
 
