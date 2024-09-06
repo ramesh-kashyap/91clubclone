@@ -1,6 +1,42 @@
-import React, { useState } from "react"
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Api from '../../services/Api';
 export default function TransAction(){
+
+
+  const [transAction, setTransAction] = useState([]);
+
+  const [error, setError] = useState(null);
+
+
+  const fetchTransAction= async () => {
+    try {
+      const response = await Api.get('/api/webapi/listIncomeReport');
+      const data =  response.data;
+
+      console.log(data);
+
+      setTransAction(data); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+
+  useEffect(() => {
+    fetchTransAction();  
+ 
+
+   
+  }, []);
+
+
+
+
+
   const navigate = useNavigate();
   return(
   <div style={{fontSize: '12px'}} className="">
