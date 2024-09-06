@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 export default function ConfirmDeposit() {
-
+  const navigate = useNavigate();
 
   return (
   
@@ -120,7 +120,7 @@ export default function ConfirmDeposit() {
           
               <div  className="" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                   
-                    <div data-v-67e25db3="" className="maindiv" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px',  borderRadius: '10px', width: '100%', margin: '0 auto', backgroundColor: '#f9f9f9', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',}}>
+                    <div data-v-67e25db3="" className="maindiv" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px',  borderRadius: '10px', width: '100%', margin: '0 auto',backgroundImage: `url(/assets/bottom-ccedfa9a.png)`,backgroundRepeat: 'no-repeat',backgroundPosition: 'center', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',}}>
                         <div data-v-67e25db3="" className="sec1" style={{margin: '10px 0', textAlign: 'center'}}>
                             <div data-v-67e25db3="" className="ti1" style={{fontSize: '1.2em', fontWeight: 'bold', marginBottom: '5px', color: '#333',}}>CountDown</div>
                             <div data-v-67e25db3="" className="time" style={{fontSize: '2em', color: '#ff0000'}}>119:32</div>
@@ -162,14 +162,13 @@ export default function ConfirmDeposit() {
           
                  
 
-                  <div data-v-67e25db3="" className="item">
+                  <div data-v-67e25db3="" className="item" style={{display:'none'}}>
                     <div data-v-67e25db3="" className="head">
                         <span data-v-67e25db3="" className="name">Network</span>
                     </div>
                     <div data-v-67e25db3="" className="head">
                         <span data-v-67e25db3="" className="name">USD-789</span>
-                    </div>
-                        
+                    </div>                      
                    
                   
                         <div data-v-67e25db3="" className="head" >
@@ -178,6 +177,19 @@ export default function ConfirmDeposit() {
                         <div data-v-5bd44e74="" className="userInfo__container-setting-center-content"><h5 data-v-5bd44e74="">TRW9j8BU56MdmVvEXDxGfarDpEDP6WqoiL</h5><div data-v-5bd44e74=""><span data-v-5bd44e74=""></span><svg data-v-5bd44e74="" className="svg-icon icon-copy"><use href="#icon-copy"></use></svg></div></div>
                     </div>
                 </div>
+                <button data-v-5beab1ae="" onClick={()=>navigate('/wallet')}style={{
+    width: '7.73333rem',
+    height: '1.06667rem',
+    color: '#d9ac4f',
+    fontSize: '.48rem',
+    letterSpacing: '.05333rem',
+    borderRadius: '1.06667rem',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: 'none',
+    background: '#fff',
+    marginLeft:'30px'
+  }}>Cancel</button>
 
 
                   <div data-v-7cba6004="" data-v-36cc3380="" className="Recharge__container-intro">
