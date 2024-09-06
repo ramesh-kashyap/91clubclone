@@ -9509,7 +9509,7 @@ export default function AllLotteryGames() {
                   data-v-12a80a3e=""
                   className="headLogo"
                   style={{
-                    backgroundImage:"url('https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005938hfia.png')"
+                    backgroundImage:"url('https://ossimg.91admin123admin.com/Big Daddy Pro/other/h5setting_20230714005938hfia.png')"
                   }}
                 ></div>
                 <div data-v-12a80a3e="" className="navbar__content-title"></div>
@@ -9546,7 +9546,7 @@ export default function AllLotteryGames() {
           </svg>
           <div className="noticeBar__container-body">
             <div className="noticeBar__container-body-text">
-              Be cautious of counterfeit websites mimicking our 91CLUB official
+              Be cautious of counterfeit websites mimicking our Big Daddy Pro official
               site, do not transfer money to anyone, including agents, and keep
               payment receipts and UTR numbers confidential.
             </div>

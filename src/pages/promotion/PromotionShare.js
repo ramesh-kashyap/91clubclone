@@ -4614,9 +4614,9 @@ return(
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share0">
                              {/* <img v-lazy="getIcons('promotion/promotionShare', 'poster')" />  */}
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
-                                    src="https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005937kuk1.png"
+                                    src="https://ossimg.91admin123admin.com/Big Daddy Pro/other/h5setting_20230714005937kuk1.png"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">Big Daddy Pro</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
                                 <div data-v-3b74cce6="" className="head2">Full Odds <span>Bonus</span> Rate</div>
@@ -4635,9 +4635,9 @@ return(
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share1">
                             
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
-                                    src="https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005937kuk1.png"
+                                    src="https://ossimg.91admin123admin.com/Big Daddy Pro/other/h5setting_20230714005937kuk1.png"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">Big Daddy Pro</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
                                 <div data-v-3b74cce6="" className="head2">Full Odds <span>Bonus</span> Rate</div>
@@ -4656,9 +4656,9 @@ return(
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share2">
                             
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
-                                    src="https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005937kuk1.png"
+                                    src="https://ossimg.91admin123admin.com/Big Daddy Pro/other/h5setting_20230714005937kuk1.png"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">Big Daddy Pro</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
                                 <div data-v-3b74cce6="" className="head2">Full Odds <span>Bonus</span> Rate</div>

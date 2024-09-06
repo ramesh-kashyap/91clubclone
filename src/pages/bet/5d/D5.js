@@ -9507,7 +9507,7 @@ style={{maskType: 'alpha'}}
                   data-v-12a80a3e=""
                   className="headLogo"
                   style={{
-                    backgroundImage: `url('https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005938hfia.png')`}}
+                    backgroundImage: `url('https://ossimg.91admin123admin.com/Big Daddy Pro/other/h5setting_20230714005938hfia.png')`}}
                 ></div>
                 <div data-v-12a80a3e="" className="navbar__content-title"></div>
               </div>

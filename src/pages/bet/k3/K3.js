@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { io } from 'socket.io-client';
 import Api from '../../../services/Api';
-import MyGameRecordList from '../wingo/components/MyGameRecordList';
+import MyGameRecordList from '../k3/components/MyGameRecordList';
 import GameList from '../k3/components/GameList';
 import ReactHowler from 'react-howler';
 import ChartList from '../k3/components/ChartList';
@@ -312,6 +312,8 @@ useEffect(() => {
       const totalRecords = response.data.page; // Assuming the API returns total records
   
       setTotalBetsPages(totalRecords);
+      console.log("hi");
+      console.log(gameslist);
       setMyBets(gameslist);
       // console.log(gameslist[0]);
       setLastBet(gameslist[0]);
@@ -387,45 +389,6 @@ useEffect(() => {
           socket.disconnect();
       };
   }, []);
-
-  const handleJoin = async () => {
-    const totalAmount = quantity * balance;
-
-    // Validate inputs
-    if (!join || !quantity || !balance || userInfo.money_user < totalAmount) {
-      alert('Invalid input or insufficient balance');
-      return;
-    }
-
-    try {
-      // Make the AJAX request
-      const response = await Api.post('/api/webapi/action/join', {
-        typeid: '1',
-        join: join,
-        x: quantity,
-        money: balance,
-      });
-
-      const { data } = response;
-
-      handleClosePopup();
-      fetchMyBets();
-      fetchUserInfo();
-
-
-    
-      // Emit the event through socket
-      socket.emit('data-server_2', {
-        money: quantity * balance,
-        join,
-        time: Date.now(),
-        change: data.change,
-      });
-
-    } catch (error) {
-      console.error('An error occurred:', error);
-    }
-  }
 
 
 
@@ -609,7 +572,7 @@ useEffect(() => {
           </svg>
           <div className="noticeBar__container-body">
             <div className="noticeBar__container-body-text">
-              Welcome to 91 CLUB! We have a variety of games, promos and bonus
+              Welcome to Big Daddy Pro! We have a variety of games, promos and bonus
               for you to enjoy, so why wait? Go register and enjoy the variety
               reward awaits you.
             </div>
@@ -1088,17 +1051,13 @@ useEffect(() => {
       </div>
       <div data-v-cffd8c9f="" className="MyGameRecord__C-body" >
       <div data-v-a5ef3154="" data-v-cffd8c9f="" className="MyGameRecordList__C">
-    <div data-v-a5ef3154="" className="MyGameRecordList__C-item">
-        <div data-v-a5ef3154="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-num">22|1,3,4</div>
-        <div data-v-a5ef3154="" className="MyGameRecordList__C-item-m">
-            <div data-v-a5ef3154="" className="MyGameRecordList__C-item-m-top">20240902090960</div>
-            <div data-v-a5ef3154="" className="MyGameRecordList__C-item-m-bottom">2024-09-02 15:59:21</div>
-        </div>
-        <div data-v-a5ef3154="" className="MyGameRecordList__C-item-r">
-            <div data-v-a5ef3154="" className="">Failed</div><span data-v-a5ef3154="">-₹14.70</span>
-        </div>
-    </div>
-    <div data-v-a5ef3154="" className="MyGameRecordList__C-detail">
+   
+      <MyGameRecordList myBets={myBets}/>
+
+      
+
+   
+    <div data-v-a5ef3154="" className="MyGameRecordList__C-detail" style={{ display:'none' }}>
         <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-text">Details</div>
         <div data-v-a5ef3154="" className="MyGameRecordList__C-detail-line">Order number <div data-v-a5ef3154="">
                 K32024090215592148858774f <svg data-v-a5ef3154="" className="svg-icon icon-copy">
@@ -1147,37 +1106,36 @@ useEffect(() => {
                 2024-09-02 15:59:21</div>
         </div>
     </div>
-    <div data-v-a5ef3154="" className="MyGameRecordList__C-item">
-        <div data-v-a5ef3154="" className="MyGameRecordList__C-item-l MyGameRecordList__C-item-l-3">3</div>
-        <div data-v-a5ef3154="" className="MyGameRecordList__C-item-m">
-            <div data-v-a5ef3154="" className="MyGameRecordList__C-item-m-top">20240902090715</div>
-            <div data-v-a5ef3154="" className="MyGameRecordList__C-item-m-bottom">2024-09-02 11:54:13</div>
-        </div>
-        <div data-v-a5ef3154="" className="MyGameRecordList__C-item-r">
-            <div data-v-a5ef3154="" className="">Failed</div><span data-v-a5ef3154="">-₹0.98</span>
-        </div>
-    </div>
+   
 </div>
       </div>
-      <div data-v-4159c83a="" className="Trend__C-foot">
-          <div data-v-4159c83a="" className="Trend__C-foot-previous disabled">
-            <i
-              data-v-4159c83a=""
-              className="van-badge__wrapper van-icon van-icon-arrow-left Trend__C-icon"
-              style={{fontSize: '20px'}}
-              ></i
-            >
-          </div>
-          <div data-v-4159c83a="" className="Trend__C-foot-page">1/1659</div>
-          <div data-v-4159c83a="" className="Trend__C-foot-next">
-            <i
-              data-v-4159c83a=""
-              className="van-badge__wrapper van-icon van-icon-arrow Trend__C-icon"
-              style={{fontSize: '20px'}}
-              ></i
-            >
-          </div>
-        </div>
+      <div data-v-4b21e13b="" className="MyGameRecord__C-foot">
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-previous ${currentPage === 1 ? 'disabled' : ''}`} 
+    onClick={handlePreviousPage}
+  >
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow-left MyGameRecord__C-icon" 
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+  <div data-v-4b21e13b="" className="MyGameRecord__C-foot-page">
+    {currentPage}/{totalBetsPages}
+  </div>
+  <div 
+    data-v-4b21e13b="" 
+    className={`MyGameRecord__C-foot-next ${currentPage === totalBetsPages ? 'disabled' : ''}`} 
+    onClick={handleNextPage}
+  >
+    <i 
+      data-v-4b21e13b="" 
+      className="van-badge__wrapper van-icon van-icon-arrow MyGameRecord__C-icon" 
+      style={{ fontSize: '20px' }}
+    ></i>
+  </div>
+</div>
       
     </div>
 
