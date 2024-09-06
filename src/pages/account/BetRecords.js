@@ -1,11 +1,41 @@
-import React, {useState} from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Api from '../../services/Api';
 
 export default function BetRecords() {
   const navigate =  useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [isSecondVisible, setIsSecondVisible] = useState(false);
   const [selectSection, isSelectSection] =useState();
+  const [betRecords, setBetRecords] = useState([]);
+  const [error, setError] = useState(null);
+
+
+
+  const fetchBetRecords= async () => {
+    try {
+      const response = await Api.post('/api/webapi/GetMyEmerdList');
+      const data =  response.data;
+
+      console.log(data.data.gameslist);
+
+      setBetRecords(data.data.gameslist); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+
+  useEffect(() => {
+    fetchBetRecords();  
+ 
+
+   
+  }, []);
+
 
   const handleSection = () => {
     isSelectSection(selectSection);
@@ -9932,7 +9962,12 @@ export default function BetRecords() {
             className="infiniteScroll"
             id="refresh8ce27a635a33454cac941764efea769a"
           >
-            <div data-v-1d8fbc24="" className="bet-container-items">
+              {betRecords.length === 0 ? (
+          <div>No Data</div>
+        ) : (
+          betRecords.map((history, index) => (
+  
+            <div  key={index} data-v-1d8fbc24="" className="bet-container-items">
               <div data-v-1d8fbc24="" className="bet-container-lottery">
                 <div data-v-1d8fbc24="" className="bet-container-lottery-items">
                   <div data-v-1d8fbc24="" className="bet-container-lottery-card">
@@ -9941,8 +9976,8 @@ export default function BetRecords() {
                       className="bet-container-lottery-card-header ar-1px-b"
                     >
                       <div data-v-1d8fbc24="">
-                        <h2 data-v-1d8fbc24="">Win Go</h2>
-                        <span data-v-1d8fbc24="" className="colorE98613" style={{marginLeft:'310px'}}>Lose</span>
+                        <h2 data-v-1d8fbc24="" style={{fontSize: '120%'}}>Win Go</h2>
+                        <span data-v-1d8fbc24="" className="colorE98613" style={{marginLeft:'310px'}}>lose</span>
                       </div>
                       <p data-v-1d8fbc24="">2024-08-12 18:00:14</p>
                     </div>
@@ -9971,7 +10006,7 @@ export default function BetRecords() {
                               <use href="#icon-round"></use>
                             </svg>
                             <h2 data-v-1d8fbc24="">Period</h2></span
-                          ><span data-v-1d8fbc24="">20240812302161</span>
+                          ><span data-v-1d8fbc24="">{history.stage}</span>
                         </li>
                         <li data-v-1d8fbc24="">
                           <span data-v-1d8fbc24=""
@@ -9983,7 +10018,7 @@ export default function BetRecords() {
                             </svg>
                             <h2 data-v-1d8fbc24="">Order number</h2></span
                           ><span data-v-1d8fbc24=""
-                            >WG2024081218001495850151c</span
+                            >{history.id_product}</span
                           >
                         </li>
                         <li data-v-1d8fbc24="">
@@ -9996,7 +10031,7 @@ export default function BetRecords() {
                             </svg>
                             <h2 data-v-1d8fbc24="">Select</h2></span
                           >
-                          <p data-v-1d8fbc24="">Red</p>
+                          <p data-v-1d8fbc24="">{history.result}</p>
                         </li>
                         <li data-v-1d8fbc24="">
                           <span data-v-1d8fbc24=""
@@ -10007,7 +10042,7 @@ export default function BetRecords() {
                               <use href="#icon-round"></use>
                             </svg>
                             <h2 data-v-1d8fbc24="">Total bet</h2></span
-                          ><span data-v-1d8fbc24="">₹5.00</span>
+                          ><span data-v-1d8fbc24="">{history.bet}</span>
                         </li>
                       </ul>
                     </div>
@@ -10083,12 +10118,15 @@ export default function BetRecords() {
                
               </div>
             </div>
+          ))
+        )}
             <div data-v-61888f52="" className="infiniteScroll__loading">
               <div data-v-61888f52="">No more</div>
             </div>
           </div>
         </div>
       </div>
+   
       <div
         className="customer"
         id="customerId"
