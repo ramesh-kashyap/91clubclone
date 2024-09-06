@@ -14,9 +14,9 @@ export default function TransAction(){
       const response = await Api.get('/api/webapi/listIncomeReport');
       const data =  response.data;
 
-      console.log(data);
+      console.log(data.incomeReports);
 
-      setTransAction(data); // Assuming data.data contains the user's information
+      setTransAction(data.incomeReports); // Assuming data.data contains the user's information
 
 
     } catch (err) {
@@ -10515,7 +10515,15 @@ export default function TransAction(){
           className="infiniteScroll"
           id="refresh09cebc2401804390b7fa54af66b7ef96"
         >
-          <div data-v-2565e76d="" className="transRecord__container-content">
+
+
+{transAction.length === 0 ? (
+        <div>No Data</div>
+      ) : (
+        transAction.map((history, index) => (
+
+          
+          <div  key={index} data-v-2565e76d="" className="transRecord__container-content">
             <div
               data-v-2565e76d=""
               className="transRecord__container-content__item"
@@ -10524,10 +10532,14 @@ export default function TransAction(){
                 data-v-2565e76d=""
                 className="transRecord__container-content__card"
               >
+
+
+
                 <div
                   data-v-2565e76d=""
                   className="transRecord__container-content__card-top"
                 >
+
                   <h3 data-v-2565e76d="">Game moved in</h3>
                 </div>
                 <div
@@ -10536,18 +10548,18 @@ export default function TransAction(){
                 >
                   <div data-v-2565e76d="" className="line">
                     <div data-v-2565e76d="" className="left">Detail</div>
-                    <div data-v-2565e76d="" className="right">Game moved in</div>
+                    <div data-v-2565e76d="" className="right">  {history.remarks}</div>
                   </div>
                   <div data-v-2565e76d="" className="line">
                     <div data-v-2565e76d="" className="left">Time</div>
                     <div data-v-2565e76d="" className="right">
-                      2024-08-30 13:06:56
+                    {history.updated_at}
                     </div>
                   </div>
                   <div data-v-2565e76d="" className="line">
                     <div data-v-2565e76d="" className="left">Balance</div>
                     <div data-v-2565e76d="" className="right red" >
-                      ₹105.64
+                    {history.comm}
                     </div>
                   </div>
                 </div>
@@ -10566,457 +10578,10 @@ export default function TransAction(){
                 </div>
               </div>
             </div>
-            <div
-              data-v-2565e76d=""
-              className="transRecord__container-content__item"
-            >
-              <div
-                data-v-2565e76d=""
-                className="transRecord__container-content__card"
-              >
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-top"
-                >
-                  <h3 data-v-2565e76d="">Bet</h3>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-mid"
-                >
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Detail</div>
-                    <div data-v-2565e76d="" className="right">Bet</div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Time</div>
-                    <div data-v-2565e76d="" className="right">
-                      2024-08-29 16:57:35
-                    </div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Balance</div>
-                    <div data-v-2565e76d="" className="right red" >
-                      ₹1.00
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-bot"
-                >
-                  <textarea
-                    data-v-2565e76d=""
-                    className="textarea"
-                    name="remark"
-                    cols="30"
-                    rows="10"
-                    readonly=""
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-            <div
-              data-v-2565e76d=""
-              className="transRecord__container-content__item"
-            >
-              <div
-                data-v-2565e76d=""
-                className="transRecord__container-content__card"
-              >
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-top"
-                >
-                  <h3 data-v-2565e76d="">Bet</h3>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-mid"
-                >
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Detail</div>
-                    <div data-v-2565e76d="" className="right">Bet</div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Time</div>
-                    <div data-v-2565e76d="" className="right">
-                      2024-08-29 16:56:03
-                    </div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Balance</div>
-                    <div data-v-2565e76d="" className="right red">
-                      ₹1.00
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-bot"
-                >
-                  <textarea
-                    data-v-2565e76d=""
-                    className="textarea"
-                    name="remark"
-                    cols="30"
-                    rows="10"
-                    readonly=""
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-            <div
-              data-v-2565e76d=""
-              className="transRecord__container-content__item"
-            >
-              <div
-                data-v-2565e76d=""
-                className="transRecord__container-content__card"
-              >
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-top"
-                >
-                  <h3 data-v-2565e76d="">Win</h3>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-mid"
-                >
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Detail</div>
-                    <div data-v-2565e76d="" className="right">Win</div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Time</div>
-                    <div data-v-2565e76d="" className="right">
-                      2024-08-29 16:53:27
-                    </div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Balance</div>
-                    <div data-v-2565e76d="" className="right green">
-                      ₹1.96
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-bot"
-                >
-                  <textarea
-                    data-v-2565e76d=""
-                    className="textarea"
-                    name="remark"
-                    cols="30"
-                    rows="10"
-                    readonly=""
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-            <div
-              data-v-2565e76d=""
-              className="transRecord__container-content__item"
-            >
-              <div
-                data-v-2565e76d=""
-                className="transRecord__container-content__card"
-              >
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-top"
-                >
-                  <h3 data-v-2565e76d="">Bet</h3>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-mid"
-                >
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Detail</div>
-                    <div data-v-2565e76d="" className="right">Bet</div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Time</div>
-                    <div data-v-2565e76d="" className="right">
-                      2024-08-29 16:53:24
-                    </div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Balance</div>
-                    <div data-v-2565e76d="" className="right red" >
-                      ₹1.00
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-bot"
-                >
-                  <textarea
-                    data-v-2565e76d=""
-                    className="textarea"
-                    name="remark"
-                    cols="30"
-                    rows="10"
-                    readonly=""
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-            <div
-              data-v-2565e76d=""
-              className="transRecord__container-content__item"
-            >
-              <div
-                data-v-2565e76d=""
-                className="transRecord__container-content__card"
-              >
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-top"
-                >
-                  <h3 data-v-2565e76d="">Bet</h3>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-mid"
-                >
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Detail</div>
-                    <div data-v-2565e76d="" className="right">Bet</div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Time</div>
-                    <div data-v-2565e76d="" className="right">
-                      2024-08-29 16:38:51
-                    </div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Balance</div>
-                    <div data-v-2565e76d="" className="right red">
-                      ₹1.00
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-bot"
-                >
-                  <textarea
-                    data-v-2565e76d=""
-                    className="textarea"
-                    name="remark"
-                    cols="30"
-                    rows="10"
-                    readonly=""
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-            <div
-              data-v-2565e76d=""
-              className="transRecord__container-content__item"
-            >
-              <div
-                data-v-2565e76d=""
-                className="transRecord__container-content__card"
-              >
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-top"
-                >
-                  <h3 data-v-2565e76d="">Win</h3>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-mid"
-                >
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Detail</div>
-                    <div data-v-2565e76d="" className="right">Win</div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Time</div>
-                    <div data-v-2565e76d="" className="right">
-                      2024-08-29 16:37:27
-                    </div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Balance</div>
-                    <div data-v-2565e76d="" className="right green">
-                      ₹1.96
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-bot"
-                >
-                  <textarea
-                    data-v-2565e76d=""
-                    className="textarea"
-                    name="remark"
-                    cols="30"
-                    rows="10"
-                    readonly=""
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-            <div
-              data-v-2565e76d=""
-              className="transRecord__container-content__item"
-            >
-              <div
-                data-v-2565e76d=""
-                className="transRecord__container-content__card"
-              >
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-top"
-                >
-                  <h3 data-v-2565e76d="">Bet</h3>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-mid"
-                >
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Detail</div>
-                    <div data-v-2565e76d="" className="right">Bet</div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Time</div>
-                    <div data-v-2565e76d="" className="right">
-                      2024-08-29 16:37:04
-                    </div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Balance</div>
-                    <div data-v-2565e76d="" className="right red">
-                      ₹1.00
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-bot"
-                >
-                  <textarea
-                    data-v-2565e76d=""
-                    className="textarea"
-                    name="remark"
-                    cols="30"
-                    rows="10"
-                    readonly=""
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-            <div
-              data-v-2565e76d=""
-              className="transRecord__container-content__item"
-            >
-              <div
-                data-v-2565e76d=""
-                className="transRecord__container-content__card"
-              >
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-top"
-                >
-                  <h3 data-v-2565e76d="">Bet</h3>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-mid"
-                >
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Detail</div>
-                    <div data-v-2565e76d="" className="right">Bet</div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Time</div>
-                    <div data-v-2565e76d="" className="right">
-                      2024-08-29 16:35:18
-                    </div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Balance</div>
-                    <div data-v-2565e76d="" className="right red">
-                      ₹1.00
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-bot"
-                >
-                  <textarea
-                    data-v-2565e76d=""
-                    className="textarea"
-                    name="remark"
-                    cols="30"
-                    rows="10"
-                    readonly=""
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-            <div
-              data-v-2565e76d=""
-              className="transRecord__container-content__item"
-            >
-              <div
-                data-v-2565e76d=""
-                className="transRecord__container-content__card"
-              >
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-top"
-                >
-                  <h3 data-v-2565e76d="">Win</h3>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-mid"
-                >
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Detail</div>
-                    <div data-v-2565e76d="" className="right">Win</div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Time</div>
-                    <div data-v-2565e76d="" className="right">
-                      2024-08-29 16:20:27
-                    </div>
-                  </div>
-                  <div data-v-2565e76d="" className="line">
-                    <div data-v-2565e76d="" className="left">Balance</div>
-                    <div data-v-2565e76d="" className="right green">
-                      ₹8.82
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-v-2565e76d=""
-                  className="transRecord__container-content__card-bot"
-                >
-                  <textarea
-                    data-v-2565e76d=""
-                    className="textarea"
-                    name="remark"
-                    cols="30"
-                    rows="10"
-                    readonly=""
-                  ></textarea>
-                </div>
-              </div>
-            </div>
+          
           </div>
+            ))
+          )}
           <div data-v-61888f52="" className="infiniteScroll__loading">
             
           </div>
