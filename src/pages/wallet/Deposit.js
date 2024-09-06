@@ -234,7 +234,7 @@ const showSection = (sectionId) => {
                     <img
                       data-v-4f3d8608=""
                       className="img"
-                      src="https://ossimg.91admin123admin.com/Big Daddy Pro/payNameIcon/payNameIcon_20240313185300ivg6.png"
+                      src="https://ossimg.91admin123admin.com/91club/payNameIcon/payNameIcon_20240313185300ivg6.png"
                       alt=""
                     />
                   </div>

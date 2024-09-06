@@ -4605,7 +4605,7 @@ return(
                 </div>
                 <div data-v-28c19aaa="" className="partner-title">Invitation link</div>
                 <div data-v-28c19aaa="" className="partner-code"><span
-                        data-v-28c19aaa="">https://Big Daddy Pro.club/#/register?invitationCode=2787111693333</span><span
+                        data-v-28c19aaa="">https://91club.club/#/register?invitationCode=2787111693333</span><span
                         data-v-28c19aaa=""><svg data-v-28c19aaa="" className="svg-icon icon-copy">
                             <use href="#icon-copy"></use>
                         </svg></span></div>
