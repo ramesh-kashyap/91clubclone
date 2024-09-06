@@ -289,6 +289,15 @@ export default function Withdraw() {
               </div>
               <span data-v-9bae072d="">USDT</span>
             </div>
+            <div data-v-9bae072d="" className={`${activeSection === 'section3' ? 'select' : ''}`} onClick={() => showSection('section3')}>
+              <div data-v-9bae072d="">
+                <img
+                  data-v-9bae072d=""
+                  src="/assets/png/trx.png"
+                />
+              </div>
+              <span data-v-9bae072d="">USDT</span>
+            </div>
           </div>
           <div  id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
           <div data-v-80a607a5="" className="bankInfo">
@@ -346,7 +355,8 @@ export default function Withdraw() {
               </div>
               <div data-v-80a607a5="">
                 <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">{walletAddress.substring(0, 9)}...{walletAddress.substring(walletAddress.length - 6)}</span>
+                ><span data-v-80a607a5="">{walletAddress ? `${walletAddress.substring(0, 9)}...${walletAddress.substring(walletAddress.length - 6)}` : ""}
+                </span>
               </div>
               <i
                 data-v-80a607a5=""
@@ -359,9 +369,9 @@ export default function Withdraw() {
               <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
                 data-v-ef5c8333="">Add a bank account number</span>
             </div>
-            <div data-v-ef5c8333="" className="addWithdrawType-text">
+            {/* <div data-v-ef5c8333="" className="addWithdrawType-text">
               Need to add beneficiary information to be able to withdraw money
-            </div>
+            </div> */}
             <div data-v-cb5583fe="" className="explain usdt">
             <div data-v-cb5583fe="" className="head">
               <img
@@ -392,6 +402,62 @@ export default function Withdraw() {
           </div>
           </div>
           
+          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
+          <div data-v-80a607a5="" className="bankInfo" style={{display: walletAddress == null ? 'none':'block'}}>
+            <div data-v-80a607a5="" className="bankInfoItem type1">
+              <div data-v-80a607a5="">
+                <svg data-v-80a607a5="" className="svg-icon icon-1">
+                  <use href="#icon-1"></use></svg
+                ><span data-v-80a607a5="">Yes Bank</span>
+              </div>
+              <div data-v-80a607a5="">
+                <span data-v-80a607a5=""></span
+                ><span data-v-80a607a5="">{walletAddress ? `${walletAddress.substring(0, 9)}...${walletAddress.substring(walletAddress.length - 6)}` : ""}
+                </span>
+              </div>
+              <i
+                data-v-80a607a5=""
+                className="van-badge__wrapper van-icon van-icon-arrow"
+                ></i
+              >
+            </div>       
+    </div>
+            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')} style={{display: walletAddress !== null ? 'none':'block'}}>
+              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
+                data-v-ef5c8333="">Add a bank account number</span>
+            </div>
+            {/* <div data-v-ef5c8333="" className="addWithdrawType-text">
+              Need to add beneficiary information to be able to withdraw money
+            </div> */}
+            <div data-v-cb5583fe="" className="explain usdt">
+            <div data-v-cb5583fe="" className="head">
+              <img
+                data-v-cb5583fe="" src="/assets/png/trx.png"
+              />
+            </div>
+            
+            <div data-v-cb5583fe="" className="input">
+              <div data-v-cb5583fe="" className="place-div">₹</div>
+              <input
+                data-v-cb5583fe=""
+                type="number"
+                placeholder="Please enter withdrawal amount"
+                className="inp"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+              />
+            </div>
+            
+            <div data-v-cb5583fe="" className="balance usdt">
+              <div data-v-cb5583fe="">
+                <span data-v-cb5583fe=""
+                  >Withdrawable balance
+                  <h6 data-v-cb5583fe="" className="yellow">₹{userInfo?userInfo.money:0}</h6></span
+                ><input data-v-cb5583fe="" type="button" value="All" />
+              </div>
+            </div>
+          </div>
+          </div>
           
           <div data-v-80a607a5="" className="recycleBtnD">
             <button data-v-80a607a5="" className="recycleBtn" onClick={handleSubmit}>Withdraw</button>

@@ -1,6 +1,13 @@
-import React from 'react'
+import { useEffect, useState, useRef } from 'react';
 
 export default function D5() {
+
+  const [activeSection, setActiveSection] = useState('section1');
+  const showSection = (sectionId) => {
+      setActiveSection(sectionId);
+
+    };
+
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -10295,16 +10302,16 @@ style={{maskType: 'alpha'}}
           </div>
         </div>
         <div data-v-72f81e71="" data-v-4f526022="" className="RecordNav__C">
-          <div data-v-72f81e71="" className="active">Game history</div>
-          <div data-v-72f81e71="" className="">Chart</div>
-          <div data-v-72f81e71="" className="">My history</div>
+          <div data-v-72f81e71="" className={` ${activeSection === 'section1' ? 'active' : ''}`} onClick={() => showSection('section1')}>Game history</div>
+          <div data-v-72f81e71=""  className={` ${activeSection === 'section2' ? 'active' : ''}`} onClick={() => showSection('section2')}>Chart</div>
+          <div data-v-72f81e71=""  className={` ${activeSection === 'section3' ? 'active' : ''}`} onClick={() => showSection('section3')}>My history</div>
         </div>
         <div
           data-v-9215aba8=""
           data-v-4f526022=""
           className="GameRecord__C"
           emerdapi="e=>_(f.WinGoGetEmerdList,e).then(t=>t.data)"
-          gopathname="AllLotteryGames-BettingRecord5D"
+          gopathname="AllLotteryGames-BettingRecord5D"  id="section2" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}
         >
           <div data-v-9215aba8="" className="GameRecord__C-head">
             <div data-v-9215aba8="" className="van-row">
@@ -10515,7 +10522,7 @@ style={{maskType: 'alpha'}}
           data-v-4f526022=""
           className="Trend__C"
           emerdapi="e=>_(f.WinGoGetEmerdList,e).then(t=>t.data)"
-          gopathname="AllLotteryGames-BettingRecord5D"
+          gopathname="AllLotteryGames-BettingRecord5D" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}
         >
           <div data-v-9d93d892="" className="Trend__C-body1">
             <div data-v-9d93d892="" className="Trend__C-nav">
@@ -11193,7 +11200,7 @@ style={{maskType: 'alpha'}}
           data-v-36ddca8e=""
           data-v-4f526022=""
           className="MyGameRecord__C"
-          emerdapi="e=>_(f.WinGoGetEmerdList,e).then(t=>t.data)"
+          emerdapi="e=>_(f.WinGoGetEmerdList,e).then(t=>t.data)"  id="section2" style={{ display: activeSection === 'section3' ? 'block' : 'none' }}
         >
           <div data-v-36ddca8e="" className="MyGameRecord__C-head">
             <div data-v-36ddca8e="" className="MyGameRecord__C-head-moreB">
@@ -11296,7 +11303,7 @@ style={{maskType: 'alpha'}}
         </div>
 
 
-        <div className="van-overlay" data-v-7181abf7="" style={{zIndex: 2030}}>
+        <div className="van-overlay" data-v-7181abf7="" style={{zIndex: 2030, display:'none'}}>
         </div>
         <div
           role="dialog"
@@ -11306,6 +11313,7 @@ style={{maskType: 'alpha'}}
           style={{
             zIndex: '2030',
             boxShadow: 'rgba(37, 37, 60, 0.26) 0px -18px 40px',
+            display:'none',
           }}
         >
           <div data-v-7181abf7="" className="Betting__Popup-body">
@@ -11481,7 +11489,7 @@ style={{maskType: 'alpha'}}
           </div>
         </div>
 
-        <div className="van-overlay" data-v-7181abf7="" style={{zIndex: '2036'}}>
+        <div className="van-overlay" data-v-7181abf7="" style={{zIndex: '2036',display:'none'}}>
         </div>
 
         <div
@@ -11495,7 +11503,7 @@ style={{maskType: 'alpha'}}
             boxShadow: 'rgba(37, 37, 60, 0.26) 0px -18px 40px'
           }}
         >
-          <div data-v-7181abf7="" className="Betting__Popup-body">
+          <div data-v-7181abf7="" className="Betting__Popup-body" style={{display:'none'}}>
             <div data-v-baf77bdf="" className="FDB__C-nav">
               <div data-v-baf77bdf="" className="active">A</div>
               <div data-v-baf77bdf="" className="">B</div>
