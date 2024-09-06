@@ -4826,12 +4826,12 @@ export default function Dashboard() {
                                 <div data-v-acaadf81="">Big/Small/Odd/Even</div>
                             </h4>
                         </div>
-                        <div data-v-acaadf81="" className="lotterySlotItem"><img 
+                        <div data-v-acaadf81="" className="lotterySlotItem" onClick={()=>navigate('/home/AllLotteryGames/5D')}><img 
                             src="/assets/lotterycategory_2023071401023322dy.png"
                             data-v-acaadf81="" className="ar-lazyload"
                                 data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_2023071401023322dy.png"/>
-                                <a href=""><span
-                                    data-v-acaadf81="">5D</span></a>
+                                <span
+                                    data-v-acaadf81="">5D</span>
                             <h4 data-v-acaadf81="">
                                 <div data-v-acaadf81="">Guess Number</div>
                                 <div data-v-acaadf81="">Big/Small/Odd/Even</div>
