@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function LoginPassword() {
+  const [seeEye, setSeeEye] = useState('');
+  
+  const toggleEye = (eyeId) => {
+    setSeeEye(prevState => prevState === eyeId ? '' : eyeId); // Toggle eye visibility
+  };
   const navigate = useNavigate();
   return (
     <div style={{fontSize: '12px'}}>
@@ -9536,10 +9541,12 @@ export default function LoginPassword() {
                 maxLength="32"
                 autoComplete="new-password"
               /><img
-                data-v-ea5b66c8=""
-                src="/assets/png/eyeInvisible-821d9d16.png"
-                className="eye"
-              />
+              data-v-ea5b66c8=""
+              src={seeEye === 'eye1' ? '/assets/png/eyeVisible-09720f5f.png' : '/assets/png/eyeInvisible-821d9d16.png'}
+              className="eye"
+              id="eye1"
+              onClick={() => toggleEye('eye1')}
+            />
             </div>
           </div>
           <div
@@ -9564,8 +9571,10 @@ export default function LoginPassword() {
                 autoComplete="new-password"
               /><img
                 data-v-ea5b66c8=""
-                src="/assets/png/eyeInvisible-821d9d16.png"
+                src={seeEye === 'eye2' ? '/assets/png/eyeVisible-09720f5f.png' : '/assets/png/eyeInvisible-821d9d16.png'}
                 className="eye"
+                id="eye2"
+                onClick={() => toggleEye('eye2')}
               />
             </div>
           </div>
@@ -9590,10 +9599,12 @@ export default function LoginPassword() {
                 maxLength="15"
                 autoComplete="new-password"
               /><img
-                data-v-ea5b66c8=""
-                src="/assets/png/eyeInvisible-821d9d16.png"
-                className="eye"
-              />
+              data-v-ea5b66c8=""
+              src={seeEye === 'eye3' ? '/assets/png/eyeVisible-09720f5f.png' : '/assets/png/eyeInvisible-821d9d16.png'}
+              className="eye"
+              id="eye3"
+              onClick={() => toggleEye('eye3')}
+            />
             </div>
           </div>
           <div
