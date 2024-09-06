@@ -1,10 +1,36 @@
 
-
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Api from '../../services/Api';
+
+export default function GetUserInfo() {
+
+  const [getUserInfo, setGetUserInfo] = useState(null);
+  const [error, setError] = useState(null);
 
 
-export default function SettingCenters() {
+  const fetchGetUserInfo = async () => {
+    try {
+      const response = await Api.get('/api/webapi/GetUserInfo');
+      const data =  response.data;
+
+      console.log(data.data);
+
+      setGetUserInfo(data.data); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+  useEffect(() => {
+    fetchGetUserInfo();  
+       
+
+   
+  }, []);
   const navigate = useNavigate();
   return (
     <div style={{fontSize: '12px'}}>
@@ -9614,7 +9640,7 @@ style={{maskType: 'alpha'}}
       >
         <h5 data-v-5bd44e74="">Nickname</h5>
         <div data-v-5bd44e74="">
-          <span data-v-5bd44e74="">MemberNNGNDBYB</span
+          <span data-v-5bd44e74=""> {getUserInfo ? getUserInfo.name_user : 0}</span
           ><i
             data-v-5bd44e74=""
             className="van-badge__wrapper van-icon van-icon-arrow"
@@ -9623,13 +9649,18 @@ style={{maskType: 'alpha'}}
           >
         </div>
       </div>
+
+
+
+   
+      
       <div
         data-v-5bd44e74=""
         className="userInfo__container-setting-center-content"
       >
         <h5 data-v-5bd44e74="">UID</h5>
         <div data-v-5bd44e74="">
-          <span data-v-5bd44e74="">11693333</span
+          <span data-v-5bd44e74="">{getUserInfo ? getUserInfo.id_user : 0}</span
           ><svg data-v-5bd44e74="" className="svg-icon icon-copy">
             <use href="#icon-copy"></use>
           </svg>
