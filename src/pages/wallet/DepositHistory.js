@@ -226,7 +226,7 @@ export default function DepositHistory() {
             data-v-e4760c44=""
             className="van-tabs van-tabs--card onlineGames__container-tabBar"
           >
-            {/* <div className="van-tabs__wrap">
+            <div className="van-tabs__wrap">
               <div
                 role="tablist"
                 className="van-tabs__nav van-tabs__nav--card"
@@ -288,7 +288,7 @@ export default function DepositHistory() {
                 </div>
                 
               </div>
-            </div> */}
+            </div>
             
             <div className="van-tabs__content"></div>
           </div>
