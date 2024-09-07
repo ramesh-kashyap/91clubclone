@@ -576,7 +576,7 @@ const showSection = (sectionId) => {
                   
                   <div className="van-cell__value van-field__value">
                     <div className="van-field__body">
-                      < input type = "tel"
+                      < input type = "text"
                       inputmode = "numeric"
                       id = "van-field-7-input"
                       className = "van-field__control"
