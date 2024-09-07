@@ -4614,7 +4614,7 @@ return(
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share0">
                              {/* <img v-lazy="getIcons('promotion/promotionShare', 'poster')" />  */}
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
-                                    src="https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005937kuk1.png"
+                                    src="/assets/png/h5setting_20230714005937kuk1.png"
                                     alt=""/>
                                 <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
@@ -4635,7 +4635,7 @@ return(
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share1">
                             
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
-                                    src="https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005937kuk1.png"
+                                    src="/assets/png/h5setting_20230714005937kuk1.png"
                                     alt=""/>
                                 <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
@@ -4656,7 +4656,7 @@ return(
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share2">
                             
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
-                                    src="https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005937kuk1.png"
+                                    src="/assets/png/h5setting_20230714005937kuk1.png"
                                     alt=""/>
                                 <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and

@@ -4807,7 +4807,7 @@ export default function Dashboard() {
                         <div data-v-acaadf81="" className="lotterySlotItem" onClick={()=> navigate('/wingo')}><img 
                             src="/assets/lotterycategory_202307140102511fow.png"
                             data-v-acaadf81="" className="ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_202307140102511fow.png"/>
+                                data-origin="/assets/png/lotterycategory_202307140102511fow.png"/>
                                 <a href=""><span
                                     data-v-acaadf81="">Win Go</span></a>
                             <h4 data-v-acaadf81="">
@@ -4818,7 +4818,7 @@ export default function Dashboard() {
                         <div data-v-acaadf81="" className="lotterySlotItem" onClick={()=>navigate('/AllLotteryGames/K3')}><img 
                             src="/assets/lotterycategory_20230714010227swu2.png"
                             data-v-acaadf81="" className="ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_20230714010227swu2.png"/>
+                                data-origin="/assets/png/lotterycategory_20230714010227swu2.png"/>
                                 <span
                                     data-v-acaadf81="">K3</span>
                             <h4 data-v-acaadf81="">
@@ -4829,7 +4829,7 @@ export default function Dashboard() {
                         <div data-v-acaadf81="" className="lotterySlotItem" onClick={()=>navigate('/home/AllLotteryGames/5D')}><img 
                             src="/assets/lotterycategory_2023071401023322dy.png"
                             data-v-acaadf81="" className="ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_2023071401023322dy.png"/>
+                                data-origin="/assets/png/lotterycategory_2023071401023322dy.png"/>
                                 <span
                                     data-v-acaadf81="">5D</span>
                             <h4 data-v-acaadf81="">
@@ -4840,7 +4840,7 @@ export default function Dashboard() {
                         <div data-v-acaadf81="" className="lotterySlotItem"><img 
                             src="/assets/lotterycategory_20230714010246lyuc.png"
                             data-v-acaadf81="" className="ar-lazyload"
-                                data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_20230714010246lyuc.png"/>
+                                data-origin="/assets/png/lotterycategory_20230714010246lyuc.png"/>
                                 <a href=""><span
                                     data-v-acaadf81="">Trx Win</span></a>
                             <h4 data-v-acaadf81="">
@@ -4852,27 +4852,27 @@ export default function Dashboard() {
                     <div data-v-860d7030="" data-v-df3cc798="" className="minGame_container" id="section2" style={{ display: activeSection === 'section2' ? 'grid' : 'none' }}>
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(225)}><img data-v-860d7030=""
                                 className="min_game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/810_20240818125355074.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/810_20240818125355074.png"/>
+                                data-origin="/assets/png/810_20240818125355074.png"
+                                src="/assets/png/810_20240818125355074.png"/>
                         </div>
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(261)}><img data-v-860d7030=""
                                 className="min_game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"/>
+                                data-origin="/assets/png/800_20240813135431329.png"
+                                src="/assets/png/800_20240813135431329.png"/>
                         </div>
                        
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(235)}><img data-v-860d7030=""
                                 className="min_game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/110.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/110.png"/></div>
+                                data-origin="/assets/png/110.png"
+                                src="/assets/png/110.png"/></div>
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(233)}><img data-v-860d7030=""
                                 className="min_game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/101.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/101.png"/></div>
+                                data-origin="/assets/png/101.png"
+                                src="/assets/png/101.png"/></div>
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(62)}><img data-v-860d7030=""
                                 className="min_game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"/></div>
+                                data-origin="/assets/png/102.png"
+                                src="/assets/png/102.png"/></div>
                         
                         
                     </div>
@@ -4911,7 +4911,7 @@ export default function Dashboard() {
                                                 </linearGradient>
                                             </defs>
                                         </svg><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20240813135431329.png"
+                                            src="/assets/png/800_20240813135431329.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png" onClick={() => handleGameClick(261)}/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">89.37%</span>
@@ -4941,7 +4941,7 @@ export default function Dashboard() {
                                                 </linearGradient>
                                             </defs>
                                         </svg><img   onClick={() => handleGameClick(233)} data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/101.png"
+                                            src="/assets/png/TB_Chess/101.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">84.93%</span>
@@ -4971,7 +4971,7 @@ export default function Dashboard() {
                                                 </linearGradient>
                                             </defs>
                                         </svg><img onClick={() => handleGameClick(62)} data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/102.png"
+                                            src="/assets/png/102.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">90.11%</span>
@@ -5001,7 +5001,7 @@ export default function Dashboard() {
                                                 </linearGradient>
                                             </defs>
                                         </svg><img  onClick={() => handleGameClick(229)}data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/100.png"
+                                            src="/assets/png/100.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">87.72%</span>
@@ -5031,7 +5031,7 @@ export default function Dashboard() {
                                                 </linearGradient>
                                             </defs>
                                         </svg><img  onClick={() => handleGameClick(241)}data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/106.png"
+                                            src="/assets/png/106.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">91.83%</span>
@@ -5061,7 +5061,7 @@ export default function Dashboard() {
                                                 </linearGradient>
                                             </defs>
                                         </svg><img  onClick={() => handleGameClick(407)} data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/105.png"
+                                            src="/assets/png/105.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">86.34%</span>
@@ -5088,7 +5088,7 @@ export default function Dashboard() {
                             <div data-v-d06787cb="" className="list">
                                 <div data-v-d06787cb="">
                                     <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(51)}><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/51.png" alt=""
+                                            src="/assets/png/51.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">81.64%</span>
@@ -5097,7 +5097,7 @@ export default function Dashboard() {
                                 </div>
                                 <div data-v-d06787cb="">
                                     <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(300)}><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/109.png" alt=""
+                                            src="/assets/png/109.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">85.41%</span>
@@ -5106,7 +5106,7 @@ export default function Dashboard() {
                                 </div>
                                 <div data-v-d06787cb="">
                                     <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(152)}><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/EVO_Electronic/grandwheel000000.png"
+                                            src="/assets/png/grandwheel000000.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">93.32%</span>
@@ -5115,7 +5115,7 @@ export default function Dashboard() {
                                 </div>
                                 <div data-v-d06787cb="">
                                     <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(20)}><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7001.png" alt=""
+                                            src="/assets/png/7001.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">91.62%</span>
@@ -5124,7 +5124,7 @@ export default function Dashboard() {
                                 </div>
                                 <div data-v-d06787cb="">
                                     <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(27)} ><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/27.png" alt=""
+                                            src="/assets/png/27.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">90.91%</span>
@@ -5133,7 +5133,7 @@ export default function Dashboard() {
                                 </div>
                                 <div data-v-d06787cb="">
                                     <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(46)}><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/47.png" alt=""
+                                            src="/assets/png/47.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">87.31%</span>
@@ -5142,7 +5142,7 @@ export default function Dashboard() {
                                 </div>
                                 <div data-v-d06787cb="">
                                     <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(1)}><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/1.png" alt=""
+                                            src="/assets/png/1.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">83.23%</span>
@@ -5151,7 +5151,7 @@ export default function Dashboard() {
                                 </div>
                                 <div data-v-d06787cb="">
                                     <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(35)}><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/35.png" alt=""
+                                            src="/assets/png/35.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">87.04%</span>
@@ -5160,7 +5160,7 @@ export default function Dashboard() {
                                 </div>
                                 <div data-v-d06787cb="">
                                     <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(27)}><img data-v-d06787cb=""
-                                            src="https://ossimg.91admin123admin.com/91club/gamelogo/EVO_Electronic/777strike0000000.png"
+                                            src="/assets/png/777strike0000000.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">81.45%</span>
@@ -5172,63 +5172,63 @@ export default function Dashboard() {
                     </div>
                     <div data-v-54337c48="" data-v-df3cc798="" className="onlineGamesItem__container" id="section4" style={{ display: activeSection === 'section4' ? 'grid' : 'none' }}>
                         <div data-v-54337c48="" className="item" onClick={() => handleGameClick(144)}><img data-v-54337c48="" className="gameImg"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165352mtql.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165352mtql.png"/>
+                                data-origin="/assets/png/vendorlogo_20240102165352mtql.png"
+                                src="/assets/png/vendorlogo_20240102165352mtql.png"/>
                             
                         </div>
                         <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_2024010216505212ii.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_2024010216505212ii.png"/>
+                                data-origin="/assets/png/vendorlogo_2024010216505212ii.png"
+                                src="/assets/png/vendorlogo_2024010216505212ii.png"/>
                             
                         </div>
                         <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021653336o2h.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021653336o2h.png"/>
+                                data-origin="/assets/png/vendorlogo_202401021653336o2h.png"
+                                src="/assets/png/vendorlogo_202401021653336o2h.png"/>
                            
                         </div>
                         <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165037ckq2.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165037ckq2.png"/>
+                                data-origin="/assets/png/vendorlogo_20240102165037ckq2.png"
+                                src="/assets/png/vendorlogo_20240102165037ckq2.png"/>
                             
                         </div>
                         <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102163527dtbe.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102163527dtbe.png"/>
+                                data-origin="/assets/png/vendorlogo_20240102163527dtbe.png"
+                                src="/assets/png/vendorlogo_20240102163527dtbe.png"/>
                           
                         </div>
                         <div data-v-54337c48="" className="item"><img data-v-54337c48="" className="gameImg"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164858e6so.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164858e6so.png"/>
+                                data-origin="/assets/png/vendorlogo_20240102164858e6so.png"
+                                src="/assets/png/vendorlogo_20240102164858e6so.png"/>
                            
                         </div>
                     </div>
                     <div data-v-860d7030="" data-v-df3cc798="" className="minGame_container" id="section5" style={{ display: activeSection === 'section5' ? 'grid' : 'none' }}>
                         <div data-v-860d7030="" className="onlineGamesItem fish" onClick={() => handleGameClick(20)}><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7001.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7001.png"/></div>
+                                data-origin="/assets/png/7001.png"
+                                src="/assets/png/7001.png"/></div>
                         <div data-v-860d7030="" className="onlineGamesItem fish" onClick={() => handleGameClick(32)}><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7002.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7002.png"/></div>
+                                data-origin="/assets/png/7002.png"
+                                src="/assets/png/7002.png"/></div>
                         <div data-v-860d7030="" className="onlineGamesItem fish" onClick={() => handleGameClick(74)}><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7003.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7003.png"/></div>
+                                data-origin="/assets/png/7003.png"
+                                src="/assets/png/7003.png"/></div>
                         <div data-v-860d7030="" className="onlineGamesItem fish" onClick={() => handleGameClick(82)}><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7004.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7004.png"/></div>
+                                data-origin="/assets/png/7004.png"
+                                src="/assets/png/7004.png"/></div>
                         <div data-v-860d7030="" className="onlineGamesItem fish" onClick={() => handleGameClick(114)}><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7005.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JDB/7005.png"/></div>
+                                data-origin="/assets/png/7005.png"
+                                src="/assets/png/7005.png"/></div>
                         <div data-v-860d7030="" className="onlineGamesItem fish" onClick={() => handleGameClick(1)}><img data-v-860d7030="" className="fish_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/1.png"
-                                src="https://ossimg.91admin123admin.com/91club/gamelogo/JILI/1.png"/></div>
+                                data-origin="/assets/png/1.png"
+                                src="/assets/png/1.png"/></div>
                     </div>
                     <div data-v-df3cc798="" className="otherGame" id="section6" style={{ display: activeSection === 'section6' ? 'grid' : 'none' }}>
                         <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
                             <div data-v-1153e4fd="" className="title">
                                 <div data-v-1153e4fd="" className="tit">Rummy</div>
                             </div>< img data-v-1153e4fd="" className="game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164947dvuc.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102164947dvuc.png" onClick={() => handleGameClick(94)}/>
+                                data-origin="/assets/png/vendorlogo_20240102164947dvuc.png"
+                                src="/assets/png/vendorlogo_20240102164947dvuc.png" onClick={() => handleGameClick(94)}/>
                         </div>
                     </div>
                     <div data-v-df3cc798="" className="otherGame" id="section7" style={{ display: activeSection === 'section7' ? 'grid' : 'none' }}>
@@ -5236,15 +5236,15 @@ export default function Dashboard() {
                             <div data-v-1153e4fd="" className="title">
                                 <div data-v-1153e4fd="" className="tit">Casino</div>
                             </div>< img data-v-1153e4fd="" className="game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165020x66i.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165020x66i.png" onClick={() => handleGameClick(132)}/>
+                                data-origin="/assets/png/vendorlogo_20240102165020x66i.png"
+                                src="/assets/png/vendorlogo_20240102165020x66i.png" onClick={() => handleGameClick(132)}/>
                         </div>
                         <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
                             <div data-v-1153e4fd="" className="title">
                                 <div data-v-1153e4fd="" className="tit">Casino</div>
                             </div><img data-v-1153e4fd="" className="game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021635413lly.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_202401021635413lly.png"/>
+                                data-origin="/assets/png/vendorlogo_202401021635413lly.png"
+                                src="/assets/png/vendorlogo_202401021635413lly.png"/>
                         </div>
                       
                     </div>
@@ -5253,8 +5253,8 @@ export default function Dashboard() {
                             <div data-v-1153e4fd="" className="title">
                                 <div data-v-1153e4fd="" className="tit">Sports</div>
                             </div><img data-v-1153e4fd="" className="game_img"
-                                data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165536rgfg.png"
-                                src="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165536rgfg.png"  onClick={() => handleGameClick(469)}/>
+                                data-origin="/assets/png/vendorlogo_20240102165536rgfg.png"
+                                src="/assets/png/vendorlogo_20240102165536rgfg.png"  onClick={() => handleGameClick(469)}/>
                         </div>
                     </div>
                     <button data-v-df3cc798="" className="look_all"><img data-v-df3cc798=""
@@ -5276,7 +5276,7 @@ export default function Dashboard() {
                             <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winType"><img
                                 src="/assets/png/13-5676d43f.png"
                                     data-v-ffb14677="" className="ar-lazyload"
-                                    data-origin="https://ossimg.91admin123admin.com/91club/vendorlogo/vendorlogo_20240102165536rgfg.png"/>
+                                    data-origin="/assets/png/vendorlogo_20240102165536rgfg.png"/>
                             </div>
                             <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winAmount">
                                 <h1 data-v-ffb14677="">Receive ₹185.00</h1><span data-v-ffb14677="">Winning
@@ -5293,7 +5293,7 @@ export default function Dashboard() {
                             </div>
                             <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winType"><img src="/assets/lotterycategory_202307140102511fow.png"
                                     data-v-ffb14677="" className="ar-lazyload"
-                                    data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_202307140102511fow.png"/>
+                                    data-origin="/assets/png/lotterycategory_202307140102511fow.png"/>
                             </div>
                             <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winAmount">
                                 <h1 data-v-ffb14677="">Receive ₹19.60</h1><span data-v-ffb14677="">Winning amount</span>
@@ -5308,7 +5308,7 @@ export default function Dashboard() {
                             </div>
                             <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winType"><img src="/assets/lotterycategory_202307140102511fow.png"
                                     data-v-ffb14677="" className="ar-lazyload"
-                                    data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_202307140102511fow.png"/>
+                                    data-origin="/assets/png/lotterycategory_202307140102511fow.png"/>
                             </div>
                             <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winAmount">
                                 <h1 data-v-ffb14677="">Receive ₹19.60</h1><span data-v-ffb14677="">Winning amount</span>
@@ -5323,7 +5323,7 @@ export default function Dashboard() {
                             </div>
                             <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winType"><img src="/assets/lotterycategory_202307140102511fow.png"
                                     data-v-ffb14677="" className="ar-lazyload"
-                                    data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_202307140102511fow.png"/>
+                                    data-origin="/assets/png/lotterycategory_202307140102511fow.png"/>
                             </div>
                             <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winAmount">
                                 <h1 data-v-ffb14677="">Receive ₹39.20</h1><span data-v-ffb14677="">Winning amount</span>
@@ -5338,7 +5338,7 @@ export default function Dashboard() {
                             </div>
                             <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winType"><img src="/assets/lotterycategory_202307140102511fow.png"
                                     data-v-ffb14677="" className="ar-lazyload"
-                                    data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_202307140102511fow.png"/>
+                                    data-origin="/assets/png/lotterycategory_202307140102511fow.png"/>
                             </div>
                             <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winAmount">
                                 <h1 data-v-ffb14677="">Receive ₹31.36</h1><span data-v-ffb14677="">Winning amount</span>
@@ -5353,7 +5353,7 @@ export default function Dashboard() {
                             </div>
                             <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winType"><img
                                     data-v-ffb14677="" className="ar-lazyload"
-                                    data-origin="https://ossimg.91admin123admin.com/91club/lotterycategory/lotterycategory_202307140102511fow.png"/>
+                                    data-origin="/assets/png/lotterycategory_202307140102511fow.png"/>
                             </div>
                             <div data-v-ffb14677="" className="luckyWinners__container-wrapper__item-winAmount">
                                 <h1 data-v-ffb14677="">Receive ₹19.60</h1><span data-v-ffb14677="">Winning amount</span>

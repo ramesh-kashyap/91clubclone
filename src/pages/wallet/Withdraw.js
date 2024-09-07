@@ -277,7 +277,7 @@ export default function Withdraw() {
               <div data-v-9bae072d="">
                 <img
                   data-v-9bae072d=""
-                  src="https://ossimg.91admin123admin.com/91club/payNameIcon/WithBeforeImgIcon2_20230912183258ejvp.png"
+                  src="/assets/png/WithBeforeImgIcon2_20230912183258ejvp.png"
                 />
               </div>
               <span data-v-9bae072d=""> BANK CARD</span>
@@ -286,7 +286,7 @@ export default function Withdraw() {
               <div data-v-9bae072d="">
                 <img
                   data-v-9bae072d=""
-                  src="https://ossimg.91admin123admin.com/91club/payNameIcon/WithBeforeImgIcon_20230912183344vmsx.png"
+                  src="/assets/png/WithBeforeImgIcon_20230912183344vmsx.png"
                 />
               </div>
               <span data-v-9bae072d="">USDT</span>
