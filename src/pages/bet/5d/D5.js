@@ -653,7 +653,7 @@ useEffect(() => {
                   data-v-12a80a3e=""
                   className="headLogo"
                   style={{
-                    backgroundImage: `url('/assets/png/h5setting_20230714005938hfia.png')`}}
+                    backgroundImage: `url('/assets/png/BDGPRO2.png')`}}
                 ></div>
                 <div data-v-12a80a3e="" className="navbar__content-title"></div>
               </div>
@@ -1996,11 +1996,7 @@ useEffect(() => {
             >
           </div>
         </div>
-        <div
-          data-v-0ac3de13=""
-          data-v-4f526022=""
-          className="changlongEnter changlong"
-        ></div>
+      
         <audio id="voice1">
           <source src="/assets/mp3/di1-0f3d86cb.mp3" type="audio/mpeg" /></audio
         ><audio id="voice2">
