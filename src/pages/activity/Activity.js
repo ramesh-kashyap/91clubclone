@@ -9630,7 +9630,7 @@ export default function Activity() {
               />
               <div data-v-4a7709f3="" className="box-content">
                 <div data-v-4a7709f3="" className="box-title">
-                  BDGPRO Tips and Trick Avoid Scammer
+                  Big Daddy Pro Tips and Trick Avoid Scammer
                 </div>
               </div>
             </div>
@@ -9642,7 +9642,7 @@ export default function Activity() {
               />
               <div data-v-4a7709f3="" className="box-content">
                 <div data-v-4a7709f3="" className="box-title">
-                  BDGPRO Official Channel
+                  Big Daddy Pro Official Channel
                 </div>
               </div>
             </div>

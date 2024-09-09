@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
+import Api from '../../services/Api'
  export default function PromotionShare(){
     const navigate = useNavigate();
 
     
         const [activeSection, setActiveSection] = useState(1);
-      
+
+
         const handleSectionClick = (sectionNumber) => {
           setActiveSection(sectionNumber);
         };
@@ -22,7 +24,35 @@ import {useNavigate} from 'react-router-dom';
             }
             return 'swiper-slide';
           };
-       
+
+
+        //   const InviteComponent = () => {
+        //     const [invitationLink, setInvitationLink] = useState('');
+            // const [copySuccess, setCopySuccess] = useState('');
+          
+            // Function to fetch user promotion info
+            const fetchPromotionInfo = async () => {
+                try {
+                  const response = await Api.post('/api/webapi/promotion', {});
+                  const userCode = response.data.info[0].code;
+                  const invitationLink = `http://localhost:3001/register?code=${userCode}`;
+                  
+                  // Copy to clipboard
+                  navigator.clipboard.writeText(invitationLink).then(
+                    () => {
+                      alert('Link copied successfully!');
+                    },
+                    () => {
+                      alert('Failed to copy the link.');
+                    }
+                  );
+                } catch (error) {
+                  console.error('Error fetching promotion info:', error);
+                }
+              };
+          
+                 
+        
 
 return(
 <div className="" style={{fontSize: '12px'}}>
@@ -4608,15 +4638,19 @@ return(
             </div>
             <div data-v-3b74cce6=""
                 className="swiper swiper-initialized swiper-horizontal swiper-pointer-events my-swipe swiper-backface-hidden">
-                <div className="swiper-wrapper"
-                    style={{"transitionDuration": '0ms', transform: 'translate3d(61.3385px, 0px, 0px)',}}>
+                <div className="swiper-wrapper" 
+                     style={{
+                        transitionDuration: '0ms',
+                        transform: 'translate3d(61.3385px, 0px, 0px)' 
+                                  
+                      }}>
                     <div data-v-3b74cce6="" className={getSectionClass(1)} id="section1" style={{marginRight: '20px'}} onClick={() => handleSectionClick(1)}>
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share0">
                              {/* <img v-lazy="getIcons('promotion/promotionShare', 'poster')" />  */}
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
-                                    src="https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005937kuk1.png"
+                                    src="/assets/png/BDGPRO2.png"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">Big Daddy Pro</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
                                 <div data-v-3b74cce6="" className="head2">Full Odds <span>Bonus</span> Rate</div>
@@ -4635,9 +4669,9 @@ return(
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share1">
                             
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
-                                    src="https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005937kuk1.png"
+                                    src="/assets/png/BDGPRO2.png"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">Big Daddy Pro</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
                                 <div data-v-3b74cce6="" className="head2">Full Odds <span>Bonus</span> Rate</div>
@@ -4656,9 +4690,9 @@ return(
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share2">
                             
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
-                                    src="https://ossimg.91admin123admin.com/91club/other/h5setting_20230714005937kuk1.png"
+                                    src="/assets/png/BDGPRO2.png"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">Big Daddy Pro</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
                                 <div data-v-3b74cce6="" className="head2">Full Odds <span>Bonus</span> Rate</div>
@@ -4681,7 +4715,7 @@ return(
             </div>
             <div data-v-3b74cce6="" className="promotionShare__container-buttons">
                 <div data-v-3b74cce6="" className="share">INVITATION LINK</div>
-                <div data-v-3b74cce6="" className="cpy">Copy invitation link</div>
+                <div data-v-3b74cce6="" className="cpy" onClick={fetchPromotionInfo}>Copy invitation link</div>
                 
             </div>
         </div>

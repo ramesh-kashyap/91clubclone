@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
 export default function Laundry() {
 
-
+  const navigate = useNavigate();
   const [laundry, setLaundry] = useState([]);
   const [rebateBonus, setRebateBonus] = useState([]);
   const [error, setError] = useState(null);
@@ -52,9 +52,6 @@ export default function Laundry() {
   }, []);
   return (
     <div style={{fontSize: '12px'}}>
-
-
-
     <svg
       xmlns="http://www.w3.org/2000/svg"
      
@@ -9557,11 +9554,11 @@ export default function Laundry() {
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
               <div data-v-12a80a3e="" className="navbar__content-left">
-              <a href="/activity">
+              
                 <i
                   data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left"
-                  ></i></a>
+                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/activity')}
+                  ></i>
               </div>
               <div data-v-12a80a3e="" className="navbar__content-center">
                

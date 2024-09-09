@@ -5,42 +5,22 @@ import Api from '../../services/Api';
 export default function AddUSDT() {
   const [usdtBep20, setUsdtBep20] = useState('');
   const [usdtTrc20, setUsdtTrc20] = useState('');
-  const [selectedValue, setSelectedValue] = useState('');
-  const [isVisible, setIsVisible] = useState(false);
+  const [trx20, setTrx] = useState(null);
+  const [bep20, setBep] = useState(null);
 
   const navigate = useNavigate();
 
-  const handleSelect = (value) => {
-    setSelectedValue(value);
-  };
 
-  const items = [
-    { label: 'USDT BEP20', value: 'usdtBep20' },
-    { label: 'USDT TRC20', value: 'usdtTrc20' },
-  ];
-
-  const sortedItems = [...items].sort((a, b) =>
-    a.value === selectedValue ? -1 : b.value === selectedValue ? 1 : 0
-  );
-
-  const handleToggle = () => {
-    setIsVisible(!isVisible);
-  };
-
-  const handleCancel = () => {
-    setIsVisible(false);
-  };
-
-  // Updated to correctly map the input value to the selected USDT type
-  const payload = {
-    [selectedValue]: selectedValue === 'usdtBep20' ? usdtBep20 : usdtTrc20,
-  };
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await Api.post('/api/webapi/addBank', payload);
+      const response = await Api.post('/api/webapi/addBank', {
+        usdtBep20: bep20, 
+        usdtTrc20: trx20,
+      });
 
       if (response.data.status) {
         console.log('Bank information added/updated successfully');
@@ -94,7 +74,7 @@ export default function AddUSDT() {
                   <svg data-v-24736190="" className="svg-icon icon-usdt1 icon icon">
                     <use href="#icon-usdt1"></use>
                   </svg>
-                  Select main network
+                  Add TRX address
                 </div>
                 <div data-v-24736190="" className="ar-searchbar">
                   <div data-v-fa757a88="" data-v-24736190="" className="ar-searchbar__selector">
@@ -102,16 +82,14 @@ export default function AddUSDT() {
                       <input
                         type="text"
                         data-v-fa757a88=""
-                          placeholder="Payment Mode"
-                        className="ar-searchbar__selector-default" style={{background:'#333332'}}
-                        onClick={handleToggle}
-                        value={selectedValue}
-                        onChange={(e) => setSelectedValue(e.target.value.replace(/[^\w\/]/ig, ''))}
+                        className="ar-searchbar__selector-default"
+                        value={bep20}  
+                        onChange={(e) => setTrx()}                      
                       />
                       <i
                         data-v-fa757a88=""
                         className="van-badge__wrapper van-icon van-icon-arrow-down"
-                        onClick={handleToggle}
+                        
                       ></i>
                     </div>
                   </div>
@@ -130,12 +108,10 @@ export default function AddUSDT() {
                     data-v-24736190=""
                     placeholder="Please enter the USDT address"
                     maxLength="36"
-                    value={selectedValue === 'usdtBep20' || 'usdtTrc20' ? usdtBep20 : usdtTrc20} // Display the correct address
-                    onChange={(e) =>
-                      selectedValue === 'usdtBep20' || 'usdtTrc20'
-                        ? setUsdtBep20(e.target.value.replace(/[^\w\/]/ig, ''))
-                        : setUsdtTrc20(e.target.value.replace(/[^\w\/]/ig, ''))
-                    }
+                    value={trx20}  
+                    onChange={(e) => setBep()}  
+                   // Display the correct address
+                   
                   />
                 </div>
               </div>
@@ -148,75 +124,14 @@ export default function AddUSDT() {
             </div>
           </form>
 
-          <div
+          {/* <div
             className="van-overlay"
             role="button"
             tabIndex="0"
             data-v-24736190=""
             style={{ zIndex: 2006, display: isVisible ? 'block' : 'none' }}
-          ></div>
-          <div
-            role="dialog"
-            tabIndex="0"
-            className="van-popup van-popup--round van-popup--bottom"
-            data-v-24736190=""
-            style={{ zIndex: 2006, display: isVisible ? 'block' : 'none' }}
-          >
-            <div data-v-24736190="" className="van-picker">
-              <div className="van-picker__toolbar">
-                <button
-                  type="button"
-                  className="van-picker__cancel van-haptics-feedback"
-                  onClick={handleCancel}
-                >
-                  Cancel
-                </button>
-                <button
-                  type="button"
-                  className="van-picker__confirm van-haptics-feedback"
-                  onClick={handleCancel}
-               style={{ color: 'green'}} >
-                  Confirm
-                </button>
-              </div>
-              <div className="van-picker__columns" style={{ height: '264px' }}>
-                <div className="van-picker-column" style={{background: '#d9ac4f'}}
->
-                  <ul
-                    className="van-picker-column__wrapper"
-                    style={{
-                      transform: 'translate3d(0px, 110px, 0px)',
-                      transitionDuration: '0ms',
-                      transitionProperty: 'none',
-                    }}
-                  >
-                    {sortedItems.map((item) => (
-                      <li
-                        key={item.value}
-                        role="button"
-                        tabIndex="0"
-                        className={`van-picker-column__item ${
-                          item.value === selectedValue ? 'van-picker-column__item--selected' : ''
-                        }`}
-                        style={{ height: '44px', cursor: 'pointer' }}
-                        onClick={() => handleSelect(item.value)}
-                      >
-                        <div className="van-ellipsis">{item.label}</div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div
-                  className="van-picker__mask"
-                  style={{ backgroundSize: '100% 110px' }}
-                ></div>
-                <div
-                  className="van-hairline-unset--top-bottom van-picker__frame"
-                  style={{ height: '44px' }}
-                ></div>
-              </div>
-            </div>
-          </div>
+          ></div> */}
+          
         </div>
 
         <div

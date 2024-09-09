@@ -9703,15 +9703,14 @@ style={{maskType: 'alpha'}}
       <div data-v-6af1b9df="" className="setting_container">
         <div
           data-v-6af1b9df=""
-          className="phone_container-item setting_container_item"
+          className="phone_container-item setting_container_item" onClick={()=>navigate('/main/SettingCenter/BindEmail')}
         >
           <div data-v-6af1b9df="" className="phone_container-item-left">
             <figure data-v-6af1b9df="" className="icon email">
               <svg data-v-6af1b9df="" className="svg-icon icon-messageIcon">
                 <use href="#icon-messageIcon"></use>
               </svg>
-            </figure>
-            <a href="/account/bindmailbox.html"><span data-v-6af1b9df="">Bind mailbox</span></a>
+            </figure><span data-v-6af1b9df="">Bind mailbox</span>
           </div>
           <div data-v-6af1b9df="" className="phone_container-item-right">
             <div data-v-6af1b9df="" className="emailright">

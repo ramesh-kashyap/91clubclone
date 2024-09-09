@@ -1,8 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import Api from '../../services/Api'
 export default function LoginPassword() {
+  const [seeEye, setSeeEye] = useState('');
+  // const toggleEye = (eyeId) => {
+  //   setSeeEye(prevState => prevState === eyeId ? '' : eyeId);
+  // };
   const navigate = useNavigate();
+  const [password, setPassword] = useState('');
+  const [newPassWord, setNewPassWord] = useState('');
+  const [confirmNewPassword, setConfirmNewPassword] = useState(''); // For showing/hiding passwords
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const toggleEye = (eyeId) => {
+    setSeeEye(seeEye === eyeId ? '' : eyeId);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (newPassWord !== confirmNewPassword) {
+      setErrorMessage("New passwords don't match");
+      return;
+    }
+
+    try { // Assuming you are storing the token in localStorage
+      const response = await Api.put('/api/webapi/change/pass', // Use the route for your change password API
+        { password, newPassWord },
+      );
+
+      if (response.data.status) {
+        setSuccessMessage('Password changed successfully!');
+        setErrorMessage('');
+      } else {
+        setErrorMessage(response.data.message);
+      }
+    } catch (error) {
+      setErrorMessage('Failed to change the password.');
+    }
+  };
+
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -148,11 +186,11 @@ export default function LoginPassword() {
             </div>
           </div>
         </div>
-        <div data-v-5beab1ae="" className="LoginP-container-form">
+        <div data-v-5beab1ae="" className="LoginP-container-form" >
           <div
             data-v-ea5b66c8=""
             data-v-5beab1ae=""
-            className="passwordInput__container"
+            className="passwordInput__container" 
           >
             <div data-v-ea5b66c8="" className="passwordInput__container-label">
               <svg
@@ -164,16 +202,20 @@ export default function LoginPassword() {
             </div>
             <div data-v-ea5b66c8="" className="passwordInput__container-input">
               <input
-                data-v-ea5b66c8=""
-                type="password"
+              data-v-ea5b66c8=""
+                type={seeEye === 'eye1' ? 'text' : 'password'}
                 placeholder="Login password"
                 maxLength="32"
-                autoComplete="new-password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               /><img
-                data-v-ea5b66c8=""
-                src="/assets/png/eyeInvisible-821d9d16.png"
-                className="eye"
-              />
+              data-v-ea5b66c8=""
+              src={seeEye === 'eye1' ? '/assets/png/eyeVisible-09720f5f.png' : '/assets/png/eyeInvisible-821d9d16.png'}
+              className="eye"
+              id="eye1"
+              onClick={() => toggleEye('eye1')}
+            />
             </div>
           </div>
           <div
@@ -191,15 +233,19 @@ export default function LoginPassword() {
             </div>
             <div data-v-ea5b66c8="" className="passwordInput__container-input">
               <input
-                data-v-ea5b66c8=""
-                type="password"
-                placeholder="New login password"
-                maxLength="15"
-                autoComplete="new-password"
+              data-v-ea5b66c8=""
+                 type={seeEye === 'eye2' ? 'text' : 'password'}
+                 placeholder="New login password"
+                 maxLength="32"
+                 autoComplete="new-password"
+                 value={newPassWord}
+                 onChange={(e) => setNewPassWord(e.target.value)}
               /><img
                 data-v-ea5b66c8=""
-                src="/assets/png/eyeInvisible-821d9d16.png"
+                src={seeEye === 'eye2' ? '/assets/png/eyeVisible-09720f5f.png' : '/assets/png/eyeInvisible-821d9d16.png'}
                 className="eye"
+                id="eye2"
+                onClick={() => toggleEye('eye2')}
               />
             </div>
           </div>
@@ -218,16 +264,20 @@ export default function LoginPassword() {
             </div>
             <div data-v-ea5b66c8="" className="passwordInput__container-input">
               <input
-                data-v-ea5b66c8=""
-                type="password"
+              data-v-ea5b66c8=""
+                type={seeEye === 'eye3' ? 'text' : 'password'}
                 placeholder="Confirm new password"
-                maxLength="15"
+                maxLength="32"
                 autoComplete="new-password"
+                value={confirmNewPassword}
+                onChange={(e) => setConfirmNewPassword(e.target.value)}
               /><img
-                data-v-ea5b66c8=""
-                src="/assets/png/eyeInvisible-821d9d16.png"
-                className="eye"
-              />
+              data-v-ea5b66c8=""
+              src={seeEye === 'eye3' ? '/assets/png/eyeVisible-09720f5f.png' : '/assets/png/eyeInvisible-821d9d16.png'}
+              className="eye"
+              id="eye3"
+              onClick={() => toggleEye('eye3')}
+            />
             </div>
           </div>
           <div
@@ -250,10 +300,21 @@ export default function LoginPassword() {
             >
           </div>
           <div data-v-5beab1ae="" className="LoginP-container-button">
-            <button data-v-5beab1ae="">Save changes</button>
+            <button data-v-5beab1ae="" type="submit" onClick={handleSubmit}>Save changes</button>
           </div>
         </div>
       </div>
+      {errorMessage && (
+          <div className="LoginP-container-tips">
+            <span>{errorMessage}</span>
+          </div>
+        )}
+
+        {successMessage && (
+          <div className="LoginP-container-success">
+            <span>{successMessage}</span>
+          </div>
+        )}
       <div
         className="customer"
         id="customerId"

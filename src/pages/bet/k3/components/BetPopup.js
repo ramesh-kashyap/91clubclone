@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import Api from '../../../../services/Api'
 
-const BetPopup = ({ gameJoin,listOrder }) => {
+const BetPopup = ({ gameJoin,listOrder,game,userBalance, setListJoin, setShowBetPopup,fetchUserInfo,fetchMyBets }) => {
   // State for balance and quantity
   const [balance, setBalance] = useState(1);
   const [quantity, setQuantity] = useState(1);
@@ -21,6 +22,39 @@ const BetPopup = ({ gameJoin,listOrder }) => {
         console.log("hi1");
 
         return 0;
+    }
+  };
+
+  const betGame1 = async () => {
+     
+    const totalAmount = calculateTotalMoney1(quantity, balance, listOrder);
+
+    if(totalAmount > userBalance){
+        console.error('Insufficient Balance');
+        return;
+    }
+
+
+    try {
+      const response = await Api.post('/api/webapi/action/k3/join', {
+        listJoin: listOrder.join(','), // Pass listOrder as listJoin
+        game,                // game value from props
+        gameJoin: 1,       // gameJoin for game1
+        xvalue: quantity,    // Pass quantity as xvalue
+        money: balance,      // Pass balance as money
+      });
+
+      console.log('Bet successfully placed:', response.data);
+      
+      setListJoin([]);       
+        setShowBetPopup(false);
+        fetchUserInfo();
+        fetchMyBets();
+
+
+      // You can handle the success message here or update the state
+    } catch (error) {
+      console.error('Error placing bet:', error);
     }
   };
 
@@ -84,8 +118,36 @@ const BetPopup = ({ gameJoin,listOrder }) => {
         <div data-v-5f002ad4="" className="Betting__Popup-type1">
           <p data-v-5f002ad4="" className="title">{getTitle()}</p>
           <div data-v-5f002ad4="" className="list">
-            <div data-v-5f002ad4="" className="red num3">3</div>
-          </div>
+  {gameJoin === 'game1' && listOrder.map((item, index) => {
+    let itemClass = '';
+    let displayText = item;  // Default to showing the item unless it's b, s, l, c
+
+    // Conditionally set the className and display text based on the item value
+    if (typeof item === 'number') {
+      itemClass = item % 2 === 0 ? 'green' : 'red';  // Set 'green' for even, 'red' for odd
+    } else if (item === 'b') {
+      itemClass = 'red numA';  // Class for 'Big'
+      displayText = 'Big';     // Display "Big" for 'b'
+    } else if (item === 's') {
+      itemClass = 'green numB'; // Class for 'Small'
+      displayText = 'Small';    // Display "Small" for 's'
+    } else if (item === 'l') {
+      itemClass = 'red numC';   // Class for 'Odd'
+      displayText = 'Odd';      // Display "Odd" for 'l'
+    } else if (item === 'c') {
+      itemClass = 'green numD'; // Class for 'Even'
+      displayText = 'Even';     // Display "Even" for 'c'
+    }
+
+    return (
+      <div key={index} data-v-5f002ad4="" className={itemClass}>
+        {displayText}
+      </div>
+    );
+  })}
+</div>
+
+
         </div>
 
         <div data-v-5f002ad4="" className="Betting__Popup-body-line">
@@ -238,12 +300,24 @@ const BetPopup = ({ gameJoin,listOrder }) => {
       </div>
 
       <div data-v-5f002ad4="" className="Betting__Popup-foot">
-        <div data-v-5f002ad4="" className="Betting__Popup-foot-c">
-          Cancel
-        </div>
+        <div
+      data-v-5f002ad4=""
+      className="Betting__Popup-foot-c"
+      onClick={() => {
+        setListJoin([]);       
+        setShowBetPopup(false); // Hide the popup
+      }}
+    >
+      Cancel
+    </div>
         <div
           data-v-5f002ad4=""
           className="Betting__Popup-foot-s bgcolor"
+          onClick={() => {
+            if (gameJoin === 'game1') {
+              betGame1(); // Call the betGame1 function for game1
+            }
+          }}
         >
           Total amount ₹{totalAmount}.00
         </div>

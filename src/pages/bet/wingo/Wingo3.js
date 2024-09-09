@@ -452,7 +452,7 @@ export default function Wingo3() {
   
       // Validate inputs
       if (!join || !quantity || !balance || userInfo.money_user < totalAmount) {
-        alert('Invalid input or insufficient balance');
+        toast.error('Invalid input or insufficient balance');
         return;
       }
   
@@ -466,6 +466,10 @@ export default function Wingo3() {
         });
   
         const { data } = response;
+
+        toast.success('Bet placed successfully!');
+
+        
   
         handleClosePopup();
         fetchMyBets();
@@ -10043,7 +10047,7 @@ export default function Wingo3() {
       </svg>
       <div className="noticeBar__container-body">
         <div className="noticeBar__container-body-text">
-          Be cautious of counterfeit websites mimicking our BDGPRO official
+          Be cautious of counterfeit websites mimicking our Big Daddy Pro official
           site, do not transfer money to anyone, including agents, and keep
           payment receipts and UTR numbers confidential.
         </div>
@@ -10066,9 +10070,7 @@ export default function Wingo3() {
   }}>
         <div data-v-17d56002="">Win Go<br />5Min</div>
       </div>
-      <div data-v-17d56002="" className="GameList__C-item" onClick={() => {
-    navigate('/wingo10');
-  }}>
+      <div data-v-17d56002="" className="GameList__C-item" onClick={() => {navigate('/wingo10');}}>
         <div data-v-17d56002="">Win Go<br />10Min</div>
       </div>
     </div>
@@ -10435,7 +10437,7 @@ export default function Wingo3() {
         >
       </div>
     </div>
-   
+  
     <audio id="voice1">
       <source src="/assets/mp3/di1-0f3d86cb.mp3" type="audio/mpeg" /></audio
     ><audio id="voice2">

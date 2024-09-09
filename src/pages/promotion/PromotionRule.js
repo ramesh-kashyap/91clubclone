@@ -9746,7 +9746,7 @@
               </svg>
               <div data-v-baf81808="" className="promotion-title">08</div>
               <div data-v-baf81808="" className="promotion-txt">
-                The final interpretation of this activity belongs to 91club
+                The final interpretation of this activity belongs to Big Daddy Pro
               </div>
             </div>
           </div>
