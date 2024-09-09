@@ -1171,11 +1171,7 @@ setShowBetPopup={setShowBetPopup} fetchMyBets={fetchMyBets} fetchUserInfo={fetch
             >
           </div>
         </div>
-        <div
-          data-v-0ac3de13=""
-          data-v-d024c659=""
-          className="changlongEnter changlong"
-        ></div>
+       
         <audio id="voice1">
           <source src="/assets/mp3/di1-0f3d86cb.mp3" type="audio/mpeg" /></audio
         ><audio id="voice2">
