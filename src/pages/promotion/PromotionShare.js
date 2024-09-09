@@ -4654,14 +4654,14 @@ return(
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
                                     src="/assets/png/BDGPRO2.png"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">Big Daddy Pro</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6=""style={{color:'#000'}}>Big Daddy Pro</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
                                 <div data-v-3b74cce6="" className="head2" style={{color:'#000'}}>Full Odds <span>Bonus</span> Rate</div>
                                 <div data-v-3b74cce6="" className="head3">
-                                    <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
+                                    <div data-v-3b74cce6=""style={{color:'#000'}}><img data-v-3b74cce6="" className="logo"
                                             src="/assets/png/bank-1227ae77.png" alt=""/> Financial security</div>
-                                    <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
+                                    <div data-v-3b74cce6="" style={{color:'#000'}}><img data-v-3b74cce6="" className="logo"
                                             src="/assets/png/trucktick-4f43261f.png" alt=""/> Quick withdrawal</div>
                                 </div>
                                 <div data-v-3b74cce6="" className="head4" style={{color:'#000'}}>Permanent commission<span>up to</span>85%</div>
@@ -4675,12 +4675,12 @@ return(
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
                                     src="/assets/png/BDGPRO2.png"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">Big Daddy Pro</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="" style={{color:'#000'}}>Big Daddy Pro</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
                                 <div data-v-3b74cce6="" className="head2" style={{color:'#000'}}>Full Odds <span>Bonus</span> Rate</div>
                                 <div data-v-3b74cce6="" className="head3" style={{color:'#000'}}>
-                                    <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
+                                    <div data-v-3b74cce6="" style={{color:'#000'}}><img data-v-3b74cce6="" className="logo"
                                             src="/assets/png/bank-1227ae77.png" alt=""/> Financial security</div>
                                     <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
                                             src="/assets/png/trucktick-4f43261f.png" alt=""/> Quick withdrawal</div>
