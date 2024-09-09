@@ -9640,7 +9640,10 @@ export default function Register() {
               <svg data-v-cdf0e578="" className="svg-icon icon-rebate">
                 <use href="#icon-rebate"></use>
               </svg>
-              32.00
+              {laundry.totalRec}
+
+
+
             </div>
             <div data-v-cdf0e578="" className="txt">
               Upgrade VIP level to increase rebate rate
@@ -9649,22 +9652,28 @@ export default function Register() {
               <div data-v-cdf0e578="" className="item">
                 <div data-v-cdf0e578=""  style={{display: 'none'}}>
                   <p data-v-cdf0e578="" className="tit">Today rebate</p>
-                  <span data-v-cdf0e578="" className="num">0</span>
+                  <span data-v-cdf0e578="" className="num"> </span>
                 </div>
                 <div data-v-cdf0e578="" >
                   <p data-v-cdf0e578="" className="tit">Rebate rate</p>
-                  <span data-v-cdf0e578="" className="num red">0.05%</span>
+                  <span data-v-cdf0e578="" className="num red">0.3%</span>
                 </div>
               </div>
               <div data-v-cdf0e578="" className="item">
                 <p data-v-cdf0e578="" className="tit">Total rebate</p>
-                <span data-v-cdf0e578="" className="num">0.02</span>
+                <span data-v-cdf0e578="" className="num">{laundry.bonus}</span>
               </div>
             </div>
             <div data-v-cdf0e578="" className="tip">
               Automatic code washing at 01:00:00 every morning
             </div>
-            <button data-v-cdf0e578="" className="btn">One-Click Rebate</button>
+            <button 
+  data-v-cdf0e578="" 
+  className="btn" 
+  onClick={getRebateBonus}
+>
+  One-Click Rebate
+</button>
             <p data-v-cdf0e578="" className="rule"  style={{display: 'none'}}>
               Learn the rules<img
                 data-v-cdf0e578=""

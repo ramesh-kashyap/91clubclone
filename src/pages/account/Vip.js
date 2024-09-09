@@ -1,76 +1,18 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Api from '../../services/Api';
+import React from 'react'
 
-export default function DailySignI() {
-
-
-
-
-  const [dailySignI, setDailySignI] = useState([]);
-
-  const [error, setError] = useState(null);
-
-
-
-
-  const attendanceBonus = async (e) => {
-    try {
-      // Call the API endpoint
-      const response = await Api.post('/api/webapi/attendanceBonus', {
-        // Any required parameters to be sent to the API
-      });
-      
-      console.log(response.data);
-
-      // If API call is successful and status is true
-      if (response.data.status === true) {
-        // Handle success (add success logic here if needed)
-      } else {
-        // Set error message if status is not true
-        setError(response.data.message);
-      }
-    } catch (err) {
-      // Handle any errors during the API call
-      setError('An error occurred. Please try again.');
-    }
-  };
-
-  const fetchDailySignI= async () => {
-    try {
-      const response = await Api.get('/api/webapi/getAttendanceInfo');
-      const data =  response.data;
-
-      console.log(data);
-
-      setDailySignI(data); // Assuming data.data contains the user's information
-
-
-    } catch (err) {
-      console.error('An error occurred:', err);
-      setError('An error occurred. Please try again.');
-    } 
-  };
-
-
-  useEffect(() => {
-    fetchDailySignI();  
- 
-
-   
-  }, []);
-
-
-  const navigate = useNavigate();
+export default function Vip() {
   return (
     <div style={{fontSize: '12px'}}>
 
 
 
+
+
+
+
     <svg
       xmlns="http://www.w3.org/2000/svg"
-     
-      style={{position: 'absolute', width: '0' ,height: '0'}}
+      style={{position: 'absolute', width: '0', height: '0'}}
     >
       <symbol
         id="icon-privacyIcon"
@@ -319,35 +261,35 @@ export default function DailySignI() {
           d="M12 8.07227H36L44 18.1617L24 42.3762L4 18.1617L12 8.07227Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M4 18.1602H44"
           stroke="white"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M24 42.3747L16 18.1602"
           stroke="white"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M24 42.3747L32 18.1602"
           stroke="white"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M8 13.1152L4 18.1599L24 42.3745L44 18.1599L40 13.1152"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -538,14 +480,14 @@ export default function DailySignI() {
         <path
           d="M14.5 8C13.8406 8.37652 13.2062 8.79103 12.6 9.24051C11.5625 10.0097 10.6074 10.8814 9.75 11.8402C6.79377 15.1463 5 19.4891 5 24.2455C5 34.6033 13.5066 43 24 43C34.4934 43 43 34.6033 43 24.2455C43 19.4891 41.2062 15.1463 38.25 11.8402C37.3926 10.8814 36.4375 10.0097 35.4 9.24051C34.7938 8.79103 34.1594 8.37652 33.5 8"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M24 4V24"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -878,7 +820,7 @@ export default function DailySignI() {
           opacity="0.4"
           d="M14.25 7.5V52.5"
           stroke="var(--main-color)"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -889,7 +831,7 @@ export default function DailySignI() {
         <path
           d="M9.25 52.5H19.25"
           stroke="var(--main-color)"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -919,28 +861,28 @@ export default function DailySignI() {
         <path
           d="M51.25 54.375H63.75"
           stroke="var(--bg_color_L2)"
-  strokeWidth="3"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M51.25 61.875H63.75"
           stroke="var(--bg_color_L2)"
-  strokeWidth="3"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M63.75 54.375L59.375 50"
           stroke="var(--bg_color_L2)"
-  strokeWidth="3"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M55.625 66.25L51.25 61.875"
           stroke="var(--bg_color_L2)"
-  strokeWidth="3"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -980,7 +922,7 @@ export default function DailySignI() {
         <path
           d="M49 67.375C59.1483 67.375 67.375 59.1483 67.375 49C67.375 38.8517 59.1483 30.625 49 30.625C38.8517 30.625 30.625 38.8517 30.625 49C30.625 59.1483 38.8517 67.375 49 67.375Z"
           stroke="#FFA522"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1117,7 +1059,7 @@ export default function DailySignI() {
             d="M24 33.4297C28.9706 33.4297 33 29.4003 33 24.4297C33 19.4591 28.9706 15.4297 24 15.4297C19.0294 15.4297 15 19.4591 15 24.4297C15 29.4003 19.0294 33.4297 24 33.4297Z"
             fill="var(--main-color)"
             stroke="var(--main-color)"
-    strokeWidth="2"
+            strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
           ></path>
@@ -1271,7 +1213,7 @@ export default function DailySignI() {
           cy="10"
           r="9.4"
           stroke="var(--main-color)"
-  strokeWidth="1.2"
+          strokeWidth="1.2"
         ></circle>
         <circle cx="10" cy="10" r="5" fill="var(--main-color)"></circle>
       </symbol>
@@ -1287,7 +1229,7 @@ export default function DailySignI() {
             cy="10"
             r="9.4"
             stroke="var(--main-color)"
-    strokeWidth="1.2"
+            strokeWidth="1.2"
           ></circle>
           <circle cx="10" cy="10" r="5" fill="var(--main-color)"></circle>
         </g>
@@ -1362,7 +1304,7 @@ export default function DailySignI() {
           d="M19 20C22.866 20 26 16.866 26 13C26 9.13401 22.866 6 19 6C15.134 6 12 9.13401 12 13C12 16.866 15.134 20 19 20Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1370,7 +1312,7 @@ export default function DailySignI() {
           opacity="0.4"
           d="M32.6074 7C34.6402 8.2249 35.9998 10.4537 35.9998 13C35.9998 15.5463 34.6402 17.7751 32.6074 19"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1378,7 +1320,7 @@ export default function DailySignI() {
           d="M4 40.8V42H34V40.8C34 36.3196 34 34.0794 33.1281 32.3681C32.3611 30.8628 31.1372 29.6389 29.6319 28.8719C27.9206 28 25.6804 28 21.2 28H16.8C12.3196 28 10.0794 28 8.36808 28.8719C6.86278 29.6389 5.63893 30.8628 4.87195 32.3681C4 34.0794 4 36.3196 4 40.8Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1386,7 +1328,7 @@ export default function DailySignI() {
           opacity="0.4"
           d="M43.999 42.0001V40.8001C43.999 36.3197 43.999 34.0795 43.1271 32.3682C42.3601 30.8629 41.1362 29.6391 39.6309 28.8721"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1418,27 +1360,27 @@ export default function DailySignI() {
           d="M18.75 17.9814C23.9068 20.0007 30.0104 20.0007 30.0104 20.0007C30.0104 20.0007 36.1 20.0007 41.25 17.9814C46.8773 24.5487 50.8205 33.2062 53.4121 40.4976C56.0359 47.8791 50.2508 55.0007 42.4168 55.0007H17.5246C9.71023 55.0007 3.93235 47.9117 6.54287 40.5462C9.12242 33.2679 13.0685 24.6074 18.75 17.9814Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
         <path
           d="M30 25V47"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M35.5 27C35.5 27 30.4853 27 28 27C25.5147 27 23.5 29.0147 23.5 31.5C23.5 33.9853 25.5147 36 28 36"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M24.5 45C24.5 45 29.5147 45 32 45C34.4853 45 36.5 42.9853 36.5 40.5C36.5 38.0147 34.4853 36 32 36H28"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1448,7 +1390,7 @@ export default function DailySignI() {
           d="M30 20C38.9746 20 46.25 16.6421 46.25 12.5C46.25 8.35786 38.9746 5 30 5C21.0254 5 13.75 8.35786 13.75 12.5C13.75 16.6421 21.0254 20 30 20Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1499,7 +1441,7 @@ export default function DailySignI() {
           d="M24 20C27.866 20 31 16.866 31 13C31 9.13401 27.866 6 24 6C20.134 6 17 9.13401 17 13C17 16.866 20.134 20 24 20Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1507,7 +1449,7 @@ export default function DailySignI() {
           opacity="0.4"
           d="M12 7.25488C10.1865 8.51983 9 10.6214 9 13.0002C9 15.5465 10.3596 17.7753 12.3924 19.0002"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1515,7 +1457,7 @@ export default function DailySignI() {
           opacity="0.4"
           d="M36 7.25488C37.8135 8.51983 39 10.6214 39 13.0002C39 15.3789 37.8135 17.4806 36 18.7455"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1523,7 +1465,7 @@ export default function DailySignI() {
           d="M12 40V42H36V40C36 36.2725 36 34.4087 35.391 32.9385C34.5791 30.9783 33.0217 29.4209 31.0615 28.609C29.5913 28 27.7275 28 24 28C20.2725 28 18.4087 28 16.9385 28.609C14.9783 29.4209 13.4209 30.9783 12.609 32.9385C12 34.4087 12 36.2725 12 40Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1531,7 +1473,7 @@ export default function DailySignI() {
           opacity="0.4"
           d="M43.999 42.0001V40.8001C43.999 36.3197 43.999 34.0795 43.1271 32.3682C42.3601 30.8629 41.1362 29.6391 39.6309 28.8721"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1539,7 +1481,7 @@ export default function DailySignI() {
           opacity="0.4"
           d="M4 42.0001V40.8001C4 36.3197 4 34.0795 4.87195 32.3682C5.63893 30.8629 6.86278 29.6391 8.36807 28.8721"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1601,7 +1543,7 @@ export default function DailySignI() {
         <path
           d="M22.3206 29.4914C20.713 30.1573 18.99 30.5 17.25 30.5C13.7359 30.5 10.3657 29.104 7.88084 26.6192C5.39598 24.1343 4 20.7641 4 17.25C4 13.7359 5.39598 10.3657 7.88083 7.88083C10.3657 5.39598 13.7359 4 17.25 4C18.99 4 20.713 4.34272 22.3206 5.0086C23.9281 5.67447 25.3888 6.65046 26.6192 7.88083C27.8495 9.11121 28.8255 10.5719 29.4914 12.1794C30.1573 13.787 30.5 15.51 30.5 17.25C30.5 18.99 30.1573 20.713 29.4914 22.3206C28.8255 23.9281 27.8495 25.3888 26.6192 26.6192C25.3888 27.8495 23.9281 28.8255 22.3206 29.4914ZM31.95 31.9985C31.9436 31.9985 31.9355 31.9971 31.9282 31.9941C31.9242 31.9925 31.922 31.9911 31.9214 31.9906L29.1369 29.2062C29.1268 29.1953 29.1211 29.1809 29.1211 29.166C29.1211 29.152 29.1261 29.1385 29.1351 29.1279C29.1381 29.1254 29.1407 29.124 29.1432 29.123C29.1472 29.1213 29.1535 29.1197 29.1619 29.1197C29.1774 29.1197 29.1952 29.1249 29.2127 29.1404L31.9929 31.9206C31.9948 31.9226 31.9963 31.9243 31.9975 31.926C31.9989 31.928 31.9998 31.9299 32.0005 31.9317C32.0022 31.9357 32.0037 31.942 32.0037 31.9504C32.0037 31.9608 32.0014 31.9723 31.9952 31.984C31.9756 31.9955 31.9587 31.9985 31.95 31.9985Z"
           stroke="currentColor"
-  strokeWidth="2"
+          strokeWidth="2"
         ></path>
       </symbol>
       <symbol
@@ -1683,7 +1625,7 @@ export default function DailySignI() {
         <path
           d="M72 77C75.3137 77 78 74.3137 78 71C78 67.6863 75.3137 65 72 65C68.6863 65 66 67.6863 66 71C66 71.4413 66.0476 71.8715 66.1381 72.2857"
           stroke="var(--text_color_L4)"
-  strokeWidth="3.5"
+          strokeWidth="3.5"
           strokeLinecap="round"
         ></path>
         <path
@@ -1794,48 +1736,48 @@ export default function DailySignI() {
           d="M9.33203 16.6667C9.33203 12.9848 12.3168 10 15.9987 10C19.6806 10 22.6654 12.9848 22.6654 16.6667V27.3333H9.33203V16.6667Z"
           fill="#D23838"
           stroke="#D23838"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
         <path
           d="M16 3.33301V5.33301"
           stroke="#D23838"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M23.9262 6.21875L22.6406 7.75086"
           stroke="#D23838"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M28.1454 13.5244L26.1758 13.8717"
           stroke="#D23838"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M3.85547 13.5254L5.82508 13.8727"
           stroke="#D23838"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M8.07422 6.21875L9.35982 7.75087"
           stroke="#D23838"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M4 27.333H28.6667"
           stroke="#D23838"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1875,7 +1817,7 @@ export default function DailySignI() {
         <path
           d="M18 33C22.1421 33 25.8921 31.3211 28.6066 28.6066C31.3211 25.8921 33 22.1421 33 18C33 13.8579 31.3211 10.1079 28.6066 7.39339C25.8921 4.67893 22.1421 3 18 3C13.8579 3 10.1079 4.67893 7.39339 7.39339C4.67893 10.1079 3 13.8579 3 18C3 22.1421 4.67893 25.8921 7.39339 28.6066C10.1079 31.3211 13.8579 33 18 33Z"
           stroke="#D23838"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
         <path
@@ -1887,7 +1829,7 @@ export default function DailySignI() {
         <path
           d="M18 9V21"
           stroke="#D23838"
-  strokeWidth="2.5"
+          strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -1977,7 +1919,7 @@ export default function DailySignI() {
       >
         <mask
           id="mask0_186_36254"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="1"
           y="1"
@@ -2034,7 +1976,7 @@ export default function DailySignI() {
               fill="white"
             ></path>
           </g>
-          <g style={{mixblendmode: 'screen'}} filter="url(#filter3_f_186_36254)">
+          <g style={{mixBlendMode: 'screen'}} filter="url(#filter3_f_186_36254)">
             <path
               d="M34.2076 25.4474C40.7458 26.0919 46.4148 22.8729 46.8697 18.2578C47.3245 13.6426 42.3931 9.37889 35.8549 8.73447C29.3168 8.09004 23.6478 11.309 23.193 15.9241C22.7381 20.5393 27.6695 24.803 34.2076 25.4474Z"
               fill="#FFCFCE"
@@ -2331,7 +2273,7 @@ export default function DailySignI() {
       >
         <mask
           id="mask0_10_170301"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -2541,20 +2483,20 @@ export default function DailySignI() {
           d="M7 37C7 29.2967 7 11 7 11C7 7.68629 9.68629 5 13 5H35V31C35 31 18.2326 31 13 31C9.7 31 7 33.6842 7 37Z"
           fill="var(--main-color)"
           stroke="#07DDD1"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
         <path
           d="M35 31C35 31 14.1537 31 13 31C9.68629 31 7 33.6863 7 37C7 40.3137 9.68629 43 13 43C15.2091 43 25.8758 43 41 43V7"
           stroke="#07DDD1"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M14 37H34"
           stroke="#07DDD1"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -2576,14 +2518,14 @@ export default function DailySignI() {
         <path
           d="M5.21094 6.25L14.5859 12.5L19.7943 35.4167H40.6276L45.8359 17.7083H26.0443"
           stroke="var(--light-bg_white, var(--main-color))"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M26.0391 27.083H33.6148H42.7057"
           stroke="var(--light-bg_white, var(--main-color))"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -2608,7 +2550,7 @@ export default function DailySignI() {
         </g>
         <mask
           id="mask0_234_67307"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="8"
           y="3"
@@ -2789,7 +2731,7 @@ export default function DailySignI() {
           x2="17.4375"
           y2="23.375"
           stroke="#FFCDCB"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinecap="round"
         ></line>
         <line
@@ -2798,7 +2740,7 @@ export default function DailySignI() {
           x2="29.125"
           y2="23.375"
           stroke="#FFCDCB"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinecap="round"
         ></line>
         <path
@@ -2861,7 +2803,7 @@ export default function DailySignI() {
         ></path>
         <mask
           id="mask0_2094_41589"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="11"
           y="11"
@@ -2936,7 +2878,7 @@ export default function DailySignI() {
           d="M49.9046 27.0391C50.0517 27.7139 50.3656 28.3391 50.8158 28.8554H28.6882V25.7923C28.6882 20.1291 33.3609 15.6107 39.5384 15.6107C45.4703 15.6107 49.8701 19.9903 49.8701 25.8288V26.7195V26.8812L49.9046 27.0391ZM56.7053 28.9486C57.2005 28.4152 57.5444 27.755 57.7005 27.0391L57.7349 26.8812V26.7195V25.8559C57.7752 23.4025 57.3256 20.9657 56.4129 18.6958C55.4985 16.4217 54.1382 14.3621 52.4141 12.646L52.4042 12.6362L52.3941 12.6265C48.9558 9.32933 44.4187 7.49241 39.7005 7.50002L39.4816 7.50002L39.4809 7.50002C34.707 7.50203 30.106 9.30237 26.5465 12.55L26.5465 12.55L26.5429 12.5532C24.7253 14.2225 23.276 16.267 22.2885 18.5501C21.3016 20.8319 20.7978 23.3014 20.8092 25.7958V29.6025C18.5861 30.3692 16.6212 31.7782 15.1551 33.6654C13.4403 35.8728 12.507 38.6062 12.5 41.42V41.4237L12.5 59.939L12.5 59.9428C12.5085 63.2588 13.7938 66.4444 16.0873 68.8006C18.3821 71.1582 21.5008 72.4934 24.7634 72.5H24.7665L55.2406 72.5L55.2437 72.5C58.5059 72.4934 61.6239 71.1579 63.9177 68.7998C66.21 66.4432 67.4936 63.2573 67.5 59.9419V59.939L67.5 41.4237L67.5 41.4208C67.4936 38.1049 66.2104 34.9184 63.9184 32.5607C61.9702 30.5565 59.4269 29.2898 56.7053 28.9486Z"
           fill="currentColor"
           stroke="#333333"
-  strokeWidth="3"
+          strokeWidth="3"
         ></path>
         <path
           d="M40.0473 39H40.0125C37.8143 39.0425 35.7039 39.888 34.0647 41.3828C32.4254 42.8777 31.366 44.9228 31.0787 47.1467C30.7915 49.3706 31.2956 51.6259 32.4994 53.503C33.7032 55.38 35.5269 56.7543 37.6393 57.3763V61.0402C37.7072 61.3594 37.8362 61.6616 38.0189 61.9297C38.2016 62.1978 38.4345 62.4264 38.7041 62.6024C39.0953 62.8626 39.5524 63.0008 40.0195 63C40.1926 62.9987 40.3651 62.9796 40.5345 62.9432C40.9997 62.8434 41.4263 62.6076 41.7624 62.2647C42.0986 61.9217 42.3296 61.4864 42.4275 61.0118V57.355C44.5245 56.7199 46.3306 55.3423 47.5209 53.4698C48.7112 51.5973 49.2075 49.3529 48.9206 47.1404C48.6337 44.9279 47.5824 42.8924 45.9558 41.4002C44.3292 39.9079 42.2341 39.0568 40.0473 39ZM44.4179 48.3444C44.4188 48.9318 44.3063 49.5137 44.0868 50.0568C43.8673 50.5999 43.5452 51.0936 43.1387 51.5096C42.7322 51.9257 42.2493 52.256 41.7177 52.4816C41.1861 52.7073 40.6161 52.8239 40.0404 52.8249C38.8787 52.8249 37.7645 52.3545 36.9425 51.5171C36.1204 50.6798 35.6577 49.5438 35.6558 48.3586C35.6503 47.1722 36.1069 46.0321 36.9253 45.1892C37.7436 44.3463 38.8566 43.8696 40.0195 43.8639C41.1823 43.8583 42.2998 44.3241 43.1259 45.1591C43.9521 45.994 44.4194 47.1296 44.4249 48.316L44.4179 48.3444Z"
@@ -2952,20 +2894,20 @@ export default function DailySignI() {
         <path
           d="M30 57C44.9117 57 57 44.9117 57 30C57 15.0883 44.9117 3 30 3C15.0883 3 3 15.0883 3 30C3 44.9117 15.0883 57 30 57Z"
           stroke="white"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinejoin="round"
         ></path>
         <path
           d="M43 17L17 43"
           stroke="white"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M17 17L43 43"
           stroke="white"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -2979,14 +2921,14 @@ export default function DailySignI() {
         <path
           d="M13 12.4316V7.8125C13 6.2592 14.2592 5 15.8125 5H40.1875C41.7408 5 43 6.2592 43 7.8125V32.1875C43 33.7408 41.7408 35 40.1875 35H35.5163"
           stroke="currentColor"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M32.1875 13H7.8125C6.2592 13 5 14.2592 5 15.8125V40.1875C5 41.7408 6.2592 43 7.8125 43H32.1875C33.7408 43 35 41.7408 35 40.1875V15.8125C35 14.2592 33.7408 13 32.1875 13Z"
           stroke="currentColor"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinejoin="round"
         ></path>
       </symbol>
@@ -2999,7 +2941,7 @@ export default function DailySignI() {
         <path
           d="M6.5 6.2158V3.90625C6.5 3.1296 7.1296 2.5 7.90625 2.5H20.0938C20.8704 2.5 21.5 3.1296 21.5 3.90625V16.0938C21.5 16.8704 20.8704 17.5 20.0938 17.5H17.7582"
           stroke="#E6EBF0"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -3007,7 +2949,7 @@ export default function DailySignI() {
           d="M16.0938 6.5H3.90625C3.1296 6.5 2.5 7.1296 2.5 7.90625V20.0938C2.5 20.8704 3.1296 21.5 3.90625 21.5H16.0938C16.8704 21.5 17.5 20.8704 17.5 20.0938V7.90625C17.5 7.1296 16.8704 6.5 16.0938 6.5Z"
           fill="var(--text_color_L1)"
           stroke="#E6EBF0"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
       </symbol>
@@ -3129,34 +3071,34 @@ export default function DailySignI() {
         <path
           d="M6.75 7.5V33H29.25V7.5H6.75Z"
           stroke="var(--text_color_L2)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
         <path
           d="M15 15V24.75"
           stroke="var(--text_color_L2)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M21 15V24.75"
           stroke="var(--text_color_L2)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M3 7.5H33"
           stroke="var(--text_color_L2)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M12 7.5L14.4667 3H21.5828L24 7.5H12Z"
           stroke="var(--text_color_L2)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
       </symbol>
@@ -3172,7 +3114,7 @@ export default function DailySignI() {
             d="M39 4H11C9.89543 4 9 4.89543 9 6V42C9 43.1046 9.89543 44 11 44H39C40.1046 44 41 43.1046 41 42V6C41 4.89543 40.1046 4 39 4Z"
             fill="var(--main-color)"
             stroke="var(--main-color)"
-    strokeWidth="2"
+            strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
           ></path>
@@ -3180,7 +3122,7 @@ export default function DailySignI() {
             id="Vector_2"
             d="M17 30H31"
             stroke="var(--bg_color_L2)"
-    strokeWidth="2"
+            strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
           ></path>
@@ -3188,7 +3130,7 @@ export default function DailySignI() {
             id="Vector_3"
             d="M17 36H24"
             stroke="var(--bg_color_L2)"
-    strokeWidth="2"
+            strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
           ></path>
@@ -3197,7 +3139,7 @@ export default function DailySignI() {
             d="M31 12H17V22H31V12Z"
             fill="var(--main-color)"
             stroke="var(--bg_color_L2)"
-    strokeWidth="2"
+            strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
           ></path>
@@ -3235,28 +3177,28 @@ export default function DailySignI() {
           d="M10.6364 5H37.3636L45 18.3L24 43L3 18.3L10.6364 5Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M10.6328 5L23.9965 43L37.3601 5"
           stroke="var(--bg_color_L2)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M3 18.2998H45"
           stroke="var(--bg_color_L2)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M15.4062 18.3L23.9971 5L32.5881 18.3"
           stroke="var(--bg_color_L2)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -3273,24 +3215,24 @@ export default function DailySignI() {
           d="M23.9999 29.0001L12 17.0001H19.9999V6.00012H27.9999V17.0001H35.9999L23.9999 29.0001Z"
           fill="currentColor"
           stroke="currentColor"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M42 37H6"
           stroke="currentColor"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
         ></path>
         <path
           d="M34 44H14"
           stroke="currentColor"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
         ></path>
       </symbol>
-    
+     
       <symbol
         id="icon-downArrow"
         xmlns="http://www.w3.org/2000/svg"
@@ -3326,14 +3268,14 @@ export default function DailySignI() {
         <path
           d="M5.25 31.5H32.25"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M8.25 20.0399V25.5H13.7379L29.25 9.98107L23.7713 4.5L8.25 20.0399Z"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
       </symbol>
@@ -3346,14 +3288,14 @@ export default function DailySignI() {
         <path
           d="M5.25 31.5H32.25"
           stroke="var(--text_color_L2)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M8.25 20.0399V25.5H13.7379L29.25 9.98107L23.7713 4.5L8.25 20.0399Z"
           stroke="var(--text_color_L2)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
       </symbol>
@@ -3467,7 +3409,7 @@ export default function DailySignI() {
           opacity="0.398"
           d="M284.309 32.6133C282.541 53.9608 273.212 64.0459 263.885 69.6786C249.04 78.6443 231.874 74.1814 227.627 69.6786C220.715 62.3476 233.578 51.1844 246.322 59.5164C259.065 67.8484 223.925 97.2125 187.223 92.0122C162.755 88.5459 140.684 82.0766 121.008 72.6045"
           stroke="#908E9B"
-  strokeWidth="0.881"
+          strokeWidth="0.881"
           strokeLinecap="round"
           strokeDasharray="2.64 2.64"
         ></path>
@@ -3667,22 +3609,20 @@ export default function DailySignI() {
         <path
           d="M15 7.5V17.5"
           stroke="#FE6868"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
       </symbol>
-    
       <symbol
         id="icon-eye"
         t="1503993826520"
         className="icon"
-       
         viewBox="0 0 1024 1024"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         p-id="7878"
-       
+  
       >
         <defs><style type="text/css"></style></defs>
         <path
@@ -3698,7 +3638,7 @@ export default function DailySignI() {
       >
         <mask
           id="mask0_2094_41544"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="6"
           y="6"
@@ -4550,7 +4490,7 @@ export default function DailySignI() {
         ></path>
         <mask
           id="mask0_6245_8860"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="10"
           y="14"
@@ -4649,7 +4589,7 @@ export default function DailySignI() {
         ></path>
         <mask
           id="mask0_6245_8860"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="10"
           y="14"
@@ -4962,27 +4902,27 @@ export default function DailySignI() {
           d="M41 10H13V44H41V10Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
         <path
           d="M35 10V4H8C7.44772 4 7 4.44772 7 5V38H13"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M21 22H33"
           stroke="var(--bg_color_L2)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M21 30H33"
           stroke="var(--bg_color_L2)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -5116,35 +5056,35 @@ export default function DailySignI() {
         <path
           d="M38 15V7H10V15"
           stroke="var(--text_white, var(--text_color_L2))"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M43 27V15H5V41H43"
           stroke="var(--text_white, var(--text_color_L2))"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M29 27L24 34H43"
           stroke="var(--text_white, var(--text_color_L2))"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M26 21H22"
           stroke="var(--text_white, var(--text_color_L2))"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M16 21H12"
           stroke="var(--text_white, var(--text_color_L2))"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -5182,7 +5122,7 @@ export default function DailySignI() {
       >
         <mask
           id="mask0_2094_41544"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="6"
           y="6"
@@ -5456,7 +5396,7 @@ export default function DailySignI() {
             fill="#AFB0B4"
             fillOpacity="0.7"
             stroke="#A0A8BD"
-    strokeWidth="1.15714"
+            strokeWidth="1.15714"
           ></path>
           <path
             d="M229.563 37.3814L228.947 35.387L343.679 0.0459015C343.966 -0.0428558 344.279 -0.00108766 344.535 0.155543L401.721 35.4966L400.624 37.2718L343.841 2.1813L229.563 37.3814Z"
@@ -5499,20 +5439,20 @@ export default function DailySignI() {
               d="M91.7632 299.261V301.837H32.7982V299.261H91.7632Z"
               fill="#9099B1"
               stroke="#5C6C80"
-      strokeWidth="1.15714"
+              strokeWidth="1.15714"
             ></path>
             <path
               opacity="0.5"
               d="M83.9411 284.66H40.6193V278.51C40.6193 277.753 41.2335 277.136 41.9948 277.136H82.5656C83.3238 277.136 83.9411 277.75 83.9411 278.51V284.66Z"
               fill="#9099B1"
               stroke="#4A5766"
-      strokeWidth="1.15714"
+              strokeWidth="1.15714"
             ></path>
             <path
               d="M91.5607 298.104H33.0014L36.2006 287.617C36.2006 287.617 36.2007 287.617 36.2007 287.617C36.5446 286.496 37.5799 285.729 38.751 285.729H85.811C86.9823 285.729 88.0177 286.496 88.3615 287.617L91.5607 298.104Z"
               fill="#9099B1"
               stroke="#5C6C80"
-      strokeWidth="1.15714"
+              strokeWidth="1.15714"
             ></path>
             <path
               d="M51.1445 277.298V56.9778C51.1445 56.7638 51.2281 56.5601 51.3744 56.4035L61.6882 45.6795C62.0017 45.3558 62.566 45.3558 62.8795 45.6795L73.1933 56.4035C73.3396 56.5549 73.4232 56.7638 73.4232 56.9778V277.298C73.4232 277.752 73.0522 278.123 72.5977 278.123H51.97C51.5155 278.123 51.1445 277.752 51.1445 277.298ZM71.7722 57.3068L62.2839 47.4442L52.7956 57.3068V276.467H71.7722V57.3068Z"
@@ -5571,7 +5511,7 @@ export default function DailySignI() {
               fill="#AFB0B4"
               fillOpacity="0.7"
               stroke="#6E7689"
-      strokeWidth="1.15714"
+              strokeWidth="1.15714"
             ></path>
             <path
               d="M152.702 74.9696L153.188 73.3928L62.5211 45.4656C62.2965 45.3977 62.0457 45.429 61.8419 45.5543L16.6523 73.4816L17.5197 74.886L62.3905 47.152L152.696 74.9696H152.702Z"
@@ -5927,7 +5867,7 @@ export default function DailySignI() {
       >
         <mask
           id="mask0_2654_24939"
-          style={{maskType: 'luminance'}}
+          style={{masktype: 'luminance'}}
           maskUnits="userSpaceOnUse"
           x="13"
           y="3"
@@ -5967,7 +5907,7 @@ export default function DailySignI() {
           height="14.3831"
           rx="1.19859"
           stroke="#768096"
-  strokeWidth="2.39718"
+          strokeWidth="2.39718"
         ></rect>
         <rect
           x="20.7538"
@@ -5976,7 +5916,7 @@ export default function DailySignI() {
           height="14.3831"
           rx="1.19859"
           stroke="#768096"
-  strokeWidth="2.39718"
+          strokeWidth="2.39718"
         ></rect>
         <rect
           x="39.9315"
@@ -5985,14 +5925,14 @@ export default function DailySignI() {
           height="14.3831"
           rx="1.19859"
           stroke="#768096"
-  strokeWidth="2.39718"
+          strokeWidth="2.39718"
         ></rect>
         <circle
           cx="47.123"
           cy="16.3432"
           r="7.19153"
           stroke="#768096"
-  strokeWidth="2.39718"
+          strokeWidth="2.39718"
         ></circle>
       </symbol>
       <symbol
@@ -6046,34 +5986,34 @@ export default function DailySignI() {
         <path
           d="M6.75 7.5V33H29.25V7.5H6.75Z"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
         <path
           d="M15 15V24.75"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M21 15V24.75"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M3 7.5H33"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M12 7.5L14.4667 3H21.5828L24 7.5H12Z"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
       </symbol>
@@ -6105,7 +6045,7 @@ export default function DailySignI() {
           r="14.25"
           transform="matrix(-1 0 0 1 30 0)"
           stroke="currentColor"
-  strokeWidth="1.5"
+          strokeWidth="1.5"
         ></circle>
         <path
           fillRule="evenodd"
@@ -6139,7 +6079,7 @@ export default function DailySignI() {
       >
         <mask
           id="mask0_186_36273"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="1"
           y="1"
@@ -6346,14 +6286,14 @@ export default function DailySignI() {
           <path
             d="M21.334 10C21.7495 10.371 22.1261 10.7865 22.4567 11.2392C23.4265 12.5669 24.0007 14.2149 24.0007 16C24.0007 17.7697 23.4363 19.4045 22.4819 20.7262C22.1452 21.1923 21.7601 21.6195 21.334 22"
             stroke="url(#paint1_linear_9095_3163)"
-    strokeWidth="1.8"
+            strokeWidth="1.8"
             strokeLinecap="round"
             strokeLinejoin="round"
           ></path>
           <path
             d="M22.8242 27.4568C26.7227 25.1298 29.3336 20.8696 29.3336 15.9996C29.3336 11.2053 26.8031 7.00197 23.005 4.65234"
             stroke="url(#paint2_linear_9095_3163)"
-    strokeWidth="1.8"
+            strokeWidth="1.8"
             strokeLinecap="round"
           ></path>
         </g>
@@ -6423,7 +6363,7 @@ export default function DailySignI() {
         <path
           d="M93.3035 35L112.161 2H589.839L608.696 35L589.839 68H112.161L93.3035 35Z"
           stroke="var(--main-color)"
-  strokeWidth="4"
+          strokeWidth="4"
         ></path>
         <path
           d="M121 4H581L597 35L581 66H121L105 35L121 4Z"
@@ -6433,7 +6373,7 @@ export default function DailySignI() {
         <path
           d="M52.2228 35L60.7081 26.5147L69.1934 35L60.7081 43.4853L52.2228 35Z"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
         ></path>
         <path
           d="M55 35L60.7081 29.2919L66.4162 35L60.7081 40.7081L55 35Z"
@@ -6443,7 +6383,7 @@ export default function DailySignI() {
         <path
           d="M649.777 35L641.292 26.5147L632.807 35L641.292 43.4853L649.777 35Z"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
         ></path>
         <path
           d="M647 35L641.292 29.2919L635.584 35L641.292 40.7081L647 35Z"
@@ -6481,42 +6421,42 @@ export default function DailySignI() {
         <path
           d="M30 37L35 32L30.0004 27"
           stroke="var(--text_white, var(--text_color_L2))"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M38 37L43 32L38.0004 27"
           stroke="var(--text_white, var(--text_color_L2))"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M43 22V9C43 7.89543 42.1046 7 41 7H7C5.89543 7 5 7.89543 5 9V39C5 40.1046 5.89543 41 7 41H28.4706"
           stroke="var(--text_white, var(--text_color_L2))"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M19 13V35"
           stroke="var(--text_white, var(--text_color_L2))"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M24.5 15C24.5 15 19.4853 15 17 15C14.5147 15 12.5 17.0147 12.5 19.5C12.5 21.9853 14.5147 24 17 24"
           stroke="var(--text_white, var(--text_color_L2))"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M13.5 33C13.5 33 18.5147 33 21 33C23.4853 33 25.5 30.9853 25.5 28.5C25.5 26.0147 23.4853 24 21 24H17"
           stroke="var(--text_white, var(--text_color_L2))"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -7284,7 +7224,7 @@ export default function DailySignI() {
         <path
           d="M6.5 6.2158V3.90625C6.5 3.1296 7.1296 2.5 7.90625 2.5H20.0938C20.8704 2.5 21.5 3.1296 21.5 3.90625V16.0938C21.5 16.8704 20.8704 17.5 20.0938 17.5H17.7582"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -7292,7 +7232,7 @@ export default function DailySignI() {
           d="M16.0938 6.5H3.90625C3.1296 6.5 2.5 7.1296 2.5 7.90625V20.0938C2.5 20.8704 3.1296 21.5 3.90625 21.5H16.0938C16.8704 21.5 17.5 20.8704 17.5 20.0938V7.90625C17.5 7.1296 16.8704 6.5 16.0938 6.5Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
       </symbol>
@@ -7309,14 +7249,14 @@ export default function DailySignI() {
         <path
           d="M17 30H31"
           stroke="var(--text_color_L4)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M17 36H24"
           stroke="var(--text_color_L4)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -7324,7 +7264,7 @@ export default function DailySignI() {
           d="M31 12H17V22H31V12Z"
           fill="var(--main-color)"
           stroke="var(--text_color_L4)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -7339,13 +7279,13 @@ export default function DailySignI() {
           d="M4 6.17075L16.0057 2.66699L28 6.17075V13.3561C28 20.9085 23.1668 27.6133 16.0017 30.0007C8.83473 27.6133 4 20.907 4 13.3528V6.17075Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
         <path
           d="M10 15.3333L14.6667 20L22.6667 12"
           stroke="var(--text_color_L4)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -7363,7 +7303,7 @@ export default function DailySignI() {
           x2="38"
           y2="26.5"
           stroke="var(--text_color_L4)"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinecap="round"
         ></line>
       </symbol>
@@ -7380,13 +7320,13 @@ export default function DailySignI() {
           x2="38"
           y2="25"
           stroke="var(--text_color_L4)"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinecap="round"
         ></line>
         <path
           d="M25 10L25 40"
           stroke="var(--text_color_L4)"
-  strokeWidth="4"
+          strokeWidth="4"
           strokeLinecap="round"
         ></path>
       </symbol>
@@ -7505,42 +7445,42 @@ export default function DailySignI() {
         <path
           d="M21.3742 33.0555V37.3185C21.3742 40.9305 18.0143 43.8494 13.8773 43.8494C9.74038 43.8494 6.35938 40.9305 6.35938 37.3185V33.0555C6.35938 36.6675 9.71938 39.2295 13.8773 39.2295C18.0143 39.2295 21.3742 36.6465 21.3742 33.0555Z"
           stroke="currentColor"
-  strokeWidth="3"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M21.3737 27.2808C21.3737 28.3308 21.0797 29.2968 20.5757 30.1368C19.3367 32.1738 16.7957 33.4547 13.8557 33.4547C10.9158 33.4547 8.37476 32.1528 7.13578 30.1368C6.63178 29.2968 6.33789 28.3308 6.33789 27.2808C6.33789 25.4748 7.17784 23.8578 8.52183 22.6819C9.88681 21.4849 11.7557 20.7709 13.8347 20.7709C15.9137 20.7709 17.7827 21.5059 19.1477 22.6819C20.5337 23.8368 21.3737 25.4748 21.3737 27.2808Z"
           stroke="currentColor"
-  strokeWidth="3"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M21.3742 27.2808V33.0558C21.3742 36.6677 18.0143 39.2297 13.8773 39.2297C9.74038 39.2297 6.35938 36.6467 6.35938 33.0558V27.2808C6.35938 23.6688 9.71938 20.7499 13.8773 20.7499C15.9563 20.7499 17.8254 21.4849 19.1903 22.6609C20.5344 23.8368 21.3742 25.4748 21.3742 27.2808Z"
           stroke="currentColor"
-  strokeWidth="3"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M44.9996 20.6867V25.0128C44.9996 26.1678 44.0756 27.1126 42.8996 27.1546H38.7836C36.5157 27.1546 34.4367 25.4956 34.2477 23.2276C34.1217 21.9047 34.6257 20.6657 35.5077 19.8047C36.2847 19.0067 37.3556 18.5448 38.5316 18.5448H42.8996C44.0756 18.5868 44.9996 19.5317 44.9996 20.6867Z"
           stroke="currentColor"
-  strokeWidth="3"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M32.4003 5C32.9463 5 33.4713 5.02098 33.9753 5.10498C39.3933 5.73497 42.9002 9.74595 42.9002 15.4999V18.5449H38.5323C37.3563 18.5449 36.2853 19.0069 35.5083 19.8049C34.6263 20.6658 34.1223 21.9048 34.2483 23.2278C34.4373 25.4958 36.5163 27.1548 38.7843 27.1548H42.9002V30.1997C42.9002 36.4997 38.7003 40.6996 32.4003 40.6996H27.1504"
           stroke="currentColor"
-  strokeWidth="3"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M3 19.6999V15.4999C3 9.78795 6.44397 5.79799 11.7989 5.126C12.3449 5.042 12.9119 5 13.4999 5H23.9998"
           stroke="currentColor"
-  strokeWidth="3"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -7629,7 +7569,7 @@ export default function DailySignI() {
       >
         <mask
           id="mask0_1148_26793"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="1"
           y="1"
@@ -7686,7 +7626,7 @@ export default function DailySignI() {
               fill="white"
             ></path>
           </g>
-          <g style={{mixblendmode: 'screen'}} filter="url(#filter3_f_1148_26793)">
+          <g style={{mixBlendMode: 'screen'}} filter="url(#filter3_f_1148_26793)">
             <path
               d="M29.3201 21.8121C34.9243 22.3645 39.7834 19.6054 40.1733 15.6495C40.5632 11.6937 36.3362 8.03906 30.7321 7.48669C25.128 6.93432 20.2689 9.69339 19.879 13.6492C19.4891 17.6051 23.716 21.2597 29.3201 21.8121Z"
               fill="#FFCFCE"
@@ -7896,7 +7836,7 @@ export default function DailySignI() {
             r="14.25"
             transform="matrix(-1 0 0 1 30 0)"
             stroke="var(--main-color)"
-    strokeWidth="1.5"
+            strokeWidth="1.5"
           ></circle>
           <path
             id="Vector"
@@ -7930,7 +7870,7 @@ export default function DailySignI() {
           r="9.4"
           fill="white"
           stroke="var(--main-color)"
-  strokeWidth="1.2"
+          strokeWidth="1.2"
         ></circle>
         <circle cx="10" cy="10" r="5" fill="var(--main-color)"></circle>
       </symbol>
@@ -8131,20 +8071,20 @@ export default function DailySignI() {
           d="M7 37C7 29.2967 7 11 7 11C7 7.68629 9.68629 5 13 5H35V31C35 31 18.2326 31 13 31C9.7 31 7 33.6842 7 37Z"
           fill="var(--main-color)"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinejoin="round"
         ></path>
         <path
           d="M35 31C35 31 14.1537 31 13 31C9.68629 31 7 33.6863 7 37C7 40.3137 9.68629 43 13 43C15.2091 43 25.8758 43 41 43V7"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M14 37H34"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -8473,7 +8413,7 @@ export default function DailySignI() {
         <path
           d="M9.67074 29.1107L9.66322 29.1182L9.65598 29.126C9.02654 29.8017 8.45747 30.2157 7.98006 30.4218C7.50853 30.6254 7.16285 30.6135 6.91422 30.5064C6.6612 30.3975 6.39655 30.1416 6.18925 29.6333C5.98114 29.123 5.85 28.3992 5.85 27.45V10.56C5.85 7.52835 6.21824 5.86758 7.1019 4.92303C7.97224 3.99272 9.4962 3.6 12.33 3.6H23.67C26.5041 3.6 28.0275 3.99282 28.8959 4.92264C29.7774 5.86659 30.1425 7.52679 30.135 10.5585V10.56V27.435C30.135 28.3846 30.0047 29.1087 29.7975 29.6192C29.5911 30.1278 29.3276 30.383 29.076 30.4916C28.8287 30.5983 28.4837 30.6106 28.011 30.4067C27.5326 30.2004 26.9615 29.7861 26.3282 29.1102C25.6005 28.3296 24.6554 27.9468 23.7086 27.9984C22.7618 28.0499 21.8639 28.5332 21.225 29.385L21.2246 29.3856L19.7116 31.4079C19.7113 31.4083 19.711 31.4087 19.7107 31.4091C19.1996 32.0836 18.5725 32.3738 17.9925 32.3738C17.4125 32.3738 16.7854 32.0836 16.2743 31.4091C16.274 31.4087 16.2737 31.4083 16.2734 31.4079L14.7606 29.3858C14.7605 29.3857 14.7605 29.3856 14.7604 29.3856C13.4723 27.6623 11.1634 27.5349 9.67973 29.1017L9.67074 29.1107ZM9.57 16.5C9.57 17.6564 10.5136 18.6 11.67 18.6C12.8264 18.6 13.77 17.6564 13.77 16.5C13.77 15.3436 12.8264 14.4 11.67 14.4C10.5136 14.4 9.57 15.3436 9.57 16.5ZM9.57 10.5C9.57 11.6564 10.5136 12.6 11.67 12.6C12.8264 12.6 13.77 11.6564 13.77 10.5C13.77 9.34363 12.8264 8.4 11.67 8.4C10.5136 8.4 9.57 9.34363 9.57 10.5ZM16.095 18.225H24.345C25.2914 18.225 26.07 17.4464 26.07 16.5C26.07 15.5536 25.2914 14.775 24.345 14.775H16.095C15.1486 14.775 14.37 15.5536 14.37 16.5C14.37 17.4464 15.1486 18.225 16.095 18.225ZM16.095 12.225H24.345C25.2914 12.225 26.07 11.4464 26.07 10.5C26.07 9.55363 25.2914 8.775 24.345 8.775H16.095C15.1486 8.775 14.37 9.55363 14.37 10.5C14.37 11.4464 15.1486 12.225 16.095 12.225Z"
           stroke="currentColor"
-  strokeWidth="1.2"
+          strokeWidth="1.2"
         ></path>
       </symbol>
       <symbol
@@ -8619,7 +8559,7 @@ export default function DailySignI() {
         <g clipPath="url(#clip0_2238_60810)">
           <mask
             id="mask0_2238_60810"
-            style={{masktype: 'alpha'}}
+            style={{maskType: 'alpha'}}
             maskUnits="userSpaceOnUse"
             x="0"
             y="0"
@@ -8632,21 +8572,21 @@ export default function DailySignI() {
             <path
               d="M5.25 21.0073V36.75H36.75V21"
               stroke="var(--main-color)"
-      strokeWidth="2"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             ></path>
             <path
               d="M28.875 13.125L21 5.25L13.125 13.125"
               stroke="var(--main-color)"
-      strokeWidth="2"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             ></path>
             <path
               d="M20.9922 28V5.25"
               stroke="var(--main-color)"
-      strokeWidth="2"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             ></path>
@@ -8694,7 +8634,7 @@ export default function DailySignI() {
           cy="21"
           r="20"
           stroke="var(--main-color)"
-  strokeWidth="2"
+          strokeWidth="2"
         ></circle>
         <path
           d="M31.1591 13.9751V9H11.1371V13.9751H18.5185V17.2253C12.5183 17.4999 8 18.7033 8 20.147C8 21.5907 12.5183 22.7942 18.5185 23.0687V33.5H23.7777V23.0664C29.7547 22.7876 34.25 21.5865 34.25 20.147C34.25 18.7075 29.7547 17.506 23.7777 17.2277V13.9751H31.1591ZM31.9895 19.8532C31.9895 20.8027 28.4958 21.5992 23.7777 21.8203L23.4727 21.8334H23.4391L23.153 21.8442H23.1221C22.9096 21.8517 22.6943 21.858 22.4763 21.863H22.4629L22.1704 21.8691H22.0878L21.8571 21.8724H20.3961L20.1677 21.8691H20.0884L19.8157 21.8634H19.7857C19.4625 21.8559 19.144 21.8459 18.8303 21.8334H18.8262L18.5138 21.8198C13.7722 21.602 10.2559 20.8027 10.2559 19.8485C10.2559 18.8943 13.7727 18.0974 18.5138 17.8773V20.8947C19.3369 20.9384 20.2125 20.9623 21.1204 20.9623C22.0431 20.9623 22.9362 20.9379 23.7731 20.8924V17.8862C28.4953 18.1068 31.9895 18.9037 31.9895 19.8532Z"
@@ -8827,7 +8767,7 @@ export default function DailySignI() {
           r="9.4"
           fill="white"
           stroke="var(--main-color)"
-  strokeWidth="1.2"
+          strokeWidth="1.2"
         ></circle>
         <circle cx="10" cy="10" r="5" fill="var(--main-color)"></circle>
       </symbol>
@@ -8843,7 +8783,7 @@ export default function DailySignI() {
           r="9.4"
           fill="white"
           stroke="var(--main-color)"
-  strokeWidth="1.2"
+          strokeWidth="1.2"
         ></circle>
         <circle cx="10" cy="10" r="5" fill="var(--main-color)"></circle>
       </symbol>
@@ -8924,14 +8864,14 @@ export default function DailySignI() {
         <path
           d="M3 23C3 17.016 6.526 12.836 12.0085 12.132C12.5675 12.044 13.148 12 13.75 12H35.25C35.809 12 36.3465 12.022 36.8625 12.11C42.4095 12.77 46 16.972 46 23V34C46 40.6 41.7 45 35.25 45H13.75C7.3 45 3 40.6 3 34V31.822"
           stroke="currentColor"
-  strokeWidth="3.2"
+          strokeWidth="3.2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M46 23.7241H39.548C37.1822 23.7241 35.2466 25.5862 35.2466 27.8621C35.2466 30.1379 37.1822 32 39.548 32H46M37 12C36.4838 11.9172 35.8058 12 35.2466 12H14C13.3978 12 12.5592 11.9172 12 12C12 12 12.7312 11.3517 13.2474 10.8551L20.2371 4.11027C21.6566 2.75836 23.5733 2 25.5708 2C27.5682 2 29.4849 2.75836 30.9044 4.11027L34.6681 7.77235C36.0445 9.0758 39.548 12 37 12Z"
           stroke="currentColor"
-  strokeWidth="3.2"
+          strokeWidth="3.2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -9002,21 +8942,21 @@ export default function DailySignI() {
         <path
           d="M5.82031 6.72656V13.9993H13.0931"
           stroke="var(--text_color_L1)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C16.598 4 10.1351 8.02111 6.67677 13.9981"
           stroke="var(--text_color_L1)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
           d="M24.0012 12L24 24.0088L32.4794 32.4882"
           stroke="var(--text_color_L1)"
-  strokeWidth="2"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
@@ -9183,7 +9123,7 @@ export default function DailySignI() {
       >
         <mask
           id="mask0_6140_40993"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -9329,7 +9269,7 @@ export default function DailySignI() {
         ></path>
         <mask
           id="mask0_6140_37956"
-          style={{masktype: 'alpha'}}
+          style={{maskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="11"
           y="11"
@@ -9444,16 +9384,15 @@ export default function DailySignI() {
         data-v-647954c7=""
         className="ar-loading-view"
         style={{
-          display: 'none',
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sansSerif'"
+          'F13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
+          display: 'none'
         }}
       >
         <div data-v-647954c7="" className="loading-wrapper">
-       
           <div data-v-647954c7="" className="loading-animat">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-             
+        
               viewBox="0 0 200 200"
               width="200"
               height="200"
@@ -9461,8 +9400,8 @@ export default function DailySignI() {
               style={{
                 width: '100%',
                 height: '100%',
-                transform: 'translate3d(0px, 0px, 0px)',
-                contentVisibility: 'visible'
+                transform:' translate3d(0px, 0px, 0px)',
+                'contentvisibility': 'visible',
               }}
             >
               <defs>
@@ -9479,7 +9418,7 @@ export default function DailySignI() {
               <g clipPath="url(#__lottie_element_2)">
                 <g
                   className="ai"
-                  transform="matrix(-0.9324938654899597,0.36118581891059875,-0.36118581891059875,-0.9324938654899597,229.3679656982422,157.13079833984375)"
+                  transform="matrix(1,0,0,1,0,0)"
                   opacity="1"
                   style={{display: 'block'}}
                 >
@@ -9492,7 +9431,7 @@ export default function DailySignI() {
                 </g>
                 <g
                   className="png"
-                  transform="matrix(0.976474404335022,0,0,0.976474404335022,51.1762809753418,51.1762809753418)"
+                  transform="matrix(0.800000011920929,0,0,0.800000011920929,60,60)"
                   opacity="1"
                   style={{display: 'block'}}
                 >
@@ -9507,22 +9446,17 @@ export default function DailySignI() {
             </svg>
           </div>
           <div data-v-647954c7="" className="com__box" style={{display: 'none'}}>
-         
             <div className="loading" data-v-647954c7="">
               <div className="shape shape-1" data-v-647954c7=""></div>
               <div className="shape shape-2" data-v-647954c7=""></div>
               <div className="shape shape-3" data-v-647954c7=""></div>
               <div className="shape shape-4" data-v-647954c7=""></div>
             </div>
-           
           </div>
-         
         </div>
         <div data-v-647954c7="" className="skeleton-wrapper" style={{display: 'none'}}>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-          
             <div className="van-skeleton__content">
-          
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9547,7 +9481,6 @@ export default function DailySignI() {
             </div>
           </div>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-           
             <div className="van-skeleton__content">
               <h3 className="van-skeleton-title"></h3>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9559,230 +9492,1036 @@ export default function DailySignI() {
           </div>
         </div>
       </div>
-      
       <div
-        data-v-f1e983bd=""
-        className="dailySignIn__container"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sansSerif'"}}
+        data-v-92d3d2e1=""
+        className="vip"
+        style={{'F13b4d11CurrentFontFamily':" 'Roboto', 'Inter', 'sansSerif'"}}
       >
-        <div data-v-12a80a3e="" data-v-f1e983bd="" className="navbar activity">
-          <div data-v-12a80a3e="" className="navbar-fixed">
-            <div data-v-12a80a3e="" className="navbar__content">
-              <div data-v-12a80a3e="" className="navbar__content-left">
-                <i
-                  data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/activity')}
-                  ></i>
+        <div data-v-92d3d2e1="" className="vip-header">
+          <div data-v-12a80a3e="" data-v-92d3d2e1="" className="navbar main">
+            <div data-v-12a80a3e="" className="navbar-fixed">
+              <div data-v-12a80a3e="" className="navbar__content">
+                <div data-v-12a80a3e="" className="navbar__content-left">
+                  <i
+                    data-v-12a80a3e=""
+                    className="van-badge__wrapper van-icon van-icon-arrow-left"
+                    ></i
+                  >
+                </div>
+                <div data-v-12a80a3e="" className="navbar__content-center">
+                  <div data-v-12a80a3e="" className="navbar__content-title">
+                    VIP
+                  </div>
+                </div>
+                <div data-v-12a80a3e="" className="navbar__content-right"></div>
               </div>
-              <div data-v-12a80a3e="" className="navbar__content-center">
-            
-                <div data-v-12a80a3e="" className="navbar__content-title">
-                  Attendance
+            </div>
+          </div>
+          <div data-v-92d3d2e1="" className="vip-header-wrapper">
+            <div data-v-92d3d2e1="" className="vip-header-wrapper-avatar">
+             <img
+                data-v-92d3d2e1=""
+                src="/assets/png/6-7c7f5203.png"
+                className="userAvatar"
+              />
+            </div>
+            <div data-v-92d3d2e1="" className="vip-header-wrapper-name">
+              <div
+                data-v-92d3d2e1=""
+                className="vip-header-wrapper-name-vip n0"
+              ></div>
+              <div data-v-92d3d2e1="" className="vip-header-wrapper-name-nickName">
+                <h3 data-v-92d3d2e1="">MemberNNGNDBYB</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-v-92d3d2e1="" className="vip-content">
+          <div data-v-92d3d2e1="" className="vip-content-empirical">
+            <div data-v-92d3d2e1="">
+              <p data-v-92d3d2e1="" className="red">1151 EXP</p>
+              <p data-v-92d3d2e1="">My experience</p>
+            </div>
+            <div data-v-92d3d2e1="">
+              <p data-v-92d3d2e1="" className="timeTop"><span> 19 </span> Days</p>
+              <p data-v-92d3d2e1="">Payout time</p>
+            </div>
+          </div>
+          <div data-v-92d3d2e1="" className="vip-content-tip">
+            VIP level rewards are settled at 2:00 am on the 1st of every month
+          </div>
+          <div data-v-31cfa30d="" data-v-92d3d2e1="" className="vip-content-card">
+            <div data-v-31cfa30d="" className="vip-content-card-item">
+              <div
+                data-v-31cfa30d=""
+                className="swiper swiper-initialized swiper-horizontal my-swipe swiper-backface-hidden"
+              >
+                <div
+                  className="swiper-wrapper"
+                  style={{
+                    'transitionDuration': '0ms',
+                    transform: 'translate3d(34.469px, 0px, 0px)'
+            }}
+                >
+                  <div
+                    data-v-31cfa30d=""
+                    className="swiper-slide itemInfo level1 swiper-slide-active"
+                    style={{marginRight:' 20px'}}
+                  >
+                    <div data-v-31cfa30d="" className="itemInfo-right">
+                      <img
+                        data-v-31cfa30d=""
+                        src="/assets/png/1-1fca7935.png"
+                      />
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-head">
+                      <div data-v-31cfa30d="">
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/1-d951dc6d.png"
+                        />
+                        <h1 data-v-31cfa30d="" className="level1">VIP1</h1>
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/ununlocked-b5a4c7d0.png"
+                        /><span data-v-31cfa30d="">Not open yet</span>
+                      </div>
+                      <div data-v-31cfa30d="" className="mb30">
+                        <p data-v-31cfa30d="">
+                          Upgrading VIP1 requires <br />1849EXP
+                        </p>
+                      </div>
+                      <div data-v-31cfa30d="" className="border level1">
+                        Bet ₹1=1EXP
+                      </div>
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-bottom">
+                      <p data-v-31cfa30d="">VIP1</p>
+                      <div data-v-31cfa30d="">
+                        <div
+                          data-v-31cfa30d=""
+                          className="van-progress level1"
+                          style={{background: "'rgb(116, 138, 170)', height: '8px'"}}
+                        >
+                          <span
+                            className="van-progress__portion"
+                            style={{
+                              width: '38.37%',
+                              background: "linearGradient( ' rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100%')"
+                            }}
+                          ></span
+                          >
+                        </div>
+                      </div>
+                      <div data-v-31cfa30d="">
+                        <span data-v-31cfa30d="" className="level level1"
+                          >1151/3000</span
+                        ><span data-v-31cfa30d=""
+                          >3000 EXP can be leveled up</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    data-v-31cfa30d=""
+                    className="swiper-slide itemInfo level2 swiper-slide-next"
+                    style={{marginRight:' 20px'}}
+                  >
+                 
+                    <div data-v-31cfa30d="" className="itemInfo-right">
+                      <img
+                        data-v-31cfa30d=""
+                        src="/assets/png/2-fcf77958.png"
+                      />
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-head">
+                      <div data-v-31cfa30d="">
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/2-5df32e87.png"
+                        />
+                        <h1 data-v-31cfa30d="" className="level2">VIP2</h1>
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/ununlocked-b5a4c7d0.png"
+                        /><span data-v-31cfa30d="">Not open yet</span>
+                      </div>
+                      <div data-v-31cfa30d="" className="mb30">
+                        <p data-v-31cfa30d="">
+                          Upgrading VIP2 requires <br />28849EXP
+                        </p>
+                      </div>
+                      <div data-v-31cfa30d="" className="border level2">
+                        Bet ₹1=1EXP
+                      </div>
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-bottom">
+                      <p data-v-31cfa30d="">VIP2</p>
+                      <div data-v-31cfa30d="">
+                        <div
+                          data-v-31cfa30d=""
+                          className="van-progress level2"
+                          style={{background: 'rgb(214, 125, 38)' ,height: '8px'}}
+                        >
+                          <span
+                            className="van-progress__portion"
+                            style={{
+                              width: '3.84%',
+                              background: "linearGradient(' rgb(255, 252, 231) 0%', ' rgb(255, 200, 33) 100%')"
+                            }}
+                          ></span
+                          >
+                        </div>
+                      </div>
+                      <div data-v-31cfa30d="">
+                        <span data-v-31cfa30d="" className="level level2"
+                          >1151/30000</span
+                        ><span data-v-31cfa30d=""
+                          >30000 EXP can be leveled up</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    data-v-31cfa30d=""
+                    className="swiper-slide itemInfo level3"
+                    style={{marginRight:' 20px'}}
+                  >
+                    <div data-v-31cfa30d="" className="itemInfo-right">
+                      <img
+                        data-v-31cfa30d=""
+                        src="/assets/png/3-9cf04b7e.png"
+                      />
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-head">
+                      <div data-v-31cfa30d="">
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/2-5df32e87.png"
+                        />
+                        <h1 data-v-31cfa30d="" className="level2">VIP3</h1>
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/ununlocked-b5a4c7d0.png"
+                        /><span data-v-31cfa30d="">Not open yet</span>
+                      </div>
+                      <div data-v-31cfa30d="" className="mb30">
+                        <p data-v-31cfa30d="">
+                          Upgrading VIP3 requires <br />398849EXP
+                        </p>
+                      </div>
+                      <div data-v-31cfa30d="" className="border level3">
+                        Bet ₹1=1EXP
+                      </div>
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-bottom">
+                      <p data-v-31cfa30d="">VIP3</p>
+                      <div data-v-31cfa30d="">
+                        <div
+                          data-v-31cfa30d=""
+                          className="van-progress level3"
+                          style={{background: 'rgb(240, 92, 92)', height: '8px'}}
+                        >
+                          <span
+                            className="van-progress__portion"
+                            style={{
+                              width: '0.29%',
+                              background: "linearGradient( 'rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100%')"
+                            }}
+                          ></span
+                          >
+                        </div>
+                      </div>
+                      <div data-v-31cfa30d="">
+                        <span data-v-31cfa30d="" className="level level3"
+                          >1151/400000</span
+                        ><span data-v-31cfa30d=""
+                          >400000 EXP can be leveled up</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    data-v-31cfa30d=""
+                    className="swiper-slide itemInfo level4"
+                    style={{marginRight:' 20px'}}
+                  >
+                    <div data-v-31cfa30d="" className="itemInfo-right">
+                      <img
+                        data-v-31cfa30d=""
+                        src="/assets/png/4-a4cfd018.png"
+                      />
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-head">
+                      <div data-v-31cfa30d="">
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/2-5df32e87.png"
+                        />
+                        <h1 data-v-31cfa30d="" className="level2">VIP4</h1>
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/ununlocked-b5a4c7d0.png"
+                        /><span data-v-31cfa30d="">Not open yet</span>
+                      </div>
+                      <div data-v-31cfa30d="" className="mb30">
+                        <p data-v-31cfa30d="">
+                          Upgrading VIP4 requires <br />3998849EXP
+                        </p>
+                      </div>
+                      <div data-v-31cfa30d="" className="border level4">
+                        Bet ₹1=1EXP
+                      </div>
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-bottom">
+                      <p data-v-31cfa30d="">VIP4</p>
+                      <div data-v-31cfa30d="">
+                        <div
+                          data-v-31cfa30d=""
+                          className="van-progress level4"
+                          style={{background: 'rgb(50, 182, 232)', height: '8px'}}
+                        >
+                          <span
+                            className="van-progress__portion"
+                            style={{
+                              width: '0%',
+                              background: "'linearGradient(rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100% ')"}}
+                          ></span
+                          >
+                        </div>
+                      </div>
+                      <div data-v-31cfa30d="">
+                        <span data-v-31cfa30d="" className="level level4"
+                          >1151/4000000</span
+                        ><span data-v-31cfa30d=""
+                          >4000000 EXP can be leveled up</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    data-v-31cfa30d=""
+                    className="swiper-slide itemInfo level5"
+                    style={{marginRight:' 20px'}}
+                  >
+                    <div data-v-31cfa30d="" className="itemInfo-right">
+                      <img
+                        data-v-31cfa30d=""
+                        src="/assets/png/5-89e9b349.png"
+                      />
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-head">
+                      <div data-v-31cfa30d="">
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/2-5df32e87.png"
+                        />
+                        <h1 data-v-31cfa30d="" className="level2">VIP5</h1>
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/ununlocked-b5a4c7d0.png"
+                        /><span data-v-31cfa30d="">Not open yet</span>
+                      </div>
+                      <div data-v-31cfa30d="" className="mb30">
+                        <p data-v-31cfa30d="">
+                          Upgrading VIP5 requires <br />19998849EXP
+                        </p>
+                      </div>
+                      <div data-v-31cfa30d="" className="border level5">
+                        Bet ₹1=1EXP
+                      </div>
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-bottom">
+                      <p data-v-31cfa30d="">VIP5</p>
+                      <div data-v-31cfa30d="">
+                        <div
+                          data-v-31cfa30d=""
+                          className="van-progress level5"
+                          style={{background: "'rgb(234, 106, 202)', height: '8px'"}}
+                        >
+                          <span
+                            className="van-progress__portion"
+                            style={{
+                              width: '0.01%',
+                              background: "'lineargradient(rgb(255, 252, 231) 0%,rgb(255, 200, 33) 100%)'"}}
+                            
+                          ></span
+                          >
+                        </div>
+                      </div>
+                      <div data-v-31cfa30d="">
+                        <span data-v-31cfa30d="" className="level level5"
+                          >1151/20000000</span
+                        ><span data-v-31cfa30d=""
+                          >20000000 EXP can be leveled up</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    data-v-31cfa30d=""
+                    className="swiper-slide itemInfo level6"
+                    style={{marginRight:' 20px'}}
+                  >
+                    <div data-v-31cfa30d="" className="itemInfo-right">
+                      <img
+                        data-v-31cfa30d=""
+                        src="/assets/png/6-05959c7c.png"
+                      />
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-head">
+                      <div data-v-31cfa30d="">
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/2-5df32e87.png"
+                        />
+                        <h1 data-v-31cfa30d="" className="level2">VIP6</h1>
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/ununlocked-b5a4c7d0.png"
+                        /><span data-v-31cfa30d="">Not open yet</span>
+                      </div>
+                      <div data-v-31cfa30d="" className="mb30">
+                        <p data-v-31cfa30d="">
+                          Upgrading VIP6 requires <br />79998849EXP
+                        </p>
+                      </div>
+                      <div data-v-31cfa30d="" className="border level6">
+                        Bet ₹1=1EXP
+                      </div>
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-bottom">
+                      <p data-v-31cfa30d="">VIP6</p>
+                      <div data-v-31cfa30d="">
+                        <div
+                          data-v-31cfa30d=""
+                          className="van-progress level6"
+                          style={{background: 'rgb(30, 177, 139)', height: '8px'}}
+                        >
+                          <span
+                            className="van-progress__portion"
+                            style={{
+                              width: '0%',
+                              background: "linearGradient'(rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100%')"
+                            }}
+                          ></span
+                          >
+                        </div>
+                      </div>
+                      <div data-v-31cfa30d="">
+                        <span data-v-31cfa30d="" className="level level6"
+                          >1151/80000000</span
+                        ><span data-v-31cfa30d=""
+                          >80000000 EXP can be leveled up</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    data-v-31cfa30d=""
+                    className="swiper-slide itemInfo level7"
+                    style={{marginRight:' 20px'}}
+                  >
+                    <div data-v-31cfa30d="" className="itemInfo-right">
+                      <img
+                        data-v-31cfa30d=""
+                        src="/assets/png/7-a50aebe0.png"
+                      />
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-head">
+                      <div data-v-31cfa30d="">
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/2-5df32e87.png"
+                        />
+                        <h1 data-v-31cfa30d="" className="level2">VIP7</h1>
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/ununlocked-b5a4c7d0.png"
+                        /><span data-v-31cfa30d="">Not open yet</span>
+                      </div>
+                      <div data-v-31cfa30d="" className="mb30">
+                        <p data-v-31cfa30d="">
+                          Upgrading VIP7 requires <br />299998849EXP
+                        </p>
+                      </div>
+                      <div data-v-31cfa30d="" className="border level7">
+                        Bet ₹1=1EXP
+                      </div>
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-bottom">
+                      <p data-v-31cfa30d="">VIP7</p>
+                      <div data-v-31cfa30d="">
+                        <div
+                          data-v-31cfa30d=""
+                          className="van-progress level7"
+                          style={{background: "'rgb(27, 148, 88)' height: '8px'"}}
+                        >
+                          <span
+                            className="van-progress__portion"
+                            style={{
+                              width: '0%',
+                              background: "'linearGradient(rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100% ')"}}
+                        
+                          ></span
+                          >
+                        </div>
+                      </div>
+                      <div data-v-31cfa30d="">
+                        <span data-v-31cfa30d="" className="level level7"
+                          >1151/300000000</span
+                        ><span data-v-31cfa30d=""
+                          >300000000 EXP can be leveled up</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    data-v-31cfa30d=""
+                    className="swiper-slide itemInfo level8"
+                    style={{marginRight:' 20px'}}
+                  >
+                    <div data-v-31cfa30d="" className="itemInfo-right">
+                      <img
+                        data-v-31cfa30d=""
+                        src="/assets/png/8-8cbed392.png"
+                      />
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-head">
+                      <div data-v-31cfa30d="">
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/2-5df32e87.png"
+                        />
+                        <h1 data-v-31cfa30d="" className="level2">VIP8</h1>
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/ununlocked-b5a4c7d0.png"
+                        /><span data-v-31cfa30d="">Not open yet</span>
+                      </div>
+                      <div data-v-31cfa30d="" className="mb30">
+                        <p data-v-31cfa30d="">
+                          Upgrading VIP8 requires <br />999998849EXP
+                        </p>
+                      </div>
+                      <div data-v-31cfa30d="" className="border level8">
+                        Bet ₹1=1EXP
+                      </div>
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-bottom">
+                      <p data-v-31cfa30d="">VIP8</p>
+                      <div data-v-31cfa30d="">
+                        <div
+                          data-v-31cfa30d=""
+                          className="van-progress level8"
+                          style={{background: 'rgb(52, 112, 230)', height: '8px'}}
+                        >
+                          <span
+                            className="van-progress__portion"
+                            style={{
+                              width: '0%',
+                              background: "'linearGradient(rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100% ')"}}
+                          ></span
+                          >
+                        </div>
+                      </div>
+                      <div data-v-31cfa30d="">
+                        <span data-v-31cfa30d="" className="level level8"
+                          >1151/1000000000</span
+                        ><span data-v-31cfa30d=""
+                          >1000000000 EXP can be leveled up</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    data-v-31cfa30d=""
+                    className="swiper-slide itemInfo level9"
+                    style={{marginRight:' 20px'}}
+                  >
+                    <div data-v-31cfa30d="" className="itemInfo-right">
+                      <img
+                        data-v-31cfa30d=""
+                        src="/assets/png/9-63365227.png"
+                      />
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-head">
+                      <div data-v-31cfa30d="">
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/2-5df32e87.png"
+                        />
+                        <h1 data-v-31cfa30d="" className="level2">VIP9</h1>
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/ununlocked-b5a4c7d0.png"
+                        /><span data-v-31cfa30d="">Not open yet</span>
+                      </div>
+                      <div data-v-31cfa30d="" className="mb30">
+                        <p data-v-31cfa30d="">
+                          Upgrading VIP9 requires <br />4999998849EXP
+                        </p>
+                      </div>
+                      <div data-v-31cfa30d="" className="border level9">
+                        Bet ₹1=1EXP
+                      </div>
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-bottom">
+                      <p data-v-31cfa30d="">VIP9</p>
+                      <div data-v-31cfa30d="">
+                        <div
+                          data-v-31cfa30d=""
+                          className="van-progress level9"
+                          style={{background: 'rgb(128, 56, 245)', height: '8px'}}
+                        >
+                          <span
+                            className="van-progress__portion"
+                            style={{
+                              width: '0%',
+                              background: "'linearGradient(rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100% ')"}}
+                          ></span
+                          >
+                        </div>
+                      </div>
+                      <div data-v-31cfa30d="">
+                        <span data-v-31cfa30d="" className="level level9"
+                          >1151/5000000000</span
+                        ><span data-v-31cfa30d=""
+                          >5000000000 EXP can be leveled up</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    data-v-31cfa30d=""
+                    className="swiper-slide itemInfo level10"
+                    style={{marginRight:' 20px'}}
+                  >
+                    <div data-v-31cfa30d="" className="itemInfo-right">
+                      <img
+                        data-v-31cfa30d=""
+                        src="/assets/png/10-0eaf39a0.png"
+                      />
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-head">
+                      <div data-v-31cfa30d="">
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/2-5df32e87.png"
+                        />
+                        <h1 data-v-31cfa30d="" className="level2">VIP10</h1>
+                        <img
+                          data-v-31cfa30d=""
+                          src="/assets/png/ununlocked-b5a4c7d0.png"
+                        /><span data-v-31cfa30d="">Not open yet</span>
+                      </div>
+                      <div data-v-31cfa30d="" className="mb30">
+                        <p data-v-31cfa30d="">
+                          Upgrading VIP10 requires <br />9999998848EXP
+                        </p>
+                      </div>
+                      <div data-v-31cfa30d="" className="border level10">
+                        Bet ₹1=1EXP
+                      </div>
+                    </div>
+                    <div data-v-31cfa30d="" className="itemInfo-bottom">
+                      <p data-v-31cfa30d="">VIP10</p>
+                      <div data-v-31cfa30d="">
+                        <div
+                          data-v-31cfa30d=""
+                          className="van-progress level10"
+                          style={{background: 'rgb(239, 123, 39)', height: '8px'}}
+                        >
+                          <span
+                            className="van-progress__portion"
+                            style={{
+                              width: '0%',
+                              background: "'linearGradient(rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100% ')"}}
+                          ></span
+                          >
+                        </div>
+                      </div>
+                      <div data-v-31cfa30d="">
+                        <span data-v-31cfa30d="" className="level level10"
+                          >1151/9999999999</span
+                        ><span data-v-31cfa30d=""
+                          >9999999999 EXP can be leveled up</span
+                        >
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div data-v-12a80a3e="" className="navbar__content-right"></div>
             </div>
           </div>
-        </div>
-        <div data-v-f1e983bd="" className="dailySignIn__container-hero">
-          <div data-v-f1e983bd="" className="dailySignIn__container-hero__header">
-            <h1 data-v-f1e983bd="">Attendance bonus</h1>
-            <p data-v-f1e983bd="">
-              Get rewards based on consecutive login days
-            </p>
-            <div data-v-f1e983bd="">
-              Attended consecutively<span data-v-f1e983bd="">{dailySignI.attendanceDays}</span>Day
-            </div>
-            <p data-v-f1e983bd="">Accumulated</p>
-            <h1 data-v-f1e983bd="">{dailySignI.accumulatedBonus}</h1>
-          </div>
-          <div data-v-f1e983bd="" className="dailySignIn__container-hero__footer">
-            <button data-v-f1e983bd="" onClick={()=>navigate('/activity/DailySignIn/Rules')}> Game Rules</button
-            ><button data-v-f1e983bd="" onClick={()=>navigate('/activity/DailySignIn/Record')}>Attendance history</button>
-          </div>
-        </div>
-        <div data-v-f1e983bd="" className="dailySignIn__container-content">
-          <div
-            data-v-f1e983bd=""
-            className="dailySignIn__container-content__wrapper"
-          >
-            <div
-              data-v-f1e983bd=""
-              className="dailySignIn__container-content__wrapper-block"
-            >
-              <div
-                data-v-f1e983bd=""
-                className="dailySignIn__container-content__wrapper-block__header"
-              >
-                <img
-                  data-v-f1e983bd=""
-                  className=""
-                  data-origin="/assets/png/SignInTop-2fa51663.png"
-                  src="/assets/png/SignInTop-2fa51663.png"
-                /><span data-v-f1e983bd="">₹5.00</span>
+          <div data-v-9bb5e81c="" data-v-92d3d2e1="" className="vip-content-weal">
+            <div data-v-9bb5e81c="" className="slide">
+              <div data-v-9bb5e81c="" className="vip-content-weal-head ar-1px-b">
+                <svg data-v-9bb5e81c="" className="svg-icon icon-diamond">
+                  <use href="#icon-diamond"></use>
+                </svg>
+                <h1 data-v-9bb5e81c="">VIP1 Benefits level</h1>
               </div>
-              <img
-                data-v-f1e983bd=""
-                className=""
-                data-origin="/assets/png/coin-294b6998.png"
-                src="/assets/png/coin-294b6998.png"
-              /><span data-v-f1e983bd=""
-                >1 Day</span
-              >
-            </div>
-            <div
-              data-v-f1e983bd=""
-              className="dailySignIn__container-content__wrapper-block"
-            >
-              <div
-                data-v-f1e983bd=""
-                className="dailySignIn__container-content__wrapper-block__header"
-              >
-                <img
-                  data-v-f1e983bd=""
-                  className=""
-                  data-origin="/assets/png/SignInTop-2fa51663.png"
-                  src="/assets/png/SignInTop-2fa51663.png"
-                /><span data-v-f1e983bd="">₹18.00</span>
+              <div data-v-9bb5e81c="" className="vip-content-weal-con">
+                <div data-v-9bb5e81c="">
+                  <img data-v-9bb5e81c="" src="/assets/png/1-fd9896f4.png" />
+                </div>
+                <div data-v-9bb5e81c="">
+                  <h2 data-v-9bb5e81c="">Level up rewards</h2>
+                  <span data-v-9bb5e81c=""
+                    >Each account can only receive 1 time</span
+                  >
+                </div>
+                <div data-v-9bb5e81c="">
+                  <p data-v-9bb5e81c="">
+                    <img
+                      data-v-9bb5e81c=""
+                      src="/assets/png/gold-4a60a059.png"
+                    />
+                    60
+                  </p>
+                  <p data-v-9bb5e81c="">
+                    <svg data-v-9bb5e81c="" className="svg-icon icon-love">
+                      <use href="#icon-love"></use>
+                    </svg>
+                    0
+                  </p>
+                </div>
               </div>
-              <img
-                data-v-f1e983bd=""
-                className=""
-                data-origin="/assets/png/coin-294b6998.png"
-                src="/assets/png/coin-294b6998.png"
-              /><span data-v-f1e983bd=""
-                >2 Day</span
-              >
-            </div>
-            <div
-              data-v-f1e983bd=""
-              className="dailySignIn__container-content__wrapper-block"
-            >
-              <div
-                data-v-f1e983bd=""
-                className="dailySignIn__container-content__wrapper-block__header"
-              >
-                <img
-                  data-v-f1e983bd=""
-                  className=""
-                  data-origin="/assets/png/SignInTop-2fa51663.png"
-                  src="/assets/png/SignInTop-2fa51663.png"
-                /><span data-v-f1e983bd="">₹100.00</span>
+              <div data-v-9bb5e81c="" className="vip-content-weal-con">
+                <div data-v-9bb5e81c="">
+                  <img data-v-9bb5e81c="" src="/assets/png/2-0a41a908.png" />
+                </div>
+                <div data-v-9bb5e81c="">
+                  <h2 data-v-9bb5e81c="">Monthly reward</h2>
+                  <span data-v-9bb5e81c=""
+                    >Each account can only receive 1 time per month</span
+                  >
+                </div>
+                <div data-v-9bb5e81c="">
+                  <p data-v-9bb5e81c="">
+                    <img
+                      data-v-9bb5e81c=""
+                      src="/assets/png/gold-4a60a059.png"
+                    />
+                    30
+                  </p>
+                  <p data-v-9bb5e81c="">
+                    <svg data-v-9bb5e81c="" className="svg-icon icon-love">
+                      <use href="#icon-love"></use>
+                    </svg>
+                    0
+                  </p>
+                </div>
               </div>
-              <img
-                data-v-f1e983bd=""
-                className=""
-                data-origin="/assets/png/coin-294b6998.png"
-                src="/assets/png/coin-294b6998.png"
-              /><span data-v-f1e983bd=""
-                >3 Day</span
-              >
-            </div>
-            <div
-              data-v-f1e983bd=""
-              className="dailySignIn__container-content__wrapper-block"
-            >
-              <div
-                data-v-f1e983bd=""
-                className="dailySignIn__container-content__wrapper-block__header"
-              >
-                <img
-                  data-v-f1e983bd=""
-                  className=""
-                  data-origin="/assets/png/SignInTop-2fa51663.png"
-                  src="/assets/png/SignInTop-2fa51663.png"
-                /><span data-v-f1e983bd="">₹200.00</span>
-              </div>
-              <img
-                data-v-f1e983bd=""
-                className=""
-                data-origin="/assets/png/coin-294b6998.png"
-                src="/assets/png/coin-294b6998.png"
-              /><span data-v-f1e983bd=""
-                >4 Day</span
-              >
-            </div>
-            <div
-              data-v-f1e983bd=""
-              className="dailySignIn__container-content__wrapper-block"
-            >
-              <div
-                data-v-f1e983bd=""
-                className="dailySignIn__container-content__wrapper-block__header"
-              >
-                <img
-                  data-v-f1e983bd=""
-                  className=""
-                  data-origin="/assets/png/SignInTop-2fa51663.png"
-                  src="/assets/png/SignInTop-2fa51663.png"
-                /><span data-v-f1e983bd="">₹400.00</span>
-              </div>
-              <img
-                data-v-f1e983bd=""
-                className=""
-                data-origin="/assets/png/coin-294b6998.png"
-                src="/assets/png/coin-294b6998.png"
-              /><span data-v-f1e983bd=""
-                >5 Day</span
-              >
-            </div>
-            <div
-              data-v-f1e983bd=""
-              className="dailySignIn__container-content__wrapper-block"
-            >
-              <div
-                data-v-f1e983bd=""
-                className="dailySignIn__container-content__wrapper-block__header"
-              >
-                <img
-                  data-v-f1e983bd=""
-                  className=""
-                  data-origin="/assets/png/SignInTop-2fa51663.png"
-                  src="/assets/png/SignInTop-2fa51663.png"
-                /><span data-v-f1e983bd="">₹3,000.00</span>
-              </div>
-              <img
-                data-v-f1e983bd=""
-                className=""
-                data-origin="/assets/png/coin-294b6998.png"
-                src="/assets/png/coin-294b6998.png"
-              /><span data-v-f1e983bd=""
-                >6 Day</span
-              >
-            </div>
-            <div
-              data-v-f1e983bd=""
-              className="dailySignIn__container-content__wrapper-block"
-            >
-              <span data-v-f1e983bd="" className="lastImage"
-                ><img
-                  data-v-f1e983bd=""
-                  className="ar-lazyload"
-                  data-origin="/assets/png/day7Bg-ada1d750.png" src="/assets/png/day7Bg-ada1d750.png"
-              /></span>
-              <div data-v-f1e983bd="">
-                <span data-v-f1e983bd="">₹7,000.00</span
-                ><span data-v-f1e983bd=""
-                  >7 Day</span
-                >
+              <div data-v-9bb5e81c="" className="vip-content-weal-con">
+                <div data-v-9bb5e81c="">
+                  <img data-v-9bb5e81c="" src="/assets/png/5-5e6a64b1.png" />
+                </div>
+                <div data-v-9bb5e81c="">
+                  <h2 data-v-9bb5e81c="">Rebate rate</h2>
+                  <span data-v-9bb5e81c="">Increase income of rebate</span>
+                </div>
+                <div data-v-9bb5e81c="">
+                  <p data-v-9bb5e81c="" className="max">
+                    <svg data-v-9bb5e81c="" className="svg-icon icon-weal5">
+                      <use href="#icon-weal5"></use></svg
+                    >0.05%
+                  </p>
+                </div>
               </div>
             </div>
           </div>
           <div
-            data-v-f1e983bd=""
-            className="dailySignIn__container-content__footer"
+            data-v-4e842459=""
+            data-v-92d3d2e1=""
+            className="vip-content-myWelfare"
+            style={{display: 'none'}}
           >
-            <button data-v-f1e983bd="" className=""  onClick={attendanceBonus }>Attendance</button>
+            <div data-v-4e842459="" className="slideMy">
+              <div
+                data-v-4e842459=""
+                className="vip-content-myWelfare-head ar-1px-b"
+              >
+                <svg data-v-4e842459="" className="svg-icon icon-crown">
+                  <use href="#icon-crown"></use>
+                </svg>
+                <h1 data-v-4e842459="">My benefits</h1>
+              </div>
+              <div data-v-4e842459="" className="vip-content-myWelfare-con"></div>
+            </div>
+          </div>
+          <div
+            data-v-eaa4a307=""
+            data-v-92d3d2e1=""
+            className="vip-content-recordVsrule"
+          >
+            <div data-v-eaa4a307="" className="vip-content-recordVsrule-head">
+              <button data-v-eaa4a307="" className="active">History</button
+              ><button data-v-eaa4a307="" className="">Rules</button>
+            </div>
+            <div data-v-eaa4a307="" className="vip-content-recordVsrule-con">
+              <div data-v-eaa4a307="" className="item ar-1px-b">
+                <div data-v-eaa4a307="" className="item-left">
+                  <span data-v-eaa4a307="" className="blue">Experience Bonus</span
+                  ><span data-v-eaa4a307="">Betting EXP</span
+                  ><span data-v-eaa4a307="">2024-08-12 18:00:59</span>
+                </div>
+                <div data-v-eaa4a307="" className="item-right">
+                  <span data-v-eaa4a307=""></span
+                  ><span data-v-eaa4a307=""></span
+                  ><span data-v-eaa4a307="" className="green">38 EXP</span>
+                </div>
+              </div>
+              <div data-v-eaa4a307="" className="item ar-1px-b">
+                <div data-v-eaa4a307="" className="item-left">
+                  <span data-v-eaa4a307="" className="blue">Experience Bonus</span
+                  ><span data-v-eaa4a307="">Betting EXP</span
+                  ><span data-v-eaa4a307="">2024-08-12 17:50:51</span>
+                </div>
+                <div data-v-eaa4a307="" className="item-right">
+                  <span data-v-eaa4a307=""></span
+                  ><span data-v-eaa4a307=""></span
+                  ><span data-v-eaa4a307="" className="green">33 EXP</span>
+                </div>
+              </div>
+              <div data-v-eaa4a307="" className="item ar-1px-b">
+                <div data-v-eaa4a307="" className="item-left">
+                  <span data-v-eaa4a307="" className="blue">Experience Bonus</span
+                  ><span data-v-eaa4a307="">Betting EXP</span
+                  ><span data-v-eaa4a307="">2024-08-12 17:31:00</span>
+                </div>
+                <div data-v-eaa4a307="" className="item-right">
+                  <span data-v-eaa4a307=""></span
+                  ><span data-v-eaa4a307=""></span
+                  ><span data-v-eaa4a307="" className="green">39 EXP</span>
+                </div>
+              </div>
+
+
+              <div data-v-eaa4a307="" className="vip-content-recordVsrule-con">
+                <div data-v-eaa4a307="" className="con-content">
+                  <div data-v-eaa4a307="" className="con-content__title">
+                    <h1 data-v-eaa4a307="">VIP privileges</h1>
+                    <p data-v-eaa4a307="">VIP rule description</p>
+                  </div>
+                  <div data-v-eaa4a307="" className="con-content__rules">
+                    <div
+                      data-v-eaa4a307=""
+                      className="con-content__rules-item ruleHead"
+                    >
+                      <svg data-v-eaa4a307="" className="svg-icon icon-ruleHead">
+                        <use href="#icon-ruleHead"></use>
+                      </svg>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__title"
+                      >
+                        Upgrade standard
+                      </div>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__titleRight"
+                      ></div>
+                      <p data-v-eaa4a307="">
+                        The IP member's experience points (valid bet amount)
+                        that meet the requirements of the corresponding rank
+                        will be promoted to the corresponding VIP level, the
+                        member's VIP data statistics period starts from 00:00:00
+                        days VIP system launched.VIP level calculation is
+                        refreshed every 10 minutes! The corresponding experience
+                        level is calculated according to valid odds 1:1 !
+                      </p>
+                    </div>
+                    <div
+                      data-v-eaa4a307=""
+                      className="con-content__rules-item ruleHead"
+                    >
+                      <svg data-v-eaa4a307="" className="svg-icon icon-ruleHead">
+                        <use href="#icon-ruleHead"></use>
+                      </svg>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__title"
+                      >
+                        Upgrade order
+                      </div>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__titleRight"
+                      ></div>
+                      <p data-v-eaa4a307="">
+                        The VIP level that meets the corresponding requirements
+                        can be promoted by one level every day, but the VIP
+                        level cannot be promoted by leapfrogging.
+                      </p>
+                    </div>
+                    <div
+                      data-v-eaa4a307=""
+                      className="con-content__rules-item ruleHead"
+                    >
+                      <svg data-v-eaa4a307="" className="svg-icon icon-ruleHead">
+                        <use href="#icon-ruleHead"></use>
+                      </svg>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__title"
+                      >
+                        Level maintenance
+                      </div>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__titleRight"
+                      ></div>
+                      <p data-v-eaa4a307="">
+                        VIP members need to complete the maintenance
+                        requirements of the corresponding level within 30 days
+                        after the "VIP level change"; if the promotion is
+                        completed during this period, the maintenance
+                        requirements will be calculated according to the current
+                        level.
+                      </p>
+                    </div>
+                    <div
+                      data-v-eaa4a307=""
+                      className="con-content__rules-item ruleHead"
+                    >
+                      <svg data-v-eaa4a307="" className="svg-icon icon-ruleHead">
+                        <use href="#icon-ruleHead"></use>
+                      </svg>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__title"
+                      >
+                        Downgrade standard
+                      </div>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__titleRight"
+                      ></div>
+                      <p data-v-eaa4a307="">
+                        If a VIP member fails to complete the corresponding
+                        level maintenance requirements within 30 days, the
+                        system will automatically deduct the experience points
+                        corresponding to the level. If the experience points are
+                        insufficient, the level will be downgraded, and the
+                        corresponding discounts will be adjusted to the
+                        downgraded level accordingly.
+                      </p>
+                    </div>
+                    <div
+                      data-v-eaa4a307=""
+                      className="con-content__rules-item ruleHead"
+                    >
+                      <svg data-v-eaa4a307="" className="svg-icon icon-ruleHead">
+                        <use href="#icon-ruleHead"></use>
+                      </svg>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__title"
+                      >
+                        Upgrade Bonus
+                      </div>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__titleRight"
+                      ></div>
+                      <p data-v-eaa4a307="">
+                        The upgrade benefits can be claimed on the VIP page
+                        after the member reaches the VIP membership level, and
+                        each VIP member can only get the upgrade reward of each
+                        level once.
+                      </p>
+                    </div>
+                    <div
+                      data-v-eaa4a307=""
+                      className="con-content__rules-item ruleHead"
+                    >
+                      <svg data-v-eaa4a307="" className="svg-icon icon-ruleHead">
+                        <use href="#icon-ruleHead"></use>
+                      </svg>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__title"
+                      >
+                        Monthly reward
+                      </div>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__titleRight"
+                      ></div>
+                      <p data-v-eaa4a307="">
+                        VIP members can earn the highest level of VIP rewards
+                        once a month.Can only be received once a month. Prizes
+                        cannot be accumulated. And any unclaimed rewards will be
+                        refreshed on the next settlement day. When receiving the
+                        highest level of monthly rewards this month Monthly
+                        Rewards earned in this month will be deducted e.g. when
+                        VIP1 earns 500 and upgrades to VIP2 to receive monthly
+                        rewards 500 will be deducted.
+                      </p>
+                    </div>
+                    <div
+                      data-v-eaa4a307=""
+                      className="con-content__rules-item ruleHead"
+                    >
+                      <svg data-v-eaa4a307="" className="svg-icon icon-ruleHead">
+                        <use href="#icon-ruleHead"></use>
+                      </svg>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__title"
+                      >
+                        Real-time rebate
+                      </div>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__titleRight"
+                      ></div>
+                      <p data-v-eaa4a307="">
+                        The higher the VIP level, the higher the return rate,
+                        all the games are calculated in real time and can be
+                        self-rewarded!
+                      </p>
+                    </div>
+                    <div
+                      data-v-eaa4a307=""
+                      className="con-content__rules-item ruleHead"
+                    >
+                      <svg data-v-eaa4a307="" className="svg-icon icon-ruleHead">
+                        <use href="#icon-ruleHead"></use>
+                      </svg>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__title"
+                      >
+                        Safe
+                      </div>
+                      <div
+                        data-v-eaa4a307=""
+                        className="con-content__rules-item__titleRight"
+                      ></div>
+                      <p data-v-eaa4a307="">
+                        VIP members who have reached the corresponding level
+                        will get additional benefits on safe deposit based on
+                        the member's VIP level.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button data-v-eaa4a307="">View All</button>
+            </div>
           </div>
         </div>
       </div>
-      
       <div
         className="customer"
         id="customerId"
         style={{
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
-          '--f6a705e1CurrentFontFamily': 'bahnschrift'
+         ' F13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
+         'F6a705e1CurrentFontFamily': 'bahnschrift',
         }}
       >
         <img
@@ -9791,54 +10530,8 @@ export default function DailySignI() {
           src="/assets/png/icon_sevice-9f0c8455.png"
         />
       </div>
-     
-    </div>
-
-    <div data-v-app=""></div>
-    <div className="van-overlay" style={{zIindex: '2001', display: 'none'}}></div>
-    <div
-      role="dialog"
-      tabIndex="0"
-      className="van-popup van-popup--center van-dialog"
-      aria-labelledby="Please enter gift code"
-      style={{zIndex: '2001' ,display: 'none'}}
-    >
-     
-      <div className="van-dialog__content van-dialog__content--isolated">
-        <div className="van-dialog__message">Please enter gift code</div>
-      </div>
-      <div className="van-hairline--top van-dialog__footer">
-       <button
-          type="button"
-          className="van-button van-button--default van-button--large van-dialog__confirm"
-        >
-          <div className="van-button__content">
-           <span className="van-button__text">Confirm</span
-            >
-          </div>
-        </button>
-      </div>
-     
-    </div>
-    <div data-v-app=""></div>
-   
-    <div
-      role="dialog"
-      tabIndex="0"
-      className="van-popup van-popup--center van-toast van-toast--middle van-toast--break-word van-toast--fail"
-      style={{zIndex: '2002', display: 'none'}}
-    >
-      <i className="van-badge__wrapper van-icon van-icon-fail van-toast__icon"
-        ></i
-      >
-      <div className="van-toast__text">
-        Error: 502 The deposit amount does not meet the standard
-      </div>
-     
     </div>
   
-
-
     </div>
   )
 }

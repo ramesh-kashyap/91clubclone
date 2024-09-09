@@ -39,6 +39,9 @@ import Server from './pages/promotion/Server';
 import BetRecords from './pages/account/BetRecords';
 import ConfirmDeposit from './pages/wallet/ConfirmDeposit';
 import D5 from  './pages/bet/5d/D5';
+import Subordinate from './pages/promotion/Subordinate';
+import Vip from './pages/account/Vip';
+
 
 
 
@@ -134,8 +137,10 @@ function App() {
         <Route path="main/SettingCenters" element={<PrivateRoute><SettingCenters/></PrivateRoute>}/>
         <Route path="main/SettingCenter/LoginPassword" element={<PrivateRoute><LoginPassword/></PrivateRoute>}/>
         <Route path="main/SettingCenter/BindEmail" element={<PrivateRoute><BindEmail/></PrivateRoute>}/>
+        <Route path="/promotion/Subordinate" element={<PrivateRoute><Subordinate/></PrivateRoute>}/>
+        <Route path="/Vip" element={<PrivateRoute><Vip/></PrivateRoute>}/>
 
-
+         
 
 
 
