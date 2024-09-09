@@ -14,6 +14,10 @@ import Promotionrule from './pages/promotion/PromotionRule';
 import Wallet from './pages/wallet/Wallet';
 import Wingo from  './pages/bet/wingo/Wingo';
 import K3 from './pages/bet/k3/K3';
+import K33 from './pages/bet/k3/K33';
+import K35 from './pages/bet/k3/K35';
+import K310 from './pages/bet/k3/K310';
+
 import PrivateRoute from './components/PrivateRoute'; // Import the PrivateRoute component
 import Account from './pages/account/Account';
 import Withdraw from'./pages/wallet/Withdraw';
@@ -39,6 +43,9 @@ import Server from './pages/promotion/Server';
 import BetRecords from './pages/account/BetRecords';
 import ConfirmDeposit from './pages/wallet/ConfirmDeposit';
 import D5 from  './pages/bet/5d/D5';
+import D53 from  './pages/bet/5d/D53';
+import D55 from  './pages/bet/5d/D55';
+import D510 from  './pages/bet/5d/D510';
 import Subordinate from './pages/promotion/Subordinate';
 import Vip from './pages/account/Vip';
 // import Notification from './pages/account/Notification';
@@ -135,6 +142,11 @@ function App() {
         {/* <Route path="/home/Messages" element={<PrivateRoute><Notification/></PrivateRoute>}/> */}
         
         <Route path="home/AllLotteryGames/5D" element={<PrivateRoute><D5/></PrivateRoute>}/>
+        <Route path="home/AllLotteryGames/5D/3" element={<PrivateRoute><D53/></PrivateRoute>}/>
+        <Route path="home/AllLotteryGames/5D/5" element={<PrivateRoute><D55/></PrivateRoute>}/>
+        <Route path="home/AllLotteryGames/5D/10" element={<PrivateRoute><D510/></PrivateRoute>}/>
+
+
         <Route path="main/SettingCenters" element={<PrivateRoute><SettingCenters/></PrivateRoute>}/>
         <Route path="main/SettingCenter/LoginPassword" element={<PrivateRoute><LoginPassword/></PrivateRoute>}/>
         <Route path="main/SettingCenter/BindEmail" element={<PrivateRoute><BindEmail/></PrivateRoute>}/>
@@ -160,6 +172,10 @@ function App() {
 
 
         <Route path="/AllLotteryGames/K3" element={<PrivateRoute><K3/></PrivateRoute>}/>
+        <Route path="/AllLotteryGames/K3/3" element={<PrivateRoute><K33/></PrivateRoute>}/>
+        <Route path="/AllLotteryGames/K3/5" element={<PrivateRoute><K35/></PrivateRoute>}/>
+        <Route path="/AllLotteryGames/K3/10" element={<PrivateRoute><K310/></PrivateRoute>}/>
+
        
         <Route path="/wallet/deposit" element={<PrivateRoute><Deposit/></PrivateRoute>}/>
         <Route

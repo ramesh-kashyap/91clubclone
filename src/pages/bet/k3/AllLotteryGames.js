@@ -9546,7 +9546,7 @@ export default function AllLotteryGames() {
           </svg>
           <div className="noticeBar__container-body">
             <div className="noticeBar__container-body-text">
-              Be cautious of counterfeit websites mimicking our 91CLUB official
+              Be cautious of counterfeit websites mimicking our Big Daddy Pro official
               site, do not transfer money to anyone, including agents, and keep
               payment receipts and UTR numbers confidential.
             </div>
