@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect , useState } from 'react';
 import Api from '../../services/Api';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +10,6 @@ export default function Register() {
     const [invitecode, setInvitecode] = useState(''); // New state for invite code
     const [error, setError] = useState('');
     const navigate = useNavigate();
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
@@ -34,6 +33,17 @@ export default function Register() {
           setError('An error occurred. Please try again.');
         }
     };
+
+    
+      
+
+      useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code'); // Get the 'code' query parameter
+        if (code) {
+          setInvitecode(code); // Set the invite code as the default value
+        }
+      }, []);
       
   return (
     <div> 

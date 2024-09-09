@@ -1,7 +1,66 @@
-import React from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Api from '../../services/Api';
 
 export default function DailySignI() {
+
+
+
+
+  const [dailySignI, setDailySignI] = useState([]);
+
+  const [error, setError] = useState(null);
+
+
+
+
+  const attendanceBonus = async (e) => {
+    try {
+      // Call the API endpoint
+      const response = await Api.post('/api/webapi/attendanceBonus', {
+        // Any required parameters to be sent to the API
+      });
+      
+      console.log(response.data);
+
+      // If API call is successful and status is true
+      if (response.data.status === true) {
+        // Handle success (add success logic here if needed)
+      } else {
+        // Set error message if status is not true
+        setError(response.data.message);
+      }
+    } catch (err) {
+      // Handle any errors during the API call
+      setError('An error occurred. Please try again.');
+    }
+  };
+
+  const fetchDailySignI= async () => {
+    try {
+      const response = await Api.get('/api/webapi/getAttendanceInfo');
+      const data =  response.data;
+
+      console.log(data);
+
+      setDailySignI(data); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+
+  useEffect(() => {
+    fetchDailySignI();  
+ 
+
+   
+  }, []);
+
+
   const navigate = useNavigate();
   return (
     <div style={{fontSize: '12px'}}>
@@ -9532,10 +9591,10 @@ export default function DailySignI() {
               Get rewards based on consecutive login days
             </p>
             <div data-v-f1e983bd="">
-              Attended consecutively<span data-v-f1e983bd="">0</span>Day
+              Attended consecutively<span data-v-f1e983bd="">{dailySignI.attendanceDays}</span>Day
             </div>
             <p data-v-f1e983bd="">Accumulated</p>
-            <h1 data-v-f1e983bd="">₹0.00</h1>
+            <h1 data-v-f1e983bd="">{dailySignI.accumulatedBonus}</h1>
           </div>
           <div data-v-f1e983bd="" className="dailySignIn__container-hero__footer">
             <button data-v-f1e983bd="" onClick={()=>navigate('/activity/DailySignIn/Rules')}> Game Rules</button
@@ -9713,7 +9772,7 @@ export default function DailySignI() {
             data-v-f1e983bd=""
             className="dailySignIn__container-content__footer"
           >
-            <button data-v-f1e983bd="" className="">Attendance</button>
+            <button data-v-f1e983bd="" className=""  onClick={attendanceBonus }>Attendance</button>
           </div>
         </div>
       </div>
