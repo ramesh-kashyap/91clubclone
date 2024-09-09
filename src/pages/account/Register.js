@@ -39,7 +39,7 @@ export default function Register() {
 
       useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
-        const code = urlParams.get('code'); // Get the 'code' query parameter
+        const code = urlParams.get('invitationCode'); // Get the 'code' query parameter
         if (code) {
           setInvitecode(code); // Set the invite code as the default value
         }

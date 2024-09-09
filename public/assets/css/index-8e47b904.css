@@ -116,7 +116,7 @@
     letter-spacing: .05333rem;
     border-radius: 1.06667rem;
     border: none;
-    background: var(--main_gradient-color);
+    background: var(--main_gradient-color2);
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
