@@ -10070,9 +10070,7 @@ export default function Wingo3() {
   }}>
         <div data-v-17d56002="">Win Go<br />5Min</div>
       </div>
-      <div data-v-17d56002="" className="GameList__C-item" onClick={() => {
-    navigate('/wingo10');
-  }}>
+      <div data-v-17d56002="" className="GameList__C-item" onClick={() => {navigate('/wingo10');}}>
         <div data-v-17d56002="">Win Go<br />10Min</div>
       </div>
     </div>

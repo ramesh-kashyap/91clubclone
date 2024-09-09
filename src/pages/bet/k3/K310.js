@@ -56,6 +56,7 @@ const showSection = (sectionId) => {
 
 
   const [time, setTime] = useState({
+    minute: 0,
     seconds1: 0,
     seconds2: 0,
   });
@@ -194,12 +195,14 @@ useEffect(() => {
     intervalId = setInterval(() => {
       const now = new Date().getTime();
       const distance = countDownDate - now;
+      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const minute = Math.ceil(minutes % 10);
       const seconds1 = Math.floor((distance % (1000 * 60)) / 10000);
       const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
-      setTime({ seconds1, seconds2 });
+      setTime({ minute, seconds1, seconds2 });
 
       if (userInteracted) { // Play audio only if the user has interacted
-        if (seconds1 === 0 && seconds2 > 0 && seconds2 <= 5) {
+        if (minute === 0 && seconds1 === 0 && seconds2 > 0 && seconds2 <= 5) {
           if (audio1Ref.current && audio1Ref.current.paused) {
             audio1Ref.current.play();
           }
@@ -211,7 +214,7 @@ useEffect(() => {
         }
       }
 
-      if (seconds1 === 0 && seconds2 === 0) {
+      if (minute === 0 && seconds1 === 0 && seconds2 === 0) {
         console.log('Playing audio2');
         setPlayAudio2(true);
         setAudio2Played(true);
@@ -220,7 +223,7 @@ useEffect(() => {
         }, 3000); // Adjust this duration based on the length of audio2
       }
 
-      if (seconds1 !== 0 || seconds2 > 5) {
+      if (minute === 0 && seconds1 !== 0 || seconds2 > 5) {
         setShowMark(false);
 
         if (userInteracted && audio1Ref.current) { // Only pause audio if user interacted
@@ -229,7 +232,7 @@ useEffect(() => {
         }
       }
 
-      if (seconds1 === 0 && seconds2 <= 5) {
+      if (minute === 0 && seconds1 === 0 && seconds2 <= 5) {
         handleClosePopup();
         setListJoin([]);
         setShowMark(true);
@@ -256,7 +259,7 @@ useEffect(() => {
       const pageno = (pageNumber - 1) * 10; // Calculate pageno based on the page number
 
       const response = await Api.post('/api/webapi/k3/GetNoaverageEmerdList', {
-        gameJoin: "1",
+        gameJoin: "10",
         pageno: pageno.toString(),
         pageto: "10",
       });
@@ -298,7 +301,7 @@ useEffect(() => {
     try {
       const pageno = (pageNumber - 1) * 10; // Calculate pageno based on the page number
       const response = await Api.post('/api/webapi/k3/GetMyEmerdList', {
-        gameJoin: "1",
+        gameJoin: "10",
         pageno: pageno.toString(),
         pageto: "10",
       });
@@ -343,7 +346,7 @@ useEffect(() => {
 
     const handleSocketData = async (msg) => {
 
-      if (msg.game !== '1') return;
+      if (msg.game !== '3') return;
 
         console.log(msg.data[0]);
 
@@ -580,7 +583,7 @@ useEffect(() => {
           <button className="hotIcon">Detail</button>
         </div>
         <div data-v-17d56002="" data-v-d024c659="" className="GameList__C">
-        <div data-v-17d56002="" className="GameList__C-item active" onClick={() => {navigate('/AllLotteryGames/K3');}}>
+        <div data-v-17d56002="" className="GameList__C-item" onClick={() => {navigate('/AllLotteryGames/K3');}}>
 
     <div data-v-17d56002="">K3 Lotre <br />1Min</div>
   </div>
@@ -595,7 +598,7 @@ useEffect(() => {
     <div data-v-17d56002="">K3 Lotre<br />5Min</div>
   </div>
 
-  <div data-v-17d56002="" className="GameList__C-item" onClick={() => {navigate('/AllLotteryGames/K3/10');}}>
+  <div data-v-17d56002="" className="GameList__C-item active" onClick={() => {navigate('/AllLotteryGames/K3/10');}}>
 
     <div data-v-17d56002="">K3 Lotre<br />10Min</div>
   </div>
@@ -630,7 +633,7 @@ useEffect(() => {
             <div data-v-75b35bf5="">{period}</div>
             <div data-v-75b35bf5="" className="K3TL__C-time">
               <div data-v-75b35bf5="">0</div>
-              <div data-v-75b35bf5="">0</div>
+              <div data-v-75b35bf5="">{time.minute}</div>
               <div data-v-75b35bf5="" notime="">:</div>
               <div data-v-75b35bf5="">{time.seconds1}</div>
               <div data-v-75b35bf5="">{time.seconds2}</div>

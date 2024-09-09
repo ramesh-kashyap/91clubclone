@@ -71,6 +71,7 @@ const showSection = (sectionId) => {
 
 
   const [time, setTime] = useState({
+    minute: 0,
     seconds1: 0,
     seconds2: 0,
   });
@@ -209,12 +210,14 @@ useEffect(() => {
     intervalId = setInterval(() => {
       const now = new Date().getTime();
       const distance = countDownDate - now;
+      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const minute = Math.ceil(minutes % 3);
       const seconds1 = Math.floor((distance % (1000 * 60)) / 10000);
       const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
-      setTime({ seconds1, seconds2 });
+      setTime({ minute, seconds1, seconds2 });
 
       if (userInteracted) { // Play audio only if the user has interacted
-        if (seconds1 === 0 && seconds2 > 0 && seconds2 <= 5) {
+        if (minute === 0 && seconds1 === 0 && seconds2 > 0 && seconds2 <= 5) {
           if (audio1Ref.current && audio1Ref.current.paused) {
             audio1Ref.current.play();
           }
@@ -226,7 +229,7 @@ useEffect(() => {
         }
       }
 
-      if (seconds1 === 0 && seconds2 === 0) {
+      if (minute === 0 && seconds1 === 0 && seconds2 === 0) {
         console.log('Playing audio2');
         setPlayAudio2(true);
         setAudio2Played(true);
@@ -235,7 +238,7 @@ useEffect(() => {
         }, 3000); // Adjust this duration based on the length of audio2
       }
 
-      if (seconds1 !== 0 || seconds2 > 5) {
+      if (minute === 0 && seconds1 !== 0 || seconds2 > 5) {
         setShowMark(false);
 
         if (userInteracted && audio1Ref.current) { // Only pause audio if user interacted
@@ -244,7 +247,7 @@ useEffect(() => {
         }
       }
 
-      if (seconds1 === 0 && seconds2 <= 5) {
+      if (minute === 0 && seconds1 === 0 && seconds2 <= 5) {
         handleClosePopup();
         setListJoin([]);
         setShowMark(true);
@@ -271,7 +274,7 @@ useEffect(() => {
       const pageno = (pageNumber - 1) * 10; // Calculate pageno based on the page number
 
       const response = await Api.post('/api/webapi/5d/GetNoaverageEmerdList', {
-        gameJoin: "1",
+        gameJoin: "3",
         pageno: pageno.toString(),
         pageto: "10",
       });
@@ -319,7 +322,7 @@ useEffect(() => {
     try {
       const pageno = (pageNumber - 1) * 10; // Calculate pageno based on the page number
       const response = await Api.post('/api/webapi/5d/GetMyEmerdList', {
-        gameJoin: "1",
+        gameJoin: "3",
         pageno: pageno.toString(),
         pageto: "10",
       });
@@ -364,7 +367,7 @@ useEffect(() => {
 
     const handleSocketData = async (msg) => {
 
-      if (msg.game !== '1') return;
+      if (msg.game !== '3') return;
 
         console.log(msg.data[0]);
 
@@ -702,10 +705,10 @@ useEffect(() => {
           <button className="hotIcon">Detail</button>
         </div>
         <div data-v-17d56002="" data-v-4f526022="" className="GameList__C">
-          <div data-v-17d56002="" className="GameList__C-item active" onClick={() => {navigate('/home/AllLotteryGames/5D');}}>
+          <div data-v-17d56002="" className="GameList__C-item" onClick={() => {navigate('/home/AllLotteryGames/5D');}}>
             <div data-v-17d56002="">5D<br />1Min</div>
           </div>
-          <div data-v-17d56002="" className="GameList__C-item" onClick={() => {navigate('/home/AllLotteryGames/5D/3');}}>
+          <div data-v-17d56002="" className="GameList__C-item active" onClick={() => {navigate('/home/AllLotteryGames/5D/3');}}>
             <div data-v-17d56002="">5D<br />3Min</div>
           </div>
           <div data-v-17d56002="" className="GameList__C-item" onClick={() => {navigate('/home/AllLotteryGames/5D/5');}}>
@@ -746,7 +749,7 @@ useEffect(() => {
             <div data-v-69f351dd="">{lastResult.period + 1}</div>
             <div data-v-69f351dd="" className="FDTL__C-time">
               <div data-v-69f351dd="">0</div>
-              <div data-v-69f351dd="">0</div>
+              <div data-v-69f351dd="">{time.minute}</div>
               <div data-v-69f351dd="" notime="">:</div>
               <div data-v-69f351dd="">{time.seconds1}</div>
               <div data-v-69f351dd="">{time.seconds2}</div>
