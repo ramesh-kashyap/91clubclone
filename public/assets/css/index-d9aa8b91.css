@@ -1674,7 +1674,7 @@ textarea {
 
 :root {
     --main-color: #d9ac4f;
-    --main_gradient-color: linear-gradient(90deg, #FAE59F 0%, #C4933F 100%);
+    --main_gradient-color: linear-gradient(90deg, #333332 0%, #333332 100%)
     --main_gradient-color2: linear-gradient(90deg, #FAE59F 0%, #C4933F 100%);
     --light-main_gradient-color: var(--main_gradient-color);
     --text_white: #fff;
