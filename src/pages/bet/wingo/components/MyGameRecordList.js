@@ -138,9 +138,9 @@ const MyGameRecordList = ({ myBets }) => {
       <div
         data-v-2faec5cb=""
         className={`MyGameRecordList__C-inlineB
-          ${bet.result === 0 ? 'redColor'
-            : bet.result === 5 ? 'greenColor'
-            : bet.result % 2 === 0 ? 'redColor' : 'greenColor'
+          ${bet.result === 0 ? 'red'
+            : bet.result === 5 ? 'green'
+            : bet.result % 2 === 0 ? 'red' : 'green'
           }`}
       >
         {bet.result === 0 ? 'Red'

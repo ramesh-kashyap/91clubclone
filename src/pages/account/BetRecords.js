@@ -14,7 +14,7 @@ export default function BetRecords() {
 
   const fetchBetRecords= async () => {
     try {
-      const response = await Api.post('/api/webapi/GetMyEmerdList');
+      const response = await Api.post('/api/webapi/WingoBetList?page=1&limit=5');
       const data =  response.data;
 
       console.log(data.data.gameslist);
@@ -35,6 +35,32 @@ export default function BetRecords() {
 
    
   }, []);
+
+
+
+  const formatTimestampToIST = (timestamp) => {
+    try {
+      // Convert the timestamp to a number if it's in string format
+      const numericTimestamp = Number(timestamp);
+  
+      // If the timestamp is in seconds (10 digits), convert it to milliseconds
+      const validTimestamp = numericTimestamp.toString().length === 13 ? numericTimestamp : numericTimestamp * 1000;
+  
+      // Create a Date object from the valid timestamp
+      const date = new Date(validTimestamp);
+  
+      // Check if the Date object is valid
+      if (isNaN(date.getTime())) {
+        throw new Error('Invalid Date');
+      }
+  
+      // Format the date in IST
+      return date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+    } catch (error) {
+      return 'Invalid Timestamp';
+    }
+  };
+
 
 
   const handleSection = () => {
@@ -9979,7 +10005,7 @@ export default function BetRecords() {
                         <h2 data-v-1d8fbc24="" style={{fontSize: '120%'}}>Win Go</h2>
                         <span data-v-1d8fbc24="" className="colorE98613" style={{marginLeft:'310px'}}>lose</span>
                       </div>
-                      <p data-v-1d8fbc24="">2024-08-12 18:00:14</p>
+                      <p data-v-1d8fbc24="">{formatTimestampToIST(history.time)}</p>
                     </div>
                     <div
                       data-v-1d8fbc24=""
@@ -9995,7 +10021,7 @@ export default function BetRecords() {
                               <use href="#icon-round"></use>
                             </svg>
                             <h2 data-v-1d8fbc24="">Type</h2></span
-                          ><span data-v-1d8fbc24="">Win Go 30 second</span>
+                          ><span data-v-1d8fbc24="">{history.game}</span>
                         </li>
                         <li data-v-1d8fbc24="">
                           <span data-v-1d8fbc24=""
@@ -10031,7 +10057,7 @@ export default function BetRecords() {
                             </svg>
                             <h2 data-v-1d8fbc24="">Select</h2></span
                           >
-                          <p data-v-1d8fbc24="">{history.result}</p>
+                          <p data-v-1d8fbc24="">{history.bet}</p>
                         </li>
                         <li data-v-1d8fbc24="">
                           <span data-v-1d8fbc24=""
@@ -10042,7 +10068,7 @@ export default function BetRecords() {
                               <use href="#icon-round"></use>
                             </svg>
                             <h2 data-v-1d8fbc24="">Total bet</h2></span
-                          ><span data-v-1d8fbc24="">{history.bet}</span>
+                          ><span data-v-1d8fbc24="">{history.amount}</span>
                         </li>
                       </ul>
                     </div>
@@ -10081,7 +10107,7 @@ export default function BetRecords() {
                           data-v-1d8fbc24=""
                           className="bet-container-lottery-note-box-para"
                         >
-                          <h3 data-v-1d8fbc24="">₹4.90</h3>
+                          <h3 data-v-1d8fbc24="">{history.money}</h3>
                           <span data-v-1d8fbc24="">Actual amount</span>
                         </div>
                       </div>
@@ -10090,7 +10116,7 @@ export default function BetRecords() {
                           data-v-1d8fbc24=""
                           className="bet-container-lottery-note-box-para"
                         >
-                          <h3 data-v-1d8fbc24="">₹0.00</h3>
+                          <h3 data-v-1d8fbc24="">{history.fee}</h3>
                           <span data-v-1d8fbc24="">Winnings</span>
                         </div>
                       </div>
@@ -10099,7 +10125,7 @@ export default function BetRecords() {
                           data-v-1d8fbc24=""
                           className="bet-container-lottery-note-box-para"
                         >
-                          <h3 data-v-1d8fbc24="">₹0.10</h3>
+                          <h3 data-v-1d8fbc24="">{history.fee}</h3>
                           <span data-v-1d8fbc24="">Handling fee</span>
                         </div>
                       </div>
@@ -10108,7 +10134,7 @@ export default function BetRecords() {
                           data-v-1d8fbc24=""
                           className="bet-container-lottery-note-box-para"
                         >
-                          <h4 data-v-1d8fbc24="" className="h4_red">-₹5.00</h4>
+                          <h4 data-v-1d8fbc24="" className="h4_red">{history.fee}</h4>
                           <span data-v-1d8fbc24="">Profit/loss</span>
                         </div>
                       </div>
