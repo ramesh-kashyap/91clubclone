@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Deposit(){
 const [activeSection, setActiveSection] = useState('section1');
 const [selectedAmount, setSelectedAmount] = useState('');
 const [inputAmount, setInputAmount] = useState('');
+const [rupeesAmount, setRupeesAmount] =useState('');
 const navigate = useNavigate();
 const showSection = (sectionId) => {
     setActiveSection(sectionId);
@@ -16,23 +17,20 @@ const showSection = (sectionId) => {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
+    const rupeesAmount = inputAmount * 80;
+    setRupeesAmount(rupeesAmount);
     setInputAmount(value);
-
-   
-
-    // Clear the selectedAmount if input is changed manually and doesn't match any predefined amount
+    
     if (amounts[activeSection].indexOf(value) === -1) {
       setSelectedAmount(''); 
     } else {
-      setSelectedAmount(value); // Set selectedAmount to match input value
+      setSelectedAmount(value); 
     }
   };
   const handleSubmit = () => {
-    // Check if activeSection is 'section1' and inputAmount is provided
     if (activeSection === 'section1' && inputAmount) {
       navigate('/wallet/paymentPage', { state: { section: activeSection, amount: inputAmount } });
     } else {
-      // Handle cases for other sections if needed or show an alert
       console.log('Section is not section1 or inputAmount is missing.');
     }
   };
@@ -48,7 +46,6 @@ const showSection = (sectionId) => {
   const isActive = (amount) => {
     return selectedAmount === amount || inputAmount === amount;
   };
-
  
 
  return(
@@ -590,6 +587,45 @@ const showSection = (sectionId) => {
                     </div>
                     
                   </div>
+                 
+                  
+                </div>
+                
+                <div data-v-9e03166f="" className="place-right">
+                  <img
+                    data-v-9e03166f=""
+                    src="/assets/png/clean-82487515.png"
+                    alt=""
+                  />
+                </div>
+                
+              </div>
+
+              <div
+                data-v-9e03166f=""
+                className="Recharge__content-paymoney__money-input"
+              >
+                <div data-v-9e03166f="" className="place-div">₹
+</div>
+                <div
+                  data-v-9e03166f=""
+                  className="van-cell van-field amount-input"
+                  modelmodifiers="[object Object]"
+                >
+                  
+                  <div className="van-cell__value van-field__value">
+                    <div className="van-field__body">
+                      < input type = "text"
+                      inputmode = "numeric"
+                      id = "van-field-7-input"
+                      className = "van-field__control"
+                      value={rupeesAmount}
+                      readOnly
+                      />
+                    </div>
+                    
+                  </div>
+                 
                   
                 </div>
                 
