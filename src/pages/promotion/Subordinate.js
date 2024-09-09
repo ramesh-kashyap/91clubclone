@@ -13,9 +13,9 @@ export default function Subordinate() {
       const response = await Api.get('/api/webapi/myTeam');
       const data =  response.data;
 
-      console.log(data);
+      console.log(data.mem);
 
-      setSubordinate(data); // Assuming data.data contains the user's information
+      setSubordinate(data.mem); // Assuming data.data contains the user's information
 
 
     } catch (err) {
@@ -31,6 +31,34 @@ export default function Subordinate() {
 
    
   }, []);
+
+
+
+
+  const formatTimestampToIST = (timestamp) => {
+    try {
+      // Convert the timestamp to a number if it's in string format
+      const numericTimestamp = Number(timestamp);
+  
+      // If the timestamp is in seconds (10 digits), convert it to milliseconds
+      const validTimestamp = numericTimestamp.toString().length === 13 ? numericTimestamp : numericTimestamp * 1000;
+  
+      // Create a Date object from the valid timestamp
+      const date = new Date(validTimestamp);
+  
+      // Check if the Date object is valid
+      if (isNaN(date.getTime())) {
+        throw new Error('Invalid Date');
+      }
+  
+      // Format the date in IST
+      return date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+    } catch (error) {
+      return 'Invalid Timestamp';
+    }
+  };
+
+
 
 
 
@@ -9609,6 +9637,22 @@ style={{maskType: 'alpha'}}
           id="refreshfcad43c4076d42c4852a1b6b763f2739"
         >
           <div data-v-221aa0df="" className="subordinate__container-content"></div>
+
+
+          {subordinate.length === 0 || ! Array.isArray(subordinate) ? (
+          <div>No Data</div>
+        ) : (
+          subordinate.map((history, index) => (
+          <div  key={index}  data-v-61888f52=""  data-v-221aa0df="" className="infiniteScroll" id="refreshd99651ae141a44caa0e9c4c5f55d55a1"><div data-v-221aa0df="" className="subordinate__container-content">
+
+            <div data-v-221aa0df="" className="subordinate__container-content__item ar-1px-b"><div data-v-221aa0df=""><span data-v-221aa0df="">{history.phone}</span><span data-v-221aa0df="">{history.id_user}</span></div>
+            <div data-v-221aa0df=""><span data-v-221aa0df="">my Team</span><span data-v-221aa0df="">{formatTimestampToIST(history.time)}</span></div></div>
+           </div>
+           
+           
+           </div>
+             ))
+            )}
           <div data-v-61888f52="" className="infiniteScroll__loading">
             <div
               data-v-f84b843f=""

@@ -9630,7 +9630,7 @@ export default function Activity() {
               />
               <div data-v-4a7709f3="" className="box-content">
                 <div data-v-4a7709f3="" className="box-title">
-                  91CLUB Tips and Trick Avoid Scammer
+                  BDGPRO Tips and Trick Avoid Scammer
                 </div>
               </div>
             </div>
@@ -9642,7 +9642,7 @@ export default function Activity() {
               />
               <div data-v-4a7709f3="" className="box-content">
                 <div data-v-4a7709f3="" className="box-title">
-                  91CLUB Official Channel
+                  BDGPRO Official Channel
                 </div>
               </div>
             </div>
