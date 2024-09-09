@@ -9531,7 +9531,7 @@ export default function ActivityDetail() {
           src="/assets/png/Banner_20240821101004fj8u.png"
         />
         <div data-v-cfff515d="" className="active-box">
-          <div data-v-cfff515d="" className="title">91CLUB Daily Luck Spin</div>
+          <div data-v-cfff515d="" className="title">BOGDADDY Daily Luck Spin</div>
           <div data-v-cfff515d="">
             <p>
               <img

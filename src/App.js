@@ -41,7 +41,7 @@ import ConfirmDeposit from './pages/wallet/ConfirmDeposit';
 import D5 from  './pages/bet/5d/D5';
 import Subordinate from './pages/promotion/Subordinate';
 import Vip from './pages/account/Vip';
-
+// import Notification from './pages/account/Notification';
 
 
 
@@ -132,7 +132,7 @@ function App() {
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
         <Route path="/deposit/ConfirmDeposit" element={<PrivateRoute><ConfirmDeposit/></PrivateRoute>}/>
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
-      
+        {/* <Route path="/home/Messages" element={<PrivateRoute><Notification/></PrivateRoute>}/> */}
         
         <Route path="home/AllLotteryGames/5D" element={<PrivateRoute><D5/></PrivateRoute>}/>
         <Route path="main/SettingCenters" element={<PrivateRoute><SettingCenters/></PrivateRoute>}/>

@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import Api from '../../services/Api'
  export default function PromotionShare(){
     const navigate = useNavigate();
-
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
     
         const [activeSection, setActiveSection] = useState(1);
 
@@ -35,12 +35,16 @@ import Api from '../../services/Api'
                 try {
                   const response = await Api.post('/api/webapi/promotion', {});
                   const userCode = response.data.info[0].code;
-                  const invitationLink = `http://localhost:3001/register?code=${userCode}`;
+                  const invitationLink = `http://localhost:3001/register?invitationCode=${userCode}`;
                   
                   // Copy to clipboard
                   navigator.clipboard.writeText(invitationLink).then(
                     () => {
-                      alert('Link copied successfully!');
+                        setIsPopupVisible(true);
+
+                        setTimeout(() => {
+                            setIsPopupVisible(false);
+                          }, 2000);
                     },
                     () => {
                       alert('Failed to copy the link.');
@@ -4650,17 +4654,17 @@ return(
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
                                     src="/assets/png/BDGPRO2.png"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6=""style={{color:'#000'}}>91club</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
-                                <div data-v-3b74cce6="" className="head2">Full Odds <span>Bonus</span> Rate</div>
+                                <div data-v-3b74cce6="" className="head2" style={{color:'#000'}}>Full Odds <span>Bonus</span> Rate</div>
                                 <div data-v-3b74cce6="" className="head3">
                                     <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
                                             src="/assets/png/bank-1227ae77.png" alt=""/> Financial security</div>
                                     <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
                                             src="/assets/png/trucktick-4f43261f.png" alt=""/> Quick withdrawal</div>
                                 </div>
-                                <div data-v-3b74cce6="" className="head4">Permanent commission<span>up to</span>85%</div>
+                                <div data-v-3b74cce6="" className="head4" style={{color:'#000'}}>Permanent commission<span>up to</span>85%</div>
                             </div><canvas data-v-3b74cce6="" id="qr-code1" height="164" width="164"
                                 style={{height: '164px', width: '164px'}}></canvas>
                         </div>
@@ -4671,17 +4675,17 @@ return(
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
                                     src="/assets/png/BDGPRO2.png"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="" style={{color:'#000'}}>91club</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
-                                <div data-v-3b74cce6="" className="head2">Full Odds <span>Bonus</span> Rate</div>
-                                <div data-v-3b74cce6="" className="head3">
+                                <div data-v-3b74cce6="" className="head2" style={{color:'#000'}}>Full Odds <span>Bonus</span> Rate</div>
+                                <div data-v-3b74cce6="" className="head3" style={{color:'#000'}}>
                                     <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
                                             src="/assets/png/bank-1227ae77.png" alt=""/> Financial security</div>
                                     <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
                                             src="/assets/png/trucktick-4f43261f.png" alt=""/> Quick withdrawal</div>
                                 </div>
-                                <div data-v-3b74cce6="" className="head4">Permanent commission<span>up to</span>85%</div>
+                                <div data-v-3b74cce6="" className="head4" style={{color:'#000'}}>Permanent commission<span>up to</span>85%</div>
                             </div><canvas data-v-3b74cce6="" id="qr-code2" height="164" width="164"
                                 style={{height: '164px', width: '164px',}}></canvas>
                         </div>
@@ -4692,17 +4696,17 @@ return(
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
                                     src="/assets/png/BDGPRO2.png"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">91club</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6=""style={{color:'#000'}}>BIGDADDYPRO</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
-                                <div data-v-3b74cce6="" className="head2">Full Odds <span>Bonus</span> Rate</div>
-                                <div data-v-3b74cce6="" className="head3">
+                                <div data-v-3b74cce6="" className="head2" style={{color:'#000'}}>Full Odds <span>Bonus</span> Rate</div>
+                                <div data-v-3b74cce6="" className="head3" style={{color:'#000'}}>
                                     <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
                                             src="/assets/png/bank-1227ae77.png" alt=""/> Financial security</div>
                                     <div data-v-3b74cce6=""><img data-v-3b74cce6="" className="logo"
                                             src="/assets/png/trucktick-4f43261f.png" alt=""/> Quick withdrawal</div>
                                 </div>
-                                <div data-v-3b74cce6="" className="head4">Permanent commission<span>up to</span>85%</div>
+                                <div data-v-3b74cce6="" className="head4" style={{color:'#000'}}>Permanent commission<span>up to</span>85%</div>
                             </div><canvas data-v-3b74cce6="" id="qr-code3" height="164" width="164"
                                 style={{height: '164px', width: '164px'}}></canvas>
                         </div>
@@ -4719,12 +4723,25 @@ return(
                 
             </div>
         </div>
+        
+{isPopupVisible && (
+        <div
+          role="dialog"
+          tabIndex="0"
+          className="van-popup van-popup--center van-toast van-toast--middle van-toast--success"
+          style={{ zIndex: '2007', color:'#fff'}}
+        >
+          <i className="van-badge__wrapper van-icon van-icon-success van-toast__icon"></i>
+          <div className="van-toast__text">Copy successful</div>
+        </div>
+      )}
         <div className="customer" id="customerId"
             style={{"--f13b4d11-currentFontFamily": "'Roboto', 'Inter', 'sans-serif'", "--f6a705e1-currentFontFamily": 'bahnschrift'}}>
             <img className="" data-origin="/assets/png/icon_sevice-9f0c8455.png" src="/assets/png/icon_sevice-9f0c8455.png"/>
         </div>
     </div>
 </div>
+
 
 )}
 
