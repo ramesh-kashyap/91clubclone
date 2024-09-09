@@ -4,12 +4,18 @@ import { useNavigate } from 'react-router-dom';
 export default function Deposit(){
 const [activeSection, setActiveSection] = useState('UpiTransfer');
 
+const [usdtValue, setUsdtValue] = useState('');
+
+
 const navigate = useNavigate();
 const showSection = (sectionId) => {
     setActiveSection(sectionId);
   };
 
-
+  const handleUsdtClick = (value) => {
+    console.log(value);
+    setUsdtValue(value); // Update selected USDT value
+  };
 
 
 
@@ -649,60 +655,83 @@ const showSection = (sectionId) => {
               
               </div>
               <div
-                data-v-9e03166f=""
-                className="Recharge__content-paymoney__money-list" id="UsdtBep1" style={{ display: activeSection === 'UsdtBep1' ? 'flex' : 'none' }}
-              >
-                <div
-                  data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item active"
-                >                
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>10
-                  </div>                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-                >                
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>50
-                  </div>                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-                >                
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>100
-                  </div>                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-                >                
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>500
-                  </div>                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-                >                
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>1k
-                  </div>                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-                >                
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /></span>5K
-                  </div>                  
-                </div>
-                
-              
-              </div>
+      data-v-9e03166f=""
+      className="Recharge__content-paymoney__money-list"
+      id="UsdtBep1"
+      style={{ display: activeSection === 'UsdtBep1' ? 'flex' : 'none' }}
+    >
+      <div
+        data-v-9e03166f=""
+        className={`Recharge__content-paymoney__money-list__item ${usdtValue == 10 ? 'active' : ''}`}
+        onClick={() => handleUsdtClick(10)}
+      >
+        <div data-v-9e03166f="" className="amount">
+          <span data-v-9e03166f="">
+            <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{ width: '20px' }} />
+          </span>10
+        </div>
+      </div>
+
+      <div
+        data-v-9e03166f=""
+        className={`Recharge__content-paymoney__money-list__item ${usdtValue == 50 ? 'active' : ''}`}
+        onClick={() => handleUsdtClick(50)}
+      >
+        <div data-v-9e03166f="" className="amount">
+          <span data-v-9e03166f="">
+            <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{ width: '20px' }} />
+          </span>50
+        </div>
+      </div>
+
+      <div
+        data-v-9e03166f=""
+        className={`Recharge__content-paymoney__money-list__item ${usdtValue == 100 ? 'active' : ''}`}
+        onClick={() => handleUsdtClick(100)}
+      >
+        <div data-v-9e03166f="" className="amount">
+          <span data-v-9e03166f="">
+            <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{ width: '20px' }} />
+          </span>100
+        </div>
+      </div>
+
+      <div
+        data-v-9e03166f=""
+        className={`Recharge__content-paymoney__money-list__item ${usdtValue == 500 ? 'active' : ''}`}
+        onClick={() => handleUsdtClick(500)}
+      >
+        <div data-v-9e03166f="" className="amount">
+          <span data-v-9e03166f="">
+            <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{ width: '20px' }} />
+          </span>500
+        </div>
+      </div>
+
+      <div
+        data-v-9e03166f=""
+        className={`Recharge__content-paymoney__money-list__item ${usdtValue == 1000 ? 'active' : ''}`}
+        onClick={() => handleUsdtClick('1000')}
+      >
+        <div data-v-9e03166f="" className="amount">
+          <span data-v-9e03166f="">
+            <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{ width: '20px' }} />
+          </span>1k
+        </div>
+      </div>
+
+      <div
+        data-v-9e03166f=""
+        className={`Recharge__content-paymoney__money-list__item ${usdtValue == 5000 ? 'active' : ''}`}
+        onClick={() => handleUsdtClick('5000')}
+      >
+        <div data-v-9e03166f="" className="amount">
+          <span data-v-9e03166f="">
+            <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{ width: '20px' }} />
+          </span>5K
+        </div>
+      </div>
+    </div>
               <div
                 data-v-9e03166f=""
                 className="Recharge__content-paymoney__money-list" id="UsdtTrc1" style={{ display: activeSection === 'UsdtTrc1' ? 'flex' : 'none' }}
@@ -783,13 +812,15 @@ const showSection = (sectionId) => {
                   
                   <div className="van-cell__value van-field__value">
                     <div className="van-field__body">
-                      < input type = "text"
-                      inputmode = "numeric"
-                      id = "van-field-7-input"
-                      className = "van-field__control"
-                      placeholder = "Please enter the amount"
-                     
-                      />
+                    <input
+        type="text"
+        inputMode="numeric"
+        id="van-field-7-input"
+        className="van-field__control"
+        placeholder="Please enter the amount"
+        value={usdtValue}
+        onChange={(e) => setUsdtValue(e.target.value)} // Update state with input value
+      />
                     </div>
                     
                   </div>
@@ -825,6 +856,8 @@ const showSection = (sectionId) => {
                       inputmode = "numeric"
                       id = "van-field-7-input"
                       className = "van-field__control"
+                      readOnly
+                      value={usdtValue*90}
                       />
                     </div>
                     
