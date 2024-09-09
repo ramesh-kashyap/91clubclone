@@ -1,6 +1,40 @@
-import React from 'react'
-
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Api from '../../services/Api';
 export default function Subordinate() {
+
+  const [subordinate, setSubordinate] = useState([]);
+
+  const [error, setError] = useState(null);
+
+
+  const fetchSubordinate= async () => {
+    try {
+      const response = await Api.get('/api/webapi/myTeam');
+      const data =  response.data;
+
+      console.log(data);
+
+      setSubordinate(data); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+
+  useEffect(() => {
+    fetchSubordinate();  
+ 
+
+   
+  }, []);
+
+
+
+  const navigate = useNavigate;
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -9498,7 +9532,7 @@ style={{maskType: 'alpha'}}
               <div data-v-12a80a3e="" className="navbar__content-left">
                 <i
                   data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left"
+                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/promotion')}
                   ></i
                 >
               </div>
