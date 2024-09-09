@@ -9760,7 +9760,7 @@ export default function Account() {
               data-v-7d799898=""
               className="totalSavings__container-content-item"
             >
-              <div data-v-7d799898="">
+              <div data-v-7d799898="" onClick={()=>navigate('/Vip')}>
                 <svg data-v-7d799898="" className="svg-icon icon-VipIcon">
                   <use href="#icon-VipIcon"></use></svg
                 > <span data-v-7d799898="">VIP</span>

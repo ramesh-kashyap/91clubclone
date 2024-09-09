@@ -1,12 +1,55 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-export default function Register() {
+import Api from '../../services/Api';
+export default function Laundry() {
+
   const navigate = useNavigate();
-  
-  const [activeSection, setActiveSection] = useState('section1');
-  const showSection = (sectionId) => {
-    setActiveSection(sectionId);
+  const [laundry, setLaundry] = useState([]);
+  const [rebateBonus, setRebateBonus] = useState([]);
+  const [error, setError] = useState(null);
+
+  const getRebateBonus = async (e) => {
+    
+    try {
+      const response = await Api.post('/api/webapi/rebateBonus', {
+        bonus:laundry.bonus, // Send phone as username
+        netAmount:laundry.netAmount, // Match the field name expected by the backend
+      });
+      console.log(response.data);
+      if (response.data.status === true) {
+      
+        fetchLaundry();
+      } else {
+        setError(response.data.message);
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+    }
+};
+
+  const fetchLaundry= async () => {
+    try {
+      const response = await Api.get('/api/webapi/rebate');
+      const data =  response.data;
+
+      console.log(data);
+
+      setLaundry(data); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
   };
+
+
+  useEffect(() => {
+    fetchLaundry();  
+ 
+
+   
+  }, []);
   return (
     <div style={{fontSize: '12px'}}>
     <svg
@@ -9527,104 +9570,7 @@ export default function Register() {
             </div>
           </div>
         </div>
-        <div data-v-cdf0e578="" className="bet-container-sticky">
-          <div className="van-sticky">
-            <div data-v-cdf0e578="">
-              <div
-                data-v-cdf0e578=""
-                className="fun-tabs tabs"
-                activeclassnamename="tab_active"
-              >
-                <div
-                  className="fun-tabs__tab-list"
-                  style={{
-                    'transitionTimingFunction': "cubicBezier('0.25','0.46','0.45','0.94')",
-                    transitionDuration: '360ms',
-                    transform: activeSection === 'section2' ? 'translate3d(0px, 0px, 0px)' :
-                    activeSection === 'section3' ? 'translate3d(0px, 0px, 0px)' :
-                    activeSection === 'section4' ? 'translate3d(-90.5px, 0px, 0px)' :
-                    activeSection === 'section5' ? 'translate3d(-180px, 0px, 0px)' : 
-                    'translate3d(0px, 0px, 0px)'  // Default transform for unknown section
-                }}
-                >
-                  <div className={`fun-tab-item funtab_item ${activeSection === 'section1' ?  'activeClassName':''}`} id="section1"  onClick={() => showSection('section1')}>
-                    <div className="fun-tab-item__wrap">
-                      <div className="fun-tab-item__label">
-                        <div data-v-cdf0e578="" className={`tab_item ${activeSection === 'section1'? 'tab_active':''}`}>
-                          <svg data-v-cdf0e578="" className="svg-icon icon-all">
-                            <use href="#icon-all"></use></svg
-                          ><span data-v-cdf0e578="">All</span>
-                        </div>
-                      </div>
-                     
-                    </div>
-                  </div>
-                  <div
-                    className={`fun-tab-item funtab_item ${activeSection === 'section2' ?  'activeClassName':''}`} id="section2"  onClick={() => showSection('section2')}
-                  >
-                    <div className="fun-tab-item__wrap">
-                      <div className="fun-tab-item__label">
-                        <div data-v-cdf0e578="" className={`tab_item ${activeSection === 'section2'? 'tab_active':''}`}>
-                          <svg data-v-cdf0e578="" className="svg-icon icon-lottery">
-                            <use href="#icon-lottery"></use></svg
-                          ><span data-v-cdf0e578="">Lottery</span>
-                        </div>
-                      </div>
-                     
-                    </div>
-                  </div>
-                  <div className={`fun-tab-item funtab_item ${activeSection === 'section3' ?  'activeClassName':''}`} id="section3"  onClick={() => showSection('section3')}>
-                    <div className="fun-tab-item__wrap">
-                      <div className="fun-tab-item__label">
-                        <div data-v-cdf0e578="" className={`tab_item ${activeSection === 'section3'? 'tab_active':''}`}>
-                          <svg data-v-cdf0e578="" className="svg-icon icon-video">
-                            <use href="#icon-video"></use></svg
-                          ><span data-v-cdf0e578="">Casino</span>
-                        </div>
-                      </div>
-                     
-                    </div>
-                  </div>
-                  <div className={`fun-tab-item funtab_item ${activeSection === 'section4' ?  'activeClassName':''}`} id="section4"  onClick={() => showSection('section4')}>
-                    <div className="fun-tab-item__wrap">
-                      <div className="fun-tab-item__label">
-                        <div data-v-cdf0e578="" className={`tab_item ${activeSection === 'section4'? 'tab_active':''}`}>
-                          <svg data-v-cdf0e578="" className="svg-icon icon-chess">
-                            <use href="#icon-chess"></use></svg
-                          ><span data-v-cdf0e578="">Rummy</span>
-                        </div>
-                      </div>
-                     
-                    </div>
-                  </div>
-                  <div className={`fun-tab-item funtab_item ${activeSection === 'section5' ?  'activeClassName':''}`} id="section5"  onClick={() => showSection('section5')}>
-                    <div className="fun-tab-item__wrap">
-                      <div className="fun-tab-item__label">
-                        <div data-v-cdf0e578="" className={`tab_item ${activeSection === 'section5'? 'tab_active':''}`}>
-                          <svg data-v-cdf0e578="" className="svg-icon icon-slot">
-                            <use href="#icon-slot"></use></svg
-                          ><span data-v-cdf0e578="">Slots</span>
-                        </div>
-                      </div>
-                     
-                    </div>
-                  </div>
-                  <div
-                    className="fun-tabs__active-line"
-                    style={{
-                      transition: '300ms',
-                      width: '0px',
-                      height: '3px',
-                      transform: 'translate3d(166.5px, 0px, 0px)',
-                      backgroundColor: 'rgb(22, 119, 255)'
-                    }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
+        <br/>
         <div data-v-cdf0e578="" className="laundry-page_container">
           <div data-v-cdf0e578="" className="laundry-page_box">
             <div data-v-cdf0e578="" className="title">
