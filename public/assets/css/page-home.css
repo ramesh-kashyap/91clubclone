@@ -1571,6 +1571,12 @@ html:lang(ar) .lotteryGamesList__container-item__time[data-v-22e2ba37] {
     justify-content: center
 }
 
+.bgcolor[data-v-7181abf7] {
+    pointer-events: all;
+    color: var(--text_color_L4);
+    background: var(--main-color);
+}
+
 .onlineGames__container-list__item span[data-v-0ffc3892] {
     font-size: .32rem;
     text-align: center;
@@ -6986,10 +6992,10 @@ html:lang(ar) .Betting__Popup-agree[data-v-7181abf7] {
     color: var(--text_color_L4)
 }
 
-.bgcolor[data-v-7181abf7] {
+.bgcolor[data-v-7f36fe93] {
     pointer-events: all;
     color: var(--text_color_L4);
-    background: var(--main-color)
+    background: var(--main-color) !important
 }
 
 .van-toast[data-v-28e57f6a] {
@@ -29418,9 +29424,10 @@ html:lang(ar) .Betting__Popup-agree[data-v-7f36fe93] {
     color: var(--text_color_L1)
 }
 
-.bgcolor[data-v-7f36fe93] {
+.bgcolor[data-v-7181abf7] {
     pointer-events: all;
-    color: #fff
+    color: var(--text_color_L4);
+    background: var(--main-color);
 }
 
 .van-toast[data-v-4aca9bd1] {
