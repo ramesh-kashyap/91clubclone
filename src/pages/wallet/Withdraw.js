@@ -29,7 +29,7 @@ export default function Withdraw() {
       const response = await Api.post('/api/webapi/check/Info');
       const data =  response.data;
 
-      console.log(data.userInfo[0].money);
+      console.log(response.data);
 
       setUserInfo(data.userInfo[0]); // Assuming data.data contains the user's information
       setWalletAddress(data.datas[0].usdtBep20);
@@ -88,8 +88,7 @@ export default function Withdraw() {
 
     fetchUserInfo();
 
-    console.log();
-
+    console.log("hi");
 
 }, []);
 
