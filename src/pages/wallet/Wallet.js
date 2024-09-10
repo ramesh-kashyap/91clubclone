@@ -53,22 +53,9 @@ export default function Promotion(){
     // You can replace this with a spinner if needed
   }
 
-<<<<<<< HEAD
   if (error) {
     return <div>{error}</div>;
   }
-=======
-  
-
-
-
-
-
-
-
-
-
->>>>>>> 3ddf458e197aa90a3e016d1dcb68bf9d93db3319
     return (
 <div className="" style={{fontSize: '12px'}}>
     <svg
