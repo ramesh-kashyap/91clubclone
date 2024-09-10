@@ -9866,7 +9866,7 @@ export default function Account() {
             </div>
             <div
               data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
+              className="settingPanel__container-items__item ar-1px-b"  onClick={()=>navigate('/main/RedeemGift')}
             >
               <div
                 data-v-a30d19b1=""
@@ -9876,10 +9876,10 @@ export default function Account() {
                   <use href="#icon-gifts"></use></svg
                 >
 
-                <a href="/account/gift.html"><span
+                <span
                   data-v-a30d19b1=""
                   >Gifts</span
-                ></a>
+                >
               </div>
               <div
                 data-v-a30d19b1=""

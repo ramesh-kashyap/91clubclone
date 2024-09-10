@@ -9582,7 +9582,7 @@ export default function Promotion(){
               <div data-v-12a80a3e="" className="navbar__content-title">Agency</div>
             </div>
             <div data-v-12a80a3e="" className="navbar__content-right">
-              <svg data-v-600663f7="" className="svg-icon icon-subordinate">
+              <svg data-v-600663f7="" className="svg-icon icon-subordinate" onClick={()=>navigate('/promotion/Subordinate')}>
                 <use href="#icon-subordinate"></use>
               </svg>
             </div>
