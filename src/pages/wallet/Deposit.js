@@ -55,6 +55,10 @@ const showSection = (sectionId) => {
     if (activeSection === 'UsdtBep' || activeSection ==='UsdtBep1' ) {
       typeid = 'USDT(TRC20)';
     }
+
+    if (activeSection === 'UsdtTrc' || activeSection === 'UsdtTrc1') {
+      typeid = 'USDT(BEP20)';
+    }
   
     try {
       const response = await Api.post('/api/webapi/createPayment10', {
@@ -297,7 +301,7 @@ const showSection = (sectionId) => {
               </div>              
               <div
                 data-v-4f3d8608=""
-                className={`Recharge__container-tabcard__items ${activeSection === 'UsdtTrc' || activeSection === 'Usdttrc1' ? 'active' : ''}`} onClick={() => showSection('UsdtTrc')}
+                className={`Recharge__container-tabcard__items ${activeSection === 'UsdtTrc' || activeSection === 'UsdtTrc1' ? 'active' : ''}`} onClick={() => showSection('UsdtTrc')}
               >
                 <div data-v-4f3d8608="" className="centers">
                   
@@ -599,54 +603,54 @@ const showSection = (sectionId) => {
               >
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item  active"
-            
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${usdtValue == 10 ? 'active' : ''}`}  
+                  onClick={() => handleUsdtClick('10')}          
+                >  
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>10
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-            
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${usdtValue == 50 ? 'active' : ''}`}  
+                  onClick={() => handleUsdtClick('50')}          
+                >  
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>50
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-            
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${usdtValue == 100 ? 'active' : ''}`}  
+                  onClick={() => handleUsdtClick('100')}          
+                >  
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>100
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-            
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${usdtValue == 200 ? 'active' : ''}`}  
+                  onClick={() => handleUsdtClick('200')}          
+                >  
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>200
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-            
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${usdtValue == 500 ? 'active' : ''}`}  
+                  onClick={() => handleUsdtClick('500')}          
+                >  
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>500
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-            
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${usdtValue == 1000 ? 'active' : ''}`}  
+                  onClick={() => handleUsdtClick('1000')}          
+                >  
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>1K
                   </div>                  
@@ -790,56 +794,56 @@ const showSection = (sectionId) => {
                 data-v-9e03166f=""
                 className="Recharge__content-paymoney__money-list" id="UsdtTrc1" style={{ display: activeSection === 'UsdtTrc1' ? 'flex' : 'none' }}
               >
-                <div
+               <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item active"
-           
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${usdtValue == 10 ? 'active' : ''}`}  
+                  onClick={() => handleUsdtClick('10')}          
+                >  
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>10
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-           
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${usdtValue == 50 ? 'active' : ''}`}  
+                  onClick={() => handleUsdtClick('50')}          
+                >  
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>50
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-           
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${usdtValue == 100 ? 'active' : ''}`}  
+                  onClick={() => handleUsdtClick('100')}          
+                >  
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>100
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-           
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${usdtValue == 500 ? 'active' : ''}`}  
+                  onClick={() => handleUsdtClick('500')}          
+                >  
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>500
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-           
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${usdtValue == 1000 ? 'active' : ''}`}  
+                  onClick={() => handleUsdtClick('1000')}          
+                >  
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>1K
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className="Recharge__content-paymoney__money-list__item"
-           
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${usdtValue == 5000 ? 'active' : ''}`}  
+                  onClick={() => handleUsdtClick('5000')}          
+                >  
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>5K
                   </div>                  
