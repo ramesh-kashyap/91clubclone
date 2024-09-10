@@ -492,9 +492,7 @@ export default function Wingo10() {
     //   return <Loader/>
     // }
   
-    if (error) {
-      return <div>{error}</div>;
-    }
+   
 
 
     const showSection = (sectionId) => {

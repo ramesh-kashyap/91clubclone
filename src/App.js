@@ -53,7 +53,6 @@ import Vip from './pages/account/Vip';
 
 
 
-
 import AddUSDT from './pages/wallet/AddUSDT';
 import TransAction from './pages/wallet/TransAction';
 import DepositHistory from './pages/wallet/DepositHistory';

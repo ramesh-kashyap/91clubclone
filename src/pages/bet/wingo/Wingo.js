@@ -9,7 +9,7 @@ import ChartList from './components/ChartList';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Popup from '../../../components/Popup';
-
+import { useToast } from '../../../components/ToastContext'; 
 
 const SOCKET_URL = 'http://localhost:3000';
 
@@ -21,7 +21,6 @@ const socket = io(SOCKET_URL, {
   reconnectionAttempts: Infinity,
   timeout: 10000,
 });
-
 
 
 
@@ -50,6 +49,9 @@ const getPopupClass = (item) => {
 
 
 export default function Wingo() {
+
+  const { showToast } = useToast();
+
 
   const [showBetPopup, setShowBetPopup] = useState(false);
 
@@ -82,6 +84,21 @@ export default function Wingo() {
     const [currentPage, setCurrentPage] = useState(1);
     const [currentGamePage, setCurrentGamePage] = useState(1);
     const [isVisible, setIsVisible] = useState(false);
+
+  //   const [toasts, setToasts] = useState([]);
+
+  // // Function to show a new toast (success or error)
+  // const showToast = (text, type = 'success') => {
+  //   console.log(text);
+  //   const newToast = { id: Date.now(), text, type }; // Use a unique ID and message type
+  //   setToasts((prevToasts) => [...prevToasts, newToast]); // Add the new toast to the list
+  // };
+
+  // // Function to remove a toast
+  // const removeToast = (id) => {
+  //   setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id)); // Remove the toast by id
+  // };
+  
 
     const toggleVisibility = () => {
       setIsVisible(!isVisible);
@@ -474,8 +491,8 @@ export default function Wingo() {
           money: balance,
         });
   
-        setShowBetPopup(true);
-
+        // setShowBetPopup(true);
+        showToast('Bet placed successfully!', 'succes');
         // toast.success('Bet placed successfully!');
 
         
@@ -508,10 +525,7 @@ export default function Wingo() {
     //   return <Loader/>
     // }
   
-    if (error) {
-      return <div>{error}</div>;
-    }
-
+   
 
     const showSection = (sectionId) => {
       fetchGamelist(1);
@@ -527,6 +541,8 @@ export default function Wingo() {
 <div className="" style={{fontSize: '12px'}}>
 <ToastContainer />
 {showBetPopup && <Popup text="Bet Successful" />}
+
+
 
 <div id="app" data-v-app="">
 <audio ref={audio1Ref} src="/assets/audio/di1.da40b233.mp3" />

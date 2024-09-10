@@ -43,9 +43,7 @@ export default function Account() {
       // You can replace this with a spinner if needed
     }
   
-    if (error) {
-      return <div>{error}</div>;
-    }
+    
 
   return (
     <div style={{fontSize: '12px'}}>
