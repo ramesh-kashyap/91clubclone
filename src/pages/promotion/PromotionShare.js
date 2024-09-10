@@ -35,7 +35,8 @@ import Api from '../../services/Api'
                 try {
                   const response = await Api.post('/api/webapi/promotion', {});
                   const userCode = response.data.info[0].code;
-                  const invitationLink = `http://localhost:3001/register?invitationCode=${userCode}`;
+                  const siteLink = response.data.siteUrl || 'http://localhost:3001';
+                  const invitationLink = `${siteLink}/register?invitationCode=${userCode}`;
                   
                   // Copy to clipboard
                   navigator.clipboard.writeText(invitationLink).then(
