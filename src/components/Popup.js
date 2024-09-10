@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 // Popup Component (Toast)
-const Popup = ({ text, type, onClose }) => {
+const Popup = ({ text, type, onClose = () => {} }) => {  // Provide a default empty function for onClose
     useEffect(() => {
         console.log("Popup mounted, setting timer for 3 seconds");
         const timer = setTimeout(() => {

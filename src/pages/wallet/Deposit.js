@@ -1,9 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
-import Loader from '../../components/Loader';
+import { useLocation } from 'react-router-dom';
+import { useToast } from '../../components/ToastContext'; 
 
 export default function Deposit(){
+
+  const { showToast } = useToast();
+
+  const location = useLocation();
+
+  
+    useEffect( ()=>{
+      console.log("hello");
+    }
+      ,[]);
+
+
 const [activeSection, setActiveSection] = useState('UpiTransfer');
 
 const [usdtValue, setUsdtValue] = useState('');
