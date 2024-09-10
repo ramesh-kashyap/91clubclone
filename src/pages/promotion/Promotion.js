@@ -11,7 +11,12 @@ export default function Promotion(){
   const [error, setError] = useState(null);
 
 
+  const [activeLink , setActiveLink] = useState(null);
 
+  useEffect(()=>{
+    const currentPath = window.location.pathname;
+  setActiveLink(currentPath);
+},[]);
 
   const fetchPromotion = async () => {
     try {
@@ -9819,7 +9824,7 @@ export default function Promotion(){
       </div>
       <div data-v-6ab3f23e="" className="tabbar__container"
             style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
-            <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
                     className="svg-icon icon-home" onClick={()=> navigate('/index')}>
                     <use href="#icon-home"></use>
                 </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
@@ -9828,7 +9833,7 @@ export default function Promotion(){
                    
                 </svg>
                 <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
+            <div data-v-6ab3f23e="" className={`tabbar__container-item ${activeLink === '/promotion' ? 'active':''}`}><svg data-v-6ab3f23e=""
                     className="svg-icon icon-promotion" onClick={()=> navigate('/promotion')}>
                     <use href="#icon-promotion"></use>
                 </svg>

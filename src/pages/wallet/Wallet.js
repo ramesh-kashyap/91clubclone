@@ -16,6 +16,13 @@ export default function Promotion(){
   const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const [activeLink , setActiveLink] = useState(null);
+
+    useEffect(()=>{
+      const currentPath = window.location.pathname;
+    setActiveLink(currentPath);
+  },[]);
+
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -41,9 +48,6 @@ export default function Promotion(){
     fetchUserInfo();
   }, []);
 
-
-
-
   if (loading) {
     return      <Loader/>
     // You can replace this with a spinner if needed
@@ -52,16 +56,6 @@ export default function Promotion(){
   if (error) {
     return <div>{error}</div>;
   }
-
-
-
-
-
-
-
-
-
-
     return (
 <div className="" style={{fontSize: '12px'}}>
     <svg
@@ -9775,7 +9769,7 @@ export default function Promotion(){
       </div>
       <div data-v-6ab3f23e="" className="tabbar__container"
             style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
-            <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
                     className="svg-icon icon-home" onClick={()=> navigate('/index')}>
                     <use href="#icon-home"></use>
                 </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
@@ -9792,7 +9786,7 @@ export default function Promotion(){
                 <span data-v-6ab3f23e="" onClick={()=> navigate('/promotion')}>
                     Promotion</span>
             </div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
+            <div data-v-6ab3f23e="" className={`tabbar__container-item ${activeLink === '/wallet' ? 'active':''}`}><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
             <use href="#icon-wallet" onClick={()=> navigate('/wallet')}></use>
                 </svg><span data-v-6ab3f23e=""  onClick={()=> navigate('/wallet')}>Wallet</span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-main"  onClick={()=> navigate('/account')}>

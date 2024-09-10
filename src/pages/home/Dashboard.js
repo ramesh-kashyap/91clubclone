@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -73,6 +73,12 @@ export default function Dashboard() {
     setActiveSection(sectionId);
   };
 
+  const [activeLink , setActiveLink] = useState(null);
+
+  useEffect(()=>{
+    const currentPath = window.location.pathname;
+  setActiveLink(currentPath);
+},[]);
 
 
 
@@ -5446,7 +5452,7 @@ export default function Dashboard() {
         </div>
         <div data-v-6ab3f23e="" className="tabbar__container"
             style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
-            <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
+            <div data-v-6ab3f23e="" className={`tabbar__container-item ${activeLink === '/index' ? 'active':''}`}><svg data-v-6ab3f23e=""
                     className="svg-icon icon-home" onClick={()=> navigate('/index')}>
                     <use href="#icon-home"></use>
                 </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
