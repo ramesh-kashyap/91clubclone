@@ -11,13 +11,13 @@ export default function Deposit(){
   const location = useLocation();
 
   
-  useEffect(() => {
-    // Check if location.state has msg and trigger the toast once on mount
-    if (location.state && location.state.msg) {
-      const { msg } = location.state;
-      showToast(msg, 'success'); // Show success toast with the message
-    }
-  }, []); 
+  // useEffect(() => {
+  //   // Check if location.state has msg and trigger the toast once on mount
+  //   if (location.state && location.state.msg) {
+  //     const { msg } = location.state;
+  //     showToast(msg, 'success'); // Show success toast with the message
+  //   }
+  // }, []); 
 
 const [activeSection, setActiveSection] = useState('UpiTransfer');
 
