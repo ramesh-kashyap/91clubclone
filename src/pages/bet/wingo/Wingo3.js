@@ -495,9 +495,7 @@ export default function Wingo3() {
     //   return <Loader/>
     // }
   
-    if (error) {
-      return <div>{error}</div>;
-    }
+   
 
 
     const showSection = (sectionId) => {

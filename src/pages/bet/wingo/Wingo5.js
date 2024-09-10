@@ -493,9 +493,7 @@ export default function Wingo5() {
     //   return <Loader/>
     // }
   
-    if (error) {
-      return <div>{error}</div>;
-    }
+    
 
 
     const showSection = (sectionId) => {

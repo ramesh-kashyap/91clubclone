@@ -49,10 +49,7 @@ export default function Promotion(){
     // You can replace this with a spinner if needed
   }
 
-  if (error) {
-    return <div>{error}</div>;
-  }
-
+  
 
 
 

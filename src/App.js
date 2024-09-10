@@ -56,6 +56,7 @@ import RiskDetail from './pages/account/RiskDetail';
 
 
 
+// import Notification from './pages/account/Notification';
 
 
 
@@ -161,6 +162,7 @@ function App() {
 
 
       
+        {/* <Route path="/home/Messages" element={<PrivateRoute><Notification/></PrivateRoute>}/> */}
         
         <Route path="home/AllLotteryGames/5D" element={<PrivateRoute><D5/></PrivateRoute>}/>
         <Route path="home/AllLotteryGames/5D/3" element={<PrivateRoute><D53/></PrivateRoute>}/>
