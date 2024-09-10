@@ -5480,7 +5480,7 @@ html:lang(ar) .gverify-container-content-item-tip svg[data-v-1911143a] {
     height: 1.06667rem;
     line-height: 1.06667rem;
     text-align: center;
-    background: var(--main_gradient-color);
+    background: var(--main_gradient-color2);
     border-radius: 1.06667rem;
     font-size: .4rem;
     color: var(--text_color_L4);
@@ -6780,7 +6780,7 @@ html:lang(ar) .gverify-container-content-item-tip svg[data-v-1911143a] {
 .Xg-page .go-bet[data-v-6243ef37] {
     width: 8.82667rem;
     height: .93333rem;
-    background: var(--main_gradient-color);
+    background: var(--main_gradient-color2);
     color: var(--bg_color_L2);
     text-align: center;
     line-height: .93333rem;
@@ -7813,7 +7813,7 @@ html:lang(ar) .Xg-list .item .header .tit[data-v-6243ef37] {
 .bind-container .bind-button button[data-v-eca8202a] {
     width: 8.98667rem;
     height: 1.06667rem;
-    background: var(--main_gradient-color);
+    background: var(--main_gradient-color2);
     font-size: .4rem;
     font-weight: 700;
     color: var(--text_color_L4);
@@ -8568,7 +8568,7 @@ html:lang(ar) .jackpot-rule-owener svg[data-v-bc9939e5] {
     color: var(--text_color_L4);
     text-align: center;
     line-height: 1.06667rem;
-    background: var(--main_gradient-color);
+    background: var(--main_gradient-color2);
     border-radius: .66667rem;
     font-size: .4rem;
     font-weight: 700

@@ -277,7 +277,7 @@ export default function Withdraw() {
               <div data-v-9bae072d="">
                 <img
                   data-v-9bae072d=""
-                  src="/assets/png/WithBeforeImgIcon2_20230912183258ejvp.png"
+                  src="/assets/png/payNameIcon_20240313185300ivg6.png"
                 />
               </div>
               <span data-v-9bae072d=""> BANK CARD</span>
@@ -286,7 +286,7 @@ export default function Withdraw() {
               <div data-v-9bae072d="">
                 <img
                   data-v-9bae072d=""
-                  src="/assets/png/WithBeforeImgIcon_20230912183344vmsx.png"
+                  src="/assets/png/usdt.png"
                 />
               </div>
               <span data-v-9bae072d="">USDT</span>
@@ -509,11 +509,11 @@ export default function Withdraw() {
             data-v-80a607a5=""
             className="rechargeh__container"
           >
-            <div data-v-30972a14="" className="rechargeh__container-head">
+            <div data-v-30972a14="" className="rechargeh__container-head" onClick={()=>navigate('/wallet/withdraw')}>
               <svg data-v-30972a14="" className="svg-icon icon-historyHead">
                 <use href="#icon-historyHead"></use>
               </svg>
-              <h1 data-v-30972a14="">Withdrawal history</h1>
+              <h1 data-v-30972a14="" >Withdrawal history</h1>
             </div>
             <div data-v-30972a14="" className="rechargeh__container-content">
               <div

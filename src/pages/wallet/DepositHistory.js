@@ -262,7 +262,7 @@ export default function DepositHistory() {
                     ><div data-v-e4760c44="" className="tabDiv">
                       <img
                         data-v-e4760c44=""
-                        src="/assets/png/WithBeforeImgIcon_2023091218325895iy.png"
+                        src="/assets/png/payNameIcon_20240821190505sggk.png"
                       />
                       BANK CARD
                     </div></span
@@ -280,7 +280,7 @@ export default function DepositHistory() {
                     ><div data-v-e4760c44="" className="tabDiv">
                       <img
                         data-v-e4760c44=""
-                        src="/assets/png/WithBeforeImgIcon_20230912183344vmsx.png"
+                        src="/assets/png/payNameIcon_20240822174126jeiy.png"
                       />
                       USDT
                     </div></span
