@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Popup from '../../../components/Popup';
 import { useToast } from '../../../components/ToastContext'; 
 
-const SOCKET_URL = 'https://bigdadypro.com';
+const SOCKET_URL = 'http://localhost:3000';
 
 
 

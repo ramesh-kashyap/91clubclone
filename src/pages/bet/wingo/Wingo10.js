@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-const SOCKET_URL = 'https://bigdadypro.com';
+const SOCKET_URL = 'http://localhost:3000';
 
 const socket = io(SOCKET_URL, {
   transports: ['websocket', 'polling'],
