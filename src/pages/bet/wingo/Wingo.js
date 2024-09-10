@@ -8,6 +8,7 @@ import ReactHowler from 'react-howler';
 import ChartList from './components/ChartList';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Popup from '../../../components/Popup';
 
 
 const SOCKET_URL = 'http://localhost:3000';
@@ -20,6 +21,8 @@ const socket = io(SOCKET_URL, {
   reconnectionAttempts: Infinity,
   timeout: 10000,
 });
+
+
 
 
 const countDownDate = new Date("2030-07-16T23:59:59.9999999+01:00").getTime();
@@ -48,6 +51,9 @@ const getPopupClass = (item) => {
 
 export default function Wingo() {
 
+  const [showBetPopup, setShowBetPopup] = useState(false);
+
+ 
 
   const [userInfo, setUserInfo] = useState(null);
     const [activeSection, setActiveSection] = useState('section1');
@@ -468,7 +474,9 @@ export default function Wingo() {
           money: balance,
         });
   
-        toast.success('Bet placed successfully!');
+        setShowBetPopup(true);
+
+        // toast.success('Bet placed successfully!');
 
         
 
@@ -518,6 +526,7 @@ export default function Wingo() {
       
 <div className="" style={{fontSize: '12px'}}>
 <ToastContainer />
+{showBetPopup && <Popup text="Bet Successful" />}
 
 <div id="app" data-v-app="">
 <audio ref={audio1Ref} src="/assets/audio/di1.da40b233.mp3" />
