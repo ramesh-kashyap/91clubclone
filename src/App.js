@@ -48,6 +48,12 @@ import D55 from  './pages/bet/5d/D55';
 import D510 from  './pages/bet/5d/D510';
 import Subordinate from './pages/promotion/Subordinate';
 import Vip from './pages/account/Vip';
+import Notification from './pages/account/Notification';
+import Guide from './pages/account/Guide';
+import Abouts from './pages/account/Abouts';
+import AboutDetail from './pages/account/AboutDetail';
+import RiskDetail from './pages/account/RiskDetail';
+
 
 
 
@@ -73,6 +79,9 @@ import Deposit from './pages/wallet/Deposit';
 import SettingCenters from './pages/account/SettingCenters';
 import LoginPassword from './pages/account/LoginPassword';
 import BindEmail from './pages/account/BindEmail';
+import Feedback from './pages/account/Feedback';
+import CustomerService from './pages/account/CustomerService';
+
 
 
 
@@ -139,6 +148,18 @@ function App() {
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
         <Route path="/deposit/ConfirmDeposit" element={<PrivateRoute><ConfirmDeposit/></PrivateRoute>}/>
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
+        <Route path="/main/Feedback" element={<PrivateRoute><Feedback/></PrivateRoute>}/>
+        <Route path="/main/CustomerService" element={<PrivateRoute><CustomerService/></PrivateRoute>}/>
+        <Route path="/main/Notification" element={<PrivateRoute><Notification/></PrivateRoute>}/>
+        <Route path="/main/Guide" element={<PrivateRoute><Guide/></PrivateRoute>}/>
+        <Route path="/main/Abouts" element={<PrivateRoute><Abouts/></PrivateRoute>}/>
+        <Route path="/main/AboutDetail" element={<PrivateRoute><AboutDetail/></PrivateRoute>}/>
+        <Route path="/main/RiskDetail" element={<PrivateRoute><RiskDetail/></PrivateRoute>}/>
+
+
+
+
+
       
         
         <Route path="home/AllLotteryGames/5D" element={<PrivateRoute><D5/></PrivateRoute>}/>
