@@ -1,59 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Api from '../../services/Api';
-import Loader from '../../components/Loader';
+import React from 'react'
 
-export default function Account() {
-
-    const [totalMoney, setTotalMoney] = useState(0);
-    const [uid, setUid] = useState(null);
-    const [username, setUsername] = useState(null);
-    const [lastlogin, setLastLogin] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const navigate = useNavigate();
-    const [activeLink , setActiveLink] = useState(null);
-
-  
-    useEffect(() => {
-      const fetchUserInfo = async () => {
-        try {
-          const response = await Api.get('/api/webapi/GetUserInfo');
-          if (response.data.status) {
-            setTotalMoney(response.data.data.money_user);
-            setUid(response.data.data.id_user);
-            setUsername(response.data.data.name_user);
-            setLastLogin(response.data.data.last_login);
-            const currentPath = window.location.pathname;
-             setActiveLink(currentPath);
-
-          } else {
-            setError('Failed to fetch user info');
-          }
-        } catch (err) {
-          setError('Error fetching user info');
-          console.error(err);
-        } finally {
-          setLoading(false);
-        }
-      };
-  
-      fetchUserInfo();
-    }, []);
-  
-    if (loading) {
-      return      <Loader/>
-      // You can replace this with a spinner if needed
-    }
-  
-    
-
+export default function Feedback() {
   return (
-    <div style={{fontSize: '12px'}}>
+    <div style={{fontSize: '12px'}}> 
+
+
+
+
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      
-      style={{position: 'absolute', width: 0, height: 0}}
+      style={{position: 'absolute', width: '0', height: '0'}}
     >
       <symbol
         id="icon-privacyIcon"
@@ -3273,7 +3229,6 @@ export default function Account() {
           strokeLinecap="round"
         ></path>
       </symbol>
-      
       <symbol
         id="icon-downArrow"
         xmlns="http://www.w3.org/2000/svg"
@@ -3655,17 +3610,15 @@ export default function Account() {
           strokeLinejoin="round"
         ></path>
       </symbol>
-      
       <symbol
         id="icon-eye"
         t="1503993826520"
         className="icon"
-        
         viewBox="0 0 1024 1024"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         p-id="7878"
-        
+  
       >
         <defs><style type="text/css"></style></defs>
         <path
@@ -7669,7 +7622,7 @@ export default function Account() {
               fill="white"
             ></path>
           </g>
-          <g style={{mixBlendMode: 'screen'}} filter="url(#filter3_f_1148_26793)">
+          <g style={{mixblendMode: 'screen'}} filter="url(#filter3_f_1148_26793)">
             <path
               d="M29.3201 21.8121C34.9243 22.3645 39.7834 19.6054 40.1733 15.6495C40.5632 11.6937 36.3362 8.03906 30.7321 7.48669C25.128 6.93432 20.2689 9.69339 19.879 13.6492C19.4891 17.6051 23.716 21.2597 29.3201 21.8121Z"
               fill="#FFCFCE"
@@ -9426,27 +9379,26 @@ export default function Account() {
       <div
         data-v-647954c7=""
         className="ar-loading-view"
-        style={{  
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
+        style={{
+          '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
           display: 'none'
         }}
       >
         <div data-v-647954c7="" className="loading-wrapper">
-          
           <div data-v-647954c7="" className="loading-animat">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              
+        
               viewBox="0 0 200 200"
               width="200"
               height="200"
               preserveAspectRatio="xMidYMid meet"
-              style={{  
-                width: '100%',
+              style={{
+                width:' 100%',
                 height: '100%',
                 transform: 'translate3d(0px, 0px, 0px)',
                 contentVisibility: 'visible'
-            }}
+    }}
             >
               <defs>
                 <clipPath id="__lottie_element_2">
@@ -9490,22 +9442,17 @@ export default function Account() {
             </svg>
           </div>
           <div data-v-647954c7="" className="com__box" style={{display: 'none'}}>
-            
             <div className="loading" data-v-647954c7="">
               <div className="shape shape-1" data-v-647954c7=""></div>
               <div className="shape shape-2" data-v-647954c7=""></div>
               <div className="shape shape-3" data-v-647954c7=""></div>
               <div className="shape shape-4" data-v-647954c7=""></div>
             </div>
-            
           </div>
-          
         </div>
         <div data-v-647954c7="" className="skeleton-wrapper" style={{display: 'none'}}>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
             <div className="van-skeleton__content">
-              
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9530,7 +9477,6 @@ export default function Account() {
             </div>
           </div>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
             <div className="van-skeleton__content">
               <h3 className="van-skeleton-title"></h3>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9542,640 +9488,68 @@ export default function Account() {
           </div>
         </div>
       </div>
-      
       <div
-        data-v-5bd44e74=""
-        data-v-a78765c7=""
-        className="userInfo__container"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
+        data-v-00fab4aa=""
+        className="feedback-container"
+        style={{'--f13b4d11-currentFontFamily':"'Roboto', 'Inter', 'sansSerif'"}}
       >
-        <div
-          data-v-12a80a3e=""
-          data-v-5bd44e74=""
-          className="navbar main"
-          style={{display: 'none'}}
-        >
+        <div data-v-12a80a3e="" data-v-00fab4aa="" className="navbar">
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
               <div data-v-12a80a3e="" className="navbar__content-left">
                 <i
                   data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/index')}
+                  className="van-badge__wrapper van-icon van-icon-arrow-left"
                   ></i
                 >
               </div>
               <div data-v-12a80a3e="" className="navbar__content-center">
-                
                 <div data-v-12a80a3e="" className="navbar__content-title">
-                  Settings Center
+                  Feedback
                 </div>
               </div>
               <div data-v-12a80a3e="" className="navbar__content-right"></div>
             </div>
           </div>
         </div>
-        <div data-v-5bd44e74="" className="userInfo__container-content">
-          <div data-v-5bd44e74="" className="userInfo__container-content-wrapper">
-            <div data-v-5bd44e74="" className="userInfo__container-content__avatar">
+        <div data-v-00fab4aa="" className="feedback-container-content">
+          <div data-v-00fab4aa="" className="feedback-container-content-text">
+            <div
+              data-v-00fab4aa=""
+              className="feedback-container-content-text-wrapper"
+            >
+              <textarea
+                data-v-00fab4aa=""
+                name="feedback"
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="Welcome to feedback, please give feedback-please describe the problem in detail when providing feedback, preferably attach a screenshot of the problem you encountered, we will immediately process your feedback!"
+              ></textarea>
+            </div>
+          </div>
+          <div data-v-00fab4aa="" className="feedback-container-content-describe">
+            <h5 data-v-00fab4aa="">Send helpful feedback</h5>
+            <h5 data-v-00fab4aa="">Chance to win Mystery Rewards</h5>
+            <div data-v-00fab4aa="">
               <img
-                data-v-5bd44e74=""
-                src="/assets/png/6-7c7f5203.png"
-                className="userAvatar"
+                data-v-00fab4aa=""
+                src="/assets/png/feedbackImg-b7a3bd03.png"
+                alt=""
               />
             </div>
-            <div data-v-5bd44e74="" className="userInfo__container-content__name">
-              <div
-                data-v-5bd44e74=""
-                className="userInfo__container-content-nickname"
-              >
-                <h3 data-v-5bd44e74="">{username}</h3>
-                <div data-v-5bd44e74="" className="n0"></div>
-                <img
-                  data-v-5bd44e74=""
-                  className="editPencil"
-                  src="/assets/png/editPencil-c89ee923.png"
-                  style={{display: 'none'}}
-                />
-              </div>
-              <div data-v-5bd44e74="" className="userInfo__container-content-uid">
-                <span data-v-5bd44e74="">UID</span
-                ><span data-v-5bd44e74="">|</span
-                ><span data-v-5bd44e74="">{uid}</span
-                ><svg data-v-5bd44e74="" className="svg-icon icon-copy">
-                  <use href="#icon-copy"></use>
-                </svg>
-              </div>
-              <div
-                data-v-5bd44e74=""
-                className="userInfo__container-content-logintime"
-              >
-                <span data-v-5bd44e74="">Last login:&nbsp;</span
-                ><span data-v-5bd44e74="">{lastlogin}</span>
-              </div>
-              <div
-                data-v-5bd44e74=""
-                className="userInfo__container-content-logintime"
-                style={{display: 'none'}}
-              >
-                <span data-v-5bd44e74="">&nbsp;</span>
-              </div>
-            </div>
-          </div>
-
-          <div
-            data-v-5bd44e74=""
-            className="userInfo__container-content-right"
-            style={{display: 'none'}}
-          >
-            <h5 data-v-5bd44e74="">Change avatar</h5>
           </div>
         </div>
-        <div
-          data-v-5bd44e74=""
-          className="userInfo__container-setting-center"
-          style={{display: 'none'}}
-        >
-          <div
-            data-v-5bd44e74=""
-            className="userInfo__container-setting-center-header"
-          >
-            <div data-v-5bd44e74="" className="userInfo__container-content__avatar">
-              <img
-                data-v-5bd44e74=""
-                data-img="/assets/png/avatar-2f23f3bd.png"
-                className="ar-lazyload"
-                data-origin="/assets/png/6-7c7f5203.png"
-              />
-            </div>
-            <div
-              data-v-5bd44e74=""
-              className="userInfo__container-setting-center-header-edit"
-            >
-              <span data-v-5bd44e74="">Change avatar</span
-              ><i
-                data-v-5bd44e74=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                style={{color: 'rgb(136, 136, 136)'}}
-                ></i
-              >
-            </div>
-          </div>
-          <div
-            data-v-5bd44e74=""
-            className="userInfo__container-setting-center-content ar-1px-b"
-          >
-            <h5 data-v-5bd44e74="">Nickname</h5>
-            <div data-v-5bd44e74="">
-              <span data-v-5bd44e74="">MemberNNGNDBYB</span
-              ><i
-                data-v-5bd44e74=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                style={{color: 'rgb(136, 136, 136)'}}
-                ></i
-              >
-            </div>
-          </div>
-          <div
-            data-v-5bd44e74=""
-            className="userInfo__container-setting-center-content"
-          >
-            <h5 data-v-5bd44e74="">UID</h5>
-            <div data-v-5bd44e74="">
-              <span data-v-5bd44e74="">11693333</span
-              ><svg data-v-5bd44e74="" className="svg-icon icon-copy">
-                <use href="#icon-copy"></use>
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div data-v-2c18a1cc="" data-v-5bd44e74="" className="info-dialog">
-          
+        <div data-v-00fab4aa="" className="feedback-container-footer">
+          <button data-v-00fab4aa="">Submit</button>
         </div>
       </div>
-      <div
-        data-v-a78765c7=""
-        className="userinfo-content"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      >
-        
-        <div
-          data-v-7d799898=""
-          data-v-a78765c7=""
-          className="totalSavings__container"
-        >
-        <div data-v-7d799898="" className="totalSavings__container-header">
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-header-box ar-1px-b"
-            >
-              <div
-                data-v-7d799898=""
-                className="totalSavings__container-header__title"
-              >
-                <span data-v-7d799898="">Total balance</span
-                >
-              </div>
-              <p
-                data-v-7d799898=""
-                className="totalSavings__container-header__subtitle"
-              >
-                <span data-v-7d799898="">₹{totalMoney??0    }</span
-                ><svg data-v-7d799898="" className="svg-icon icon-refreshBalance">
-                  <use href="#icon-refreshBalance"></use>
-                </svg>
-              </p>
-            </div>
-          </div>
-          <div data-v-7d799898="" className="totalSavings__container-content">
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-content-item"
-            >
-              <div data-v-7d799898="" onClick={()=>navigate('/wallet')}>
-                <svg data-v-7d799898="" className="svg-icon icon-wallets">
-                  <use href="#icon-wallets"></use></svg
-                > <span data-v-7d799898="">Wallet</span>
-              </div>
-            </div>
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-content-item"
-            >
-              <div data-v-7d799898="" onClick={()=>navigate('/wallet/deposit')}>
-                <svg data-v-7d799898="" className="svg-icon icon-rechargeIcon">
-                  <use href="#icon-rechargeIcon"></use></svg
-                > <span data-v-7d799898="">Deposit</span>
-              </div>
-            </div>
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-content-item"
-            >
-              <div data-v-7d799898="" onClick={()=>navigate('/wallet/withdraw')}>
-                <svg data-v-7d799898="" className="svg-icon icon-widthdrawBlue">
-                  <use href="#icon-widthdrawBlue"></use></svg
-                ><span data-v-7d799898="">Withdraw</span>
-              </div>
-            </div>
-            <div
-              data-v-7d799898=""
-              className="totalSavings__container-content-item"
-            >
-              <div data-v-7d799898="" onClick={()=>navigate('/Vip')}>
-                <svg data-v-7d799898="" className="svg-icon icon-VipIcon">
-                  <use href="#icon-VipIcon"></use></svg
-                > <span data-v-7d799898="">VIP</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div
-          data-v-acd6d46f=""
-          data-v-a78765c7=""
-          className="financialServices__container"
-        >
-          
-          <div data-v-acd6d46f="" className="financialServices__container-box">
-            <div data-v-acd6d46f="">
-              <svg data-v-acd6d46f="" className="svg-icon icon-betHistory">
-                <use href="#icon-betHistory"></use>
-              </svg>
-              <div
-                data-v-acd6d46f=""
-                className="financialServices__container-box-para" onClick={()=>navigate('/main/BetRecords')}
-              >
-               <h3 data-v-acd6d46f="">Game History</h3>
-                <span data-v-acd6d46f="">My game history</span>
-              </div>
-            </div>
-            <div data-v-acd6d46f="">
-              <svg data-v-acd6d46f="" className="svg-icon icon-tradeHistory">
-                <use href="#icon-tradeHistory"></use>
-              </svg>
-              <div
-                data-v-acd6d46f=""
-                className="financialServices__container-box-para"  onClick={()=>navigate('/wallet/TransAction')}
-              >
-               
-                <span data-v-acd6d46f="">My transaction history</span>
-              </div>
-            </div>
-            <div data-v-acd6d46f="">
-              <svg data-v-acd6d46f="" className="svg-icon icon-rechargeHistory">
-                <use href="#icon-rechargeHistory"></use>
-              </svg>
-              <div
-                data-v-acd6d46f=""
-                className="financialServices__container-box-para" onClick={()=>navigate('/wallet/DepositHistory')}
-              >
-               <h3 data-v-acd6d46f="">Deposit</h3>
-                <span data-v-acd6d46f="">My deposit history</span>
-              </div>
-            </div>
-            <div data-v-acd6d46f="">
-              <svg data-v-acd6d46f="" className="svg-icon icon-myWithdrawHistory">
-                <use href="#icon-myWithdrawHistory"></use>
-              </svg>
-              <div
-                data-v-acd6d46f=""
-                className="financialServices__container-box-para" onClick={()=>navigate('/wallet/WithdrawHistory')}
-              >
-                 <h3 data-v-acd6d46f="">Withdraw</h3>
-                <span data-v-acd6d46f="">My withdraw history</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div
-          data-v-a30d19b1=""
-          data-v-a78765c7=""
-          className="settingPanel__container"
-        >
-          <div data-v-a30d19b1="" className="settingPanel__container-items">
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-notification">
-                  <use href="#icon-notification"></use></svg
-                >
-
-                <a href="/account/notification.html"><span
-                  data-v-a30d19b1=""
-                  >Notification</span
-                ></a>
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="">1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"  onClick={()=>navigate('/main/RedeemGift')}
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-gifts">
-                  <use href="#icon-gifts"></use></svg
-                >
-
-                <span
-                  data-v-a30d19b1=""
-                  >Gifts</span
-                >
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-              style={{display: 'none'}}
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-tournament">
-                  <use href="#icon-tournament"></use></svg
-                ><span
-                  data-v-a30d19b1=""
-                  >My tournament</span
-                >
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-              style={{display: 'none'}}
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-productCode">
-                  <use href="#icon-productCode"></use></svg
-                ><span
-                  data-v-a30d19b1=""
-                  >Product code</span
-                >
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-              style={{display: 'none'}}
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-myDraw">
-                  <use href="#icon-myDraw"></use></svg
-                ><span
-                  data-v-a30d19b1=""
-                  >my draw</span
-                >
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-statsIcon">
-                  <use href="#icon-statsIcon"></use></svg
-                >
-                <a href="/account/gamestatics.html"><span
-                  data-v-a30d19b1=""
-                  >Game statistics</span></a>
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="" style={{display: 'none'}}>English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-            <div
-              data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
-            >
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
-              >
-                <svg data-v-a30d19b1="" className="svg-icon icon-language">
-                  <use href="#icon-language"></use></svg
-                ><span
-                  data-v-a30d19b1=""
-                  >Language</span
-                >
-              </div>
-              <div
-                data-v-a30d19b1=""
-                className="settingPanel__container-items-right"
-              >
-                <h5 data-v-a30d19b1="" style={{display: 'none'}}>1</h5>
-                <span data-v-a30d19b1="">English</span
-                ><i
-                  data-v-a30d19b1=""
-                  className="van-badge__wrapper van-icon van-icon-arrow"
-                  style={{color: 'rgb(102, 102, 102)'}}
-                  ></i
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div data-v-159bf81f="" data-v-a78765c7="" className="serviceCenter-wrap">
-          <div data-v-159bf81f="" className="serviceCenter__container">
-            <h1 data-v-159bf81f="">Service center</h1>
-            <div data-v-159bf81f="" className="serviceCenter__container-items" onClick={()=>navigate('/main/SettingCenters')}>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-settingCenter">
-                  <use href="#icon-settingCenter"></use></svg
-                >
-               <span
-                  data-v-159bf81f=""
-                  >Settings</span
-                >
-
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-feedback">
-                  <use href="#icon-feedback"></use></svg
-                >
-               <span
-                  data-v-159bf81f=""
-                  >Feedback</span
-                >
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg
-                  data-v-159bf81f=""
-                  className="svg-icon icon-notificationCenter"
-                >
-                  <use href="#icon-notificationCenter"></use></svg
-                >
-                <span
-                  data-v-159bf81f=""
-                  >Notification</span
-                >
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-server">
-                  <use href="#icon-server"></use></svg
-                >
-               <span
-                  data-v-159bf81f=""
-                  >24/7 Customer service</span
-                >
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-guide">
-                  <use href="#icon-guide"></use></svg
-                >
-               <span
-                  data-v-159bf81f=""
-                  >Beginner's Guide</span
-                >
-              </div>
-              <div
-                data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
-              >
-                <svg data-v-159bf81f="" className="svg-icon icon-about">
-                  <use href="#icon-about"></use></svg
-                >
-
-                <span
-                  data-v-159bf81f=""
-                  >About us</span
-                >
-              </div>
-            </div>
-          </div>
-          <div data-v-159bf81f="" className="serviceCenter-wrap-header">
-            <button data-v-159bf81f="" onClick={()=>navigate('/logout')}>
-              <svg data-v-159bf81f="" className="svg-icon icon-logout">
-                <use href="#icon-logout"></use></svg
-              >
-              Log out
-            </button>
-          </div>
-          
-          <div data-v-3e71d3da="" data-v-159bf81f="" className="dialog inactive">
-            <div
-              data-v-3e71d3da=""
-              className="dialog__container"
-              role="dialog"
-              tabIndex="0"
-            >
-              <div data-v-3e71d3da="" className="dialog__container-img">
-                <img
-                  data-v-3e71d3da=""
-                  className=""
-                  alt=""
-                  data-origin="/assets/png/tip-0498e3f9.png"
-                  src="/assets/png/tip-0498e3f9.png"
-                />
-              </div>
-              <div data-v-3e71d3da="" className="dialog__container-title">
-                <h1 data-v-3e71d3da="">Do you want to log out?</h1>
-              </div>
-              <div data-v-3e71d3da="" className="dialog__container-content"></div>
-              <div data-v-3e71d3da="" className="dialog__container-footer">
-                <button data-v-3e71d3da="">Confirm</button
-                ><button data-v-3e71d3da="">Cancel</button>
-              </div>
-              
-            </div>
-            <div data-v-3e71d3da="" className="dialog__outside"></div>
-          </div>
-        </div>
-      </div>
-      
       <div
         className="customer"
         id="customerId"
-        style={{  
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-          '--f6a705e1-currentFontFamily': "bahnschrift"
+        style={{
+          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
+         ' F6a705e1CurrentFontFamily': 'bahnschrift'
         }}
       >
         <img
@@ -10184,336 +9558,9 @@ export default function Account() {
           src="/assets/png/icon_sevice-9f0c8455.png"
         />
       </div>
-      <div data-v-6ab3f23e="" className="tabbar__container"
-            style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-home" onClick={()=> navigate('/index')}>
-                    <use href="#icon-home"></use>
-                </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-activity" onClick={()=> navigate('/activity')}><use href="#icon-activity"></use>
-                   
-                </svg>
-                <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-promotion" onClick={()=> navigate('/promotion')}>
-                    <use href="#icon-promotion"></use>
-                </svg>
-                <div data-v-6ab3f23e="" className="promotionBg"></div>
-                <span data-v-6ab3f23e="" onClick={()=> navigate('/promotion')}>
-                    Promotion</span>
-            </div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
-            <use href="#icon-wallet" onClick={()=> navigate('/wallet')}></use>
-                </svg><span data-v-6ab3f23e=""  onClick={()=> navigate('/wallet')}>Wallet</span></div>
-            <div data-v-6ab3f23e="" className={`tabbar__container-item ${activeLink === '/account' ? 'active':''}`}><svg data-v-6ab3f23e="" className="svg-icon icon-main"  onClick={()=> navigate('/account')}>
-            <use href="#icon-main"></use>
-                </svg><span data-v-6ab3f23e="" onClick={()=> navigate('/account')}>Account</span></div>
-        </div>
-      
-      <div
-        className="van-overlay"
-        style={{  
-            zIndex: '2010',
-            '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-            display: 'none',
-          }}
-      >
-        
-      </div>
-      <div
-        role="dialog"
-        tabIndex="0"
-        className="van-popup van-popup--center van-dialog firstSaveDialog"
-        style={{  
-          zIndex: '2010',
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-          display: 'none',
-        }}
-      >
-        <div className="van-dialog__header">
-          <div data-v-9cd12fb2="" className="header">
-            <div data-v-9cd12fb2="" className="title">
-              Extra first deposit bonus
-            </div>
-            <div data-v-9cd12fb2="" className="tip">
-              Each account can only receive rewards once
-            </div>
-          </div>
-        </div>
-        <div className="van-dialog__content">
-          <div data-v-9cd12fb2="" className="container">
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">400</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹48.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 400 for the first time and you will receive 48 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                  background: 'var(--bg_color_L1)',
-                    height: '16px',
-                    borderRadius: '16px'
-                }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/400</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">1000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹108.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 1000 for the first time and you will receive 108 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/1000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">2000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹188.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 2000 for the first time and you will receive 188 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/2000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">10000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹488.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 10000 for the first time and you will receive 488 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/10000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">24000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹1,388.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 24000 for the first time and you will receive 1388 bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/24000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">120000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹5,888.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 120000 for the first time and you will receive 5888
-                bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                      background: 'var(--norm_secondary-color)',
-                      width: '0%',
-                      height: '16px',
-                      borderRadius: '16px'
-                    }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/120000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            <div data-v-48dabef8="" className="first_list-item">
-              <div data-v-48dabef8="" className="head">
-                <div data-v-48dabef8="" className="title">
-                  First deposit<span data-v-48dabef8="">240000</span>
-                </div>
-                <div data-v-48dabef8="" className="orange">+ ₹8,888.00</div>
-              </div>
-              <div data-v-48dabef8="" className="description">
-                Deposit 240000 for the first time and you will receive 8888
-                bonus
-              </div>
-              <div data-v-48dabef8="" className="foot">
-                <div
-                  data-v-bff59ba2=""
-                  data-v-48dabef8=""
-                  className="progress"
-                  style={{  
-                    background: 'var(--bg_color_L1)',
-                      height: '16px',
-                      borderRadius: '16px'
-                  }}
-                >
-                  <div
-                    data-v-bff59ba2=""
-                    className="line"
-                    style={{  
-                        background: 'var(--norm_secondary-color)',
-                        width: '0%',
-                        height: '16px',
-                        borderRadius: '16px'
-                      }}
-                  ></div>
-                  <div data-v-bff59ba2="" className="step">0/240000</div>
-                </div>
-                <div data-v-48dabef8="" className="btn n2">Deposit</div>
-              </div>
-            </div>
-            
-          </div>
-          <div data-v-9cd12fb2="" className="close"></div>
-        </div>
-        <div data-v-9cd12fb2="" className="footer">
-          <div data-v-9cd12fb2="" className="active">
-            <svg data-v-9cd12fb2="" className="svg-icon icon-active">
-              <use href="#icon-active"></use></svg
-            >No more reminders today
-          </div>
-          <div data-v-9cd12fb2="" className="btn">Activity</div>
-        </div>
-        
-      </div>
-      
     </div>
-  
+
+
     </div>
   )
 }

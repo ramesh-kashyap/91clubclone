@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { QRCodeCanvas } from 'qrcode.react'; // Or use QRCodeSVG if you prefer SVG rendering
 import Api from '../../services/Api';
+import { useToast } from '../../components/ToastContext'; 
 
 
 
@@ -11,6 +12,7 @@ export default function ConfirmDeposit() {
 
 
 
+  const { showToast } = useToast();
 
 
   
@@ -58,9 +60,12 @@ export default function ConfirmDeposit() {
           console.log('Recharge Done Successfully');
           navigate('/wallet/deposit', { state: { msg: 'Recharge Done Successfully' } });
         } else {
-          console.log('Cancellation failed:', response.data.message);
+
+          // console.log('Cancellation failed:', response.data.message);
         }
       } catch (error) {
+        showToast('Error while cancelling recharge.', 'succes');
+
         console.error('Error while cancelling recharge:', error);
       }
     };
@@ -86,9 +91,13 @@ export default function ConfirmDeposit() {
           console.log('Order Cancelled Successfully');
           navigate('/wallet/deposit', { state: { msg: 'Order Cancelled Successfully' } });
         } else {
+          showToast(response.data.message, 'succes');
+
           console.log('Cancellation failed:', response.data.message);
         }
       } catch (error) {
+        showToast('Error while cancelling recharge.', 'succes');
+
         console.log('Error while cancelling recharge:', error);
       }
     };
@@ -194,7 +203,7 @@ export default function ConfirmDeposit() {
                 <div data-v-12a80a3e="" className="navbar-fixed">
                     <div data-v-12a80a3e="" className="navbar__content">
                         <div data-v-12a80a3e="" className="navbar__content-left"><img data-v-003e4505=""
-                                src="/assets/png/h5setting_20230714005937kuk1.png"
+                                src="/assets/png/BDGPRO2.png"
                                 alt=""/></div>
                         <div data-v-12a80a3e="" className="navbar__content-center">
                             <div data-v-12a80a3e="" className="navbar__content-title"></div>

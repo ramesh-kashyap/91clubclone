@@ -3,9 +3,15 @@ import Api from '../../services/Api';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown , faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { useToast } from '../../components/ToastContext'; 
+
 
 
 export default function Login() {
+
+  const { showToast } = useToast();
+
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
@@ -40,9 +46,13 @@ export default function Login() {
           // Redirect to /dashboard
           navigate('/index');
         } else {
+          showToast(response.data.message, 'succes');
+
           setError(response.data.message);
         }
       } catch (err) {
+        showToast('An error occurred. Please try again.', 'succes');
+
         setError('An error occurred. Please try again.');
       }
     };
