@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useToast } from '../../components/ToastContext';
 
 export default function Register() {
-  const { showToast } = useToast();
 
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');

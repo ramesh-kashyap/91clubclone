@@ -9992,14 +9992,14 @@ export default function Account() {
             >
               <div
                 data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
+                className="settingPanel__container-items__title" onClick={()=>navigate('/main/GameStats')}
               >
                 <svg data-v-a30d19b1="" className="svg-icon icon-statsIcon">
                   <use href="#icon-statsIcon"></use></svg
                 >
-                <a href="/account/gamestatics.html"><span
+                <span
                   data-v-a30d19b1=""
-                  >Game statistics</span></a>
+                  >Game statistics</span>
               </div>
               <div
                 data-v-a30d19b1=""
@@ -10066,7 +10066,7 @@ export default function Account() {
               </div>
               <div
                 data-v-159bf81f=""
-                className="serviceCenter__container-items__item" 
+                className="serviceCenter__container-items__item" onClick={()=>navigate('/main/Feedback')}
               >
                 <svg data-v-159bf81f="" className="svg-icon icon-feedback">
                   <use href="#icon-feedback"></use></svg
@@ -10093,7 +10093,7 @@ export default function Account() {
               </div>
               <div
                 data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
+                className="serviceCenter__container-items__item" onClick={()=>navigate('/main/CustomerService')}
               >
                 <svg data-v-159bf81f="" className="svg-icon icon-server">
                   <use href="#icon-server"></use></svg
@@ -10117,7 +10117,7 @@ export default function Account() {
               </div>
               <div
                 data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
+                className="serviceCenter__container-items__item" onClick={()=>navigate('/main/Abouts')}
               >
                 <svg data-v-159bf81f="" className="svg-icon icon-about">
                   <use href="#icon-about"></use></svg
