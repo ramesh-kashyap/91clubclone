@@ -1,9 +1,12 @@
 import React, { useEffect , useState } from 'react';
 import Api from '../../services/Api';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '../../components/ToastContext'; 
 
 
 export default function Register() {
+  const { showToast } = useToast();
+
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -13,6 +16,8 @@ export default function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
+          showToast('Passwords do not match', 'succes');
+
           setError('Passwords do not match');
           return;
         }
@@ -27,9 +32,11 @@ export default function Register() {
             // Redirect to login or home page
             window.location.href = '/login';
           } else {
-            setError(response.data.message);
+            showToast(response.data.message, 'succes');
           }
         } catch (err) {
+          showToast('An error occurred. Please try again.', 'succes');
+
           setError('An error occurred. Please try again.');
         }
     };

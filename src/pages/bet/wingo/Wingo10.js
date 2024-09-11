@@ -8,6 +8,8 @@ import ChartList from './components/ChartList';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useToast } from '../../../components/ToastContext'; 
+
 
 
 
@@ -46,6 +48,8 @@ const getPopupClass = (item) => {
 
 
 export default function Wingo10() {
+  const { showToast } = useToast();
+
 
     const navigate = useNavigate();
 
@@ -450,6 +454,8 @@ export default function Wingo10() {
   
       // Validate inputs
       if (!join || !quantity || !balance || userInfo.money_user < totalAmount) {
+        showToast('Invalid input or insufficient balance', 'succes');
+
         toast.error('Invalid input or insufficient balance');
         return;
       }
@@ -465,7 +471,7 @@ export default function Wingo10() {
   
         const { data } = response;
 
-        toast.success('Bet placed successfully!');
+        showToast('Bet placed successfully!', 'succes');
 
   
         handleClosePopup();

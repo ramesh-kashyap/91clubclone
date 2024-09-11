@@ -66,6 +66,7 @@ import TransAction from './pages/wallet/TransAction';
 import DepositHistory from './pages/wallet/DepositHistory';
 
 
+
 import Receive from './pages/activity/Receive';
 import Wingo3 from  './pages/bet/wingo/Wingo3';
 import Wingo5 from  './pages/bet/wingo/Wingo5';
@@ -156,6 +157,7 @@ function App() {
         <Route path="/main/Abouts" element={<PrivateRoute><Abouts/></PrivateRoute>}/>
         <Route path="/main/AboutDetail" element={<PrivateRoute><AboutDetail/></PrivateRoute>}/>
         <Route path="/main/RiskDetail" element={<PrivateRoute><RiskDetail/></PrivateRoute>}/>
+
 
 
 

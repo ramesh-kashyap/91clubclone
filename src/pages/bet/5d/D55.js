@@ -9,6 +9,8 @@ import ReactHowler from 'react-howler';
 import ChartList from '../5d/components/ChartList';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useToast } from '../../../components/ToastContext'; 
+
 
 
 const SOCKET_URL = 'http://localhost:3000';
@@ -27,6 +29,8 @@ const countDownDate = new Date("2030-07-16T23:59:59.9999999+01:00").getTime();
 
 
 export default function D5(){
+  const { showToast } = useToast();
+
 
     const [gameJoin, setGameJoin] = useState('game1');
     const [activeTime, setActiveTime] =useState('time1');
@@ -423,6 +427,8 @@ useEffect(() => {
   
     // Validate inputs
     if (!join || !quantity || !balance || !listJoin || userInfo.money_user < totalAmount) {
+      showToast('Invalid input or insufficient balance', 'succes');
+
       toast.error('Invalid input or insufficient balance', {
         icon: false, // No icon
         progressBar: false, // No progress bar
@@ -447,7 +453,7 @@ useEffect(() => {
         money: balance,
       });
   
-      toast.success('Bet placed successfully!');
+      showToast('Bet placed successfully!', 'succes');
 
        setShowBetPopup(false);
        fetchUserInfo();
