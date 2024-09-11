@@ -1,7 +1,7 @@
 import React, { useEffect , useState } from 'react';
 import Api from '../../services/Api';
 import { useNavigate } from 'react-router-dom';
-
+import { useToast } from '../../components/ToastContext';
 
 export default function Register() {
     const [phone, setPhone] = useState('');
@@ -10,6 +10,7 @@ export default function Register() {
     const [invitecode, setInvitecode] = useState(''); // New state for invite code
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const { showToast } = useToast();
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
@@ -25,8 +26,10 @@ export default function Register() {
           console.log(response.data.message);
           if (response.data.message === 'Register Success') {
             // Redirect to login or home page
+            showToast('Your Data is Registered.', 'succes');
             window.location.href = '/login';
           } else {
+            showToast(response.data.message)
             setError(response.data.message);
           }
         } catch (err) {

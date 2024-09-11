@@ -83,8 +83,10 @@ const showSection = (sectionId) => {
   
       if (response.data.status === true) {
         // Navigate to the ConfirmDeposit page and pass the response.data.datas
+        showToast('Your Deposit Details Registred.', 'succes');
         navigate('/deposit/ConfirmDeposit', { state: { data: response.data.datas } });
       } else {
+        showToast("Payment creation failed. Please try again.");
         setError("Payment creation failed. Please try again.");
       }
     } catch (err) {
