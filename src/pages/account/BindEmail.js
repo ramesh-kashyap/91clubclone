@@ -26,11 +26,16 @@ export default function Register() {
       const response = await Api.post('/send-otp', { email });
       if (response.status === 200) {
         setOtpSent(true); // OTP sent successfully
-        alert('OTP sent to your email successfully.');
+
+        showToast('OTP sent to your email successfully.', 'succes');
+
+        // alert('OTP sent to your email successfully.');
       }
     } catch (error) {
       console.error('Error sending OTP:', error);
-      alert(error.response.data.message || 'Failed to send OTP');
+      showToast('Failed to send OTP', 'succes');
+
+      // alert(error.response.data.message || 'Failed to send OTP');
     }
   };
 
@@ -40,11 +45,15 @@ export default function Register() {
 
       if (response.status === 200) {
         setBindSuccess(true);
-        alert('Email bound successfully!');
+        showToast('Email bound successfully!', 'succes');
+
+        // alert('Email bound successfully!');
       }
     } catch (error) {
       console.error('Error verifying OTP:', error);
-      alert(error.response.data.message || 'Failed to verify OTP');
+      showToast('Failed to verify OTP', 'succes');
+
+      // alert(error.response.data.message || 'Failed to verify OTP');
     }
   };
 
