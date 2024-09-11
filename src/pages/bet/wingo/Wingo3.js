@@ -8,6 +8,8 @@ import ChartList from './components/ChartList';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useToast } from '../../../components/ToastContext'; 
+
 
 
 
@@ -47,6 +49,8 @@ const getPopupClass = (item) => {
 
 
 export default function Wingo3() {
+  const { showToast } = useToast();
+
 
     const navigate = useNavigate();
 
@@ -190,11 +194,11 @@ export default function Wingo3() {
     const [audio2Played, setAudio2Played] = useState(false);
     const [userInteracted, setUserInteracted] = useState(false); // Track user interaction
 
-    useEffect(() => {
-      if (error) {
-          toast.error(error); // Show the error in a toast notification
-      }
-  }, [error]);
+  //   useEffect(() => {
+  //     if (error) {
+  //         toast.error(error); // Show the error in a toast notification
+  //     }
+  // }, [error]);
   
     useEffect(() => {
       const audio1 = new Audio('/assets/audio/di1.da40b233.mp3');
@@ -452,7 +456,9 @@ export default function Wingo3() {
   
       // Validate inputs
       if (!join || !quantity || !balance || userInfo.money_user < totalAmount) {
-        toast.error('Invalid input or insufficient balance');
+        showToast('Invalid input or insufficient balance', 'succes');
+
+        // toast.error('Invalid input or insufficient balance');
         return;
       }
   
@@ -466,8 +472,8 @@ export default function Wingo3() {
         });
   
         const { data } = response;
+        showToast('Bet placed successfully!', 'succes');
 
-        toast.success('Bet placed successfully!');
 
         
   

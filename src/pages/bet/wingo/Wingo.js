@@ -470,6 +470,8 @@ export default function Wingo() {
   
       // Validate inputs
       if (!join || !quantity || !balance || userInfo.money_user < totalAmount) {
+        showToast('Invalid input or insufficient balance', 'succes');
+
         toast.error('Invalid input or insufficient balance',{ icon: false, // No icon
           progressBar: false, // No progress bar
           style: {
