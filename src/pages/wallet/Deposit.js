@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom';
 import { useToast } from '../../components/ToastContext'; 
 
 export default function Deposit(){
+  const [depositHistory, setDepositHistory] = useState([]);
+
 
   const { showToast } = useToast();
 
@@ -94,7 +96,53 @@ const showSection = (sectionId) => {
       setError('An error occurred. Please try again.');
     }
   };
- 
+  const fetchDepositHistory = async () => {
+    try {
+      const response = await Api.get('/api/webapi/recharge/list?page=1&limit=5');
+      const data =  response.data;
+
+      console.log(data.datas);
+
+      setDepositHistory(data.datas); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+  useEffect(() => {
+    fetchDepositHistory();  
+       
+
+   
+  }, []);
+
+
+  const formatTimestampToIST = (timestamp) => {
+    try {
+      // Convert the timestamp to a number if it's in string format
+      const numericTimestamp = Number(timestamp);
+  
+      // If the timestamp is in seconds (10 digits), convert it to milliseconds
+      const validTimestamp = numericTimestamp.toString().length === 13 ? numericTimestamp : numericTimestamp * 1000;
+  
+      // Create a Date object from the valid timestamp
+      const date = new Date(validTimestamp);
+  
+      // Check if the Date object is valid
+      if (isNaN(date.getTime())) {
+        throw new Error('Invalid Date');
+      }
+  
+      // Format the date in IST
+      return date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+    } catch (error) {
+      return 'Invalid Timestamp';
+    }
+  };
+
 
  return(
  <div style={{fontSize: '12px'}} className="">
@@ -1032,155 +1080,62 @@ const showSection = (sectionId) => {
               ><span data-v-9f5f4114="">Deposit history</span>
             </div>
             
-            <div data-v-9f5f4114="">
-              <div data-v-9f5f4114="" className="record__main-info">
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__title flex_between"
-                >
-                  <div data-v-9f5f4114="" className="recharge_text">Deposit</div>
-                  <div data-v-9f5f4114="" className="flex_between">
-                    <div data-v-9f5f4114="" className="rechargeFail">Failed</div>
-                    
-                  </div>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__money item flex_between"
-                >
-                  <span data-v-9f5f4114="">Balance</span
-                  ><span data-v-9f5f4114="">₹100.00</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__type item flex_between"
-                >
-                  <span data-v-9f5f4114="">Type</span
-                  ><span data-v-9f5f4114="">UPI-ICE</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__time item flex_between"
-                >
-                  <span data-v-9f5f4114="">Time</span
-                  ><span data-v-9f5f4114="">2024-07-30 16:43:18</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__orderNumber item flex_between"
-                >
-                  <span data-v-9f5f4114="">Order number</span>
-                  <div data-v-9f5f4114="">
-                    <span data-v-9f5f4114="">p2024073011131873726770</span
-                    ><svg data-v-9f5f4114="" className="svg-icon icon-copy" alt="">
-                      <use href="#icon-copy"></use>
-                    </svg>
-                  </div>
-                </div>
-                
-              </div>
-              <div data-v-9f5f4114="" className="record__main-info">
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__title flex_between"
-                >
-                  <div data-v-9f5f4114="" className="recharge_text">Deposit</div>
-                  <div data-v-9f5f4114="" className="flex_between">
-                    <div data-v-9f5f4114="" className="success">Complete</div>
-                    <img
-                      data-v-9f5f4114=""
-                      src="/assets/png/left_arrow-6c6e3cc6.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__money item flex_between"
-                >
-                  <span data-v-9f5f4114="">Balance</span
-                  ><span data-v-9f5f4114="">₹100.00</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__type item flex_between"
-                >
-                  <span data-v-9f5f4114="">Type</span
-                  ><span data-v-9f5f4114="">UPI-ICE</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__time item flex_between"
-                >
-                  <span data-v-9f5f4114="">Time</span
-                  ><span data-v-9f5f4114="">2024-07-30 16:09:19</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__orderNumber item flex_between"
-                >
-                  <span data-v-9f5f4114="">Order number</span>
-                  <div data-v-9f5f4114="">
-                    <span data-v-9f5f4114="">p2024073010391969107618</span
-                    ><svg data-v-9f5f4114="" className="svg-icon icon-copy" alt="">
-                      <use href="#icon-copy"></use>
-                    </svg>
-                  </div>
-                </div>
-                
-              </div>
-              <div data-v-9f5f4114="" className="record__main-info">
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__title flex_between"
-                >
-                  <div data-v-9f5f4114="" className="recharge_text">Deposit</div>
-                  <div data-v-9f5f4114="" className="flex_between">
-                    <div data-v-9f5f4114="" className="success">Complete</div>
-                    <img
-                      data-v-9f5f4114=""
-                      src="/assets/png/left_arrow-6c6e3cc6.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__money item flex_between"
-                >
-                  <span data-v-9f5f4114="">Balance</span
-                  ><span data-v-9f5f4114="">₹100.00</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__type item flex_between"
-                >
-                  <span data-v-9f5f4114="">Type</span
-                  ><span data-v-9f5f4114="">UPI-ICE</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__time item flex_between"
-                >
-                  <span data-v-9f5f4114="">Time</span
-                  ><span data-v-9f5f4114="">2024-07-09 12:55:12</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__orderNumber item flex_between"
-                >
-                  <span data-v-9f5f4114="">Order number</span>
-                  <div data-v-9f5f4114="">
-                    <span data-v-9f5f4114="">p2024070907251227219587</span
-                    ><svg data-v-9f5f4114="" className="svg-icon icon-copy" alt="">
-                      <use href="#icon-copy"></use>
-                    </svg>
-                  </div>
-                </div>
-                
-              </div>
-              
+            {depositHistory.length === 0 ? (
+  <div>No Data</div>
+) : (
+  depositHistory.slice(0, 5).map((history, index) => (
+    <div data-v-9f5f4114="" key={index}>
+      <div data-v-9f5f4114="" className="record__main-info">
+        <div
+          data-v-9f5f4114=""
+          className="record__main-info__title flex_between"
+        >
+          <div data-v-9f5f4114="" className="recharge_text">Deposit</div>
+          <div data-v-9f5f4114="" className="flex_between">
+            <div data-v-9f5f4114="" className="rechargeFail">
+              {history.status === 0 ? "Pending" : history.status === 1 ? "Complete" : "Failed"}
             </div>
+          </div>
+        </div>
+        <div
+          data-v-9f5f4114=""
+          className="record__main-info__money item flex_between"
+        >
+          <span data-v-9f5f4114="">Balance</span
+          ><span data-v-9f5f4114="">{history.money}</span>
+        </div>
+        <div
+          data-v-9f5f4114=""
+          className="record__main-info__type item flex_between"
+        >
+          <span data-v-9f5f4114="">Type</span
+          ><span data-v-9f5f4114="">{history.type}</span>
+        </div>
+        <div
+          data-v-9f5f4114=""
+          className="record__main-info__time item flex_between"
+        >
+          <span data-v-9f5f4114="">Time</span
+          ><span data-v-9f5f4114="">{formatTimestampToIST(history.time)}</span>
+        </div>
+        <div
+          data-v-9f5f4114=""
+          className="record__main-info__orderNumber item flex_between"
+        >
+          <span data-v-9f5f4114="">Order number</span>
+          <div data-v-9f5f4114="">
+            <span data-v-9f5f4114="">{history.id_order}</span
+            ><svg data-v-9f5f4114="" className="svg-icon icon-copy" alt="">
+              <use href="#icon-copy"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))
+)}
+
+
           </div>
         </div>
         <div data-v-3e71d3da="" data-v-36cc3380="" className="dialog inactive">

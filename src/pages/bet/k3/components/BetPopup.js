@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import Api from '../../../../services/Api'
+import { useToast } from '../../../../components/ToastContext';
+
 
 const BetPopup = ({ gameJoin,listOrder,game,userBalance, setListJoin, setShowBetPopup,fetchUserInfo,fetchMyBets }) => {
   // State for balance and quantity
   const [balance, setBalance] = useState(1);
   const [quantity, setQuantity] = useState(1);
+  const { showToast } = useToast();
+
 
   const calculateTotalMoney = (quantity, balance, listOrder, gameJoin) => {
     console.log(listOrder)
@@ -27,9 +31,12 @@ const BetPopup = ({ gameJoin,listOrder,game,userBalance, setListJoin, setShowBet
 
   const betGame1 = async () => {
      
+
     const totalAmount = calculateTotalMoney1(quantity, balance, listOrder);
 
     if(totalAmount > userBalance){
+      showToast('Invalid input or insufficient balance', 'succes');
+
         console.error('Insufficient Balance');
         return;
     }
@@ -43,6 +50,7 @@ const BetPopup = ({ gameJoin,listOrder,game,userBalance, setListJoin, setShowBet
         xvalue: quantity,    // Pass quantity as xvalue
         money: balance,      // Pass balance as money
       });
+      showToast('Bet placed successfully!', 'succes');
 
       console.log('Bet successfully placed:', response.data);
       
@@ -54,6 +62,8 @@ const BetPopup = ({ gameJoin,listOrder,game,userBalance, setListJoin, setShowBet
 
       // You can handle the success message here or update the state
     } catch (error) {
+      showToast('Invalid input or insufficient balance', 'succes');
+
       console.error('Error placing bet:', error);
     }
   };

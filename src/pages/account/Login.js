@@ -10,53 +10,51 @@ import { useToast } from '../../components/ToastContext';
 export default function Login() {
 
   const { showToast } = useToast();
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState('phone');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
+  const handlePhoneClick = () => {
+      setActiveTab('phone');
+  };
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
-    const navigate = useNavigate();
-    const [activeTab, setActiveTab] = useState('phone');    
-    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-    const handleTabClick = (tab) => {
-      setActiveTab(tab);
-    };
-
-   const handlePhoneClick = () => {
-    setActiveTab('phone');
-   };
-
-   const handleEmailClick = () => {
-    setActiveTab('email');
-   };   
+  const handleEmailClick = () => {
+      setActiveTab('email');
+  };
 
   const togglePasswordVisibility = () => {
-    setIsPasswordVisible(!isPasswordVisible);
+      setIsPasswordVisible(!isPasswordVisible);
   };
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
+
+  const handleSubmit = async (e) => {
+
+      // Prepare login data based on the active tab
+      const loginData = activeTab === 'phone' ? { username, pwd: password } : { username:email, pwd: password };
+
       try {
-        const response = await Api.post('/api/webapi/login', { username, pwd: password });
-        console.log(response.data.message);
-        if (response.data.message === 'Login Sucess') {
-          // Save the token in localStorage
-          localStorage.setItem('token', response.data.token);
-          
-          // Redirect to /dashboard
-          navigate('/index');
-        } else {
-          showToast(response.data.message, 'succes');
+          const response = await Api.post('/api/webapi/login', loginData);
+          console.log(response.data.message);
+          if (response.data.message === 'Login Success') {
+              // Save the token in localStorage
+              localStorage.setItem('token', response.data.token);
 
-          setError(response.data.message);
-        }
+              // Redirect to /index
+              navigate('/index');
+          } else {
+              showToast(response.data.message, 'error');
+              setError(response.data.message);
+          }
       } catch (err) {
-        showToast('An error occurred. Please try again.', 'succes');
-
-        setError('An error occurred. Please try again.');
+          console.error('An error occurred:', err);
+          showToast('An error occurred. Please try again.', 'error');
+          setError('An error occurred. Please try again.');
       }
-    };
-    
+  };
+
     
 
   return (
@@ -9639,7 +9637,6 @@ export default function Login() {
               data-v-47f4cc84=""
               className="signIn__container"
             >
-         <form onSubmit={handleSubmit}>
 
               <div
                 data-v-50aa8bb0=""
@@ -9723,11 +9720,11 @@ export default function Login() {
                 </div>
               </div>
               <div data-v-33f88764="" className="signIn__container-button">
-                <button data-v-33f88764="" className="active" type="submit">Log in</button>
+                <button data-v-33f88764="" className="active" type="click" onClick={handleSubmit}>Log in</button>
                 
                 <button data-v-33f88764="" className="register" onClick={()=>navigate('/register')}>Register</button>
               </div>
-              </form>
+           
               <div data-v-33f88764="" className="signIn_footer">
                 <div data-v-33f88764="" className="forgetcon">
                   <svg
@@ -9816,10 +9813,12 @@ export default function Login() {
                   <div data-v-4499df08="" className="emailinput__container-input">
                     <input
                       data-v-4499df08=""
-                      type="text"
+                      type="email"
                       name="userEmail"
                       maxLength="250"
                       placeholder="please input your email"
+                      value={email}
+                    onChange={(e) => setEmail(e.target.value)}  
                     />
                   </div>
                 </div>
@@ -9873,8 +9872,8 @@ export default function Login() {
                 </div>
               </div>
               <div data-v-436a69c4="" className="signIn__container-button">
-                <button data-v-436a69c4="" className="active">Log in</button
-                ><button data-v-436a69c4="" className="register">Register</button>
+              <button data-v-33f88764="" className="active" type="click" onClick={handleSubmit}>Log in</button>
+              <button data-v-436a69c4="" className="register">Register</button>
               </div>
               <div data-v-436a69c4="" className="signIn_footer">
                 <div data-v-436a69c4="" className="forgetcon">

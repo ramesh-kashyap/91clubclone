@@ -34,7 +34,7 @@ export default function DepositHistory() {
 
   const fetchDepositHistory = async () => {
     try {
-      const response = await Api.get('/api/webapi/recharge/list?page=1&limit=5');
+      const response = await Api.get('/api/webapi/recharge/list?page=1&limit=10');
       const data =  response.data;
 
       console.log(data.datas);
