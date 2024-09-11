@@ -12,6 +12,8 @@ export default function Account() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const [activeLink , setActiveLink] = useState(null);
+
   
     useEffect(() => {
       const fetchUserInfo = async () => {
@@ -22,7 +24,8 @@ export default function Account() {
             setUid(response.data.data.id_user);
             setUsername(response.data.data.name_user);
             setLastLogin(response.data.data.last_login);
-
+            const currentPath = window.location.pathname;
+             setActiveLink(currentPath);
 
           } else {
             setError('Failed to fetch user info');
@@ -9864,7 +9867,7 @@ export default function Account() {
             </div>
             <div
               data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
+              className="settingPanel__container-items__item ar-1px-b"  onClick={()=>navigate('/main/RedeemGift')}
             >
               <div
                 data-v-a30d19b1=""
@@ -9874,10 +9877,10 @@ export default function Account() {
                   <use href="#icon-gifts"></use></svg
                 >
 
-                <a href="/account/gift.html"><span
+                <span
                   data-v-a30d19b1=""
                   >Gifts</span
-                ></a>
+                >
               </div>
               <div
                 data-v-a30d19b1=""
@@ -10183,17 +10186,17 @@ export default function Account() {
       </div>
       <div data-v-6ab3f23e="" className="tabbar__container"
             style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
-            <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
                     className="svg-icon icon-home" onClick={()=> navigate('/index')}>
                     <use href="#icon-home"></use>
                 </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-activity" onClick={()=> navigate('/index')}><use href="#icon-activity"></use>
+                    className="svg-icon icon-activity" onClick={()=> navigate('/activity')}><use href="#icon-activity"></use>
                    
                 </svg>
                 <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
+                    className="svg-icon icon-promotion" onClick={()=> navigate('/promotion')}>
                     <use href="#icon-promotion"></use>
                 </svg>
                 <div data-v-6ab3f23e="" className="promotionBg"></div>
@@ -10203,7 +10206,7 @@ export default function Account() {
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
             <use href="#icon-wallet" onClick={()=> navigate('/wallet')}></use>
                 </svg><span data-v-6ab3f23e=""  onClick={()=> navigate('/wallet')}>Wallet</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-main"  onClick={()=> navigate('/account')}>
+            <div data-v-6ab3f23e="" className={`tabbar__container-item ${activeLink === '/account' ? 'active':''}`}><svg data-v-6ab3f23e="" className="svg-icon icon-main"  onClick={()=> navigate('/account')}>
             <use href="#icon-main"></use>
                 </svg><span data-v-6ab3f23e="" onClick={()=> navigate('/account')}>Account</span></div>
         </div>

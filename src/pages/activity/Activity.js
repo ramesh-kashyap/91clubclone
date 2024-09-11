@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Activity() {
   const navigate = useNavigate();
+  const [activeLink , setActiveLink] = useState(null);
 
+  useEffect(()=>{
+    const currentPath = window.location.pathname;
+  setActiveLink(currentPath);
+},[]);
   return (
     
     <div style={{fontSize: '12px'}}>
@@ -9725,11 +9730,11 @@ export default function Activity() {
       </div>
       <div data-v-6ab3f23e="" className="tabbar__container"
             style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
-            <div data-v-6ab3f23e="" className="tabbar__container-item active"><svg data-v-6ab3f23e=""
+            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
                     className="svg-icon icon-home" onClick={()=> navigate('/index')}>
                     <use href="#icon-home"></use>
                 </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
+            <div data-v-6ab3f23e="" className={`tabbar__container-item ${activeLink === '/activity' ? 'active':''}`}><svg data-v-6ab3f23e=""
                     className="svg-icon icon-activity" onClick={()=> navigate('/activity')}><use href="#icon-activity"></use>
                    
                 </svg>

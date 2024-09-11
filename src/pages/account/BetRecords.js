@@ -9572,13 +9572,13 @@ export default function BetRecords() {
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
               <div data-v-12a80a3e="" className="navbar__content-left">
-                <a href="/account/account.html" style={{fontSize: 'large'}}>
+                <span style={{fontSize: 'large'}}>
                   <i
                     data-v-12a80a3e=""
                     className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/account')}
                     ></i
                   >
-                </a>
+                </span>
               </div>
               <div data-v-12a80a3e="" className="navbar__content-center">
                 <div data-v-12a80a3e="" className="navbar__content-title">

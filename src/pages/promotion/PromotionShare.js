@@ -5,25 +5,25 @@ import Api from '../../services/Api'
     const navigate = useNavigate();
     const [isPopupVisible, setIsPopupVisible] = useState(false);
     
-        const [activeSection, setActiveSection] = useState(1);
+        const [activeSection, setActiveSection] = useState('section1');
 
 
-        const handleSectionClick = (sectionNumber) => {
-          setActiveSection(sectionNumber);
+        const handleSectionClick = (sectionId) => {
+          setActiveSection(sectionId);
         };
 
-        const getSectionClass = (sectionNumber) => {
-            if (sectionNumber === activeSection) {
-              return 'swiper-slide swiper-slide-active';
-            }
-            if (sectionNumber === activeSection + 1 || (activeSection === 3 && sectionNumber === 1)) {
-              return 'swiper-slide swiper-slide-next';
-            }
-            if (sectionNumber === activeSection - 1 || (activeSection === 1 && sectionNumber === 3)) {
-              return 'swiper-slide swiper-slide-prev';
-            }
-            return 'swiper-slide';
-          };
+        // const getSectionClass = (sectionNumber) => {
+        //     if (sectionNumber === activeSection) {
+        //       return 'swiper-slide swiper-slide-active';
+        //     }
+        //     if (sectionNumber === activeSection + 1 || (activeSection === 3 && sectionNumber === 1)) {
+        //       return 'swiper-slide swiper-slide-next';
+        //     }
+        //     if (sectionNumber === activeSection - 1 || (activeSection === 1 && sectionNumber === 3)) {
+        //       return 'swiper-slide swiper-slide-prev';
+        //     }
+        //     return 'swiper-slide';
+        //   };
 
 
         //   const InviteComponent = () => {
@@ -35,7 +35,8 @@ import Api from '../../services/Api'
                 try {
                   const response = await Api.post('/api/webapi/promotion', {});
                   const userCode = response.data.info[0].code;
-                  const invitationLink = `http://localhost:3001/register?invitationCode=${userCode}`;
+                  const siteLink = response.data.siteUrl || 'https://bigdaddypro.live';
+                  const invitationLink = `${siteLink}/register?invitationCode=${userCode}`;
                   
                   // Copy to clipboard
                   navigator.clipboard.writeText(invitationLink).then(
@@ -4644,11 +4645,21 @@ return(
                 className="swiper swiper-initialized swiper-horizontal swiper-pointer-events my-swipe swiper-backface-hidden">
                 <div className="swiper-wrapper" 
                      style={{
-                        transitionDuration: '0ms',
-                        transform: 'translate3d(61.3385px, 0px, 0px)' 
+                        transitionDuration: '10ms',
+                        transform:
+            activeSection === 'section1'
+              ? 'translate3d(61.3385px, 0px, 0px)'
+              : activeSection === 'section2'
+              ? 'translate3d(-235.992px, 0px, 0px)'
+              : activeSection === 'section3'
+              ? 'translate3d(-533.32px, 0px, 0px)'
+              : '', 
                                   
                       }}>
-                    <div data-v-3b74cce6="" className={getSectionClass(1)} id="section1" style={{marginRight: '20px'}} onClick={() => handleSectionClick(1)}>
+                    <div data-v-3b74cce6="" className={`swiper-slide ${activeSection === 'section1' ? 'swiper-slide-active' : ''}`}
+        id="section1"
+        style={{ marginRight: '20px' }}
+        onClick={() => handleSectionClick('section1')}>
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share0">
                              {/* <img v-lazy="getIcons('promotion/promotionShare', 'poster')" />  */}
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
@@ -4669,7 +4680,10 @@ return(
                                 style={{height: '164px', width: '164px'}}></canvas>
                         </div>
                     </div>
-                    <div data-v-3b74cce6="" className={getSectionClass(2)} id="section2" style={{marginRight: '20px'}} onClick={() => handleSectionClick(2)}>
+                    <div data-v-3b74cce6=""  className={`swiper-slide ${activeSection === 'section2' ? 'swiper-slide-active' : ''}`}
+        id="section2"
+        style={{ marginRight: '20px' }}
+        onClick={() => handleSectionClick('section2')}>
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share1">
                             
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
@@ -4690,7 +4704,10 @@ return(
                                 style={{height: '164px', width: '164px',}}></canvas>
                         </div>
                     </div>
-                    <div data-v-3b74cce6="" className={getSectionClass(3)} id="section3" style={{marginRight: '20px'}} onClick={() => handleSectionClick(3)}>
+                    <div data-v-3b74cce6="" className={`swiper-slide ${activeSection === 'section3' ? 'swiper-slide-active' : ''}`}
+        id="section3"
+        style={{ marginRight: '20px' }}
+        onClick={() => handleSectionClick('section3')}>
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share2">
                             
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
