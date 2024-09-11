@@ -9840,16 +9840,16 @@ export default function Account() {
             >
               <div
                 data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
+                className="settingPanel__container-items__title" onClick={()=>navigate('/home/Messages')}
               >
                 <svg data-v-a30d19b1="" className="svg-icon icon-notification">
                   <use href="#icon-notification"></use></svg
                 >
 
-                <a href="/account/notification.html"><span
+                <span
                   data-v-a30d19b1=""
                   >Notification</span
-                ></a>
+                >
               </div>
               <div
                 data-v-a30d19b1=""
@@ -10050,10 +10050,10 @@ export default function Account() {
         <div data-v-159bf81f="" data-v-a78765c7="" className="serviceCenter-wrap">
           <div data-v-159bf81f="" className="serviceCenter__container">
             <h1 data-v-159bf81f="">Service center</h1>
-            <div data-v-159bf81f="" className="serviceCenter__container-items" onClick={()=>navigate('/main/SettingCenters')}>
+            <div data-v-159bf81f="" className="serviceCenter__container-items">
               <div
                 data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
+                className="serviceCenter__container-items__item"  onClick={()=>navigate('/main/SettingCenters')}
               >
                 <svg data-v-159bf81f="" className="svg-icon icon-settingCenter">
                   <use href="#icon-settingCenter"></use></svg
@@ -10066,7 +10066,7 @@ export default function Account() {
               </div>
               <div
                 data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
+                className="serviceCenter__container-items__item" 
               >
                 <svg data-v-159bf81f="" className="svg-icon icon-feedback">
                   <use href="#icon-feedback"></use></svg
