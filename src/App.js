@@ -83,6 +83,8 @@ import LoginPassword from './pages/account/LoginPassword';
 import BindEmail from './pages/account/BindEmail';
 import Feedback from './pages/account/Feedback';
 import CustomerService from './pages/account/CustomerService';
+import GameStats from './pages/account/GameStats';
+
 
 
 
@@ -157,6 +159,8 @@ function App() {
         <Route path="/main/Abouts" element={<PrivateRoute><Abouts/></PrivateRoute>}/>
         <Route path="/main/AboutDetail" element={<PrivateRoute><AboutDetail/></PrivateRoute>}/>
         <Route path="/main/RiskDetail" element={<PrivateRoute><RiskDetail/></PrivateRoute>}/>
+        <Route path="/main/GameStats" element={<PrivateRoute><GameStats/></PrivateRoute>}/>
+
 
 
 
