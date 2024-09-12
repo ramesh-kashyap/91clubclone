@@ -1,10 +1,41 @@
-import React, { useState } from "react";
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Api from '../../services/Api';
 
 export default function TeamReport(){
   const navigate =  useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [isSecondVisible, setIsSecondVisible] = useState(false);
+
+  const [teamReport, setTeamReport] = useState([]);
+
+  const [error, setError] = useState(null);
+
+
+
+  const fetchTeamReport= async () => {
+    try {
+      const response = await Api.get('/api/webapi/listTotalTeam');
+      const data =  response.data;
+
+      console.log(data.teamReports);
+
+      setTeamReport(data.teamReports); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+
+  useEffect(() => {
+    fetchTeamReport(); 
+ 
+
+   
+  }, []);
   
     const handleToggle = () => {
       setIsVisible(!isVisible);
@@ -9606,37 +9637,64 @@ export default function TeamReport(){
               <div data-v-10d1559c="">First deposit amount</div>
             </div>
           </div>
-          <div data-v-cbab7763="" data-v-10d1559c="" className="infiniteScroll" id="refresh0f885699af8c4c80976c554b8e8b6dd5">
+
+          {teamReport.length === 0 ? (
+            <div
+            data-v-f84b843f=""
+            data-v-61888f52=""
+            className="empty__container empty"
+          >
+            <svg data-v-f84b843f="" className="svg-icon icon-empty">
+              <use href="#icon-empty"></use>
+            </svg>
+            <p data-v-f84b843f="">No data</p>
+          </div>
+        ) : (
+          teamReport.map((history, index) => (
+
+          <div   key={index} data-v-cbab7763="" data-v-10d1559c="" className="infiniteScroll" id="refresh0f885699af8c4c80976c554b8e8b6dd5">
       <div data-v-10d1559c="" className="TeamReport__C-body-item">
         <div data-v-10d1559c="" className="TeamReport__C-body-item-head">
-          <div data-v-10d1559c="" className="title">UID:12773568</div>
+          <div data-v-10d1559c="" className="title">{history.id_user}</div>
           <svg data-v-10d1559c="" className="svg-icon icon-copy">
             <use xlinkHref="#icon-copy"></use>
           </svg>
         </div>
+
+
+       
+
         <div data-v-10d1559c="" className="TeamReport__C-body-item-detail">
           <div data-v-10d1559c="" className="TeamReport__C-body-item-detail-lv">
-            Level<span data-v-10d1559c="">1</span>
+            Level<span data-v-10d1559c="">{history.level}</span>
           </div>
           <div data-v-10d1559c="" className="TeamReport__C-body-item-detail-commission">
-            Deposit amount<span data-v-10d1559c="">0</span>
+            Deposit amount<span data-v-10d1559c="">{history.total_money}</span>
           </div>
-          <div data-v-10d1559c="" className="TeamReport__C-body-item-detail-commission" style={{ display: 'none' }}>
-            Bet amount<span data-v-10d1559c="">0</span>
+          <div data-v-10d1559c="" className="TeamReport__C-body-item-detail-commission" >
+           Total Bet amount<span data-v-10d1559c="">{history.total_bet}</span>
           </div>
-          <div data-v-10d1559c="" className="TeamReport__C-body-item-detail-commission">
-            Commission<span data-v-10d1559c="">0</span>
-          </div>
+          
           <div data-v-10d1559c="" className="TeamReport__C-body-item-detail-time">
-            Time<span data-v-10d1559c="">2024-09-11</span>
+            Time<span data-v-10d1559c="">{history.updated_at}</span>
           </div>
         </div>
       </div>
+
+
+      
       <div data-v-cbab7763="" className="infiniteScroll__loading">
-        <div data-v-cbab7763="">No more</div>
+       
       </div>
     </div>
+
+
+))
+)}
         </div>
+
+
+        
         <div className="van-overlay" role="button" tabindex="0" data-v-10d1559c="" style={{zIndex: '2001', display: isVisible ? 'block' : 'none'}}></div>
         <div
   role="dialog"
