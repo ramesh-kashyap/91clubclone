@@ -343,7 +343,7 @@ const fetchWithdrawHistory= async () => {
               <div data-v-9bae072d="">
                 <img
                   data-v-9bae072d=""
-                  src="/assets/png/trx.png"
+                  src="/assets/png/trc20.png"
                 />
               </div>
               <span data-v-9bae072d="">USDT</span>
@@ -399,9 +399,7 @@ const fetchWithdrawHistory= async () => {
           <div data-v-80a607a5="" className="bankInfo" style={{display: walletAddress == null ? 'none':'block'}}>
             <div data-v-80a607a5="" className="bankInfoItem type1">
               <div data-v-80a607a5="">
-                <svg data-v-80a607a5="" className="svg-icon icon-1">
-                  <use href="#icon-1"></use></svg
-                ><span data-v-80a607a5="">Yes Bank</span>
+                <img data-v-80a607a5=""src="/assets/png/usdt.png" style={{top: '10px'}}/>
               </div>
               <div data-v-80a607a5="">
                 <span data-v-80a607a5=""></span
@@ -416,21 +414,19 @@ const fetchWithdrawHistory= async () => {
             </div>       
     </div>
             <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')} style={{display: walletAddress !== null ? 'none':'block'}}>
-              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
-                data-v-ef5c8333="">Add a bank account number</span>
+              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png"  style={{position:'relative', top: '10px'}}/><span
+                data-v-ef5c8333="">Add USDT Trc20</span>
             </div>
             {/* <div data-v-ef5c8333="" className="addWithdrawType-text">
               Need to add beneficiary information to be able to withdraw money
             </div> */}
             <div data-v-cb5583fe="" className="explain usdt">
             <div data-v-cb5583fe="" className="head">
-              <img
-                data-v-cb5583fe="" src="/assets/png/usdt.png"
-              />
+              
             </div>
             
             <div data-v-cb5583fe="" className="input">
-              <div data-v-cb5583fe="" className="place-div">₹</div>
+              <div data-v-cb5583fe="" className="place-div"><img data-v-cb5583fe="" src="/assets/png/usdt.png"/></div>
               <input
                 data-v-cb5583fe=""
                 type="number"
@@ -457,9 +453,7 @@ const fetchWithdrawHistory= async () => {
           <div data-v-80a607a5="" className="bankInfo" style={{display: withdrawAddress == null ? 'none':'block'}}>
             <div data-v-80a607a5="" className="bankInfoItem type1">
               <div data-v-80a607a5="">
-                <svg data-v-80a607a5="" className="svg-icon icon-1">
-                  <use href="#icon-1"></use></svg
-                ><span data-v-80a607a5="">Yes Bank</span>
+              <img data-v-80a607a5=""src="/assets/png/trc20.png" style={{top: '10px'}}/>
               </div>
               <div data-v-80a607a5="">
                 <span data-v-80a607a5=""></span
@@ -474,21 +468,19 @@ const fetchWithdrawHistory= async () => {
             </div>       
     </div>
             <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')} style={{display: withdrawAddress !== null ? 'none':'block'}}>
-              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png" /><span
-                data-v-ef5c8333="">Add a bank account number</span>
+              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png"  style={{position:'relative', top: '10px'}}/><span
+                data-v-ef5c8333="">Add USDT Bep20</span>
             </div>
             {/* <div data-v-ef5c8333="" className="addWithdrawType-text">
               Need to add beneficiary information to be able to withdraw money
             </div> */}
             <div data-v-cb5583fe="" className="explain usdt">
             <div data-v-cb5583fe="" className="head">
-              <img
-                data-v-cb5583fe="" src="/assets/png/trx.png"
-              />
+              
             </div>
             
             <div data-v-cb5583fe="" className="input">
-              <div data-v-cb5583fe="" className="place-div">₹</div>
+              <div data-v-cb5583fe="" className="place-div"><img data-v-cb5583fe="" src="/assets/png/trc20.png"/></div>
               <input
                 data-v-cb5583fe=""
                 type="number"

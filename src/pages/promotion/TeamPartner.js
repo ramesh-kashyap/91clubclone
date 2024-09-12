@@ -1,8 +1,36 @@
 import React from "react";
  
 import { useNavigate } from 'react-router-dom';
+
+import Api from '../../services/Api';
+import { useToast } from '../../components/ToastContext'; 
+
 export default function TeamPartner(){
     const navigate =  useNavigate();
+    const { showToast } = useToast();
+
+    const fetchPromotionInfo = async () => {
+        try {
+          const response = await Api.post('/api/webapi/promotion', {});
+          const userCode = response.data.info[0].code;
+          const siteLink = response.data.siteUrl || 'https://bigdaddypro.live';
+          const invitationLink = `${siteLink}/register?invitationCode=${userCode}`;
+          
+          // Copy to clipboard
+          navigator.clipboard.writeText(invitationLink).then(
+            () => {
+                showToast('Invite Code Copy ', 'succes');
+            },
+            () => {
+                showToast('Failed to copy the link.');
+            }
+          );
+        } catch (error) {
+          console.error('Error fetching promotion info:', error);
+        }
+      };
+
+
 return(
 <div className="" style={{fontSize: '12px'}}>
 <svg xmlns="http://www.w3.org/2000/svg" 
@@ -4605,8 +4633,8 @@ return(
                 </div>
                 <div data-v-28c19aaa="" className="partner-title">Invitation link</div>
                 <div data-v-28c19aaa="" className="partner-code"><span
-                        data-v-28c19aaa="">https://91club.club/#/register?invitationCode=2787111693333</span><span
-                        data-v-28c19aaa=""><svg data-v-28c19aaa="" className="svg-icon icon-copy">
+                        data-v-28c19aaa="">https://bigdaddypro.live/register?invitationCode=123..</span><span
+                        data-v-28c19aaa="" onClick={fetchPromotionInfo}><svg data-v-28c19aaa="" className="svg-icon icon-copy">
                             <use href="#icon-copy"></use>
                         </svg></span></div>
                          {/* <div className="partner-title">
@@ -4689,7 +4717,7 @@ return(
                     </div>
                 </div>
             </div>
-        </div>
+        </div>        
         <div className="customer" id="customerId"
             style={{"--f13b4d11-currentFontFamily": "'Roboto', 'Inter', 'sansSerif'", "--f6a705e1-currentFontFamily": 'bahnschrift'}}>
             <img className="" data-origin="/assets/png/icon_sevice-9f0c8455.png" src="/assets/png/icon_sevice-9f0c8455.png"/>
