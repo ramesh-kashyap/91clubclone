@@ -104,37 +104,15 @@ const showSection = (sectionId) => {
   };
 
   const handleUpiDeposit = async () => {
-    let typeid = 'USDT(TRC20)';
   
-    if (usdtValue * 90 < 900) {
-      setError("Minimum Deposit amount is 900");
+    if (upiValue < 500) {
+      setError("Minimum Deposit amount is 500");
       return;
     }
   
-    if (activeSection === 'UsdtBep' || activeSection ==='UsdtBep1' ) {
-      typeid = 'USDT(TRC20)';
-    }
-
-    if (activeSection === 'UsdtTrc' || activeSection === 'UsdtTrc1') {
-      typeid = 'USDT(BEP20)';
-    }
-  
-    try {
-      const response = await Api.post('/api/webapi/createPayment10', {
-        money: usdtValue * 90,
-        typeid: typeid,
-      });
-  
-      if (response.data.status === true) {
-        // Navigate to the ConfirmDeposit page and pass the response.data.datas
-        navigate('/deposit/ConfirmDeposit', { state: { data: response.data.datas } });
-      } else {
-        setError("Payment creation failed. Please try again.");
-      }
-    } catch (err) {
-      console.error('An error occurred:', err);
-      setError('An error occurred. Please try again.');
-    }
+    navigate('/deposit/UpiDeposit', { state: { money: upiValue } });
+   
+   
   };
 
   const fetchDepositHistory = async () => {

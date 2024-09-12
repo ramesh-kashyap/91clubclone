@@ -1,18 +1,74 @@
 import { useState, useEffect } from "react";
 import React from 'react';
+import Api from '../../services/Api';
+import { useToast } from '../../components/ToastContext'; 
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+
 export default function UpiDeposit(){
-const [isButtonActive, setButtonActive] = useState(true);
 
-const handleInputChange = (e) =>{
-  const value = e.target.value; 
+  const [isButtonActive, setButtonActive] = useState(true); // For button state
+  const [utr, setUtr] = useState(''); // For UTR input
+  const [money, setMoney] = useState(''); // For storing money from location
+
+  const { showToast } = useToast(); // Toast notification
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Step 1: Use useEffect to handle setting the money state
+  useEffect(() => {
+    if (location.state && location.state.money) {
+      setMoney(location.state.money);
+    } else {
+      navigate('/wallet/deposit'); // Redirect if no money data
+    }
+  }, [location, navigate]);
+
+  // Step 2: Handle UTR input change and button state
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setUtr(value);
+
+    // Enable or disable button based on UTR value
+    setButtonActive(!value);
+  };
+
+  const handlePay = async () => {
+        
+    if(utr.length < 12){
+      showToast('UTR must be 12 digit long.', 'succes');
+return;
+    }
 
 
-  if(value){
-    setButtonActive(false);
-  }else{
-    setButtonActive(true);
-  }
-}
+    try {
+      const response = await Api.post('/api/webapi/manualPayment', {
+        upi: selectedOption,
+        money: money,
+        txt_utr: utr,
+      });
+
+      if (response.data.message==='Order created successfully') {
+        console.log('Recharge Done Successfully');
+        navigate('/wallet/deposit', { state: { msg: 'Order created successfully' } });
+      } else {
+
+        // console.log('Cancellation failed:', response.data.message);
+      }
+    } catch (error) {
+      showToast('Error while creating Order.', 'succes');
+
+      console.error('Error while cancelling recharge:', error);
+    }
+  };
+
+  // Step 3: Handle radio button change for payment options
+  const [selectedOption, setSelectedOption] = useState('paytm');
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
     return(
 <div className="" style={{fontSize: '12px'}}>
@@ -44,7 +100,7 @@ const handleInputChange = (e) =>{
                     <div data-v-67e25db3="" className="maindiv" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px',  borderRadius: '10px', width: '100%', margin: '0 auto', background: `url('/assets/bottom-ccedfa9a.png')`,backgroundPositionX:'center',backgroundRepeat: 'no-repeat', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',}}>
                         <div data-v-67e25db3="" className="sec1" style={{margin: '10px 0', textAlign: 'center',}}>
                             <div data-v-67e25db3="" className="ti1" style={{fontSize: '1.2em', fontWeight: 'bold', marginBottom: '5px', color: '#333'}}>Payment</div>
-                            <div data-v-67e25db3="" className="time" style={{fontSize: '2em', color: '#ff0000'}}>₹ 300.00</div>
+                            <div data-v-67e25db3="" className="time" style={{fontSize: '2em', color: '#ff0000'}}>₹ {money}</div>
                         </div>
                         <div data-v-67e25db3="" className="sec2" style={{margin: '10px 0', textAlign: 'center'}}>
                             <div data-v-67e25db3="" className="ti2" style={{fontSize: '1.2em', fontWeight: 'bold', marginBottom: '5px', color: '#333'}}>Copy to UPI Payment Software</div>
@@ -76,7 +132,10 @@ const handleInputChange = (e) =>{
                               </div>
                             
                             <div data-v-9e03166f="" className="place-right" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '9%',}}>
-                                <input type="radio" name="option" value="4" style={{transform: 'scale(1.5)'}} checked/>
+                                <input type="radio" name="option" value="paytm"
+          checked={selectedOption === 'paytm'}
+          onChange={handleOptionChange}
+ style={{transform: 'scale(1.5)'}}  />
                             </div>
                         </div>
                         
@@ -86,7 +145,10 @@ const handleInputChange = (e) =>{
                             </div>
                             
                             <div data-v-9e03166f="" className="place-right" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '9%',}}>
-                                <input type="radio" name="option" value="4" style={{transform: 'scale(1.5)'}}/>
+                                <input type="radio" name="option" value="phonepe"
+          checked={selectedOption === 'phonepe'}
+          onChange={handleOptionChange}
+ style={{transform: 'scale(1.5)'}}/>
                             </div>
                         </div>
                         <div data-v-9e03166f="" className="Recharge__content-paymoney__money-input radius" style={{width: '81%', height: '65px', display: 'flex', alignItems: 'center', justifyContent: 'space-between',background: '#fff'}}>
@@ -95,7 +157,10 @@ const handleInputChange = (e) =>{
                             </div>
                             
                             <div data-v-9e03166f="" className="place-right" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '9%',}}>
-                                <input type="radio" name="option" value="4" style={{transform: 'scale(1.5)'}}/>
+                                <input type="radio" name="option" value="gpay"
+          checked={selectedOption === 'gpay'}
+          onChange={handleOptionChange}
+ style={{transform: 'scale(1.5)'}}/>
                             </div>
                         </div>
                         <div data-v-9e03166f="" className="Recharge__content-paymoney__money-input radius" style={{width: '81%', height: '65px', background: '#fff', marginLeft:'20px',}}>
@@ -104,7 +169,10 @@ const handleInputChange = (e) =>{
                             </div>
                             
                             <div data-v-9e03166f="" className="place-right" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '9%',}}>
-                                <input type="radio" name="option" value="4" style={{transform: 'scale(1.5)'}}/>
+                                <input type="radio" name="option" value="upi"
+          checked={selectedOption === 'upi'}
+          onChange={handleOptionChange}
+ style={{transform: 'scale(1.5)'}}/>
                             </div>
                         </div>
                      
@@ -158,15 +226,15 @@ const handleInputChange = (e) =>{
     <div data-v-9e03166f="" className="van-cell van-field van-field--disabled amount-input" modelmodifiers="[object Object]">
       <div className="van-cell__value van-field__value">
         <div className="van-field__body">
-          <input type="number" inputmode="numeric" id="van-field-3-input" className="van-field__control"
-            placeholder=" ₹ Please enter the amount" onChange={handleInputChange}
+          <input type="number" inputmode="numeric" id="van-field-3-input" className="van-field__control" value={utr}
+            placeholder=" Please enter the 12 digit UTR number" onChange={handleInputChange}
             />
         </div>
         </div>
         </div>
         </div>
 
-                        <div data-v-9e03166f="" className="Recharge__container-rechageBtn" style={{ 
+                        <div data-v-9e03166f="" className="Recharge__container-rechageBtn" onClick={handlePay} style={{ 
     backgroundColor: isButtonActive ? '' : '#c4933f'
   }}>Pay</div>
                     </div>
