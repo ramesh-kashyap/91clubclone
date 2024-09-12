@@ -23,27 +23,46 @@ export default function Promotion(){
     setActiveLink(currentPath);
   },[]);
 
+  const transferMoney = async () => {
+    try {
+      const response = await Api.post('/moneyTransfer');
+      if (response.data.status == true) {
+       
+        fetchUserInfo();
+
+      } else {
+        setError('Failed to fetch user info');
+      }
+    } catch (err) {
+      setError('Error fetching user info');
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchUserInfo = async () => {
+    try {
+      const response = await Api.get('/api/webapi/GetUserInfo');
+      if (response.data.status) {
+        setTotalMoney(response.data.data.money_user);
+        setThirdPartyWallet(response.data.data.thirdparty_wallet);
+        setTotalRecharge(response.data.totalRecharge);
+        setTotalWithdraw(response.data.totalWithdraw);
+
+      } else {
+        setError('Failed to fetch user info');
+      }
+    } catch (err) {
+      setError('Error fetching user info');
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchUserInfo = async () => {
-      try {
-        const response = await Api.get('/api/webapi/GetUserInfo');
-        if (response.data.status) {
-          setTotalMoney(response.data.data.money_user);
-          setThirdPartyWallet(response.data.data.thirdparty_wallet);
-          setTotalRecharge(response.data.totalRecharge);
-          setTotalWithdraw(response.data.totalWithdraw);
-
-        } else {
-          setError('Failed to fetch user info');
-        }
-      } catch (err) {
-        setError('Error fetching user info');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
+    
 
     fetchUserInfo();
   }, []);
@@ -9636,7 +9655,7 @@ export default function Promotion(){
               </div>
             </div>
             <div data-v-0dabd3fc="" className="recycleBtnD">
-              <button data-v-0dabd3fc="" className="recycleBtn">
+              <button data-v-0dabd3fc="" className="recycleBtn" onClick={transferMoney}>
                 Main wallet transfer
               </button>
             </div>
