@@ -97,9 +97,13 @@ function App() {
         <Route
           path="/index"
           element={
-            <PrivateRoute>
               <Dashboard />
-            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/"
+          element={
+              <Dashboard />
           }
         />
         <Route

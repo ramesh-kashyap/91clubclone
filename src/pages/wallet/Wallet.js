@@ -9631,12 +9631,12 @@ export default function Promotion(){
               </div>
               <div data-v-0dabd3fc="" className="progressBarsR">
                 <div data-v-0dabd3fc="" className="van-circle">
-                  <svg viewBox="0 0 1100 1100">
+                <svg viewBox="0 0 1100 1100">
                     
                     <path
                       className="van-circle__layer"
                       d="M 550 550 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
-                      style={{fill: "none", strokeWidth: "100px"}}
+                      style={{fill: 'none', 'strokeWidth': '100px'}}
                     ></path>
                     <path
                       d="M 550 550 m 0, -500 a 500, 500 0 1, 1 0, 1000 a 500, 500 0 1, 1 0, -1000"
@@ -9644,11 +9644,11 @@ export default function Promotion(){
                       style={{
                         strokeWidth: '101px',
                         strokeLinecap: 'butt',
-                        strokeDasharray: '0px, 3140px'
+                        strokeDasharray: "3140px, 3140px",
                       }}
                     ></path>
                   </svg>
-                  <div className="van-circle__text">0%</div>
+                  <div className="van-circle__text">100%</div>
                 </div>
                 <h3 data-v-0dabd3fc="">₹{thirdPartyWallet}</h3>
                 <span data-v-0dabd3fc="">3rd party wallet</span>

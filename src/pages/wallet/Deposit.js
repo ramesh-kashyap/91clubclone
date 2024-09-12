@@ -24,6 +24,7 @@ export default function Deposit(){
 const [activeSection, setActiveSection] = useState('UpiTransfer');
 
 const [usdtValue, setUsdtValue] = useState(10);
+const [upiValue, setUpiValue] = useState(500);
 const [totalMoney, setTotalMoney] = useState(0);
 const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -38,6 +39,11 @@ const showSection = (sectionId) => {
   const handleUsdtClick = (value) => {
     console.log(value);
     setUsdtValue(value); // Update selected USDT value
+  };
+
+  const handleUpiClick = (value) => {
+    console.log(value);
+    setUpiValue(value); // Update selected USDT value
   };
 
   useEffect(() => {
@@ -94,6 +100,41 @@ const showSection = (sectionId) => {
       setError('An error occurred. Please try again.');
     }
   };
+
+  const handleUpiDeposit = async () => {
+    let typeid = 'USDT(TRC20)';
+  
+    if (usdtValue * 90 < 900) {
+      setError("Minimum Deposit amount is 900");
+      return;
+    }
+  
+    if (activeSection === 'UsdtBep' || activeSection ==='UsdtBep1' ) {
+      typeid = 'USDT(TRC20)';
+    }
+
+    if (activeSection === 'UsdtTrc' || activeSection === 'UsdtTrc1') {
+      typeid = 'USDT(BEP20)';
+    }
+  
+    try {
+      const response = await Api.post('/api/webapi/createPayment10', {
+        money: usdtValue * 90,
+        typeid: typeid,
+      });
+  
+      if (response.data.status === true) {
+        // Navigate to the ConfirmDeposit page and pass the response.data.datas
+        navigate('/deposit/ConfirmDeposit', { state: { data: response.data.datas } });
+      } else {
+        setError("Payment creation failed. Please try again.");
+      }
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    }
+  };
+
   const fetchDepositHistory = async () => {
     try {
       const response = await Api.get('/api/webapi/recharge/list?page=1&limit=5');
@@ -415,7 +456,7 @@ const showSection = (sectionId) => {
                    
                   <div data-v-9e03166f="" className="other">
                     <div data-v-9e03166f="">USDT-Super</div>
-                    <div data-v-9e03166f="">Balance:300 - 50K</div>
+                    <div data-v-9e03166f="">Balance:10 - 1K</div>
                     
                   </div>
                 </div>
@@ -425,7 +466,7 @@ const showSection = (sectionId) => {
                 >
                   <div data-v-9e03166f="" className="other">
                     <div data-v-9e03166f="">USDT-ceco</div>
-                    <div data-v-9e03166f="">Balance:500 - 50K</div>
+                    <div data-v-9e03166f="">Balance:10 - 5K</div>
                     
                   </div>
                 </div>
@@ -461,14 +502,14 @@ const showSection = (sectionId) => {
                 <div data-v-9e03166f="" className={`Recharge__content-quickInfo__item ${activeSection === 'UsdtBep' ? 'item_active' : ''}`}  onClick={() => showSection('UsdtBep')}>
                   <div data-v-9e03166f="" className="other">
                     <div data-v-9e03166f="">USDT-ARpay</div>
-                    <div data-v-9e03166f="">Balance:500 - 30K</div>
+                    <div data-v-9e03166f="">Balance:10 - 1K</div>
                     
                   </div>
                 </div>
                 <div data-v-9e03166f="" className={`Recharge__content-quickInfo__item ${activeSection === 'UsdtBep1' ? 'item_active' : ''}`}  onClick={() => showSection('UsdtBep1')}>
                   <div data-v-9e03166f="" className="other">
                     <div data-v-9e03166f="">USDT-Super</div>
-                    <div data-v-9e03166f="">Balance:300 - 50K</div>
+                    <div data-v-9e03166f="">Balance:10 - 5K</div>
                     
                   </div>
                 </div>
@@ -478,14 +519,14 @@ const showSection = (sectionId) => {
                 <div data-v-9e03166f="" className={`Recharge__content-quickInfo__item ${activeSection === 'UsdtBep' ? 'item_active' : ''}`}  onClick={() => showSection('UsdtBep')}>
                   <div data-v-9e03166f="" className="other">
                     <div data-v-9e03166f="">USDT-ARpay</div>
-                    <div data-v-9e03166f="">Balance:500 - 30K</div>
+                    <div data-v-9e03166f="">Balance:10 - 1K</div>
                     
                   </div>
                 </div>
                 <div data-v-9e03166f="" className={`Recharge__content-quickInfo__item ${activeSection === 'UsdtBep1' ? 'item_active' : ''}`}  onClick={() => showSection('UsdtBep1')}>
                   <div data-v-9e03166f="" className="other">
                     <div data-v-9e03166f="">USDT-Super</div>
-                    <div data-v-9e03166f="">Balance:300 - 50K</div>
+                    <div data-v-9e03166f="">Balance:10 - 5K</div>
                     
                   </div>
                 </div>
@@ -496,7 +537,7 @@ const showSection = (sectionId) => {
                 {/* <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px',position:'absolute', left:'30px', top:'482px'}}/>                */}
                   <div data-v-9e03166f="" className="other">                  
                     <div data-v-9e03166f=""  style={{paddingLeft:'18px'}}>QR-ARpay</div>
-                    <div data-v-9e03166f="">Balance:500 - 30K</div>
+                    <div data-v-9e03166f="">Balance:500 - 3K</div>
                     
                   </div>
                 </div>
@@ -544,54 +585,54 @@ const showSection = (sectionId) => {
                 
                 <div
                   data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-            
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 500 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('500')}          
+                > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>500
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-            
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 600 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('600')}          
+                > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>600
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-            
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 800 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('800')}          
+                > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>800
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-            
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 1000 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('1000')}          
+                > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>1k
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-            
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 2000 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('2000')}          
+                > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>2k
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-            
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 3000 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('3000')}          
+                > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>3k
                   </div>                  
@@ -724,50 +765,56 @@ const showSection = (sectionId) => {
                 data-v-9e03166f=""
                 className="Recharge__content-paymoney__money-list" id="UpiTransfer1" style={{ display: activeSection === 'UpiTransfer1' ? 'flex' : 'none' }}
               >
-                <div
+                 <div
                   data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item 'active'"
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 1000 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('1000')}          
+                > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>1K
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 3000 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('3000')}          
+                > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>3K
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 5000 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('5000')}          
+                > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>5K
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 20000 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('20000')}          
+                > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>20K
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 30000 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('30000')}          
+                > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>30K
                   </div>                  
                 </div>
                 <div
                   data-v-9e03166f=""
-            className="Recharge__content-paymoney__money-list__item"
-                >
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 50000 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('50000')}          
+                > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>50K
                   </div>                  
@@ -933,15 +980,28 @@ const showSection = (sectionId) => {
                   
                   <div className="van-cell__value van-field__value">
                     <div className="van-field__body">
-                    <input
-        type="text"
-        inputMode="numeric"
-        id="van-field-7-input"
-        className="van-field__control"
-        placeholder="Please enter the amount"
-        value={usdtValue}
-        onChange={(e) => setUsdtValue(e.target.value)} // Update state with input value
-      />
+                    { ['UsdtTrc', 'UsdtTrc1', 'UsdtBep', 'UsdtBep1'].includes(activeSection) ? (
+  <input
+    type="text"
+    inputMode="numeric"
+    id="van-field-7-input"
+    className="van-field__control"
+    placeholder="Please enter the amount"
+    value={usdtValue}
+    onChange={(e) => setUsdtValue(e.target.value)} // Update state with input value
+  />
+) : (
+  <input
+    type="text"
+    inputMode="numeric"
+    id="van-field-7-input"
+    className="van-field__control"
+    placeholder="Please enter the amount"
+    value={upiValue}
+    onChange={(e) => setUpiValue(e.target.value)} // Update state with input value
+  />
+)}
+
                     </div>
                     
                   </div>
@@ -959,47 +1019,70 @@ const showSection = (sectionId) => {
                 
               </div>
 
-              <div
-                data-v-9e03166f=""
-                className="Recharge__content-paymoney__money-input"
-              >
-                <div data-v-9e03166f="" className="place-div">₹
-</div>
-                <div
-                  data-v-9e03166f=""
-                  className="van-cell van-field amount-input"
-                  modelmodifiers="[object Object]"
-                >
-                  
-                  <div className="van-cell__value van-field__value">
-                    <div className="van-field__body">
-                      < input type = "text"
-                      inputmode = "numeric"
-                      id = "van-field-7-input"
-                      className = "van-field__control"
-                      readOnly
-                      value={usdtValue*90}
-                      />
-                    </div>
-                    
-                  </div>
+              
+                  { ['UsdtTrc', 'UsdtTrc1', 'UsdtBep', 'UsdtBep1'].includes(activeSection) && (
+                    <div
+                    data-v-9e03166f=""
+                    className="Recharge__content-paymoney__money-input"
+                  >
+                    <div data-v-9e03166f="" className="place-div">₹
+    </div>
+                    <div
+                      data-v-9e03166f=""
+                      className="van-cell van-field amount-input"
+                      modelmodifiers="[object Object]"
+                    >
+                      
+                      <div className="van-cell__value van-field__value">
+  <div className="van-field__body">
+    <input
+      type="text"
+      inputMode="numeric"
+      id="van-field-7-input"
+      className="van-field__control"
+      readOnly
+      value={usdtValue * 90}
+    />
+  </div>
+  </div>
                  
                   
-                </div>
-                
-                <div data-v-9e03166f="" className="place-right">
-                  <img
-                    data-v-9e03166f=""
-                    src="/assets/png/clean-82487515.png"
-                    alt=""
-                  />
-                </div>
-                
-              </div>
+                 </div>
+                 
+                 <div data-v-9e03166f="" className="place-right">
+                   <img
+                     data-v-9e03166f=""
+                     src="/assets/png/clean-82487515.png"
+                     alt=""
+                   />
+                 </div>
+                 
+               </div>
+)}
+
+                    
+                 
               
-              <div data-v-9e03166f="" className="Recharge__container-rechageBtn rechage_active" onClick={handleDeposit}>
-                Deposit
-              </div>
+{ ['UsdtTrc', 'UsdtTrc1', 'UsdtBep', 'UsdtBep1'].includes(activeSection) ? (
+  <div 
+    data-v-9e03166f="" 
+    className="Recharge__container-rechageBtn rechage_active" 
+    onClick={handleDeposit}
+  >
+    Deposit
+  </div>
+):
+(
+  <div 
+    data-v-9e03166f="" 
+    className="Recharge__container-rechageBtn rechage_active" 
+    onClick={handleUpiDeposit}
+  >
+    Deposit
+  </div>
+)
+}
+
             </div>
             <div
               data-v-9e03166f=""
