@@ -9554,7 +9554,7 @@ export default function Login() {
         <div data-v-12a80a3e="" data-v-47f4cc84="" className="navbar main">
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
-              <div data-v-12a80a3e="" className="navbar__content-left">
+              <div data-v-12a80a3e="" className="navbar__content-left" onClick={()=>navigate('/index')}>
               <FontAwesomeIcon icon={faChevronLeft} style={{fontSize:"20px"  }} />
               </div>
               <div data-v-12a80a3e="" className="navbar__content-center">

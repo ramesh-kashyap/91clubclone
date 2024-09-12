@@ -3,10 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
 
 export default function AddUSDT() {
-  const [usdtBep20, setUsdtBep20] = useState('');
-  const [usdtTrc20, setUsdtTrc20] = useState('');
-  const [trx20, setTrx] = useState(null);
-  const [bep20, setBep] = useState(null);
+  const [trc20, setTrc] = useState('');
+  const [bep20, setBep] = useState('');
 
   const navigate = useNavigate();
 
@@ -19,7 +17,7 @@ export default function AddUSDT() {
     try {
       const response = await Api.post('/api/webapi/addBank', {
         usdtBep20: bep20, 
-        usdtTrc20: trx20,
+        usdttrc20: trc20,
       });
 
       if (response.data.status) {
@@ -62,37 +60,36 @@ export default function AddUSDT() {
 
           <form onSubmit={handleSubmit}>
             <div data-v-24736190="" className="addUSDT__container-content">
-              <div data-v-24736190="" className="addUSDT__container-content-top">
+              {/* <div data-v-24736190="" className="addUSDT__container-content-top">
                 <img data-v-24736190="" src="/assets/png/hint-c6828dc5.png" />
                 <span data-v-24736190="">
                   To ensure the safety of your funds, please link your wallet
                 </span>
-              </div>
+              </div> */}             
 
               <div data-v-24736190="" className="addUSDT__container-content-item">
                 <div data-v-24736190="" className="label">
-                  <svg data-v-24736190="" className="svg-icon icon-usdt1 icon icon">
-                    <use href="#icon-usdt1"></use>
+                  <svg data-v-24736190="" className="svg-icon icon-usdt2 icon icon">
+                    <use href="#icon-usdt2"></use>
                   </svg>
-                  Add TRX address
+                  Add USDT TRC20 Address<span style={{position: 'absolute', height: '1.17333rem',
+    width: '.8rem',
+    fontWeight: '900',
+    fontSize: '.56rem',
+    lineHeight: '1.17333rem',}}><img data-v-cb5583fe="" src="/assets/png/usdt.png" style={{width: 'auto',  height: '.6rem',   marginTop: '.26667rem',}}/>
+                 
+                 </span>
                 </div>
-                <div data-v-24736190="" className="ar-searchbar">
-                  <div data-v-fa757a88="" data-v-24736190="" className="ar-searchbar__selector">
-                    <div data-v-fa757a88="">
-                      <input
-                        type="text"
-                        data-v-fa757a88=""
-                        className="ar-searchbar__selector-default"
-                        value={bep20}  
-                        onChange={(e) => setTrx()}                      
-                      />
-                      <i
-                        data-v-fa757a88=""
-                        className="van-badge__wrapper van-icon van-icon-arrow-down"
-                        
-                      ></i>
-                    </div>
-                  </div>
+                <div data-v-24736190="" className="input">             
+                  <input
+                    data-v-24736190=""
+                    placeholder="   Please enter the USDT Trc20 address"
+                    maxLength="36"
+                    value={trc20}  
+                    onChange={(e) => setTrc(e.target.value)}  
+                   // Display the correct address
+                   
+                  />
                 </div>
               </div>
 
@@ -100,17 +97,21 @@ export default function AddUSDT() {
                 <div data-v-24736190="" className="label">
                   <svg data-v-24736190="" className="svg-icon icon-usdt2 icon icon">
                     <use href="#icon-usdt2"></use>
-                  </svg>
-                  USDT Address
+                  </svg>Add USDT Bep20 Address<span style={{position: 'absolute', height: '1.17333rem',
+    width: '.8rem',
+    fontWeight: '900',
+    fontSize: '.56rem',
+    lineHeight: '1.17333rem',}}><img data-v-cb5583fe="" src="/assets/png/trc20.png" style={{width: 'auto',  height: '.6rem',   marginTop: '.26667rem',}}/>
+                 
+                 </span>
                 </div>
                 <div data-v-24736190="" className="input">
                   <input
                     data-v-24736190=""
-                    placeholder="Please enter the USDT address"
+                    placeholder="    Please enter the USDT Bep20 address"
                     maxLength="36"
-                    value={trx20}  
-                    onChange={(e) => setBep()}  
-                   // Display the correct address
+                    value={bep20}  
+                    onChange={(e) => setBep(e.target.value)} 
                    
                   />
                 </div>

@@ -5887,7 +5887,7 @@ html:lang(ar) .explain .input .place-div[data-v-cb5583fe]:after {
 .addWithdrawType-top[data-v-ef5c8333] {
     background: var(--darkBg, var(--bg_color_L2));
     border-radius: .13333rem;
-    height: 2.66667rem;
+    height: 1.66667rem;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -5912,7 +5912,8 @@ html:lang(ar) .explain .input .place-div[data-v-cb5583fe]:after {
 
 .addWithdrawType-top span[data-v-ef5c8333] {
     color: var(--text_color_L3);
-    font-size: .37333rem
+    font-size: .37333rem;
+    margin-left: 10px;
 }
 
 .addWithdrawType-text[data-v-ef5c8333] {
