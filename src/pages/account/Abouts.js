@@ -1,6 +1,7 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom';
 export default function Abouts() {
+  const navigate = useNavigate();
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -9500,7 +9501,7 @@ export default function Abouts() {
                 <div data-v-12a80a3e="" className="navbar__content-left">
                   <i
                     data-v-12a80a3e=""
-                    className="van-badge__wrapper van-icon van-icon-arrow-left"
+                    className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/account')}
                     ></i
                   >
                 </div>
@@ -9525,13 +9526,13 @@ export default function Abouts() {
         </div>
         <div data-v-6616fdfe="" className="about-container-content">
           <div data-v-6616fdfe="" className="about-container-content-item ar-1px-b">
-            <div data-v-6616fdfe="" className="about-container-content-item-title">
+            <div data-v-6616fdfe="" className="about-container-content-item-title" onClick={()=>navigate('/main/AboutDetail')}>
               <svg data-v-6616fdfe="" className="svg-icon icon-privacyIcon">
                 <use href="#icon-privacyIcon"></use></svg
               >
-              <a href="/account/confidentagree.html"><span
+              <span
                 data-v-6616fdfe=""
-                >Confidentiality Agreement</span></a>
+                >Confidentiality Agreement</span>
               
             </div>
             <i

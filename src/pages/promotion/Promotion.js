@@ -9828,12 +9828,12 @@ export default function Promotion(){
                     className="svg-icon icon-home" onClick={()=> navigate('/index')}>
                     <use href="#icon-home"></use>
                 </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
+            <div data-v-6ab3f23e="" className="tabbar__container-item" ><svg data-v-6ab3f23e=""
                     className="svg-icon icon-activity" onClick={()=> navigate('/activity')}><use href="#icon-activity"></use>
                    
                 </svg>
                 <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
-            <div data-v-6ab3f23e="" className={`tabbar__container-item ${activeLink === '/promotion' ? 'active':''}`}><svg data-v-6ab3f23e=""
+            <div data-v-6ab3f23e="" className={`tabbar__container-item ${activeLink === '/promotion' ? 'active':''}`} onClick={()=> navigate('/promotion')}><svg data-v-6ab3f23e=""
                     className="svg-icon icon-promotion" onClick={()=> navigate('/promotion')}>
                     <use href="#icon-promotion"></use>
                 </svg>

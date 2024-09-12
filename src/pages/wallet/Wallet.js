@@ -9800,12 +9800,11 @@ export default function Promotion(){
                     <use href="#icon-home"></use>
                 </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
             <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-activity" onClick={()=> navigate('/index')}><use href="#icon-activity"></use>
-                   
+                    className="svg-icon icon-activity" onClick={()=> navigate('/activity')}><use href="#icon-activity"></use>                   
                 </svg>
                 <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
+            <div data-v-6ab3f23e="" className="tabbar__container-item"onClick={()=> navigate('/promotion')}><svg data-v-6ab3f23e=""
+                    className="svg-icon icon-promotion" >
                     <use href="#icon-promotion"></use>
                 </svg>
                 <div data-v-6ab3f23e="" className="promotionBg"></div>

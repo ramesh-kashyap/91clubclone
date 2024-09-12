@@ -9840,16 +9840,16 @@ export default function Account() {
             >
               <div
                 data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
+                className="settingPanel__container-items__title" onClick={()=>navigate('/home/Messages')}
               >
                 <svg data-v-a30d19b1="" className="svg-icon icon-notification">
                   <use href="#icon-notification"></use></svg
                 >
 
-                <a href="/account/notification.html"><span
+                <span
                   data-v-a30d19b1=""
                   >Notification</span
-                ></a>
+                >
               </div>
               <div
                 data-v-a30d19b1=""
@@ -9992,14 +9992,14 @@ export default function Account() {
             >
               <div
                 data-v-a30d19b1=""
-                className="settingPanel__container-items__title"
+                className="settingPanel__container-items__title" onClick={()=>navigate('/main/GameStats')}
               >
                 <svg data-v-a30d19b1="" className="svg-icon icon-statsIcon">
                   <use href="#icon-statsIcon"></use></svg
                 >
-                <a href="/account/gamestatics.html"><span
+                <span
                   data-v-a30d19b1=""
-                  >Game statistics</span></a>
+                  >Game statistics</span>
               </div>
               <div
                 data-v-a30d19b1=""
@@ -10050,10 +10050,10 @@ export default function Account() {
         <div data-v-159bf81f="" data-v-a78765c7="" className="serviceCenter-wrap">
           <div data-v-159bf81f="" className="serviceCenter__container">
             <h1 data-v-159bf81f="">Service center</h1>
-            <div data-v-159bf81f="" className="serviceCenter__container-items" onClick={()=>navigate('/main/SettingCenters')}>
+            <div data-v-159bf81f="" className="serviceCenter__container-items">
               <div
                 data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
+                className="serviceCenter__container-items__item"  onClick={()=>navigate('/main/SettingCenters')}
               >
                 <svg data-v-159bf81f="" className="svg-icon icon-settingCenter">
                   <use href="#icon-settingCenter"></use></svg
@@ -10066,7 +10066,7 @@ export default function Account() {
               </div>
               <div
                 data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
+                className="serviceCenter__container-items__item" onClick={()=>navigate('/main/Feedback')}
               >
                 <svg data-v-159bf81f="" className="svg-icon icon-feedback">
                   <use href="#icon-feedback"></use></svg
@@ -10093,7 +10093,7 @@ export default function Account() {
               </div>
               <div
                 data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
+                className="serviceCenter__container-items__item" onClick={()=>navigate('/main/CustomerService')}
               >
                 <svg data-v-159bf81f="" className="svg-icon icon-server">
                   <use href="#icon-server"></use></svg
@@ -10117,7 +10117,7 @@ export default function Account() {
               </div>
               <div
                 data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
+                className="serviceCenter__container-items__item" onClick={()=>navigate('/main/Abouts')}
               >
                 <svg data-v-159bf81f="" className="svg-icon icon-about">
                   <use href="#icon-about"></use></svg
@@ -10195,7 +10195,7 @@ export default function Account() {
                    
                 </svg>
                 <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
+            <div data-v-6ab3f23e="" className="tabbar__container-item" onClick={()=> navigate('/promotion')}><svg data-v-6ab3f23e=""
                     className="svg-icon icon-promotion" onClick={()=> navigate('/promotion')}>
                     <use href="#icon-promotion"></use>
                 </svg>

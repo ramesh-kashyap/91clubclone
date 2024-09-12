@@ -2253,7 +2253,8 @@ html:lang(ar) .Recharge__container-intro__lists .item p[data-v-7cba6004]:after {
     border-radius: .26667rem;
     margin-top: .26667rem;
     padding: .4rem .29333rem .42667rem .26667rem;
-    margin-bottom: .4rem
+    margin-bottom: .4rem;
+    
 }
 
 .Recharge__content-paymoney__title[data-v-9e03166f] {

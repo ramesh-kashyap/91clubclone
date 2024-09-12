@@ -1,21 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react'
 import { useNavigate } from 'react-router-dom';
-
-export default function Activity() {
+export default function GameStats() {
   const navigate = useNavigate();
-  const [activeLink , setActiveLink] = useState(null);
-
-  useEffect(()=>{
-    const currentPath = window.location.pathname;
-  setActiveLink(currentPath);
-},[]);
   return (
-    
     <div style={{fontSize: '12px'}}>
-    <svg
+
+
+
+
+<svg
       xmlns="http://www.w3.org/2000/svg"
-     
-      style={{position: 'absolute', width: 0, height: 0}}
+      style={{position: 'absolute', width: '0', height: '0'}}
     >
       <symbol
         id="icon-privacyIcon"
@@ -3235,7 +3230,6 @@ export default function Activity() {
           strokeLinecap="round"
         ></path>
       </symbol>
-      
       <symbol
         id="icon-downArrow"
         xmlns="http://www.w3.org/2000/svg"
@@ -3617,17 +3611,16 @@ export default function Activity() {
           strokeLinejoin="round"
         ></path>
       </symbol>
-      
       <symbol
         id="icon-eye"
         t="1503993826520"
         className="icon"
-        
+      
         viewBox="0 0 1024 1024"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         p-id="7878"
-        
+  
       >
         <defs><style type="text/css"></style></defs>
         <path
@@ -9384,28 +9377,30 @@ export default function Activity() {
       </symbol>
     </svg>
 
+
+
+    
+
     <div id="app" data-v-app="">
       <div
         data-v-647954c7=""
         className="ar-loading-view"
-        style={{  
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif" ,
+        style={{
+          '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
           display: 'none'
         }}
       >
         <div data-v-647954c7="" className="loading-wrapper">
-          
           <div data-v-647954c7="" className="loading-animat">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-             
               viewBox="0 0 200 200"
               width="200"
               height="200"
               preserveAspectRatio="xMidYMid meet"
-              style={{ 
+              style={{
                 width: '100%',
-                height: '100%',
+                height:' 100%',
                 transform: 'translate3d(0px, 0px, 0px)',
                 contentVisibility: 'visible'
               }}
@@ -9451,23 +9446,18 @@ export default function Activity() {
               </g>
             </svg>
           </div>
-          <div data-v-647954c7="" className="com__box" style={{display: 'none'}}>
-            
+          <div data-v-647954c7="" className="com__box"  style={{display: 'none'}}>
             <div className="loading" data-v-647954c7="">
               <div className="shape shape-1" data-v-647954c7=""></div>
               <div className="shape shape-2" data-v-647954c7=""></div>
               <div className="shape shape-3" data-v-647954c7=""></div>
               <div className="shape shape-4" data-v-647954c7=""></div>
             </div>
-            
           </div>
-          
         </div>
         <div data-v-647954c7="" className="skeleton-wrapper" style={{display: 'none'}}>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
             <div className="van-skeleton__content">
-              
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9492,7 +9482,6 @@ export default function Activity() {
             </div>
           </div>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
             <div className="van-skeleton__content">
               <h3 className="van-skeleton-title"></h3>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9504,222 +9493,150 @@ export default function Activity() {
           </div>
         </div>
       </div>
-      
       <div
-        data-v-12a80a3e=""
-        data-v-214b87c9=""
-        className="navbar main"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
+        data-v-0fabbe57=""
+        className="gamestats-container"
+        style={{'--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'"}}
       >
-        <div data-v-12a80a3e="" className="navbar-fixed">
-          <div data-v-12a80a3e="" className="navbar__content">
-            <div data-v-12a80a3e="" className="navbar__content-left">
-              
+        <div data-v-12a80a3e="" data-v-0fabbe57="" className="navbar">
+          <div data-v-12a80a3e="" className="navbar-fixed">
+            <div data-v-12a80a3e="" className="navbar__content">
+              <div data-v-12a80a3e="" className="navbar__content-left">
+                <i
+                  data-v-12a80a3e=""
+                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/account')}
+                  ></i
+                >
+              </div>
+              <div data-v-12a80a3e="" className="navbar__content-center">
+                <div data-v-12a80a3e="" className="navbar__content-title">
+                  Game statistics
+                </div>
+              </div>
+              <div data-v-12a80a3e="" className="navbar__content-right"></div>
             </div>
-            <div data-v-12a80a3e="" className="navbar__content-center">
+          </div>
+        </div>
+        <div data-v-0fabbe57="" className="gamestats-container-header">
+          <div data-v-0fabbe57="" className="van-tabs van-tabs--card">
+            <div className="van-tabs__wrap">
               <div
-                data-v-12a80a3e=""
-                className="headLogo"
-                style={{  
-                  backgroundImage: `url('assets/png/BDGPRO2.png')`
-                }}
-              ></div>
-              <div data-v-12a80a3e="" className="navbar__content-title"></div>
+                role="tablist"
+                className="van-tabs__nav van-tabs__nav--card"
+                aria-orientation="horizontal"
+              >
+                <div
+                  id="van-tabs-1-0"
+                  role="tab"
+                  className="van-tab van-tab--card van-tab--active"
+                  tabIndex="0"
+                  aria-selected="true"
+                  aria-controls="van-tab-2"
+                >
+                  <span className="van-tab__text van-tab__text--ellipsis"
+                    >Today</span
+                  >
+                </div>
+                <div
+                  id="van-tabs-1-1"
+                  role="tab"
+                  className="van-tab van-tab--card"
+                  tabIndex="-1"
+                  aria-selected="false"
+                  aria-controls="van-tab-3"
+                >
+                  <span className="van-tab__text van-tab__text--ellipsis"
+                    >Yesterday</span
+                  >
+                </div>
+                <div
+                  id="van-tabs-1-2"
+                  role="tab"
+                  className="van-tab van-tab--card"
+                  tabIndex="-1"
+                  aria-selected="false"
+                  aria-controls="van-tab-4"
+                >
+                  <span className="van-tab__text van-tab__text--ellipsis"
+                    >This week</span
+                  >
+                </div>
+                <div
+                  id="van-tabs-1-3"
+                  role="tab"
+                  className="van-tab van-tab--card"
+                  tabIndex="-1"
+                  aria-selected="false"
+                  aria-controls="van-tab-5"
+                >
+                  <span className="van-tab__text van-tab__text--ellipsis"
+                    >This month</span
+                  >
+                </div>
+              </div>
             </div>
-            <div data-v-12a80a3e="" className="navbar__content-right"></div>
+            <div className="van-tabs__content"></div>
           </div>
+        </div>
+      
+      </div>
+
+
+      
+
+      <div data-v-0fabbe57="" className="gamestats-container-banner">
+        <h1 data-v-0fabbe57="">₹1,299.50</h1>
+        <span data-v-0fabbe57="">Total bet</span>
+      </div>
+      <div data-v-0fabbe57="" className="gamestats-container-list-wrapper">
+        <div data-v-0fabbe57="" className="gamestats-container-items">
+          <div data-v-0fabbe57="" className="gamestats-container-item">
+            <h1 data-v-0fabbe57="">
+              <img
+                data-v-0fabbe57=""
+                alt=""
+                className=""
+                data-origin="/assets/png/loterry-13b4d059.png"
+                src="/assets/png/loterry-13b4d059.png"
+              /><span data-v-0fabbe57="">lottery</span>
+            </h1>
+            <div data-v-0fabbe57="" className="gamestats-container-item-content">
+              <img
+                data-v-0fabbe57=""
+                alt=""
+                className=""
+                data-origin="/assets/png/gameStatsSteps-fde7a66f.png"
+                src="/assets/png/gameStatsSteps-fde7a66f.png"
+              />
+              <div
+                data-v-0fabbe57=""
+                className="gamestats-container-item-content-list"
+              >
+                <div data-v-0fabbe57="">
+                  <h4 data-v-0fabbe57="">Total bet</h4>
+                  <h5 data-v-0fabbe57="">₹1,242.00</h5>
+                </div>
+                <div data-v-0fabbe57="">
+                  <h4 data-v-0fabbe57="">Number of bets</h4>
+                  <h5 data-v-0fabbe57="">158</h5>
+                </div>
+                <div data-v-0fabbe57="">
+                  <h4 data-v-0fabbe57="">Winning amount</h4>
+                  <span data-v-0fabbe57="">₹886.90</span>
+                </div>
+              </div>
+            </div>
+          </div>
+         
         </div>
       </div>
-      <div
-        data-v-4a7709f3=""
-        data-v-214b87c9=""
-        className="activity-wrapper"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      >
-        <div data-v-4a7709f3="" className="activity-banner">
-          <div data-v-4a7709f3="">
-            <div data-v-4a7709f3="" className="banner-title">Activity</div>
-            <div data-v-4a7709f3="" className="banner-para">
-              Please remember to follow the event page
-            </div>
-            <div data-v-4a7709f3="" className="banner-para">
-              We will launch user feedback activities from time to time
-            </div>
-          </div>
-        </div>
-        <div data-v-4a7709f3="" className="activity-panel">
-          
-          <div data-v-4a7709f3="" className="activity-panel-header lg3">
-          <div data-v-4a7709f3="" className="header-item">
-  <div data-v-4a7709f3="" className="van-badge__wrapper">    
-      <div data-v-4a7709f3="" className="a4 bgcontainer" onClick={()=>navigate('/activity/DailyTasks')}></div>   
-  </div>
 
-  <span data-v-4a7709f3="" onClick={()=>navigate('/activity/DailyTasks')}>Activity Award</span>
-</div>
-
-            <div data-v-4a7709f3="" className="header-item">
-              <div data-v-4a7709f3="" className="van-badge__wrapper"onClick={()=>navigate('/main/InvitationBonus')}>             
-                <div data-v-4a7709f3="" className="a2 bgcontainer"></div>
-              </div>
-              <span data-v-4a7709f3=""onClick={()=>navigate('/main/InvitationBonus')}>Invitation bonus</span>
-            </div>
-            <div data-v-4a7709f3="" className="header-item">
-              <div data-v-4a7709f3="" className="van-badge__wrapper" onClick={()=>navigate('/main/Laundry')}>              
-                <div data-v-4a7709f3="" className="a3 bgcontainer"></div>
-              </div>
-              <span data-v-4a7709f3=""onClick={()=>navigate('/main/Laundry')}>Betting rebate</span>
-            </div>
-            <div data-v-4a7709f3="" className="header-item">
-              <div data-v-4a7709f3="" className="van-badge__wrapper" onClick={()=>navigate('/main/SuperJackpot')}>
-              <div data-v-4a7709f3="" className="a4 bgcontainer"></div>
-              </div>
-              <span data-v-4a7709f3=""onClick={()=>navigate('/main/SuperJackpot')}>Super Jackpot</span>
-            </div>
-            
-          </div>
-          <div data-v-4a7709f3="" className="activity-panel-content">
-          
-            <div data-v-4a7709f3="" className="content-title" onClick={()=>navigate('/main/RedeemGift')}>
-           
-              <img
-                data-v-4a7709f3=""
-                className=""
-                data-origin="/assets/png/signInBanner-33f86d3f.png"
-                src="/assets/png/signInBanner-33f86d3f.png"
-              />
-              <div data-v-4a7709f3="" className="content-para">Gifts</div>
-              
-              <p data-v-4a7709f3="">
-                Enter the redemption code to receive gift rewards
-              </p>
-            </div>
-            <div data-v-4a7709f3="" className="content-title" onClick={()=>navigate('/activity/DailySignIn')}>
-              
-              <img
-                data-v-4a7709f3=""
-                className=""
-                data-origin="/assets/png/giftRedeem-45917887.png"
-                src="/assets/png/giftRedeem-45917887.png"
-              />
-              <div data-v-4a7709f3="" className="content-para">
-                Attendance bonus
-              </div>
-              <p data-v-4a7709f3="">
-                The more consecutive days you sign in, the higher the reward
-                will be.
-              </p>
-            </div>
-          </div>
-        </div>
-        
-        <div data-v-4a7709f3="" role="feed" className="van-list" aria-busy="false">
-          <div data-v-4a7709f3="" className="activitySection__container">
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="assets/png/banner/Banner_2024083115215341su.png"
-                className="act_0"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">
-                  New Member First Deposit Bonus
-                </div>
-              </div>
-            </div>
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="assets/png/banner/Banner_202408272256577vru.png"
-                className="act_1"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">
-                  Big Daddy Pro Tips and Trick Avoid Scammer
-                </div>
-              </div>
-            </div>
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="assets/png/banner/Banner_20240309122254d64f.png"
-                className="act_2"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">
-                  Big Daddy Pro Official Channel
-                </div>
-              </div>
-            </div>
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="assets/png/banner/Banner_20240413224931qr21.png"
-                className="act_3"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">Betting Rebate</div>
-              </div>
-            </div>
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="assets/png/banner/Banner_20240110083259g1n2.png"
-                className="act_4"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">Real-Time Rebate</div>
-              </div>
-            </div>
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="assets/png/banner/Banner_20231125141026uw34.png"
-                className="act_5"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">Super Jackpot</div>
-              </div>
-            </div>
-            <div data-v-4a7709f3="" className="box">
-              <img
-                data-v-4a7709f3=""
-                src="assets/png/banner/Banner_20240502120432m8f3.png"
-                className="act_6"
-              />
-              <div data-v-4a7709f3="" className="box-content">
-                <div data-v-4a7709f3="" className="box-title">
-                  Youtube Creative Video
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="van-list__finished-text">No more</div>
-          
-          <div className="van-list__placeholder"></div>
-        </div>
-        
-      </div>
-      <br
-        data-v-214b87c9=""
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      /><br
-        data-v-214b87c9=""
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      /><br
-        data-v-214b87c9=""
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      /><br
-        data-v-214b87c9=""
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
-      />
       <div
         className="customer"
         id="customerId"
-        style={{  
-          '--f13b4d11-currentFontFamily': " 'Roboto', 'Inter', sans-serif " ,
-          '--f6a705e1-currentFontFamily': "bahnschrift"
+        style={{
+          '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
+         'F6a705e1CurrentFontFamily': 'bahnschrift'
         }}
       >
         <img
@@ -9728,56 +9645,8 @@ export default function Activity() {
           src="/assets/png/icon_sevice-9f0c8455.png"
         />
       </div>
-      <div data-v-6ab3f23e="" className="tabbar__container"
-            style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-home" onClick={()=> navigate('/index')}>
-                    <use href="#icon-home"></use>
-                </svg><span data-v-6ab3f23e="" onClick={() => navigate('/index')}>Home</span></div>
-            <div data-v-6ab3f23e="" className={`tabbar__container-item ${activeLink === '/activity' ? 'active':''}`}><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-activity" onClick={()=> navigate('/activity')}><use href="#icon-activity"></use>
-                   
-                </svg>
-                <span data-v-6ab3f23e="" onClick={()=> navigate('/activity')}>Activity</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item" onClick={()=> navigate('/promotion')}><svg data-v-6ab3f23e=""
-                    className="svg-icon icon-promotion" onClick={()=> navigate('/promotion')}>
-                    <use href="#icon-promotion"></use>
-                </svg>
-                <div data-v-6ab3f23e="" className="promotionBg"></div>
-                <span data-v-6ab3f23e="" onClick={()=> navigate('/promotion')}>
-                    Promotion</span>
-            </div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-wallet">
-            <use href="#icon-wallet" onClick={()=> navigate('/wallet')}></use>
-                </svg><span data-v-6ab3f23e=""  onClick={()=> navigate('/wallet')}>Wallet</span></div>
-            <div data-v-6ab3f23e="" className="tabbar__container-item"><svg data-v-6ab3f23e="" className="svg-icon icon-main"  onClick={()=> navigate('/account')}>
-            <use href="#icon-main"></use>
-                </svg><span data-v-6ab3f23e="" onClick={()=> navigate('/account')}>Account</span></div>
-        </div>
-      
     </div>
 
-    <div data-v-app=""></div>
-    <div className="van-overlay" style={{zIndex: 2001, display: 'none'}}></div>
-    <div
-      role="dialog"
-      tabIndex="0"
-      className="van-popup van-popup--center van-toast van-toast--middle van-toast--loading"
-      style={{zIndex: 2001, display: 'none'}}
-    >
-      <div
-        className="van-loading van-loading--circular van-toast__loading"
-        aria-live="polite"
-        aria-busy="true"
-      >
-        <span className="van-loading__spinner van-loading__spinner--circular"
-          ><svg className="van-loading__circular" viewBox="25 25 50 50">
-            <circle cx="50" cy="50" r="20" fill="none"></circle></svg></span
-        >
-      </div>
-      
-    </div>
-  
     </div>
   )
 }

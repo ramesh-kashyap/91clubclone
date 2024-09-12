@@ -64,6 +64,7 @@ import RiskDetail from './pages/account/RiskDetail';
 import AddUSDT from './pages/wallet/AddUSDT';
 import TransAction from './pages/wallet/TransAction';
 import DepositHistory from './pages/wallet/DepositHistory';
+import UpiDeposit from './pages/wallet/Upideposit';
 
 
 
@@ -83,6 +84,8 @@ import LoginPassword from './pages/account/LoginPassword';
 import BindEmail from './pages/account/BindEmail';
 import Feedback from './pages/account/Feedback';
 import CustomerService from './pages/account/CustomerService';
+import GameStats from './pages/account/GameStats';
+
 
 
 
@@ -156,11 +159,14 @@ function App() {
         <Route path="/main/BetRecords" element={<PrivateRoute><BetRecords/></PrivateRoute>}/>
         <Route path="/main/Feedback" element={<PrivateRoute><Feedback/></PrivateRoute>}/>
         <Route path="/main/CustomerService" element={<PrivateRoute><CustomerService/></PrivateRoute>}/>
-        <Route path="/main/Notification" element={<PrivateRoute><Notification/></PrivateRoute>}/>
+        <Route path="/home/Messages" element={<PrivateRoute><Notification/></PrivateRoute>}/>
         <Route path="/main/Guide" element={<PrivateRoute><Guide/></PrivateRoute>}/>
         <Route path="/main/Abouts" element={<PrivateRoute><Abouts/></PrivateRoute>}/>
         <Route path="/main/AboutDetail" element={<PrivateRoute><AboutDetail/></PrivateRoute>}/>
         <Route path="/main/RiskDetail" element={<PrivateRoute><RiskDetail/></PrivateRoute>}/>
+        <Route path="/deposit/UpiDeposit" element={<PrivateRoute><UpiDeposit/></PrivateRoute>}/>
+        <Route path="/main/GameStats" element={<PrivateRoute><GameStats/></PrivateRoute>}/>
+
 
 
 

@@ -5464,7 +5464,7 @@ export default function Dashboard() {
             <div data-v-6ab3f23e="" className="tabbar__container-item">
             
             <svg data-v-6ab3f23e=""
-                    className="svg-icon icon-promotion" onClick={()=> navigate('/activity')}>
+                    className="svg-icon icon-promotion" onClick={()=> navigate('/promotion')}>
                     <use href="#icon-promotion"></use>
                 </svg>
                 <div data-v-6ab3f23e="" className="promotionBg"></div>
