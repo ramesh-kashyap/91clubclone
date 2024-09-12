@@ -10012,7 +10012,7 @@ export default function Wingo10() {
               data-v-12a80a3e=""
               className="headLogo"
               style={{
-                backgroundImage: `url('images/png/h5setting_20230714005938hfia.png')`
+                backgroundImage: `url('/assets/png/BDGPRO2.png')`
               }}
             ></div>
             <div data-v-12a80a3e="" className="navbar__content-title"></div>

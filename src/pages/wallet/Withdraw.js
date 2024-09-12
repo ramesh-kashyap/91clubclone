@@ -11,6 +11,7 @@ export default function Withdraw() {
 
 
   const [activeSection, setActiveSection] = useState('section1');
+  const [withdrawHistory, setWithdrawHistory] = useState([]);
   const [error, setError] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
   const [amount, setAmount] = useState(null);
@@ -50,6 +51,32 @@ export default function Withdraw() {
     } 
   };
 
+
+
+  const formatTimestampToIST = (timestamp) => {
+    try {
+      // Convert the timestamp to a number if it's in string format
+      const numericTimestamp = Number(timestamp);
+  
+      // If the timestamp is in seconds (10 digits), convert it to milliseconds
+      const validTimestamp = numericTimestamp.toString().length === 13 ? numericTimestamp : numericTimestamp * 1000;
+  
+      // Create a Date object from the valid timestamp
+      const date = new Date(validTimestamp);
+  
+      // Check if the Date object is valid
+      if (isNaN(date.getTime())) {
+        throw new Error('Invalid Date');
+      }
+  
+      // Format the date in IST
+      return date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+    } catch (error) {
+      return 'Invalid Timestamp';
+    }
+  };
+
+
   const handleSubmit = async (e) => {
     if (amount< 900) {
       setError('Amount need to be greater than 900');
@@ -85,8 +112,29 @@ export default function Withdraw() {
     }
 };
 
-  useEffect(() => {
 
+
+
+const fetchWithdrawHistory= async () => {
+  try {
+    const response = await Api.get('/api/webapi/withdraw/list?page=1&limit=5');
+    const data =  response.data;
+
+    console.log(data.datas);
+
+    setWithdrawHistory(data.datas); // Assuming data.data contains the user's information
+
+
+  } catch (err) {
+    console.error('An error occurred:', err);
+    setError('An error occurred. Please try again.');
+  } 
+};
+
+
+
+  useEffect(() => {
+    fetchWithdrawHistory();  
     fetchUserInfo();
 
     console.log("hi");
@@ -515,7 +563,15 @@ export default function Withdraw() {
               </svg>
               <h1 data-v-30972a14="" >Withdrawal history</h1>
             </div>
-            <div data-v-30972a14="" className="rechargeh__container-content">
+
+
+            {withdrawHistory.length === 0 ? (
+          <div>No Data</div>
+        ) : (
+          withdrawHistory.slice(0, 5).map((history, index) => (
+
+
+            <div  key={index}   data-v-30972a14="" className="rechargeh__container-content">
               <div
                 data-v-30972a14=""
                 className="rechargeh__container-content__item"
@@ -526,29 +582,30 @@ export default function Withdraw() {
                 >
                   <span data-v-30972a14="">Withdraw</span
                   ><span data-v-30972a14="" className="stateG"
-                    >Completed
+                    > {history.status === 0 ? "Pending" : history.status === 1 ? "Complete" : "Failed"}
                     </span
                   >
                 </div>
+
                 <div
                   data-v-30972a14=""
                   className="rechargeh__container-content__item-body"
                 >
                   <div data-v-30972a14="">
                     <span data-v-30972a14="">Balance</span
-                    ><span data-v-30972a14="">₹110.00</span>
+                    ><span data-v-30972a14="">{history.money}</span>
                   </div>
                   <div data-v-30972a14="">
                     <span data-v-30972a14="">Type</span
-                    ><span data-v-30972a14=""> BANK CARD</span>
+                    ><span data-v-30972a14=""> {history.walletType}</span>
                   </div>
                   <div data-v-30972a14="">
                     <span data-v-30972a14="">Time</span
-                    ><span data-v-30972a14="">2024-07-09 15:53:08</span>
+                    ><span data-v-30972a14="">{formatTimestampToIST(history.time)}</span>
                   </div>
                   <div data-v-30972a14="">
                     <span data-v-30972a14="">Order number</span
-                    ><span data-v-30972a14="">WD2024070915530896076538c</span
+                    ><span data-v-30972a14="">{history.id_order}</span
                     ><svg data-v-30972a14="" className="svg-icon icon-copy">
                       <use href="#icon-copy"></use>
                     </svg>
@@ -556,6 +613,10 @@ export default function Withdraw() {
                 </div>
               </div>
             </div>
+
+
+          ))
+        )}
             <div data-v-30972a14="" className="rechargeh__container-footer">
               <button data-v-30972a14="" onClick={()=>navigate('/wallet')}>All history</button>
             </div>
