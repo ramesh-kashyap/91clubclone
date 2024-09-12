@@ -1,8 +1,64 @@
-import React, {useState, useEffect, } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Api from '../../services/Api';
 export default function Vip() {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('section1');
+
+
+  const [vip, setVip] = useState([]);
+  const [viphistory, setViphistory] = useState([]);
+
+
+  const [error, setError] = useState(null);
+
+
+  const fetchVip= async () => {
+    try {
+      const response = await Api.get('/api/webapi/getVipDetails');
+      const data =  response.data;
+
+      console.log(data);
+
+      setVip(data); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+  const fetchViphistory= async () => {
+    try {
+      const response = await Api.get('/api/webapi/vipHistory');
+      const data =  response.data;
+
+      console.log(data.datas);
+
+      setViphistory(data.datas); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+
+
+
+  useEffect(() => {
+    fetchViphistory(); 
+    fetchVip(); 
+ 
+
+   
+  }, []);
+
+
+
+
 
 
   const handleSectionClick = (sectionId) => {
@@ -9547,12 +9603,12 @@ export default function Vip() {
         <div data-v-92d3d2e1="" className="vip-content">
           <div data-v-92d3d2e1="" className="vip-content-empirical">
             <div data-v-92d3d2e1="">
-              <p data-v-92d3d2e1="" className="red">1151 EXP</p>
+              <p data-v-92d3d2e1="" className="red">{vip.experience}</p>
               <p data-v-92d3d2e1="">My experience</p>
             </div>
             <div data-v-92d3d2e1="">
-              <p data-v-92d3d2e1="" className="timeTop"><span> 19 </span> Days</p>
-              <p data-v-92d3d2e1="">Payout time</p>
+              <p data-v-92d3d2e1="" className="timeTop"><span> {vip.vip_level} </span> </p>
+              <p data-v-92d3d2e1="">VIP </p>
             </div>
           </div>
           <div data-v-92d3d2e1="" className="vip-content-tip">
@@ -10290,45 +10346,38 @@ export default function Vip() {
               <button data-v-eaa4a307="" className="active">History</button
               ><button data-v-eaa4a307="" className="">Rules</button>
             </div>
-            <div data-v-eaa4a307="" className="vip-content-recordVsrule-con">
-              <div data-v-eaa4a307="" className="item ar-1px-b">
-                <div data-v-eaa4a307="" className="item-left">
-                  <span data-v-eaa4a307="" className="blue">Experience Bonus</span
-                  ><span data-v-eaa4a307="">Betting EXP</span
-                  ><span data-v-eaa4a307="">2024-08-12 18:00:59</span>
-                </div>
-                <div data-v-eaa4a307="" className="item-right">
-                  <span data-v-eaa4a307=""></span
-                  ><span data-v-eaa4a307=""></span
-                  ><span data-v-eaa4a307="" className="green">38 EXP</span>
-                </div>
-              </div>
-              <div data-v-eaa4a307="" className="item ar-1px-b">
-                <div data-v-eaa4a307="" className="item-left">
-                  <span data-v-eaa4a307="" className="blue">Experience Bonus</span
-                  ><span data-v-eaa4a307="">Betting EXP</span
-                  ><span data-v-eaa4a307="">2024-08-12 17:50:51</span>
-                </div>
-                <div data-v-eaa4a307="" className="item-right">
-                  <span data-v-eaa4a307=""></span
-                  ><span data-v-eaa4a307=""></span
-                  ><span data-v-eaa4a307="" className="green">33 EXP</span>
-                </div>
-              </div>
-              <div data-v-eaa4a307="" className="item ar-1px-b">
-                <div data-v-eaa4a307="" className="item-left">
-                  <span data-v-eaa4a307="" className="blue">Experience Bonus</span
-                  ><span data-v-eaa4a307="">Betting EXP</span
-                  ><span data-v-eaa4a307="">2024-08-12 17:31:00</span>
-                </div>
-                <div data-v-eaa4a307="" className="item-right">
-                  <span data-v-eaa4a307=""></span
-                  ><span data-v-eaa4a307=""></span
-                  ><span data-v-eaa4a307="" className="green">39 EXP</span>
-                </div>
-              </div>
 
 
+            {viphistory.length === 0 ? (
+            <div
+            data-v-f84b843f=""
+            data-v-61888f52=""
+            className="empty__container empty"
+          >
+            <svg data-v-f84b843f="" className="svg-icon icon-empty">
+              <use href="#icon-empty"></use>
+            </svg>
+            <p data-v-f84b843f="">No data</p>
+          </div>
+        ) : (
+          viphistory.map((history, index) => (
+  
+            <div  key={index} data-v-eaa4a307="" className="vip-content-recordVsrule-con">
+              <div data-v-eaa4a307="" className="item ar-1px-b">
+                <div data-v-eaa4a307="" className="item-left">
+                  <span data-v-eaa4a307="" className="blue">Vip Bonus</span
+                  ><span data-v-eaa4a307=""></span
+                  ><span data-v-eaa4a307="">{history.updated_at}</span>
+                </div>
+                <div data-v-eaa4a307="" className="item-right">
+                  <span data-v-eaa4a307=""></span
+                  ><span data-v-eaa4a307=""></span
+                  ><span data-v-eaa4a307="" className="green">{history.amount} ₹
+                  </span>
+                </div>
+              </div>
+            
+          
               <div data-v-eaa4a307="" className="vip-content-recordVsrule-con">
                 <div data-v-eaa4a307="" className="con-content">
                   <div data-v-eaa4a307="" className="con-content__title">
@@ -10543,6 +10592,10 @@ export default function Vip() {
 
               <button data-v-eaa4a307="">View All</button>
             </div>
+               
+          ))
+          )}
+
           </div>
         </div>
       </div>

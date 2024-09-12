@@ -10,7 +10,7 @@ export default function WithdrawHistory() {
 
   const fetchWithdrawHistory= async () => {
     try {
-      const response = await Api.get('/api/webapi/withdraw/list?page=1&limit=5');
+      const response = await Api.get('/api/webapi/withdraw/list?page=1&limit=10');
       const data =  response.data;
 
       console.log(data.datas);

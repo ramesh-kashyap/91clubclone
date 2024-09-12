@@ -9606,26 +9606,36 @@ export default function TeamReport(){
               <div data-v-10d1559c="">First deposit amount</div>
             </div>
           </div>
-          <div
-            data-v-cbab7763=""
-            data-v-10d1559c=""
-            className="infiniteScroll"
-            id="refreshe884edb8e39f4e8fae8bfcf400dd17f3"
-          >
-            <div data-v-cbab7763="" className="infiniteScroll__loading">
-              
-              <div
-                data-v-f84b843f=""
-                data-v-cbab7763=""
-                className="empty__container"
-              >
-                <svg data-v-f84b843f="" className="svg-icon icon-empty">
-                  <use href="#icon-empty"></use>
-                </svg>
-                <p data-v-f84b843f="">No data</p>
-              </div>
-            </div>
+          <div data-v-cbab7763="" data-v-10d1559c="" className="infiniteScroll" id="refresh0f885699af8c4c80976c554b8e8b6dd5">
+      <div data-v-10d1559c="" className="TeamReport__C-body-item">
+        <div data-v-10d1559c="" className="TeamReport__C-body-item-head">
+          <div data-v-10d1559c="" className="title">UID:12773568</div>
+          <svg data-v-10d1559c="" className="svg-icon icon-copy">
+            <use xlinkHref="#icon-copy"></use>
+          </svg>
+        </div>
+        <div data-v-10d1559c="" className="TeamReport__C-body-item-detail">
+          <div data-v-10d1559c="" className="TeamReport__C-body-item-detail-lv">
+            Level<span data-v-10d1559c="">1</span>
           </div>
+          <div data-v-10d1559c="" className="TeamReport__C-body-item-detail-commission">
+            Deposit amount<span data-v-10d1559c="">0</span>
+          </div>
+          <div data-v-10d1559c="" className="TeamReport__C-body-item-detail-commission" style={{ display: 'none' }}>
+            Bet amount<span data-v-10d1559c="">0</span>
+          </div>
+          <div data-v-10d1559c="" className="TeamReport__C-body-item-detail-commission">
+            Commission<span data-v-10d1559c="">0</span>
+          </div>
+          <div data-v-10d1559c="" className="TeamReport__C-body-item-detail-time">
+            Time<span data-v-10d1559c="">2024-09-11</span>
+          </div>
+        </div>
+      </div>
+      <div data-v-cbab7763="" className="infiniteScroll__loading">
+        <div data-v-cbab7763="">No more</div>
+      </div>
+    </div>
         </div>
         <div className="van-overlay" role="button" tabindex="0" data-v-10d1559c="" style={{zIndex: '2001', display: isVisible ? 'block' : 'none'}}></div>
         <div
