@@ -33,6 +33,9 @@ export default function Promotion(){
       setError('An error occurred. Please try again.');
     } 
   };
+ 
+  
+
 
 
   

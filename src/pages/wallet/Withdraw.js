@@ -15,6 +15,7 @@ export default function Withdraw() {
   const [error, setError] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
   const [amount, setAmount] = useState(null);
+  const [rupayAmount, setRupayAmount] = useState(null);
   const [needToBet, setNeedToBet] = useState(0);
   const [walletAddress, setWalletAddress] = useState(null);
   const [withdrawAddress, setWithdrawAddress] =useState(null);
@@ -25,6 +26,18 @@ export default function Withdraw() {
   const navigate = useNavigate();
  
 
+  const handleAmountChange = (e) => {
+    const value = e.target.value;
+    setAmount(value); // Set USDT value
+    setRupayAmount(value * 90); // Update Rupay amount
+  };
+
+  // Handle Rupay input change
+  const handleRupayAmountChange = (e) => {
+    const value = e.target.value;
+    setRupayAmount(value); // Set Rupay value
+    setAmount(value / 90); // Update USDT amount
+  };
 
   const fetchUserInfo = async () => {
     try {
@@ -32,6 +45,8 @@ export default function Withdraw() {
       const data =  response.data;
 
       console.log(response.data);
+
+         
 
       setUserInfo(data.userInfo[0]); // Assuming data.data contains the user's information
       setWalletAddress(data.datas[0].usdtBep20);
@@ -432,8 +447,19 @@ const fetchWithdrawHistory= async () => {
                 type="number"
                 placeholder="Please enter withdrawal amount"
                 className="inp"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
+                value={amount || ''}
+          onChange={handleAmountChange}
+              />
+            </div>
+{/* rupay input  */}
+            <div data-v-cb5583fe="" className="input">              
+              <input
+                data-v-cb5583fe=""
+                type="number"
+                placeholder="Enter amount in rupess"
+                className="inp"
+                value={rupayAmount || ''}
+          onChange={handleRupayAmountChange}
               />
             </div>
             
@@ -486,8 +512,18 @@ const fetchWithdrawHistory= async () => {
                 type="number"
                 placeholder="Please enter withdrawal amount"
                 className="inp"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
+                value={amount || ''}
+          onChange={handleAmountChange}
+              />
+            </div>
+            <div data-v-cb5583fe="" className="input">
+              <input
+                data-v-cb5583fe=""
+                type="number"
+                placeholder="Enter amount in Rupess"
+                className="inp"
+                value={rupayAmount || ''}
+          onChange={handleRupayAmountChange}
               />
             </div>
             
