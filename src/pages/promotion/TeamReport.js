@@ -9814,6 +9814,10 @@ export default function TeamReport(){
             isMahina ==='mahina6' ? 'translate3d(0px, -110px, 0px)':
             isMahina ==='mahina7' ? 'translate3d(0px, -154px, 0px)':
             isMahina ==='mahina8' ? 'translate3d(0px, -198px, 0px)':
+            isMahina ==='mahina9' ? 'translate3d(0px, -242px, 0px)':
+            isMahina ==='mahina10' ? 'translate3d(0px, -286px, 0px)':
+            isMahina ==='mahina11' ? 'translate3d(0px, -320px, 0px)':
+            isMahina ==='mahina12' ? 'translate3d(0px, -364px, 0px)':
             '',
             transitionDuration: '0ms',
             transitionProperty: 'none',
@@ -9878,10 +9882,42 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected"  id="mahina8" onClick={()=>mahina('mahina8')}
+            className="van-picker-column__item"  id="mahina8" onClick={()=>mahina('mahina8')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">08</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"  id="mahina9" onClick={()=>mahina('mahina9')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">09</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"  id="mahina10" onClick={()=>mahina('mahina10')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">10</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"  id="mahina11" onClick={()=>mahina('mahina11')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">11</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"  id="mahina12" onClick={()=>mahina('mahina12')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">12</div>
           </li>
         </ul>
       </div>
@@ -9917,6 +9953,8 @@ export default function TeamReport(){
             isTithi  ==='tithi26' ? 'translate3d(0px, -946px, 0px)':
             isTithi  ==='tithi27' ? 'translate3d(0px, -1090px, 0px)':
             isTithi  ==='tithi28' ? 'translate3d(0px, -1038px, 0px)':
+            isTithi  ==='tithi29' ? 'translate3d(0px, -1038px, 0px)':
+            isTithi  ==='tithi30' ? 'translate3d(0px, -1038px, 0px)':
             '',
             transitionDuration: '0ms',
             transitionProperty: 'none',
@@ -10145,6 +10183,22 @@ export default function TeamReport(){
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">28</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item van-picker-column__item--selected"  id="tithi28" onClick={()=>tithi('tithi28')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">29</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item van-picker-column__item--selected"  id="tithi28" onClick={()=>tithi('tithi28')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">30</div>
           </li>
         </ul>
       </div>
