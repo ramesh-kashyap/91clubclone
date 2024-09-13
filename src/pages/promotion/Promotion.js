@@ -25,7 +25,7 @@ export default function Promotion(){
 
       console.log(data.yesterdayComm);
 
-      setPromotion(data.yesterdayComm); // Assuming data.data contains the user's information
+      setPromotion(data); // Assuming data.data contains the user's information
 
 
     } catch (err) {
@@ -9600,7 +9600,7 @@ export default function Promotion(){
         className="container"
         style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sans-serif'"}}
       >
-        <div data-v-6cf5705a="" className="amount">{promotion}</div>
+        <div data-v-6cf5705a="" className="amount">{promotion?.yesterdayComm }</div>
         <div data-v-6cf5705a="" className="amount_txt">
           Yesterday's total commission
         </div>
@@ -9690,7 +9690,7 @@ export default function Promotion(){
             </div>
             <div data-v-600663f7="" className="arrow">
               <span data-v-600663f7=""
-                >2787111693333
+                >{promotion?.info[0] .code}
                 <svg data-v-600663f7="" className="svg-icon icon-copy">
                   <use href="#icon-copy"></use></svg
               ></span>

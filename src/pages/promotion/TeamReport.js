@@ -8,34 +8,40 @@ export default function TeamReport(){
   const [isSecondVisible, setIsSecondVisible] = useState(false);
 
   const [teamReport, setTeamReport] = useState([]);
+  const [filteredReports, setFilteredReports] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const [error, setError] = useState(null);
 
 
 
-  const fetchTeamReport= async () => {
-    try {
-      const response = await Api.get('/api/webapi/listTotalTeam');
-      const data =  response.data;
+  useEffect(() => {
+    const fetchTeamReport = async () => {
+      try {
+        const response = await Api.get('/api/webapi/listTotalTeam');
+        const data = response.data;
+        setTeamReport(data.teamReports);
+        setFilteredReports(data.teamReports); // Initialize filteredReports with all data
+      } catch (err) {
+        console.error('An error occurred:', err);
+        setError('An error occurred. Please try again.');
+      }
+    };
 
-      console.log(data.teamReports);
-
-      setTeamReport(data.teamReports); // Assuming data.data contains the user's information
-
-
-    } catch (err) {
-      console.error('An error occurred:', err);
-      setError('An error occurred. Please try again.');
-    } 
-  };
-
+    fetchTeamReport();
+  }, []);
 
   useEffect(() => {
-    fetchTeamReport(); 
- 
+    // Filter teamReport based on the search term
+    const filtered = teamReport.filter((report) =>
+      report.id_user.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredReports(filtered);
+  }, [searchTerm, teamReport]);
 
-   
-  }, []);
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
   
     const handleToggle = () => {
       setIsVisible(!isVisible);
@@ -9580,6 +9586,8 @@ export default function TeamReport(){
                 className="searchbar-container__searchbar"
                 placeholder="Search subordinate UID"
                 maxlength="30"
+                value={searchTerm}
+                onChange={handleSearch}
               /><svg
                 data-v-c06f3394=""
                 className="svg-icon icon-searchBtn searchIcon searchIcon"
@@ -9609,7 +9617,7 @@ export default function TeamReport(){
           </div>
         </div>
         <div data-v-10d1559c="" className="TeamReport__C-body">
-          <div data-v-10d1559c="" className="header-container">
+          {/* <div data-v-10d1559c="" className="header-container">
             <div data-v-10d1559c="">
               <div data-v-10d1559c="" className="num">0</div>
               <div data-v-10d1559c="">Deposit number</div>
@@ -9636,9 +9644,9 @@ export default function TeamReport(){
               <div data-v-10d1559c="" className="num">0</div>
               <div data-v-10d1559c="">First deposit amount</div>
             </div>
-          </div>
+          </div> */}
 
-          {teamReport.length === 0 ? (
+          {filteredReports.length === 0 ? (
             <div
             data-v-f84b843f=""
             data-v-61888f52=""
@@ -9650,12 +9658,12 @@ export default function TeamReport(){
             <p data-v-f84b843f="">No data</p>
           </div>
         ) : (
-          teamReport.map((history, index) => (
+          filteredReports.map((history, index) => (
 
           <div   key={index} data-v-cbab7763="" data-v-10d1559c="" className="infiniteScroll" id="refresh0f885699af8c4c80976c554b8e8b6dd5">
       <div data-v-10d1559c="" className="TeamReport__C-body-item">
         <div data-v-10d1559c="" className="TeamReport__C-body-item-head">
-          <div data-v-10d1559c="" className="title">{history.id_user}</div>
+          <div data-v-10d1559c="" className="title">UID : {history.id_user}</div>
           <svg data-v-10d1559c="" className="svg-icon icon-copy">
             <use xlinkHref="#icon-copy"></use>
           </svg>

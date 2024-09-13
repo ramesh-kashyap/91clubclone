@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Popup from '../../../components/Popup';
 import { useToast } from '../../../components/ToastContext'; 
 
-const SOCKET_URL = 'https://bigdadypro.com';
+const SOCKET_URL = 'http://localhost:3000';
 
 
 
@@ -84,6 +84,14 @@ export default function Wingo() {
     const [currentPage, setCurrentPage] = useState(1);
     const [currentGamePage, setCurrentGamePage] = useState(1);
     const [isVisible, setIsVisible] = useState(false);
+
+    const handleIncreaseQuantity = () => {
+      setQuantity((prevQuantity) => prevQuantity + 1); // Increment quantity
+    };
+
+    const handleDecreaseQuantity = () => {
+      setQuantity((prevQuantity) => prevQuantity - 1); // Increment quantity
+    };
 
   //   const [toasts, setToasts] = useState([]);
 
@@ -1264,7 +1272,7 @@ export default function Wingo() {
   </div>
   
 </div>
-{ lastBet && lastBet.result !== undefined ? (
+{lastBet && lastBet.result !== undefined && lastBet.status !== undefined  && lastBet.status !== 0 ? (
   lastBet.status === 2 ? (
     <div data-v-e44179e3="" data-v-5d71c3fd="" className="WinningTip__C" style={{ display: isVisible ? '' : 'none' }}>
       <div data-v-e44179e3="" className="WinningTip__C-body isL">

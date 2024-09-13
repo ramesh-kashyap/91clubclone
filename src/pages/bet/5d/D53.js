@@ -13,7 +13,7 @@ import { useToast } from '../../../components/ToastContext';
 
 
 
-const SOCKET_URL = 'https://bigdadypro.com';
+const SOCKET_URL = 'http://localhost:3000';
 
 
 

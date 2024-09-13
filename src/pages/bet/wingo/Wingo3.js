@@ -13,7 +13,7 @@ import { useToast } from '../../../components/ToastContext';
 
 
 
-const SOCKET_URL = 'https://bigdadypro.com';
+const SOCKET_URL = 'http://localhost:3000';
 
 
 const socket = io(SOCKET_URL, {
@@ -10597,7 +10597,7 @@ export default function Wingo3() {
   </div>
   
 </div>
-{ lastBet && lastBet.result !== undefined ? (
+{lastBet && lastBet.result !== undefined && lastBet.status !== undefined  && lastBet.status !== 0 ? (
   lastBet.status === 2 ? (
     <div data-v-e44179e3="" data-v-5d71c3fd="" className="WinningTip__C" style={{ display: isVisible ? '' : 'none' }}>
       <div data-v-e44179e3="" className="WinningTip__C-body isL">

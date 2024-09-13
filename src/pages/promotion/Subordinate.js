@@ -1,6 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
+
+import dayjs from 'dayjs'; // to help with date comparison
+import 'dayjs/locale/en'; // Load locale
+
+// Utility to format the timestamp to IST (adjust this function as needed)
+const formatTimestampToIST = (timestamp) => {
+  return dayjs(timestamp).format('DD/MM/YYYY, h:mm:ss A');
+};
+
+
 export default function Subordinate() {
 
   const [subordinate, setSubordinate] = useState([]);
@@ -33,7 +43,12 @@ export default function Subordinate() {
   }, []);
 
 
+  const [activeTab, setActiveTab] = useState('today'); // Tracks which tab is active
 
+  // Get today's date, yesterday's date, and the start of this month
+  const today = dayjs().startOf('day');
+  const yesterday = dayjs().subtract(1, 'day').startOf('day');
+  const startOfMonth = dayjs().startOf('month');
 
   const formatTimestampToIST = (timestamp) => {
     try {
@@ -58,6 +73,42 @@ export default function Subordinate() {
     }
   };
 
+
+  // Function to filter subordinate data based on the active tab
+  const filterSubordinates = () => {
+    if (!subordinate || !Array.isArray(subordinate)) return [];
+  
+    return subordinate.filter((history) => {
+      // Convert the timestamp to a numeric value and create a dayjs object
+      const numericTimestamp = Number(history.time);
+      const validTimestamp = numericTimestamp.toString().length === 13 ? numericTimestamp : numericTimestamp * 1000;
+      const historyDate = dayjs(validTimestamp); // Use dayjs for date comparison
+  
+      console.log('History date:', historyDate.toString(), ' | Active Tab:', activeTab);
+  
+      if (activeTab === 'today') {
+        return historyDate.isAfter(today); // Use dayjs date comparison
+      }
+  
+      if (activeTab === 'yesterday') {
+        return historyDate.isAfter(yesterday) && historyDate.isBefore(today);
+      }
+  
+      if (activeTab === 'month') {
+        return historyDate.isAfter(startOfMonth);
+      }
+  
+      return false; // Default case
+    });
+  };
+  
+  
+  const filteredSubordinates = filterSubordinates(); // Get the filtered list
+
+
+
+
+  
 
 
 
@@ -9576,98 +9627,100 @@ style={{maskType: 'alpha'}}
         <div data-v-221aa0df="" className="subordinate__container-header">
         
           <div data-v-221aa0df="" className="van-tabs van-tabs--card footer-tabBar">
-            <div className="van-tabs__wrap">
-              <div
-                role="tablist"
-                className="van-tabs__nav van-tabs__nav--card"
-                aria-orientation="horizontal"
-                style={{borderColor:'transparent', background: 'transparent'}}
-              >
-                <div
-                  id="van-tabs-5-0"
-                  role="tab"
-                  className="van-tab van-tab--card van-tab--active"
-                  tabIndex="0"
-                  aria-selected="true"
-                  aria-controls="van-tab-6"
-                  style={{
-                    borderColor: 'transparent',
-                    backgroundColor: 'transparent',
-                  }}
-                >
-                  <span className="van-tab__text van-tab__text--ellipsis"
-                    >Today</span
-                  >
-                </div>
-                <div
-                  id="van-tabs-5-1"
-                  role="tab"
-                  className="van-tab van-tab--card"
-                  tabIndex="-1"
-                  aria-selected="false"
-                  aria-controls="van-tab-7"
-                  style={{borderColor: 'transparent', color: 'transparent'}}
-                >
-                  <span className="van-tab__text van-tab__text--ellipsis"
-                    >Yesterday</span
-                  >
-                </div>
-                <div
-                  id="van-tabs-5-2"
-                  role="tab"
-                  className="van-tab van-tab--card"
-                  tabIndex="-1"
-                  aria-selected="false"
-                  aria-controls="van-tab-8"
-                  style={{borderColor: 'transparent', color: 'transparent'}}
-                >
-                  <span className="van-tab__text van-tab__text--ellipsis"
-                    >This month</span
-                  >
-                </div>
-              </div>
-            </div>
+          <div
+        role="tablist"
+        className="van-tabs__nav van-tabs__nav--card"
+        aria-orientation="horizontal"
+        style={{ borderColor: 'transparent', background: 'transparent' }}
+      >
+        <div
+          id="van-tabs-5-0"
+          role="tab"
+          className={`van-tab van-tab--card ${activeTab === 'today' ? 'van-tab--active' : ''}`}
+          tabIndex="0"
+          aria-selected={activeTab === 'today'}
+          aria-controls="van-tab-6"
+          style={{
+            borderColor: 'transparent',
+            backgroundColor: activeTab === 'today' ? '#f0f0f0' : 'transparent',
+            margin: '0px 3px'
+          }}
+          onClick={() => setActiveTab('today')}
+        >
+          <span className="van-tab__text van-tab__text--ellipsis">Today</span>
+        </div>
+
+        <div
+          id="van-tabs-5-1"
+          role="tab"
+          className={`van-tab van-tab--card ${activeTab === 'yesterday' ? 'van-tab--active' : ''}`}
+          tabIndex="-1"
+          aria-selected={activeTab === 'yesterday'}
+          aria-controls="van-tab-7"
+          style={{
+            borderColor: 'transparent',
+            backgroundColor: activeTab === 'yesterday' ? '#f0f0f0' : 'transparent',
+            margin: '0px 3px'
+
+          }}
+          onClick={() => setActiveTab('yesterday')}
+        >
+          <span className="van-tab__text van-tab__text--ellipsis">Yesterday</span>
+        </div>
+
+        <div
+          id="van-tabs-5-2"
+          role="tab"
+          className={`van-tab van-tab--card ${activeTab === 'month' ? 'van-tab--active' : ''}`}
+          tabIndex="-1"
+          aria-selected={activeTab === 'month'}
+          aria-controls="van-tab-8"
+          style={{
+            borderColor: 'transparent',
+            backgroundColor: activeTab === 'month' ? '#f0f0f0' : 'transparent',
+            margin: '0px 3px'
+
+          }}
+          onClick={() => setActiveTab('month')}
+        >
+          <span className="van-tab__text van-tab__text--ellipsis">This month</span>
+        </div>
+      </div>
             <div className="van-tabs__content"></div>
           </div>
         </div>
-        <div
-          data-v-61888f52=""
-          data-v-221aa0df=""
-          className="infiniteScroll"
-          id="refreshfcad43c4076d42c4852a1b6b763f2739"
-        >
-          <div data-v-221aa0df="" className="subordinate__container-content"></div>
-
-
-          {subordinate.length === 0 || ! Array.isArray(subordinate) ? (
-          <div>No Data</div>
+        <div data-v-61888f52="" data-v-221aa0df="" className="infiniteScroll" id="refreshfcad43c4076d42c4852a1b6b763f2739">
+        <div data-v-221aa0df="" className="subordinate__container-content"></div>
+        {filteredSubordinates.length === 0 ? (
+          <div></div>
         ) : (
-          subordinate.map((history, index) => (
-          <div  key={index}  data-v-61888f52=""  data-v-221aa0df="" className="infiniteScroll" id="refreshd99651ae141a44caa0e9c4c5f55d55a1"><div data-v-221aa0df="" className="subordinate__container-content">
+          filteredSubordinates.map((history, index) => (
+            <div key={index} data-v-221aa0df="" className="subordinate__container-content__item ar-1px-b">
+              <div data-v-221aa0df="">
+                <span data-v-221aa0df="">{history.phone}</span>
+                <span data-v-221aa0df="">UID - {history.id_user}</span>
+              </div>
+              <div data-v-221aa0df="">
+                <span data-v-221aa0df="">My Team</span>
+                <span data-v-221aa0df="">{formatTimestampToIST(history.time)}</span>
+              </div>
+            </div>
+          ))
+        )}
 
-            <div data-v-221aa0df="" className="subordinate__container-content__item ar-1px-b"><div data-v-221aa0df=""><span data-v-221aa0df="">{history.phone}</span><span data-v-221aa0df="">{history.id_user}</span></div>
-            <div data-v-221aa0df=""><span data-v-221aa0df="">my Team</span><span data-v-221aa0df="">{formatTimestampToIST(history.time)}</span></div></div>
-           </div>
-           
-           
-           </div>
-             ))
-            )}
+        {/* Loading / No Data */}
+        {filteredSubordinates.length === 0 && (
           <div data-v-61888f52="" className="infiniteScroll__loading">
-            <div
-              data-v-f84b843f=""
-              data-v-61888f52=""
-              className="empty__container empty"
-            >
-
-          
+            <div data-v-f84b843f="" data-v-61888f52="" className="empty__container empty">
               <svg data-v-f84b843f="" className="svg-icon icon-empty">
                 <use href="#icon-empty"></use>
               </svg>
               <p data-v-f84b843f="">No data</p>
             </div>
           </div>
-        </div>
+        )}
+      </div>
+
       </div>
       <div
         className="customer"

@@ -1111,7 +1111,7 @@ html:lang(ar) .dropdown__list[data-v-5067ef5e] {
     -webkit-justify-content: center;
     justify-content: center;
     width: 100%;
-    min-height: 1.17333rem;
+    /* min-height: 1.17333rem; */
     margin-top: auto;
     margin-bottom: .4rem;
     color: var(--text_color_L1);

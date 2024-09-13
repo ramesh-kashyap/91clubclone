@@ -29323,7 +29323,7 @@ html:lang(ar) .TimeLeft__C-num[data-v-3e4c6499] {
 .Betting__Popup-btn[data-v-7f36fe93] {
     width: .74667rem;
     height: .74667rem;
-    pointer-events: none;
+    /* pointer-events: none; */
     text-align: center;
     font-size: .66667rem;
     padding: 0;
