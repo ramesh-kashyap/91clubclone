@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
 export default function Subordinate() {
-
+  const navigate = useNavigate;
   const [subordinate, setSubordinate] = useState([]);
 
   const [error, setError] = useState(null);
@@ -62,7 +62,7 @@ export default function Subordinate() {
 
 
 
-  const navigate = useNavigate;
+  
   return (
     <div style={{fontSize: '12px'}}>
 
