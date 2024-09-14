@@ -10,7 +10,7 @@ export default function WithdrawHistory() {
 
   const fetchWithdrawHistory= async () => {
     try {
-      const response = await Api.get('/api/webapi/withdraw/list?page=1&limit=5');
+      const response = await Api.get('/api/webapi/withdraw/list?page=1&limit=10');
       const data =  response.data;
 
       console.log(data.datas);
@@ -229,7 +229,7 @@ export default function WithdrawHistory() {
             <div className="van-tabs__wrap">
               <div
                 role="tablist"
-                className="van-tabs__nav van-tabs__nav--card"
+                className="van-tabs__nav van-tabs__nav--card" style={{ padding:'5px'}}
                 aria-orientation="horizontal"
               >
                 

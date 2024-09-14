@@ -13,11 +13,11 @@ const CustomModal = ({ isOpen, onClose, onConfirm }) => {
       }}
       id="myPopup"
     >
-      <div className="van-dialog__header">Tips</div>
+      <div className="van-dialog__header" style={{ color : '#fff' }}>Tips</div>
       <div className="van-dialog__content">
-        <div className="van-dialog__message van-dialog__message--has-title">
-          Game requires recharge to enter
-          <center>Recharge now?</center>
+        <div className="van-dialog__message van-dialog__message--has-title" style={{ color: '#A8A5A1' }}>
+          Are you sure you want to join
+          <center>the game?</center>
         </div>
       </div>
       <div className="van-hairline--top van-dialog__footer">
@@ -26,16 +26,14 @@ const CustomModal = ({ isOpen, onClose, onConfirm }) => {
           className="van-button van-button--default van-button--large van-dialog__cancel"
           onClick={onClose} // Close modal on Cancel click
           style={{
-            color: '#000',
+            color: '#fff',
             width: '80%',
-            height: '.93333rem',
             textAlign: 'center',
-            lineHeight: '.93333rem',
-            borderRadius: '1.06667rem',
             zIndex: 100,
             fontWeight: 700,
             fontSize: '.41667rem',
             letterSpacing: '.06667rem',
+            background: '#6F7381' ,
           }}
         >
           Cancel
@@ -44,7 +42,11 @@ const CustomModal = ({ isOpen, onClose, onConfirm }) => {
           type="button"
           className="van-button van-button--default van-button--large van-dialog__confirm van-hairline--left"
           onClick={onConfirm} // Confirm action on Confirm click
-        >
+          style={{ 
+            color: '#8F5206', 
+            backgroundImage: 'linear-gradient(90deg, #FAE59F 0%, #C4933F 100%)' 
+          }}
+                  >
           <span className="van-button__text">Confirm</span>
         </button>
       </div>

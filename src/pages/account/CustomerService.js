@@ -9581,7 +9581,7 @@ export default function CustomerService() {
                   src="/assets/png/CStype3-7588d980.png"
                   alt=""
                 /><span data-v-f4c030dd=""
-                  >BigdadyPro Self-service Center（स्व-सेवा केंद्र）</span
+                  >BDG PRO Self-service Center（स्व-सेवा केंद्र）</span
                 >
               </div>
               <i
@@ -9652,7 +9652,7 @@ export default function CustomerService() {
                   src="/assets/png/CStype3-7588d980.png"
                   alt=""
                 /><span data-v-f4c030dd=""
-                  >BigdadyPro Tutorial Center(ट्यूटोरियल सेंटर)</span
+                  >BDG PRO Tutorial Center(ट्यूटोरियल सेंटर)</span
                 >
               </div>
               <i
@@ -9685,7 +9685,7 @@ export default function CustomerService() {
                   data-v-f4c030dd=""
                   src="/assets/png/CStype3-7588d980.png"
                   alt=""
-                /><span data-v-f4c030dd="">BigdadyPro Event Center</span>
+                /><span data-v-f4c030dd="">BDG PRO Event Center</span>
               </div>
               <i
                 data-v-f4c030dd=""

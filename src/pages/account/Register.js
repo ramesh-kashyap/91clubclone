@@ -27,7 +27,7 @@ export default function Register() {
             invitecode, // Include invitecode in the POST request
           });
           console.log(response.data.message);
-          if (response.data.message === 'Register Success') {
+          if (response.data.message == 'Register Success') {
             // Redirect to login or home page
             showToast('Your Data is Registered.', 'succes');
             window.location.href = '/login';

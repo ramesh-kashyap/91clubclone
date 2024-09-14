@@ -85,6 +85,14 @@ export default function Wingo() {
     const [currentGamePage, setCurrentGamePage] = useState(1);
     const [isVisible, setIsVisible] = useState(false);
 
+    const handleIncreaseQuantity = () => {
+      setQuantity((prevQuantity) => prevQuantity + 1); // Increment quantity
+    };
+
+    const handleDecreaseQuantity = () => {
+      setQuantity((prevQuantity) => prevQuantity - 1); // Increment quantity
+    };
+
   //   const [toasts, setToasts] = useState([]);
 
   // // Function to show a new toast (success or error)
@@ -676,8 +684,10 @@ export default function Wingo() {
             <div
               data-v-12a80a3e=""
               className="headLogo"
+
+
               style={{
-                backgroundImage: `url('images/png/h5setting_20230714005938hfia.png')`
+                backgroundImage: `url('/assets/png/BDGPRO2.png')`
               }}
             ></div>
             <div data-v-12a80a3e="" className="navbar__content-title"></div>
@@ -1262,7 +1272,7 @@ export default function Wingo() {
   </div>
   
 </div>
-{ lastBet && lastBet.result !== undefined ? (
+{lastBet && lastBet.result !== undefined && lastBet.status !== undefined  && lastBet.status !== 0 ? (
   lastBet.status === 2 ? (
     <div data-v-e44179e3="" data-v-5d71c3fd="" className="WinningTip__C" style={{ display: isVisible ? '' : 'none' }}>
       <div data-v-e44179e3="" className="WinningTip__C-body isL">

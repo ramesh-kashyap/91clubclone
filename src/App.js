@@ -53,6 +53,8 @@ import Guide from './pages/account/Guide';
 import Abouts from './pages/account/Abouts';
 import AboutDetail from './pages/account/AboutDetail';
 import RiskDetail from './pages/account/RiskDetail';
+import Message from './pages/account/Message';
+
 
 
 
@@ -100,9 +102,13 @@ function App() {
         <Route
           path="/index"
           element={
-            <PrivateRoute>
               <Dashboard />
-            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/"
+          element={
+              <Dashboard />
           }
         />
         <Route
@@ -162,6 +168,8 @@ function App() {
         <Route path="/main/RiskDetail" element={<PrivateRoute><RiskDetail/></PrivateRoute>}/>
         <Route path="/deposit/UpiDeposit" element={<PrivateRoute><UpiDeposit/></PrivateRoute>}/>
         <Route path="/main/GameStats" element={<PrivateRoute><GameStats/></PrivateRoute>}/>
+        <Route path="/home/Notification" element={<PrivateRoute><Message/></PrivateRoute>}/>
+
 
 
 

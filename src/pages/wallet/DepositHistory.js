@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
 
+
+
+
+
 export default function DepositHistory() {
 
 
@@ -234,7 +238,7 @@ export default function DepositHistory() {
               <div
                 role="tablist"
                 className="van-tabs__nav van-tabs__nav--card"
-                aria-orientation="horizontal"
+                aria-orientation="horizontal" style={{padding:'5px'}}
               >
                 
                 <div
@@ -393,6 +397,10 @@ export default function DepositHistory() {
         ))
       )}
           </div>
+
+
+
+          
           <div data-v-cbab7763="" className="infiniteScroll__loading">
            
             <div data-v-cbab7763="">No more</div>
