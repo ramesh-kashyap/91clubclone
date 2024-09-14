@@ -10,6 +10,9 @@ export default function DepositHistory() {
 
 
   const [depositHistory, setDepositHistory] = useState([]);
+
+  const [isVisible, setIsVisible] = useState(false);
+  const [isSecondVisible, setIsSecondVisible] = useState(false);
   const [error, setError] = useState(null);
   const [isBank, setIsBank] = useState(null);
 
@@ -62,6 +65,37 @@ export default function DepositHistory() {
 
    
   }, []);
+
+
+
+  
+    const handleToggle = () => {
+      setIsVisible(!isVisible);
+    };
+  
+    const handleCancel = () => {
+      setIsVisible(false);
+    };
+    const handleSecondToggle = () => {
+      setIsSecondVisible(!isSecondVisible);
+    };
+    const handleSecondCancel = () => {
+      setIsSecondVisible(false);
+    };
+
+    const tire = (tireId)=>{
+      setIsTire(tireId);
+    }
+    const san = (sanId) =>{
+      setIsSan(sanId)
+    }
+ 
+    const mahina = (mahinaId)=>{
+      setIsMahina(mahinaId)
+    }
+
+
+
 
   
 
@@ -315,7 +349,7 @@ export default function DepositHistory() {
                     >All</span
                   ><i
                     data-v-fa757a88=""
-                    className="van-badge__wrapper van-icon van-icon-arrow-down"
+                    className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleToggle}
                     ></i
                   >
                 </div>
@@ -323,7 +357,7 @@ export default function DepositHistory() {
               <div className="ar-searchbar__selector">
                 <div>
                   <span className="noSelect">Choose a date</span
-                  ><i className="van-badge__wrapper van-icon van-icon-arrow-down"
+                  ><i className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleSecondToggle}
                     ></i
                   >
                 </div>
@@ -423,7 +457,7 @@ export default function DepositHistory() {
         />
       </div>
     
-    </div>
+    
 
     
     </div>
