@@ -229,7 +229,7 @@ export default function WithdrawHistory() {
             <div className="van-tabs__wrap">
               <div
                 role="tablist"
-                className="van-tabs__nav van-tabs__nav--card"
+                className="van-tabs__nav van-tabs__nav--card" style={{ padding:'5px'}}
                 aria-orientation="horizontal"
               >
                 

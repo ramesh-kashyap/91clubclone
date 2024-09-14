@@ -10078,7 +10078,7 @@ export default function Account() {
               </div>
               <div
                 data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
+                className="serviceCenter__container-items__item" onClick={()=>navigate('/home/Notification')}
               >
                 <svg
                   data-v-159bf81f=""

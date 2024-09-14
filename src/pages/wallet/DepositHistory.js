@@ -4,22 +4,13 @@ import Api from '../../services/Api';
 
 
 
-import dayjs from 'dayjs'; // to help with date comparison
-import 'dayjs/locale/en'; // Load locale
 
-// Utility to format the timestamp to IST (adjust this function as needed)
-const formatTimestampToIST = (timestamp) => {
-  return dayjs(timestamp).format('DD/MM/YYYY, h:mm:ss A');
-};
 
 export default function DepositHistory() {
 
 
   const [depositHistory, setDepositHistory] = useState([]);
   const [error, setError] = useState(null);
-  const[isTire, setIsTire] =useState('tire1');
-  const[isMahina, setIsMahina] =useState('mahina1');
-  const[isSan, setIsSan] = useState('san1')
 
 
   const formatTimestampToIST = (timestamp) => {
@@ -69,38 +60,6 @@ export default function DepositHistory() {
   }, []);
 
   
-
-
-   // Function to filter subordinate data based on the active tab
-   const filterSubordinates = () => {
-    if (!subordinate || !Array.isArray(subordinate)) return [];
-  
-    return subordinate.filter((history) => {
-      // Convert the timestamp to a numeric value and create a dayjs object
-      const numericTimestamp = Number(history.time);
-      const validTimestamp = numericTimestamp.toString().length === 13 ? numericTimestamp : numericTimestamp * 1000;
-      const historyDate = dayjs(validTimestamp); // Use dayjs for date comparison
-  
-      console.log('History date:', historyDate.toString(), ' | Active Tab:', activeTab);
-  
-      if (activeTab === 'today') {
-        return historyDate.isAfter(today); // Use dayjs date comparison
-      }
-  
-      if (activeTab === 'yesterday') {
-        return historyDate.isAfter(yesterday) && historyDate.isBefore(today);
-      }
-  
-      if (activeTab === 'month') {
-        return historyDate.isAfter(startOfMonth);
-      }
-  
-      return false; // Default case
-    });
-  };
-  
-  
-  const filteredSubordinates = filterSubordinates(); // Get the filtered list
 
   const getStatusTextAndColor = (status) => {
     switch (status) {
@@ -275,7 +234,7 @@ export default function DepositHistory() {
               <div
                 role="tablist"
                 className="van-tabs__nav van-tabs__nav--card"
-                aria-orientation="horizontal" style={{padding:'4px'}}
+                aria-orientation="horizontal" style={{padding:'5px'}}
               >
                 
                 <div
@@ -434,6 +393,10 @@ export default function DepositHistory() {
         ))
       )}
           </div>
+
+
+
+          
           <div data-v-cbab7763="" className="infiniteScroll__loading">
            
             <div data-v-cbab7763="">No more</div>
