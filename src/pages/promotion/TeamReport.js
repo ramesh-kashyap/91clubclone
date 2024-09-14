@@ -10,10 +10,11 @@ export default function TeamReport(){
   const [teamReport, setTeamReport] = useState([]);
   const [filteredReports, setFilteredReports] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-
+  
   const [error, setError] = useState(null);
-
-
+ const[isTire, setIsTire] =useState('tire1');
+ const[isMahina, setIsMahina] =useState('mahina1');
+ 
 
   useEffect(() => {
     const fetchTeamReport = async () => {
