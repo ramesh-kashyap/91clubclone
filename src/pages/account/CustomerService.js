@@ -9553,6 +9553,7 @@ export default function CustomerService() {
           </div>
         </div>
         <div data-v-f4c030dd="" data-v-26935615="" className="content">
+          <a href="https://t.me/bigdaddyprochennal">
           <div data-v-f4c030dd="">
             <div data-v-f4c030dd="" className="content-item">
               <div data-v-f4c030dd="" className="content-item-title">
@@ -9570,6 +9571,7 @@ export default function CustomerService() {
               >
             </div>
           </div>
+          </a>
         </div>
     
         <div data-v-f4c030dd="" data-v-78d5a4a8="" className="content">

@@ -10292,7 +10292,9 @@ export default function BetRecords() {
             id="refresh8ce27a635a33454cac941764efea769a"
           >
               {betRecords.length === 0 ? (
-          <div>No Data</div>
+          <div data-v-61888f52="" className="infiniteScroll__loading">
+          <div data-v-61888f52="">No more</div>
+        </div>
         ) : (
           betRecords.map((history, index) => (
   
@@ -10449,9 +10451,7 @@ export default function BetRecords() {
             </div>
           ))
         )}
-            <div data-v-61888f52="" className="infiniteScroll__loading">
-              <div data-v-61888f52="">No more</div>
-            </div>
+            
           </div>
         </div>
       </div>

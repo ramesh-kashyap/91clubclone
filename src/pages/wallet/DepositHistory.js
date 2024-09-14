@@ -341,7 +341,10 @@ export default function DepositHistory() {
           <div data-v-e4760c44="" className="rechargeh__container-content">
             
           {depositHistory.length === 0 ? (
-        <div>No Data</div>
+        <div data-v-cbab7763="" className="infiniteScroll__loading">
+           
+        <div data-v-cbab7763="">No more</div>
+      </div>
       ) : (
         depositHistory.map((history, index) => (
 
@@ -401,10 +404,7 @@ export default function DepositHistory() {
 
 
           
-          <div data-v-cbab7763="" className="infiniteScroll__loading">
-           
-            <div data-v-cbab7763="">No more</div>
-          </div>
+          
         </div>
       </div>
      
