@@ -9526,17 +9526,17 @@ export default function Message() {
               <svg data-v-00f99608="" className="svg-icon icon-notificationIcon">
                 <use href="#icon-notificationIcon"></use></svg
               ><span data-v-00f99608=""
-                >AVOID FRAUD AND SUBMIT DEPOSIT TO SELF-SERVICE 91CLUB</span
+                >AVOID FRAUD AND SUBMIT DEPOSIT TO SELF-SERVICE BDG PRO</span
               >
             </div>
             <div data-v-00f99608="" className="notification-container-content-desc">
-              If your deposit not receive, please send it directly to 91CLUB
+              If your deposit not receive, please send it directly to BDG PRO
               Self-service Center (https://www.91service.in/wap/indexE.jsp) with
               provided proof deposit full detail showing (time,date,UTR number,
               amount and UPI ID receiver), wait till already get process, do not
               send to another person and trust anyone claiming to represent
-              91CLUB. Always verify their authenticity through the official
-              community channels provided by 91Club. Your safety and trust in
+              BDG PRO. Always verify their authenticity through the official
+              community channels provided by BDG PRO. Your safety and trust in
               our community is very important to us .
             </div>
             <h5 data-v-00f99608="">2024-03-27 22:15:42</h5>

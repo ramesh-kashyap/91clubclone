@@ -10,7 +10,13 @@ export default function DepositHistory() {
 
 
   const [depositHistory, setDepositHistory] = useState([]);
+
+  const [isVisible, setIsVisible] = useState(false);
+  const [isSecondVisible, setIsSecondVisible] = useState(false);
   const [error, setError] = useState(null);
+  const [isTire, setIsTire] = useState('tire1');
+  const [isSan ,setIsSan] =useState('san3');
+  const [isMahina, setIsMahina] =useState('mahina8');
 
 
   const formatTimestampToIST = (timestamp) => {
@@ -58,6 +64,37 @@ export default function DepositHistory() {
 
    
   }, []);
+
+
+
+  
+    const handleToggle = () => {
+      setIsVisible(!isVisible);
+    };
+  
+    const handleCancel = () => {
+      setIsVisible(false);
+    };
+    const handleSecondToggle = () => {
+      setIsSecondVisible(!isSecondVisible);
+    };
+    const handleSecondCancel = () => {
+      setIsSecondVisible(false);
+    };
+
+    const tire = (tireId)=>{
+      setIsTire(tireId);
+    }
+    const san = (sanId) =>{
+      setIsSan(sanId)
+    }
+ 
+    const mahina = (mahinaId)=>{
+      setIsMahina(mahinaId)
+    }
+
+
+
 
   
 
@@ -311,7 +348,7 @@ export default function DepositHistory() {
                     >All</span
                   ><i
                     data-v-fa757a88=""
-                    className="van-badge__wrapper van-icon van-icon-arrow-down"
+                    className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleToggle}
                     ></i
                   >
                 </div>
@@ -319,7 +356,7 @@ export default function DepositHistory() {
               <div className="ar-searchbar__selector">
                 <div>
                   <span className="noSelect">Choose a date</span
-                  ><i className="van-badge__wrapper van-icon van-icon-arrow-down"
+                  ><i className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleSecondToggle}
                     ></i
                   >
                 </div>
@@ -395,6 +432,496 @@ export default function DepositHistory() {
           </div>
 
 
+        
+          <div className="van-overlay" role="button" tabindex="0" data-v-10d1559c="" style={{zIndex: '2001', display: isVisible ? 'block' : 'none'}}></div>
+        <div
+  role="dialog"
+  tabindex="0"
+  className="van-popup van-popup--round van-popup--bottom"
+  data-v-10d1559c=""
+  style={{zIndex: '2001', display: isVisible ? 'block' : 'none'}}
+>
+  <div data-v-10d1559c="" className="van-picker">
+    <div className="van-picker__toolbar"style={{backgroundColor:'#fae59f'}}>
+      <button type="button" className="van-picker__cancel van-haptics-feedback" onClick={handleCancel}>
+        Cancel</button
+      ><button
+        type="button"
+        className="van-picker__confirm van-haptics-feedback"
+      >
+        Confirm
+      </button>
+    </div>
+    
+    <div className="van-picker__columns" style={{height: '264px'}}>
+      <div className="van-picker-column">
+        <ul
+          className="van-picker-column__wrapper"
+          style={{
+            transform: isTire === 'tire1' ? 'translate3d(0px, 110px, 0px)':
+            isTire === 'tire2' ? 'translate3d(0px, 66px, 0px)':
+            isTire === 'tire3' ? 'translate3d(0px, 22px, 0px)':
+            isTire === 'tire4' ? 'translate3d(0px, -22px, 0px)':
+            isTire === 'tire5' ? 'translate3d(0px, -66px, 0px)':
+            isTire === 'tire6' ? 'translate3d(0px, -110px, 0px)':
+            isTire === 'tire7' ? 'translate3d(0px, -154px, 0px)': 
+            '',
+            transitionDuration: '0ms',
+            transitionProperty: 'none',
+          }}
+        >
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item van-picker-column__item--selected" id="tire1" onClick={()=>tire('tire1')}
+            style={{height: '44px'}} 
+          >
+            <div className="van-ellipsis">All</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item" id="tire2" onClick={()=>tire('tire2')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">Tier 1</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item" id="tire3" onClick={()=>tire('tire3')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">Tier 2</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item" id="tire4" onClick={()=>tire('tire4')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">Tier 3</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item" id="tire5" onClick={()=>tire('tire5')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">Tier 4</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item" id="tire6" onClick={()=>tire('tire6')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">Tier 5</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item" id="tire7" onClick={()=>tire('tire7')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">Tier 6</div>
+          </li>
+        </ul>
+      </div>
+      <div className="van-picker__mask" style={{backgroundSize: '100% 110px'}}></div>
+      <div
+        className="van-hairline-unset--top-bottom van-picker__frame"
+        style={{height: '44px'}}
+      ></div>
+    </div>
+    
+  </div>
+  
+</div>
+<div className="van-overlay" role="button" tabindex="0" data-v-10d1559c="" style={{zIndex: '2002', display: isSecondVisible ? 'block' : 'none'}}></div>
+<div
+  role="dialog"
+  tabindex="0"
+  className="van-popup van-popup--round van-popup--bottom"
+  data-v-10d1559c=""
+  style={{zIndex: '2002', display: isSecondVisible ? 'block' : 'none'}}
+>
+  <div data-v-10d1559c="" className="van-picker">
+    <div className="van-picker__toolbar">
+      <button type="button" className="van-picker__cancel van-haptics-feedback" onClick={handleSecondCancel}>
+        Cancel
+      </button>
+      <div className="van-picker__title van-ellipsis">Choose a date</div>
+      <button type="button" className="van-picker__confirm van-haptics-feedback">
+        Confirm
+      </button>
+    </div>
+    
+    <div className="van-picker__columns" style={{height: '264px'}}>
+      <div className="van-picker-column">
+        <ul
+          className="van-picker-column__wrapper"
+          style={{ transform: isSan ==='san1' ? 'translate3d(0px, 110px, 0px)':
+            isSan ==='san2' ? 'translate3d(0px, 66px, 0px)':
+            isSan ==='san3' ? 'translate3d(0px, 22px, 0px)'
+            :'', transitionDuration: '0ms', transitionProperty: 'none', }}
+        >
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item" id="san1" onClick={()=>san('san1')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">2022</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item" id="san2" onClick={()=>san('san2')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">2023</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item van-picker-column__item--selected" id="san3" onClick={()=>san('san3')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">2024</div>
+          </li>
+        </ul>
+      </div>
+      <div className="van-picker-column">
+        <ul
+          className="van-picker-column__wrapper"
+          style={{
+            transform: isMahina ==='mahina1' ? 'translate3d(0px, 110px, 0px)':
+            isMahina ==='mahina2' ? 'translate3d(0px, 66px, 0px)':
+            isMahina ==='mahina3' ? 'translate3d(0px, 22px, 0px)':
+            isMahina ==='mahina4' ? 'translate3d(0px, -22px, 0px)':
+            isMahina ==='mahina5' ? 'translate3d(0px, -66px, 0px)':
+            isMahina ==='mahina6' ? 'translate3d(0px, -110px, 0px)':
+            isMahina ==='mahina7' ? 'translate3d(0px, -154px, 0px)':
+            isMahina ==='mahina8' ? 'translate3d(0px, -198px, 0px)':
+            '',
+            transitionDuration: '0ms',
+            transitionProperty: 'none',
+          }}
+        >
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item" id="mahina1" onClick={()=>mahina('mahina1')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">01</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"  id="mahina2" onClick={()=>mahina('mahina2')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">02</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"  id="mahina3" onClick={()=>mahina('mahina3')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">03</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"  id="mahina4" onClick={()=>mahina('mahina4')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">04</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"  id="mahina5" onClick={()=>mahina('mahina5')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">05</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"  id="mahina6" onClick={()=>mahina('mahina6')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">06</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"  id="mahina7" onClick={()=>mahina('mahina7')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">07</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item van-picker-column__item--selected"  id="mahina8" onClick={()=>mahina('mahina8')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">08</div>
+          </li>
+        </ul>
+      </div>
+      <div className="van-picker-column">
+        <ul
+          className="van-picker-column__wrapper"
+          style={{
+            transform: 'translate3d(0px, -1078px, 0px)',
+            transitionDuration: '0ms',
+            transitionProperty: 'none',
+          }}
+        >
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">01</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">02</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">03</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">04</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">05</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">06</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">07</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">08</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">09</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">10</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">11</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">12</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">13</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">14</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">15</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">16</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">17</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">18</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">19</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">20</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">21</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">22</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">23</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">24</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">25</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">26</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">27</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item van-picker-column__item--selected"
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">28</div>
+          </li>
+        </ul>
+      </div>
+      <div className="van-picker__mask" style={{backgroundSize: '100% 110px'}}></div>
+      <div
+        className="van-hairline-unset--top-bottom van-picker__frame"
+        style={{height: '44px'}}
+      ></div>
+    </div>
+    
+  </div>
+  
+</div>
+     
+      </div>
 
           
           <div data-v-cbab7763="" className="infiniteScroll__loading">
@@ -419,7 +946,7 @@ export default function DepositHistory() {
         />
       </div>
     
-    </div>
+    
 
     
     </div>
