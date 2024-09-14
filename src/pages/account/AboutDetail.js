@@ -1,6 +1,7 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom'
 export default function AboutDetail() {
+ const navigate = useNavigate();
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -130,7 +131,7 @@ export default function AboutDetail() {
               <div data-v-12a80a3e="" className="navbar__content-left">
                 <i
                   data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left"
+                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/main/Abouts')}
                   ></i
                 >
               </div>
@@ -348,7 +349,7 @@ export default function AboutDetail() {
                        }}
                       >Company</span
                     >(referred to as either "the Company", "We", "Us" or "Our"
-                    in this Agreement) refers to 91club.
+                    in this Agreement) refers to BigdadyPro.
                   </p>
                 </li>
                 <li
@@ -413,11 +414,11 @@ export default function AboutDetail() {
                     fontWeight: 'bolder'
         }}
                     >Website</span
-                  >refers to<a href="https://mzplay.com/" target="_blank">9</a
-                  >1club, accessible from<a
-                    href="https://91club.com"
+                  >refers to<a href="https://bigdadypro.com/" target="_blank">Bigdady</a
+                  >Pro, accessible from <a
+                    href="https://BigdadyPro.com"
                     target="_blank"
-                    >https://91club.com</a
+                    >https://BigdadyPro.com</a
                   >
                 </li>
                 <li
@@ -2085,9 +2086,9 @@ export default function AboutDetail() {
         }}
                 >
                   By visiting this page on our website:<a
-                    href="https://91club.com"
+                    href="https://BigdadyPro.com"
                     target="_blank"
-                    >https://91club.com</a
+                    >https://BigdadyPro.com</a
                   >
                 </li>
               </ul>

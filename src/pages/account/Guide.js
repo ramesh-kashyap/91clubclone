@@ -1,6 +1,7 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom'
 export default function Guide() {
+  const navigate = useNavigate();
   return (
     <div style={{ fontSize: '12px' }}>
 
@@ -134,7 +135,7 @@ export default function Guide() {
               <div data-v-12a80a3e="" className="navbar__content-left">
                 <i
                   data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left"
+                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/account')}
                   ></i
                 >
               </div>
@@ -252,7 +253,7 @@ export default function Guide() {
           <p>
             <b>8. Change Password<br /></b
             ><b>Follow the guide below to change password<br /></b
-            ><b>- Login to 91CLUB account<br /></b><b>- Press Account<br /></b
+            ><b>- Login to BigdadyPro account<br /></b><b>- Press Account<br /></b
             ><b>- Press Setting menu<br /></b
             ><b>- Press Login Password.<br /></b
             ><b>- Fill your login password.<br /></b
@@ -266,7 +267,7 @@ export default function Guide() {
           </p>
           <p>
             <b>9. Binding Bank Account<br /></b
-            ><b>- Login to 91CLUB account<br /></b
+            ><b>- Login to BigdadyPro account<br /></b
             ><b>- Press Wallet menu<br /></b><b>- Press Withdraw menu<br /></b
             ><b>- Press Add Bank<br /></b><b>- Fill all the collumn<br /></b
             ><b>- Press Save<br /><br /></b
@@ -276,7 +277,7 @@ export default function Guide() {
             /><br />
           </p>
           <p>
-            <b>10. Forgot Password<br /></b><b>- Go to 91CLUB website<br /></b
+            <b>10. Forgot Password<br /></b><b>- Go to BigdadyPro website<br /></b
             ><b>- Press Account menu<br /></b
             ><b>- Press Forgot Password<br /></b
             ><b>- Fill phone number you register<br /></b
@@ -316,7 +317,7 @@ export default function Guide() {
             /><br />
           </p>
           <p>
-            <b>13. Gift<br /></b><b>- Login to 91CLUB account<br /></b
+            <b>13. Gift<br /></b><b>- Login to BigdadyPro account<br /></b
             ><b>- Press Account<br /></b><b>- Press gift menu<br /></b
             ><b>- Fill the gift codes<br /></b><b>- Press receive<br /></b
             ><b

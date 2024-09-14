@@ -3,12 +3,15 @@ import { useNavigate } from 'react-router-dom'
 export default function Vip() {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('section1');
-
+  const [activeHistory, setActiveHistroy] =useState('history1');
 
   const handleSectionClick = (sectionId) => {
     setActiveSection(sectionId);
   };
 
+  const setVipHistory =(historyId) =>{
+    setActiveHistroy(historyId);
+  };
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -10287,10 +10290,10 @@ export default function Vip() {
             className="vip-content-recordVsrule"
           >
             <div data-v-eaa4a307="" className="vip-content-recordVsrule-head">
-              <button data-v-eaa4a307="" className="active">History</button
-              ><button data-v-eaa4a307="" className="">Rules</button>
+              <button data-v-eaa4a307="" className={activeHistory === 'history1' ? 'active' : ''} id="history1" onClick={() =>(setVipHistory('history1'))}>History</button
+              ><button data-v-eaa4a307="" className={activeHistory === 'history2' ? 'active' : ''} id="history2" onClick={() =>(setVipHistory('history2'))}>Rules</button>
             </div>
-            <div data-v-eaa4a307="" className="vip-content-recordVsrule-con">
+            <div data-v-eaa4a307="" className="vip-content-recordVsrule-con" style={{display: activeHistory === 'history1' ? 'block':'none'}}>
               <div data-v-eaa4a307="" className="item ar-1px-b">
                 <div data-v-eaa4a307="" className="item-left">
                   <span data-v-eaa4a307="" className="blue">Experience Bonus</span
@@ -10326,10 +10329,11 @@ export default function Vip() {
                   ><span data-v-eaa4a307=""></span
                   ><span data-v-eaa4a307="" className="green">39 EXP</span>
                 </div>
-              </div>
+              </div>                         
 
-
-              <div data-v-eaa4a307="" className="vip-content-recordVsrule-con">
+              <button data-v-eaa4a307="">View All</button>
+            </div>
+            <div data-v-eaa4a307="" className="vip-content-recordVsrule-con"  style={{display: activeHistory === 'history2' ? 'block':'none'}}>
                 <div data-v-eaa4a307="" className="con-content">
                   <div data-v-eaa4a307="" className="con-content__title">
                     <h1 data-v-eaa4a307="">VIP privileges</h1>
@@ -10540,9 +10544,6 @@ export default function Vip() {
                   </div>
                 </div>
               </div>
-
-              <button data-v-eaa4a307="">View All</button>
-            </div>
           </div>
         </div>
       </div>

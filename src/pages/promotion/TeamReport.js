@@ -9657,7 +9657,7 @@ export default function TeamReport(){
         Cancel</button
       ><button
         type="button"
-        className="van-picker__confirm van-haptics-feedback"
+        className="van-picker__confirm van-haptics-feedback"  onClick={handleCancel}
       >
         Confirm
       </button>
@@ -9762,7 +9762,7 @@ export default function TeamReport(){
         Cancel
       </button>
       <div className="van-picker__title van-ellipsis">Choose a date</div>
-      <button type="button" className="van-picker__confirm van-haptics-feedback">
+      <button type="button" className="van-picker__confirm van-haptics-feedback"  onClick={handleSecondCancel}>
         Confirm
       </button>
     </div>
@@ -9925,36 +9925,37 @@ export default function TeamReport(){
         <ul
           className="van-picker-column__wrapper"
           style={{
-            transform: isTithi  ==='tithi1' ? 'translate3d(0px, -1078px, 0px)':
-            isTithi  ==='tithi2' ? 'translate3d(0px, 110px, 0px)':
-            isTithi  ==='tithi3' ? 'translate3d(0px, 66px, 0px)':
-            isTithi  ==='tithi4' ? 'translate3d(0px, 22px, 0px)':
-            isTithi  ==='tithi5' ? 'translate3d(0px, -22px, 0px)':
-            isTithi  ==='tithi6' ? 'translate3d(0px, -66px, 0px)':
-            isTithi  ==='tithi7' ? 'translate3d(0px, -110px, 0px)':
-            isTithi  ==='tithi8' ? 'translate3d(0px, -154px, 0px)':
-            isTithi  ==='tithi9' ? 'translate3d(0px, -198px, 0px)':
-            isTithi  ==='tithi10' ? 'translate3d(0px, -242px, 0px)':
-            isTithi  ==='tithi11' ? 'translate3d(0px, -286px, 0px)':
-            isTithi  ==='tithi12' ? 'translate3d(0px, -330px, 0px)':
-            isTithi  ==='tithi13' ? 'translate3d(0px, -374px, 0px)':
-            isTithi  ==='tithi14' ? 'translate3d(0px, -418px, 0px)':
-            isTithi  ==='tithi15' ? 'translate3d(0px, -462px, 0px)':
-            isTithi  ==='tithi16' ? 'translate3d(0px, -506px, 0px)':
-            isTithi  ==='tithi17' ? 'translate3d(0px, -550px, 0px)':
-            isTithi  ==='tithi18' ? 'translate3d(0px, -594px, 0px)':
-            isTithi  ==='tithi19' ? 'translate3d(0px, -638px, 0px)':
-            isTithi  ==='tithi20' ? 'translate3d(0px, -682px, 0px)':
-            isTithi  ==='tithi21' ? 'translate3d(0px, -726px, 0px)':
-            isTithi  ==='tithi22' ? 'translate3d(0px, -770px, 0px)':
-            isTithi  ==='tithi23' ? 'translate3d(0px, -814px, 0px)':
-            isTithi  ==='tithi24' ? 'translate3d(0px, -858px, 0px)':
-            isTithi  ==='tithi25' ? 'translate3d(0px, -902px, 0px)':
-            isTithi  ==='tithi26' ? 'translate3d(0px, -946px, 0px)':
-            isTithi  ==='tithi27' ? 'translate3d(0px, -1090px, 0px)':
-            isTithi  ==='tithi28' ? 'translate3d(0px, -1038px, 0px)':
-            isTithi  ==='tithi29' ? 'translate3d(0px, -1038px, 0px)':
-            isTithi  ==='tithi30' ? 'translate3d(0px, -1038px, 0px)':
+            transform: isTithi  ==='tithi1' ? 'translate3d(0px, 110, 0px)':
+                    isTithi  ==='tithi2' ? 'translate3d(0px, 66px, 0px)':
+                    isTithi === 'tithi3' ? 'translate3d(0px, 22px, 0px)' :
+                    isTithi === 'tithi4' ? 'translate3d(0px, -22px, 0px)' :
+                    isTithi === 'tithi5' ? 'translate3d(0px, -66px, 0px)' :
+                    isTithi === 'tithi6' ? 'translate3d(0px, -110px, 0px)' :
+                    isTithi === 'tithi7' ? 'translate3d(0px, -154px, 0px)' :
+                    isTithi === 'tithi8' ? 'translate3d(0px, -198px, 0px)' :
+                    isTithi === 'tithi9' ? 'translate3d(0px, -242px, 0px)' :
+                    isTithi === 'tithi10' ? 'translate3d(0px, -286px, 0px)' :
+                    isTithi === 'tithi11' ? 'translate3d(0px, -330px, 0px)' :
+                    isTithi === 'tithi12' ? 'translate3d(0px, -374px, 0px)' :
+                    isTithi === 'tithi13' ? 'translate3d(0px, -418px, 0px)' :
+                    isTithi === 'tithi14' ? 'translate3d(0px, -462px, 0px)' :
+                    isTithi === 'tithi15' ? 'translate3d(0px, -506px, 0px)' :
+                    isTithi === 'tithi16' ? 'translate3d(0px, -550px, 0px)' :
+                    isTithi === 'tithi17' ? 'translate3d(0px, -594px, 0px)' :
+                    isTithi === 'tithi18' ? 'translate3d(0px, -638px, 0px)' :
+                    isTithi === 'tithi19' ? 'translate3d(0px, -682px, 0px)' :
+                    isTithi === 'tithi20' ? 'translate3d(0px, -726px, 0px)' :
+                    isTithi === 'tithi21' ? 'translate3d(0px, -770px, 0px)' :
+                    isTithi === 'tithi22' ? 'translate3d(0px, -814px, 0px)' :
+                    isTithi === 'tithi23' ? 'translate3d(0px, -858px, 0px)' :
+                    isTithi === 'tithi24' ? 'translate3d(0px, -902px, 0px)' :
+                    isTithi === 'tithi25' ? 'translate3d(0px, -946px, 0px)' :
+                    isTithi === 'tithi26' ? 'translate3d(0px, -990px, 0px)' :
+                    isTithi === 'tithi27' ? 'translate3d(0px, -1034px, 0px)' :
+                    isTithi === 'tithi28' ? 'translate3d(0px, -1078px, 0px)' :
+                    isTithi === 'tithi29' ? 'translate3d(0px, -1122px, 0px)' :
+                    isTithi === 'tithi30' ? 'translate3d(0px, -1166px, 0px)' :
+                    isTithi === 'tithi31' ? 'translate3d(0px, -12100px, 0px)' :
             '',
             transitionDuration: '0ms',
             transitionProperty: 'none',

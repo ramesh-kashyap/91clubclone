@@ -9505,7 +9505,7 @@ export default function CustomerService() {
                     Customer Service
                   </div>
                 </div>
-                <div data-v-12a80a3e="" className="navbar__content-right">
+                <div data-v-12a80a3e="" className="navbar__content-right" onClick={()=>navigate('/index')}> 
                   <svg
                     data-v-26935615=""
                     xmlns="http://www.w3.org/2000/svg"
@@ -9581,7 +9581,7 @@ export default function CustomerService() {
                   src="/assets/png/CStype3-7588d980.png"
                   alt=""
                 /><span data-v-f4c030dd=""
-                  >91Club Self-service Center（स्व-सेवा केंद्र）</span
+                  >BigdadyPro Self-service Center（स्व-सेवा केंद्र）</span
                 >
               </div>
               <i
@@ -9652,7 +9652,7 @@ export default function CustomerService() {
                   src="/assets/png/CStype3-7588d980.png"
                   alt=""
                 /><span data-v-f4c030dd=""
-                  >91CLUB Tutorial Center(ट्यूटोरियल सेंटर)</span
+                  >BigdadyPro Tutorial Center(ट्यूटोरियल सेंटर)</span
                 >
               </div>
               <i
@@ -9669,7 +9669,7 @@ export default function CustomerService() {
                   src="/assets/png/CStype3-7588d980.png"
                   alt=""
                 /><span data-v-f4c030dd=""
-                  >Tutorial Apply Bonus Winstreak 91CLUB</span
+                  >Tutorial Apply Bonus Winstreak BigdadyPro</span
                 >
               </div>
               <i
@@ -9685,7 +9685,7 @@ export default function CustomerService() {
                   data-v-f4c030dd=""
                   src="/assets/png/CStype3-7588d980.png"
                   alt=""
-                /><span data-v-f4c030dd="">91CLUB Event Center</span>
+                /><span data-v-f4c030dd="">BigdadyPro Event Center</span>
               </div>
               <i
                 data-v-f4c030dd=""

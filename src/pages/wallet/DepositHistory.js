@@ -7,7 +7,11 @@ export default function DepositHistory() {
 
   const [depositHistory, setDepositHistory] = useState([]);
   const [error, setError] = useState(null);
+  const [isBank, setIsBank] = useState(null);
 
+  const bank = (bankId) =>{
+      setIsBank(bankId);
+  }
 
   const formatTimestampToIST = (timestamp) => {
     try {
@@ -236,13 +240,13 @@ export default function DepositHistory() {
                 <div
                   id="van-tabs-1-0"
                   role="tab"
-                  className="van-tab van-tab--card van-tab--active"
+                  className={`van-tab van-tab--card ${isBank ==='bank1' ? 'van-tab--active':''}`}
                   tabIndex="0"
                   aria-selected="true"
                   aria-controls="van-tab-2"
                 >
-                  <span className="van-tab__text van-tab__text--ellipsis"
-                    ><div data-v-e4760c44="" className="tabDiv">
+                  <span className="van-tab__text van-tab__text--ellipsis">
+                    <div data-v-e4760c44="" className="tabDiv" id="bank1" onClick={()=>bank('bank1')}>
                       <svg data-v-e4760c44="" className="svg-icon icon-all">
                         <use href="#icon-all"></use>
                       </svg>
@@ -253,13 +257,13 @@ export default function DepositHistory() {
                 <div
                   id="van-tabs-1-1"
                   role="tab"
-                  className="van-tab van-tab--card"
+                  className={`van-tab van-tab--card ${isBank ==='bank2' ? 'van-tab--active':''}`}
                   tabIndex="-1"
                   aria-selected="false"
                   aria-controls="van-tab-3"
                 >
                   <span className="van-tab__text van-tab__text--ellipsis"
-                    ><div data-v-e4760c44="" className="tabDiv">
+                    ><div data-v-e4760c44="" className="tabDiv"  id="bank2" onClick={()=>bank('bank2')}>
                       <img
                         data-v-e4760c44=""
                         src="/assets/png/payNameIcon_20240821190505sggk.png"
@@ -271,13 +275,13 @@ export default function DepositHistory() {
                 <div
                   id="van-tabs-1-2"
                   role="tab"
-                  className="van-tab van-tab--card"
+                  className={`van-tab van-tab--card ${isBank ==='bank3' ? 'van-tab--active':''}`}
                   tabIndex="-1"
                   aria-selected="false"
                   aria-controls="van-tab-4"
                 >
                   <span className="van-tab__text van-tab__text--ellipsis"
-                    ><div data-v-e4760c44="" className="tabDiv">
+                    ><div data-v-e4760c44="" className="tabDiv"  id="bank3" onClick={()=>bank('bank3')}>
                       <img
                         data-v-e4760c44=""
                         src="/assets/png/payNameIcon_20240822174126jeiy.png"
