@@ -783,20 +783,20 @@ const showSection = (sectionId) => {
                 </div>
                 <div
                   data-v-9e03166f=""
-                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 30000 ? 'active' : ''}`}  
-                  onClick={() => handleUpiClick('30000')}          
-                > 
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">₹</span>30K
-                  </div>                  
-                </div>
-                <div
-                  data-v-9e03166f=""
                   className={`Recharge__content-paymoney__money-list__item ${upiValue == 50000 ? 'active' : ''}`}  
                   onClick={() => handleUpiClick('50000')}          
                 > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>50K
+                  </div>                  
+                </div>
+                <div
+                  data-v-9e03166f=""
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 100000 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('100000')}          
+                > 
+                  <div data-v-9e03166f="" className="amount">
+                    <span data-v-9e03166f="">₹</span>100K
                   </div>                  
                 </div>
                 

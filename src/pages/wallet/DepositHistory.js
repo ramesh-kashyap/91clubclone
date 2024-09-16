@@ -488,7 +488,7 @@ export default function DepositHistory() {
 
             '',
             transitionDuration: '0ms',
-            transitionProperty: 'none',
+            transitionProperty: 'none', 
           }}
         >
           <li
