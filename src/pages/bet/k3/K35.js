@@ -11,7 +11,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const SOCKET_URL = 'http://localhost:3000';
+const SOCKET_URL = 'http://localhost:3000/';
 
 
 
