@@ -2,7 +2,17 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
 
-
+ // Format Date Function
+ const formatDate = (timestamp) => {
+  const date = new Date(Number(timestamp));
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+};
 
 
 
@@ -15,7 +25,7 @@ export default function DepositHistory() {
   const [isSecondVisible, setIsSecondVisible] = useState(false);
   const [error, setError] = useState(null);
   const [isBank, setIsBank] = useState(null);
-  const [isTier, setIsTier] = useState('tier1');
+  const [isTier, setIsTier] = useState('All');
   const [isYear ,setIsYear] =useState('year3');
   const [isMonth, setIsMonth] =useState('month8');
   const [isDate, setIsDate] =useState('Date2')
@@ -47,6 +57,8 @@ export default function DepositHistory() {
       return 'Invalid Timestamp';
     }
   };
+
+
 
   const fetchDepositHistory = async () => {
     try {
@@ -413,7 +425,7 @@ export default function DepositHistory() {
               </div>
               <div data-v-e4760c44="">
                 <span data-v-e4760c44="">Time</span>
-                <span data-v-e4760c44="">{formatTimestampToIST(history.time)}</span>
+                <span data-v-e4760c44="">{formatDate(history.time)}</span>
               </div>
               <div data-v-e4760c44="">
                 <span data-v-e4760c44="">Order number</span>
@@ -469,13 +481,11 @@ export default function DepositHistory() {
         <ul
           className="van-picker-column__wrapper"
           style={{
-            transform: isTier === 'tier1' ? 'translate3d(0px, 110px, 0px)':
-            isTier === 'tier2' ? 'translate3d(0px, 66px, 0px)':
-            isTier === 'tier3' ? 'translate3d(0px, 22px, 0px)':
-            isTier === 'tier4' ? 'translate3d(0px, -22px, 0px)':
-            isTier === 'tier5' ? 'translate3d(0px, -66px, 0px)':
-            isTier === 'tier6' ? 'translate3d(0px, -110px, 0px)':
-            isTier === 'tier7' ? 'translate3d(0px, -154px, 0px)': 
+            transform: isTier === 'All' ? 'translate3d(0px, 110px, 0px)':
+            isTier === 'Pending' ? 'translate3d(0px, 66px, 0px)':
+            isTier === 'Success' ? 'translate3d(0px, 22px, 0px)':
+            isTier === 'Failed' ? 'translate3d(0px, -22px, 0px)':
+
             '',
             transitionDuration: '0ms',
             transitionProperty: 'none',
@@ -484,7 +494,7 @@ export default function DepositHistory() {
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected" id="tier1" onClick={()=>tier('tier1')}
+            className="van-picker-column__item van-picker-column__item--selected" id="All" onClick={()=>tier('All')}
             style={{height: '44px'}} 
           >
             <div className="van-ellipsis">All</div>
@@ -492,51 +502,28 @@ export default function DepositHistory() {
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tier2" onClick={()=>tier('tier2')}
+            className="van-picker-column__item" id="Pending" onClick={()=>tier('Pending')}
             style={{height: '44px'}}
           >
-            <div className="van-ellipsis">Tier 1</div>
+            <div className="van-ellipsis">Pending</div>
           </li>
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tier3" onClick={()=>tier('tier3')}
+            className="van-picker-column__item" id="Success" onClick={()=>tier('Success')}
             style={{height: '44px'}}
           >
-            <div className="van-ellipsis">Tier 2</div>
+            <div className="van-ellipsis">Success</div>
           </li>
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tier4" onClick={()=>tier('tier4')}
+            className="van-picker-column__item" id="Failed" onClick={()=>tier('Failed')}
             style={{height: '44px'}}
           >
-            <div className="van-ellipsis">Tier 3</div>
+            <div className="van-ellipsis">Failed</div>
           </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item" id="tier5" onClick={()=>tier('tier5')}
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">Tier 4</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item" id="tier6" onClick={()=>tier('tier6')}
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">Tier 5</div>
-          </li>
-          <li
-            role="button"
-            tabindex="0"
-            className="van-picker-column__item" id="tier7" onClick={()=>tier('tier7')}
-            style={{height: '44px'}}
-          >
-            <div className="van-ellipsis">Tier 6</div>
-          </li>
+          
         </ul>
       </div>
       <div className="van-picker__mask" style={{backgroundSize: '100% 110px'}}></div>
