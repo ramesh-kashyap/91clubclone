@@ -115,29 +115,6 @@ export default function WithdrawHistory() {
   }
 
 
-  const formatTimestampToIST = (timestamp) => {
-    try {
-      // Convert the timestamp to a number if it's in string format
-      const numericTimestamp = Number(timestamp);
-  
-      // If the timestamp is in seconds (10 digits), convert it to milliseconds
-      const validTimestamp = numericTimestamp.toString().length === 13 ? numericTimestamp : numericTimestamp * 1000;
-  
-      // Create a Date object from the valid timestamp
-      const date = new Date(validTimestamp);
-  
-      // Check if the Date object is valid
-      if (isNaN(date.getTime())) {
-        throw new Error('Invalid Date');
-      }
-  
-      // Format the date in IST
-      return date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-    } catch (error) {
-      return 'Invalid Timestamp';
-    }
-  };
-
 
   const getStatusTextAndColor = (status) => {
     switch (status) {
@@ -443,7 +420,7 @@ export default function WithdrawHistory() {
                 </div>
                 <div data-v-e4760c44="">
                   <span data-v-e4760c44="">Time</span>
-                  <span data-v-e4760c44="">{formatTimestampToIST(history.time)}</span>
+                  <span data-v-e4760c44="">{formatDate(history.time)}</span>
                 </div>
                 <div data-v-e4760c44="">
                   <span data-v-e4760c44="">Order number</span>
