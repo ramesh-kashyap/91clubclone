@@ -391,7 +391,7 @@ console.log(formattedFullDate);
               </div>
               <div className="ar-searchbar__selector">
                 <div>
-                  <span className="noSelect">Choose a date</span
+                  <span className="noSelect">{isYear}</span
                   ><i className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleSecondToggle}
                     ></i
                   >
@@ -410,7 +410,10 @@ console.log(formattedFullDate);
            <div data-v-e4760c44="" className="rechargeh__container-content">
             
             {filteredHistory.length === 0 ? (
-          <div>No Data</div>
+          <div data-v-cbab7763="" className="infiniteScroll__loading">
+           
+          <div data-v-cbab7763="">No more</div>
+        </div>
         ) : (
           filteredHistory.map((history, index) => (
   
