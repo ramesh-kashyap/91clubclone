@@ -29,35 +29,24 @@ export default function DepositHistory() {
   const [isYear ,setIsYear] =useState('year3');
   const [isMonth, setIsMonth] =useState('month8');
   const [isDate, setIsDate] =useState('Date2')
+  const [filteredHistory, setFilteredHistory] = useState([]);
+
 
 
   const bank = (bankId) =>{
       setIsBank(bankId);
+
+      let filtered = depositHistory;
+  
+    if (bankId === 'bank2') {
+      filtered = depositHistory.filter((history) => history.type == "UPI_ID");
+    } else if (bankId === 'bank3') {
+      filtered = depositHistory.filter((history) => history.type !== "UPI_ID");
+    } 
+  
+
+    setFilteredHistory(filtered);
   } 
-
-  const formatTimestampToIST = (timestamp) => {
-    try {
-      // Convert the timestamp to a number if it's in string format
-      const numericTimestamp = Number(timestamp);
-  
-      // If the timestamp is in seconds (10 digits), convert it to milliseconds
-      const validTimestamp = numericTimestamp.toString().length === 13 ? numericTimestamp : numericTimestamp * 1000;
-  
-      // Create a Date object from the valid timestamp
-      const date = new Date(validTimestamp);
-  
-      // Check if the Date object is valid
-      if (isNaN(date.getTime())) {
-        throw new Error('Invalid Date');
-      }
-  
-      // Format the date in IST
-      return date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-    } catch (error) {
-      return 'Invalid Timestamp';
-    }
-  };
-
 
 
   const fetchDepositHistory = async () => {
@@ -68,6 +57,7 @@ export default function DepositHistory() {
       console.log(data.datas);
 
       setDepositHistory(data.datas); // Assuming data.data contains the user's information
+      setFilteredHistory(data.datas); // Initialize filtered history with all data
 
 
     } catch (err) {
@@ -77,14 +67,26 @@ export default function DepositHistory() {
   };
 
   useEffect(() => {
-    fetchDepositHistory();  
-       
-
+    fetchDepositHistory();        
    
   }, []);
 
 
+  const handleConfirm = () => {
+    let filtered = depositHistory;
+  
+    if (isTier === 'Pending') {
+      filtered = depositHistory.filter((history) => history.status === 0);
+    } else if (isTier === 'Success') {
+      filtered = depositHistory.filter((history) => history.status === 1);
+    } else if (isTier === 'Failed') {
+      filtered = depositHistory.filter((history) => history.status === 2);
+    }
+  
 
+    setFilteredHistory(filtered);
+    setIsVisible(false);
+  };
   
     const handleToggle = () => {
       setIsVisible(!isVisible);
@@ -114,22 +116,6 @@ export default function DepositHistory() {
     const Date = (DateId)=>{
       setIsDate(DateId)
     }
-
-
-  
-
-  const getStatusTextAndColor = (status) => {
-    switch (status) {
-      case 0:
-        return { text: 'Pending', color: 'yellow' };
-      case 1:
-        return { text: 'Complete', color: 'green' };
-      case 2:
-        return { text: 'Failed', color: 'red' };
-      default:
-        return { text: 'Unknown', color: 'grey' };
-    }
-  };
 
 
     const navigate = useNavigate();
@@ -365,7 +351,7 @@ export default function DepositHistory() {
                   <span
                     data-v-fa757a88=""
                     className="ar-searchbar__selector-default"
-                    >All</span
+                    >{isTier}</span
                   ><i
                     data-v-fa757a88=""
                     className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleToggle}
@@ -393,13 +379,13 @@ export default function DepositHistory() {
         >
           <div data-v-e4760c44="" className="rechargeh__container-content">
             
-          {depositHistory.length === 0 ? (
+          {filteredHistory.length === 0 ? (
         <div data-v-cbab7763="" className="infiniteScroll__loading">
            
         <div data-v-cbab7763="">No more</div>
       </div>
       ) : (
-        depositHistory.map((history, index) => (
+        filteredHistory.map((history, index) => (
 
           
           <div key={index} data-v-e4760c44="" className="rechargeh__container-content__item">
@@ -471,6 +457,7 @@ export default function DepositHistory() {
       ><button
         type="button"
         className="van-picker__confirm van-haptics-feedback"
+        onClick={handleConfirm}
       >
         Confirm
       </button>
