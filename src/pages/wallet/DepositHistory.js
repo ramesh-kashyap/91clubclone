@@ -26,7 +26,7 @@ export default function DepositHistory() {
   const [error, setError] = useState(null);
   const [isBank, setIsBank] = useState(null);
   const [isTier, setIsTier] = useState('All');
-  const [isYear ,setIsYear] =useState('year3');
+  const [isYear ,setIsYear] =useState('2024');
   const [isMonth, setIsMonth] =useState('month8');
   const [isDate, setIsDate] =useState('Date2')
   const [filteredHistory, setFilteredHistory] = useState([]);
@@ -86,6 +86,23 @@ export default function DepositHistory() {
 
     setFilteredHistory(filtered);
     setIsVisible(false);
+  };
+
+  const handleConfirm2 = () => {
+    let filteredData = depositHistory;
+  
+   // Extract the numeric part and format the date properly
+   const formattedMonth = isMonth.replace(/\D/g, '').padStart(2, '0');  // Add leading zero if needed
+   const formattedDate = isDate.replace(/\D/g, '').padStart(2, '0');    // Add leading zero if needed
+const formattedFullDate = `${isYear}-${formattedMonth}-${formattedDate}`;
+
+console.log(formattedFullDate);
+// Filter the history data based on the formatted date  
+ filteredData = depositHistory.filter((history) => history.today === formattedFullDate);
+
+
+    setFilteredHistory(filteredData);
+    setIsSecondVisible(false);
   };
   
     const handleToggle = () => {
@@ -537,7 +554,7 @@ export default function DepositHistory() {
         Cancel
       </button>
       <div className="van-picker__title van-ellipsis">Choose a date</div>
-      <button type="button" className="van-picker__confirm van-haptics-feedback">
+      <button type="button" className="van-picker__confirm van-haptics-feedback"  onClick={handleConfirm2}>
         Confirm
       </button>
     </div>
@@ -546,15 +563,15 @@ export default function DepositHistory() {
       <div className="van-picker-column">
         <ul
           className="van-picker-column__wrapper"
-          style={{ transform: isYear ==='year1' ? 'translate3d(0px, 110px, 0px)':
-            isYear ==='year2' ? 'translate3d(0px, 66px, 0px)':
-            isYear ==='year3' ? 'translate3d(0px, 22px, 0px)'
+          style={{ transform: isYear ==='2022' ? 'translate3d(0px, 110px, 0px)':
+            isYear ==='2023' ? 'translate3d(0px, 66px, 0px)':
+            isYear ==='2024' ? 'translate3d(0px, 22px, 0px)'
             :'', transitionDuration: '0ms', transitionProperty: 'none', }}
         >
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="year1" onClick={()=>year('year1')}
+            className="van-picker-column__item" id="2022" onClick={()=>year('2022')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">2022</div>
@@ -562,7 +579,7 @@ export default function DepositHistory() {
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="year2" onClick={()=>year('year2')}
+            className="van-picker-column__item" id="2023" onClick={()=>year('2023')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">2023</div>
@@ -570,7 +587,7 @@ export default function DepositHistory() {
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected" id="year3" onClick={()=>year('year3')}
+            className="van-picker-column__item van-picker-column__item--selected" id="2024" onClick={()=>year('2024')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">2024</div>
