@@ -27,7 +27,7 @@ const GameList = ({ gamelist }) => {
             </div>
             <div data-v-481307ec="" className="van-col van-col--5">
               <span data-v-481307ec="">
-                {game.amount > 5 ? 'Big' : 'Small'}
+                {game.amount >= 5 ? 'Big' : 'Small'}
               </span>
             </div>
             <div data-v-481307ec="" className="van-col van-col--6">
