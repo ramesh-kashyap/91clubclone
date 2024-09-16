@@ -10003,7 +10003,7 @@ export default function TeamReport(){
         <ul
           className="van-picker-column__wrapper"
           style={{
-            transform: isDate  ==='date1' ? 'translate3d(0px, 110, 0px)':
+            transform: isDate  ==='date1' ? 'translate3d(0px, 110px, 0px)':
                     isDate  ==='date2' ? 'translate3d(0px, 66px, 0px)':
                     isDate === 'date3' ? 'translate3d(0px, 22px, 0px)' :
                     isDate === 'date4' ? 'translate3d(0px, -22px, 0px)' :
@@ -10033,7 +10033,7 @@ export default function TeamReport(){
                     isDate === 'date28' ? 'translate3d(0px, -1078px, 0px)' :
                     isDate === 'date29' ? 'translate3d(0px, -1122px, 0px)' :
                     isDate === 'date30' ? 'translate3d(0px, -1166px, 0px)' :
-                    isDate === 'date31' ? 'translate3d(0px, -12100px, 0px)' :
+                    isDate === 'date31' ? 'translate3d(0px, -1210px, 0px)' :
             '',
             transitionDuration: '0ms',
             transitionProperty: 'none',
@@ -10266,7 +10266,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected"  id="date28" onClick={()=>date('date28')}
+            className="van-picker-column__item van-picker-column__item--selected"  id="date29" onClick={()=>date('date29')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">29</div>
@@ -10274,10 +10274,18 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected"  id="date28" onClick={()=>date('date28')}
+            className="van-picker-column__item van-picker-column__item--selected"  id="date30" onClick={()=>date('date30')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">30</div>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            className="van-picker-column__item van-picker-column__item--selected"  id="date31" onClick={()=>date('date31')}
+            style={{height: '44px'}}
+          >
+            <div className="van-ellipsis">31</div>
           </li>
         </ul>
       </div>
