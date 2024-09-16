@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
+import { useToast } from '../../components/ToastContext'; 
 
 
 export default function Promotion(){
@@ -9,6 +10,8 @@ export default function Promotion(){
   const [directTeamDetails, setDirectTeamDetails] = useState(null);
   const [teamSubordinatesDetails, setTeamSubordinatesDetails] = useState(null);
   const [error, setError] = useState(null);
+  const { showToast } = useToast();
+
 
 
   const [activeLink , setActiveLink] = useState(null);
@@ -36,7 +39,7 @@ export default function Promotion(){
  
   
 
-
+ 
 
   
   
@@ -87,7 +90,15 @@ export default function Promotion(){
 
    
   }, []);
-
+  const fetchPromotionInfo = async (code) => {
+    try {
+      await navigator.clipboard.writeText(code); // Use the passed code
+      showToast('Code copied successfully', 'success');
+    } catch (error) {
+      console.error('Error fetching promotion info:', error);
+      showToast('Error copying the code', 'error');
+    }
+  };
 
   const navigate = useNavigate();
 
@@ -9694,7 +9705,11 @@ export default function Promotion(){
             <div data-v-600663f7="" className="arrow">
               <span data-v-600663f7=""
                 >{promotion?.info[0] .code}
-                <svg data-v-600663f7="" className="svg-icon icon-copy">
+              <svg
+      data-v-600663f7=""
+      className="svg-icon icon-copy"
+      onClick={() => fetchPromotionInfo(promotion?.info[0].code)} // Trigger fetchPromotionInfo on click
+    >
                   <use href="#icon-copy"></use></svg
               ></span>
             </div>
@@ -9819,11 +9834,11 @@ export default function Promotion(){
           "--f6a705e1-currentFontFamily": "'bahnschrift'"
         }}
       >
-        <img
+        {/* <img
           className=""
           data-origin="/assets/png/icon_sevice-9f0c8455.png"
           src="/assets/png/icon_sevice-9f0c8455.png"
-        />
+        /> */}
       </div>
       <div data-v-6ab3f23e="" className="tabbar__container"
             style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>

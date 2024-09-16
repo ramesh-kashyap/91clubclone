@@ -143,11 +143,11 @@ export default function AddUSDT() {
             '--f6a705e1-currentFontFamily': 'bahnschrift',
           }}
         >
-          <img
+          {/* <img
             className=""
             data-origin="/assets/png/icon_sevice-9f0c8455.png"
             src="/assets/png/icon_sevice-9f0c8455.png"
-          />
+          /> */}
           <p data-v-5ca05f64="" className="customer__mobile">
             {`+91-9876543210`}
           </p>

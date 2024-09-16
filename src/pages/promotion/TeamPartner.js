@@ -4720,7 +4720,7 @@ return(
         </div>        
         <div className="customer" id="customerId"
             style={{"--f13b4d11-currentFontFamily": "'Roboto', 'Inter', 'sansSerif'", "--f6a705e1-currentFontFamily": 'bahnschrift'}}>
-            <img className="" data-origin="/assets/png/icon_sevice-9f0c8455.png" src="/assets/png/icon_sevice-9f0c8455.png"/>
+            {/* <img className="" data-origin="/assets/png/icon_sevice-9f0c8455.png" src="/assets/png/icon_sevice-9f0c8455.png"/> */}
         </div>
     </div>
 

@@ -4924,36 +4924,7 @@ export default function Dashboard() {
                                         <div data-v-d06787cb="" className="win-p" style={{width: '89.37%'}}></div>
                                     </div>
                                 </div>
-                                <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
-                                            viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            className="hot_bage">
-                                            <path
-                                                d="M8.00798 5.79803C3.77459 9.42666 1.96027 13.3578 1.20431 15.6256C0.0703725 19.0272 0.328033 26.4667 5.36212 31.5009C12.5438 38.6826 22.3713 36.0367 26.1511 33.3907C31.144 29.8955 39.3805 18.6494 34.4667 23.1852C32.8472 24.6801 31.6436 24.1183 32.9548 22.8072C34.2659 21.4961 35.2227 20.9173 36.7346 18.6494C38.7544 15.6198 38.8765 12.0977 38.2465 10.3338C37.8685 10.8378 36.5834 12.1481 34.4667 13.3577C32.35 14.5672 30.3089 13.3577 29.5529 12.6017C30.3089 12.6017 32.9548 12.0725 35.9786 8.4439C39.7584 3.90812 39.3805 0.128418 39.3805 0.128418C39.3805 0.128418 37.4906 2.01822 33.3328 3.15216C29.175 4.28611 26.9071 2.77429 22.3713 2.77429C17.8355 2.77429 14.8116 5.79803 15.1896 4.28611C15.492 3.07656 17.5835 1.51424 18.5915 0.884272C16.8276 1.01027 12.2414 2.16941 8.00798 5.79803Z"
-                                                fill="url(#paint0_linear_597_39012)"></path>
-                                            <path
-                                                d="M3.8208 25V15.5455H6.38756V19.2386H9.78529V15.5455H12.3521V25H9.78529V21.3068H6.38756V25H3.8208ZM22.7299 20.2727C22.7299 21.3253 22.5252 22.2132 22.1159 22.9364C21.7066 23.6566 21.1541 24.2029 20.4586 24.5753C19.763 24.9446 18.9875 25.1293 18.1319 25.1293C17.2701 25.1293 16.4915 24.9431 15.7959 24.5707C15.1035 24.1952 14.5526 23.6474 14.1432 22.9272C13.737 22.204 13.5339 21.3191 13.5339 20.2727C13.5339 19.2202 13.737 18.3338 14.1432 17.6136C14.5526 16.8904 15.1035 16.3441 15.7959 15.9748C16.4915 15.6024 17.2701 15.4162 18.1319 15.4162C18.9875 15.4162 19.763 15.6024 20.4586 15.9748C21.1541 16.3441 21.7066 16.8904 22.1159 17.6136C22.5252 18.3338 22.7299 19.2202 22.7299 20.2727ZM20.0893 20.2727C20.0893 19.7064 20.0139 19.2294 19.8631 18.8416C19.7153 18.4508 19.4953 18.1553 19.2029 17.9553C18.9136 17.7521 18.5566 17.6506 18.1319 17.6506C17.7072 17.6506 17.3486 17.7521 17.0562 17.9553C16.7669 18.1553 16.5469 18.4508 16.3961 18.8416C16.2484 19.2294 16.1745 19.7064 16.1745 20.2727C16.1745 20.839 16.2484 21.3176 16.3961 21.7085C16.5469 22.0962 16.7669 22.3917 17.0562 22.5948C17.3486 22.7949 17.7072 22.8949 18.1319 22.8949C18.5566 22.8949 18.9136 22.7949 19.2029 22.5948C19.4953 22.3917 19.7153 22.0962 19.8631 21.7085C20.0139 21.3176 20.0893 20.839 20.0893 20.2727ZM23.2146 17.6136V15.5455H31.432V17.6136H28.5882V25H26.0584V17.6136H23.2146Z"
-                                                fill="url(#paint1_linear_597_39012)"></path>
-                                            <defs>
-                                                <linearGradient id="paint0_linear_597_39012" x1="20.0209" y1="0.128418"
-                                                    x2="20.0209" y2="36.1366" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="#FE6868"></stop>
-                                                    <stop offset="1" stopColor="#CF0405"></stop>
-                                                </linearGradient>
-                                                <linearGradient id="paint1_linear_597_39012" x1="17.5" y1="13" x2="17.5"
-                                                    y2="27" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="white"></stop>
-                                                    <stop offset="1" stopColor="#FFE081"></stop>
-                                                </linearGradient>
-                                            </defs>
-                                        </svg><img   onClick={() => handleGameClick(233)} data-v-d06787cb=""
-                                            src="/assets/png/TB_Chess/101.png"
-                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">84.93%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '84.93%'}}></div>
-                                    </div>
-                                </div>
+                             
                                 <div data-v-d06787cb="">
                                     <div data-v-d06787cb="" className="item"><svg data-v-d06787cb="" width="40" height="37"
                                             viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -5448,7 +5419,7 @@ export default function Dashboard() {
         </div>
         <div className="customer" id="customerId"
             style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif", '--f6a705e1-currentFontFamily': "bahnschrift"}}>
-            <img className="" data-origin="/assets/png/icon_sevice-9f0c8455.png" src="/assets/png/icon_sevice-9f0c8455.png"/>
+            {/* <img className="" data-origin="/assets/png/icon_sevice-9f0c8455.png" src="/assets/png/icon_sevice-9f0c8455.png"/> */}
         </div>
         <div data-v-6ab3f23e="" className="tabbar__container"
             style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>

@@ -10607,11 +10607,11 @@ export default function Vip() {
          'F6a705e1CurrentFontFamily': 'bahnschrift',
         }}
       >
-        <img
+        {/* <img
           className=""
           data-origin="/assets/png/icon_sevice-9f0c8455.png"
           src="/assets/png/icon_sevice-9f0c8455.png"
-        />
+        /> */}
       </div>
     </div>
   
