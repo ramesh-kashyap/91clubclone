@@ -325,7 +325,7 @@ export default function DepositHistory() {
                     ><div data-v-e4760c44="" className="tabDiv"  id="bank3" onClick={()=>bank('bank3')}>
                       <img
                         data-v-e4760c44=""
-                        src="/assets/png/payNameIcon_20240822174126jeiy.png"
+                        src="/assets/png/usdt.png"
                       />
                       USDT
                     </div></span

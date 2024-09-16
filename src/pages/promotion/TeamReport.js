@@ -9743,10 +9743,17 @@ export default function TeamReport(){
     
     <div className="van-picker__columns" style={{height: '264px'}}>
       <div className="van-picker-column">
-        <ul
+      <ul
           className="van-picker-column__wrapper"
           style={{
-            transform: 'translate3d(0px, 110px, 0px)',
+            transform: isTire === 'tire1' ? 'translate3d(0px, 110px, 0px)':
+            isTire === 'tire2' ? 'translate3d(0px, 66px, 0px)':
+            isTire === 'tire3' ? 'translate3d(0px, 22px, 0px)':
+            isTire === 'tire4' ? 'translate3d(0px, -22px, 0px)':
+            isTire === 'tire5' ? 'translate3d(0px, -66px, 0px)':
+            isTire === 'tire6' ? 'translate3d(0px, -110px, 0px)':
+            isTire === 'tire7' ? 'translate3d(0px, -154px, 0px)': 
+            '',
             transitionDuration: '0ms',
             transitionProperty: 'none',
           }}
@@ -9754,15 +9761,15 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected"
-            style={{height: '44px'}}
+            className="van-picker-column__item van-picker-column__item--selected" id="tire1" onClick={()=>tire('tire1')}
+            style={{height: '44px'}} 
           >
             <div className="van-ellipsis">All</div>
           </li>
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item" id="tire2" onClick={()=>tire('tire2')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">Tier 1</div>
@@ -9770,7 +9777,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item" id="tire3" onClick={()=>tire('tire3')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">Tier 2</div>
@@ -9778,7 +9785,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item" id="tire4" onClick={()=>tire('tire4')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">Tier 3</div>
@@ -9786,7 +9793,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item" id="tire5" onClick={()=>tire('tire5')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">Tier 4</div>
@@ -9794,7 +9801,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item" id="tire6" onClick={()=>tire('tire6')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">Tier 5</div>
@@ -9802,7 +9809,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item" id="tire7" onClick={()=>tire('tire7')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">Tier 6</div>
@@ -9840,18 +9847,17 @@ export default function TeamReport(){
     
     <div className="van-picker__columns" style={{height: '264px'}}>
       <div className="van-picker-column">
-        <ul
+      <ul
           className="van-picker-column__wrapper"
-          style={{
-            transform: 'translate3d(0px, 22px, 0px)',
-            transitionDuration: '0ms',
-            transitionProperty: 'none',
-          }}
+          style={{ transform: isSan ==='san1' ? 'translate3d(0px, 110px, 0px)':
+            isSan ==='san2' ? 'translate3d(0px, 66px, 0px)':
+            isSan ==='san3' ? 'translate3d(0px, 22px, 0px)'
+            :'', transitionDuration: '0ms', transitionProperty: 'none', }}
         >
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item" id="san1" onClick={()=>san('san1')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">2022</div>
@@ -9859,7 +9865,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item" id="san2" onClick={()=>san('san2')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">2023</div>
@@ -9867,7 +9873,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected"
+            className="van-picker-column__item van-picker-column__item--selected" id="san3" onClick={()=>san('san3')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">2024</div>
@@ -9898,7 +9904,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item"  id="month1" onClick={()=>month('month1')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">01</div>
@@ -9906,7 +9912,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item"  id="month2" onClick={()=>month('month2')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">02</div>
@@ -9914,7 +9920,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item"  id="month3" onClick={()=>month('month3')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">03</div>
@@ -9922,7 +9928,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item"  id="month4" onClick={()=>month('month4')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">04</div>
@@ -9930,7 +9936,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item"  id="month5" onClick={()=>month('month5')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">05</div>
@@ -9938,7 +9944,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item"  id="month6" onClick={()=>month('month6')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">06</div>
@@ -9946,7 +9952,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"
+            className="van-picker-column__item"  id="month7" onClick={()=>month('month7')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">07</div>
