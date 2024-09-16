@@ -10574,7 +10574,7 @@ export default function Wingo5() {
             </div>
             <div data-v-7f36fe93="" className="Betting__Popup-foot">
               <div data-v-7f36fe93="" className="Betting__Popup-foot-c" onClick={handleClosePopup}>Cancel</div>
-              <div data-v-7f36fe93="" className="Betting__Popup-foot-s bgcolor"  onClick={handleJoin} >Total amount ₹{quantity*balance}</div>
+              <div data-v-7f36fe93="" className="Betting__Popup-foot-s bgcolor"  onClick={handleJoin} >Total amount ₹{quantity*balance}.00</div>
             </div>
           </div>
         </div>
