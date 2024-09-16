@@ -12,6 +12,15 @@ export default function Register() {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const { showToast } = useToast();
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const [isPasswordVisible1, setIsPasswordVisible1] = useState(false);
+    const togglePasswordVisibility = () => {
+      setIsPasswordVisible(!isPasswordVisible);
+  };
+
+     const togglePasswordVisibility1=()=>{
+      setIsPasswordVisible1(!isPasswordVisible1)
+     }
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
@@ -9689,7 +9698,7 @@ export default function Register() {
               </div>
               <div data-v-ea5b66c8="" className="passwordInput__container-input">
               <input
-                type="password"
+                type={isPasswordVisible1 ? 'text':'password'}
                 name="password"
                 placeholder="Set password"
                 value={password}
@@ -9697,7 +9706,8 @@ export default function Register() {
                 data-v-ea5b66c8=""
               /><img
                   data-v-ea5b66c8=""
-                  src="/assets/png/eyeInvisible-821d9d16.png"
+                  onClick={togglePasswordVisibility1}
+                  src={isPasswordVisible1 ? '/assets/png/eyeVisible-09720f5f.png':'/assets/png/eyeInvisible-821d9d16.png'}
                   className="eye"
                 />
               </div>
@@ -9730,15 +9740,16 @@ export default function Register() {
                 
                 <input
                 data-v-ea5b66c8=""
-                type="password"
+                type={isPasswordVisible ?'text':'password'}
                 name="confirmPassword"
                 placeholder="Confirm password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               /><img
                   data-v-ea5b66c8=""
-                  src="/assets/png/eyeInvisible-821d9d16.png"
+                  src={isPasswordVisible ? '/assets/png/eyeVisible-09720f5f.png':'/assets/png/eyeInvisible-821d9d16.png'}
                   className="eye"
+                  onClick={togglePasswordVisibility}
                 />
               </div>
             </div>
