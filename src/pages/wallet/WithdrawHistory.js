@@ -314,7 +314,7 @@ export default function WithdrawHistory() {
                     ><div data-v-e4760c44="" className="tabDiv">
                       <img
                         data-v-e4760c44=""
-                        src="/assets/png/payNameIcon_20240822174126jeiy.png"
+                        src="/assets/png/usdt.png"
                       />
                       USDT
                     </div></span
