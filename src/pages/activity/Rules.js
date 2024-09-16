@@ -9644,11 +9644,11 @@ export default function Rules() {
           '--f6a705e1-currentFontFamily': 'bahnschrift'
         }}
       >
-        <img
+        {/* <img
           className=""
           data-origin="/assets/png/icon_sevice-9f0c8455.png"
           src="/assets/png/icon_sevice-9f0c8455.png"
-        />
+        /> */}
       </div>
      
     </div>

@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
 import Loader from '../../components/Loader';
+import { useToast } from '../../components/ToastContext'; 
+
 
 export default function Account() {
 
     const [totalMoney, setTotalMoney] = useState(0);
     const [uid, setUid] = useState(null);
     const [username, setUsername] = useState(null);
+    const { showToast } = useToast();
     const [lastlogin, setLastLogin] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -40,6 +43,19 @@ export default function Account() {
   
       fetchUserInfo();
     }, []);
+
+    const fetchPromotionInfo = async (code) => {
+      try {
+        await navigator.clipboard.writeText(code); // Use the passed code
+        showToast('Code copied successfully', 'success');
+      } catch (error) {
+        console.error('Error fetching promotion info:', error);
+        showToast('Error copying the code', 'error');
+      }
+    };
+
+
+
   
     if (loading) {
       return      <Loader/>
@@ -9601,7 +9617,7 @@ export default function Account() {
                 <span data-v-5bd44e74="">UID</span
                 ><span data-v-5bd44e74="">|</span
                 ><span data-v-5bd44e74="">{uid}</span
-                ><svg data-v-5bd44e74="" className="svg-icon icon-copy">
+                ><svg data-v-5bd44e74="" className="svg-icon icon-copy" onClick={() => fetchPromotionInfo(uid)}>
                   <use href="#icon-copy"></use>
                 </svg>
               </div>
@@ -10178,11 +10194,11 @@ export default function Account() {
           '--f6a705e1-currentFontFamily': "bahnschrift"
         }}
       >
-        <img
+        {/* <img
           className=""
           data-origin="/assets/png/icon_sevice-9f0c8455.png"
           src="/assets/png/icon_sevice-9f0c8455.png"
-        />
+        /> */}
       </div>
       <div data-v-6ab3f23e="" className="tabbar__container"
             style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}>
