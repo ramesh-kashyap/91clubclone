@@ -9,8 +9,8 @@ export default function TeamReport(){
   const [isSecondVisible, setIsSecondVisible] = useState(false);
   const [isTire, setIsTire] = useState('tire1');
   const [isSan ,setIsSan] =useState('san3');
-  const [isMahina, setIsMahina] =useState('mahina8');
-  const [isTithi, setIsTithi] =useState('tithi1')
+  const [isMonth, setIsMonth] =useState('month8');
+  const [isDate, setIsDate] =useState('date1')
 
   const [teamReport, setTeamReport] = useState([]);
   const [filteredReports, setFilteredReports] = useState([]);
@@ -40,11 +40,11 @@ export default function TeamReport(){
       setIsSan(sanId)
     }
  
-    const mahina = (mahinaId)=>{
-      setIsMahina(mahinaId)
+    const month = (monthId)=>{
+      setIsMonth(monthId)
     }
-    const tithi = (tithiId)=>{
-      setIsTithi(tithiId)
+    const date = (dateId)=>{
+      setIsDate(dateId)
     }
 
 
@@ -9878,18 +9878,18 @@ export default function TeamReport(){
         <ul
           className="van-picker-column__wrapper"
           style={{
-            transform: isMahina ==='mahina1' ? 'translate3d(0px, 110px, 0px)':
-            isMahina ==='mahina2' ? 'translate3d(0px, 66px, 0px)':
-            isMahina ==='mahina3' ? 'translate3d(0px, 22px, 0px)':
-            isMahina ==='mahina4' ? 'translate3d(0px, -22px, 0px)':
-            isMahina ==='mahina5' ? 'translate3d(0px, -66px, 0px)':
-            isMahina ==='mahina6' ? 'translate3d(0px, -110px, 0px)':
-            isMahina ==='mahina7' ? 'translate3d(0px, -154px, 0px)':
-            isMahina ==='mahina8' ? 'translate3d(0px, -198px, 0px)':
-            isMahina ==='mahina9' ? 'translate3d(0px, -242px, 0px)':
-            isMahina ==='mahina10' ? 'translate3d(0px, -286px, 0px)':
-            isMahina ==='mahina11' ? 'translate3d(0px, -320px, 0px)':
-            isMahina ==='mahina12' ? 'translate3d(0px, -364px, 0px)':
+            transform: isMonth ==='month1' ? 'translate3d(0px, 110px, 0px)':
+            isMonth ==='month2' ? 'translate3d(0px, 66px, 0px)':
+            isMonth ==='month3' ? 'translate3d(0px, 22px, 0px)':
+            isMonth ==='month4' ? 'translate3d(0px, -22px, 0px)':
+            isMonth ==='month5' ? 'translate3d(0px, -66px, 0px)':
+            isMonth ==='month6' ? 'translate3d(0px, -110px, 0px)':
+            isMonth ==='month7' ? 'translate3d(0px, -154px, 0px)':
+            isMonth ==='month8' ? 'translate3d(0px, -198px, 0px)':
+            isMonth ==='month9' ? 'translate3d(0px, -242px, 0px)':
+            isMonth ==='month10' ? 'translate3d(0px, -286px, 0px)':
+            isMonth ==='month11' ? 'translate3d(0px, -320px, 0px)':
+            isMonth ==='month12' ? 'translate3d(0px, -364px, 0px)':
             '',
             transitionDuration: '0ms',
             transitionProperty: 'none',
@@ -9954,7 +9954,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"  id="mahina8" onClick={()=>mahina('mahina8')}
+            className="van-picker-column__item"  id="month8" onClick={()=>month('month8')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">08</div>
@@ -9962,7 +9962,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"  id="mahina9" onClick={()=>mahina('mahina9')}
+            className="van-picker-column__item"  id="month9" onClick={()=>month('month9')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">09</div>
@@ -9970,7 +9970,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"  id="mahina10" onClick={()=>mahina('mahina10')}
+            className="van-picker-column__item"  id="month10" onClick={()=>month('month10')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">10</div>
@@ -9978,7 +9978,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"  id="mahina11" onClick={()=>mahina('mahina11')}
+            className="van-picker-column__item"  id="month11" onClick={()=>month('month11')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">11</div>
@@ -9986,7 +9986,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"  id="mahina12" onClick={()=>mahina('mahina12')}
+            className="van-picker-column__item"  id="month12" onClick={()=>month('month12')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">12</div>
@@ -9997,37 +9997,37 @@ export default function TeamReport(){
         <ul
           className="van-picker-column__wrapper"
           style={{
-            transform: isTithi  ==='tithi1' ? 'translate3d(0px, 110, 0px)':
-                    isTithi  ==='tithi2' ? 'translate3d(0px, 66px, 0px)':
-                    isTithi === 'tithi3' ? 'translate3d(0px, 22px, 0px)' :
-                    isTithi === 'tithi4' ? 'translate3d(0px, -22px, 0px)' :
-                    isTithi === 'tithi5' ? 'translate3d(0px, -66px, 0px)' :
-                    isTithi === 'tithi6' ? 'translate3d(0px, -110px, 0px)' :
-                    isTithi === 'tithi7' ? 'translate3d(0px, -154px, 0px)' :
-                    isTithi === 'tithi8' ? 'translate3d(0px, -198px, 0px)' :
-                    isTithi === 'tithi9' ? 'translate3d(0px, -242px, 0px)' :
-                    isTithi === 'tithi10' ? 'translate3d(0px, -286px, 0px)' :
-                    isTithi === 'tithi11' ? 'translate3d(0px, -330px, 0px)' :
-                    isTithi === 'tithi12' ? 'translate3d(0px, -374px, 0px)' :
-                    isTithi === 'tithi13' ? 'translate3d(0px, -418px, 0px)' :
-                    isTithi === 'tithi14' ? 'translate3d(0px, -462px, 0px)' :
-                    isTithi === 'tithi15' ? 'translate3d(0px, -506px, 0px)' :
-                    isTithi === 'tithi16' ? 'translate3d(0px, -550px, 0px)' :
-                    isTithi === 'tithi17' ? 'translate3d(0px, -594px, 0px)' :
-                    isTithi === 'tithi18' ? 'translate3d(0px, -638px, 0px)' :
-                    isTithi === 'tithi19' ? 'translate3d(0px, -682px, 0px)' :
-                    isTithi === 'tithi20' ? 'translate3d(0px, -726px, 0px)' :
-                    isTithi === 'tithi21' ? 'translate3d(0px, -770px, 0px)' :
-                    isTithi === 'tithi22' ? 'translate3d(0px, -814px, 0px)' :
-                    isTithi === 'tithi23' ? 'translate3d(0px, -858px, 0px)' :
-                    isTithi === 'tithi24' ? 'translate3d(0px, -902px, 0px)' :
-                    isTithi === 'tithi25' ? 'translate3d(0px, -946px, 0px)' :
-                    isTithi === 'tithi26' ? 'translate3d(0px, -990px, 0px)' :
-                    isTithi === 'tithi27' ? 'translate3d(0px, -1034px, 0px)' :
-                    isTithi === 'tithi28' ? 'translate3d(0px, -1078px, 0px)' :
-                    isTithi === 'tithi29' ? 'translate3d(0px, -1122px, 0px)' :
-                    isTithi === 'tithi30' ? 'translate3d(0px, -1166px, 0px)' :
-                    isTithi === 'tithi31' ? 'translate3d(0px, -12100px, 0px)' :
+            transform: isDate  ==='date1' ? 'translate3d(0px, 110, 0px)':
+                    isDate  ==='date2' ? 'translate3d(0px, 66px, 0px)':
+                    isDate === 'date3' ? 'translate3d(0px, 22px, 0px)' :
+                    isDate === 'date4' ? 'translate3d(0px, -22px, 0px)' :
+                    isDate === 'date5' ? 'translate3d(0px, -66px, 0px)' :
+                    isDate === 'date6' ? 'translate3d(0px, -110px, 0px)' :
+                    isDate === 'date7' ? 'translate3d(0px, -154px, 0px)' :
+                    isDate === 'date8' ? 'translate3d(0px, -198px, 0px)' :
+                    isDate === 'date9' ? 'translate3d(0px, -242px, 0px)' :
+                    isDate === 'date10' ? 'translate3d(0px, -286px, 0px)' :
+                    isDate === 'date11' ? 'translate3d(0px, -330px, 0px)' :
+                    isDate === 'date12' ? 'translate3d(0px, -374px, 0px)' :
+                    isDate === 'date13' ? 'translate3d(0px, -418px, 0px)' :
+                    isDate === 'date14' ? 'translate3d(0px, -462px, 0px)' :
+                    isDate === 'date15' ? 'translate3d(0px, -506px, 0px)' :
+                    isDate === 'date16' ? 'translate3d(0px, -550px, 0px)' :
+                    isDate === 'date17' ? 'translate3d(0px, -594px, 0px)' :
+                    isDate === 'date18' ? 'translate3d(0px, -638px, 0px)' :
+                    isDate === 'date19' ? 'translate3d(0px, -682px, 0px)' :
+                    isDate === 'date20' ? 'translate3d(0px, -726px, 0px)' :
+                    isDate === 'date21' ? 'translate3d(0px, -770px, 0px)' :
+                    isDate === 'date22' ? 'translate3d(0px, -814px, 0px)' :
+                    isDate === 'date23' ? 'translate3d(0px, -858px, 0px)' :
+                    isDate === 'date24' ? 'translate3d(0px, -902px, 0px)' :
+                    isDate === 'date25' ? 'translate3d(0px, -946px, 0px)' :
+                    isDate === 'date26' ? 'translate3d(0px, -990px, 0px)' :
+                    isDate === 'date27' ? 'translate3d(0px, -1034px, 0px)' :
+                    isDate === 'date28' ? 'translate3d(0px, -1078px, 0px)' :
+                    isDate === 'date29' ? 'translate3d(0px, -1122px, 0px)' :
+                    isDate === 'date30' ? 'translate3d(0px, -1166px, 0px)' :
+                    isDate === 'date31' ? 'translate3d(0px, -12100px, 0px)' :
             '',
             transitionDuration: '0ms',
             transitionProperty: 'none',
@@ -10036,7 +10036,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi1" onClick={()=>tithi('tithi1')}
+            className="van-picker-column__item" id="date1" onClick={()=>date('date1')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">01</div>
@@ -10044,7 +10044,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi2" onClick={()=>tithi('tithi2')}
+            className="van-picker-column__item" id="date2" onClick={()=>date('date2')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">02</div>
@@ -10052,7 +10052,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi3" onClick={()=>tithi('tithi3')}
+            className="van-picker-column__item" id="date3" onClick={()=>date('date3')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">03</div>
@@ -10060,7 +10060,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi4" onClick={()=>tithi('tithi4')}
+            className="van-picker-column__item" id="date4" onClick={()=>date('date4')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">04</div>
@@ -10068,7 +10068,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi5" onClick={()=>tithi('tithi5')}
+            className="van-picker-column__item" id="date5" onClick={()=>date('date5')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">05</div>
@@ -10076,7 +10076,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi6" onClick={()=>tithi('tithi6')}
+            className="van-picker-column__item" id="date6" onClick={()=>date('date6')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">06</div>
@@ -10084,7 +10084,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi7" onClick={()=>tithi('tithi7')}
+            className="van-picker-column__item" id="date7" onClick={()=>date('date7')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">07</div>
@@ -10092,7 +10092,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi8" onClick={()=>tithi('tithi8')}
+            className="van-picker-column__item" id="date8" onClick={()=>date('date8')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">08</div>
@@ -10100,7 +10100,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi9" onClick={()=>tithi('tithi9')}
+            className="van-picker-column__item" id="date9" onClick={()=>date('date9')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">09</div>
@@ -10108,7 +10108,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi10" onClick={()=>tithi('tithi10')}
+            className="van-picker-column__item" id="date10" onClick={()=>date('date10')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">10</div>
@@ -10116,7 +10116,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi11" onClick={()=>tithi('tithi11')}
+            className="van-picker-column__item" id="date11" onClick={()=>date('date11')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">11</div>
@@ -10124,7 +10124,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi12" onClick={()=>tithi('tithi12')}
+            className="van-picker-column__item" id="date12" onClick={()=>date('date12')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">12</div>
@@ -10132,7 +10132,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi13" onClick={()=>tithi('tithi13')}
+            className="van-picker-column__item" id="date13" onClick={()=>date('date13')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">13</div>
@@ -10140,7 +10140,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi14" onClick={()=>tithi('tithi14')}
+            className="van-picker-column__item" id="date14" onClick={()=>date('date14')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">14</div>
@@ -10148,7 +10148,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi15" onClick={()=>tithi('tithi15')}
+            className="van-picker-column__item" id="date15" onClick={()=>date('date15')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">15</div>
@@ -10156,7 +10156,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi16" onClick={()=>tithi('tithi16')}
+            className="van-picker-column__item" id="date16" onClick={()=>date('date16')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">16</div>
@@ -10164,7 +10164,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi17" onClick={()=>tithi('tithi17')}
+            className="van-picker-column__item" id="date17" onClick={()=>date('date17')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">17</div>
@@ -10172,7 +10172,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi18" onClick={()=>tithi('tithi18')}
+            className="van-picker-column__item" id="date18" onClick={()=>date('date18')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">18</div>
@@ -10180,7 +10180,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi19" onClick={()=>tithi('tithi19')}
+            className="van-picker-column__item" id="date19" onClick={()=>date('date19')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">19</div>
@@ -10188,7 +10188,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi20" onClick={()=>tithi('tithi20')}
+            className="van-picker-column__item" id="date20" onClick={()=>date('date20')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">20</div>
@@ -10196,7 +10196,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi21" onClick={()=>tithi('tithi21')}
+            className="van-picker-column__item" id="date21" onClick={()=>date('date21')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">21</div>
@@ -10204,7 +10204,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi22" onClick={()=>tithi('tithi22')}
+            className="van-picker-column__item" id="date22" onClick={()=>date('date22')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">22</div>
@@ -10212,7 +10212,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi23" onClick={()=>tithi('tithi23')}
+            className="van-picker-column__item" id="date23" onClick={()=>date('date23')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">23</div>
@@ -10220,7 +10220,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi24" onClick={()=>tithi('tithi24')}
+            className="van-picker-column__item" id="date24" onClick={()=>date('date24')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">24</div>
@@ -10228,7 +10228,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi25" onClick={()=>tithi('tithi25')}
+            className="van-picker-column__item" id="date25" onClick={()=>date('date25')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">25</div>
@@ -10236,7 +10236,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi26" onClick={()=>tithi('tithi26')}
+            className="van-picker-column__item" id="date26" onClick={()=>date('date26')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">26</div>
@@ -10244,7 +10244,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="tithi27" onClick={()=>tithi('tithi27')}
+            className="van-picker-column__item" id="date27" onClick={()=>date('date27')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">27</div>
@@ -10252,7 +10252,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected"  id="tithi28" onClick={()=>tithi('tithi28')}
+            className="van-picker-column__item van-picker-column__item--selected"  id="date28" onClick={()=>date('date28')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">28</div>
@@ -10260,7 +10260,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected"  id="tithi28" onClick={()=>tithi('tithi28')}
+            className="van-picker-column__item van-picker-column__item--selected"  id="date28" onClick={()=>date('date28')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">29</div>
@@ -10268,7 +10268,7 @@ export default function TeamReport(){
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected"  id="tithi28" onClick={()=>tithi('tithi28')}
+            className="van-picker-column__item van-picker-column__item--selected"  id="date28" onClick={()=>date('date28')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">30</div>

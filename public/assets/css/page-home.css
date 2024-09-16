@@ -6264,7 +6264,7 @@ html:lang(ar) .Wallet__C[data-v-7dd1adab]:before {
     color: var(--text_color_L4);
     font-size: .4rem;
     text-align: center;
-    background: var(--main_gradient-color)
+    background: var(--main_gradient-color2)
 }
 
 .TimeLeft__C-PreSale-body[data-v-0bba67ea] {
@@ -6274,6 +6274,9 @@ html:lang(ar) .Wallet__C[data-v-7dd1adab]:before {
     padding: .26667rem;
     font-size: .32rem;
     line-height: .8rem
+}
+.TimeLeft__C-PreSale-body[data-v-0bba67ea]::-webkit-scrollbar {
+    display: none;
 }
 
 .TimeLeft__C-PreSale-body[data-v-0bba67ea] p {
@@ -6299,7 +6302,7 @@ html:lang(ar) .Wallet__C[data-v-7dd1adab]:before {
 
 .TimeLeft__C-PreSale-foot-btn[data-v-0bba67ea] {
     width: 60%;
-    background: var(--main_gradient-color);
+    background: var(--main_gradient-color2);
     border-radius: .53333rem;
     height: .93333rem;
     line-height: .93333rem;

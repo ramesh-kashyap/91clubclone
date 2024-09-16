@@ -10,7 +10,7 @@ export default function WithdrawHistory() {
   const [error, setError] = useState(null);
   const [isTire, setIsTire] = useState('tire1');
   const [isSan ,setIsSan] =useState('san3');
-  const [isMahina, setIsMahina] =useState('mahina8');
+  const [isMonth, setIsMonth] =useState('month8');
 
 
   const fetchWithdrawHistory= async () => {
@@ -61,8 +61,8 @@ export default function WithdrawHistory() {
     setIsSan(sanId)
   }
 
-  const mahina = (mahinaId)=>{
-    setIsMahina(mahinaId)
+  const month = (monthId)=>{
+    setIsMonth(monthId)
   }
 
 
@@ -588,14 +588,14 @@ export default function WithdrawHistory() {
         <ul
           className="van-picker-column__wrapper"
           style={{
-            transform: isMahina ==='mahina1' ? 'translate3d(0px, 110px, 0px)':
-            isMahina ==='mahina2' ? 'translate3d(0px, 66px, 0px)':
-            isMahina ==='mahina3' ? 'translate3d(0px, 22px, 0px)':
-            isMahina ==='mahina4' ? 'translate3d(0px, -22px, 0px)':
-            isMahina ==='mahina5' ? 'translate3d(0px, -66px, 0px)':
-            isMahina ==='mahina6' ? 'translate3d(0px, -110px, 0px)':
-            isMahina ==='mahina7' ? 'translate3d(0px, -154px, 0px)':
-            isMahina ==='mahina8' ? 'translate3d(0px, -198px, 0px)':
+            transform: isMonth ==='month1' ? 'translate3d(0px, 110px, 0px)':
+            isMonth ==='month2' ? 'translate3d(0px, 66px, 0px)':
+            isMonth ==='month3' ? 'translate3d(0px, 22px, 0px)':
+            isMonth ==='month4' ? 'translate3d(0px, -22px, 0px)':
+            isMonth ==='month5' ? 'translate3d(0px, -66px, 0px)':
+            isMonth ==='month6' ? 'translate3d(0px, -110px, 0px)':
+            isMonth ==='month7' ? 'translate3d(0px, -154px, 0px)':
+            isMonth ==='month8' ? 'translate3d(0px, -198px, 0px)':
             '',
             transitionDuration: '0ms',
             transitionProperty: 'none',
@@ -604,7 +604,7 @@ export default function WithdrawHistory() {
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item" id="mahina1" onClick={()=>mahina('mahina1')}
+            className="van-picker-column__item" id="month1" onClick={()=>month('month1')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">01</div>
@@ -612,7 +612,7 @@ export default function WithdrawHistory() {
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"  id="mahina2" onClick={()=>mahina('mahina2')}
+            className="van-picker-column__item"  id="month2" onClick={()=>month('month2')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">02</div>
@@ -620,7 +620,7 @@ export default function WithdrawHistory() {
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"  id="mahina3" onClick={()=>mahina('mahina3')}
+            className="van-picker-column__item"  id="month3" onClick={()=>month('month3')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">03</div>
@@ -628,7 +628,7 @@ export default function WithdrawHistory() {
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"  id="mahina4" onClick={()=>mahina('mahina4')}
+            className="van-picker-column__item"  id="month4" onClick={()=>month('month4')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">04</div>
@@ -636,7 +636,7 @@ export default function WithdrawHistory() {
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"  id="mahina5" onClick={()=>mahina('mahina5')}
+            className="van-picker-column__item"  id="month5" onClick={()=>month('month5')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">05</div>
@@ -644,7 +644,7 @@ export default function WithdrawHistory() {
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"  id="mahina6" onClick={()=>mahina('mahina6')}
+            className="van-picker-column__item"  id="month6" onClick={()=>month('month6')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">06</div>
@@ -652,7 +652,7 @@ export default function WithdrawHistory() {
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item"  id="mahina7" onClick={()=>mahina('mahina7')}
+            className="van-picker-column__item"  id="month7" onClick={()=>month('month7')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">07</div>
@@ -660,7 +660,7 @@ export default function WithdrawHistory() {
           <li
             role="button"
             tabindex="0"
-            className="van-picker-column__item van-picker-column__item--selected"  id="mahina8" onClick={()=>mahina('mahina8')}
+            className="van-picker-column__item van-picker-column__item--selected"  id="month8" onClick={()=>month('month8')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">08</div>
