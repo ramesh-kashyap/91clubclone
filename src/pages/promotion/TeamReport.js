@@ -1,52 +1,66 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
+import { useToast } from '../../components/ToastContext'; 
 
 
+const formatDate = (timestamp) => {
+  const date = new Date(Number(timestamp));
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+};
 export default function TeamReport(){
   const navigate =  useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [isSecondVisible, setIsSecondVisible] = useState(false);
   const [isTire, setIsTire] = useState('tire1');
-  const [isSan ,setIsSan] =useState('san3');
+  const [isTier, setIsTier] = useState('All');
+  const [isYear ,setIsYear] =useState('year3');
   const [isMonth, setIsMonth] =useState('month8');
-  const [isDate, setIsDate] =useState('date1')
+  const [isDate, setIsDate] =useState('Date2')
 
   const [teamReport, setTeamReport] = useState([]);
   const [filteredReports, setFilteredReports] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const { showToast } = useToast();
+
 
   const [error, setError] = useState(null);
 
 
-    const handleToggle = () => {
-      setIsVisible(!isVisible);
-    };
-  
-    const handleCancel = () => {
-      setIsVisible(false);
-    };
-    const handleSecondToggle = () => {
-      setIsSecondVisible(!isSecondVisible);
-    };
-    const handleSecondCancel = () => {
-      setIsSecondVisible(false);
-    };
+  const handleToggle = () => {
+    setIsVisible(!isVisible);
+  };
 
-    const tire = (tireId)=>{
-      setIsTire(tireId);
-    }
-    const san = (sanId) =>{
-      setIsSan(sanId)
-    }
- 
-    const month = (monthId)=>{
-      setIsMonth(monthId)
-    }
-    const date = (dateId)=>{
-      setIsDate(dateId)
-    }
+  const handleCancel = () => {
+    setIsVisible(false);
+  };
+  const handleSecondToggle = () => {
+    setIsSecondVisible(!isSecondVisible);
+  };
+  const handleSecondCancel = () => {
+    setIsSecondVisible(false);
+  };
 
+  const tier = (tierId)=>{
+    setIsTier(tierId);
+  }
+  const year = (yearId) =>{
+    setIsYear(yearId)
+  }
+
+  const month = (monthId)=>{
+    setIsMonth(monthId)
+  }
+
+  const Date = (DateId)=>{
+    setIsDate(DateId)
+  }
 
     
   useEffect(() => {
@@ -76,6 +90,22 @@ export default function TeamReport(){
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
+
+
+
+  const fetchPromotionInfo = async (code) => {
+    try {
+      await navigator.clipboard.writeText(code); // Use the passed code
+      showToast('Code copied successfully', 'success');
+    } catch (error) {
+      console.error('Error fetching promotion info:', error);
+      showToast('Error copying the code', 'error');
+    }
+  };
+
+
+
+
 
     return(
   <div style={{fontSize: '12px'}}>
@@ -9684,7 +9714,7 @@ export default function TeamReport(){
       <div data-v-10d1559c="" className="TeamReport__C-body-item">
         <div data-v-10d1559c="" className="TeamReport__C-body-item-head">
           <div data-v-10d1559c="" className="title">UID : {history.id_user}</div>
-          <svg data-v-10d1559c="" className="svg-icon icon-copy">
+          <svg data-v-10d1559c="" className="svg-icon icon-copy"  onClick={() => fetchPromotionInfo(history.id_user)} >
             <use xlinkHref="#icon-copy"></use>
           </svg>
         </div>
