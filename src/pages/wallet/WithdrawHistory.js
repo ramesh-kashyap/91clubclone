@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
+// import DepositHistory from './DepositHistory';
 
 
 const formatDate = (timestamp) => {
@@ -16,15 +17,32 @@ const formatDate = (timestamp) => {
 
 export default function WithdrawHistory() {
 
-  const [withdrawHistory, setWithdrawHistory] = useState([]);
 
   const [isVisible, setIsVisible] = useState(false);
   const [isSecondVisible, setIsSecondVisible] = useState(false);
   const [error, setError] = useState(null);
+  const [isBank, setIsBank] = useState(null);
   const [isTier, setIsTier] = useState('All');
   const [isYear ,setIsYear] =useState('year3');
   const [isMonth, setIsMonth] =useState('month8');
-  const [isDate, setIsDate] =useState('Date2')
+  const [isDate, setIsDate] =useState('Date2');
+  const [filteredHistory, setFilteredHistory] =useState([]);
+  const [withdrawHistory, setWithdrawHistory] = useState([]);
+
+  const bank = (bankId)=>{
+    setIsBank(bankId);
+
+
+    let filtered = withdrawHistory;
+    if(bankId ==='bank2'){
+      filtered = withdrawHistory.filter((history)=>history.walletType === "BankCard");
+    }else if (bankId === 'bank3') {
+      filtered = withdrawHistory.filter((history) => history.walletType !== "BankCard");
+    } 
+  
+
+    setFilteredHistory(filtered);
+  }
 
 
   const fetchWithdrawHistory= async () => {
@@ -35,6 +53,7 @@ export default function WithdrawHistory() {
       console.log(data.datas);
 
       setWithdrawHistory(data.datas); // Assuming data.data contains the user's information
+      setFilteredHistory(data.datas);
 
 
     } catch (err) {
@@ -47,11 +66,23 @@ export default function WithdrawHistory() {
   useEffect(() => {
     fetchWithdrawHistory();  
  
-
    
   }, []);
 
+  const handleConfirm =()=>{
+  let filtered = withdrawHistory ;
 
+  if (isTier === 'Pending'){
+    filtered = withdrawHistory.filter((history)=>history.status === 0);
+  }else if(isTier === 'Success'){
+    filtered = withdrawHistory.filter((history)=>history.status === 1);
+  }else if(isTier === 'Failed'){
+    filtered = withdrawHistory.filter((history)=>history.status === 2);
+  }
+
+  setFilteredHistory(filtered);
+  setIsVisible(false);
+  }
 
 
   const handleToggle = () => {
@@ -287,13 +318,13 @@ export default function WithdrawHistory() {
                 <div
                   id="van-tabs-1-0"
                   role="tab"
-                  className="van-tab van-tab--card van-tab--active"
+                  className={`van-tab van-tab--card ${isBank ==='bank1' ? 'van-tab--active':''}`}
                   tabIndex="0"
                   aria-selected="true"
                   aria-controls="van-tab-2"
                 >
                   <span className="van-tab__text van-tab__text--ellipsis"
-                    ><div data-v-e4760c44="" className="tabDiv">
+                    ><div data-v-e4760c44="" className="tabDiv"  id="bank1" onClick={()=>bank('bank1')}>
                       <svg data-v-e4760c44="" className="svg-icon icon-all">
                         <use href="#icon-all"></use>
                       </svg>
@@ -304,13 +335,13 @@ export default function WithdrawHistory() {
                 <div
                   id="van-tabs-1-1"
                   role="tab"
-                  className="van-tab van-tab--card"
+                  className={`van-tab van-tab--card ${isBank ==='bank2' ? 'van-tab--active':''}`}
                   tabIndex="-1"
                   aria-selected="false"
                   aria-controls="van-tab-3"
                 >
                   <span className="van-tab__text van-tab__text--ellipsis"
-                    ><div data-v-e4760c44="" className="tabDiv">
+                    ><div data-v-e4760c44="" className="tabDiv"  id="bank2" onClick={()=>bank('bank2')}>
                       <img
                         data-v-e4760c44=""
                         src="/assets/png/payNameIcon_20240821190505sggk.png"
@@ -322,13 +353,13 @@ export default function WithdrawHistory() {
                 <div
                   id="van-tabs-1-2"
                   role="tab"
-                  className="van-tab van-tab--card"
+                  className={`van-tab van-tab--card ${isBank ==='bank3' ? 'van-tab--active':''}`}
                   tabIndex="-1"
                   aria-selected="false"
                   aria-controls="van-tab-4"
                 >
                   <span className="van-tab__text van-tab__text--ellipsis"
-                    ><div data-v-e4760c44="" className="tabDiv">
+                    ><div data-v-e4760c44="" className="tabDiv" id="bank3" onClick={()=>bank('bank3')}>
                       <img
                         data-v-e4760c44=""
                         src="/assets/png/usdt.png"
@@ -355,7 +386,7 @@ export default function WithdrawHistory() {
                   <span
                     data-v-fa757a88=""
                     className="ar-searchbar__selector-default"
-                    >All</span
+                    >{isTier}</span
                   ><i
                     data-v-fa757a88=""
                     className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleToggle}
@@ -383,10 +414,10 @@ export default function WithdrawHistory() {
         >
            <div data-v-e4760c44="" className="rechargeh__container-content">
             
-            {withdrawHistory.length === 0 ? (
+            {filteredHistory.length === 0 ? (
           <div>No Data</div>
         ) : (
-          withdrawHistory.map((history, index) => (
+          filteredHistory.map((history, index) => (
   
             
             <div key={index} data-v-e4760c44="" className="rechargeh__container-content__item">
@@ -442,10 +473,10 @@ export default function WithdrawHistory() {
             </div>
             
         
-            <div className="van-overlay" role="button" tabindex="0" data-v-10d1559c="" style={{zIndex: '2001', display: isVisible ? 'block' : 'none'}}></div>
+            <div className="van-overlay" role="button" tabIndex="0" data-v-10d1559c="" style={{zIndex: '2001', display: isVisible ? 'block' : 'none'}}></div>
         <div
   role="dialog"
-  tabindex="0"
+  tabIndex="0"
   className="van-popup van-popup--round van-popup--bottom"
   data-v-10d1559c=""
   style={{zIndex: '2001', display: isVisible ? 'block' : 'none'}}
@@ -457,6 +488,7 @@ export default function WithdrawHistory() {
       ><button
         type="button"
         className="van-picker__confirm van-haptics-feedback"
+        onClick={handleConfirm}
       >
         Confirm
       </button>
@@ -479,7 +511,7 @@ export default function WithdrawHistory() {
         >
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item van-picker-column__item--selected" id="All" onClick={()=>tier('All')}
             style={{height: '44px'}} 
           >
@@ -487,7 +519,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item" id="Pending" onClick={()=>tier('Pending')}
             style={{height: '44px'}}
           >
@@ -495,7 +527,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item" id="Success" onClick={()=>tier('Success')}
             style={{height: '44px'}}
           >
@@ -503,7 +535,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item" id="Failed" onClick={()=>tier('Failed')}
             style={{height: '44px'}}
           >
@@ -522,10 +554,10 @@ export default function WithdrawHistory() {
   </div>
   
 </div>
-<div className="van-overlay" role="button" tabindex="0" data-v-10d1559c="" style={{zIndex: '2002', display: isSecondVisible ? 'block' : 'none'}}></div>
+<div className="van-overlay" role="button" tabIndex="0" data-v-10d1559c="" style={{zIndex: '2002', display: isSecondVisible ? 'block' : 'none'}}></div>
 <div
   role="dialog"
-  tabindex="0"
+  tabIndex="0"
   className="van-popup van-popup--round van-popup--bottom"
   data-v-10d1559c=""
   style={{zIndex: '2002', display: isSecondVisible ? 'block' : 'none'}}
@@ -552,7 +584,7 @@ export default function WithdrawHistory() {
         >
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item" id="year1" onClick={()=>year('year1')}
             style={{height: '44px'}}
           >
@@ -560,7 +592,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item" id="year2" onClick={()=>year('year2')}
             style={{height: '44px'}}
           >
@@ -568,7 +600,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item van-picker-column__item--selected" id="year3" onClick={()=>year('year3')}
             style={{height: '44px'}}
           >
@@ -599,7 +631,7 @@ export default function WithdrawHistory() {
         >
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item" id="month1" onClick={()=>month('month1')}
             style={{height: '44px'}}
           >
@@ -607,7 +639,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item"  id="month2" onClick={()=>month('month2')}
             style={{height: '44px'}}
           >
@@ -615,7 +647,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item"  id="month3" onClick={()=>month('month3')}
             style={{height: '44px'}}
           >
@@ -623,7 +655,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item"  id="month4" onClick={()=>month('month4')}
             style={{height: '44px'}}
           >
@@ -631,7 +663,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item"  id="month5" onClick={()=>month('month5')}
             style={{height: '44px'}}
           >
@@ -639,7 +671,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item"  id="month6" onClick={()=>month('month6')}
             style={{height: '44px'}}
           >
@@ -647,7 +679,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item"  id="month7" onClick={()=>month('month7')}
             style={{height: '44px'}}
           >
@@ -655,7 +687,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item van-picker-column__item--selected"  id="month8" onClick={()=>month('month8')}
             style={{height: '44px'}}
           >
@@ -663,7 +695,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item"  id="month9" onClick={()=>month('month9')}
             style={{height: '44px'}}
           >
@@ -671,7 +703,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item"  id="month10" onClick={()=>month('month10')}
             style={{height: '44px'}}
           >
@@ -679,7 +711,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item"  id="month11" onClick={()=>month('month11')}
             style={{height: '44px'}}
           >
@@ -687,7 +719,7 @@ export default function WithdrawHistory() {
           </li>
           <li
             role="button"
-            tabindex="0"
+            tabIndex="0"
             className="van-picker-column__item"  id="month12" onClick={()=>month('month12')}
             style={{height: '44px'}}
           >
@@ -737,7 +769,7 @@ export default function WithdrawHistory() {
                 >
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date1" onClick={()=>Date('Date1')}
                     style={{height: '44px'}}
                   >
@@ -745,7 +777,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date2" onClick={()=>Date('Date2')}
                     style={{height: '44px'}}
                   >
@@ -753,7 +785,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date3" onClick={()=>Date('Date3')}
                     style={{height: '44px'}}
                   >
@@ -761,7 +793,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date4" onClick={()=>Date('Date4')}
                     style={{height: '44px'}}
                   >
@@ -769,7 +801,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date5" onClick={()=>Date('Date5')}
                     style={{height: '44px'}}
                   >
@@ -777,7 +809,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date6" onClick={()=>Date('Date6')}
                     style={{height: '44px'}}
                   >
@@ -785,7 +817,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date7" onClick={()=>Date('Date7')}
                     style={{height: '44px'}}
                   >
@@ -793,7 +825,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date8" onClick={()=>Date('Date8')}
                     style={{height: '44px'}}
                   >
@@ -801,7 +833,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date9" onClick={()=>Date('Date9')}
                     style={{height: '44px'}}
                   >
@@ -809,7 +841,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date10" onClick={()=>Date('Date10')}
                     style={{height: '44px'}}
                   >
@@ -817,7 +849,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date11" onClick={()=>Date('Date11')}
                     style={{height: '44px'}}
                   >
@@ -825,7 +857,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date12" onClick={()=>Date('Date12')}
                     style={{height: '44px'}}
                   >
@@ -833,7 +865,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date13" onClick={()=>Date('Date13')}
                     style={{height: '44px'}}
                   >
@@ -841,7 +873,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date14" onClick={()=>Date('Date14')}
                     style={{height: '44px'}}
                   >
@@ -849,7 +881,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date15" onClick={()=>Date('Date15')}
                     style={{height: '44px'}}
                   >
@@ -857,7 +889,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date16" onClick={()=>Date('Date16')}
                     style={{height: '44px'}}
                   >
@@ -865,7 +897,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date17" onClick={()=>Date('Date17')}
                     style={{height: '44px'}}
                   >
@@ -873,7 +905,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date18" onClick={()=>Date('Date18')}
                     style={{height: '44px'}}
                   >
@@ -881,7 +913,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date19" onClick={()=>Date('Date19')}
                     style={{height: '44px'}}
                   >
@@ -889,7 +921,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date20" onClick={()=>Date('Date20')}
                     style={{height: '44px'}}
                   >
@@ -897,7 +929,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date21" onClick={()=>Date('Date21')}
                     style={{height: '44px'}}
                   >
@@ -905,7 +937,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date22" onClick={()=>Date('Date22')}
                     style={{height: '44px'}}
                   >
@@ -913,7 +945,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date23" onClick={()=>Date('Date23')}
                     style={{height: '44px'}}
                   >
@@ -921,7 +953,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date24" onClick={()=>Date('Date24')}
                     style={{height: '44px'}}
                   >
@@ -929,7 +961,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date25" onClick={()=>Date('Date25')}
                     style={{height: '44px'}}
                   >
@@ -937,7 +969,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date26" onClick={()=>Date('Date26')}
                     style={{height: '44px'}}
                   >
@@ -945,7 +977,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date27" onClick={()=>Date('Date27')}
                     style={{height: '44px'}}
                   >
@@ -953,7 +985,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date28" onClick={()=>Date('Date28')}
                     style={{height: '44px'}}
                   >
@@ -961,7 +993,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date29" onClick={()=>Date('Date29')}
                     style={{height: '44px'}}
                   >
@@ -969,7 +1001,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item" id="Date30" onClick={()=>Date('Date30')}
                     style={{height: '44px'}}
                   >
@@ -977,7 +1009,7 @@ export default function WithdrawHistory() {
                   </li>
                   <li
                     role="button"
-                    tabindex="0"
+                    tabIndex="0"
                     className="van-picker-column__item van-picker-column__item--selected" id="Date31" onClick={()=>Date('Date31')}
                     style={{height: '44px'}}
                   >
