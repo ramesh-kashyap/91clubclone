@@ -9836,11 +9836,11 @@ export default function Account() {
           <div data-v-a30d19b1="" className="settingPanel__container-items">
             <div
               data-v-a30d19b1=""
-              className="settingPanel__container-items__item ar-1px-b"
+              className="settingPanel__container-items__item ar-1px-b" onClick={()=>navigate('/home/Messages')}
             >
               <div
                 data-v-a30d19b1=""
-                className="settingPanel__container-items__title" onClick={()=>navigate('/home/Messages')}
+                className="settingPanel__container-items__title"
               >
                 <svg data-v-a30d19b1="" className="svg-icon icon-notification">
                   <use href="#icon-notification"></use></svg
@@ -10078,7 +10078,7 @@ export default function Account() {
               </div>
               <div
                 data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
+                className="serviceCenter__container-items__item" onClick={()=>navigate('/home/Notification')}
               >
                 <svg
                   data-v-159bf81f=""
@@ -10105,7 +10105,7 @@ export default function Account() {
               </div>
               <div
                 data-v-159bf81f=""
-                className="serviceCenter__container-items__item"
+                className="serviceCenter__container-items__item" onClick={()=>navigate('/main/Guide')}
               >
                 <svg data-v-159bf81f="" className="svg-icon icon-guide">
                   <use href="#icon-guide"></use></svg

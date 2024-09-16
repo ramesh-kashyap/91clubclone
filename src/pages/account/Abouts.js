@@ -9525,8 +9525,8 @@ export default function Abouts() {
           </div>
         </div>
         <div data-v-6616fdfe="" className="about-container-content">
-          <div data-v-6616fdfe="" className="about-container-content-item ar-1px-b">
-            <div data-v-6616fdfe="" className="about-container-content-item-title" onClick={()=>navigate('/main/AboutDetail')}>
+          <div data-v-6616fdfe="" className="about-container-content-item ar-1px-b"  onClick={()=>navigate('/main/AboutDetail')}>
+            <div data-v-6616fdfe="" className="about-container-content-item-title">
               <svg data-v-6616fdfe="" className="svg-icon icon-privacyIcon">
                 <use href="#icon-privacyIcon"></use></svg
               >
@@ -9542,14 +9542,13 @@ export default function Abouts() {
               ></i
             >
           </div>
-          <div data-v-6616fdfe="" className="about-container-content-item ar-1px-b">
+          <div data-v-6616fdfe="" className="about-container-content-item ar-1px-b" onClick={()=>navigate('/main/RiskDetail')}>
             <div data-v-6616fdfe="" className="about-container-content-item-title">
               <svg data-v-6616fdfe="" className="svg-icon icon-riskProtocal">
                 <use href="#icon-riskProtocal"></use></svg
-              >
-              <a href="/account/riskAgreement.html"><span
+              ><span
                 data-v-6616fdfe=""
-                >Risk Disclosure Agreement</span></a>
+                >Risk Disclosure Agreement</span>
 
             </div>
             <i

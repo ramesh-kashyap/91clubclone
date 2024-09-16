@@ -9,7 +9,9 @@ export default function BetRecords() {
   const [selectSection, isSelectSection] =useState();
   const [betRecords, setBetRecords] = useState([]);
   const [error, setError] = useState(null);
-
+  const [isSan ,setIsSan] =useState('san3');
+  const [isMahina, setIsMahina] =useState('mahina8');
+  const [isTithi, setIsTithi] =useState('tithi1')
 
 
   const fetchBetRecords= async () => {
@@ -79,6 +81,18 @@ export default function BetRecords() {
     const handleSecondCancel = () => {
       setIsSecondVisible(false);
     };
+
+
+    const san = (sanId) =>{
+      setIsSan(sanId)
+    }
+ 
+    const mahina = (mahinaId)=>{
+      setIsMahina(mahinaId)
+    }
+    const tithi = (tithiId)=>{
+      setIsTithi(tithiId)
+    }
   return (
     <div style={{fontSize: '12px'}}>
     <svg
@@ -9820,16 +9834,15 @@ export default function BetRecords() {
                             <div className="van-picker-column">
                               <ul
                                 className="van-picker-column__wrapper"
-                                style={{
-                                  transform: 'translate3d(0px, 22px, 0px)',
-                                  transitionDuration: '0ms',
-                                  transitionProperty: 'none'
-                                }}
+                                style={{ transform: isSan ==='san1' ? 'translate3d(0px, 110px, 0px)':
+                                  isSan ==='san2' ? 'translate3d(0px, 66px, 0px)':
+                                  isSan ==='san3' ? 'translate3d(0px, 22px, 0px)'
+                                  :'', transitionDuration: '0ms', transitionProperty: 'none', }}
                               >
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item"
+                                  className="van-picker-column__item"  id="san1" onClick={()=>san('san1')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">2022</div>
@@ -9837,7 +9850,7 @@ export default function BetRecords() {
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item"
+                                  className="van-picker-column__item" id="san2" onClick={()=>san('san2')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">2023</div>
@@ -9845,7 +9858,7 @@ export default function BetRecords() {
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item van-picker-column__item--selected"
+                                  className="van-picker-column__item van-picker-column__item--selected" id="san3" onClick={()=>san('san3')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">2024</div>
@@ -9856,15 +9869,27 @@ export default function BetRecords() {
                               <ul
                                 className="van-picker-column__wrapper"
                                 style={{
-                                  transform: 'translate3d(0px, -242px, 0px)',
+                                  transform: isMahina ==='mahina1' ? 'translate3d(0px, 110px, 0px)':
+                                  isMahina ==='mahina2' ? 'translate3d(0px, 66px, 0px)':
+                                  isMahina ==='mahina3' ? 'translate3d(0px, 22px, 0px)':
+                                  isMahina ==='mahina4' ? 'translate3d(0px, -22px, 0px)':
+                                  isMahina ==='mahina5' ? 'translate3d(0px, -66px, 0px)':
+                                  isMahina ==='mahina6' ? 'translate3d(0px, -110px, 0px)':
+                                  isMahina ==='mahina7' ? 'translate3d(0px, -154px, 0px)':
+                                  isMahina ==='mahina8' ? 'translate3d(0px, -198px, 0px)':
+                                  isMahina ==='mahina9' ? 'translate3d(0px, -242px, 0px)':
+                                  isMahina ==='mahina10' ? 'translate3d(0px, -286px, 0px)':
+                                  isMahina ==='mahina11' ? 'translate3d(0px, -320px, 0px)':
+                                  isMahina ==='mahina12' ? 'translate3d(0px, -364px, 0px)':
+                                  '',
                                   transitionDuration: '0ms',
-                                  transitionDroperty: 'none'
+                                  transitionProperty: 'none',
                                 }}
                               >
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item"
+                                  className="van-picker-column__item" id="mahina1" onClick={()=>mahina('mahina1')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">01</div>
@@ -9872,7 +9897,7 @@ export default function BetRecords() {
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item"
+                                  className="van-picker-column__item" id="mahina2" onClick={()=>mahina('mahina2')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">02</div>
@@ -9880,7 +9905,7 @@ export default function BetRecords() {
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item"
+                                  className="van-picker-column__item"  id="mahina3" onClick={()=>mahina('mahina3')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">03</div>
@@ -9888,7 +9913,7 @@ export default function BetRecords() {
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item"
+                                  className="van-picker-column__item"  id="mahina4" onClick={()=>mahina('mahina4')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">04</div>
@@ -9896,7 +9921,7 @@ export default function BetRecords() {
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item"
+                                  className="van-picker-column__item" id="mahina5" onClick={()=>mahina('mahina5')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">05</div>
@@ -9904,7 +9929,7 @@ export default function BetRecords() {
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item"
+                                  className="van-picker-column__item" id="mahina6" onClick={()=>mahina('mahina6')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">06</div>
@@ -9912,7 +9937,7 @@ export default function BetRecords() {
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item"
+                                  className="van-picker-column__item" id="mahina7" onClick={()=>mahina('mahina7')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">07</div>
@@ -9920,7 +9945,7 @@ export default function BetRecords() {
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item"
+                                  className="van-picker-column__item" id="mahina8" onClick={()=>mahina('mahina8')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">08</div>
@@ -9928,10 +9953,34 @@ export default function BetRecords() {
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item van-picker-column__item--selected"
+                                  className="van-picker-column__item van-picker-column__item--selected" id="mahina9" onClick={()=>mahina('mahina9')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">09</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="mahina10" onClick={()=>mahina('mahina10')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">10</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="mahina11" onClick={()=>mahina('mahina11')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">10</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="mahina12" onClick={()=>mahina('mahina12')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">10</div>
                                 </li>
                               </ul>
                             </div>
@@ -9939,15 +9988,45 @@ export default function BetRecords() {
                               <ul
                                 className="van-picker-column__wrapper"
                                 style={{
-                                  transform:'translate3d(0px, 66px, 0px)',
+                                  transform: isTithi  ==='tithi1' ? 'translate3d(0px, -1078px, 0px)':
+                                  isTithi  ==='tithi2' ? 'translate3d(0px, 110px, 0px)':
+                                  isTithi  ==='tithi3' ? 'translate3d(0px, 66px, 0px)':
+                                  isTithi  ==='tithi4' ? 'translate3d(0px, 22px, 0px)':
+                                  isTithi  ==='tithi5' ? 'translate3d(0px, -22px, 0px)':
+                                  isTithi  ==='tithi6' ? 'translate3d(0px, -66px, 0px)':
+                                  isTithi  ==='tithi7' ? 'translate3d(0px, -110px, 0px)':
+                                  isTithi  ==='tithi8' ? 'translate3d(0px, -154px, 0px)':
+                                  isTithi  ==='tithi9' ? 'translate3d(0px, -198px, 0px)':
+                                  isTithi  ==='tithi10' ? 'translate3d(0px, -242px, 0px)':
+                                  isTithi  ==='tithi11' ? 'translate3d(0px, -286px, 0px)':
+                                  isTithi  ==='tithi12' ? 'translate3d(0px, -330px, 0px)':
+                                  isTithi  ==='tithi13' ? 'translate3d(0px, -374px, 0px)':
+                                  isTithi  ==='tithi14' ? 'translate3d(0px, -418px, 0px)':
+                                  isTithi  ==='tithi15' ? 'translate3d(0px, -462px, 0px)':
+                                  isTithi  ==='tithi16' ? 'translate3d(0px, -506px, 0px)':
+                                  isTithi  ==='tithi17' ? 'translate3d(0px, -550px, 0px)':
+                                  isTithi  ==='tithi18' ? 'translate3d(0px, -594px, 0px)':
+                                  isTithi  ==='tithi19' ? 'translate3d(0px, -638px, 0px)':
+                                  isTithi  ==='tithi20' ? 'translate3d(0px, -682px, 0px)':
+                                  isTithi  ==='tithi21' ? 'translate3d(0px, -726px, 0px)':
+                                  isTithi  ==='tithi22' ? 'translate3d(0px, -770px, 0px)':
+                                  isTithi  ==='tithi23' ? 'translate3d(0px, -814px, 0px)':
+                                  isTithi  ==='tithi24' ? 'translate3d(0px, -858px, 0px)':
+                                  isTithi  ==='tithi25' ? 'translate3d(0px, -902px, 0px)':
+                                  isTithi  ==='tithi26' ? 'translate3d(0px, -946px, 0px)':
+                                  isTithi  ==='tithi27' ? 'translate3d(0px, -1090px, 0px)':
+                                  isTithi  ==='tithi28' ? 'translate3d(0px, -1134px, 0px)':
+                                  isTithi  ==='tithi29' ? 'translate3d(0px, -1178px, 0px)':
+                                  isTithi  ==='tithi30' ? 'translate3d(0px, -1222px, 0px)':
+                                  '',
                                   transitionDuration: '0ms',
-                                  transitionDroperty: 'none'
+                                  transitionProperty: 'none',
                                 }}
                               >
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item"
+                                  className="van-picker-column__item" id="tithi1" onClick={()=>tithi('tithi1')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">01</div>
@@ -9955,10 +10034,234 @@ export default function BetRecords() {
                                 <li
                                   role="button"
                                   tabIndex="0"
-                                  className="van-picker-column__item van-picker-column__item--selected"
+                                  className="van-picker-column__item van-picker-column__item--selected" id="tithi2" onClick={()=>tithi('tithi2')}
                                   style={{height: '44px'}}
                                 >
                                   <div className="van-ellipsis">02</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi3" onClick={()=>tithi('tithi3')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi4" onClick={()=>tithi('tithi4')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi5" onClick={()=>tithi('tithi5')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi6" onClick={()=>tithi('tithi6')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi7" onClick={()=>tithi('tithi7')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi8" onClick={()=>tithi('tithi8')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi9" onClick={()=>tithi('tithi9')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi10" onClick={()=>tithi('tithi10')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi11" onClick={()=>tithi('tithi11')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi12" onClick={()=>tithi('tithi12')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi13" onClick={()=>tithi('tithi13')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi14" onClick={()=>tithi('tithi14')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi15" onClick={()=>tithi('tithi15')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi16" onClick={()=>tithi('tithi16')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi17" onClick={()=>tithi('tithi17')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi18" onClick={()=>tithi('tithi18')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi19" onClick={()=>tithi('tithi19')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi20" onClick={()=>tithi('tithi20')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi21" onClick={()=>tithi('tithi21')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi22" onClick={()=>tithi('tithi22')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi23" onClick={()=>tithi('tithi23')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi24" onClick={()=>tithi('tithi24')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi25" onClick={()=>tithi('tithi25')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi26" onClick={()=>tithi('tithi26')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi27" onClick={()=>tithi('tithi27')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi28" onClick={()=>tithi('tithi28')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi29" onClick={()=>tithi('tithi29')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
+                                </li>
+                                <li
+                                  role="button"
+                                  tabIndex="0"
+                                  className="van-picker-column__item" id="tithi30" onClick={()=>tithi('tithi30')}
+                                  style={{height: '44px'}}
+                                >
+                                  <div className="van-ellipsis">01</div>
                                 </li>
                               </ul>
                             </div>
@@ -9989,7 +10292,9 @@ export default function BetRecords() {
             id="refresh8ce27a635a33454cac941764efea769a"
           >
               {betRecords.length === 0 ? (
-          <div>No Data</div>
+          <div data-v-61888f52="" className="infiniteScroll__loading">
+          <div data-v-61888f52="">No more</div>
+        </div>
         ) : (
           betRecords.map((history, index) => (
   
@@ -10146,9 +10451,7 @@ export default function BetRecords() {
             </div>
           ))
         )}
-            <div data-v-61888f52="" className="infiniteScroll__loading">
-              <div data-v-61888f52="">No more</div>
-            </div>
+            
           </div>
         </div>
       </div>

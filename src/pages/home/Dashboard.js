@@ -4670,12 +4670,10 @@ export default function Dashboard() {
                         </div>
                         <div data-v-12a80a3e="" className="navbar__content-right">
                             <div data-v-003e4505="" className="content__right">
-                                <div data-v-003e4505="" className="message">
-                                    <a href="/home/notification.html">
+                                <div data-v-003e4505="" className="message" onClick={()=>navigate('/home/Messages')}>
                                         <svg data-v-003e4505="" className="svg-icon icon-notification">
                                             <use href="#icon-notification"></use>
                                         </svg>
-                                    </a>
                                     <div data-v-c10b67fb="" data-v-003e4505="" className="point point-flicker point" style={{display: 'none'}}></div>
                                 </div>
                                 <div className="dropdown">

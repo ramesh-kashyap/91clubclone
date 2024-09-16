@@ -306,7 +306,7 @@ const fetchWithdrawHistory= async () => {
                   Withdraw
                 </div>
               </div>
-              <div data-v-12a80a3e="" className="navbar__content-right">
+              <div data-v-12a80a3e="" className="navbar__content-right" onClick={()=>navigate('/wallet/WithdrawHistory')}>
                 <span data-v-80a607a5="">Withdrawal history</span>
               </div>
             </div>

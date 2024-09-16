@@ -1,9 +1,14 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-export default function CustomerService() {
-  const navigate = useNavigate();
+export default function Message() {
+    const navigate = useNavigate();
   return (
-    <div style={{fontSize: '12px'}}>
+    <div style={{fontSize:  '12px'}}>
+
+
+
+
+
     <svg
       xmlns="http://www.w3.org/2000/svg"
       style={{position: 'absolute', width: '0', height: '0'}}
@@ -1913,7 +1918,7 @@ export default function CustomerService() {
       >
         <mask
           id="mask0_186_36254"
-          style={{maskType: 'alpha'}}
+          style={{MaskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="1"
           y="1"
@@ -2267,7 +2272,7 @@ export default function CustomerService() {
       >
         <mask
           id="mask0_10_170301"
-          style={{maskType: 'alpha'}}
+          style={{MaskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -2544,7 +2549,7 @@ export default function CustomerService() {
         </g>
         <mask
           id="mask0_234_67307"
-          style={{maskType: 'alpha'}}
+          style={{MaskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="8"
           y="3"
@@ -2797,7 +2802,7 @@ export default function CustomerService() {
         ></path>
         <mask
           id="mask0_2094_41589"
-          style={{maskType: 'alpha'}}
+          style={{MaskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="11"
           y="11"
@@ -3615,8 +3620,7 @@ export default function CustomerService() {
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         p-id="7878"
-  
-      >
+            >
         <defs><style type="text/css"></style></defs>
         <path
           d="M941.677063 391.710356c9.337669-14.005992 6.224772-32.68133-6.224772-43.575447-14.005992-10.894118-32.68133-7.78122-43.575447 6.224771-1.556449 1.556449-174.300768 205.426673-379.727441 205.426673-199.200878 0-379.727441-205.426673-381.28389-206.982098-10.894118-12.450567-31.124881-14.005992-43.575448-3.112898-12.450567 10.894118-14.005992 31.124881-3.112897 43.575448 3.112897 4.668323 40.46255 46.687322 99.600439 93.375667l-79.369676 82.48155c-12.450567 12.450567-10.894118 32.68133 1.556449 43.575448 3.112897 6.224772 10.894118 9.337669 18.675338 9.337669 7.78122 0 15.562441-3.112897 21.787213-9.337669l85.594447-88.706321c40.46255 28.013007 88.706321 54.469566 141.619438 73.14388L340.959485 707.631586c-4.668323 17.118889 4.669346 34.237779 21.787213 38.906101h9.337669c14.005992 0 26.456558-9.337669 29.568432-23.343661l32.68133-110.494556c24.90011 4.668323 51.356668 7.78122 77.813227 7.78122s52.913117-3.112897 77.813227-7.78122l32.68133 108.938108c3.112897 14.005992 17.118889 23.343661 29.569456 23.343661 3.112897 0 6.224772 0 7.78122-1.556449 17.118889-4.669346 26.456558-21.787212 21.788236-38.906102l-32.68133-108.938108c52.913117-18.675338 101.156888-45.131897 141.619438-73.14388l84.037998 87.150896c6.224772 6.224772 14.005992 9.337669 21.787212 9.337669 7.78122 0 15.562441-3.112897 21.787212-9.337669 12.450567-12.450567 12.450567-31.124881 1.556449-43.575448l-79.369675-82.48155c63.808258-46.688345 101.158934-91.820242 101.158934-91.820242z"
@@ -3631,7 +3635,7 @@ export default function CustomerService() {
       >
         <mask
           id="mask0_2094_41544"
-          style={{maskType: 'alpha'}}
+          style={{MaskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="6"
           y="6"
@@ -4483,7 +4487,7 @@ export default function CustomerService() {
         ></path>
         <mask
           id="mask0_6245_8860"
-          style={{maskType: 'alpha'}}
+          style={{MaskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="10"
           y="14"
@@ -4582,7 +4586,7 @@ export default function CustomerService() {
         ></path>
         <mask
           id="mask0_6245_8860"
-          style={{maskType: 'alpha'}}
+          style={{MaskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="10"
           y="14"
@@ -5115,7 +5119,7 @@ export default function CustomerService() {
       >
         <mask
           id="mask0_2094_41544"
-          style={{maskType: 'alpha'}}
+          style={{MaskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="6"
           y="6"
@@ -5860,7 +5864,7 @@ export default function CustomerService() {
       >
         <mask
           id="mask0_2654_24939"
-          style={{maskType: 'luminance'}}
+          style={{MaskType: 'luminance'}}
           maskUnits="userSpaceOnUse"
           x="13"
           y="3"
@@ -6072,7 +6076,7 @@ export default function CustomerService() {
       >
         <mask
           id="mask0_186_36273"
-          style={{maskType: 'alpha'}}
+          style={{MaskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="1"
           y="1"
@@ -7562,7 +7566,7 @@ export default function CustomerService() {
       >
         <mask
           id="mask0_1148_26793"
-          style={{maskType: 'alpha'}}
+          style={{MaskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="1"
           y="1"
@@ -8552,7 +8556,7 @@ export default function CustomerService() {
         <g clipPath="url(#clip0_2238_60810)">
           <mask
             id="mask0_2238_60810"
-            style={{maskType: 'alpha'}}
+            style={{MaskType: 'alpha'}}
             maskUnits="userSpaceOnUse"
             x="0"
             y="0"
@@ -9116,7 +9120,7 @@ export default function CustomerService() {
       >
         <mask
           id="mask0_6140_40993"
-          style={{maskType: 'alpha'}}
+          style={{MaskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -9262,7 +9266,7 @@ export default function CustomerService() {
         ></path>
         <mask
           id="mask0_6140_37956"
-          style={{maskType: 'alpha'}}
+          style={{MaskType: 'alpha'}}
           maskUnits="userSpaceOnUse"
           x="11"
           y="11"
@@ -9371,21 +9375,21 @@ export default function CustomerService() {
         ></path>
       </symbol>
     </svg>
-    
+
     <div id="app" data-v-app="">
       <div
         data-v-647954c7=""
         className="ar-loading-view"
-        style={{          display: 'none',
-          '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'"
+        style={{
+          '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
+          display: 'none'
         }}
       >
         <div data-v-647954c7="" className="loading-wrapper">
           <div data-v-647954c7="" className="loading-animat">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-        
-              viewBox="0 0 200 200"
+                          viewBox="0 0 200 200"
               width="200"
               height="200"
               preserveAspectRatio="xMidYMid meet"
@@ -9393,7 +9397,7 @@ export default function CustomerService() {
                 width: '100%',
                 height: '100%',
                 transform: 'translate3d(0px, 0px, 0px)',
-                'contentVisibility': 'visible',
+                contentVisibility: 'visible',
               }}
             >
               <defs>
@@ -9410,7 +9414,7 @@ export default function CustomerService() {
               <g clipPath="url(#__lottie_element_2)">
                 <g
                   className="ai"
-                  transform="matrix(0.9637471437454224,-0.26681721210479736,0.26681721210479736,0.9637471437454224,-23.056434631347656,30.3070068359375)"
+                  transform="matrix(1,0,0,1,0,0)"
                   opacity="1"
                   style={{display: 'block'}}
                 >
@@ -9423,7 +9427,7 @@ export default function CustomerService() {
                 </g>
                 <g
                   className="png"
-                  transform="matrix(0.8171943426132202,0,0,0.8171943426132202,59.140281677246094,59.140281677246094)"
+                  transform="matrix(0.800000011920929,0,0,0.800000011920929,60,60)"
                   opacity="1"
                   style={{display: 'block'}}
                 >
@@ -9437,7 +9441,7 @@ export default function CustomerService() {
               </g>
             </svg>
           </div>
-          <div data-v-647954c7="" className="com__box"   style={{display: 'none'}}>
+          <div data-v-647954c7="" className="com__box"  style={{display: 'none'}}>
             <div className="loading" data-v-647954c7="">
               <div className="shape shape-1" data-v-647954c7=""></div>
               <div className="shape shape-2" data-v-647954c7=""></div>
@@ -9446,7 +9450,7 @@ export default function CustomerService() {
             </div>
           </div>
         </div>
-        <div data-v-647954c7="" className="skeleton-wrapper"   style={{display: 'none'}}>
+        <div data-v-647954c7="" className="skeleton-wrapper"  style={{display: 'none'}}>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
             <div className="van-skeleton__content">
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9485,217 +9489,137 @@ export default function CustomerService() {
         </div>
       </div>
       <div
-        data-v-26935615=""
-        className="customer-container"
-        style={{'--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'"}}
+        data-v-00f99608=""
+        className="notification-container"
+        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', 'sansSerif'"}}
       >
-        <div data-v-26935615="" className="customer-container-header">
-          <div data-v-12a80a3e="" data-v-26935615="" className="navbar main">
-            <div data-v-12a80a3e="" className="navbar-fixed">
-              <div data-v-12a80a3e="" className="navbar__content">
-                <div data-v-12a80a3e="" className="navbar__content-left">
-                  <i
-                    data-v-12a80a3e=""
-                    className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/account')}
-                    ></i
-                  >
-                </div>
-                <div data-v-12a80a3e="" className="navbar__content-center">
-                  <div data-v-12a80a3e="" className="navbar__content-title">
-                    Customer Service
-                  </div>
-                </div>
-                <div data-v-12a80a3e="" className="navbar__content-right" onClick={()=>navigate('/index')}> 
-                  <svg
-                    data-v-26935615=""
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="44"
-                    height="44"
-                    viewBox="0 0 44 44"
-                    fill="none"
-                    className="home"
-                  >
-                    <path
-                      data-v-26935615=""
-                      d="M8.25 16.5V38.5H35.75V16.5L22 5.5L8.25 16.5Z"
-                      stroke="white"
-                      strokeWidth="3.66667"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    ></path>
-                    <path
-                      data-v-26935615=""
-                      d="M17.417 26.5833V38.4999H26.5837V26.5833H17.417Z"
-                      stroke="white"
-                      strokeWidth="3.66667"
-                      strokeLinejoin="round"
-                    ></path>
-                    <path
-                      data-v-26935615=""
-                      d="M8.25 38.5H35.75"
-                      stroke="white"
-                      strokeWidth="3.66667"
-                      strokeLinecap="round"
-                    ></path>
-                  </svg>
+        <div data-v-12a80a3e="" data-v-00f99608="" className="navbar">
+          <div data-v-12a80a3e="" className="navbar-fixed">
+            <div data-v-12a80a3e="" className="navbar__content">
+              <div data-v-12a80a3e="" className="navbar__content-left">
+                <i
+                  data-v-12a80a3e=""
+                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/account')}
+                  ></i
+                >
+              </div>
+              <div data-v-12a80a3e="" className="navbar__content-center">
+                <div data-v-12a80a3e="" className="navbar__content-title">
+                  Notification
                 </div>
               </div>
+              <div data-v-12a80a3e="" className="navbar__content-right"></div>
             </div>
-          </div>
-          <div data-v-26935615="" className="customer-container-header-belly">
-            <img
-              data-v-26935615=""
-              alt=""
-              className=""
-              data-origin="/assets/png/customerBg-d4a7e64a.png"
-              src="/assets/png/customerBg-d4a7e64a.png"
-            />
           </div>
         </div>
-        <div data-v-f4c030dd="" data-v-26935615="" className="content">
-          <a href="https://t.me/bigdaddyprochennal">
-          <div data-v-f4c030dd="">
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd="">LiveChat</span>
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
+        <div
+          data-v-61888f52=""
+          data-v-00f99608=""
+          className="infiniteScroll sysMessage__container-msgWrapper"
+          id="refresh5afb5c1ec58d4f2ebaefdbf2d59d4e8b"
+        >
+          <div data-v-00f99608="" className="notification-container-content">
+            <div
+              data-v-00f99608=""
+              className="notification-container-content-title"
+            >
+              <svg data-v-00f99608="" className="svg-icon icon-notificationIcon">
+                <use href="#icon-notificationIcon"></use></svg
+              ><span data-v-00f99608=""
+                >AVOID FRAUD AND SUBMIT DEPOSIT TO SELF-SERVICE BDG PRO</span
               >
             </div>
+            <div data-v-00f99608="" className="notification-container-content-desc">
+              If your deposit not receive, please send it directly to BDG PRO
+              Self-service Center (https://www.91service.in/wap/indexE.jsp) with
+              provided proof deposit full detail showing (time,date,UTR number,
+              amount and UPI ID receiver), wait till already get process, do not
+              send to another person and trust anyone claiming to represent
+              BDG PRO. Always verify their authenticity through the official
+              community channels provided by BDG PRO. Your safety and trust in
+              our community is very important to us .
+            </div>
+            <h5 data-v-00f99608="">2024-03-27 22:15:42</h5>
           </div>
-          </a>
-        </div>
-    
-        <div data-v-f4c030dd="" data-v-78d5a4a8="" className="content">
-          <div data-v-f4c030dd="">
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd=""
-                  >BDG PRO Self-service Center（स्व-सेवा केंद्र）</span
-                >
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                               style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
+          <div data-v-00f99608="" className="notification-container-content">
+            <div
+              data-v-00f99608=""
+              className="notification-container-content-title"
+            >
+              <svg data-v-00f99608="" className="svg-icon icon-notificationIcon">
+                <use href="#icon-notificationIcon"></use></svg
+              ><span data-v-00f99608="">Stay Vigilant - BDG PRO Notify</span>
             </div>
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd=""
-                  >Withdraw Success Not Receive (Only deal with this issue, do
-                  not reply to other questions)</span
-                >
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                               style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
+            <div data-v-00f99608="" className="notification-container-content-desc">
+              Be cautious of counterfeit websites mimicking our BDG PRO official
+              site, do not transfer money to anyone, including agents, and keep
+              payment receipts and UTR numbers confidential.
             </div>
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd=""
-                  >Self-service Center Usage Tutorial（स्व-सेवा केंद्र उपयोग
-                  ट्यूटोरियल）</span
-                >
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                               style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
+            <h5 data-v-00f99608="">2024-08-14 10:31:38</h5>
+          </div>
+          <div data-v-00f99608="" className="notification-container-content">
+            <div
+              data-v-00f99608=""
+              className="notification-container-content-title"
+            >
+              <svg data-v-00f99608="" className="svg-icon icon-notificationIcon">
+                <use href="#icon-notificationIcon"></use></svg
+              ><span data-v-00f99608="">BDG PRO </span>
             </div>
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd=""
-                  >Help Center Withdrawal Issues （सहायता केंद्र निकासी
-                  मुद्दे）</span
-                >
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
+            <div data-v-00f99608="" className="notification-container-content-desc">
+              We sincerely apologize for the inconvenience caused during our
+              recent maintenance. We diligently to enhance these systems,
+              ensuring a smoother and more efficient experience for you. Please
+              try to submit on self-service center and email if was there an
+              issue you encounter.
             </div>
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd=""
-                  >BDG PRO Tutorial Center(ट्यूटोरियल सेंटर)</span
-                >
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                               style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
+            <h5 data-v-00f99608="">2024-09-03 13:09:18</h5>
+          </div>
+          <div data-v-00f99608="" className="notification-container-content">
+            <div
+              data-v-00f99608=""
+              className="notification-container-content-title"
+            >
+              <svg data-v-00f99608="" className="svg-icon icon-notificationIcon">
+                <use href="#icon-notificationIcon"></use></svg
+              ><span data-v-00f99608=""
+                >Important Announcement About Deposit
+              </span>
             </div>
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd=""
-                  >Tutorial Apply Bonus Winstreak BigdadyPro</span
-                >
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                               style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
+            <div data-v-00f99608="" className="notification-container-content-desc">
+              Due to unstable of bank india will have delay or failed on
+              payment, so if you are experiencing any issues with making a
+              payment, we recommend switching to a different payment channel and
+              attempting to deposit again. to ensure your transaction smooth and
+              fast we suggesting to do payment using barcode method or PAYTM
+              method, also for using PhonePe sometimes will encountering delay
+              or failed payment, Your satisfaction is our priority. Thank you
+              for your understanding and continued support.
             </div>
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd="">BDG PRO Event Center</span>
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                               style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
+            <h5 data-v-00f99608="">2024-06-04 20:00:14</h5>
+          </div>
+          <div data-v-00f99608="" className="notification-container-content">
+            <div
+              data-v-00f99608=""
+              className="notification-container-content-title"
+            >
+              <svg data-v-00f99608="" className="svg-icon icon-notificationIcon">
+                <use href="#icon-notificationIcon"></use></svg
+              ><span data-v-00f99608=""
+                >PREVENTING BEING SCAMMED / HACKED DUE SOMEONE PROCLAIMING AS
+                BDG PRO CUSTOMER SERVICE
+              </span>
             </div>
+            <div data-v-00f99608="" className="notification-container-content-desc">
+              Our customer service never send a link to the member,if you
+              received a link from someone who pro-claimed as BDG PRO customer
+              service do not click the link to prevent being hack or lost data.
+              Thank you
+            </div>
+            <h5 data-v-00f99608="">2023-12-31 19:49:50</h5>
+          </div>
+          <div data-v-61888f52="" className="infiniteScroll__loading">
+            <div data-v-61888f52="">No more</div>
           </div>
         </div>
       </div>
@@ -9703,7 +9627,7 @@ export default function CustomerService() {
         className="customer"
         id="customerId"
         style={{
-          '--f13b4d11CurrentFontFamily':" 'Roboto', 'Inter', 'sansSerif'",
+          '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
           '--f6a705e1CurrentFontFamily': 'bahnschrift'
         }}
       >
@@ -9714,9 +9638,24 @@ export default function CustomerService() {
         />
       </div>
     </div>
+
+    <div data-v-app=""></div>
+    <div
+      role="dialog"
+      tabIndex="0"
+      className="van-popup van-popup--center van-toast van-toast--middle van-toast--break-word van-toast--fail"
+      style={{zIndex: '2001', display: 'none'}}
+    >
+      <i className="van-badge__wrapper van-icon van-icon-fail van-toast__icon"
+        ></i
+      >
+      <div className="van-toast__text">
+        Error: 22 Your account is already logged in somewhere else
+      </div>
+    </div>
+
+
+
     </div>
   )
 }
-
-
-
