@@ -24,8 +24,8 @@ export default function WithdrawHistory() {
   const [isBank, setIsBank] = useState(null);
   const [isTier, setIsTier] = useState('All');
   const [isYear ,setIsYear] =useState('2024');
-  const [isMonth, setIsMonth] =useState('month8');
-  const [isDate, setIsDate] =useState('Date2');
+  const [isMonth, setIsMonth] =useState('8');
+  const [isDate, setIsDate] =useState('2');
   const [filteredHistory, setFilteredHistory] =useState([]);
   const [withdrawHistory, setWithdrawHistory] = useState([]);
 
@@ -391,7 +391,7 @@ console.log(formattedFullDate);
               </div>
               <div className="ar-searchbar__selector">
                 <div>
-                  <span className="noSelect">{isYear}</span
+                  <span className="noSelect">{isYear}-{isMonth}-{isDate}</span
                   ><i className="van-badge__wrapper van-icon van-icon-arrow-down" onClick={handleSecondToggle}
                     ></i
                   >
@@ -611,18 +611,18 @@ console.log(formattedFullDate);
         <ul
           className="van-picker-column__wrapper"
           style={{
-            transform: isMonth ==='month1' ? 'translate3d(0px, 110px, 0px)':
-            isMonth ==='month2' ? 'translate3d(0px, 66px, 0px)':
-            isMonth ==='month3' ? 'translate3d(0px, 22px, 0px)':
-            isMonth ==='month4' ? 'translate3d(0px, -22px, 0px)':
-            isMonth ==='month5' ? 'translate3d(0px, -66px, 0px)':
-            isMonth ==='month6' ? 'translate3d(0px, -110px, 0px)':
-            isMonth ==='month7' ? 'translate3d(0px, -154px, 0px)':
-            isMonth ==='month8' ? 'translate3d(0px, -198px, 0px)':
-            isMonth ==='month9' ? 'translate3d(0px, -242px, 0px)':
-            isMonth ==='month10' ? 'translate3d(0px, -286px, 0px)':
-            isMonth ==='month11' ? 'translate3d(0px, -330px, 0px)':
-            isMonth ==='month12' ? 'translate3d(0px, -374px, 0px)':
+            transform: isMonth ==='1' ? 'translate3d(0px, 110px, 0px)':
+            isMonth ==='2' ? 'translate3d(0px, 66px, 0px)':
+            isMonth ==='3' ? 'translate3d(0px, 22px, 0px)':
+            isMonth ==='4' ? 'translate3d(0px, -22px, 0px)':
+            isMonth ==='5' ? 'translate3d(0px, -66px, 0px)':
+            isMonth ==='6' ? 'translate3d(0px, -110px, 0px)':
+            isMonth ==='7' ? 'translate3d(0px, -154px, 0px)':
+            isMonth ==='8' ? 'translate3d(0px, -198px, 0px)':
+            isMonth ==='9' ? 'translate3d(0px, -242px, 0px)':
+            isMonth ==='10' ? 'translate3d(0px, -286px, 0px)':
+            isMonth ==='11' ? 'translate3d(0px, -330px, 0px)':
+            isMonth ==='12' ? 'translate3d(0px, -374px, 0px)':
             '',
             transitionDuration: '0ms',
             transitionProperty: 'none',
@@ -631,7 +631,7 @@ console.log(formattedFullDate);
           <li
             role="button"
             tabIndex="0"
-            className="van-picker-column__item" id="month1" onClick={()=>month('month1')}
+            className="van-picker-column__item" id="1" onClick={()=>month('1')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">01</div>
@@ -639,7 +639,7 @@ console.log(formattedFullDate);
           <li
             role="button"
             tabIndex="0"
-            className="van-picker-column__item"  id="month2" onClick={()=>month('month2')}
+            className="van-picker-column__item"  id="2" onClick={()=>month('2')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">02</div>
@@ -647,7 +647,7 @@ console.log(formattedFullDate);
           <li
             role="button"
             tabIndex="0"
-            className="van-picker-column__item"  id="month3" onClick={()=>month('month3')}
+            className="van-picker-column__item"  id="3" onClick={()=>month('3')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">03</div>
@@ -655,7 +655,7 @@ console.log(formattedFullDate);
           <li
             role="button"
             tabIndex="0"
-            className="van-picker-column__item"  id="month4" onClick={()=>month('month4')}
+            className="van-picker-column__item"  id="4" onClick={()=>month('4')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">04</div>
@@ -663,7 +663,7 @@ console.log(formattedFullDate);
           <li
             role="button"
             tabIndex="0"
-            className="van-picker-column__item"  id="month5" onClick={()=>month('month5')}
+            className="van-picker-column__item"  id="5" onClick={()=>month('5')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">05</div>
@@ -671,7 +671,7 @@ console.log(formattedFullDate);
           <li
             role="button"
             tabIndex="0"
-            className="van-picker-column__item"  id="month6" onClick={()=>month('month6')}
+            className="van-picker-column__item"  id="6" onClick={()=>month('6')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">06</div>
@@ -679,7 +679,7 @@ console.log(formattedFullDate);
           <li
             role="button"
             tabIndex="0"
-            className="van-picker-column__item"  id="month7" onClick={()=>month('month7')}
+            className="van-picker-column__item"  id="7" onClick={()=>month('7')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">07</div>
@@ -687,7 +687,7 @@ console.log(formattedFullDate);
           <li
             role="button"
             tabIndex="0"
-            className="van-picker-column__item van-picker-column__item--selected"  id="month8" onClick={()=>month('month8')}
+            className="van-picker-column__item van-picker-column__item--selected"  id="8" onClick={()=>month('8')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">08</div>
@@ -695,7 +695,7 @@ console.log(formattedFullDate);
           <li
             role="button"
             tabIndex="0"
-            className="van-picker-column__item"  id="month9" onClick={()=>month('month9')}
+            className="van-picker-column__item"  id="9" onClick={()=>month('9')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">09</div>
@@ -703,7 +703,7 @@ console.log(formattedFullDate);
           <li
             role="button"
             tabIndex="0"
-            className="van-picker-column__item"  id="month10" onClick={()=>month('month10')}
+            className="van-picker-column__item"  id="10" onClick={()=>month('10')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">10</div>
@@ -711,7 +711,7 @@ console.log(formattedFullDate);
           <li
             role="button"
             tabIndex="0"
-            className="van-picker-column__item"  id="month11" onClick={()=>month('month11')}
+            className="van-picker-column__item"  id="11" onClick={()=>month('11')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">11</div>
@@ -719,7 +719,7 @@ console.log(formattedFullDate);
           <li
             role="button"
             tabIndex="0"
-            className="van-picker-column__item"  id="month12" onClick={()=>month('month12')}
+            className="van-picker-column__item"  id="12" onClick={()=>month('12')}
             style={{height: '44px'}}
           >
             <div className="van-ellipsis">12</div>
@@ -730,37 +730,37 @@ console.log(formattedFullDate);
                 <ul
                   className="van-picker-column__wrapper"
                   style={{
-                    transform: isDate  ==='Date1' ? 'translate3d(0px, 110px, 0px)':
-                    isDate  ==='Date2' ? 'translate3d(0px, 66px, 0px)':
-                    isDate === 'Date3' ? 'translate3d(0px, 22px, 0px)' :
-                    isDate === 'Date4' ? 'translate3d(0px, -22px, 0px)' :
-                    isDate === 'Date5' ? 'translate3d(0px, -66px, 0px)' :
-                    isDate === 'Date6' ? 'translate3d(0px, -110px, 0px)' :
-                    isDate === 'Date7' ? 'translate3d(0px, -154px, 0px)' :
-                    isDate === 'Date8' ? 'translate3d(0px, -198px, 0px)' :
-                    isDate === 'Date9' ? 'translate3d(0px, -242px, 0px)' :
-                    isDate === 'Date10' ? 'translate3d(0px, -286px, 0px)' :
-                    isDate === 'Date11' ? 'translate3d(0px, -330px, 0px)' :
-                    isDate === 'Date12' ? 'translate3d(0px, -374px, 0px)' :
-                    isDate === 'Date13' ? 'translate3d(0px, -418px, 0px)' :
-                    isDate === 'Date14' ? 'translate3d(0px, -462px, 0px)' :
-                    isDate === 'Date15' ? 'translate3d(0px, -506px, 0px)' :
-                    isDate === 'Date16' ? 'translate3d(0px, -550px, 0px)' :
-                    isDate === 'Date17' ? 'translate3d(0px, -594px, 0px)' :
-                    isDate === 'Date18' ? 'translate3d(0px, -638px, 0px)' :
-                    isDate === 'Date19' ? 'translate3d(0px, -682px, 0px)' :
-                    isDate === 'Date20' ? 'translate3d(0px, -726px, 0px)' :
-                    isDate === 'Date21' ? 'translate3d(0px, -770px, 0px)' :
-                    isDate === 'Date22' ? 'translate3d(0px, -814px, 0px)' :
-                    isDate === 'Date23' ? 'translate3d(0px, -858px, 0px)' :
-                    isDate === 'Date24' ? 'translate3d(0px, -902px, 0px)' :
-                    isDate === 'Date25' ? 'translate3d(0px, -946px, 0px)' :
-                    isDate === 'Date26' ? 'translate3d(0px, -990px, 0px)' :
-                    isDate === 'Date27' ? 'translate3d(0px, -1034px, 0px)' :
-                    isDate === 'Date28' ? 'translate3d(0px, -1078px, 0px)' :
-                    isDate === 'Date29' ? 'translate3d(0px, -1122px, 0px)' :
-                    isDate === 'Date30' ? 'translate3d(0px, -1166px, 0px)' :
-                    isDate === 'Date31' ? 'translate3d(0px, -1200px, 0px)' :
+                    transform: isDate  ==='1' ? 'translate3d(0px, 110px, 0px)':
+                    isDate  ==='2' ? 'translate3d(0px, 66px, 0px)':
+                    isDate === '3' ? 'translate3d(0px, 22px, 0px)' :
+                    isDate === '4' ? 'translate3d(0px, -22px, 0px)' :
+                    isDate === '5' ? 'translate3d(0px, -66px, 0px)' :
+                    isDate === '6' ? 'translate3d(0px, -110px, 0px)' :
+                    isDate === '7' ? 'translate3d(0px, -154px, 0px)' :
+                    isDate === '8' ? 'translate3d(0px, -198px, 0px)' :
+                    isDate === '9' ? 'translate3d(0px, -242px, 0px)' :
+                    isDate === '10' ? 'translate3d(0px, -286px, 0px)' :
+                    isDate === '11' ? 'translate3d(0px, -330px, 0px)' :
+                    isDate === '12' ? 'translate3d(0px, -374px, 0px)' :
+                    isDate === '13' ? 'translate3d(0px, -418px, 0px)' :
+                    isDate === '14' ? 'translate3d(0px, -462px, 0px)' :
+                    isDate === '15' ? 'translate3d(0px, -506px, 0px)' :
+                    isDate === '16' ? 'translate3d(0px, -550px, 0px)' :
+                    isDate === '17' ? 'translate3d(0px, -594px, 0px)' :
+                    isDate === '18' ? 'translate3d(0px, -638px, 0px)' :
+                    isDate === '19' ? 'translate3d(0px, -682px, 0px)' :
+                    isDate === '20' ? 'translate3d(0px, -726px, 0px)' :
+                    isDate === '21' ? 'translate3d(0px, -770px, 0px)' :
+                    isDate === '22' ? 'translate3d(0px, -814px, 0px)' :
+                    isDate === '23' ? 'translate3d(0px, -858px, 0px)' :
+                    isDate === '24' ? 'translate3d(0px, -902px, 0px)' :
+                    isDate === '25' ? 'translate3d(0px, -946px, 0px)' :
+                    isDate === '26' ? 'translate3d(0px, -990px, 0px)' :
+                    isDate === '27' ? 'translate3d(0px, -1034px, 0px)' :
+                    isDate === '28' ? 'translate3d(0px, -1078px, 0px)' :
+                    isDate === '29' ? 'translate3d(0px, -1122px, 0px)' :
+                    isDate === '30' ? 'translate3d(0px, -1166px, 0px)' :
+                    isDate === '31' ? 'translate3d(0px, -1200px, 0px)' :
                     '',
                     transitionDuration: '0ms',
                     transitionProperty: 'none',
@@ -769,7 +769,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date1" onClick={()=>Date('Date1')}
+                    className="van-picker-column__item" id="1" onClick={()=>Date('1')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">01</div>
@@ -777,7 +777,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date2" onClick={()=>Date('Date2')}
+                    className="van-picker-column__item" id="2" onClick={()=>Date('2')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">02</div>
@@ -785,7 +785,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date3" onClick={()=>Date('Date3')}
+                    className="van-picker-column__item" id="3" onClick={()=>Date('3')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">03</div>
@@ -793,7 +793,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date4" onClick={()=>Date('Date4')}
+                    className="van-picker-column__item" id="4" onClick={()=>Date('4')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">04</div>
@@ -801,7 +801,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date5" onClick={()=>Date('Date5')}
+                    className="van-picker-column__item" id="5" onClick={()=>Date('5')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">05</div>
@@ -809,7 +809,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date6" onClick={()=>Date('Date6')}
+                    className="van-picker-column__item" id="6" onClick={()=>Date('6')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">06</div>
@@ -817,7 +817,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date7" onClick={()=>Date('Date7')}
+                    className="van-picker-column__item" id="7" onClick={()=>Date('7')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">07</div>
@@ -825,7 +825,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date8" onClick={()=>Date('Date8')}
+                    className="van-picker-column__item" id="8" onClick={()=>Date('8')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">08</div>
@@ -833,7 +833,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date9" onClick={()=>Date('Date9')}
+                    className="van-picker-column__item" id="9" onClick={()=>Date('9')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">09</div>
@@ -841,7 +841,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date10" onClick={()=>Date('Date10')}
+                    className="van-picker-column__item" id="10" onClick={()=>Date('10')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">10</div>
@@ -849,7 +849,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date11" onClick={()=>Date('Date11')}
+                    className="van-picker-column__item" id="11" onClick={()=>Date('11')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">11</div>
@@ -857,7 +857,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date12" onClick={()=>Date('Date12')}
+                    className="van-picker-column__item" id="12" onClick={()=>Date('12')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">12</div>
@@ -865,7 +865,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date13" onClick={()=>Date('Date13')}
+                    className="van-picker-column__item" id="13" onClick={()=>Date('13')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">13</div>
@@ -873,7 +873,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date14" onClick={()=>Date('Date14')}
+                    className="van-picker-column__item" id="14" onClick={()=>Date('14')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">14</div>
@@ -881,7 +881,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date15" onClick={()=>Date('Date15')}
+                    className="van-picker-column__item" id="15" onClick={()=>Date('15')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">15</div>
@@ -889,7 +889,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date16" onClick={()=>Date('Date16')}
+                    className="van-picker-column__item" id="16" onClick={()=>Date('16')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">16</div>
@@ -897,7 +897,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date17" onClick={()=>Date('Date17')}
+                    className="van-picker-column__item" id="17" onClick={()=>Date('17')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">17</div>
@@ -905,7 +905,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date18" onClick={()=>Date('Date18')}
+                    className="van-picker-column__item" id="18" onClick={()=>Date('18')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">18</div>
@@ -913,7 +913,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date19" onClick={()=>Date('Date19')}
+                    className="van-picker-column__item" id="19" onClick={()=>Date('19')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">19</div>
@@ -921,7 +921,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date20" onClick={()=>Date('Date20')}
+                    className="van-picker-column__item" id="20" onClick={()=>Date('20')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">20</div>
@@ -929,7 +929,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date21" onClick={()=>Date('Date21')}
+                    className="van-picker-column__item" id="21" onClick={()=>Date('21')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">21</div>
@@ -937,7 +937,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date22" onClick={()=>Date('Date22')}
+                    className="van-picker-column__item" id="22" onClick={()=>Date('22')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">22</div>
@@ -945,7 +945,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date23" onClick={()=>Date('Date23')}
+                    className="van-picker-column__item" id="23" onClick={()=>Date('23')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">23</div>
@@ -953,7 +953,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date24" onClick={()=>Date('Date24')}
+                    className="van-picker-column__item" id="24" onClick={()=>Date('24')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">24</div>
@@ -961,7 +961,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date25" onClick={()=>Date('Date25')}
+                    className="van-picker-column__item" id="25" onClick={()=>Date('25')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">25</div>
@@ -969,7 +969,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date26" onClick={()=>Date('Date26')}
+                    className="van-picker-column__item" id="26" onClick={()=>Date('26')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">26</div>
@@ -977,7 +977,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date27" onClick={()=>Date('Date27')}
+                    className="van-picker-column__item" id="27" onClick={()=>Date('27')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">27</div>
@@ -985,7 +985,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date28" onClick={()=>Date('Date28')}
+                    className="van-picker-column__item" id="28" onClick={()=>Date('28')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">28</div>
@@ -993,7 +993,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date29" onClick={()=>Date('Date29')}
+                    className="van-picker-column__item" id="29" onClick={()=>Date('29')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">29</div>
@@ -1001,7 +1001,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item" id="Date30" onClick={()=>Date('Date30')}
+                    className="van-picker-column__item" id="30" onClick={()=>Date('30')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">30</div>
@@ -1009,7 +1009,7 @@ console.log(formattedFullDate);
                   <li
                     role="button"
                     tabIndex="0"
-                    className="van-picker-column__item van-picker-column__item--selected" id="Date31" onClick={()=>Date('Date31')}
+                    className="van-picker-column__item van-picker-column__item--selected" id="31" onClick={()=>Date('31')}
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">31</div>
