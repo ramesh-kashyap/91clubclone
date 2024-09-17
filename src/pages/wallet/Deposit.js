@@ -24,7 +24,7 @@ export default function Deposit(){
 const [activeSection, setActiveSection] = useState('UpiTransfer');
 
 const [usdtValue, setUsdtValue] = useState(10);
-const [upiValue, setUpiValue] = useState(500);
+const [upiValue, setUpiValue] = useState(300);
 const [totalMoney, setTotalMoney] = useState(0);
 const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -83,30 +83,36 @@ const showSection = (sectionId) => {
       typeid = 'USDT(BEP20)';
     }
   
-    try {
-      const response = await Api.post('/api/webapi/createPayment10', {
-        money: usdtValue * 90,
-        typeid: typeid,
-      });
+    // try {
+    //   const response = await Api.post('/api/webapi/createPayment10', {
+    //     money: usdtValue * 90,
+    //     typeid: typeid,
+    //   });
   
-      if (response.data.status === true) {
-        // Navigate to the ConfirmDeposit page and pass the response.data.datas
-        showToast('Your Deposit Details Registred.', 'succes');
-        navigate('/deposit/ConfirmDeposit', { state: { data: response.data.datas } });
-      } else {
-        showToast("Payment creation failed. Please try again.");
-        setError("Payment creation failed. Please try again.");
-      }
-    } catch (err) {
-      console.error('An error occurred:', err);
-      setError('An error occurred. Please try again.');
-    }
+    //   if (response.data.status === true) {
+    //     // Navigate to the ConfirmDeposit page and pass the response.data.datas
+    //     showToast('Your Deposit Details Registred.', 'succes');
+    //     navigate('/deposit/ConfirmDeposit', { state: { data: response.data.datas } });
+    //   } else {
+    //     showToast("Payment creation failed. Please try again.");
+    //     setError("Payment creation failed. Please try again.");
+    //   }
+    // } catch (err) {
+    //   console.error('An error occurred:', err);
+    //   setError('An error occurred. Please try again.');
+    // }
+
+    navigate('/deposit/CryptoDeposit', { state: { money: usdtValue , currency : typeid  } });
+
+
+
+
   };
 
   const handleUpiDeposit = async () => {
   
-    if (upiValue < 500) {
-      setError("Minimum Deposit amount is 500");
+    if (upiValue < 300) {
+      setError("Minimum Deposit amount is 300");
       return;
     }
   
@@ -517,7 +523,7 @@ const showSection = (sectionId) => {
                 {/* <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px',position:'absolute', left:'30px', top:'482px'}}/>                */}
                   <div data-v-9e03166f="" className="other">                  
                     <div data-v-9e03166f=""  style={{paddingLeft:'18px'}}>QR-ARpay</div>
-                    <div data-v-9e03166f="">Balance:500 - 3K</div>
+                    <div data-v-9e03166f="">Balance:300 - 3K</div>
                     
                   </div>
                 </div>
@@ -525,7 +531,7 @@ const showSection = (sectionId) => {
                 {/* <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px',position:'absolute', left:'30px', top:'482px'}}/>  */}
                   <div data-v-9e03166f="" className="other">
                     <div data-v-9e03166f="" style={{paddingLeft:'18px'}}>QR-3cPay</div>
-                    <div data-v-9e03166f="">Balance:500 - 50K</div>
+                    <div data-v-9e03166f="">Balance:500 - 100K</div>
                     
                   </div>
                 </div>
@@ -536,7 +542,7 @@ const showSection = (sectionId) => {
                 {/* <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px',position:'absolute', left:'30px', top:'482px'}}/>                */}
                   <div data-v-9e03166f="" className="other">                  
                     <div data-v-9e03166f=""  style={{paddingLeft:'18px'}}>QR-ARpay</div>
-                    <div data-v-9e03166f="">Balance:500 - 30K</div>
+                    <div data-v-9e03166f="">Balance:300 - 30K</div>
                     
                   </div>
                 </div>
@@ -544,7 +550,7 @@ const showSection = (sectionId) => {
                 {/* <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width:'20px',position:'absolute', left:'30px', top:'482px'}}/>  */}
                   <div data-v-9e03166f="" className="other">
                     <div data-v-9e03166f="" style={{paddingLeft:'18px'}}>QR-3cPay</div>
-                    <div data-v-9e03166f="">Balance:500 - 50K</div>
+                    <div data-v-9e03166f="">Balance:500 - 100K</div>
                     
                   </div>
                 </div>
@@ -565,20 +571,20 @@ const showSection = (sectionId) => {
                 
                 <div
                   data-v-9e03166f=""
+                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 300 ? 'active' : ''}`}  
+                  onClick={() => handleUpiClick('300')}          
+                > 
+                  <div data-v-9e03166f="" className="amount">
+                    <span data-v-9e03166f="">₹</span>300
+                  </div>                  
+                </div>
+                <div
+                  data-v-9e03166f=""
                   className={`Recharge__content-paymoney__money-list__item ${upiValue == 500 ? 'active' : ''}`}  
                   onClick={() => handleUpiClick('500')}          
                 > 
                   <div data-v-9e03166f="" className="amount">
                     <span data-v-9e03166f="">₹</span>500
-                  </div>                  
-                </div>
-                <div
-                  data-v-9e03166f=""
-                  className={`Recharge__content-paymoney__money-list__item ${upiValue == 600 ? 'active' : ''}`}  
-                  onClick={() => handleUpiClick('600')}          
-                > 
-                  <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f="">₹</span>600
                   </div>                  
                 </div>
                 <div
