@@ -163,7 +163,7 @@ export default function Guide() {
               Confirm The Password<br />- Invitation code<br />- Click I Have
               Read And Agree<br />- Click Register<br /><br /></b
             ><img
-              src="/assets/png/editor_202403081501377yr6.png"
+              src="/assets/17.png"
               style={{width: '461px'}}
             /><b><br /></b>
           </p>
@@ -183,7 +183,7 @@ export default function Guide() {
               >Exp ：Betting (Big and small together) or (Red and Green
               together) or (bet more than 7 number) in the same time.<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308150224e2vu.png"
+              src="/assets/18.png"
               style={{width: '413px'}}
             /><br />
           </p>
@@ -193,7 +193,7 @@ export default function Guide() {
               >Click Wallet Icon, Click The Recharge Button, and we have 5 ways
               to make a recharge (UPIPAY-APP,UPIPAY,UPI-TRANSFER, USDT, TRX )<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308150628pv6u.png"
+              src="/assets/19.png"
               style={{width: '413px'}}
             /><br />
           </p>
