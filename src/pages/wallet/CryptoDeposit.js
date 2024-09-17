@@ -8,20 +8,21 @@ import { QRCodeCanvas } from 'qrcode.react'; // Or use QRCodeSVG if you prefer S
 
 
 
-export default function UpiDeposit(){
+export default function CryptoDeposit(){
 
   const [isButtonActive, setButtonActive] = useState(true); // For button state
   const [utr, setUtr] = useState(''); // For UTR input
   const [money, setMoney] = useState(''); // For storing money from location
+  const [currency, setCurrency] = useState(''); // For storing money from location
   const [adminData, setAdminData] = useState(''); // For storing money from location
   const [error, setError] = useState(null);
-
 
 
   const { showToast } = useToast(); // Toast notification
 
   const navigate = useNavigate();
   const location = useLocation();
+
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -44,9 +45,14 @@ export default function UpiDeposit(){
 
   // Step 1: Use useEffect to handle setting the money state
   useEffect(() => {
-    if (location.state && location.state.money) {
+    if (location.state && location.state.money && location.state.currency) {
       setMoney(location.state.money);
+      setCurrency(location.state.currency);
+      console.log(location.state.currency);
+
     } else {
+       
+
       navigate('/wallet/deposit'); // Redirect if no money data
     }
   }, [location, navigate]);
@@ -62,21 +68,21 @@ export default function UpiDeposit(){
 
   const handlePay = async () => {
         
-    if(utr.length < 12){
-      showToast('UTR must be 12 digit long.', 'succes');
-return;
-    }
+//     if(utr.length < 12){
+//       showToast('UTR must be 12 digit long.', 'succes');
+// return;
+//     }
 
 
     try {
-      const response = await Api.post('/api/webapi/manualPayment', {
-        upi: selectedOption,
+      const response = await Api.post('/api/webapi/rechargeCoin', {
+        currency: currency,
         money: money,
-        txt_utr: utr,
+        tx_id: utr,
       });
 
-      if (response.data.message==='Order created successfully') {
-        console.log('Recharge Done Successfully');
+      if (response.data.message==='Order Submitted successfully') {
+        console.log('Recharge Done Successfully'); 
         navigate('/wallet/deposit', { state: { msg: 'Order created successfully' } });
       } else {
 
@@ -125,14 +131,13 @@ return;
                     <div data-v-67e25db3="" className="maindiv" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px',  borderRadius: '10px', width: '100%', margin: '0 auto', background: `url('/assets/bottom-ccedfa9a.png')`,backgroundPositionX:'center',backgroundRepeat: 'no-repeat', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',}}>
                         <div data-v-67e25db3="" className="sec1" style={{margin: '10px 0', textAlign: 'center',}}>
                             <div data-v-67e25db3="" className="ti1" style={{fontSize: '1.2em', fontWeight: 'bold', marginBottom: '5px', color: '#333'}}>Payment</div>
-                            <div data-v-67e25db3="" className="time" style={{fontSize: '2em', color: '#ff0000'}}>₹ {money}</div>
+                            <div data-v-67e25db3="" className="time" style={{fontSize: '2em', color: '#ff0000'}}>${money}( ₹{money * 90})</div>
                         </div>
                         <div data-v-67e25db3="" className="sec2" style={{margin: '10px 0', textAlign: 'center'}}>
-                            <div data-v-67e25db3="" className="ti2" style={{fontSize: '1.2em', fontWeight: 'bold', marginBottom: '5px', color: '#333'}}>Copy to UPI Payment Software</div>
+                            <div data-v-67e25db3="" className="ti2" style={{fontSize: '1.2em', fontWeight: 'bold', marginBottom: '5px', color: '#333'}}>Copy Wallet Address</div>
                             <div data-v-67e25db3="" className="num2" style={{fontSize: '1.2em', color: '#555', display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
-                                UPI:{adminData[0]?.upi }
-
-                                <svg data-v-67e25db3="" className="c5" xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none" style={{marginLeft: '10px'}}>
+                                {currency =='USDT(BEP20)'? adminData[0]?.bep20 : adminData[0]?.trc20 }
+                                <svg data-v-67e25db3="" className="c5" xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none" style={{marginLeft: '1px'}}>
                                     <rect data-v-67e25db3="" x="1" y="3" width="8" height="9" rx="1" stroke="black"></rect>
                                     <path data-v-67e25db3="" d="M9.5 10H10C10.5523 10 11 9.55228 11 9V2C11 1.44772 10.5523 1 10 1H4C3.44772 1 3 1.44772 3 2V3" stroke="black"></path>
                                 </svg>
@@ -150,7 +155,7 @@ return;
 
                   <div data-v-7cba6004="" data-v-36cc3380=""      className="Recharge__container-intro" style={{marginTop: '40px'}}>
                    
-                       <div data-v-9e03166f="" className="Recharge__content-paymoney       boxStyle" style={{display: 'grid', gridTemplateColumns: 'repeat(2, minmax(100px, 2fr))', gridTemplateRows: 'repeat(2, minmax(100px, 2fr))'}}>
+                       {/* <div data-v-9e03166f="" className="Recharge__content-paymoney       boxStyle" style={{display: 'grid', gridTemplateColumns: 'repeat(2, minmax(100px, 2fr))', gridTemplateRows: 'repeat(2, minmax(100px, 2fr))'}}>
 
                         <div data-v-9e03166f="" className="Recharge__content-paymoney__money-input radius" style={{width: '81%', height: '65px', display: 'flex', alignItems: 'center', justifyContent: 'space-between',background: '#fff',  marginTop: '.26667rem'}}>
                             <div data-v-9e03166f="" className="" >
@@ -206,7 +211,7 @@ return;
                         
 
 
-                    </div>
+                    </div> */}
                     <div data-v-7cba6004="" data-v-36cc3380=""      className="Recharge__container-intro">
                    
     <div data-v-9e03166f="" className="Recharge__content-paymoney">
@@ -216,10 +221,7 @@ return;
         justifyContent: 'spaceAround',
        
         }}>
-{/* <div className="txt" style={{display: 'flex', flexDirection: 'row',  marginTop: '10px',}}>
-  <img style={{width: '20px'}} src="/assets/png/th (5).jpeg" alt=""/>
-  <h1 style={{fontSize: '20px', paddingRight: '5px',}}>Other</h1>
-  </div> */}
+
 
             <div data-v-67e25db3="" className="codeqr">
        
@@ -228,13 +230,13 @@ return;
                height: '150px',
               
                 borderRadius: '8px', marginLeft: '80px',}}>
-                                     <QRCodeCanvas  value=                                {adminData[0]?.upi }
+                                     <QRCodeCanvas  value=                                {currency =='USDT(BEP20)'? adminData[0]?.bep20 : adminData[0]?.trc20 }
   size={150} level={"H"} includeMargin={true} />
 
             </div>
           </div>
             <div data-v-9e03166f="" className="place-right" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '9%',}}>
-                <h3 style={{color:'#fff'}}>Note: Please Submit UTR Number After Done Payment</h3>
+                {/* <h3 style={{color:'#fff'}}>Note: Please Submit UTR Number After Done Payment</h3> */}
             </div>
         </div>
 
@@ -249,7 +251,7 @@ return;
       <div className="van-cell__value van-field__value">
         <div className="van-field__body">
           <input type="number" inputmode="numeric" id="van-field-3-input" className="van-field__control" value={utr}
-            placeholder=" Please enter the 12 digit UTR number" onChange={handleInputChange}
+            placeholder=" Please enter the Transaction ID" onChange={handleInputChange}
             />
         </div>
         </div>

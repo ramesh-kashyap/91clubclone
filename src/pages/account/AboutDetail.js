@@ -2086,7 +2086,7 @@ export default function AboutDetail() {
         }}
                 >
                   By visiting this page on our website:<a
-                    href="http://localhost:3000/"
+                    href="https://bigdaddypro.live"
                     target="_blank"
                     >https://bigdaddypro.live/login</a
                   >

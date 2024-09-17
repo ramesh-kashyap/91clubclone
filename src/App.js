@@ -67,6 +67,7 @@ import AddUSDT from './pages/wallet/AddUSDT';
 import TransAction from './pages/wallet/TransAction';
 import DepositHistory from './pages/wallet/DepositHistory';
 import UpiDeposit from './pages/wallet/Upideposit';
+import CryptoDeposit from './pages/wallet/CryptoDeposit';
 
 
 
@@ -169,6 +170,7 @@ function App() {
         <Route path="/deposit/UpiDeposit" element={<PrivateRoute><UpiDeposit/></PrivateRoute>}/>
         <Route path="/main/GameStats" element={<PrivateRoute><GameStats/></PrivateRoute>}/>
         <Route path="/home/Notification" element={<PrivateRoute><Message/></PrivateRoute>}/>
+        <Route path="/deposit/CryptoDeposit" element={<PrivateRoute><CryptoDeposit/></PrivateRoute>}/>
 
 
 
