@@ -10043,8 +10043,8 @@ export default function Wingo3() {
           <div data-v-7dd1adab="">Wallet balance</div>
         </div>
         <div data-v-7dd1adab="" className="Wallet__C-balance-l3">
-          <div data-v-7dd1adab="">Withdraw</div>
-          <div data-v-7dd1adab="">Deposit</div>
+        <div data-v-7dd1adab="" onClick={()=>navigate('/wallet/withdraw')}>Withdraw</div>
+        <div data-v-7dd1adab="" onClick={()=>navigate('/wallet/deposit')}>Deposit</div>
         </div>
       </div>
     </div>
