@@ -17,7 +17,6 @@ export default function Withdraw() {
   const [rupayAmount, setRupayAmount] = useState(null);
   const [needToBet, setNeedToBet] = useState(0);
   const [walletAddress, setWalletAddress] = useState(null);
-  const [withdrawAddress, setWithdrawAddress] =useState(null);
   const [account_number, setAccountAddress] =useState(null);
   const [name_bank, setNameBank] =useState(null);
   const [ruWithdraw, setRuWithdraw] = useState(null);
@@ -56,10 +55,8 @@ export default function Withdraw() {
 
       setUserInfo(data.userInfo[0]); // Assuming data.data contains the user's information
       setWalletAddress(data.datas[0].usdtBep20);
-
-      setWithdrawAddress(data.datas[0].usdttrc20)
-      setAccountAddress(data.datas[0].account_number)
-      setNameBank(data.datas[0].name_bank)
+      setAccountAddress(data.datas[0].account_number);
+      setNameBank(data.datas[0].name_bank);
       if(data.userInfo[0].total_bet > data.userInfo[0].able_to_bet){
         setNeedToBet(0);
       }
@@ -410,14 +407,14 @@ const fetchWithdrawHistory= async () => {
           </div>
           </div>
           <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
-          <div data-v-80a607a5="" className="bankInfo" style={{display: walletAddress == null ? 'none':'block'}}>
+          <div data-v-80a607a5="" className="bankInfo">
             <div data-v-80a607a5="" className="bankInfoItem type1">
               <div data-v-80a607a5="">
                 <img data-v-80a607a5=""src="/assets/png/usdt.png" style={{top: '10px'}}/>
               </div>
               <div data-v-80a607a5="">
                 <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">{walletAddress ? `${walletAddress.substring(0, 9)}...${walletAddress.substring(walletAddress.length - 6)}` : ""}
+                ><span data-v-80a607a5="">83708347584
                 </span>
               </div>
               <i
