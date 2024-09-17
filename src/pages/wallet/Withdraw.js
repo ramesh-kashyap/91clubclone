@@ -25,7 +25,11 @@ export default function Withdraw() {
      setActiveSection(sectionID);
   };
   const navigate = useNavigate();
- 
+
+ const handleAmount = (e) => {
+    const value = e.target.value;
+    setAmount(value); // Set USDT value
+  };
 
   const handleAmountChange = (e) => {
     const value = e.target.value;
@@ -391,9 +395,9 @@ const fetchWithdrawHistory= async () => {
               <input
                 data-v-cb5583fe=""
                 placeholder="Please enter the amount"
-                className="inp"
-                
-              />
+                className="inp"  
+                onChange={handleAmount}              
+              />  
             </div>
             
             <div data-v-cb5583fe="" className="balance bank">
