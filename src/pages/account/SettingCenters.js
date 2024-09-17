@@ -9656,7 +9656,7 @@ style={{maskType: 'alpha'}}
       <div className="van-overlay" style={{zIndex: '2005'}}></div>
                 <div
                   role="dialog"
-                  tabindex="0"
+                  tabIndex="0"
                   className="van-popup van-popup--center van-dialog"
                   style={{zIndex: '2005'}}
                 >
@@ -9690,7 +9690,7 @@ style={{maskType: 'alpha'}}
                           data-v-5bd44e74=""
                           type="text"
                           auto-complete="new-password"
-                          autocomplete="off"
+                          autcomplete="off"
                           name="username"
                           placeholder="Please enter Nickname"
                         />
