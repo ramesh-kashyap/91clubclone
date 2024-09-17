@@ -5418,13 +5418,13 @@ export default function Dashboard() {
 
 
         <div className="van-overlay" style={{
-      zIndex: '2003',
+      zIndex: '2003',display :'none',
       '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'"}}
     >
   </div>
 
 
-<div role="dialog" tabIndex="0" className="van-popup van-popup--center van-dialog firstSaveDialog" style={{zIndex: '2003',
+<div role="dialog" tabIndex="0" className="van-popup van-popup--center van-dialog firstSaveDialog" style={{zIndex: '2003',display :'none',
       '--f13b4d11CurrentFontFamily':" 'Roboto', 'Inter', 'sansSerif'"
 }}>
     <div className="van-dialog__header">
