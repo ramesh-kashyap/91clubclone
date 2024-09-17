@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
 
-export default function AddUSDT() {
-  const [bep20, setBep] = useState('');
-
+export default function AddBank() {
+  const [nameBank, setNameBank] = useState('');
+  const [nameUser, setNameUser] = useState('');
+  const [accountNumber, setAccountNumber] = useState('');
+  const [branchName, setBranchName] = useState('');
+  const [ifscCode, setIfscCode] = useState('');
   const navigate = useNavigate();
 
 
@@ -15,7 +18,10 @@ export default function AddUSDT() {
 
     try {
       const response = await Api.post('/api/webapi/addBank', {
-        usdtBep20: bep20, 
+        bankName: nameBank,
+        accountName: nameUser,
+        accountNumber: accountNumber,
+        ifscCode: ifscCode,
       });
 
       if (response.data.status) {
@@ -50,7 +56,7 @@ export default function AddUSDT() {
                 </div>
                 <div data-v-12a80a3e="" className="navbar__content-center">
                   <div data-v-12a80a3e="" className="navbar__content-title">
-                    Add USDT address
+                    Add Bank Details
                   </div>
                 </div>
                 <div data-v-12a80a3e="" className="navbar__content-right"></div>
@@ -67,51 +73,99 @@ export default function AddUSDT() {
                 </span>
               </div> */}             
 
-              {/* <div data-v-24736190="" className="addUSDT__container-content-item">
+              <div data-v-24736190="" className="addUSDT__container-content-item">
                 <div data-v-24736190="" className="label">
                   <svg data-v-24736190="" className="svg-icon icon-usdt2 icon icon">
                     <use href="#icon-usdt2"></use>
                   </svg>
-                  Add USDT TRC20 Address<span style={{position: 'absolute', height: '1.17333rem',
+                  Bank Name<span style={{position: 'absolute', height: '1.17333rem',
     width: '.8rem',
     fontWeight: '900',
     fontSize: '.56rem',
-    lineHeight: '1.17333rem',}}><img data-v-cb5583fe="" src="/assets/png/usdt.png" style={{width: 'auto',  height: '.6rem',   marginTop: '.26667rem',}}/>
+    lineHeight: '1.17333rem',}}>
                  
                  </span>
                 </div>
                 <div data-v-24736190="" className="input">             
                   <input
                     data-v-24736190=""
-                    placeholder="   Please enter the USDT Trc20 address"
+                    placeholder="   Please enter the Bank Name"
                     maxLength="36"
-                    value={trc20}  
-                    onChange={(e) => setTrc(e.target.value)}  
+                    value={nameBank}  
+                    onChange={(e) => setNameBank(e.target.value)}  
                    // Display the correct address
                    
                   />
                 </div>
-              </div> */}
+              </div>
 
               <div data-v-24736190="" className="addUSDT__container-content-item">
                 <div data-v-24736190="" className="label">
                   <svg data-v-24736190="" className="svg-icon icon-usdt2 icon icon">
                     <use href="#icon-usdt2"></use>
-                  </svg>Add USDT Bep20 Address<span style={{position: 'absolute', height: '1.17333rem',
+                  </svg>Add Name<span style={{position: 'absolute', height: '1.17333rem',
     width: '.8rem',
     fontWeight: '900',
     fontSize: '.56rem',
-    lineHeight: '1.17333rem',}}><img data-v-cb5583fe="" src="/assets/png/trc20.png" style={{width: 'auto',  height: '.6rem',   marginTop: '.26667rem',}}/>
+    lineHeight: '1.17333rem',}}>
                  
                  </span>
                 </div>
                 <div data-v-24736190="" className="input">
                   <input
                     data-v-24736190=""
-                    placeholder="    Please enter the USDT Bep20 address"
+                    placeholder="    Please enter the User Name"
                     maxLength="36"
-                    value={bep20}  
-                    onChange={(e) => setBep(e.target.value)} 
+                    value={nameUser}  
+                    onChange={(e) => setNameUser(e.target.value)} 
+                   
+                  />
+                </div>
+              </div>
+
+              <div data-v-24736190="" className="addUSDT__container-content-item">
+                <div data-v-24736190="" className="label">
+                  <svg data-v-24736190="" className="svg-icon icon-usdt2 icon icon">
+                    <use href="#icon-usdt2"></use>
+                  </svg>Bank Account Number<span style={{position: 'absolute', height: '1.17333rem',
+    width: '.8rem',
+    fontWeight: '900',
+    fontSize: '.56rem',
+    lineHeight: '1.17333rem',}}>
+                 
+                 </span>
+                </div>
+                <div data-v-24736190="" className="input">
+                  <input
+                    data-v-24736190=""
+                    placeholder="    Please enter Account Number"
+                    maxLength="36"
+                    value={accountNumber}  
+                    onChange={(e) => setAccountNumber(e.target.value)} 
+                   
+                  />
+                </div>
+              </div>             
+
+              <div data-v-24736190="" className="addUSDT__container-content-item">
+                <div data-v-24736190="" className="label">
+                  <svg data-v-24736190="" className="svg-icon icon-usdt2 icon icon">
+                    <use href="#icon-usdt2"></use>
+                  </svg>IFSC Code<span style={{position: 'absolute', height: '1.17333rem',
+    width: '.8rem',
+    fontWeight: '900',
+    fontSize: '.56rem',
+    lineHeight: '1.17333rem',}}>
+                 
+                 </span>
+                </div>
+                <div data-v-24736190="" className="input">
+                  <input
+                    data-v-24736190=""
+                    placeholder="    Please enter IFSC Code"
+                    maxLength="36"
+                    value={ifscCode}  
+                    onChange={(e) => setIfscCode(e.target.value)} 
                    
                   />
                 </div>

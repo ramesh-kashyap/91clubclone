@@ -54,6 +54,7 @@ import Abouts from './pages/account/Abouts';
 import AboutDetail from './pages/account/AboutDetail';
 import RiskDetail from './pages/account/RiskDetail';
 import Message from './pages/account/Message';
+import AddBank from './pages/wallet/AddBank';
 
 
 
@@ -171,7 +172,7 @@ function App() {
         <Route path="/main/GameStats" element={<PrivateRoute><GameStats/></PrivateRoute>}/>
         <Route path="/home/Notification" element={<PrivateRoute><Message/></PrivateRoute>}/>
         <Route path="/deposit/CryptoDeposit" element={<PrivateRoute><CryptoDeposit/></PrivateRoute>}/>
-
+        <Route path="/withdraw/addbank" element={<PrivateRoute><AddBank/></PrivateRoute>}/>
 
 
 
