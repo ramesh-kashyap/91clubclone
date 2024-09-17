@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
+import { useToast } from '../../components/ToastContext'; 
+
 
 
 export default function TeamReport(){
@@ -15,6 +17,8 @@ export default function TeamReport(){
   const [teamReport, setTeamReport] = useState([]);
   const [filteredReports, setFilteredReports] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const { showToast } = useToast();
+
 
   const [error, setError] = useState(null);
 
@@ -76,6 +80,22 @@ export default function TeamReport(){
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
+
+
+
+  const fetchPromotionInfo = async (code) => {
+    try {
+      await navigator.clipboard.writeText(code); // Use the passed code
+      showToast('Code copied successfully', 'success');
+    } catch (error) {
+      console.error('Error fetching promotion info:', error);
+      showToast('Error copying the code', 'error');
+    }
+  };
+
+
+
+
 
     return(
   <div style={{fontSize: '12px'}}>
@@ -9684,7 +9704,7 @@ export default function TeamReport(){
       <div data-v-10d1559c="" className="TeamReport__C-body-item">
         <div data-v-10d1559c="" className="TeamReport__C-body-item-head">
           <div data-v-10d1559c="" className="title">UID : {history.id_user}</div>
-          <svg data-v-10d1559c="" className="svg-icon icon-copy">
+          <svg data-v-10d1559c="" className="svg-icon icon-copy"  onClick={() => fetchPromotionInfo(history.id_user)} >
             <use xlinkHref="#icon-copy"></use>
           </svg>
         </div>
