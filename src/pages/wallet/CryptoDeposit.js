@@ -251,7 +251,7 @@ export default function CryptoDeposit(){
       <div className="van-cell__value van-field__value">
         <div className="van-field__body">
           <input type="number" inputmode="numeric" id="van-field-3-input" className="van-field__control" value={utr}
-            placeholder=" Please enter the Transaction ID" onChange={handleInputChange}
+            placeholder=" Please enter the Transaction Hash" onChange={handleInputChange}
             />
         </div>
         </div>
@@ -260,7 +260,7 @@ export default function CryptoDeposit(){
 
                         <div data-v-9e03166f="" className="Recharge__container-rechageBtn" onClick={handlePay} style={{ 
     backgroundColor: isButtonActive ? '' : '#c4933f'
-  }}>Pay</div>
+  }}>Submit</div>
                     </div>
                     
                 
