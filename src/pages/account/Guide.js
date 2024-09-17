@@ -151,7 +151,7 @@ export default function Guide() {
         <div data-v-99f1dd99="" className="guide-container-content">
           <p>
             <img
-              src="/assets/png/editor_202403081456351tsp.png"
+              src="/assets/16.png"
               style={{width: '461px'}}
               
             />
@@ -286,7 +286,7 @@ export default function Guide() {
             ><b>- Press i have read and agree privacy agreement<br /></b
             ><b>- Press Reset<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308154404k1uj.jpg"
+              src="/assets/14.png"
               style={{width: '403px'}}
 
             /><br />
@@ -297,7 +297,7 @@ export default function Guide() {
               >To download the Apps you can go to Home page on the right top
               side you will see the download button<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308154415qqwl.png"
+              src="/assets/13.png"
               style={{width: '403px'}}
 
             /><br />
@@ -311,7 +311,7 @@ export default function Guide() {
           </p>
           <p>
             <img
-              src="/assets/png/editor_20240308154429od9s.png"
+              src="/assets/12.png"
               style={{width: '403px'}}
 
             /><br />

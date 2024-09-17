@@ -9651,6 +9651,63 @@ style={{maskType: 'alpha'}}
       </div>
 
 
+      <div className="info-dialog">
+      <div className="van-overlay" style={{ zIndex: 2005 }}></div>
+      <div
+        role="dialog"
+        tabIndex="0"
+        className="van-popup van-popup--center van-dialog"
+        style={{ zIndex: 2005 }}
+      >
+        <div className="van-dialog__content">
+          <div className="info-dialog-header">
+            <span className="info-dialog-header-left"></span>
+            <h5>Change Nickname</h5>
+            <span className="info-dialog-header-right"></span>
+          </div>
+          <div className="info-dialog-content">
+            <div className="info-dialog-content-title">
+              <svg className="svg-icon icon-dialogNickname">
+                <use xlinkHref="#icon-dialogNickname"></use>
+              </svg>
+              <span>Nickname</span>
+            </div>
+            <input
+              type="text"
+              autoComplete="off"
+              name="username"
+              placeholder="Please enter Nickname"
+              value={nickname}
+              onChange={handleNicknameChange}
+            />
+            {showWarning && (
+              <h4 style={{ display: 'block' }}>
+                Please do not enter a Nickname with more than 12 characters
+              </h4>
+            )}
+          </div>
+          <div className="info-dialog-footer">
+            <img
+              className=""
+              data-origin="/assets/png/close-00101b6c.png"
+              src="/assets/png/close-862c6a4d.png"
+              alt="Close"
+            />
+          </div>
+        </div>
+        <div className="van-hairline--top van-dialog__footer">
+          <button
+            type="button"
+            className="van-button van-button--default van-button--large van-dialog__confirm"
+          >
+            <div className="van-button__content">
+              <span className="van-button__text">Confirm</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
 
    
       
