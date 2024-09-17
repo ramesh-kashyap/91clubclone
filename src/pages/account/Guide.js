@@ -206,7 +206,7 @@ export default function Guide() {
             ><b>- Input Amount You Want To Withdraw<br /></b
             ><b>- Input Your Login Password<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308151024u3vh.png"
+              src="/assets/20.png"
               style={{width: '413px'}}
             /><br />
           </p>
@@ -218,7 +218,7 @@ export default function Guide() {
               the next bet you do also game history showing the previous
               result.<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308151041xmqq.png"
+              src="/assets/21.png"
               style={{width: '413px'}}
             /><br />
           </p>
@@ -228,7 +228,7 @@ export default function Guide() {
               >You can check all the transaction or activity you do inside the
               account on transaction, that you can find on account menu<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308154102esl7.png"
+              src="/assets/22.png"
               style={{width: '413px'}}
             /><br />
           </p>
@@ -246,7 +246,7 @@ export default function Guide() {
               >- You Can Click The Sharing Invitation Poster To See The
               Barcode<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308154118c5ry.png"
+              src="/assets/23.png"
               style={{width: '413px'}}
             /><br />
           </p>
@@ -261,7 +261,7 @@ export default function Guide() {
             ><b>- Re-fill new login password<br /></b
             ><b>- Press Save Changes<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308154139rjgt.png"
+              src="/assets/24.png"
               style={{width: '413px'}}
             /><br />
           </p>
@@ -271,21 +271,10 @@ export default function Guide() {
             ><b>- Press Wallet menu<br /></b><b>- Press Withdraw menu<br /></b
             ><b>- Press Add Bank<br /></b><b>- Fill all the collumn<br /></b
             ><b>- Press Save<br /><br /></b
-            ><img
-              src="/assets/png/editor_20240308154159lbsi.png"
-              style={{width: '403px'}}
-            /><br />
+            ><br />
           </p>
           <p>
-            <b>10. Forgot Password<br /></b><b>- Go to BigdadyPro website<br /></b
-            ><b>- Press Account menu<br /></b
-            ><b>- Press Forgot Password<br /></b
-            ><b>- Fill phone number you register<br /></b
-            ><b>- Press Send to receive OTP<br /></b><b>- Fill the OTP<br /></b
-            ><b>- Fill new password<br /></b><b>- Refill new password<br /></b
-            ><b>- Press i have read and agree privacy agreement<br /></b
-            ><b>- Press Reset<br /><br /></b
-            ><img
+          <img
               src="/assets/14.png"
               style={{width: '403px'}}
 
