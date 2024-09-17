@@ -20,6 +20,7 @@ export default function Withdraw() {
   const [withdrawAddress, setWithdrawAddress] =useState(null);
   const [account_number, setAccountAddress] =useState(null);
   const [name_bank, setNameBank] =useState(null);
+  const [ruWithdraw, setRuWithdraw] = useState(null);
 
   const showSection = (sectionID) =>{
      setActiveSection(sectionID);
@@ -28,7 +29,7 @@ export default function Withdraw() {
 
  const handleAmount = (e) => {
     const value = e.target.value;
-    setAmount(value); // Set USDT value
+    setRuWithdraw(value);
   };
 
   const handleAmountChange = (e) => {
@@ -75,21 +76,13 @@ export default function Withdraw() {
 
   const formatTimestampToIST = (timestamp) => {
     try {
-      // Convert the timestamp to a number if it's in string format
       const numericTimestamp = Number(timestamp);
-  
-      // If the timestamp is in seconds (10 digits), convert it to milliseconds
       const validTimestamp = numericTimestamp.toString().length === 13 ? numericTimestamp : numericTimestamp * 1000;
   
-      // Create a Date object from the valid timestamp
       const date = new Date(validTimestamp);
-  
-      // Check if the Date object is valid
       if (isNaN(date.getTime())) {
         throw new Error('Invalid Date');
       }
-  
-      // Format the date in IST
       return date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
     } catch (error) {
       return 'Invalid Timestamp';
@@ -98,7 +91,7 @@ export default function Withdraw() {
 
 
   const handleSubmit = async (e) => {
-    if (amount< 900) {
+    if (rupayAmount < 900 || ruWithdraw < 900) {
       showToast('Amount need to be greater than 900');
       return;
     }
@@ -114,7 +107,7 @@ export default function Withdraw() {
       null;
 
       const response = await Api.post('/api/webapi/withdrawalUsdt', {
-        money: amount, 
+        money: amount, ruWithdraw,
         paymentMode,
       });
       console.log(response.data);
