@@ -9607,7 +9607,7 @@ export default function Laundry() {
               </div>
               <div data-v-cdf0e578="" className="item">
                 <p data-v-cdf0e578="" className="tit">Total rebate</p>
-                <span data-v-cdf0e578="" className="num">{laundry.netAmount}</span>
+                <span data-v-cdf0e578="" className="num">{laundry.netAmount>0?laundry.netAmount: 0}</span>
               </div>
             </div>
             <div data-v-cdf0e578="" className="tip">
