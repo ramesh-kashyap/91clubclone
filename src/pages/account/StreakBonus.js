@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
 
 export default function StreakBonus() {
+  const [streakBonus, setStreakBonus] = useState([]);
 
     const [userId, setUserId] = useState('');
     const [number, setNumber] = useState('');
@@ -33,13 +34,33 @@ export default function StreakBonus() {
     };
     
     
+
+
+
+    const fetchStreakBonus= async () => {
+      try {
+        const response = await Api.get('/api/webapi/listStreakBonusReport');
+        const data =  response.data;
+  
+        console.log(data.streakBonuses);
+  
+        setStreakBonus(data.streakBonuses); // Assuming data.data contains the user's information
+  
+  
+      } catch (err) {
+        console.error('An error occurred:', err);
+        setError('An error occurred. Please try again.');
+      } 
+    };
+  
+  
+    useEffect(() => {
+      fetchStreakBonus();  
+   
+     
+    }, []);
+
     
-      useEffect(() => {
-       
-           
-    
-       
-      }, []);
       const navigate = useNavigate();
   return (
     <div style={{fontSize: '12px'}} >
@@ -385,8 +406,15 @@ export default function StreakBonus() {
 
 </span>
             </div>
-            
-            <div data-v-9f5f4114="" style={{margin:'15px'}}>
+             
+            {streakBonus.length === 0 ? (
+          <div data-v-cbab7763="" className="infiniteScroll__loading">
+           
+          <div data-v-cbab7763="">No more</div>
+        </div>
+        ) : (
+          streakBonus.map((history, index) => (
+            <div  key={index} data-v-9f5f4114="" style={{margin:'15px'}}>
               <div data-v-9f5f4114="" className="record__main-info">
                 <div
                   data-v-9f5f4114=""
@@ -394,7 +422,7 @@ export default function StreakBonus() {
                 >
                   <div data-v-9f5f4114="" className="recharge_text">Streak </div>
                   <div data-v-9f5f4114="" className="flex_between">
-                    <div data-v-9f5f4114="" className="rechargeFail">Failed</div>
+                    <div data-v-9f5f4114="" className="rechargeFail"  style={{ color: history.status === 0 ? "yellow" : history.status === 1 ? "green" : "red" }}>{history.status === 0 ? "Pending" : history.status === 1 ? "Complete" : "Failed"}</div>
                     
                   </div>
                 </div>
@@ -402,40 +430,47 @@ export default function StreakBonus() {
                   data-v-9f5f4114=""
                   className="record__main-info__money item flex_between"
                 >
-                  <span data-v-9f5f4114="">Balance</span
-                  ><span data-v-9f5f4114="">₹100.00</span>
+                  <span data-v-9f5f4114="">Streak Number</span
+                  ><span data-v-9f5f4114="">{history.streak_number}</span>
                 </div>
                 <div
                   data-v-9f5f4114=""
                   className="record__main-info__type item flex_between"
                 >
-                  <span data-v-9f5f4114="">Type</span
-                  ><span data-v-9f5f4114="">UPI-ICE</span>
+                  <span data-v-9f5f4114="">First Number</span
+                  ><span data-v-9f5f4114="">{history.streak_period_number}</span>
+                </div>
+                <div
+                  data-v-9f5f4114=""
+                  className="record__main-info__time item flex_between"
+                >
+                  <span data-v-9f5f4114="">last Number</span
+                  ><span data-v-9f5f4114="">{history.last_period_number}</span>
+                </div>
+                <div
+                  data-v-9f5f4114=""
+                  className="record__main-info__orderNumber item flex_between"
+                >
+                  <span data-v-9f5f4114="">Bonus</span>
+                  <div data-v-9f5f4114="">
+                    <span data-v-9f5f4114="">{history.bonus}%</span
+                    >
+                  </div>
                 </div>
                 <div
                   data-v-9f5f4114=""
                   className="record__main-info__time item flex_between"
                 >
                   <span data-v-9f5f4114="">Time</span
-                  ><span data-v-9f5f4114="">2024-07-30 16:43:18</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__orderNumber item flex_between"
-                >
-                  <span data-v-9f5f4114="">Order number</span>
-                  <div data-v-9f5f4114="">
-                    <span data-v-9f5f4114="">p2024073011131873726770</span
-                    ><svg data-v-9f5f4114="" className="svg-icon icon-copy" alt="">
-                      <use href="#icon-copy"></use>
-                    </svg>
-                  </div>
+                  ><span data-v-9f5f4114="">{history.created_at}</span>
                 </div>
                 
               </div>
             
               
             </div>
+          ))
+        )}
           </div>
         </div>
         <div data-v-3e71d3da="" data-v-36cc3380="" className="dialog inactive">
