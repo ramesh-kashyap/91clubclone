@@ -9642,15 +9642,16 @@ style={{maskType: 'alpha'}}
         <div data-v-5bd44e74="" className="userInfo__container-content__avatar">
           <img
             data-v-5bd44e74=""
-            data-img="/assets/png/avatar-2f23f3bd.png"
+            data-img={`/assets/png/${getUserInfo?.avatar}`}
             className=""
-            data-origin="/assets/png/6-7c7f5203.png"
-            src="/assets/png/6-7c7f5203.png"
+            data-origin={`/assets/png/${getUserInfo?.avatar}`}
+            src={`/assets/png/${getUserInfo?.avatar}`}
           />
         </div>
         <div
           data-v-5bd44e74=""
           className="userInfo__container-setting-center-header-edit"
+          onClick={()=>navigate('/Avatar')}
         >
           <span data-v-5bd44e74="">Change avatar</span
           ><i

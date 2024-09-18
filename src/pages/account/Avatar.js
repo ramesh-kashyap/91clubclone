@@ -1,6 +1,35 @@
-import React from 'react'
+import React from 'react';
+import Api from '../../services/Api';
+import { useNavigate } from 'react-router-dom';
+
+
 
 export default function Register() {
+
+
+  const navigate = useNavigate();
+
+
+const handleImageClick = async (imageSrc) => {
+  // Extract the last part of the image path (e.g., '1-a6662edb.png')
+  const imageName = imageSrc.split('/').pop();
+
+  try {
+    // Send API request to update the avatar
+    const response = await Api.post('/api/webapi/change/updateAvatar', {
+      avatar: imageName,
+    });
+
+    if (response.status === 200) {
+      navigate('/main/SettingCenters');
+    }
+  } catch (error) {
+    console.error('Error updating avatar:', error);
+    alert('Failed to update avatar');
+  }
+};
+
+
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -9495,7 +9524,7 @@ export default function Register() {
         <div data-v-12a80a3e="" data-v-0cd6dac4="" className="navbar">
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
-              <div data-v-12a80a3e="" className="navbar__content-left">
+              <div data-v-12a80a3e="" className="navbar__content-left" onClick={()=>navigate('/main/SettingCenters')}>
                 <i
                   data-v-12a80a3e=""
                   className="van-badge__wrapper van-icon van-icon-arrow-left"
@@ -9517,6 +9546,8 @@ export default function Register() {
               data-v-0cd6dac4=""
               className="van-grid-item"
               style={{flexBasis: '33.3333%', paddingRight: '10px'}}
+              onClick={() => handleImageClick('/assets/png/1-a6662edb.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -9550,6 +9581,8 @@ export default function Register() {
               data-v-0cd6dac4=""
               className="van-grid-item"
               style={{flexBasis: '33.3333%', paddingRight: '10px'}}
+              onClick={() => handleImageClick('/assets/png/2-58c8a9bc.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -9583,6 +9616,8 @@ export default function Register() {
               data-v-0cd6dac4=""
               className="van-grid-item"
               style={{flexBasis: '33.3333%' ,paddingRight: '10px'}}
+              onClick={() => handleImageClick('/assets/png/3-abfcc056.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -9620,6 +9655,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/4-12a0d0c5.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -9694,13 +9731,15 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/6-7c7f5203.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
               >
                 <img
                   data-v-0cd6dac4=""
-                  className="active"
+                  className=""
                   src="/assets/png/6-7c7f5203.png"
                 />
                 <div data-v-0cd6dac4="">
@@ -9731,6 +9770,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/7-00479cfa.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -9768,6 +9809,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/8-ea087ede.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -9805,6 +9848,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/9-6d772f2c.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -9842,6 +9887,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/10-29a6603e.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -9879,6 +9926,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/11-925c456e.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -9916,6 +9965,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/12-ae12c679.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -9953,6 +10004,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/13-5676d43f.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -9990,6 +10043,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/14-a397ff6b.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -10027,6 +10082,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/15-80f41fc6.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -10064,6 +10121,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/16-cf8e1441.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -10101,6 +10160,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/17-bedde42f.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -10138,6 +10199,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/18-52955242.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -10175,6 +10238,8 @@ export default function Register() {
                 'paddingBight': '10px',
                 'marginTop': '10px'
             }}
+            onClick={() => handleImageClick('/assets/png/19-2ac9fd83.png')}
+
             >
               <div
                 className="van-grid-item__content van-grid-item__content--center"
@@ -10204,17 +10269,7 @@ export default function Register() {
                 </div>
               </div>
             </div>
-            <div
-              data-v-0cd6dac4=""
-              className="van-grid-item"
-              style={{
-                'flexBasis': '33.3333%',
-                'paddingBight': '10px',
-                'marginTop': '10px'
-            }}
-            >
-            
-            </div>
+          
           </div>
         </div>
       </div>
