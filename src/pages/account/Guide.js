@@ -151,7 +151,7 @@ export default function Guide() {
         <div data-v-99f1dd99="" className="guide-container-content">
           <p>
             <img
-              src="/assets/png/editor_202403081456351tsp.png"
+              src="/assets/16.png"
               style={{width: '461px'}}
               
             />
@@ -163,7 +163,7 @@ export default function Guide() {
               Confirm The Password<br />- Invitation code<br />- Click I Have
               Read And Agree<br />- Click Register<br /><br /></b
             ><img
-              src="/assets/png/editor_202403081501377yr6.png"
+              src="/assets/17.png"
               style={{width: '461px'}}
             /><b><br /></b>
           </p>
@@ -183,7 +183,7 @@ export default function Guide() {
               >Exp ：Betting (Big and small together) or (Red and Green
               together) or (bet more than 7 number) in the same time.<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308150224e2vu.png"
+              src="/assets/18.png"
               style={{width: '413px'}}
             /><br />
           </p>
@@ -193,7 +193,7 @@ export default function Guide() {
               >Click Wallet Icon, Click The Recharge Button, and we have 5 ways
               to make a recharge (UPIPAY-APP,UPIPAY,UPI-TRANSFER, USDT, TRX )<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308150628pv6u.png"
+              src="/assets/19.png"
               style={{width: '413px'}}
             /><br />
           </p>
@@ -206,7 +206,7 @@ export default function Guide() {
             ><b>- Input Amount You Want To Withdraw<br /></b
             ><b>- Input Your Login Password<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308151024u3vh.png"
+              src="/assets/20.png"
               style={{width: '413px'}}
             /><br />
           </p>
@@ -218,7 +218,7 @@ export default function Guide() {
               the next bet you do also game history showing the previous
               result.<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308151041xmqq.png"
+              src="/assets/21.png"
               style={{width: '413px'}}
             /><br />
           </p>
@@ -228,7 +228,7 @@ export default function Guide() {
               >You can check all the transaction or activity you do inside the
               account on transaction, that you can find on account menu<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308154102esl7.png"
+              src="/assets/22.png"
               style={{width: '413px'}}
             /><br />
           </p>
@@ -246,7 +246,7 @@ export default function Guide() {
               >- You Can Click The Sharing Invitation Poster To See The
               Barcode<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308154118c5ry.png"
+              src="/assets/23.png"
               style={{width: '413px'}}
             /><br />
           </p>
@@ -261,7 +261,7 @@ export default function Guide() {
             ><b>- Re-fill new login password<br /></b
             ><b>- Press Save Changes<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308154139rjgt.png"
+              src="/assets/24.png"
               style={{width: '413px'}}
             /><br />
           </p>
@@ -271,22 +271,11 @@ export default function Guide() {
             ><b>- Press Wallet menu<br /></b><b>- Press Withdraw menu<br /></b
             ><b>- Press Add Bank<br /></b><b>- Fill all the collumn<br /></b
             ><b>- Press Save<br /><br /></b
-            ><img
-              src="/assets/png/editor_20240308154159lbsi.png"
-              style={{width: '403px'}}
-            /><br />
+            ><br />
           </p>
           <p>
-            <b>10. Forgot Password<br /></b><b>- Go to BigdadyPro website<br /></b
-            ><b>- Press Account menu<br /></b
-            ><b>- Press Forgot Password<br /></b
-            ><b>- Fill phone number you register<br /></b
-            ><b>- Press Send to receive OTP<br /></b><b>- Fill the OTP<br /></b
-            ><b>- Fill new password<br /></b><b>- Refill new password<br /></b
-            ><b>- Press i have read and agree privacy agreement<br /></b
-            ><b>- Press Reset<br /><br /></b
-            ><img
-              src="/assets/png/editor_20240308154404k1uj.jpg"
+          <img
+              src="/assets/14.png"
               style={{width: '403px'}}
 
             /><br />
@@ -297,7 +286,7 @@ export default function Guide() {
               >To download the Apps you can go to Home page on the right top
               side you will see the download button<br /><br /></b
             ><img
-              src="/assets/png/editor_20240308154415qqwl.png"
+              src="/assets/13.png"
               style={{width: '403px'}}
 
             /><br />
@@ -311,7 +300,7 @@ export default function Guide() {
           </p>
           <p>
             <img
-              src="/assets/png/editor_20240308154429od9s.png"
+              src="/assets/12.png"
               style={{width: '403px'}}
 
             /><br />

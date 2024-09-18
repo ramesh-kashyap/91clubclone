@@ -8,7 +8,7 @@ export default function Laundry() {
   const [rebateBonus, setRebateBonus] = useState([]);
   const [error, setError] = useState(null);
 
-  const getRebateBonus = async (e) => {
+  const getRebateBonus = async () => {
     
     try {
       const response = await Api.post('/api/webapi/rebateBonus', {
@@ -9607,7 +9607,7 @@ export default function Laundry() {
               </div>
               <div data-v-cdf0e578="" className="item">
                 <p data-v-cdf0e578="" className="tit">Total rebate</p>
-                <span data-v-cdf0e578="" className="num">{laundry.bonus}</span>
+                <span data-v-cdf0e578="" className="num">{laundry.netAmount}</span>
               </div>
             </div>
             <div data-v-cdf0e578="" className="tip">
@@ -9630,7 +9630,7 @@ export default function Laundry() {
             </p>
           </div>
          
-          <div data-v-cdf0e578="" className="laundry-page_list">
+          {/* <div data-v-cdf0e578="" className="laundry-page_list">
             <div data-v-cdf0e578="" className="title">Rebate history</div>
             <div data-v-cdf0e578="" className="list">
               <div data-v-cdf0e578="" className="item">
@@ -9677,7 +9677,7 @@ export default function Laundry() {
                 >
               </div>
             </button>
-          </div>
+          </div> */}
         </div>
         <div data-v-3e71d3da="" data-v-cdf0e578="" className="dialog inactive">
           <div

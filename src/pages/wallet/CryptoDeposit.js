@@ -24,6 +24,34 @@ export default function CryptoDeposit(){
   const location = useLocation();
 
 
+  const [timeLeft, setTimeLeft] = useState(1800); // 5 minutes in seconds
+
+  // Countdown timer logic
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+
+    // Clear timer when component unmounts
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds
+      .toString()
+      .padStart(2, '0')}`;
+  };
+
+  // Call cancelRecharge after 5 minutes
+  useEffect(() => {
+    if (timeLeft === 0) {
+      navigate('/wallet/deposit'); // Redirect if no money data
+    }
+  }, [timeLeft]);
+
+
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
@@ -101,6 +129,16 @@ export default function CryptoDeposit(){
     setSelectedOption(event.target.value);
   };
 
+  const fetchPromotionInfo = async (code) => {
+    try {
+      await navigator.clipboard.writeText(code); // Use the passed code
+      showToast('Code copied successfully', 'success');
+    } catch (error) {
+      console.error('Error fetching promotion info:', error);
+      showToast('Error copying the code', 'error');
+    }
+  };
+
     return(
 <div className="" style={{fontSize: '12px'}}>
 
@@ -128,16 +166,22 @@ export default function CryptoDeposit(){
           
               <div  className="" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginTop: '40px',}}>
                 
-                    <div data-v-67e25db3="" className="maindiv" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px',  borderRadius: '10px', width: '100%', margin: '0 auto', background: `url('/assets/bottom-ccedfa9a.png')`,backgroundPositionX:'center',backgroundRepeat: 'no-repeat', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',}}>
+                    <div data-v-67e25db3="" className="maindiv" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',  borderRadius: '10px', width: '100%', margin: '0 auto', background: `url('/assets/bottom-ccedfa9a.png')`,backgroundPositionX:'center',backgroundRepeat: 'no-repeat', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',}}>
+
+                    <div data-v-67e25db3="" className="sec1" style={{ textAlign: 'center'}}>
+                            <div data-v-67e25db3="" className="ti1" style={{fontSize: '1.2em', fontWeight: 'bold', marginTop: '5px', color: '#333',}}>CountDown</div>
+                            <div data-v-67e25db3="" className="time" style={{fontSize: '1.2em', color: '#ff0000'}}> {formatTime(timeLeft)}</div>
+                        </div>
+
                         <div data-v-67e25db3="" className="sec1" style={{margin: '10px 0', textAlign: 'center',}}>
-                            <div data-v-67e25db3="" className="ti1" style={{fontSize: '1.2em', fontWeight: 'bold', marginBottom: '5px', color: '#333'}}>Payment</div>
+                            <div data-v-67e25db3="" className="ti1" style={{fontSize: '1.2em', fontWeight: 'bold', marginBottom: '5px', color: '#333'}}>{currency} Payment</div>
                             <div data-v-67e25db3="" className="time" style={{fontSize: '2em', color: '#ff0000'}}>${money}( ₹{money * 90})</div>
                         </div>
                         <div data-v-67e25db3="" className="sec2" style={{margin: '10px 0', textAlign: 'center'}}>
                             <div data-v-67e25db3="" className="ti2" style={{fontSize: '1.2em', fontWeight: 'bold', marginBottom: '5px', color: '#333'}}>Copy Wallet Address</div>
                             <div data-v-67e25db3="" className="num2" style={{fontSize: '1.2em', color: '#555', display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
                                 {currency =='USDT(BEP20)'? adminData[0]?.bep20 : adminData[0]?.trc20 }
-                                <svg data-v-67e25db3="" className="c5" xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none" style={{marginLeft: '1px'}}>
+                                <svg data-v-67e25db3="" className="c5" xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none" style={{marginLeft: '1px'}} onClick={() => fetchPromotionInfo(currency =='USDT(BEP20)'? adminData[0]?.bep20 : adminData[0]?.trc20 )}>
                                     <rect data-v-67e25db3="" x="1" y="3" width="8" height="9" rx="1" stroke="black"></rect>
                                     <path data-v-67e25db3="" d="M9.5 10H10C10.5523 10 11 9.55228 11 9V2C11 1.44772 10.5523 1 10 1H4C3.44772 1 3 1.44772 3 2V3" stroke="black"></path>
                                 </svg>
@@ -251,7 +295,7 @@ export default function CryptoDeposit(){
       <div className="van-cell__value van-field__value">
         <div className="van-field__body">
           <input type="number" inputmode="numeric" id="van-field-3-input" className="van-field__control" value={utr}
-            placeholder=" Please enter the Transaction ID" onChange={handleInputChange}
+            placeholder=" Please enter the Transaction Hash" onChange={handleInputChange}
             />
         </div>
         </div>
@@ -260,7 +304,7 @@ export default function CryptoDeposit(){
 
                         <div data-v-9e03166f="" className="Recharge__container-rechageBtn" onClick={handlePay} style={{ 
     backgroundColor: isButtonActive ? '' : '#c4933f'
-  }}>Pay</div>
+  }}>Submit</div>
                     </div>
                     
                 

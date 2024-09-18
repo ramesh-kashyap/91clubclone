@@ -20,6 +20,44 @@ export default function UpiDeposit(){
 
   const { showToast } = useToast(); // Toast notification
 
+  const [timeLeft, setTimeLeft] = useState(1800); // 5 minutes in seconds
+
+  // Countdown timer logic
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+
+    // Clear timer when component unmounts
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds
+      .toString()
+      .padStart(2, '0')}`;
+  };
+
+  const fetchPromotionInfo = async (code) => {
+    try {
+      await navigator.clipboard.writeText(code); // Use the passed code
+      showToast('Code copied successfully', 'success');
+    } catch (error) {
+      console.error('Error fetching promotion info:', error);
+      showToast('Error copying the code', 'error');
+    }
+  };
+
+  // Call cancelRecharge after 5 minutes
+  useEffect(() => {
+    if (timeLeft === 0) {
+      navigate('/wallet/deposit'); // Redirect if no money data
+    }
+  }, [timeLeft]);
+
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -122,8 +160,13 @@ return;
           
               <div  className="" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginTop: '40px',}}>
                 
-                    <div data-v-67e25db3="" className="maindiv" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px',  borderRadius: '10px', width: '100%', margin: '0 auto', background: `url('/assets/bottom-ccedfa9a.png')`,backgroundPositionX:'center',backgroundRepeat: 'no-repeat', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',}}>
-                        <div data-v-67e25db3="" className="sec1" style={{margin: '10px 0', textAlign: 'center',}}>
+                    <div data-v-67e25db3="" className="maindiv" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',   borderRadius: '10px', width: '100%', margin: '0 auto', background: `url('/assets/bottom-ccedfa9a.png')`,backgroundPositionX:'center',backgroundRepeat: 'no-repeat', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',}}>
+                    <div data-v-67e25db3="" className="sec1" style={{margin: '10px 0', textAlign: 'center'}}>
+                            <div data-v-67e25db3="" className="ti1" style={{fontSize: '1.2em', fontWeight: 'bold', marginBottom: '5px', color: '#333',}}>CountDown</div>
+                            <div data-v-67e25db3="" className="time" style={{fontSize: '1.2em', color: '#ff0000'}}> {formatTime(timeLeft)}</div>
+                        </div>
+
+                        <div data-v-67e25db3="" className="sec1" style={{ textAlign: 'center',}}>
                             <div data-v-67e25db3="" className="ti1" style={{fontSize: '1.2em', fontWeight: 'bold', marginBottom: '5px', color: '#333'}}>Payment</div>
                             <div data-v-67e25db3="" className="time" style={{fontSize: '2em', color: '#ff0000'}}>₹ {money}</div>
                         </div>
@@ -132,7 +175,7 @@ return;
                             <div data-v-67e25db3="" className="num2" style={{fontSize: '1.2em', color: '#555', display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
                                 UPI:{adminData[0]?.upi }
 
-                                <svg data-v-67e25db3="" className="c5" xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none" style={{marginLeft: '10px'}}>
+                                <svg data-v-67e25db3="" className="c5" xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none" style={{marginLeft: '10px'}} onClick={() => fetchPromotionInfo(adminData[0]?.upi)}>
                                     <rect data-v-67e25db3="" x="1" y="3" width="8" height="9" rx="1" stroke="black"></rect>
                                     <path data-v-67e25db3="" d="M9.5 10H10C10.5523 10 11 9.55228 11 9V2C11 1.44772 10.5523 1 10 1H4C3.44772 1 3 1.44772 3 2V3" stroke="black"></path>
                                 </svg>
@@ -228,8 +271,8 @@ return;
                height: '150px',
               
                 borderRadius: '8px', marginLeft: '80px',}}>
-                                     <QRCodeCanvas  value=                                {adminData[0]?.upi }
-  size={150} level={"H"} includeMargin={true} />
+                                                                    <img src="/assets/png/upi.png" className="imgs" style={{width: '150px', height: '150px'}}/>
+
 
             </div>
           </div>

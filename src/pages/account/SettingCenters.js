@@ -9653,7 +9653,74 @@ style={{maskType: 'alpha'}}
         </div>
       </div>
 
-
+      <div className="van-overlay" style={{zIndex: '2005'}}></div>
+                <div
+                  role="dialog"
+                  tabIndex="0"
+                  className="van-popup van-popup--center van-dialog"
+                  style={{zIndex: '2005'}}
+                >
+                  
+                  <div className="van-dialog__content">
+                    <div data-v-2c18a1cc="">
+                      <div data-v-2c18a1cc="" className="info-dialog-header">
+                        <span
+                          data-v-2c18a1cc=""
+                          className="info-dialog-header-left"
+                        ></span>
+                        <h5 data-v-2c18a1cc="">Change Nickname</h5>
+                        <span
+                          data-v-2c18a1cc=""
+                          className="info-dialog-header-right"
+                        ></span>
+                      </div>
+                      <div data-v-2c18a1cc="" className="info-dialog-content">
+                        <div
+                          data-v-5bd44e74=""
+                          className="info-dialog-content-title"
+                        >
+                          <svg
+                            data-v-5bd44e74=""
+                            className="svg-icon icon-dialogNickname"
+                          >
+                            </svg
+                          ><span data-v-5bd44e74="">Nickname</span>
+                        </div>
+                        <input
+                          data-v-5bd44e74=""
+                          type="text"
+                          auto-complete="new-password"
+                          autcomplete="off"
+                          name="username"
+                          placeholder="Please enter Nickname"
+                        />
+                        <h4 data-v-5bd44e74="" style={{display: 'none'}}>
+                          Please do not enter a Nickname with more than 12
+                          characters
+                        </h4>
+                      </div>
+                      <div data-v-2c18a1cc="" className="info-dialog-footer">
+                        <img
+                          data-v-2c18a1cc=""
+                          className=""
+                          data-origin="/assets/png/close-00101b6c.png"
+                          src="/assets/png/close-862c6a4d.png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="van-hairline--top van-dialog__footer">
+                    <button
+                      type="button"
+                      className="van-button van-button--default van-button--large van-dialog__confirm"
+                    >
+                      <div className="van-button__content">
+                        <span className="van-button__text">Confirm</span
+                        >
+                      </div>
+                    </button>
+                  </div>
+                </div>
 
    
       

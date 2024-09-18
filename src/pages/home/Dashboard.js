@@ -5415,6 +5415,229 @@ export default function Dashboard() {
                 <div data-v-c0caae78="" className="dialog__outside"></div>
             </div>
         </div>
+
+
+        <div className="van-overlay" style={{
+      zIndex: '2003',display :'none',
+      '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'"}}
+    >
+  </div>
+
+
+<div role="dialog" tabIndex="0" className="van-popup van-popup--center van-dialog firstSaveDialog" style={{zIndex: '2003',display :'none',
+      '--f13b4d11CurrentFontFamily':" 'Roboto', 'Inter', 'sansSerif'"
+}}>
+    <div className="van-dialog__header">
+      <div data-v-9cd12fb2="" className="header">
+        <div data-v-9cd12fb2="" className="title">Extra first deposit bonus</div>
+        <div data-v-9cd12fb2="" className="tip">
+          Each account can only receive rewards once
+        </div>
+      </div>
+    </div>
+    <div className="van-dialog__content">
+      <div data-v-9cd12fb2="" className="container">
+        <div data-v-48dabef8="" className="first_list-item">
+          <div data-v-48dabef8="" className="head">
+            <div data-v-48dabef8="" className="title">
+              First deposit<span data-v-48dabef8="">400</span>
+            </div>
+            <div data-v-48dabef8="" className="orange">+ ₹48.00</div>
+          </div>
+          <div data-v-48dabef8="" className="description">
+            Deposit 400 for the first time and you will receive 48 bonus
+          </div>
+          <div data-v-48dabef8="" className="foot">
+            <div data-v-bff59ba2="" data-v-48dabef8="" className="progress" style={{
+                background: 'var(--bg_color_L1)',
+                height: '16px',
+                "borderRadius": '16px'
+            }}>
+              <div data-v-bff59ba2="" className="line" style={{
+                  background:' var(--norm_secondary-color)',
+                  width: '0%',
+                  height: '16px',
+                 ' borderRadius': '16px',
+              }}></div>
+              <div data-v-bff59ba2="" className="step">0/400</div>
+            </div>
+            <div data-v-48dabef8="" className="btn n2">Deposit</div>
+          </div>
+        </div>
+        <div data-v-48dabef8="" className="first_list-item">
+          <div data-v-48dabef8="" className="head">
+            <div data-v-48dabef8="" className="title">
+              First deposit<span data-v-48dabef8="">1000</span>
+            </div>
+            <div data-v-48dabef8="" className="orange">+ ₹108.00</div>
+          </div>
+          <div data-v-48dabef8="" className="description">
+            Deposit 1000 for the first time and you will receive 108 bonus
+          </div>
+          <div data-v-48dabef8="" className="foot">
+            <div data-v-bff59ba2="" data-v-48dabef8="" className="progress" style={{
+                background:' var(--bg_color_L1)',
+                height:' 16px',
+                borderRadius: '16px'
+            }}>
+              <div data-v-bff59ba2="" className="line" style={{
+                  background: 'var(--norm_secondary-color)',
+                  width: '0%',
+                  height: '16px',
+                  borderRadius: '16px'
+              }}></div>
+              <div data-v-bff59ba2="" className="step">0/1000</div>
+            </div>
+            <div data-v-48dabef8="" className="btn n2">Deposit</div>
+          </div>
+        </div>
+        <div data-v-48dabef8="" className="first_list-item">
+          <div data-v-48dabef8="" className="head">
+            <div data-v-48dabef8="" className="title">
+              First deposit<span data-v-48dabef8="">2000</span>
+            </div>
+            <div data-v-48dabef8="" className="orange">+ ₹188.00</div>
+          </div>
+          <div data-v-48dabef8="" className="description">
+            Deposit 2000 for the first time and you will receive 188 bonus
+          </div>
+          <div data-v-48dabef8="" className="foot">
+            <div data-v-bff59ba2="" data-v-48dabef8="" className="progress" style={{
+                background:' var(--bg_color_L1)',
+                height:' 16px',
+                borderRadius: '16px'
+            }}>
+              <div data-v-bff59ba2="" className="line" style={{
+                  background: 'var(--norm_secondary-color)',
+                  width: '0%',
+                  height: '16px',
+                  borderRadius: '16px'
+              }}></div>
+              <div data-v-bff59ba2="" className="step">0/2000</div>
+            </div>
+            <div data-v-48dabef8="" className="btn n2">Deposit</div>
+          </div>
+        </div>
+        <div data-v-48dabef8="" className="first_list-item">
+          <div data-v-48dabef8="" className="head">
+            <div data-v-48dabef8="" className="title">
+              First deposit<span data-v-48dabef8="">10000</span>
+            </div>
+            <div data-v-48dabef8="" className="orange">+ ₹488.00</div>
+          </div>
+          <div data-v-48dabef8="" className="description">
+            Deposit 10000 for the first time and you will receive 488 bonus
+          </div>
+          <div data-v-48dabef8="" className="foot">
+            <div data-v-bff59ba2="" data-v-48dabef8="" className="progress" style={{
+                background:' var(--bg_color_L1)',
+                height:' 16px',
+                borderRadius: '16px'
+            }}>
+              <div data-v-bff59ba2="" className="line" style={{
+                  background: 'var(--norm_secondary-color)',
+                  width: '0%',
+                  height: '16px',
+                  borderRadius: '16px'
+              }}></div>
+              <div data-v-bff59ba2="" className="step">0/10000</div>
+            </div>
+            <div data-v-48dabef8="" className="btn n2">Deposit</div>
+          </div>
+        </div>
+        <div data-v-48dabef8="" className="first_list-item">
+          <div data-v-48dabef8="" className="head">
+            <div data-v-48dabef8="" className="title">
+              First deposit<span data-v-48dabef8="">24000</span>
+            </div>
+            <div data-v-48dabef8="" className="orange">+ ₹1,388.00</div>
+          </div>
+          <div data-v-48dabef8="" className="description">
+            Deposit 24000 for the first time and you will receive 1388 bonus
+          </div>
+          <div data-v-48dabef8="" className="foot">
+            <div data-v-bff59ba2="" data-v-48dabef8="" className="progress" style={{
+                background:' var(--bg_color_L1)',
+                height:' 16px',
+                borderRadius: '16px'
+            }}>
+              <div data-v-bff59ba2="" className="line" style={{
+                  background: 'var(--norm_secondary-color)',
+                  width: '0%',
+                  height: '16px',
+                  borderRadius: '16px'
+              }}></div>
+              <div data-v-bff59ba2="" className="step">0/24000</div>
+            </div>
+            <div data-v-48dabef8="" className="btn n2">Deposit</div>
+          </div>
+        </div>
+        <div data-v-48dabef8="" className="first_list-item">
+          <div data-v-48dabef8="" className="head">
+            <div data-v-48dabef8="" className="title">
+              First deposit<span data-v-48dabef8="">120000</span>
+            </div>
+            <div data-v-48dabef8="" className="orange">+ ₹5,888.00</div>
+          </div>
+          <div data-v-48dabef8="" className="description">
+            Deposit 120000 for the first time and you will receive 5888 bonus
+          </div>
+          <div data-v-48dabef8="" className="foot">
+            <div data-v-bff59ba2="" data-v-48dabef8="" className="progress" style={{
+                background:' var(--bg_color_L1)',
+                height:' 16px',
+                borderRadius: '16px'
+            }}>
+              <div data-v-bff59ba2="" className="line" style={{
+                  background: 'var(--norm_secondary-color)',
+                  width: '0%',
+                  height: '16px',
+                  borderRadius: '16px'
+              }}></div>
+              <div data-v-bff59ba2="" className="step">0/120000</div>
+            </div>
+            <div data-v-48dabef8="" className="btn n2">Deposit</div>
+          </div>
+        </div>
+        <div data-v-48dabef8="" className="first_list-item">
+          <div data-v-48dabef8="" className="head">
+            <div data-v-48dabef8="" className="title">
+              First deposit<span data-v-48dabef8="">240000</span>
+            </div>
+            <div data-v-48dabef8="" className="orange">+ ₹8,888.00</div>
+          </div>
+          <div data-v-48dabef8="" className="description">
+            Deposit 240000 for the first time and you will receive 8888 bonus
+          </div>
+          <div data-v-48dabef8="" className="foot">
+            <div data-v-bff59ba2="" data-v-48dabef8="" className="progress" style={{
+                background:' var(--bg_color_L1)',
+                height:' 16px',
+                borderRadius: '16px'
+            }}>
+              <div data-v-bff59ba2="" className="line" style={{
+                  background: 'var(--norm_secondary-color)',
+                  width: '0%',
+                  height: '16px',
+                  borderRadius: '16px'
+              }}></div>
+              <div data-v-bff59ba2="" className="step">0/240000</div>
+            </div>
+            <div data-v-48dabef8="" className="btn n2">Deposit</div>
+          </div>
+        </div>
+      </div>
+      <div data-v-9cd12fb2="" className="close"></div>
+    </div>
+    <div data-v-9cd12fb2="" className="footer">
+      <div data-v-9cd12fb2="" className="active">
+        <svg data-v-9cd12fb2="" className="svg-icon icon-active">
+          </svg>No more reminders today
+      </div>
+      <div data-v-9cd12fb2="" className="btn">Activity</div>
+    </div>
+  </div>
+        
         <div className="customer" id="customerId"
             style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif", '--f6a705e1-currentFontFamily': "bahnschrift"}}>
             {/* <img className="" data-origin="/assets/png/icon_sevice-9f0c8455.png" src="/assets/png/icon_sevice-9f0c8455.png"/> */}
@@ -5449,6 +5672,18 @@ export default function Dashboard() {
         </div>
     </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+    
     
   )
 }
