@@ -5,7 +5,7 @@ import Api from '../../services/Api';
 import dayjs from 'dayjs'; // to help with date comparison
 import 'dayjs/locale/en'; // Load locale
 
-// Utility to format the timestamp to IST (adjust this function as needed)
+
 const formatTimestampToIST = (timestamp) => {
   return dayjs(timestamp).format('DD/MM/YYYY, h:mm:ss A');
 };
