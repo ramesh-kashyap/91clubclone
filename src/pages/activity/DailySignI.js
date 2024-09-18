@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
+import { useToast } from '../../components/ToastContext'; 
 
 export default function DailySignI() {
 
@@ -8,6 +9,7 @@ export default function DailySignI() {
 
 
   const [dailySignI, setDailySignI] = useState([]);
+  const { showToast } = useToast();
 
   const [error, setError] = useState(null);
 
@@ -25,9 +27,11 @@ export default function DailySignI() {
 
       // If API call is successful and status is true
       if (response.data.status === true) {
+        showToast('Your Data is Registered.', 'succes');
         // Handle success (add success logic here if needed)
       } else {
         // Set error message if status is not true
+        showToast(response.data.message, 'error');
         setError(response.data.message);
       }
     } catch (err) {
