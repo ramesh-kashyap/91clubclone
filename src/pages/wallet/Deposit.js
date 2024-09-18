@@ -402,7 +402,7 @@ const showSection = (sectionId) => {
                     <img
                       data-v-4f3d8608=""
                       className="img"
-                      src="/assets/png/trx.png"
+                      src="/assets/png/trc20.png"
                       alt=""
                     />
                   </div>
@@ -697,7 +697,7 @@ const showSection = (sectionId) => {
                   onClick={() => handleUsdtClick('10')}          
                 >  
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>10
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trc20.png" alt="" style={{width: '20px'}} /></span>10
                   </div>                  
                 </div>
                 <div
@@ -706,7 +706,7 @@ const showSection = (sectionId) => {
                   onClick={() => handleUsdtClick('50')}          
                 >  
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>50
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trc20.png" alt="" style={{width: '20px'}} /></span>50
                   </div>                  
                 </div>
                 <div
@@ -715,7 +715,7 @@ const showSection = (sectionId) => {
                   onClick={() => handleUsdtClick('100')}          
                 >  
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>100
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trc20.png" alt="" style={{width: '20px'}} /></span>100
                   </div>                  
                 </div>
                 <div
@@ -724,7 +724,7 @@ const showSection = (sectionId) => {
                   onClick={() => handleUsdtClick('200')}          
                 >  
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>200
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trc20.png" alt="" style={{width: '20px'}} /></span>200
                   </div>                  
                 </div>
                 <div
@@ -733,7 +733,7 @@ const showSection = (sectionId) => {
                   onClick={() => handleUsdtClick('500')}          
                 >  
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>500
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trc20.png" alt="" style={{width: '20px'}} /></span>500
                   </div>                  
                 </div>
                 <div
@@ -742,7 +742,7 @@ const showSection = (sectionId) => {
                   onClick={() => handleUsdtClick('1000')}          
                 >  
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>1K
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trc20.png" alt="" style={{width: '20px'}} /></span>1K
                   </div>                  
                 </div>
               
@@ -896,7 +896,7 @@ const showSection = (sectionId) => {
                   onClick={() => handleUsdtClick('10')}          
                 >  
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>10
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trc20.png" alt="" style={{width: '20px'}} /></span>10
                   </div>                  
                 </div>
                 <div
@@ -905,7 +905,7 @@ const showSection = (sectionId) => {
                   onClick={() => handleUsdtClick('50')}          
                 >  
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>50
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trc20.png" alt="" style={{width: '20px'}} /></span>50
                   </div>                  
                 </div>
                 <div
@@ -914,7 +914,7 @@ const showSection = (sectionId) => {
                   onClick={() => handleUsdtClick('100')}          
                 >  
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>100
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trc20.png" alt="" style={{width: '20px'}} /></span>100
                   </div>                  
                 </div>
                 <div
@@ -923,7 +923,7 @@ const showSection = (sectionId) => {
                   onClick={() => handleUsdtClick('500')}          
                 >  
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>500
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trc20.png" alt="" style={{width: '20px'}} /></span>500
                   </div>                  
                 </div>
                 <div
@@ -932,7 +932,7 @@ const showSection = (sectionId) => {
                   onClick={() => handleUsdtClick('1000')}          
                 >  
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>1K
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trc20.png" alt="" style={{width: '20px'}} /></span>1K
                   </div>                  
                 </div>
                 <div
@@ -941,7 +941,7 @@ const showSection = (sectionId) => {
                   onClick={() => handleUsdtClick('5000')}          
                 >  
                   <div data-v-9e03166f="" className="amount">
-                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /></span>5K
+                    <span data-v-9e03166f=""><img data-v-98c90f53="" src="/assets/png/trc20.png" alt="" style={{width: '20px'}} /></span>5K
                   </div>                  
                 </div>
                 
@@ -953,7 +953,7 @@ const showSection = (sectionId) => {
               >
                 <div data-v-9e03166f="" className="place-div">{activeSection === 'UpiTransfer' || activeSection === 'UpiTransfer1' ? '₹' 
  : activeSection === 'UsdtTrc' || activeSection === 'UsdtTrc1' ? 
-    <img data-v-98c90f53="" src="/assets/png/trx.png" alt="" style={{width: '20px'}} /> 
+    <img data-v-98c90f53="" src="/assets/png/trc20.png" alt="" style={{width: '20px'}} /> 
  : activeSection === 'UsdtBep' || activeSection === 'UsdtBep1' ? 
     <img data-v-98c90f53="" src="/assets/png/usdt.png" alt="" style={{width: '20px'}} /> 
  : '$'}

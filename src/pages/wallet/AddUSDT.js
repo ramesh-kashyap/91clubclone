@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
 
 export default function AddUSDT() {
-  const [trc20, setTrc] = useState('');
   const [bep20, setBep] = useState('');
 
   const navigate = useNavigate();
@@ -17,11 +16,12 @@ export default function AddUSDT() {
     try {
       const response = await Api.post('/api/webapi/addBank', {
         usdtBep20: bep20, 
-        usdttrc20: trc20,
       });
 
       if (response.data.status) {
         console.log('Bank information added/updated successfully');
+        navigate('/wallet/withdraw');
+        
       } else {
         console.error(response.data.message);
       }
@@ -67,7 +67,7 @@ export default function AddUSDT() {
                 </span>
               </div> */}             
 
-              <div data-v-24736190="" className="addUSDT__container-content-item">
+              {/* <div data-v-24736190="" className="addUSDT__container-content-item">
                 <div data-v-24736190="" className="label">
                   <svg data-v-24736190="" className="svg-icon icon-usdt2 icon icon">
                     <use href="#icon-usdt2"></use>
@@ -91,7 +91,7 @@ export default function AddUSDT() {
                    
                   />
                 </div>
-              </div>
+              </div> */}
 
               <div data-v-24736190="" className="addUSDT__container-content-item">
                 <div data-v-24736190="" className="label">
@@ -148,9 +148,9 @@ export default function AddUSDT() {
             data-origin="/assets/png/icon_sevice-9f0c8455.png"
             src="/assets/png/icon_sevice-9f0c8455.png"
           /> */}
-          <p data-v-5ca05f64="" className="customer__mobile">
+          {/* <p data-v-5ca05f64="" className="customer__mobile">
             {`+91-9876543210`}
-          </p>
+          </p> */}
         </div>
       </div>
     </div>

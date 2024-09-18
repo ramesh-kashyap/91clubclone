@@ -3,13 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api'
 import { useToast } from '../../components/ToastContext'; 
 
-
 export default function Withdraw() {
  
   
 
 
-
+  const { showToast } = useToast();
   const [activeSection, setActiveSection] = useState('section1');
   const [withdrawHistory, setWithdrawHistory] = useState([]);
   const [error, setError] = useState(null);
@@ -19,12 +18,19 @@ export default function Withdraw() {
   const [needToBet, setNeedToBet] = useState(0);
   const [walletAddress, setWalletAddress] = useState(null);
   const [withdrawAddress, setWithdrawAddress] =useState(null);
+  const [account_number, setAccountAddress] =useState(null);
+  const [name_bank, setNameBank] =useState(null);
+  const [ruWithdraw, setRuWithdraw] = useState(null);
 
   const showSection = (sectionID) =>{
      setActiveSection(sectionID);
   };
   const navigate = useNavigate();
- 
+
+ const handleAmount = (e) => {
+    const value = e.target.value;
+    setRuWithdraw(value);
+  };
 
   const handleAmountChange = (e) => {
     const value = e.target.value;
@@ -49,20 +55,22 @@ export default function Withdraw() {
          
 
       setUserInfo(data.userInfo[0]); // Assuming data.data contains the user's information
-      setWalletAddress(data.datas[0].usdtBep20);
 
-      setWithdrawAddress(data.datas[0].usdttrc20)
+      setWithdrawAddress(data.datas[0]?.usdtBep20);
+      setAccountAddress(data.datas[0]?.account_number);
+      setNameBank(data.datas[0]?.name_bank);
+       console.log(data.datas[0]?.usdtBep20);
+
       if(data.userInfo[0].total_bet > data.userInfo[0].able_to_bet){
         setNeedToBet(0);
       }
       else{
+        console.log(parseFloat(data.userInfo[0].able_to_bet) - parseFloat(data.userInfo[0].total_bet) );
         setNeedToBet( parseFloat(data.userInfo[0].able_to_bet) - parseFloat(data.userInfo[0].total_bet) );
       }
 
-
     } catch (err) {
       console.error('An error occurred:', err);
-      setError('An error occurred. Please try again.');
     } 
   };
 
@@ -70,21 +78,13 @@ export default function Withdraw() {
 
   const formatTimestampToIST = (timestamp) => {
     try {
-      // Convert the timestamp to a number if it's in string format
       const numericTimestamp = Number(timestamp);
-  
-      // If the timestamp is in seconds (10 digits), convert it to milliseconds
       const validTimestamp = numericTimestamp.toString().length === 13 ? numericTimestamp : numericTimestamp * 1000;
   
-      // Create a Date object from the valid timestamp
       const date = new Date(validTimestamp);
-  
-      // Check if the Date object is valid
       if (isNaN(date.getTime())) {
         throw new Error('Invalid Date');
       }
-  
-      // Format the date in IST
       return date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
     } catch (error) {
       return 'Invalid Timestamp';
@@ -93,37 +93,50 @@ export default function Withdraw() {
 
 
   const handleSubmit = async (e) => {
-    if (amount< 900) {
-      setError('Amount need to be greater than 900');
+       
+         let paymentMode;
+         let money;
+
+        if(activeSection==='section1'){
+          paymentMode = "BankCard";
+          money=ruWithdraw;
+        } else{
+          paymentMode = "USDT(BEP20)";
+          money=rupayAmount;
+        }
+
+
+
+    if (money < 900) {
+      showToast('Amount need to be greater than 900');
       return;
     }
-    if (needToBet < 0) {
-      setError('You need to bet more to Withdraw');
+    if (needToBet > 0) {
+      showToast('You need to bet more to Withdraw');
       return;
     }
+    if (money > userInfo.money) {
+      showToast('Insufficient Balance');
+      return;
+    }
+
     try {
-        
-      // const paymentMode= activeSection == 'section2' ? "USDT(TRC20)" : null ;
-      const paymentMode = activeSection === 'section2' ? "USDT(TRC20)" :
-      activeSection === 'section3' ? "USDT(BEP20)" :
-      null;
 
       const response = await Api.post('/api/webapi/withdrawalUsdt', {
-        money: amount, 
+        money,
         paymentMode,
       });
       console.log(response.data);
       if (response.data.status == true) {
         // Redirect to login or home page
-        console.log("Withdraw Success");
-
+        showToast('Withdraw Success');
         fetchUserInfo();
 
       } else {
-        setError(response.data.message);
+        showToast(response.data.message);
       }
     } catch (err) {
-      setError('An error occurred. Please try again.');
+      showToast('An error occurred. Please try again.');
     }
 };
 
@@ -345,7 +358,7 @@ const fetchWithdrawHistory= async () => {
               </div>
               <span data-v-9bae072d=""> BANK CARD</span>
             </div>
-            <div data-v-9bae072d="" className={`${activeSection === 'section2' ? 'select' : ''}`} onClick={() => showSection('section2')}>
+            <div data-v-9bae072d="" className={`${activeSection === 'section2' ? 'select' : ''}`} onClick={() => showSection('section2')} style={{display:'none'}}>
               <div data-v-9bae072d="">
                 <img
                   data-v-9bae072d=""
@@ -365,16 +378,14 @@ const fetchWithdrawHistory= async () => {
             </div>
           </div>
           <div  id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
-          <div data-v-80a607a5="" className="bankInfo">
+          <div data-v-80a607a5="" className="bankInfo" style={{display: account_number == null ? 'none':'block'}}>
             <div data-v-80a607a5="" className="bankInfoItem type1">
               <div data-v-80a607a5="">
-                <svg data-v-80a607a5="" className="svg-icon icon-1">
-                  <use href="#icon-1"></use></svg
-                ><span data-v-80a607a5="">Yes Bank</span>
+                <span data-v-80a607a5="">{name_bank}</span>
               </div>
               <div data-v-80a607a5="">
                 <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">084399****495</span>
+                ><span data-v-80a607a5="">{account_number ? `${account_number.substring(0, 9)}...${account_number.substring(account_number.length - 6)}` : ""}</span>
               </div>
               <i
                 data-v-80a607a5=""
@@ -383,15 +394,19 @@ const fetchWithdrawHistory= async () => {
               >
             </div>       
     </div>
+    <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/withdraw/addbank')} style={{display: account_number == null ? 'block':'none' , height : '1.99rem'}}>
+              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png"  style={{position:'relative', top: '10px', left : '40px'}}/><span
+                data-v-ef5c8333="" style={{position:'relative', top: '23px' , left : '-25px'}}>Add Bank</span>
+            </div>
           <div data-v-cb5583fe="" className="explain">
             <div data-v-cb5583fe="" className="input">
               <div data-v-cb5583fe="" className="place-div">₹</div>
               <input
                 data-v-cb5583fe=""
                 placeholder="Please enter the amount"
-                className="inp"
-                
-              />
+                className="inp"  
+                onChange={handleAmount}              
+              />  
             </div>
             
             <div data-v-cb5583fe="" className="balance bank">
@@ -452,7 +467,8 @@ const fetchWithdrawHistory= async () => {
               />
             </div>
 {/* rupay input  */}
-            <div data-v-cb5583fe="" className="input">              
+            <div data-v-cb5583fe="" className="input">  
+            <div data-v-cb5583fe="" className="place-div">₹</div>            
               <input
                 data-v-cb5583fe=""
                 type="number"
@@ -493,7 +509,7 @@ const fetchWithdrawHistory= async () => {
               >
             </div>       
     </div>
-            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')} style={{display: withdrawAddress !== null ? 'none':'block'}}>
+            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')} style={{display: withdrawAddress == null ? 'block':'none'}}>
               <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png"  style={{position:'relative', top: '10px'}}/><span
                 data-v-ef5c8333="">Add USDT Bep20</span>
             </div>
@@ -512,17 +528,18 @@ const fetchWithdrawHistory= async () => {
                 type="number"
                 placeholder="Please enter withdrawal amount"
                 className="inp"
-                value={amount || ''}
+                value={amount}
           onChange={handleAmountChange}
               />
             </div>
             <div data-v-cb5583fe="" className="input">
+            <div data-v-cb5583fe="" className="place-div">₹</div>
               <input
                 data-v-cb5583fe=""
                 type="number"
                 placeholder="Enter amount in Rupess"
                 className="inp"
-                value={rupayAmount || ''}
+                value={rupayAmount}
           onChange={handleRupayAmountChange}
               />
             </div>

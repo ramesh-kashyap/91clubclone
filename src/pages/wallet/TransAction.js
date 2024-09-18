@@ -7,7 +7,11 @@ export default function TransAction(){
   const [isTire, setIsTire] = useState('tire1');
   const [isSan ,setIsSan] =useState('san3');
   const [isMonth, setIsMonth] =useState('month8');
-  const [isDate, setIsDate] =useState('Date1')
+  const [isDate, setIsDate] =useState('Date1');
+  const [filteredTransaction, setFilteredTransaction] =useState([]);
+  const [transActions, setTransActions] =useState([]);
+  let filtered = transActions;
+
 
 
   const [transAction, setTransAction] = useState([]);
@@ -36,7 +40,7 @@ export default function TransAction(){
       console.log(data.incomeReports);
 
       setTransAction(data.incomeReports); // Assuming data.data contains the user's information
-
+      setFilteredTransaction(data.incomeReports);
 
     } catch (err) {
       console.error('An error occurred:', err);
@@ -44,13 +48,31 @@ export default function TransAction(){
     } 
   };
 
-
   useEffect(() => {
-    fetchTransAction();  
- 
-
-   
+    fetchTransAction();     
   }, []);
+
+  const handleConfirm = () => {
+    let filtered = transActions;
+  
+    if (isTire === 'tire1') {
+      filtered = transActions.filter((transAction) => transAction.remarks === 'Recharge Activation Bonus');
+    } else if (isTire === 'tire2') {
+      filtered = transActions.filter((transAction) => transAction.remarks === 'Level Up Bonus');
+    } else if (isTire === 'tire3') {
+      filtered = transActions.filter((transAction) => transAction.remarks === 'Registration Bonus'); 
+    }
+    else if (isTire === 'tire4') {
+      filtered = transActions.filter((transAction) => transAction.remarks === 'Self Trading Bonus');
+    }
+    else if (isTire === 'tire5') {
+      filtered = transActions.filter((transAction) => transAction.remarks === 'Daily Recharge Bonus'); 
+    }
+  
+
+    setFilteredTransaction(filtered);
+    setIsVisible(false);
+  };
 
 
   const tire = (tireId)=>{
@@ -9643,7 +9665,7 @@ export default function TransAction(){
                 Cancel</button
               ><button
                 type="button"
-                className="van-picker__confirm van-haptics-feedback"   onClick={handleCancel} 
+                className="van-picker__confirm van-haptics-feedback"   onClick={handleConfirm} 
               >
                 Confirm
               </button>
@@ -9658,31 +9680,7 @@ export default function TransAction(){
                     isTire === 'tire2' ? 'translate3d(0px, 66px, 0px)':
                     isTire === 'tire3' ? 'translate3d(0px, 22px, 0px)':
                     isTire === 'tire4' ? 'translate3d(0px, -22px, 0px)':
-                    isTire === 'tire5' ? 'translate3d(0px, -66px, 0px)':
-                    isTire === 'tire6' ? 'translate3d(0px, -110px, 0px)':
-                    isTire === 'tire7' ? 'translate3d(0px, -154px, 0px)': 
-                    isTire === 'tire8' ? 'translate3d(0px, -198px, 0px)' :
-  isTire === 'tire9' ? 'translate3d(0px, -242px, 0px)' :
-  isTire === 'tire10' ? 'translate3d(0px, -286px, 0px)' :
-  isTire === 'tire11' ? 'translate3d(0px, -330px, 0px)' :
-  isTire === 'tire12' ? 'translate3d(0px, -374px, 0px)' :
-  isTire === 'tire13' ? 'translate3d(0px, -418px, 0px)' :
-  isTire === 'tire14' ? 'translate3d(0px, -462px, 0px)' :
-  isTire === 'tire15' ? 'translate3d(0px, -506px, 0px)' :
-  isTire === 'tire16' ? 'translate3d(0px, -550px, 0px)' :
-  isTire === 'tire17' ? 'translate3d(0px, -594px, 0px)' :
-  isTire === 'tire18' ? 'translate3d(0px, -638px, 0px)' :
-  isTire === 'tire19' ? 'translate3d(0px, -682px, 0px)' :
-  isTire === 'tire20' ? 'translate3d(0px, -726px, 0px)' :
-  isTire === 'tire21' ? 'translate3d(0px, -770px, 0px)' :
-  isTire === 'tire22' ? 'translate3d(0px, -814px, 0px)' :
-  isTire === 'tire23' ? 'translate3d(0px, -858px, 0px)' :
-  isTire === 'tire24' ? 'translate3d(0px, -902px, 0px)' :
-  isTire === 'tire25' ? 'translate3d(0px, -946px, 0px)' :
-  isTire === 'tire26' ? 'translate3d(0px, -990px, 0px)' :
-  isTire === 'tire27' ? 'translate3d(0px, -1034px, 0px)' :
-  isTire === 'tire28' ? 'translate3d(0px, -1078px, 0px)' :
-  isTire === 'tire29' ? 'translate3d(0px, -1122px, 0px)' :
+                    isTire === 'tire5' ? 'translate3d(0px, -66px, 0px)':                   
                     '',
                     transitionDuration: '0ms',
                     transitionProperty: 'none',
@@ -9694,7 +9692,7 @@ export default function TransAction(){
                     className="van-picker-column__item van-picker-column__item--selected" id="tire1" onClick={()=>tire('tire1')}
                     style={{height: '44px'}}
                   >
-                    <div className="van-ellipsis">All</div>
+                    <div className="van-ellipsis">Recharge Activation Bonus</div>
                   </li>
                   <li
                     role="button"
@@ -9702,7 +9700,7 @@ export default function TransAction(){
                     className="van-picker-column__item" id="tire2" onClick={()=>tire('tire2')}
                     style={{height: '44px'}}
                   >
-                    <div className="van-ellipsis">Bet</div>
+                    <div className="van-ellipsis">Level Up Bonus</div>
                   </li>
                   <li
                     role="button"
@@ -9710,7 +9708,7 @@ export default function TransAction(){
                     className="van-picker-column__item" id="tire3" onClick={()=>tire('tire3')}
                     style={{height: '44px'}}
                   >
-                    <div className="van-ellipsis">Win</div>
+                    <div className="van-ellipsis">Registration Bonus</div>
                   </li>
                   <li
                     role="button"
@@ -9718,7 +9716,7 @@ export default function TransAction(){
                     className="van-picker-column__item" id="tire4" onClick={()=>tire('tire4')}
                     style={{height: '44px'}}
                   >
-                    <div className="van-ellipsis">Deposit</div>
+                    <div className="van-ellipsis">Self Trading Bonus</div>
                   </li>
                   <li
                     role="button"
@@ -9726,200 +9724,8 @@ export default function TransAction(){
                     className="van-picker-column__item" id="tire5" onClick={()=>tire('tire5')}
                     style={{height: '44px'}}
                   >
-                    <div className="van-ellipsis">Withdraw</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire6" onClick={()=>tire('tire6')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Cancel withdrawal</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item"  id="tire7" onClick={()=>tire('tire7')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Attendance bonus</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item"  id="tire8" onClick={()=>tire('tire8')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Withdrawal rejected</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire9" onClick={()=>tire('tire9')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Deposit Gift</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item"  id="tire10" onClick={()=>tire('tire10')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Manual deposit</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item"  id="tire11" onClick={()=>tire('tire11')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Sign up bonus</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item"  id="tire12" onClick={()=>tire('tire12')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Bonus</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item"  id="tire13" onClick={()=>tire('tire13')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">First deposit bonus</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item"  id="tire14" onClick={()=>tire('tire14')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">First deposit rebate</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item"  id="tire15" onClick={()=>tire('tire15')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Mission rewards</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire16" onClick={()=>tire('tire16')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Winning slots</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire17" onClick={()=>tire('tire17')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Bank binding bonus</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire18" onClick={()=>tire('tire18')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Game refunded</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire19" onClick={()=>tire('tire19')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">USDT deposit</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire20" onClick={()=>tire('tire20')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Betting rebate</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire21" onClick={()=>tire('tire21')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">VIP level up reward</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire22" onClick={()=>tire('tire22')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">VIP monthly reward</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire23" onClick={()=>tire('tire23')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">VIP deposit bonus</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire24" onClick={()=>tire('tire24')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Bonus deduction</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire25" onClick={()=>tire('tire25')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Daily rewards</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tir26" onClick={()=>tire('tire26')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Turntable Awards</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire27" onClick={()=>tire('tire27')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Partner rewards</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire28" onClick={()=>tire('tire28')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">ARPay Cash Back</div>
-                  </li>
-                  <li
-                    role="button"
-                    tabindex="0"
-                    className="van-picker-column__item" id="tire29" onClick={()=>tire('tire29')}
-                    style={{height: '44px'}}
-                  >
-                    <div className="van-ellipsis">Join channel rewards</div>
-                  </li>
+                    <div className="van-ellipsis">Daily Recharge Bonus</div>
+                  </li>                  
                 </ul>
               </div>
               <div
@@ -10436,10 +10242,10 @@ export default function TransAction(){
         >
 
 
-{transAction.length === 0 ? (
+{filteredTransaction.length === 0 ? (
         <div>No Data</div>
       ) : (
-        transAction.map((history, index) => (
+        filteredTransaction.map((history, index) => (
 
           
           <div  key={index} data-v-2565e76d="" className="transRecord__container-content">
