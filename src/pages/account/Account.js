@@ -9,6 +9,8 @@ export default function Account() {
 
     const [totalMoney, setTotalMoney] = useState(0);
     const [uid, setUid] = useState(null);
+    const [avatar, setAvatar] = useState('');
+
     const [username, setUsername] = useState(null);
     const { showToast } = useToast();
     const [lastlogin, setLastLogin] = useState(null);
@@ -25,6 +27,7 @@ export default function Account() {
           if (response.data.status) {
             setTotalMoney(response.data.data.money_user);
             setUid(response.data.data.id_user);
+            setAvatar(response.data.data.avatar);
             setUsername(response.data.data.name_user);
             setLastLogin(response.data.data.last_login);
             const currentPath = window.location.pathname;
@@ -9595,7 +9598,7 @@ export default function Account() {
             <div data-v-5bd44e74="" className="userInfo__container-content__avatar">
               <img
                 data-v-5bd44e74=""
-                src="/assets/png/6-7c7f5203.png"
+                src={`/assets/png/${avatar}`}
                 className="userAvatar"
               />
             </div>
@@ -9658,9 +9661,9 @@ export default function Account() {
             <div data-v-5bd44e74="" className="userInfo__container-content__avatar">
               <img
                 data-v-5bd44e74=""
-                data-img="/assets/png/avatar-2f23f3bd.png"
+                data-img={`/assets/png/${avatar}`}
                 className="ar-lazyload"
-                data-origin="/assets/png/6-7c7f5203.png"
+                data-origin={`/assets/png/${avatar}`}
               />
             </div>
             <div
