@@ -1,97 +1,79 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
-export default function TransAction(){
+
+export default function TransAction() {
   const [isVisible, setIsVisible] = useState(false);
   const [isSecondVisible, setIsSecondVisible] = useState(false);
   const [isTire, setIsTire] = useState('tire1');
-  const [isSan ,setIsSan] =useState('san3');
-  const [isMonth, setIsMonth] =useState('month8');
-  const [isDate, setIsDate] =useState('Date1');
-  const [filteredTransaction, setFilteredTransaction] =useState([]);
-  const [transActions, setTransActions] =useState([]);
-  let filtered = transActions;
-
-
-
-  const [transAction, setTransAction] = useState([]);
+  const [isSan, setIsSan] = useState('san3');
+  const [isMonth, setIsMonth] = useState('month8');
+  const [isDate, setIsDate] = useState('Date1');
+  const [filteredTransaction, setFilteredTransaction] = useState([]);
+  const [transActions, setTransActions] = useState([]); // Consistent naming
 
   const [error, setError] = useState(null);
 
-  const handleToggle = () => {
-    setIsVisible(!isVisible);
+  // Toggle visibility
+  const handleToggle = () => setIsVisible(!isVisible);
+  const handleSecondToggle = () => setIsSecondVisible(!isSecondVisible);
+
+  // Fetch transaction data
+  const fetchTransAction = async () => {
+    try {
+      const response = await Api.get('/api/webapi/listIncomeReport');
+      const data = response.data;
+
+      console.log(data.incomeReports);
+
+      setTransActions(data.incomeReports); // Using the correct state
+      setFilteredTransaction(data.incomeReports); // Initially, all transactions are displayed
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    }
+  };
+
+  // Fetch transaction data when the component mounts
+  useEffect(() => {
+    fetchTransAction();
+  }, []);
+
+  // Handle filtering based on tire selection
+  const handleConfirm = () => {
+    let filtered = [...transActions]; // Copy to avoid mutating state
+
+    if (isTire === 'tire1') {
+      filtered = filtered.filter((history) => history.remarks === 'Recharge Activation Bonus');
+    } else if (isTire === 'tire2') {
+      filtered = filtered.filter((history) => history.remarks === 'Level Up Bonus');
+    } else if (isTire === 'tire3') {
+      filtered = filtered.filter((history) => history.remarks === 'Registration Bonus');
+    } else if (isTire === 'tire4') {
+      filtered = filtered.filter((history) => history.remarks === 'Self Trading Bonus');
+    } else if (isTire === 'tire5') {
+      filtered = filtered.filter((history) => history.remarks === 'Daily Recharge Bonus');
+    }
+
+    setFilteredTransaction(filtered);
+    setIsVisible(false);
   };
   const handleCancel = () => {
     setIsVisible(false);
-  };
-  const handleSecondToggle = () => {
-    setIsSecondVisible(!isSecondVisible);
   };
   const handleSecondCancel = () => {
     setIsSecondVisible(false);
   };
 
-
-  const fetchTransAction= async () => {
-    try {
-      const response = await Api.get('/api/webapi/listIncomeReport');
-      const data =  response.data;
-
-      console.log(data.incomeReports);
-
-      setTransAction(data.incomeReports); // Assuming data.data contains the user's information
-      setFilteredTransaction(data.incomeReports);
-
-    } catch (err) {
-      console.error('An error occurred:', err);
-      setError('An error occurred. Please try again.');
-    } 
-  };
-
-  useEffect(() => {
-    fetchTransAction();     
-  }, []);
-
-  const handleConfirm = () => {
-    let filtered = transActions;
-  
-    if (isTire === 'tire1') {
-      filtered = transActions.filter((transAction) => transAction.remarks === 'Recharge Activation Bonus');
-    } else if (isTire === 'tire2') {
-      filtered = transActions.filter((transAction) => transAction.remarks === 'Level Up Bonus');
-    } else if (isTire === 'tire3') {
-      filtered = transActions.filter((transAction) => transAction.remarks === 'Registration Bonus'); 
-    }
-    else if (isTire === 'tire4') {
-      filtered = transActions.filter((transAction) => transAction.remarks === 'Self Trading Bonus');
-    }
-    else if (isTire === 'tire5') {
-      filtered = transActions.filter((transAction) => transAction.remarks === 'Daily Recharge Bonus'); 
-    }
-  
-
-    setFilteredTransaction(filtered);
-    setIsVisible(false);
-  };
-
-
-  const tire = (tireId)=>{
-    setIsTire(tireId);
-  }
-  const san = (sanId) =>{
-    setIsSan(sanId)
-  }
-
-  const month = (monthId)=>{
-    setIsMonth(monthId)
-  }
-  const Date = (DateId)=>{
-    setIsDate(DateId)
-  }
-
+  // Setters for different filter states
+  const tire = (tireId) => setIsTire(tireId);
+  const san = (sanId) => setIsSan(sanId);
+  const month = (monthId) => setIsMonth(monthId);
+  const handleDateChange = (dateId) => setIsDate(dateId); // Avoid conflict with built-in Date
 
   const navigate = useNavigate();
-  return(
+
+  return (
   <div style={{fontSize: '12px'}} className="">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9660,7 +9642,7 @@ export default function TransAction(){
             <div className="van-picker__toolbar">
               <button
                 type="button"
-                className="van-picker__cancel van-haptics-feedback"  onClick={handleCancel}
+                className="van-picker__cancel van-haptics-feedback" onClick={handleCancel}
               >
                 Cancel</button
               ><button
@@ -9763,14 +9745,14 @@ export default function TransAction(){
             <div className="van-picker__toolbar">
               <button
                 type="button"
-                className="van-picker__cancel van-haptics-feedback"onClick={handleSecondCancel}
+                className="van-picker__cancel van-haptics-feedback" onClick={handleSecondCancel}
               >
                 Cancel
               </button>
               <div className="van-picker__title van-ellipsis">Choose a date</div>
               <button
                 type="button"
-                className="van-picker__confirm van-haptics-feedback"onClick={handleSecondCancel}
+                className="van-picker__confirm van-haptics-feedback" onClick={handleSecondCancel}
               >
                 Confirm
               </button>
@@ -10243,7 +10225,10 @@ export default function TransAction(){
 
 
 {filteredTransaction.length === 0 ? (
-        <div>No Data</div>
+        <div data-v-cbab7763="" className="infiniteScroll__loading">
+           
+        <div data-v-cbab7763="">No more</div>
+      </div>
       ) : (
         filteredTransaction.map((history, index) => (
 
