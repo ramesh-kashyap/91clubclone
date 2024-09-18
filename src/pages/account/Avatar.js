@@ -1,189 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import Api from '../../services/Api';
 import { useNavigate } from 'react-router-dom';
-import Api from '../../services/Api'
-import { useToast } from '../../components/ToastContext'; 
-
-export default function Withdraw() {
- 
-  
 
 
-  const { showToast } = useToast();
-  const [activeSection, setActiveSection] = useState('section1');
-  const [withdrawHistory, setWithdrawHistory] = useState([]);
-  const [error, setError] = useState(null);
-  const [userInfo, setUserInfo] = useState(null);
-  const [amount, setAmount] = useState(null);
-  const [rupayAmount, setRupayAmount] = useState(null);
-  const [needToBet, setNeedToBet] = useState(0);
-  const [walletAddress, setWalletAddress] = useState(null);
-  const [withdrawAddress, setWithdrawAddress] =useState(null);
-  const [account_number, setAccountAddress] =useState(null);
-  const [name_bank, setNameBank] =useState(null);
-  const [ruWithdraw, setRuWithdraw] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
+
+export default function Register() {
 
 
-  const showSection = (sectionID) =>{
-     setActiveSection(sectionID);
-  };
   const navigate = useNavigate();
 
- const handleAmount = (e) => {
-    const value = e.target.value;
-    setRuWithdraw(value);
-  };
 
-  const handleAmountChange = (e) => {
-    const value = e.target.value;
-    setAmount(value); // Set USDT value
-    setRupayAmount(value * 90); // Update Rupay amount
-  };
+const handleImageClick = async (imageSrc) => {
+  // Extract the last part of the image path (e.g., '1-a6662edb.png')
+  const imageName = imageSrc.split('/').pop();
 
-  // Handle Rupay input change
-  const handleRupayAmountChange = (e) => {
-    const value = e.target.value;
-    setRupayAmount(value); // Set Rupay value
-    setAmount(value / 90); // Update USDT amount
-  };
-
-  const fetchUserInfo = async () => {
-    try {
-      const response = await Api.post('/api/webapi/check/Info');
-      const data =  response.data;
-
-      console.log(response.data);
-
-         
-
-      setUserInfo(data.userInfo[0]); // Assuming data.data contains the user's information
-
-      setWithdrawAddress(data.datas[0]?.usdtBep20);
-      setAccountAddress(data.datas[0]?.account_number);
-      setNameBank(data.datas[0]?.name_bank);
-       console.log(data.datas[0]?.usdtBep20);
-
-      if(data.userInfo[0].total_bet > data.userInfo[0].able_to_bet){
-        setNeedToBet(0);
-      }
-      else{
-        console.log(parseFloat(data.userInfo[0].able_to_bet) - parseFloat(data.userInfo[0].total_bet) );
-        setNeedToBet( parseFloat(data.userInfo[0].able_to_bet) - parseFloat(data.userInfo[0].total_bet) );
-      }
-
-    } catch (err) {
-      console.error('An error occurred:', err);
-    } 
-  };
-
-
-
-  const formatTimestampToIST = (timestamp) => {
-    try {
-      const numericTimestamp = Number(timestamp);
-      const validTimestamp = numericTimestamp.toString().length === 13 ? numericTimestamp : numericTimestamp * 1000;
-  
-      const date = new Date(validTimestamp);
-      if (isNaN(date.getTime())) {
-        throw new Error('Invalid Date');
-      }
-      return date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-    } catch (error) {
-      return 'Invalid Timestamp';
-    }
-  };
-
-
-  const handleSubmit = async (e) => {
-       
-         let paymentMode;
-         let money;
-
-        if(activeSection==='section1'){
-          paymentMode = "BankCard";
-          money=ruWithdraw;
-        } else{
-          paymentMode = "USDT(BEP20)";
-          money=rupayAmount;
-        }
-
-
-
-    if (money < 900) {
-      showToast('Amount need to be greater than 900');
-      return;
-    }
-    if (needToBet > 0) {
-      showToast('You need to bet more to Withdraw');
-      return;
-    }
-    if (money > userInfo.money) {
-      showToast('Insufficient Balance');
-      return;
-    }
-
-    try {
-
-      const response = await Api.post('/api/webapi/withdrawalUsdt', {
-        money,
-        paymentMode,
-      });
-      console.log(response.data);
-      if (response.data.status == true) {
-        // Redirect to login or home page
-        // showToast('Withdraw Success');
-        setShowPopup(true);
-        fetchUserInfo();
-
-      } else {
-        showToast(response.data.message);
-      }
-    } catch (err) {
-      showToast('An error occurred. Please try again.');
-    }
-};
-
-
-
-
-const fetchWithdrawHistory= async () => {
   try {
-    const response = await Api.get('/api/webapi/withdraw/list?page=1&limit=5');
-    const data =  response.data;
+    // Send API request to update the avatar
+    const response = await Api.post('/api/webapi/change/updateAvatar', {
+      avatar: imageName,
+    });
 
-    console.log(data.datas);
-
-    setWithdrawHistory(data.datas); // Assuming data.data contains the user's information
-
-
-  } catch (err) {
-    console.error('An error occurred:', err);
-    setError('An error occurred. Please try again.');
-  } 
+    if (response.status === 200) {
+      navigate('/main/SettingCenters');
+    }
+  } catch (error) {
+    console.error('Error updating avatar:', error);
+    alert('Failed to update avatar');
+  }
 };
-
-
-
-  useEffect(() => {
-    fetchWithdrawHistory();  
-    fetchUserInfo();
-
-    console.log("hi");
-
-}, []);
-
-
-
-
-
 
 
   return (
     <div style={{fontSize: '12px'}}>
 
-<svg
+
+
+
+    <svg
       xmlns="http://www.w3.org/2000/svg"
-     
       style={{position: 'absolute', width: '0', height: '0'}}
     >
       <symbol
@@ -3404,7 +3258,6 @@ const fetchWithdrawHistory= async () => {
           strokeLinecap="round"
         ></path>
       </symbol>
-    
       <symbol
         id="icon-downArrow"
         xmlns="http://www.w3.org/2000/svg"
@@ -3786,17 +3639,14 @@ const fetchWithdrawHistory= async () => {
           strokeLinejoin="round"
         ></path>
       </symbol>
-    
       <symbol
         id="icon-eye"
         t="1503993826520"
         className="icon"
-       
         viewBox="0 0 1024 1024"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         p-id="7878"
-       
       >
         <defs><style type="text/css"></style></defs>
         <path
@@ -9552,22 +9402,20 @@ const fetchWithdrawHistory= async () => {
         ></path>
       </symbol>
     </svg>
- 
 
     <div id="app" data-v-app="">
       <div
         data-v-647954c7=""
         className="ar-loading-view"
         style={{
-          "--f13b4d11-currentFontFamily": "{'Roboto', 'Inter', 'sansSerif'}",
-          display: 'none',
+         'F13b4d11CurrentFontFamily':"'Roboto', 'Inter', 'sansSerif'",
+          display: 'none'
         }}
       >
         <div data-v-647954c7="" className="loading-wrapper">
           <div data-v-647954c7="" className="loading-animat">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              
               viewBox="0 0 200 200"
               width="200"
               height="200"
@@ -9576,8 +9424,8 @@ const fetchWithdrawHistory= async () => {
                 width: '100%',
                 height: '100%',
                 transform: 'translate3d(0px, 0px, 0px)',
-                contentVisibility: 'visible'}}
-              
+                'contentVisibility': 'visible'
+              }}
             >
               <defs>
                 <clipPath id="__lottie_element_2">
@@ -9620,22 +9468,19 @@ const fetchWithdrawHistory= async () => {
               </g>
             </svg>
           </div>
-          <div data-v-647954c7="" className="com__box" style={{display: 'none'}}>
+          <div data-v-647954c7="" className="com__box" style={{display: 'none'}}
+          >
             <div className="loading" data-v-647954c7="">
               <div className="shape shape-1" data-v-647954c7=""></div>
               <div className="shape shape-2" data-v-647954c7=""></div>
               <div className="shape shape-3" data-v-647954c7=""></div>
               <div className="shape shape-4" data-v-647954c7=""></div>
             </div>
-            
           </div>
-          
         </div>
         <div data-v-647954c7="" className="skeleton-wrapper" style={{display: 'none'}}>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
             <div className="van-skeleton__content">
-              
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9660,7 +9505,6 @@ const fetchWithdrawHistory= async () => {
             </div>
           </div>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
             <div className="van-skeleton__content">
               <h3 className="van-skeleton-title"></h3>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9672,498 +9516,805 @@ const fetchWithdrawHistory= async () => {
           </div>
         </div>
       </div>
-
-      <div data-v-3e71d3da="" data-v-80a607a5="" className="dialog active c2c" style={{ display: showPopup ? '' : 'none' }}>
-      <div data-v-3e71d3da="" className="dialog__container" role="dialog" tabIndex="0">
-        <div data-v-3e71d3da="" className="dialog__container-img">
-          <img 
-            data-v-80a607a5="" 
-            className="succeedImg" 
-            data-origin="/assets/png/success.png" 
-            src="/assets/png/success.png" 
-            alt="C2C Withdrawal Succeed" 
-            style={{ top:'-1.767rem' }}
-          />
-        </div>
-        <div data-v-3e71d3da="" className="dialog__container-title">
-          <h1 data-v-3e71d3da="">Withdrawal Request Successful</h1>
-        </div>
-        <div data-v-3e71d3da="" className="dialog__container-content">
-          <div data-v-80a607a5="" className="c2cTip" style={{fontSize:'.333rem'}}>
-            <p data-v-80a607a5="">
-            We will complete the withdrawal within 2 hours! <span>Please wait patiently...</span>
-            </p>
-          </div>
-        </div>
-        <div data-v-3e71d3da="" className="dialog__container-footer" style={{ marginTop: '0px' }}>
-          <button data-v-3e71d3da="" style={{   background: `var(--main_gradient-color2)` }} onClick={()=>{setShowPopup(false)}}>Confirm</button>
-        </div>
-      </div>
-      <div data-v-3e71d3da="" className="dialog__outside"></div>
-    </div>
-      
       <div
-        data-v-80a607a5=""
-        className="withdraw__container"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
+        data-v-0cd6dac4=""
+        className="avatar-container"
+        style={{'F13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",}}
       >
-        <div data-v-12a80a3e="" data-v-80a607a5="" className="navbar">
+        <div data-v-12a80a3e="" data-v-0cd6dac4="" className="navbar">
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
-              <div data-v-12a80a3e="" className="navbar__content-left">
+              <div data-v-12a80a3e="" className="navbar__content-left" onClick={()=>navigate('/main/SettingCenters')}>
                 <i
                   data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/wallet')}
+                  className="van-badge__wrapper van-icon van-icon-arrow-left"
                   ></i
                 >
               </div>
               <div data-v-12a80a3e="" className="navbar__content-center">
-                
                 <div data-v-12a80a3e="" className="navbar__content-title">
-                  Withdraw
+                  Change avatar
                 </div>
               </div>
-              <div data-v-12a80a3e="" className="navbar__content-right" onClick={()=>navigate('/wallet/WithdrawHistory')}>
-                <span data-v-80a607a5="">Withdrawal history</span>
-              </div>
+              <div data-v-12a80a3e="" className="navbar__content-right"></div>
             </div>
           </div>
         </div>
-        <div data-v-80a607a5="" className="withdraw__container-content">
-          
-          <div data-v-0879c174="" data-v-80a607a5="" className="balanceAssets">
-            <div data-v-0879c174="" className="balanceAssets__header">
-              <div data-v-0879c174="" className="balanceAssets__header__left">
-                <img
-                  data-v-0879c174=""
-                  src="/assets/png/balance-e39ce400.png"
-                />
-                Available balance
-              </div>
-            </div>
-            <div data-v-0879c174="" className="balanceAssets__main">
-              <p data-v-0879c174="">₹{userInfo?userInfo.money:0}</p>
-              <img
-                data-v-0879c174=""
-                src="/assets/png/refresh-8e0efe26.png"
-                alt=""
-              />
-            </div>
-          </div>
-        
-          <div data-v-9bae072d="" data-v-80a607a5="" className="withdrawWay">
-            
-            <div data-v-9bae072d="" className={`${activeSection === 'section1' ? 'select' : ''}`} onClick={()=> showSection('section1')}>
-              <div data-v-9bae072d="">
-                <img
-                  data-v-9bae072d=""
-                  src="/assets/png/payNameIcon_20240313185300ivg6.png"
-                />
-              </div>
-              <span data-v-9bae072d=""> BANK CARD</span>
-            </div>
-            <div data-v-9bae072d="" className={`${activeSection === 'section2' ? 'select' : ''}`} onClick={() => showSection('section2')} style={{display:'none'}}>
-              <div data-v-9bae072d="">
-                <img
-                  data-v-9bae072d=""
-                  src="/assets/png/usdt.png"
-                />
-              </div>
-              <span data-v-9bae072d="">USDT</span>
-            </div>
-            <div data-v-9bae072d="" className={`${activeSection === 'section3' ? 'select' : ''}`} onClick={() => showSection('section3')}>
-              <div data-v-9bae072d="">
-                <img
-                  data-v-9bae072d=""
-                  src="/assets/png/trc20.png"
-                />
-              </div>
-              <span data-v-9bae072d="">USDT</span>
-            </div>
-          </div>
-          <div  id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
-          <div data-v-80a607a5="" className="bankInfo" style={{display: account_number == null ? 'none':'block'}}>
-            <div data-v-80a607a5="" className="bankInfoItem type1">
-              <div data-v-80a607a5="">
-              <svg data-v-80a607a5="" class="svg-icon icon-1"><use href="#icon-1"></use></svg>
-                <span data-v-80a607a5="">{name_bank}</span>
-              </div>
-              <div data-v-80a607a5="">
-                <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">{account_number ? `${account_number.substring(0, 9)}...${account_number.substring(account_number.length - 6)}` : ""}</span>
-              </div>
-              <i
-                data-v-80a607a5=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                ></i
-              >
-            </div>       
-    </div>
-    <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/withdraw/addbank')} style={{display: account_number == null ? 'block':'none' , height : '1.99rem'}}>
-              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png"  style={{position:'relative', top: '10px', left : '70px'}}/><span
-                data-v-ef5c8333="" style={{position:'relative', top: '23px' , left : '-25px'}}>Add Account Number</span>
-            </div>
-          <div data-v-cb5583fe="" className="explain">
-            <div data-v-cb5583fe="" className="input">
-              <div data-v-cb5583fe="" className="place-div">₹</div>
-              <input
-                data-v-cb5583fe=""
-                placeholder="Please enter the amount"
-                className="inp"  
-                onChange={handleAmount}              
-              />  
-            </div>
-            
-            <div data-v-cb5583fe="" className="balance bank">
-              <div data-v-cb5583fe="">
-                <span data-v-cb5583fe=""
-                  >Withdrawable balance
-                  <h6 data-v-cb5583fe="" className="yellow">₹{userInfo ? userInfo.money :0}</h6></span
-                ><input data-v-cb5583fe="" type="button" value="All" />
-              </div>
-              <div data-v-cb5583fe="">
-                <span data-v-cb5583fe="">Withdrawal amount received</span>
-                <div data-v-cb5583fe="" className="rightD">
-                  <span data-v-cb5583fe="" className="yellow">₹0.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
-          <div data-v-80a607a5="" className="bankInfo" style={{display: walletAddress == null ? 'none':'block'}}>
-            <div data-v-80a607a5="" className="bankInfoItem type1">
-              <div data-v-80a607a5="">
-                <img data-v-80a607a5=""src="/assets/png/usdt.png" style={{top: '10px'}}/>
-              </div>
-              <div data-v-80a607a5="">
-                <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">{walletAddress ? `${walletAddress.substring(0, 9)}...${walletAddress.substring(walletAddress.length - 6)}` : ""}
-                </span>
-              </div>
-              <i
-                data-v-80a607a5=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                ></i
-              >
-            </div>       
-    </div>
-            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')} style={{display: walletAddress !== null ? 'none':'block',height:'1.99rem'}}>
-              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png"  style={{position:'relative', top: '7px', left: '58px'}}/><span
-                data-v-ef5c8333="" style={{position:'relative', top: '25px' , left : '-26px'}}>Add USDT Trc20</span>
-            </div>
-            {/* <div data-v-ef5c8333="" className="addWithdrawType-text">
-              Need to add beneficiary information to be able to withdraw money
-            </div> */}
-            <div data-v-cb5583fe="" className="explain usdt">
-            <div data-v-cb5583fe="" className="head">
-              
-            </div>
-            
-            <div data-v-cb5583fe="" className="input">
-              <div data-v-cb5583fe="" className="place-div"><img data-v-cb5583fe="" src="/assets/png/usdt.png"/></div>
-              <input
-                data-v-cb5583fe=""
-                type="number"
-                placeholder="Please enter withdrawal amount"
-                className="inp"
-                value={amount || ''}
-          onChange={handleAmountChange}
-              />
-            </div>
-{/* rupay input  */}
-            <div data-v-cb5583fe="" className="input">  
-            <div data-v-cb5583fe="" className="place-div">₹</div>            
-              <input
-                data-v-cb5583fe=""
-                type="number"
-                placeholder="Enter amount in rupess"
-                className="inp"
-                value={rupayAmount || ''}
-          onChange={handleRupayAmountChange}
-              />
-            </div>
-            
-            <div data-v-cb5583fe="" className="balance usdt">
-              <div data-v-cb5583fe="">
-                <span data-v-cb5583fe=""
-                  >Withdrawable balance
-                  <h6 data-v-cb5583fe="" className="yellow">₹{userInfo?userInfo.money:0}</h6></span
-                ><input data-v-cb5583fe="" type="button" value="All" />
-              </div>
-            </div>
-          </div>
-          </div>
-          
-          
-          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section3" style={{ display: activeSection === 'section3' ? 'block' : 'none' }}>
-          <div data-v-80a607a5="" className="bankInfo" style={{display: withdrawAddress == null ? 'none':'block'}}>
-            <div data-v-80a607a5="" className="bankInfoItem type1">
-              <div data-v-80a607a5="">
-              <img data-v-80a607a5=""src="/assets/png/trc20.png" style={{top: '10px'}}/>
-              </div>
-              <div data-v-80a607a5="">
-                <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">{withdrawAddress ? `${withdrawAddress.substring(0, 9)}...${withdrawAddress.substring(withdrawAddress.length - 6)}` : ""}
-                </span>
-              </div>
-              <i
-                data-v-80a607a5=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                ></i
-              >
-            </div>       
-    </div>
-            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')} style={{display: withdrawAddress == null ? 'block':'none', height:'1.99rem'}}>
-              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png"  style={{position:'relative', top: '7px', left: '58px'}}/><span
-                data-v-ef5c8333="" style={{position:'relative', top: '25px' , left : '-26px'}}>Add USDT BEP20</span>
-            </div>
-            {/* <div data-v-ef5c8333="" className="addWithdrawType-text">
-              Need to add beneficiary information to be able to withdraw money
-            </div> */}
-            <div data-v-cb5583fe="" className="explain usdt">
-            <div data-v-cb5583fe="" className="head">
-              
-            </div>
-            
-            <div data-v-cb5583fe="" className="input">
-              <div data-v-cb5583fe="" className="place-div"><img data-v-cb5583fe="" src="/assets/png/trc20.png"/></div>
-              <input
-                data-v-cb5583fe=""
-                type="number"
-                placeholder="Please enter withdrawal amount"
-                className="inp"
-                value={amount}
-          onChange={handleAmountChange}
-              />
-            </div>
-            <div data-v-cb5583fe="" className="input">
-            <div data-v-cb5583fe="" className="place-div">₹</div>
-              <input
-                data-v-cb5583fe=""
-                type="number"
-                placeholder="Enter amount in Rupess"
-                className="inp"
-                value={rupayAmount}
-          onChange={handleRupayAmountChange}
-              />
-            </div>
-            
-            <div data-v-cb5583fe="" className="balance usdt">
-              <div data-v-cb5583fe="">
-                <span data-v-cb5583fe=""
-                  >Withdrawable balance
-                  <h6 data-v-cb5583fe="" className="yellow">₹{userInfo?userInfo.money:0}</h6></span
-                ><input data-v-cb5583fe="" type="button" value="All" />
-              </div>
-            </div>
-          </div>
-          </div>
-          
-          <div data-v-80a607a5="" className="recycleBtnD">
-            <button data-v-80a607a5="" className="recycleBtn" onClick={handleSubmit}>Withdraw</button>
-          </div>
-      
-          <div
-            data-v-76eb7f31=""
-            data-v-80a607a5=""
-            className="Recharge__container-intro"
-          >
-            <div data-v-76eb7f31="" className="br">
-              
-              <p data-v-76eb7f31="">
-                Need to bet <span data-v-470caa86="" className="red">₹{needToBet}</span> to
-                be able to withdraw
-              </p>
-              <p data-v-76eb7f31="">
-                Withdraw time
-                <span data-v-76eb7f31="" className="red">00:05-23:55</span>
-              </p>
-              <p data-v-76eb7f31="">
-                Inday Remaining Withdrawal Times<span
-                  data-v-76eb7f31=""
-                  className="red"
-                  >3</span
-                >
-              </p>
-              <p data-v-76eb7f31="">
-                Withdrawal amount range
-                <span data-v-76eb7f31="" className="red">₹110.00-₹200,000.00</span>
-              </p>
-              
-              <p data-v-76eb7f31="">
-                Please confirm your beneficial account information before
-                withdrawing. If your information is incorrect, our company will
-                not be liable for the amount of loss
-              </p>
-              <p data-v-76eb7f31="">
-                If your beneficial information is incorrect, please contact
-                customer service
-              </p>
-            </div>
-          </div>
-          <div
-            data-v-30972a14=""
-            data-v-80a607a5=""
-            className="rechargeh__container"
-          >
-            <div data-v-30972a14="" className="rechargeh__container-head" onClick={()=>navigate('/wallet/withdraw')}>
-              <svg data-v-30972a14="" className="svg-icon icon-historyHead">
-                <use href="#icon-historyHead"></use>
-              </svg>
-              <h1 data-v-30972a14="" >Withdrawal history</h1>
-            </div>
+        <div data-v-0cd6dac4="" className="avatar-container-content">
+          <div data-v-0cd6dac4="" className="van-grid" style={{paddingLeft: '10px'}}>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{flexBasis: '33.3333%', paddingRight: '10px'}}
+              onClick={() => handleImageClick('/assets/png/1-a6662edb.png')}
 
-
-            {withdrawHistory.length === 0 ? (
-          <div>No Data</div>
-        ) : (
-          withdrawHistory.slice(0, 5).map((history, index) => (
-
-
-            <div  key={index}   data-v-30972a14="" className="rechargeh__container-content">
+            >
               <div
-                data-v-30972a14=""
-                className="rechargeh__container-content__item"
+                className="van-grid-item__content van-grid-item__content--center"
               >
-                <div
-                  data-v-30972a14=""
-                  className="rechargeh__container-content__item-header ar-1px-b"
-                >
-                  <span data-v-30972a14="">Withdraw</span
-                  ><span data-v-30972a14="" className="stateG"
-                    > {history.status === 0 ? "Pending" : history.status === 1 ? "Complete" : "Failed"}
-                    </span
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/1-a6662edb.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
                   >
-                </div>
-
-                <div
-                  data-v-30972a14=""
-                  className="rechargeh__container-content__item-body"
-                >
-                  <div data-v-30972a14="">
-                    <span data-v-30972a14="">Balance</span
-                    ><span data-v-30972a14="">{history.money}</span>
-                  </div>
-                  <div data-v-30972a14="">
-                    <span data-v-30972a14="">Type</span
-                    ><span data-v-30972a14=""> {history.walletType}</span>
-                  </div>
-                  <div data-v-30972a14="">
-                    <span data-v-30972a14="">Time</span
-                    ><span data-v-30972a14="">{formatTimestampToIST(history.time)}</span>
-                  </div>
-                  <div data-v-30972a14="">
-                    <span data-v-30972a14="">Order number</span
-                    ><span data-v-30972a14="">{history.id_order}</span
-                    ><svg data-v-30972a14="" className="svg-icon icon-copy">
-                      <use href="#icon-copy"></use>
-                    </svg>
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{flexBasis: '33.3333%', paddingRight: '10px'}}
+              onClick={() => handleImageClick('/assets/png/2-58c8a9bc.png')}
 
-
-          ))
-        )}
-            <div data-v-30972a14="" className="rechargeh__container-footer">
-              <button data-v-30972a14="" onClick={()=>navigate('/wallet')}>All history</button>
-            </div>
-          </div>
-        </div>
-        <div data-v-3e71d3da="" data-v-80a607a5="" className="dialog inactive c2c">
-          <div
-            data-v-3e71d3da=""
-            className="dialog__container"
-            role="dialog"
-            tabIndex="0"
-          >
-            <div data-v-3e71d3da="" className="dialog__container-img">
-              <img
-                data-v-80a607a5=""
-                className="succeedImg"
-                data-origin="/assets/png/succeed-83674414.png"
-                src="/assets/png/succeed-83674414.png"
-              />
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-title">
-              <h1 data-v-3e71d3da="">C2C withdrawal successful</h1>
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-content">
-              <div data-v-80a607a5="" className="c2cTip">
-                <h1 data-v-80a607a5="">
-                  Please come back and click [Confirm Payment] after receiving
-                  the transfer
-                </h1>
-                <p data-v-80a607a5="">
-                  C2C withdrawal rewards will be automatically issued after you
-                  click <span>[Confirm Arrival]</span>!
-                </p>
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/2-58c8a9bc.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div data-v-3e71d3da="" className="dialog__container-footer">
-              <button data-v-3e71d3da="">Confirm</button
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{flexBasis: '33.3333%' ,paddingRight: '10px'}}
+              onClick={() => handleImageClick('/assets/png/3-abfcc056.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
               >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/3-abfcc056.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            
-          </div>
-          <div data-v-3e71d3da="" className="dialog__outside"></div>
-        </div>
-        <div data-v-3e71d3da="" data-v-80a607a5="" className="dialog inactive">
-          <div
-            data-v-3e71d3da=""
-            className="dialog__container"
-            role="dialog"
-            tabIndex="0"
-          >
-            <div data-v-3e71d3da="" className="dialog__container-img">
-              <img
-                data-v-3e71d3da=""
-                className=""
-                alt=""
-                data-origin="/assets/png/tip-0498e3f9.png"
-                src="/assets/png/tip-0498e3f9.png"
-              />
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-title">
-              <h1 data-v-3e71d3da=""></h1>
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-content">
-              <h1 data-v-80a607a5="">
-                You must recharge to enable the withdrawal function
-              </h1>
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-footer">
-              <button data-v-3e71d3da="">Confirm</button
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/4-12a0d0c5.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
               >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/4-12a0d0c5.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <img
-              data-v-3e71d3da=""
-              className="close_img"
-              src="/assets/png/close-84ce5e6a.png"
-            />
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/5-ab77b716.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/6-7c7f5203.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/6-7c7f5203.png"
+                />
+                <div data-v-0cd6dac4="">
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/7-00479cfa.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/7-00479cfa.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/8-ea087ede.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/8-ea087ede.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/9-6d772f2c.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/9-6d772f2c.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/10-29a6603e.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/10-29a6603e.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/11-925c456e.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/11-925c456e.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/12-ae12c679.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/12-ae12c679.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/13-5676d43f.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/13-5676d43f.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/14-a397ff6b.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/14-a397ff6b.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/15-80f41fc6.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/15-80f41fc6.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/16-cf8e1441.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/16-cf8e1441.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/17-bedde42f.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/17-bedde42f.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/18-52955242.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/18-52955242.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            onClick={() => handleImageClick('/assets/png/19-2ac9fd83.png')}
+
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <img
+                  data-v-0cd6dac4=""
+                  className=""
+                  src="/assets/png/19-2ac9fd83.png"
+                />
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
           </div>
-          <div data-v-3e71d3da="" className="dialog__outside"></div>
         </div>
       </div>
       <div
         className="customer"
         id="customerId"
         style={{
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-          '--f6a705e1-currentFontFamily': "bahnschrift"
-    }}
+          'F13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
+         ' F6a705e1CurrentFontFamily': 'bahnschrift'
+        }}
       >
-        {/* <img
-          className=""
-          data-origin="/assets/png/icon_sevice-9f0c8455.png"
-          src="/assets/png/icon_sevice-9f0c8455.png"
-        /> */}
-      </div>
       
+      </div>
     </div>
-  
+
+    <div data-v-app=""></div>
+    <div
+      role="dialog"
+      tabIndex="0"
+      className="van-popup van-popup--center van-toast van-toast--middle van-toast--break-word van-toast--fail"
+      style={{zIndex: '2045', display: 'none'}}
+    >
+      <i className="van-badge__wrapper van-icon van-icon-fail van-toast__icon"
+        ></i
+      >
+      <div className="van-toast__text">
+        Error: 22 Your account is already logged in somewhere else
+      </div>
+    </div>
+    <div data-v-app=""></div>
+    <div
+      role="dialog"
+      tabIndex="0"
+      className="van-popup van-popup--center van-toast van-toast--middle van-toast--success"
+      style={{zIndex: '2001', display: 'none'}}
+    >
+      <i className="van-badge__wrapper van-icon van-icon-success van-toast__icon"
+        ></i
+      >
+      <div className="van-toast__text">Copy successful</div>
+    </div>
+
+
+
+
     </div>
   )
 }
