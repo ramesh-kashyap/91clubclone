@@ -1,6 +1,46 @@
-import React from 'react'
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Api from '../../services/Api';
 
-export default function Register() {
+export default function StreakBonus() {
+
+    const [userId, setUserId] = useState('');
+    const [number, setNumber] = useState('');
+    const [firstPeriod, setFirstPeriod] = useState('');
+    const [lastPeriod, setLastPeriod] = useState('');
+
+    const [error, setError] = useState(null);
+
+    const ChangeUser = async () => {
+    
+        try {
+          const response = await Api.post('/api/webapi/insertStreakBonus', {
+            userId, // Send phone as username
+            number, 
+            firstPeriod, 
+            lastPeriod, 
+            // Match the field name expected by the backend
+          });
+          console.log(response.data);
+          if (response.data.status === true) {
+          
+          } else {
+            setError(response.data.message);
+          }
+        } catch (err) {
+          setError('An error occurred. Please try again.');
+        }
+    };
+    
+    
+    
+      useEffect(() => {
+       
+           
+    
+       
+      }, []);
+      const navigate = useNavigate();
   return (
     <div style={{fontSize: '12px'}} >
 
@@ -187,6 +227,8 @@ export default function Register() {
                         id="van-field-7-input"
                         className="van-field__control"
                         placeholder="Enter  UID"
+                        value={userId}
+                        onChange={(e)=>{setUserId(e.target.value)}}
                       />
                     </div>
                     </div>
@@ -216,6 +258,9 @@ export default function Register() {
                         id="van-field-7-input"
                         className="van-field__control"
                         placeholder="Enter Start Of Winning Period"
+                        value={firstPeriod}
+                        onChange={(e)=>{setFirstPeriod(e.target.value)}}
+                        
                       />
                     </div>
                     </div>
@@ -245,6 +290,10 @@ export default function Register() {
                         id="van-field-7-input"
                         className="van-field__control"
                         placeholder="Enter End Of Winning Period"
+                       
+
+                        value={lastPeriod}
+                        onChange={(e)=>{setLastPeriod(e.target.value)}}
                       />
                     </div>
                     </div>
@@ -269,11 +318,15 @@ export default function Register() {
                   <div className="van-cell__value van-field__value">
                     <div className="van-field__body">
                       <input
-                        type="tel"
+                        type=""
                         inputMode="numeric"
                         id="van-field-7-input"
                         className="van-field__control"
                         placeholder="Enter Consecutive Win Streak Time(8/18/28/38/48)"
+                       
+
+                        value={number}
+                        onChange={(e)=>{setNumber(e.target.value)}}
                       />
                     </div>
                     </div>
@@ -285,7 +338,7 @@ export default function Register() {
              
                 
               </div>
-              <div data-v-9e03166f="" className="Recharge__container-rechageBtn" style={{ background:'#d9ac4f',color:'white'}}> 
+              <div data-v-9e03166f="" className="Recharge__container-rechageBtn" style={{ background:'#d9ac4f',color:'white'}} onClick={ChangeUser}> 
                 Confirm
               </div>
             </div>
