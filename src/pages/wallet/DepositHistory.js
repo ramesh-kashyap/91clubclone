@@ -402,9 +402,7 @@ console.log(formattedFullDate);
         <div data-v-cbab7763="">No more</div>
       </div>
       ) : (
-        filteredHistory.map((history, index) => (
-
-          
+        filteredHistory.map((history, index) => (          
           <div key={index} data-v-e4760c44="" className="rechargeh__container-content__item">
             <div data-v-e4760c44="" className="rechargeh__container-content__item-header ar-1px-b">
               <span data-v-e4760c44="">Deposit</span>

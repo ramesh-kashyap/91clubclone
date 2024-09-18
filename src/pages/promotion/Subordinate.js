@@ -12,7 +12,8 @@ const formatTimestampToIST = (timestamp) => {
 
 
 export default function Subordinate() {
-  const navigate = useNavigate;
+
+  const navigate = useNavigate();
   const [subordinate, setSubordinate] = useState([]);
 
   const [error, setError] = useState(null);

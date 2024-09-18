@@ -9574,6 +9574,27 @@ export default function CustomerService() {
           </a>
         </div>
     
+        <div data-v-f4c030dd="" data-v-26935615="" className="content">
+          <a href="https://t.me/bigdaddyprochennal" target='blank'>
+          <div data-v-f4c030dd="">
+            <div data-v-f4c030dd="" className="content-item">
+              <div data-v-f4c030dd="" className="content-item-title">
+                <img
+                  data-v-f4c030dd=""
+                  src="/assets/png/CStype3-7588d980.png"
+                  alt=""
+                /><span data-v-f4c030dd=""> Streak Bonus</span>
+              </div>
+              <i
+                data-v-f4c030dd=""
+                className="van-badge__wrapper van-icon van-icon-arrow"
+                style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
+                ></i
+              >
+            </div>
+          </div>
+          </a>
+        </div>
         <div data-v-f4c030dd="" data-v-78d5a4a8="" className="content">
           <div data-v-f4c030dd="">
             <div data-v-f4c030dd="" className="content-item">
