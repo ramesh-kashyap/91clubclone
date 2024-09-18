@@ -177,6 +177,7 @@ export default function Register() {
                   data-v-9e03166f=""
                   className="van-cell van-field amount-input"
                   modelmodifiers="[object Object]"
+                  style={{marginLeft:'0px'}}
                 >
                   <div className="van-cell__value van-field__value">
                     <div className="van-field__body">
@@ -185,7 +186,7 @@ export default function Register() {
                         inputMode="numeric"
                         id="van-field-7-input"
                         className="van-field__control"
-                        placeholder="Enter BGD ID"
+                        placeholder="Enter  UID"
                       />
                     </div>
                     </div>
@@ -205,6 +206,7 @@ export default function Register() {
                   data-v-9e03166f=""
                   className="van-cell van-field amount-input"
                   modelmodifiers="[object Object]"
+                  style={{marginLeft:'0px'}}
                 >
                   <div className="van-cell__value van-field__value">
                     <div className="van-field__body">
@@ -233,6 +235,7 @@ export default function Register() {
                   data-v-9e03166f=""
                   className="van-cell van-field amount-input"
                   modelmodifiers="[object Object]"
+                  style={{marginLeft:'0px'}}
                 >
                   <div className="van-cell__value van-field__value">
                     <div className="van-field__body">
@@ -261,6 +264,7 @@ export default function Register() {
                   data-v-9e03166f=""
                   className="van-cell van-field amount-input"
                   modelmodifiers="[object Object]"
+                  style={{marginLeft:'0px'}}
                 >
                   <div className="van-cell__value van-field__value">
                     <div className="van-field__body">
@@ -281,8 +285,8 @@ export default function Register() {
              
                 
               </div>
-              <div data-v-9e03166f="" className="Recharge__container-rechageBtn">
-                Deposit
+              <div data-v-9e03166f="" className="Recharge__container-rechageBtn" style={{ background:'#d9ac4f',color:'white'}}> 
+                Confirm
               </div>
             </div>
             <div
@@ -324,16 +328,18 @@ export default function Register() {
             <div data-v-9f5f4114="" className="record__main-title">
               <svg data-v-9f5f4114="" className="svg-icon icon-historyHead">
                 <use href="#icon-historyHead"></use></svg
-              ><span data-v-9f5f4114="">Deposit history</span>
+              ><span data-v-9f5f4114="">Streak Bonus Status
+
+</span>
             </div>
             
-            <div data-v-9f5f4114="">
+            <div data-v-9f5f4114="" style={{margin:'15px'}}>
               <div data-v-9f5f4114="" className="record__main-info">
                 <div
                   data-v-9f5f4114=""
                   className="record__main-info__title flex_between"
                 >
-                  <div data-v-9f5f4114="" className="recharge_text">Deposit</div>
+                  <div data-v-9f5f4114="" className="recharge_text">Streak </div>
                   <div data-v-9f5f4114="" className="flex_between">
                     <div data-v-9f5f4114="" className="rechargeFail">Failed</div>
                     
@@ -374,106 +380,7 @@ export default function Register() {
                 </div>
                 
               </div>
-              <div data-v-9f5f4114="" className="record__main-info">
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__title flex_between"
-                >
-                  <div data-v-9f5f4114="" className="recharge_text">Deposit</div>
-                  <div data-v-9f5f4114="" className="flex_between">
-                    <div data-v-9f5f4114="" className="success">Complete</div>
-                    <img
-                      data-v-9f5f4114=""
-                      src="/assets/png/left_arrow-6c6e3cc6.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__money item flex_between"
-                >
-                  <span data-v-9f5f4114="">Balance</span
-                  ><span data-v-9f5f4114="">₹100.00</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__type item flex_between"
-                >
-                  <span data-v-9f5f4114="">Type</span
-                  ><span data-v-9f5f4114="">UPI-ICE</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__time item flex_between"
-                >
-                  <span data-v-9f5f4114="">Time</span
-                  ><span data-v-9f5f4114="">2024-07-30 16:09:19</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__orderNumber item flex_between"
-                >
-                  <span data-v-9f5f4114="">Order number</span>
-                  <div data-v-9f5f4114="">
-                    <span data-v-9f5f4114="">p2024073010391969107618</span
-                    ><svg data-v-9f5f4114="" className="svg-icon icon-copy" alt="">
-                      <use href="#icon-copy"></use>
-                    </svg>
-                  </div>
-                </div>
-                
-              </div>
-              <div data-v-9f5f4114="" className="record__main-info">
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__title flex_between"
-                >
-                  <div data-v-9f5f4114="" className="recharge_text">Deposit</div>
-                  <div data-v-9f5f4114="" className="flex_between">
-                    <div data-v-9f5f4114="" className="success">Complete</div>
-                    <img
-                      data-v-9f5f4114=""
-                      src="/assets/png/left_arrow-6c6e3cc6.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__money item flex_between"
-                >
-                  <span data-v-9f5f4114="">Balance</span
-                  ><span data-v-9f5f4114="">₹100.00</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__type item flex_between"
-                >
-                  <span data-v-9f5f4114="">Type</span
-                  ><span data-v-9f5f4114="">UPI-ICE</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__time item flex_between"
-                >
-                  <span data-v-9f5f4114="">Time</span
-                  ><span data-v-9f5f4114="">2024-07-09 12:55:12</span>
-                </div>
-                <div
-                  data-v-9f5f4114=""
-                  className="record__main-info__orderNumber item flex_between"
-                >
-                  <span data-v-9f5f4114="">Order number</span>
-                  <div data-v-9f5f4114="">
-                    <span data-v-9f5f4114="">p2024070907251227219587</span
-                    ><svg data-v-9f5f4114="" className="svg-icon icon-copy" alt="">
-                      <use href="#icon-copy"></use>
-                    </svg>
-                  </div>
-                </div>
-                
-              </div>
+            
               
             </div>
           </div>
