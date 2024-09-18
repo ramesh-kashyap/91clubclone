@@ -7,6 +7,8 @@ export default function GetUserInfo() {
 
   const [getUserInfo, setGetUserInfo] = useState(null);
   const [name, setName] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
+
 
   const [error, setError] = useState(null);
 
@@ -31,14 +33,15 @@ export default function GetUserInfo() {
   const ChangeUser = async () => {
     
     try {
-      const response = await Api.post('/api/webapi/change/userInfo', {
+      const response = await Api.put('/api/webapi/change/userInfo', {
         name, // Send phone as username
         type:'editname', // Match the field name expected by the backend
       });
       console.log(response.data);
       if (response.data.status === true) {
-      
         fetchGetUserInfo();
+        setShowPopup(false);
+
       } else {
         setError(response.data.message);
       }
@@ -9661,6 +9664,7 @@ style={{maskType: 'alpha'}}
       <div
         data-v-5bd44e74=""
         className="userInfo__container-setting-center-content ar-1px-b"
+        onClick={ ()=>{setShowPopup(true)} }
       >
         <h5 data-v-5bd44e74="">Nickname</h5>
         <div data-v-5bd44e74="">
@@ -9678,13 +9682,14 @@ style={{maskType: 'alpha'}}
       </div>
 
     
-      <div data-v-2c18a1cc="" data-v-5bd44e74="" className="info-dialog">
+      <div data-v-2c18a1cc="" data-v-5bd44e74="" className="info-dialog" style={{ display:showPopup ? '' :'none' }}>
                 <div className="van-overlay" style={{zIndex: '2005'}}></div>
                 <div
                   role="dialog"
                   tabIndex="0"
                   className="van-popup van-popup--center van-dialog"
-                  style={{zIndex: '2005'}}
+                  style={{zIndex: '2005' , background:`#4D4D4C`}}
+
                 >
                   <div className="van-dialog__content">
                     <div data-v-2c18a1cc="">
@@ -9736,12 +9741,14 @@ style={{maskType: 'alpha'}}
                       </div>
                     </div>
                   </div>
-                  <div className="van-hairline--top van-dialog__footer">
+                  <div className="van-hairline--top van-dialog__footer" onClick={ChangeUser} >
                     <button
                       type="button"
                       className="van-button van-button--default van-button--large van-dialog__confirm"
+                      style={{ background:`linear-gradient(90deg, #FAE59F 0%, #C4933F 100%)`}}
                     >
-                      <div className="van-button__content" onClick={ChangeUser}>
+                      <div className="van-button__content"   
+                      >
                         <span className="van-button__text">Confirm</span
                         >
                       </div>
