@@ -6,6 +6,8 @@ import Api from '../../services/Api';
 export default function GetUserInfo() {
 
   const [getUserInfo, setGetUserInfo] = useState(null);
+  const [name, setName] = useState('');
+
   const [error, setError] = useState(null);
 
 
@@ -25,8 +27,30 @@ export default function GetUserInfo() {
     } 
   };
 
+
+  const ChangeUser = async () => {
+    
+    try {
+      const response = await Api.post('/api/webapi/change/userInfo', {
+        name, // Send phone as username
+        type:'editname', // Match the field name expected by the backend
+      });
+      console.log(response.data);
+      if (response.data.status === true) {
+      
+        fetchGetUserInfo();
+      } else {
+        setError(response.data.message);
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+    }
+};
+
+
+
   useEffect(() => {
-    fetchGetUserInfo();  
+    fetchGetUserInfo(); 
        
 
    
@@ -9653,14 +9677,15 @@ style={{maskType: 'alpha'}}
         </div>
       </div>
 
-      <div className="van-overlay" style={{zIndex: '2005'}}></div>
+    
+      <div data-v-2c18a1cc="" data-v-5bd44e74="" className="info-dialog">
+                <div className="van-overlay" style={{zIndex: '2005'}}></div>
                 <div
                   role="dialog"
                   tabIndex="0"
                   className="van-popup van-popup--center van-dialog"
                   style={{zIndex: '2005'}}
                 >
-                  
                   <div className="van-dialog__content">
                     <div data-v-2c18a1cc="">
                       <div data-v-2c18a1cc="" className="info-dialog-header">
@@ -9683,16 +9708,18 @@ style={{maskType: 'alpha'}}
                             data-v-5bd44e74=""
                             className="svg-icon icon-dialogNickname"
                           >
-                            </svg
+                          </svg
                           ><span data-v-5bd44e74="">Nickname</span>
                         </div>
                         <input
                           data-v-5bd44e74=""
-                          type="text"
+                          type="editname"
                           auto-complete="new-password"
-                          autcomplete="off"
-                          name="username"
+                          autoComplete="off"
+                          name="name"
                           placeholder="Please enter Nickname"
+                          value={name}
+                          onChange={(e)=>{setName(e.target.value)}}
                         />
                         <h4 data-v-5bd44e74="" style={{display: 'none'}}>
                           Please do not enter a Nickname with more than 12
@@ -9714,13 +9741,14 @@ style={{maskType: 'alpha'}}
                       type="button"
                       className="van-button van-button--default van-button--large van-dialog__confirm"
                     >
-                      <div className="van-button__content">
+                      <div className="van-button__content" onClick={ChangeUser}>
                         <span className="van-button__text">Confirm</span
                         >
                       </div>
                     </button>
                   </div>
                 </div>
+              </div>
 
    
       
