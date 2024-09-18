@@ -90,6 +90,8 @@ import Feedback from './pages/account/Feedback';
 import CustomerService from './pages/account/CustomerService';
 import GameStats from './pages/account/GameStats';
 import StreakBonus from './pages/account/StreakBonus';
+import Avatar from './pages/account/Avatar';
+
 
 
 
@@ -175,6 +177,8 @@ function App() {
         <Route path="/home/Notification" element={<PrivateRoute><Message/></PrivateRoute>}/>
         <Route path="/deposit/CryptoDeposit" element={<PrivateRoute><CryptoDeposit/></PrivateRoute>}/>
         <Route path="/main/StreakBonus" element={<PrivateRoute>< StreakBonus/></PrivateRoute>}/>
+        <Route path="/Avatar" element={<PrivateRoute><Avatar/></PrivateRoute>}/>
+
 
         
 
