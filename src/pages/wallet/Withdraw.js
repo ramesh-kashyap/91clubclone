@@ -22,6 +22,15 @@ export default function Withdraw() {
   const [name_bank, setNameBank] =useState(null);
   const [ruWithdraw, setRuWithdraw] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
+  const [password, setPassword] = useState('');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+};
 
 
   const showSection = (sectionID) =>{
@@ -45,6 +54,25 @@ export default function Withdraw() {
     const value = e.target.value;
     setRupayAmount(value); // Set Rupay value
     setAmount(value / 90); // Update USDT amount
+  };
+
+
+  const confirmWithdraw = async  () => {
+    try {
+      const response = await Api.post('/api/webapi/confirmPassword',{password});
+      const data =  response.data;
+
+      if(data.status === true){
+        setShowPassword(false);
+         handleSubmit();
+      } else{
+        showToast("Incorrect Password");
+      }
+      
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+    } 
   };
 
   const fetchUserInfo = async () => {
@@ -9799,6 +9827,76 @@ const fetchWithdrawHistory= async () => {
               >
             </div>       
     </div>
+
+
+  const [showPassword, setShowPassword] = useState(false);
+  <div className="van-overlay" role="button" tabIndex="0" data-v-80a607a5="" style={{zIndex: 2017, display: showPassword ? '' : 'none'}}></div>
+
+
+    <div
+  role="dialog"
+  tabIndex="0"
+  className="van-popup van-popup--round van-popup--bottom"
+  data-v-80a607a5=""
+  style={{ zIndex: 2017, display: showPassword ? '' : 'none' }}
+>
+  <div data-v-80a607a5="" className="pwd">
+    <div data-v-80a607a5="" className="pwd-head ar-1px-b">
+      <svg data-v-80a607a5="" className="svg-icon icon-safeIcon">
+        <use xlinkHref="#icon-safeIcon"></use>
+      </svg>
+      <h1 data-v-80a607a5="">Security verification</h1>
+    </div>
+
+    <input data-v-80a607a5="" type="text" className="is-hidden" />
+    <input data-v-80a607a5="" type="password" className="is-hidden" />
+
+    <div data-v-ea5b66c8="" data-v-80a607a5="" className="passwordInput__container">
+      <div data-v-ea5b66c8="" className="passwordInput__container-label">
+        <svg data-v-ea5b66c8="" className="svg-icon icon-editPswIcon passwordInput__container-label__icon passwordInput__container-label__icon">
+          <use xlinkHref="#icon-editPswIcon"></use>
+        </svg>
+        <span data-v-ea5b66c8="">Please enter your login password</span>  
+      </div>
+
+      <div data-v-ea5b66c8="" className="passwordInput__container-input">
+      <input
+        data-v-ea5b66c8=""
+        type={isPasswordVisible ? 'text' : 'password'}
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        maxLength="32"
+        autoComplete="new-password"
+      />
+        <img
+                  data-v-ea5b66c8=""
+                  src={isPasswordVisible ? '/assets/png/eyeVisible-09720f5f.png' : '/assets/png/eyeInvisible-821d9d16.png'}
+                  className="eye"
+                  onClick={togglePasswordVisibility}
+                  alt="Toggle Password Visibility"
+                  style={{ cursor: 'pointer' }}
+                />
+      </div>
+    </div>
+
+    <span data-v-80a607a5="" className="red">
+      To secure your balance, please enter your password
+    </span>
+
+    <div data-v-80a607a5="" className="btnD">
+      <button data-v-80a607a5="" onClick={()=>{setShowPassword(false)}}>Return</button>
+      <button data-v-80a607a5="" onClick={confirmWithdraw}>Confirm withdrawal</button>
+    </div>
+  </div>
+
+  
+    {/* Close icon */}
+ 
+</div>
+
+
+
     <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/withdraw/addbank')} style={{display: account_number == null ? 'block':'none' , height : '1.99rem'}}>
               <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png"  style={{position:'relative', top: '10px', left : '70px'}}/><span
                 data-v-ef5c8333="" style={{position:'relative', top: '23px' , left : '-25px'}}>Add Account Number</span>
@@ -9961,7 +10059,7 @@ const fetchWithdrawHistory= async () => {
           </div>
           
           <div data-v-80a607a5="" className="recycleBtnD">
-            <button data-v-80a607a5="" className="recycleBtn" onClick={handleSubmit}>Withdraw</button>
+            <button data-v-80a607a5="" className="recycleBtn" onClick={()=>{setShowPassword(true)}}>Withdraw</button>
           </div>
       
           <div

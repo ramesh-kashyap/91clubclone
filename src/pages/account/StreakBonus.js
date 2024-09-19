@@ -24,7 +24,7 @@ export default function StreakBonus() {
           });
           console.log(response.data);
           if (response.data.status === true) {
-          
+            fetchStreakBonus();
           } else {
             setError(response.data.message);
           }
