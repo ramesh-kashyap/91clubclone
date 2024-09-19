@@ -25,7 +25,7 @@ export default function StreakBonus() {
           });
           console.log(response.data);
           if (response.data.status === true) {
-            showToast('Passwords do not match', 'succes');
+            showToast('Streak bonus inserted successfully', 'succes');
           
           } else {
             showToast('An error occurred. Please try again.', 'succes');

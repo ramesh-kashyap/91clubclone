@@ -4856,27 +4856,27 @@ export default function Dashboard() {
                     <div data-v-860d7030="" data-v-df3cc798="" className="minGame_container" id="section2" style={{ display: activeSection === 'section2' ? 'grid' : 'none' }}>
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(225)}><img data-v-860d7030=""
                                 className="min_game_img"
-                                data-origin="/assets/png/810_20240818125355074.png"
-                                src="/assets/png/810_20240818125355074.png"/>
+                                data-origin="/assets/png/vendorlogo_20240102165536rgfg.png"
+                                src="/assets/png/vendorlogo_20240102165536rgfg.png"/>
                         </div>
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(261)}><img data-v-860d7030=""
                                 className="min_game_img"
-                                data-origin="/assets/png/800_20240813135431329.png"
-                                src="/assets/png/800_20240813135431329.png"/>
+                                data-origin="/assets/png/img/22001.png"
+                                src="/assets/img/22001.png"/>
                         </div>
                        
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(235)}><img data-v-860d7030=""
                                 className="min_game_img"
-                                data-origin="/assets/png/110.png"
-                                src="/assets/png/110.png"/></div>
+                                data-origin="/assets/img/800.png"
+                                src="/assets/img/800.png"/></div>
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(233)}><img data-v-860d7030=""
                                 className="min_game_img"
-                                data-origin="/assets/png/101.png"
-                                src="/assets/png/101.png"/></div>
+                                data-origin="/assets/img/101.png"
+                                src="/assets/img/101.png"/></div>
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(62)}><img data-v-860d7030=""
                                 className="min_game_img"
-                                data-origin="/assets/png/102.png"
-                                src="/assets/png/102.png"/></div>
+                                data-origin="/assets/img/102.png"
+                                src="/assets/img/102.png"/></div>
                         
                         
                     </div>
@@ -4915,7 +4915,7 @@ export default function Dashboard() {
                                                 </linearGradient>
                                             </defs>
                                         </svg><img data-v-d06787cb=""
-                                            src="/assets/png/800_20240813135431329.png"
+                                            src="/assets/img/22001.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png" onClick={() => handleGameClick(261)}/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">89.37%</span>
@@ -4946,7 +4946,7 @@ export default function Dashboard() {
                                                 </linearGradient>
                                             </defs>
                                         </svg><img onClick={() => handleGameClick(62)} data-v-d06787cb=""
-                                            src="/assets/png/102.png"
+                                            src="/assets/img/102.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">90.11%</span>
@@ -4976,7 +4976,7 @@ export default function Dashboard() {
                                                 </linearGradient>
                                             </defs>
                                         </svg><img  onClick={() => handleGameClick(229)}data-v-d06787cb=""
-                                            src="/assets/png/100.png"
+                                            src="/assets/img/229.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">87.72%</span>
@@ -5006,7 +5006,7 @@ export default function Dashboard() {
                                                 </linearGradient>
                                             </defs>
                                         </svg><img  onClick={() => handleGameClick(241)}data-v-d06787cb=""
-                                            src="/assets/png/106.png"
+                                            src="/assets/png/900.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">91.83%</span>
@@ -5036,7 +5036,7 @@ export default function Dashboard() {
                                                 </linearGradient>
                                             </defs>
                                         </svg><img  onClick={() => handleGameClick(407)} data-v-d06787cb=""
-                                            src="/assets/png/105.png"
+                                            src="/assets/png/22003.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
                                             winning</span><span data-v-d06787cb="">86.34%</span>
