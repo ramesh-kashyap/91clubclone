@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Api from '../../services/Api';
-
+import { useToast } from '../../components/ToastContext';
 export default function StreakBonus() {
   const [streakBonus, setStreakBonus] = useState([]);
+  const { showToast } = useToast();
 
     const [userId, setUserId] = useState('');
     const [number, setNumber] = useState('');
@@ -24,11 +25,16 @@ export default function StreakBonus() {
           });
           console.log(response.data);
           if (response.data.status === true) {
-            fetchStreakBonus();
+            showToast('Streak bonus inserted successfully', 'succes');
+          
           } else {
+            showToast('An error occurred. Please try again.', 'succes');
+
             setError(response.data.message);
           }
         } catch (err) {
+          showToast('An error occurred. Please try again.', 'succes');
+
           setError('An error occurred. Please try again.');
         }
     };

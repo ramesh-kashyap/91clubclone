@@ -294,7 +294,7 @@ export default function CryptoDeposit(){
     <div data-v-9e03166f="" className="van-cell van-field van-field--disabled amount-input" modelmodifiers="[object Object]">
       <div className="van-cell__value van-field__value">
         <div className="van-field__body">
-          <input type="number" inputmode="numeric" id="van-field-3-input" className="van-field__control" value={utr}
+          <input type="text" inputmode="numeric" id="van-field-3-input" className="van-field__control" value={utr}
             placeholder=" Please enter the Transaction Hash" onChange={handleInputChange}
             />
         </div>

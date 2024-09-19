@@ -53,7 +53,10 @@ export default function TransAction() {
       filtered = filtered.filter((history) => history.remarks === 'Self Trading Bonus');
     } else if (isTire === 'tire5') {
       filtered = filtered.filter((history) => history.remarks === 'Daily Recharge Bonus');
+    }else if (isTire === 'tire6') {
+      filtered = filtered.filter((history) => history.remarks === 'Salary Bonus');
     }
+
 
     setFilteredTransaction(filtered);
     setIsVisible(false);
@@ -9662,7 +9665,9 @@ export default function TransAction() {
                     isTire === 'tire2' ? 'translate3d(0px, 66px, 0px)':
                     isTire === 'tire3' ? 'translate3d(0px, 22px, 0px)':
                     isTire === 'tire4' ? 'translate3d(0px, -22px, 0px)':
-                    isTire === 'tire5' ? 'translate3d(0px, -66px, 0px)':                   
+                    isTire === 'tire5' ? 'translate3d(0px, -66px, 0px)':  
+                    isTire === 'tire6' ? 'translate3d(0px, -110px, 0px)':  
+  
                     '',
                     transitionDuration: '0ms',
                     transitionProperty: 'none',
@@ -9707,7 +9712,15 @@ export default function TransAction() {
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">Daily Recharge Bonus</div>
-                  </li>                  
+                  </li>  
+                  <li
+                    role="button"
+                    tabindex="0"
+                    className="van-picker-column__item" id="tire6" onClick={()=>tire('tire6')}
+                    style={{height: '44px'}}
+                  >
+                    <div className="van-ellipsis">Salary Bonus</div>
+                  </li>                 
                 </ul>
               </div>
               <div
@@ -10250,7 +10263,7 @@ export default function TransAction() {
                   className="transRecord__container-content__card-top"
                 >
 
-                  <h3 data-v-2565e76d="">Game moved in</h3>
+                  <h3 data-v-2565e76d="" style={{color:'green'}}>{history.remarks}</h3>
                 </div>
                 <div
                   data-v-2565e76d=""
