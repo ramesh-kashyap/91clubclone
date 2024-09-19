@@ -2,22 +2,81 @@ import React, {useState, useEffect, } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-// import 'swiper/css/navigation'; 
-// import 'swiper/css/pagination'; 
+import Api from '../../services/Api';
+import VipBenefits from './VipBenefits';
 
 // import { Navigation, Pagination } from 'swiper/modules';
 export default function Vip() {
   const navigate = useNavigate();
   const [activeHistory, setActiveHistroy] =useState('history1');
   const [activeSection, setActiveSection] = useState('section1');
+  const [vipdetails, setVipDetails] = useState(null);
+  const [error, setError] = useState(null);
+  const [avatar, setAvatar] = useState('');
+
+    const [username, setUsername] = useState(null);
+
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const response = await Api.get('/api/webapi/GetUserInfo');
+        if (response.data.status) {
+         
+          setAvatar(response.data.data.avatar);
+          setUsername(response.data.data.name_user);
+        } else {
+          setError('Failed to fetch user info');
+        }
+      } catch (err) {
+        setError('Error fetching user info');
+        console.error(err);
+      } 
+    };
+
+    fetchUserInfo();
+  }, []);
+
+
 
   const handleSectionClick = (sectionId) => {
-    setActiveSection(sectionId);
+    // setActiveSection(sectionId);
   };
 
   const setVipHistory =(historyId) =>{
     setActiveHistroy(historyId);
   };
+
+  // Handle the swiper change event to update the active section
+  const handleSlideChange = (swiper) => {
+    const activeIndex = swiper.activeIndex;
+    setActiveSection(`section${activeIndex + 1}`); // Assuming the first section starts with 'section1'
+  };
+
+
+  const fetchStreakBonus= async () => {
+    try {
+      const response = await Api.get('/api/webapi/getVipDetails');
+      const data =  response.data;
+
+      console.log(data);
+
+      setVipDetails(data); // Assuming data.data contains the user's information
+
+
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+  useEffect(() => {
+    fetchStreakBonus();
+
+}, []);
+
+
+
   return (
     <div style={{fontSize: '12px'}}>
 
@@ -9538,7 +9597,7 @@ export default function Vip() {
             <div data-v-92d3d2e1="" className="vip-header-wrapper-avatar">
              <img
                 data-v-92d3d2e1=""
-                src="/assets/png/6-7c7f5203.png"
+                src={`/assets/png/${avatar}`}
                 className="userAvatar"
               />
             </div>
@@ -9548,7 +9607,7 @@ export default function Vip() {
                 className="vip-header-wrapper-name-vip n0"
               ></div>
               <div data-v-92d3d2e1="" className="vip-header-wrapper-name-nickName">
-                <h3 data-v-92d3d2e1="">MemberNNGNDBYB</h3>
+                <h3 data-v-92d3d2e1="">{username}</h3>
               </div>
             </div>
           </div>
@@ -9556,12 +9615,12 @@ export default function Vip() {
         <div data-v-92d3d2e1="" className="vip-content">
           <div data-v-92d3d2e1="" className="vip-content-empirical">
             <div data-v-92d3d2e1="">
-              <p data-v-92d3d2e1="" className="red">1151 EXP</p>
+              <p data-v-92d3d2e1="" className="red">{vipdetails?.experience} EXP</p>
               <p data-v-92d3d2e1="">My experience</p>
             </div>
             <div data-v-92d3d2e1="">
-              <p data-v-92d3d2e1="" className="timeTop"><span> 19 </span> Days</p>
-              <p data-v-92d3d2e1="">Payout time</p>
+              <p data-v-92d3d2e1="" className="timeTop"><span>{vipdetails?.vip_level}</span> </p>
+              <p data-v-92d3d2e1="">VIP Level</p>
             </div>
           </div>
           <div data-v-92d3d2e1="" className="vip-content-tip">
@@ -9586,68 +9645,69 @@ export default function Vip() {
       pagination={{ clickable: true }}  
       // modules={[Navigation, Pagination]} 
       className="mySwiper"
+      onSlideChange={handleSlideChange} // Event to handle swiping
+
     >
-    <SwiperSlide>
-                  <div 
-                    data-v-31cfa30d=""
-                    className={`swiper-slide itemInfo level1 ${activeSection === 'section1' ? 'swiper-slide-active':''}`} id="section1" onClick={() => handleSectionClick('section1')}
-                    style={{marginRight:' 20px'}}
-                  >
-                    <div data-v-31cfa30d="" className="itemInfo-right">
-                      <img
-                        data-v-31cfa30d=""
-                        src="/assets/png/1-1fca7935.png"
-                      />
-                    </div>
-                    <div data-v-31cfa30d="" className="itemInfo-head">
-                      <div data-v-31cfa30d="">
-                        <img
-                          data-v-31cfa30d=""
-                          src="/assets/png/1-d951dc6d.png"
-                        />
-                        <h1 data-v-31cfa30d="" className="level1">VIP1</h1>
-                        <img
-                          data-v-31cfa30d=""
-                          src="/assets/png/ununlocked-b5a4c7d0.png"
-                        /><span data-v-31cfa30d="">Not open yet</span>
-                      </div>
-                      <div data-v-31cfa30d="" className="mb30">
-                        <p data-v-31cfa30d="">
-                          Upgrading VIP1 requires <br />1849EXP
-                        </p>
-                      </div>
-                      <div data-v-31cfa30d="" className="border level1">
-                        Bet ₹1=1EXP
-                      </div>
-                    </div>
-                    <div data-v-31cfa30d="" className="itemInfo-bottom">
-                      <p data-v-31cfa30d="">VIP1</p>
-                      <div data-v-31cfa30d="">
-                        <div
-                          data-v-31cfa30d=""
-                          className="van-progress level1"
-                          style={{background: "'rgb(116, 138, 170)', height: '8px'"}}
-                        >
-                          <span
-                            className="van-progress__portion"
-                            style={{
-                              width: '38.37%',
-                              background: "linearGradient( ' rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100%')"
-                            }}
-                          ></span
-                          >
-                        </div>
-                      </div>
-                      <div data-v-31cfa30d="">
-                        <span data-v-31cfa30d="" className="level level1"
-                          >1151/3000</span
-                        ><span data-v-31cfa30d=""
-                          >3000 EXP can be leveled up</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  </SwiperSlide>
+   <SwiperSlide>
+  <div
+    data-v-31cfa30d=""
+    className={`swiper-slide itemInfo level1 ${activeSection === 'section1' ? 'swiper-slide-active':''}`} 
+    id="section1" 
+    onClick={() => handleSectionClick('section1')}
+    style={{ marginRight: '20px' }}
+  >
+    <div data-v-31cfa30d="" className="itemInfo-right">
+      <img data-v-31cfa30d="" src="/assets/png/1-1fca7935.png" alt="VIP1" />
+    </div>
+    <div data-v-31cfa30d="" className="itemInfo-head">
+      <div data-v-31cfa30d="">
+        <img data-v-31cfa30d="" src="/assets/png/1-d951dc6d.png" alt="VIP1" />
+        <h1 data-v-31cfa30d="" className="level1">VIP1</h1>
+        <img data-v-31cfa30d="" src="/assets/png/ununlocked-b5a4c7d0.png" alt="Not open" />
+        <span data-v-31cfa30d="">Not open yet</span>
+      </div>
+      <div data-v-31cfa30d="" className="mb30">
+        <p data-v-31cfa30d="">Upgrading VIP1 requires <br />{3000 - Math.min(vipdetails?.experience, 3000)} EXP</p>
+      </div>
+      <div data-v-31cfa30d="" className="border level1">
+        Bet ₹1 = 1EXP
+      </div>
+    </div>
+    <div data-v-31cfa30d="" className="itemInfo-bottom">
+      <p data-v-31cfa30d="">VIP1</p>
+      <div data-v-31cfa30d="">
+        <div
+          data-v-31cfa30d=""
+          className="van-progress level1"
+          style={{
+            background: 'rgb(116, 138, 170)',
+            height: '8px'
+          }}
+        >
+          {/* Progress bar width based on experience percentage */}
+          <span
+            className="van-progress__portion"
+            style={{
+              width: `${(Math.min(vipdetails?.experience, 3000) / 3000) * 100}%`,
+              background: "linearGradient(rgb(255, 252, 231) 0%, rgb(255, 200, 33) 100%)"
+            }}
+          ></span>
+        </div>
+      </div>
+      <div data-v-31cfa30d="">
+        <span data-v-31cfa30d="" className="level level1">
+          {/* Display the current experience and max level */}
+          {Math.min(vipdetails?.experience, 3000)}/3000
+        </span>
+        <span data-v-31cfa30d="">
+          {/* How much experience is needed to level up */}
+          {3000 - Math.min(vipdetails?.experience, 3000)} EXP can be leveled up
+        </span>
+      </div>
+    </div>
+  </div>
+</SwiperSlide>
+
                   <SwiperSlide>
                   <div
                     data-v-31cfa30d=""
@@ -9675,7 +9735,7 @@ export default function Vip() {
                       </div>
                       <div data-v-31cfa30d="" className="mb30">
                         <p data-v-31cfa30d="">
-                          Upgrading VIP2 requires <br />28849EXP
+                          Upgrading VIP2 requires <br />{30000 - Math.min(vipdetails?.experience, 30000)}EXP
                         </p>
                       </div>
                       <div data-v-31cfa30d="" className="border level2">
@@ -9693,7 +9753,8 @@ export default function Vip() {
                           <span
                             className="van-progress__portion"
                             style={{
-                              width: '3.84%',
+                              width: `${(Math.min(vipdetails?.experience, 30000) / 30000) * 100}%`,
+
                               background: "linearGradient(' rgb(255, 252, 231) 0%', ' rgb(255, 200, 33) 100%')"
                             }}
                           ></span
@@ -9702,318 +9763,331 @@ export default function Vip() {
                       </div>
                       <div data-v-31cfa30d="">
                         <span data-v-31cfa30d="" className="level level2"
-                          >1151/30000</span
+                          >{Math.min(vipdetails?.experience, 30000)}/30000</span
                         ><span data-v-31cfa30d=""
-                          >30000 EXP can be leveled up</span
+                          >{30000 - Math.min(vipdetails?.experience, 30000)} EXP can be leveled up</span
                         >
                       </div>
                     </div>
                   </div>
                   </SwiperSlide>
                   <SwiperSlide>
-                  <div
-                    data-v-31cfa30d=""
-                    className={`swiper-slide itemInfo level3 ${activeSection === 'section3' ? 'swiper-slide-active':''}`} id="section3" onClick={() => handleSectionClick('section3')}
-                    style={{marginRight:' 20px'}}
-                  >
-                    <div data-v-31cfa30d="" className="itemInfo-right">
-                      <img
-                        data-v-31cfa30d=""
-                        src="/assets/png/3-9cf04b7e.png"
-                      />
-                    </div>
-                    <div data-v-31cfa30d="" className="itemInfo-head">
-                      <div data-v-31cfa30d="">
-                        <img
-                          data-v-31cfa30d=""
-                          src="/assets/png/2-5df32e87.png"
-                        />
-                        <h1 data-v-31cfa30d="" className="level2">VIP3</h1>
-                        <img
-                          data-v-31cfa30d=""
-                          src="/assets/png/ununlocked-b5a4c7d0.png"
-                        /><span data-v-31cfa30d="">Not open yet</span>
-                      </div>
-                      <div data-v-31cfa30d="" className="mb30">
-                        <p data-v-31cfa30d="">
-                          Upgrading VIP3 requires <br />398849EXP
-                        </p>
-                      </div>
-                      <div data-v-31cfa30d="" className="border level3">
-                        Bet ₹1=1EXP
-                      </div>
-                    </div>
-                    <div data-v-31cfa30d="" className="itemInfo-bottom">
-                      <p data-v-31cfa30d="">VIP3</p>
-                      <div data-v-31cfa30d="">
-                        <div
-                          data-v-31cfa30d=""
-                          className="van-progress level3"
-                          style={{background: 'rgb(240, 92, 92)', height: '8px'}}
-                        >
-                          <span
-                            className="van-progress__portion"
-                            style={{
-                              width: '0.29%',
-                              background: "linearGradient( 'rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100%')"
-                            }}
-                          ></span
-                          >
-                        </div>
-                      </div>
-                      <div data-v-31cfa30d="">
-                        <span data-v-31cfa30d="" className="level level3"
-                          >1151/400000</span
-                        ><span data-v-31cfa30d=""
-                          >400000 EXP can be leveled up</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                  <div
-                    data-v-31cfa30d=""
-                    className={`swiper-slide itemInfo level4 ${activeSection === 'section4' ? 'swiper-slide-active':''}`} id="section4" onClick={() => handleSectionClick('section4')}
-                    style={{marginRight:' 20px'}}
-                  >
-                    <div data-v-31cfa30d="" className="itemInfo-right">
-                      <img
-                        data-v-31cfa30d=""
-                        src="/assets/png/4-a4cfd018.png"
-                      />
-                    </div>
-                    <div data-v-31cfa30d="" className="itemInfo-head">
-                      <div data-v-31cfa30d="">
-                        <img
-                          data-v-31cfa30d=""
-                          src="/assets/png/2-5df32e87.png"
-                        />
-                        <h1 data-v-31cfa30d="" className="level2">VIP4</h1>
-                        <img
-                          data-v-31cfa30d=""
-                          src="/assets/png/ununlocked-b5a4c7d0.png"
-                        /><span data-v-31cfa30d="">Not open yet</span>
-                      </div>
-                      <div data-v-31cfa30d="" className="mb30">
-                        <p data-v-31cfa30d="">
-                          Upgrading VIP4 requires <br />3998849EXP
-                        </p>
-                      </div>
-                      <div data-v-31cfa30d="" className="border level4">
-                        Bet ₹1=1EXP
-                      </div>
-                    </div>
-                    <div data-v-31cfa30d="" className="itemInfo-bottom">
-                      <p data-v-31cfa30d="">VIP4</p>
-                      <div data-v-31cfa30d="">
-                        <div
-                          data-v-31cfa30d=""
-                          className="van-progress level4"
-                          style={{background: 'rgb(50, 182, 232)', height: '8px'}}
-                        >
-                          <span
-                            className="van-progress__portion"
-                            style={{
-                              width: '0%',
-                              background: "'linearGradient(rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100% ')"}}
-                          ></span
-                          >
-                        </div>
-                      </div>
-                      <div data-v-31cfa30d="">
-                        <span data-v-31cfa30d="" className="level level4"
-                          >1151/4000000</span
-                        ><span data-v-31cfa30d=""
-                          >4000000 EXP can be leveled up</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                  <div
-                    data-v-31cfa30d=""
-                    className={`swiper-slide itemInfo level5 ${activeSection === 'section5' ? 'swiper-slide-active':''}`} id="section5" onClick={() => handleSectionClick('section5')}
-                    style={{marginRight:' 20px'}}
-                  >
-                    <div data-v-31cfa30d="" className="itemInfo-right">
-                      <img
-                        data-v-31cfa30d=""
-                        src="/assets/png/5-89e9b349.png"
-                      />
-                    </div>
-                    <div data-v-31cfa30d="" className="itemInfo-head">
-                      <div data-v-31cfa30d="">
-                        <img
-                          data-v-31cfa30d=""
-                          src="/assets/png/2-5df32e87.png"
-                        />
-                        <h1 data-v-31cfa30d="" className="level2">VIP5</h1>
-                        <img
-                          data-v-31cfa30d=""
-                          src="/assets/png/ununlocked-b5a4c7d0.png"
-                        /><span data-v-31cfa30d="">Not open yet</span>
-                      </div>
-                      <div data-v-31cfa30d="" className="mb30">
-                        <p data-v-31cfa30d="">
-                          Upgrading VIP5 requires <br />19998849EXP
-                        </p>
-                      </div>
-                      <div data-v-31cfa30d="" className="border level5">
-                        Bet ₹1=1EXP
-                      </div>
-                    </div>
-                    <div data-v-31cfa30d="" className="itemInfo-bottom">
-                      <p data-v-31cfa30d="">VIP5</p>
-                      <div data-v-31cfa30d="">
-                        <div
-                          data-v-31cfa30d=""
-                          className="van-progress level5"
-                          style={{background: "'rgb(234, 106, 202)', height: '8px'"}}
-                        >
-                          <span
-                            className="van-progress__portion"
-                            style={{
-                              width: '0.01%',
-                              background: "'lineargradient(rgb(255, 252, 231) 0%,rgb(255, 200, 33) 100%)'"}}
-                            
-                          ></span
-                          >
-                        </div>
-                      </div>
-                      <div data-v-31cfa30d="">
-                        <span data-v-31cfa30d="" className="level level5"
-                          >1151/20000000</span
-                        ><span data-v-31cfa30d=""
-                          >20000000 EXP can be leveled up</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                  <div
-                    data-v-31cfa30d=""
-                    className={`swiper-slide itemInfo level6 ${activeSection === 'section6' ? 'swiper-slide-active':''}`} id="section6" onClick={() => handleSectionClick('section6')}
-                    style={{marginRight:' 20px'}}
-                  >
-                    <div data-v-31cfa30d="" className="itemInfo-right">
-                      <img
-                        data-v-31cfa30d=""
-                        src="/assets/png/6-05959c7c.png"
-                      />
-                    </div>
-                    <div data-v-31cfa30d="" className="itemInfo-head">
-                      <div data-v-31cfa30d="">
-                        <img
-                          data-v-31cfa30d=""
-                          src="/assets/png/2-5df32e87.png"
-                        />
-                        <h1 data-v-31cfa30d="" className="level2">VIP6</h1>
-                        <img
-                          data-v-31cfa30d=""
-                          src="/assets/png/ununlocked-b5a4c7d0.png"
-                        /><span data-v-31cfa30d="">Not open yet</span>
-                      </div>
-                      <div data-v-31cfa30d="" className="mb30">
-                        <p data-v-31cfa30d="">
-                          Upgrading VIP6 requires <br />79998849EXP
-                        </p>
-                      </div>
-                      <div data-v-31cfa30d="" className="border level6">
-                        Bet ₹1=1EXP
-                      </div>
-                    </div>
-                    <div data-v-31cfa30d="" className="itemInfo-bottom">
-                      <p data-v-31cfa30d="">VIP6</p>
-                      <div data-v-31cfa30d="">
-                        <div
-                          data-v-31cfa30d=""
-                          className="van-progress level6"
-                          style={{background: 'rgb(30, 177, 139)', height: '8px'}}
-                        >
-                          <span
-                            className="van-progress__portion"
-                            style={{
-                              width: '0%',
-                              background: "linearGradient'(rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100%')"
-                            }}
-                          ></span
-                          >
-                        </div>
-                      </div>
-                      <div data-v-31cfa30d="">
-                        <span data-v-31cfa30d="" className="level level6"
-                          >1151/80000000</span
-                        ><span data-v-31cfa30d=""
-                          >80000000 EXP can be leveled up</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                  <div
-                    data-v-31cfa30d=""
-                    className={`swiper-slide itemInfo level7 ${activeSection === 'section7' ? 'swiper-slide-active':''}`} id="section7" onClick={() => handleSectionClick('section7')}
-                    style={{marginRight:' 20px'}}
-                  >
-                    <div data-v-31cfa30d="" className="itemInfo-right">
-                      <img
-                        data-v-31cfa30d=""
-                        src="/assets/png/7-a50aebe0.png"
-                      />
-                    </div>
-                    <div data-v-31cfa30d="" className="itemInfo-head">
-                      <div data-v-31cfa30d="">
-                        <img
-                          data-v-31cfa30d=""
-                          src="/assets/png/2-5df32e87.png"
-                        />
-                        <h1 data-v-31cfa30d="" className="level2">VIP7</h1>
-                        <img
-                          data-v-31cfa30d=""
-                          src="/assets/png/ununlocked-b5a4c7d0.png"
-                        /><span data-v-31cfa30d="">Not open yet</span>
-                      </div>
-                      <div data-v-31cfa30d="" className="mb30">
-                        <p data-v-31cfa30d="">
-                          Upgrading VIP7 requires <br />299998849EXP
-                        </p>
-                      </div>
-                      <div data-v-31cfa30d="" className="border level7">
-                        Bet ₹1=1EXP
-                      </div>
-                    </div>
-                    <div data-v-31cfa30d="" className="itemInfo-bottom">
-                      <p data-v-31cfa30d="">VIP7</p>
-                      <div data-v-31cfa30d="">
-                        <div
-                          data-v-31cfa30d=""
-                          className="van-progress level7"
-                          style={{background: "'rgb(27, 148, 88)' height: '8px'"}}
-                        >
-                          <span
-                            className="van-progress__portion"
-                            style={{
-                              width: '0%',
-                              background: "'linearGradient(rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100% ')"}}
-                        
-                          ></span
-                          >
-                        </div>
-                      </div>
-                      <div data-v-31cfa30d="">
-                        <span data-v-31cfa30d="" className="level level7"
-                          >1151/300000000</span
-                        ><span data-v-31cfa30d=""
-                          >300000000 EXP can be leveled up</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  </SwiperSlide>
+  <div
+    data-v-31cfa30d=""
+    className={`swiper-slide itemInfo level3 ${activeSection === 'section3' ? 'swiper-slide-active':''}`}
+    id="section3"
+    onClick={() => handleSectionClick('section3')}
+    style={{ marginRight: '20px' }}
+  >
+    <div data-v-31cfa30d="" className="itemInfo-right">
+      <img data-v-31cfa30d="" src="/assets/png/3-9cf04b7e.png" alt="VIP3" />
+    </div>
+    <div data-v-31cfa30d="" className="itemInfo-head">
+      <div data-v-31cfa30d="">
+        <img data-v-31cfa30d="" src="/assets/png/2-5df32e87.png" alt="VIP3" />
+        <h1 data-v-31cfa30d="" className="level3">VIP3</h1>
+        <img
+          data-v-31cfa30d=""
+          src="/assets/png/ununlocked-b5a4c7d0.png"
+          alt="Not open"
+        />
+        <span data-v-31cfa30d="">Not open yet</span>
+      </div>
+      <div data-v-31cfa30d="" className="mb30">
+        {/* Calculate remaining experience for VIP3 */}
+        <p data-v-31cfa30d="">
+          Upgrading VIP3 requires <br />
+          {400000 - Math.min(vipdetails?.experience, 400000)} EXP
+        </p>
+      </div>
+      <div data-v-31cfa30d="" className="border level3">
+        Bet ₹1 = 1EXP
+      </div>
+    </div>
+    <div data-v-31cfa30d="" className="itemInfo-bottom">
+      <p data-v-31cfa30d="">VIP3</p>
+      <div data-v-31cfa30d="">
+        <div
+          data-v-31cfa30d=""
+          className="van-progress level3"
+          style={{ background: 'rgb(240, 92, 92)', height: '8px' }}
+        >
+          {/* Progress bar width based on experience percentage for VIP3 */}
+          <span
+            className="van-progress__portion"
+            style={{
+              width: `${(Math.min(vipdetails?.experience, 400000) / 400000) * 100}%`,
+              background: "linearGradient(rgb(255, 252, 231) 0%, rgb(255, 200, 33) 100%)"
+            }}
+          ></span>
+        </div>
+      </div>
+      <div data-v-31cfa30d="">
+        <span data-v-31cfa30d="" className="level level3">
+          {/* Display current experience and max level for VIP3 */}
+          {Math.min(vipdetails?.experience, 400000)}/400000
+        </span>
+        <span data-v-31cfa30d="">
+          {/* Display remaining EXP needed to level up */}
+          {400000 - Math.min(vipdetails?.experience, 400000)} EXP can be leveled up
+        </span>
+      </div>
+    </div>
+  </div>
+</SwiperSlide>
+
+<SwiperSlide>
+  <div
+    data-v-31cfa30d=""
+    className={`swiper-slide itemInfo level4 ${activeSection === 'section4' ? 'swiper-slide-active':''}`}
+    id="section4"
+    onClick={() => handleSectionClick('section4')}
+    style={{ marginRight: '20px' }}
+  >
+    <div data-v-31cfa30d="" className="itemInfo-right">
+      <img data-v-31cfa30d="" src="/assets/png/4-a4cfd018.png" alt="VIP4" />
+    </div>
+    <div data-v-31cfa30d="" className="itemInfo-head">
+      <div data-v-31cfa30d="">
+        <img data-v-31cfa30d="" src="/assets/png/2-5df32e87.png" alt="VIP4" />
+        <h1 data-v-31cfa30d="" className="level4">VIP4</h1>
+        <img
+          data-v-31cfa30d=""
+          src="/assets/png/ununlocked-b5a4c7d0.png"
+          alt="Not open yet"
+        />
+        <span data-v-31cfa30d="">Not open yet</span>
+      </div>
+      <div data-v-31cfa30d="" className="mb30">
+        {/* Calculate remaining experience for VIP4 */}
+        <p data-v-31cfa30d="">
+          Upgrading VIP4 requires <br />
+          {4000000 - Math.min(vipdetails?.experience, 4000000)} EXP
+        </p>
+      </div>
+      <div data-v-31cfa30d="" className="border level4">
+        Bet ₹1 = 1EXP
+      </div>
+    </div>
+    <div data-v-31cfa30d="" className="itemInfo-bottom">
+      <p data-v-31cfa30d="">VIP4</p>
+      <div data-v-31cfa30d="">
+        <div
+          data-v-31cfa30d=""
+          className="van-progress level4"
+          style={{ background: 'rgb(50, 182, 232)', height: '8px' }}
+        >
+          {/* Progress bar width based on experience percentage for VIP4 */}
+          <span
+            className="van-progress__portion"
+            style={{
+              width: `${(Math.min(vipdetails?.experience, 4000000) / 4000000) * 100}%`,
+              background: "linearGradient(rgb(255, 252, 231) 0%, rgb(255, 200, 33) 100%)"
+            }}
+          ></span>
+        </div>
+      </div>
+      <div data-v-31cfa30d="">
+        <span data-v-31cfa30d="" className="level level4">
+          {Math.min(vipdetails?.experience, 4000000)}/4000000
+        </span>
+        <span data-v-31cfa30d="">
+          {4000000 - Math.min(vipdetails?.experience, 4000000)} EXP can be leveled up
+        </span>
+      </div>
+    </div>
+  </div>
+</SwiperSlide>
+
+<SwiperSlide>
+  <div
+    data-v-31cfa30d=""
+    className={`swiper-slide itemInfo level5 ${activeSection === 'section5' ? 'swiper-slide-active':''}`}
+    id="section5"
+    onClick={() => handleSectionClick('section5')}
+    style={{ marginRight: '20px' }}
+  >
+    <div data-v-31cfa30d="" className="itemInfo-right">
+      <img data-v-31cfa30d="" src="/assets/png/5-89e9b349.png" alt="VIP5" />
+    </div>
+    <div data-v-31cfa30d="" className="itemInfo-head">
+      <div data-v-31cfa30d="">
+        <img data-v-31cfa30d="" src="/assets/png/2-5df32e87.png" alt="VIP5" />
+        <h1 data-v-31cfa30d="" className="level5">VIP5</h1>
+        <img
+          data-v-31cfa30d=""
+          src="/assets/png/ununlocked-b5a4c7d0.png"
+          alt="Not open yet"
+        />
+        <span data-v-31cfa30d="">Not open yet</span>
+      </div>
+      <div data-v-31cfa30d="" className="mb30">
+        {/* Calculate remaining experience for VIP5 */}
+        <p data-v-31cfa30d="">
+          Upgrading VIP5 requires <br />
+          {20000000 - Math.min(vipdetails?.experience, 20000000)} EXP
+        </p>
+      </div>
+      <div data-v-31cfa30d="" className="border level5">
+        Bet ₹1 = 1EXP
+      </div>
+    </div>
+    <div data-v-31cfa30d="" className="itemInfo-bottom">
+      <p data-v-31cfa30d="">VIP5</p>
+      <div data-v-31cfa30d="">
+        <div
+          data-v-31cfa30d=""
+          className="van-progress level5"
+          style={{ background: 'rgb(234, 106, 202)', height: '8px' }}
+        >
+          {/* Progress bar width based on experience percentage for VIP5 */}
+          <span
+            className="van-progress__portion"
+            style={{
+              width: `${(Math.min(vipdetails?.experience, 20000000) / 20000000) * 100}%`,
+              background: "linearGradient(rgb(255, 252, 231) 0%, rgb(255, 200, 33) 100%)"
+            }}
+          ></span>
+        </div>
+      </div>
+      <div data-v-31cfa30d="">
+        <span data-v-31cfa30d="" className="level level5">
+          {Math.min(vipdetails?.experience, 20000000)}/20000000
+        </span>
+        <span data-v-31cfa30d="">
+          {20000000 - Math.min(vipdetails?.experience, 20000000)} EXP can be leveled up
+        </span>
+      </div>
+    </div>
+  </div>
+</SwiperSlide>
+
+<SwiperSlide>
+  <div
+    data-v-31cfa30d=""
+    className={`swiper-slide itemInfo level6 ${activeSection === 'section6' ? 'swiper-slide-active':''}`}
+    id="section6"
+    onClick={() => handleSectionClick('section6')}
+    style={{ marginRight: '20px' }}
+  >
+    <div data-v-31cfa30d="" className="itemInfo-right">
+      <img data-v-31cfa30d="" src="/assets/png/6-05959c7c.png" alt="VIP6" />
+    </div>
+    <div data-v-31cfa30d="" className="itemInfo-head">
+      <div data-v-31cfa30d="">
+        <img data-v-31cfa30d="" src="/assets/png/2-5df32e87.png" alt="VIP6" />
+        <h1 data-v-31cfa30d="" className="level6">VIP6</h1>
+        <img
+          data-v-31cfa30d=""
+          src="/assets/png/ununlocked-b5a4c7d0.png"
+          alt="Not open yet"
+        />
+        <span data-v-31cfa30d="">Not open yet</span>
+      </div>
+      <div data-v-31cfa30d="" className="mb30">
+        {/* Calculate remaining experience for VIP6 */}
+        <p data-v-31cfa30d="">
+          Upgrading VIP6 requires <br />
+          {80000000 - Math.min(vipdetails?.experience, 80000000)} EXP
+        </p>
+      </div>
+      <div data-v-31cfa30d="" className="border level6">
+        Bet ₹1 = 1EXP
+      </div>
+    </div>
+    <div data-v-31cfa30d="" className="itemInfo-bottom">
+      <p data-v-31cfa30d="">VIP6</p>
+      <div data-v-31cfa30d="">
+        <div
+          data-v-31cfa30d=""
+          className="van-progress level6"
+          style={{ background: 'rgb(30, 177, 139)', height: '8px' }}
+        >
+          {/* Progress bar width based on experience percentage for VIP6 */}
+          <span
+            className="van-progress__portion"
+            style={{
+              width: `${(Math.min(vipdetails?.experience, 80000000) / 80000000) * 100}%`,
+              background: "linearGradient(rgb(255, 252, 231) 0%, rgb(255, 200, 33) 100%)"
+            }}
+          ></span>
+        </div>
+      </div>
+      <div data-v-31cfa30d="">
+        <span data-v-31cfa30d="" className="level level6">
+          {Math.min(vipdetails?.experience, 80000000)}/80000000
+        </span>
+        <span data-v-31cfa30d="">
+          {80000000 - Math.min(vipdetails?.experience, 80000000)} EXP can be leveled up
+        </span>
+      </div>
+    </div>
+  </div>
+</SwiperSlide>
+
+<SwiperSlide>
+  <div
+    data-v-31cfa30d=""
+    className={`swiper-slide itemInfo level7 ${activeSection === 'section7' ? 'swiper-slide-active':''}`}
+    id="section7"
+    onClick={() => handleSectionClick('section7')}
+    style={{ marginRight: '20px' }}
+  >
+    <div data-v-31cfa30d="" className="itemInfo-right">
+      <img data-v-31cfa30d="" src="/assets/png/7-a50aebe0.png" alt="VIP7" />
+    </div>
+    <div data-v-31cfa30d="" className="itemInfo-head">
+      <div data-v-31cfa30d="">
+        <img data-v-31cfa30d="" src="/assets/png/2-5df32e87.png" alt="VIP7" />
+        <h1 data-v-31cfa30d="" className="level7">VIP7</h1>
+        <img
+          data-v-31cfa30d=""
+          src="/assets/png/ununlocked-b5a4c7d0.png"
+          alt="Not open yet"
+        />
+        <span data-v-31cfa30d="">Not open yet</span>
+      </div>
+      <div data-v-31cfa30d="" className="mb30">
+        {/* Calculate remaining experience for VIP7 */}
+        <p data-v-31cfa30d="">
+          Upgrading VIP7 requires <br />
+          {300000000 - Math.min(vipdetails?.experience, 300000000)} EXP
+        </p>
+      </div>
+      <div data-v-31cfa30d="" className="border level7">
+        Bet ₹1 = 1EXP
+      </div>
+    </div>
+    <div data-v-31cfa30d="" className="itemInfo-bottom">
+      <p data-v-31cfa30d="">VIP7</p>
+      <div data-v-31cfa30d="">
+        <div
+          data-v-31cfa30d=""
+          className="van-progress level7"
+          style={{ background: 'rgb(27, 148, 88)', height: '8px' }}
+        >
+          {/* Progress bar width based on experience percentage for VIP7 */}
+          <span
+            className="van-progress__portion"
+            style={{
+              width: `${(Math.min(vipdetails?.experience, 300000000) / 300000000) * 100}%`,
+              background: "linearGradient(rgb(255, 252, 231) 0%, rgb(255, 200, 33) 100%)"
+            }}
+          ></span>
+        </div>
+      </div>
+      <div data-v-31cfa30d="">
+        <span data-v-31cfa30d="" className="level level7">
+          {Math.min(vipdetails?.experience, 300000000)}/300000000
+        </span>
+        <span data-v-31cfa30d="">
+          {300000000 - Math.min(vipdetails?.experience, 300000000)} EXP can be leveled up
+        </span>
+      </div>
+    </div>
+  </div>
+</SwiperSlide>
+
                   <SwiperSlide>
                   <div
                     data-v-31cfa30d=""
@@ -10160,7 +10234,7 @@ export default function Vip() {
                       </div>
                       <div data-v-31cfa30d="" className="mb30">
                         <p data-v-31cfa30d="">
-                          Upgrading VIP10 requires <br />9999998848EXP
+                          Upgrading VIP10 requires <br />{9999999999 - Math.min(vipdetails?.experience, 9999999999)}EXP
                         </p>
                       </div>
                       <div data-v-31cfa30d="" className="border level10">
@@ -10178,7 +10252,8 @@ export default function Vip() {
                           <span
                             className="van-progress__portion"
                             style={{
-                              width: '0%',
+                              width: `${(Math.min(vipdetails?.experience, 9999999999) / 9999999999) * 100}%`,
+
                               background: "'linearGradient(rgb(255, 252, 231) 0%','rgb(255, 200, 33) 100% ')"}}
                           ></span
                           >
@@ -10186,9 +10261,9 @@ export default function Vip() {
                       </div>
                       <div data-v-31cfa30d="">
                         <span data-v-31cfa30d="" className="level level10"
-                          >1151/9999999999</span
+                          > {Math.min(vipdetails?.experience, 9999999999)}/9999999999</span
                         ><span data-v-31cfa30d=""
-                          >9999999999 EXP can be leveled up</span
+                          >{9999999999 - Math.min(vipdetails?.experience, 9999999999)} EXP can be leveled up</span
                         >
                       </div>
                     </div>
@@ -10201,84 +10276,8 @@ export default function Vip() {
               </div>
             </div>
           </div>
-          <div data-v-9bb5e81c="" data-v-92d3d2e1="" className="vip-content-weal">
-            <div data-v-9bb5e81c="" className="slide">
-              <div data-v-9bb5e81c="" className="vip-content-weal-head ar-1px-b">
-                <svg data-v-9bb5e81c="" className="svg-icon icon-diamond">
-                  <use href="#icon-diamond"></use>
-                </svg>
-                <h1 data-v-9bb5e81c="">VIP1 Benefits level</h1>
-              </div>
-              <div data-v-9bb5e81c="" className="vip-content-weal-con">
-                <div data-v-9bb5e81c="">
-                  <img data-v-9bb5e81c="" src="/assets/png/1-fd9896f4.png" />
-                </div>
-                <div data-v-9bb5e81c="">
-                  <h2 data-v-9bb5e81c="">Level up rewards</h2>
-                  <span data-v-9bb5e81c=""
-                    >Each account can only receive 1 time</span
-                  >
-                </div>
-                <div data-v-9bb5e81c="">
-                  <p data-v-9bb5e81c="">
-                    <img
-                      data-v-9bb5e81c=""
-                      src="/assets/png/gold-4a60a059.png"
-                    />
-                    60
-                  </p>
-                  <p data-v-9bb5e81c="">
-                    <svg data-v-9bb5e81c="" className="svg-icon icon-love">
-                      <use href="#icon-love"></use>
-                    </svg>
-                    0
-                  </p>
-                </div>
-              </div>
-              <div data-v-9bb5e81c="" className="vip-content-weal-con">
-                <div data-v-9bb5e81c="">
-                  <img data-v-9bb5e81c="" src="/assets/png/2-0a41a908.png" />
-                </div>
-                <div data-v-9bb5e81c="">
-                  <h2 data-v-9bb5e81c="">Monthly reward</h2>
-                  <span data-v-9bb5e81c=""
-                    >Each account can only receive 1 time per month</span
-                  >
-                </div>
-                <div data-v-9bb5e81c="">
-                  <p data-v-9bb5e81c="">
-                    <img
-                      data-v-9bb5e81c=""
-                      src="/assets/png/gold-4a60a059.png"
-                    />
-                    30
-                  </p>
-                  <p data-v-9bb5e81c="">
-                    <svg data-v-9bb5e81c="" className="svg-icon icon-love">
-                      <use href="#icon-love"></use>
-                    </svg>
-                    0
-                  </p>
-                </div>
-              </div>
-              <div data-v-9bb5e81c="" className="vip-content-weal-con">
-                <div data-v-9bb5e81c="">
-                  <img data-v-9bb5e81c="" src="/assets/png/5-5e6a64b1.png" />
-                </div>
-                <div data-v-9bb5e81c="">
-                  <h2 data-v-9bb5e81c="">Rebate rate</h2>
-                  <span data-v-9bb5e81c="">Increase income of rebate</span>
-                </div>
-                <div data-v-9bb5e81c="">
-                  <p data-v-9bb5e81c="" className="max">
-                    <svg data-v-9bb5e81c="" className="svg-icon icon-weal5">
-                      <use href="#icon-weal5"></use></svg
-                    >0.05%
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <VipBenefits vipDetails={vipdetails ?? []} activeSection={activeSection} />
+
           <div
             data-v-4e842459=""
             data-v-92d3d2e1=""
