@@ -1,9 +1,15 @@
 import React, {useState, useEffect, } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+// import 'swiper/css/navigation'; 
+// import 'swiper/css/pagination'; 
+
+// import { Navigation, Pagination } from 'swiper/modules';
 export default function Vip() {
   const navigate = useNavigate();
-  const [activeSection, setActiveSection] = useState('section1');
   const [activeHistory, setActiveHistroy] =useState('history1');
+  const [activeSection, setActiveSection] = useState('section1');
 
   const handleSectionClick = (sectionId) => {
     setActiveSection(sectionId);
@@ -9571,31 +9577,17 @@ export default function Vip() {
                   className="swiper-wrapper"
                   style={{
                     'transitionDuration': '10ms',
-                    transform:
-            activeSection === 'section1'
-              ? 'translate3d(34.469px, 0px, 0px)'
-              : activeSection === 'section2'
-              ? 'translate3d(-290.593px, 0px, 0px)'
-              : activeSection === 'section3'
-              ? 'translate3d(-615.655px, 0px, 0px)'
-              : activeSection === 'section4'
-              ? 'translate3d(-940.717px, 0px, 0px)'
-              : activeSection === 'section5'
-              ? 'translate3d(-1265.78px, 0px, 0px)'
-              : activeSection === 'section6'
-              ? 'translate3d(-1590.84px, 0px, 0px)'
-              : activeSection === 'section7'
-              ? 'translate3d(-1915.9px, 0px, 0px)'
-              : activeSection === 'section8'
-              ? 'translate3d(-2240.96px, 0px, 0px)'
-              : activeSection === 'section9'
-              ? 'translate3d(-2566.03px, 0px, 0px)'
-              : activeSection === 'section10'
-              ? 'translate3d(-2891.09px, 0px, 0px)'
-
-              : '', 
-            }}
+                    transform: 'translate3d(34.469px, 0px, 0px)', }}
                 >
+                  <Swiper
+      // navigation={true} 
+      spaceBetween={280}
+      slidesPerView={2}
+      pagination={{ clickable: true }}  
+      // modules={[Navigation, Pagination]} 
+      className="mySwiper"
+    >
+    <SwiperSlide>
                   <div 
                     data-v-31cfa30d=""
                     className={`swiper-slide itemInfo level1 ${activeSection === 'section1' ? 'swiper-slide-active':''}`} id="section1" onClick={() => handleSectionClick('section1')}
@@ -9655,6 +9647,8 @@ export default function Vip() {
                       </div>
                     </div>
                   </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
                   <div
                     data-v-31cfa30d=""
                     className={`swiper-slide itemInfo level2 ${activeSection === 'section2' ? 'swiper-slide-active':''}`} id="section2" onClick={() => handleSectionClick('section2')}
@@ -9715,6 +9709,8 @@ export default function Vip() {
                       </div>
                     </div>
                   </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
                   <div
                     data-v-31cfa30d=""
                     className={`swiper-slide itemInfo level3 ${activeSection === 'section3' ? 'swiper-slide-active':''}`} id="section3" onClick={() => handleSectionClick('section3')}
@@ -9774,6 +9770,8 @@ export default function Vip() {
                       </div>
                     </div>
                   </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
                   <div
                     data-v-31cfa30d=""
                     className={`swiper-slide itemInfo level4 ${activeSection === 'section4' ? 'swiper-slide-active':''}`} id="section4" onClick={() => handleSectionClick('section4')}
@@ -9832,6 +9830,8 @@ export default function Vip() {
                       </div>
                     </div>
                   </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
                   <div
                     data-v-31cfa30d=""
                     className={`swiper-slide itemInfo level5 ${activeSection === 'section5' ? 'swiper-slide-active':''}`} id="section5" onClick={() => handleSectionClick('section5')}
@@ -9891,6 +9891,8 @@ export default function Vip() {
                       </div>
                     </div>
                   </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
                   <div
                     data-v-31cfa30d=""
                     className={`swiper-slide itemInfo level6 ${activeSection === 'section6' ? 'swiper-slide-active':''}`} id="section6" onClick={() => handleSectionClick('section6')}
@@ -9950,6 +9952,8 @@ export default function Vip() {
                       </div>
                     </div>
                   </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
                   <div
                     data-v-31cfa30d=""
                     className={`swiper-slide itemInfo level7 ${activeSection === 'section7' ? 'swiper-slide-active':''}`} id="section7" onClick={() => handleSectionClick('section7')}
@@ -10009,6 +10013,8 @@ export default function Vip() {
                       </div>
                     </div>
                   </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
                   <div
                     data-v-31cfa30d=""
                     className={`swiper-slide itemInfo level8 ${activeSection === 'section8' ? 'swiper-slide-active':''}`} id="section8" onClick={() => handleSectionClick('section8')}
@@ -10067,6 +10073,8 @@ export default function Vip() {
                       </div>
                     </div>
                   </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
                   <div
                     data-v-31cfa30d=""
                     className={`swiper-slide itemInfo level9 ${activeSection === 'section9' ? 'swiper-slide-active':''}`} id="section9" onClick={() => handleSectionClick('section9')}
@@ -10125,6 +10133,8 @@ export default function Vip() {
                       </div>
                     </div>
                   </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
                   <div
                     data-v-31cfa30d=""
                     className={`swiper-slide itemInfo level10 ${activeSection === 'section10' ? 'swiper-slide-active':''}`} id="section10" onClick={() => handleSectionClick('section10')}
@@ -10183,6 +10193,10 @@ export default function Vip() {
                       </div>
                     </div>
                   </div>
+                  </SwiperSlide>
+                  <SwiperSlide>                    
+                  </SwiperSlide>
+                  </Swiper>
                 </div>
               </div>
             </div>

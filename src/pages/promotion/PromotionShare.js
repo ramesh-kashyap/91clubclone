@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 import Api from '../../services/Api'
  export default function PromotionShare(){
     const navigate = useNavigate();
@@ -4646,16 +4648,17 @@ return(
                 <div className="swiper-wrapper" 
                      style={{
                         transitionDuration: '10ms',
-                        transform:
-            activeSection === 'section1'
-              ? 'translate3d(61.3385px, 0px, 0px)'
-              : activeSection === 'section2'
-              ? 'translate3d(-235.992px, 0px, 0px)'
-              : activeSection === 'section3'
-              ? 'translate3d(-533.32px, 0px, 0px)'
-              : '', 
+                        transform:'translate3d(61.3385px, 0px, 0px)', 
                                   
                       }}>
+                        <Swiper
+                        // navigation={true} 
+      spaceBetween={180}
+      slidesPerView={2}
+      pagination={{ clickable: true }}  
+      // modules={[Navigation, Pagination]} 
+      className="mySwiper">
+        <SwiperSlide>
                     <div data-v-3b74cce6="" className={`swiper-slide ${activeSection === 'section1' ? 'swiper-slide-active' : ''}`}
         id="section1"
         style={{ marginRight: '20px' }}
@@ -4680,6 +4683,8 @@ return(
                                 style={{height: '164px', width: '164px'}}></canvas>
                         </div>
                     </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
                     <div data-v-3b74cce6=""  className={`swiper-slide ${activeSection === 'section2' ? 'swiper-slide-active' : ''}`}
         id="section2"
         style={{ marginRight: '20px' }}
@@ -4704,6 +4709,8 @@ return(
                                 style={{height: '164px', width: '164px',}}></canvas>
                         </div>
                     </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
                     <div data-v-3b74cce6="" className={`swiper-slide ${activeSection === 'section3' ? 'swiper-slide-active' : ''}`}
         id="section3"
         style={{ marginRight: '20px' }}
@@ -4728,6 +4735,11 @@ return(
                                 style={{height: '164px', width: '164px'}}></canvas>
                         </div>
                     </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                    
+                    </SwiperSlide>
+                    </Swiper>
                 </div>
             </div>
             <div data-v-3b74cce6="" className="promotionShare__container-slogan">
