@@ -10269,7 +10269,38 @@ const handleImageClick = async (imageSrc) => {
                 </div>
               </div>
             </div>
-          
+            <div
+              data-v-0cd6dac4=""
+              className="van-grid-item"
+              style={{
+                'flexBasis': '33.3333%',
+                'paddingBight': '10px',
+                'marginTop': '10px'
+            }}
+            >
+              <div
+                className="van-grid-item__content van-grid-item__content--center"
+              >
+                <div data-v-0cd6dac4="" style={{display: 'none'}}>
+                  <div
+                    data-v-0cd6dac4=""
+                    role="checkbox"
+                    className="van-checkbox"
+                    tabIndex="0"
+                    aria-checked="true"
+                  >
+                    <div
+                      className="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"
+                      style={{fontSize: '20px'}}
+                    >
+                      <i className="van-badge__wrapper van-icon van-icon-success"
+                        ></i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
