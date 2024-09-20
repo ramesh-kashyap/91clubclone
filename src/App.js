@@ -91,6 +91,8 @@ import CustomerService from './pages/account/CustomerService';
 import GameStats from './pages/account/GameStats';
 import StreakBonus from './pages/account/StreakBonus';
 import Avatar from './pages/account/Avatar';
+import Turnover from './pages/account/Turnover';
+
 
 
 
@@ -178,6 +180,8 @@ function App() {
         <Route path="/deposit/CryptoDeposit" element={<PrivateRoute><CryptoDeposit/></PrivateRoute>}/>
         <Route path="/main/StreakBonus" element={<PrivateRoute>< StreakBonus/></PrivateRoute>}/>
         <Route path="/Avatar" element={<PrivateRoute><Avatar/></PrivateRoute>}/>
+        <Route path="/Turnover" element={<PrivateRoute><Turnover/></PrivateRoute>}/>
+
 
 
         

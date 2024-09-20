@@ -1,220 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Api from '../../services/Api'
-import { useToast } from '../../components/ToastContext'; 
+import React from 'react'
 
-export default function Withdraw() {
- 
-  
-
-
-  const { showToast } = useToast();
-  const [activeSection, setActiveSection] = useState('section1');
-  const [withdrawHistory, setWithdrawHistory] = useState([]);
-  const [error, setError] = useState(null);
-  const [userInfo, setUserInfo] = useState(null);
-  const [amount, setAmount] = useState(null);
-  const [rupayAmount, setRupayAmount] = useState(null);
-  const [needToBet, setNeedToBet] = useState(0);
-  const [walletAddress, setWalletAddress] = useState(null);
-  const [withdrawAddress, setWithdrawAddress] =useState(null);
-  const [account_number, setAccountAddress] =useState(null);
-  const [name_bank, setNameBank] =useState(null);
-  const [ruWithdraw, setRuWithdraw] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
-  const [password, setPassword] = useState('');
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-
-
-
-  const togglePasswordVisibility = () => {
-    setIsPasswordVisible(!isPasswordVisible);
-};
-
-
-  const showSection = (sectionID) =>{
-     setActiveSection(sectionID);
-  };
-  const navigate = useNavigate();
-
- const handleAmount = (e) => {
-    const value = e.target.value;
-    setRuWithdraw(value);
-  };
-
-  const handleAmountChange = (e) => {
-    const value = e.target.value;
-    setAmount(value); // Set USDT value
-    setRupayAmount(value * 90); // Update Rupay amount
-  };
-
-  // Handle Rupay input change
-  const handleRupayAmountChange = (e) => {
-    const value = e.target.value;
-    setRupayAmount(value); // Set Rupay value
-    setAmount(value / 90); // Update USDT amount
-  };
-
-
-  const confirmWithdraw = async  () => {
-    try {
-      const response = await Api.post('/api/webapi/confirmPassword',{password});
-      const data =  response.data;
-
-      if(data.status === true){
-        setShowPassword(false);
-         handleSubmit();
-      } else{
-        showToast("Incorrect Password");
-      }
-      
-
-    } catch (err) {
-      console.error('An error occurred:', err);
-    } 
-  };
-
-  const fetchUserInfo = async () => {
-    try {
-      const response = await Api.post('/api/webapi/check/Info');
-      const data =  response.data;
-
-      console.log(response.data);
-
-         
-
-      setUserInfo(data.userInfo[0]); // Assuming data.data contains the user's information
-
-      setWithdrawAddress(data.datas[0]?.usdtBep20);
-      setAccountAddress(data.datas[0]?.account_number);
-      setNameBank(data.datas[0]?.name_bank);
-       console.log(data.datas[0]?.usdtBep20);
-
-      if(data.userInfo[0].total_bet > data.userInfo[0].able_to_bet){
-        setNeedToBet(0);
-      }
-      else{
-        console.log(parseFloat(data.userInfo[0].able_to_bet) - parseFloat(data.userInfo[0].total_bet) );
-        setNeedToBet( parseFloat(data.userInfo[0].able_to_bet) - parseFloat(data.userInfo[0].total_bet) );
-      }
-
-    } catch (err) {
-      console.error('An error occurred:', err);
-    } 
-  };
-
-
-
-  const formatTimestampToIST = (timestamp) => {
-    try {
-      const numericTimestamp = Number(timestamp);
-      const validTimestamp = numericTimestamp.toString().length === 13 ? numericTimestamp : numericTimestamp * 1000;
-  
-      const date = new Date(validTimestamp);
-      if (isNaN(date.getTime())) {
-        throw new Error('Invalid Date');
-      }
-      return date.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-    } catch (error) {
-      return 'Invalid Timestamp';
-    }
-  };
-
-
-  const handleSubmit = async (e) => {
-       
-         let paymentMode;
-         let money;
-
-        if(activeSection==='section1'){
-          paymentMode = "BankCard";
-          money=ruWithdraw;
-        } else{
-          paymentMode = "USDT(BEP20)";
-          money=rupayAmount;
-        }
-
-
-
-    if (money < 900) {
-      showToast('Amount need to be greater than 900');
-      return;
-    }
-    if (needToBet > 0) {
-      showToast('You need to bet more to Withdraw');
-      return;
-    }
-    if (parseFloat(money) > parseFloat(userInfo.money)) {
-      console.log(money);
-      console.log(userInfo.money);
-      showToast('Insufficient Balance');
-      return;
-    }
-
-    try {
-
-      const response = await Api.post('/api/webapi/withdrawalUsdt', {
-        money,
-        paymentMode,
-      });
-      console.log(response.data);
-      if (response.data.status == true) {
-        // Redirect to login or home page
-        // showToast('Withdraw Success');
-        setShowPopup(true);
-        fetchUserInfo();
-
-      } else {
-        showToast(response.data.message);
-      }
-    } catch (err) {
-      showToast('An error occurred. Please try again.');
-    }
-};
-
-
-
-
-const fetchWithdrawHistory= async () => {
-  try {
-    const response = await Api.get('/api/webapi/withdraw/list?page=1&limit=5');
-    const data =  response.data;
-
-    console.log(data.datas);
-
-    setWithdrawHistory(data.datas); // Assuming data.data contains the user's information
-
-
-  } catch (err) {
-    console.error('An error occurred:', err);
-    setError('An error occurred. Please try again.');
-  } 
-};
-
-
-
-  useEffect(() => {
-    fetchWithdrawHistory();  
-    fetchUserInfo();
-
-    console.log("hi");
-
-}, []);
-
-
-
-
-
-
-
+export default function Register() {
   return (
     <div style={{fontSize: '12px'}}>
 
-<svg
+
+
+
+
+
+    <svg
       xmlns="http://www.w3.org/2000/svg"
-     
-      style={{position: 'absolute', width: '0', height: '0'}}
+      style={{position: 'absolute' ,width: '0' ,height: '0'}}
     >
       <symbol
         id="icon-privacyIcon"
@@ -3434,7 +3231,6 @@ const fetchWithdrawHistory= async () => {
           strokeLinecap="round"
         ></path>
       </symbol>
-    
       <symbol
         id="icon-downArrow"
         xmlns="http://www.w3.org/2000/svg"
@@ -3816,17 +3612,14 @@ const fetchWithdrawHistory= async () => {
           strokeLinejoin="round"
         ></path>
       </symbol>
-    
       <symbol
         id="icon-eye"
         t="1503993826520"
         className="icon"
-       
         viewBox="0 0 1024 1024"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         p-id="7878"
-       
       >
         <defs><style type="text/css"></style></defs>
         <path
@@ -9582,22 +9375,20 @@ const fetchWithdrawHistory= async () => {
         ></path>
       </symbol>
     </svg>
- 
 
     <div id="app" data-v-app="">
       <div
         data-v-647954c7=""
         className="ar-loading-view"
         style={{
-          "--f13b4d11-currentFontFamily": "{'Roboto', 'Inter', 'sansSerif'}",
-          display: 'none',
+          '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'",
+          display: 'none'
         }}
       >
         <div data-v-647954c7="" className="loading-wrapper">
           <div data-v-647954c7="" className="loading-animat">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              
               viewBox="0 0 200 200"
               width="200"
               height="200"
@@ -9606,8 +9397,8 @@ const fetchWithdrawHistory= async () => {
                 width: '100%',
                 height: '100%',
                 transform: 'translate3d(0px, 0px, 0px)',
-                contentVisibility: 'visible'}}
-              
+                'contentVisibility': 'visible'
+              }}
             >
               <defs>
                 <clipPath id="__lottie_element_2">
@@ -9657,15 +9448,11 @@ const fetchWithdrawHistory= async () => {
               <div className="shape shape-3" data-v-647954c7=""></div>
               <div className="shape shape-4" data-v-647954c7=""></div>
             </div>
-            
           </div>
-          
         </div>
         <div data-v-647954c7="" className="skeleton-wrapper" style={{display: 'none'}}>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
             <div className="van-skeleton__content">
-              
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9690,7 +9477,6 @@ const fetchWithdrawHistory= async () => {
             </div>
           </div>
           <div data-v-647954c7="" className="van-skeleton van-skeleton--animate">
-            
             <div className="van-skeleton__content">
               <h3 className="van-skeleton-title"></h3>
               <div className="van-skeleton-paragraph" style={{width: '100%'}}></div>
@@ -9702,515 +9488,158 @@ const fetchWithdrawHistory= async () => {
           </div>
         </div>
       </div>
-
-      <div data-v-3e71d3da="" data-v-80a607a5="" className="dialog active c2c" style={{ display: showPopup ? '' : 'none' }}>
-      <div data-v-3e71d3da="" className="dialog__container" role="dialog" tabIndex="0">
-        <div data-v-3e71d3da="" className="dialog__container-img">
-          <img 
-            data-v-80a607a5="" 
-            className="succeedImg" 
-            data-origin="/assets/png/success.png" 
-            src="/assets/png/success.png" 
-            alt="C2C Withdrawal Succeed" 
-            style={{ top:'-1.767rem' }}
-          />
-        </div>
-        <div data-v-3e71d3da="" className="dialog__container-title">
-          <h1 data-v-3e71d3da="">Withdrawal Request Successful</h1>
-        </div>
-        <div data-v-3e71d3da="" className="dialog__container-content">
-          <div data-v-80a607a5="" className="c2cTip" style={{fontSize:'.333rem'}}>
-            <p data-v-80a607a5="">
-            We will complete the withdrawal within 2 hours! <span>Please wait patiently...</span>
-            </p>
-          </div>
-        </div>
-        <div data-v-3e71d3da="" className="dialog__container-footer" style={{ marginTop: '0px' }}>
-          <button data-v-3e71d3da="" style={{   background: `var(--main_gradient-color2)` }} onClick={()=>{setShowPopup(false)}}>Confirm</button>
-        </div>
-      </div>
-      <div data-v-3e71d3da="" className="dialog__outside"></div>
-    </div>
-      
       <div
-        data-v-80a607a5=""
-        className="withdraw__container"
-        style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif"}}
+        data-v-002ff529=""
+        className="StrongBox__container"
+        style={{'--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', 'sansSerif'"}}
       >
-        <div data-v-12a80a3e="" data-v-80a607a5="" className="navbar">
+        <div data-v-12a80a3e="" data-v-002ff529="" className="navbar">
           <div data-v-12a80a3e="" className="navbar-fixed">
             <div data-v-12a80a3e="" className="navbar__content">
               <div data-v-12a80a3e="" className="navbar__content-left">
                 <i
                   data-v-12a80a3e=""
-                  className="van-badge__wrapper van-icon van-icon-arrow-left" onClick={()=>navigate('/wallet')}
+                  className="van-badge__wrapper van-icon van-icon-arrow-left"
                   ></i
                 >
               </div>
               <div data-v-12a80a3e="" className="navbar__content-center">
-                
-                <div data-v-12a80a3e="" className="navbar__content-title">
-                  Withdraw
-                </div>
+                <div data-v-12a80a3e="" className="navbar__content-title">Safe</div>
               </div>
-              <div data-v-12a80a3e="" className="navbar__content-right" onClick={()=>navigate('/wallet/WithdrawHistory')}>
-                <span data-v-80a607a5="">Withdrawal history</span>
-              </div>
+              <div data-v-12a80a3e="" className="navbar__content-right"></div>
             </div>
           </div>
         </div>
-        <div data-v-80a607a5="" className="withdraw__container-content">
-          
-          <div data-v-0879c174="" data-v-80a607a5="" className="balanceAssets">
-            <div data-v-0879c174="" className="balanceAssets__header">
-              <div data-v-0879c174="" className="balanceAssets__header__left">
-                <img
-                  data-v-0879c174=""
-                  src="/assets/png/balance-e39ce400.png"
-                />
-                Available balance
-              </div>
-            </div>
-            <div data-v-0879c174="" className="balanceAssets__main">
-              <p data-v-0879c174="">₹{userInfo?userInfo.money:0}</p>
-              <img
-                data-v-0879c174=""
-                src="/assets/png/refresh-8e0efe26.png"
-                alt=""
-              />
-            </div>
-          </div>
-        
-          <div data-v-9bae072d="" data-v-80a607a5="" className="withdrawWay">
-            
-            <div data-v-9bae072d="" className={`${activeSection === 'section1' ? 'select' : ''}`} onClick={()=> showSection('section1')}>
-              <div data-v-9bae072d="">
-                <img
-                  data-v-9bae072d=""
-                  src="/assets/png/payNameIcon_20240313185300ivg6.png"
-                />
-              </div>
-              <span data-v-9bae072d=""> BANK CARD</span>
-            </div>
-            <div data-v-9bae072d="" className={`${activeSection === 'section2' ? 'select' : ''}`} onClick={() => showSection('section2')} style={{display:'none'}}>
-              <div data-v-9bae072d="">
-                <img
-                  data-v-9bae072d=""
-                  src="/assets/png/usdt.png"
-                />
-              </div>
-              <span data-v-9bae072d="">USDT</span>
-            </div>
-            <div data-v-9bae072d="" className={`${activeSection === 'section3' ? 'select' : ''}`} onClick={() => showSection('section3')}>
-              <div data-v-9bae072d="">
-                <img
-                  data-v-9bae072d=""
-                  src="/assets/png/trc20.png"
-                />
-              </div>
-              <span data-v-9bae072d="">USDT</span>
-            </div>
-          </div>
-          <div  id="section1" style={{ display: activeSection === 'section1' ? 'block' : 'none' }}>
-          <div data-v-80a607a5="" className="bankInfo" style={{display: account_number == null ? 'none':'block'}}>
-            <div data-v-80a607a5="" className="bankInfoItem type1">
-              <div data-v-80a607a5="">
-              <svg data-v-80a607a5="" class="svg-icon icon-1"><use href="#icon-1"></use></svg>
-                <span data-v-80a607a5="">{name_bank}</span>
-              </div>
-              <div data-v-80a607a5="">
-                <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">{account_number ? `${account_number.substring(0, 9)}...${account_number.substring(account_number.length - 6)}` : ""}</span>
-              </div>
-              <i
-                data-v-80a607a5=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                ></i
-              >
-            </div>       
-    </div>
-
-
-  <div className="van-overlay" role="button" tabIndex="0" data-v-80a607a5="" style={{zIndex: 2017, display: showPassword ? '' : 'none'}}></div>
-
-
-    <div
-  role="dialog"
-  tabIndex="0"
-  className="van-popup van-popup--round van-popup--bottom"
-  data-v-80a607a5=""
-  style={{ zIndex: 2017, display: showPassword ? '' : 'none' }}
->
-  <div data-v-80a607a5="" className="pwd">
-    <div data-v-80a607a5="" className="pwd-head ar-1px-b">
-      <svg data-v-80a607a5="" className="svg-icon icon-safeIcon">
-        <use xlinkHref="#icon-safeIcon"></use>
-      </svg>
-      <h1 data-v-80a607a5="">Security verification</h1>
-    </div>
-
-    <input data-v-80a607a5="" type="text" className="is-hidden" />
-    <input data-v-80a607a5="" type="password" className="is-hidden" />
-
-    <div data-v-ea5b66c8="" data-v-80a607a5="" className="passwordInput__container">
-      <div data-v-ea5b66c8="" className="passwordInput__container-label">
-        <svg data-v-ea5b66c8="" className="svg-icon icon-editPswIcon passwordInput__container-label__icon passwordInput__container-label__icon">
-          <use xlinkHref="#icon-editPswIcon"></use>
-        </svg>
-        <span data-v-ea5b66c8="">Please enter your login password</span>  
-      </div>
-
-      <div data-v-ea5b66c8="" className="passwordInput__container-input">
-      <input
-        data-v-ea5b66c8=""
-        type={isPasswordVisible ? 'text' : 'password'}
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        maxLength="32"
-        autoComplete="new-password"
-        style={{ border:'1px solid #766060' }}
-      />
-        <img
-                  data-v-ea5b66c8=""
-                  src={isPasswordVisible ? '/assets/png/eyeVisible-09720f5f.png' : '/assets/png/eyeInvisible-821d9d16.png'}
-                  className="eye"
-                  onClick={togglePasswordVisibility}
-                  alt="Toggle Password Visibility"
-                  style={{ cursor: 'pointer' }}
-                />
-      </div>
-    </div>
-
-    <span data-v-80a607a5="" className="red">
-      To secure your balance, please enter your password
-    </span>
-
-    <div data-v-80a607a5="" className="btnD">
-      <button data-v-80a607a5="" onClick={()=>{setShowPassword(false)}}>Return</button>
-      <button data-v-80a607a5="" onClick={confirmWithdraw}>Confirm withdrawal</button>
-    </div>
-  </div>
-
-  
-    {/* Close icon */}
- 
-</div>
-
-
-
-    <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/withdraw/addbank')} style={{display: account_number == null ? 'block':'none' , height : '1.99rem'}}>
-              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png"  style={{position:'relative', top: '10px', left : '70px'}}/><span
-                data-v-ef5c8333="" style={{position:'relative', top: '23px' , left : '-25px'}}>Add Account Number</span>
-            </div>
-          <div data-v-cb5583fe="" className="explain">
-            <div data-v-cb5583fe="" className="input">
-              <div data-v-cb5583fe="" className="place-div">₹</div>
-              <input
-                data-v-cb5583fe=""
-                placeholder="Please enter the amount"
-                className="inp"  
-                onChange={handleAmount}              
-              />  
-            </div>
-            
-            <div data-v-cb5583fe="" className="balance bank">
-              <div data-v-cb5583fe="">
-                <span data-v-cb5583fe=""
-                  >Withdrawable balance
-                  <h6 data-v-cb5583fe="" className="yellow">₹{userInfo ? userInfo.money :0}</h6></span
-                ><input data-v-cb5583fe="" type="button" value="All" />
-              </div>
-              <div data-v-cb5583fe="">
-                <span data-v-cb5583fe="">Withdrawal amount received</span>
-                <div data-v-cb5583fe="" className="rightD">
-                  <span data-v-cb5583fe="" className="yellow">₹0.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section2" style={{ display: activeSection === 'section2' ? 'block' : 'none' }}>
-          <div data-v-80a607a5="" className="bankInfo" style={{display: walletAddress == null ? 'none':'block'}}>
-            <div data-v-80a607a5="" className="bankInfoItem type1">
-              <div data-v-80a607a5="">
-                <img data-v-80a607a5=""src="/assets/png/usdt.png" style={{top: '10px'}}/>
-              </div>
-              <div data-v-80a607a5="">
-                <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">{walletAddress ? `${walletAddress.substring(0, 9)}...${walletAddress.substring(walletAddress.length - 6)}` : ""}
-                </span>
-              </div>
-              <i
-                data-v-80a607a5=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                ></i
-              >
-            </div>       
-    </div>
-            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')} style={{display: walletAddress !== null ? 'none':'block',height:'1.99rem'}}>
-              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png"  style={{position:'relative', top: '7px', left: '58px'}}/><span
-                data-v-ef5c8333="" style={{position:'relative', top: '25px' , left : '-26px'}}>Add USDT Trc20</span>
-            </div>
-            {/* <div data-v-ef5c8333="" className="addWithdrawType-text">
-              Need to add beneficiary information to be able to withdraw money
-            </div> */}
-            <div data-v-cb5583fe="" className="explain usdt">
-            <div data-v-cb5583fe="" className="head">
-              
-            </div>
-            
-            <div data-v-cb5583fe="" className="input">
-              <div data-v-cb5583fe="" className="place-div"><img data-v-cb5583fe="" src="/assets/png/usdt.png"/></div>
-              <input
-                data-v-cb5583fe=""
-                type="number"
-                placeholder="Please enter withdrawal amount"
-                className="inp"
-                value={amount || ''}
-          onChange={handleAmountChange}
-              />
-            </div>
-{/* rupay input  */}
-            <div data-v-cb5583fe="" className="input">  
-            <div data-v-cb5583fe="" className="place-div">₹</div>            
-              <input
-                data-v-cb5583fe=""
-                type="number"
-                placeholder="Enter amount in rupess"
-                className="inp"
-                value={rupayAmount || ''}
-          onChange={handleRupayAmountChange}
-              />
-            </div>
-            
-            <div data-v-cb5583fe="" className="balance usdt">
-              <div data-v-cb5583fe="">
-                <span data-v-cb5583fe=""
-                  >Withdrawable balance
-                  <h6 data-v-cb5583fe="" className="yellow">₹{userInfo?userInfo.money:0}</h6></span
-                ><input data-v-cb5583fe="" type="button" value="All" />
-              </div>
-            </div>
-          </div>
-          </div>
-          
-          
-          <div data-v-ef5c8333="" data-v-80a607a5="" className="addWithdrawType" id="section3" style={{ display: activeSection === 'section3' ? 'block' : 'none' }}>
-          <div data-v-80a607a5="" className="bankInfo" style={{display: withdrawAddress == null ? 'none':'block'}}>
-            <div data-v-80a607a5="" className="bankInfoItem type1">
-              <div data-v-80a607a5="">
-              <img data-v-80a607a5=""src="/assets/png/trc20.png" style={{top: '10px'}}/>
-              </div>
-              <div data-v-80a607a5="">
-                <span data-v-80a607a5=""></span
-                ><span data-v-80a607a5="">{withdrawAddress ? `${withdrawAddress.substring(0, 9)}...${withdrawAddress.substring(withdrawAddress.length - 6)}` : ""}
-                </span>
-              </div>
-              <i
-                data-v-80a607a5=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                ></i
-              >
-            </div>       
-    </div>
-            <div data-v-ef5c8333="" className="addWithdrawType-top" onClick={()=>navigate('/wallet/Withdraw/AddUSDT')} style={{display: withdrawAddress == null ? 'block':'none', height:'1.99rem'}}>
-              <img data-v-ef5c8333="" src="/assets/png/add-1ad7f3f5.png"  style={{position:'relative', top: '7px', left: '58px'}}/><span
-                data-v-ef5c8333="" style={{position:'relative', top: '25px' , left : '-26px'}}>Add USDT BEP20</span>
-            </div>
-            {/* <div data-v-ef5c8333="" className="addWithdrawType-text">
-              Need to add beneficiary information to be able to withdraw money
-            </div> */}
-            <div data-v-cb5583fe="" className="explain usdt">
-            <div data-v-cb5583fe="" className="head">
-              
-            </div>
-            
-            <div data-v-cb5583fe="" className="input">
-              <div data-v-cb5583fe="" className="place-div"><img data-v-cb5583fe="" src="/assets/png/trc20.png"/></div>
-              <input
-                data-v-cb5583fe=""
-                type="number"
-                placeholder="Please enter withdrawal amount"
-                className="inp"
-                value={amount}
-          onChange={handleAmountChange}
-              />
-            </div>
-            <div data-v-cb5583fe="" className="input">
-            <div data-v-cb5583fe="" className="place-div">₹</div>
-              <input
-                data-v-cb5583fe=""
-                type="number"
-                placeholder="Enter amount in Rupess"
-                className="inp"
-                value={rupayAmount}
-          onChange={handleRupayAmountChange}
-              />
-            </div>
-            
-            <div data-v-cb5583fe="" className="balance usdt">
-              <div data-v-cb5583fe="">
-                <span data-v-cb5583fe=""
-                  >Withdrawable balance
-                  <h6 data-v-cb5583fe="" className="yellow">₹{userInfo?userInfo.money:0}</h6></span
-                ><input data-v-cb5583fe="" type="button" value="All" />
-              </div>
-            </div>
-          </div>
-          </div>
-          
-          <div data-v-80a607a5="" className="recycleBtnD">
-            <button data-v-80a607a5="" className="recycleBtn" onClick={()=>{setShowPassword(true)}}>Withdraw</button>
-          </div>
-      
-          <div
-            data-v-76eb7f31=""
-            data-v-80a607a5=""
-            className="Recharge__container-intro"
-          >
-            <div data-v-76eb7f31="" className="br">
-              
-              <p data-v-76eb7f31="">
-                Need to bet <span data-v-470caa86="" className="red">₹{needToBet}</span> to
-                be able to withdraw
-              </p>
-              <p data-v-76eb7f31="">
-                Withdraw time
-                <span data-v-76eb7f31="" className="red">11 PM</span>
-              </p>
-              <p data-v-76eb7f31="">
-                Inday Remaining Withdrawal Times<span
-                  data-v-76eb7f31=""
-                  className="red"
-                  >3</span
-                >
-              </p>
-              <p data-v-76eb7f31="">
-                Withdrawal amount range
-                <span data-v-76eb7f31="" className="red">₹110-₹50,000</span>
-              </p>
-              
-              <p data-v-76eb7f31="">
-                Please confirm your beneficial account information before
-                withdrawing. If your information is incorrect, our company will
-                not be liable for the amount of loss
-              </p>
-              <p data-v-76eb7f31="">
-                If your beneficial information is incorrect, please contact
-                customer service
-              </p>
-            </div>
-          </div>
-          <div
-            data-v-30972a14=""
-            data-v-80a607a5=""
-            className="rechargeh__container"
-          >
-            <div data-v-30972a14="" className="rechargeh__container-head" onClick={()=>navigate('/wallet/withdraw')}>
-              <svg data-v-30972a14="" className="svg-icon icon-historyHead">
-                <use href="#icon-historyHead"></use>
+        <div data-v-002ff529="" className="StrongBox__container-dailyRate">
+          Interest rate 2.00%
+        </div>
+        <div
+          data-v-d24f0506=""
+          data-v-002ff529=""
+          className="TotalAssets__container"
+        >
+          <div data-v-d24f0506="" className="TotalAssets__container-header">
+            <div data-v-d24f0506="" className="TotalAssets__container-header__left">
+              <svg data-v-d24f0506="" className="svg-icon icon-vault">
+                <use href="#icon-vault"></use>
               </svg>
-              <h1 data-v-30972a14="" >Withdrawal history</h1>
             </div>
-
-
-            {withdrawHistory.length === 0 ? (
-          <div>No Data</div>
-        ) : (
-          withdrawHistory.slice(0, 5).map((history, index) => (
-
-
-            <div  key={index}   data-v-30972a14="" className="rechargeh__container-content">
+            <div
+              data-v-d24f0506=""
+              className="TotalAssets__container-header__right"
+            >
+              <svg data-v-d24f0506="" className="svg-icon icon-safeIcon">
+                <use href="#icon-safeIcon"></use>
+              </svg>
+              Financial security
+            </div>
+          </div>
+          <div data-v-d24f0506="" className="TotalAssets__container-main">
+            ₹0.00
+          </div>
+          <div data-v-d24f0506="" className="TotalAssets__container-tip">
+            24-hour estimated revenue<span data-v-d24f0506="">₹0.00</span>
+          </div>
+        </div>
+        <div data-v-002ff529="" className="StrongBox__container-income">
+          <div data-v-002ff529="" className="StrongBox__container-income-header">
+            <div
+              data-v-002ff529=""
+              className="StrongBox__container-income-header-left"
+            >
               <div
-                data-v-30972a14=""
-                className="rechargeh__container-content__item"
+                data-v-002ff529=""
+                className="StrongBox__container-income-header-left-num"
               >
-                <div
-                  data-v-30972a14=""
-                  className="rechargeh__container-content__item-header ar-1px-b"
-                >
-                  <span data-v-30972a14="">Withdraw</span
-                  ><span data-v-30972a14="" className="stateG"
-                    > {history.status === 0 ? "Pending" : history.status === 1 ? "Complete" : "Failed"}
-                    </span
-                  >
-                </div>
-
-                <div
-                  data-v-30972a14=""
-                  className="rechargeh__container-content__item-body"
-                >
-                  <div data-v-30972a14="">
-                    <span data-v-30972a14="">Balance</span
-                    ><span data-v-30972a14="">{history.money}</span>
-                  </div>
-                  <div data-v-30972a14="">
-                    <span data-v-30972a14="">Type</span
-                    ><span data-v-30972a14=""> {history.walletType}</span>
-                  </div>
-                  <div data-v-30972a14="">
-                    <span data-v-30972a14="">Time</span
-                    ><span data-v-30972a14="">{formatTimestampToIST(history.time)}</span>
-                  </div>
-                  <div data-v-30972a14="">
-                    <span data-v-30972a14="">Order number</span
-                    ><span data-v-30972a14="">{history.id_order}</span
-                    ><svg data-v-30972a14="" className="svg-icon icon-copy">
-                      <use href="#icon-copy"></use>
-                    </svg>
-                  </div>
-                </div>
+                ₹0.00
+              </div>
+              <div
+                data-v-002ff529=""
+                className="StrongBox__container-income-header-left-text"
+              >
+                Generated revenue
+              </div>
+              <div
+                data-v-002ff529=""
+                className="StrongBox__container-income-header-left-myrale"
+              >
+                My interest rate 2.0%
               </div>
             </div>
-
-
-          ))
-        )}
-            <div data-v-30972a14="" className="rechargeh__container-footer">
-              <button data-v-30972a14="" onClick={()=>navigate('/wallet')}>All history</button>
-            </div>
-          </div>
-        </div>
-        <div data-v-3e71d3da="" data-v-80a607a5="" className="dialog inactive c2c">
-          <div
-            data-v-3e71d3da=""
-            className="dialog__container"
-            role="dialog"
-            tabIndex="0"
-          >
-            <div data-v-3e71d3da="" className="dialog__container-img">
-              <img
-                data-v-80a607a5=""
-                className="succeedImg"
-                data-origin="/assets/png/succeed-83674414.png"
-                src="/assets/png/succeed-83674414.png"
-              />
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-title">
-              <h1 data-v-3e71d3da="">C2C withdrawal successful</h1>
-            </div>
-            <div data-v-3e71d3da="" className="dialog__container-content">
-              <div data-v-80a607a5="" className="c2cTip">
-                <h1 data-v-80a607a5="">
-                  Please come back and click [Confirm Payment] after receiving
-                  the transfer
-                </h1>
-                <p data-v-80a607a5="">
-                  C2C withdrawal rewards will be automatically issued after you
-                  click <span>[Confirm Arrival]</span>!
-                </p>
+            <div
+              data-v-002ff529=""
+              className="StrongBox__container-income-header-right"
+            >
+              <div
+                data-v-002ff529=""
+                className="StrongBox__container-income-header-right-num"
+              >
+                ₹0.00
+              </div>
+              <div
+                data-v-002ff529=""
+                className="StrongBox__container-income-header-right-text"
+              >
+                Accumulated revenue
               </div>
             </div>
-            <div data-v-3e71d3da="" className="dialog__container-footer">
-              <button data-v-3e71d3da="">Confirm</button
-              >
-            </div>
-            
           </div>
-          <div data-v-3e71d3da="" className="dialog__outside"></div>
+          <div data-v-002ff529="" className="StrongBox__container-income-buttom">
+            <div data-v-002ff529="">Transfer Out</div>
+            <div data-v-002ff529="">Transfer In</div>
+          </div>
+          <div data-v-002ff529="" className="StrongBox__container-income-tip">
+            <svg
+              data-v-002ff529=""
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="StrongBox__container-errorTip"
+            >
+              <path
+                d="M15 27.5C18.4517 27.5 21.5768 26.1009 23.8388 23.8388C26.1009 21.5768 27.5 18.4517 27.5 15C27.5 11.5482 26.1009 8.42325 23.8388 6.16116C21.5768 3.89911 18.4517 2.5 15 2.5C11.5482 2.5 8.42325 3.89911 6.16116 6.16116C3.89911 8.42325 2.5 11.5482 2.5 15C2.5 18.4517 3.89911 21.5768 6.16116 23.8388C8.42325 26.1009 11.5482 27.5 15 27.5Z"
+                stroke="#FE6868"
+                strokeLinejoin="round"
+              ></path>
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M15 23.125C15.8629 23.125 16.5625 22.4254 16.5625 21.5625C16.5625 20.6996 15.8629 20 15 20C14.1371 20 13.4375 20.6996 13.4375 21.5625C13.4375 22.4254 14.1371 23.125 15 23.125Z"
+                fill="#FF7172"
+              ></path>
+              <path
+                d="M15 7.5V17.5"
+                stroke="#FE6868"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></path>
+            </svg>
+            Funds are safe and secure, and can be transferred at any time
+          </div>
+          <div data-v-002ff529="" className="StrongBox__container-income-godetail">
+            <a href="/account/safe/aboutSafe.html">Learn about safes</a>
+            <img
+              data-v-002ff529=""
+              src="/assets/png/nextIcon-4b99d075.png"
+              alt=""
+            />
+          </div>
         </div>
-        <div data-v-3e71d3da="" data-v-80a607a5="" className="dialog inactive">
+        <div data-v-002ff529="" className="StrongBox__container-record">
+          <svg data-v-002ff529="" className="svg-icon icon-historyHead">
+            <use href="#icon-historyHead"></use>
+          </svg>
+          Historical records
+        </div>
+        <div data-v-002ff529="" className="StrongBox__container-allRecord">
+          <a href="/account/safe/safeHistory.html">All history</a>
+        </div>
+
+
+        <div data-v-3e71d3da="" data-v-002ff529="" className="dialog active">
           <div
             data-v-3e71d3da=""
             className="dialog__container"
@@ -10227,43 +9656,146 @@ const fetchWithdrawHistory= async () => {
               />
             </div>
             <div data-v-3e71d3da="" className="dialog__container-title">
-              <h1 data-v-3e71d3da=""></h1>
+              <h1 data-v-3e71d3da="">No income</h1>
             </div>
             <div data-v-3e71d3da="" className="dialog__container-content">
-              <h1 data-v-80a607a5="">
-                You must recharge to enable the withdrawal function
-              </h1>
+              <div data-v-002ff529="" className="tipText">
+                No income at the moment, want to transfer out
+              </div>
             </div>
             <div data-v-3e71d3da="" className="dialog__container-footer">
-              <button data-v-3e71d3da="">Confirm</button
-              >
+              <button data-v-3e71d3da="">Transfer Out</button
+              ><button data-v-3e71d3da="">Cancel</button>
             </div>
-            <img
-              data-v-3e71d3da=""
-              className="close_img"
-              src="/assets/png/close-84ce5e6a.png"
-            />
           </div>
           <div data-v-3e71d3da="" className="dialog__outside"></div>
+        </div>
+
+        <div data-v-3e71d3da="" data-v-002ff529="" className="dialog inactive">
+          <div
+            data-v-3e71d3da=""
+            className="dialog__container"
+            role="dialog"
+            tabIndex="0"
+          >
+            <div data-v-3e71d3da="" className="dialog__container-img">
+              <img
+                data-v-3e71d3da=""
+                className=""
+                alt=""
+                data-origin="/assets/png/tip-0498e3f9.png"
+                src="/assets/png/tip-0498e3f9.png"
+              />
+            </div>
+            <div data-v-3e71d3da="" className="dialog__container-title">
+              <h1 data-v-3e71d3da="">No income</h1>
+            </div>
+            <div data-v-3e71d3da="" className="dialog__container-content">
+              <div data-v-002ff529="" className="tipText">
+                No income at the moment, want to transfer out
+              </div>
+            </div>
+            <div data-v-3e71d3da="" className="dialog__container-footer">
+              <button data-v-3e71d3da="">Transfer Out</button
+              ><button data-v-3e71d3da="">Cancel</button>
+            </div>
+          </div>
+          <div data-v-3e71d3da="" className="dialog__outside"></div>
+        </div>
+
+        <div
+          className="van-overlay"
+          role="button"
+          tabIndex="0"
+          data-v-002ff529=""
+          style={{zIndex: '2003'}}
+        >
+        </div>
+        <div
+          role="dialog"
+          tabIndex="0"
+          className="van-popup van-popup--round van-popup--bottom"
+          data-v-002ff529=""
+          style={{zIndex: '2003'}}
+        >
+          <div data-v-002ff529="" className="popup__header">Transfer In</div>
+          <div data-v-002ff529="" className="popup__amount">
+            <div data-v-002ff529="">Each amount</div>
+            <div data-v-002ff529="">1</div>
+          </div>
+          <div data-v-002ff529="" className="popup__container">
+            <div
+              data-v-002ff529=""
+              className="van-cell van-field popup__container-input"
+            >
+              <div className="van-cell__value van-field__value">
+                <div className="van-field__body">
+                  <input
+                    type="tel"
+                    inputMode="numeric"
+                    id="van-field-1-input"
+                    className="van-field__control"
+                    placeholder="Please enterQuantity"
+                  />
+                  <div className="van-field__button">
+                    <div data-v-002ff529="" className="popup__container-allBtn">
+                      All
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div data-v-002ff529="" className="popup__container-multiple">
+              <div data-v-002ff529="" className="active">2x</div>
+              <div data-v-002ff529="" className="">5x</div>
+              <div data-v-002ff529="" className="">10x</div>
+              <div data-v-002ff529="" className="">50x</div>
+              <div data-v-002ff529="" className="">100x</div>
+              <div data-v-002ff529="" className="">200x</div>
+              <div data-v-002ff529="" className="">500x</div>
+              <div data-v-002ff529="" className="">1000x</div>
+            </div>
+            <div data-v-002ff529="" className="popup__container-numLine">
+              <div data-v-002ff529="">Amount available</div>
+              <div data-v-002ff529="" className="popup__container-numLine-num">
+                ₹105.64
+              </div>
+            </div>
+            <div data-v-002ff529="" className="betTip">
+              Need to bet<span data-v-002ff529="">₹79.00</span>Could Transfer In
+              After
+            </div>
+            <div data-v-002ff529="" className="popup__container-numLine">
+              <div data-v-002ff529="">Amount transferred</div>
+              <div data-v-002ff529="" className="popup__container-numLine-num red">
+                ₹2.00
+              </div>
+            </div>
+            <div data-v-002ff529="" className="betTip">
+              24-hour estimated revenue <span data-v-002ff529="">₹0.04</span>
+            </div>
+          </div>
+          <div data-v-002ff529="" className="popup__container-sumbit disabled">
+            Transfer In
+          </div>
         </div>
       </div>
       <div
         className="customer"
         id="customerId"
         style={{
-          '--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif",
-          '--f6a705e1-currentFontFamily': "bahnschrift"
-    }}
+          '--f13b4d11CurrentFontFamily': "'Roboto', 'Inter', sansSerif'",
+          '--f6a705e1CurrentFontFamily': 'bahnschrift'
+        }}
       >
-        {/* <img
+        <img
           className=""
           data-origin="/assets/png/icon_sevice-9f0c8455.png"
           src="/assets/png/icon_sevice-9f0c8455.png"
-        /> */}
+        />
       </div>
-      
     </div>
-  
+
     </div>
   )
 }
