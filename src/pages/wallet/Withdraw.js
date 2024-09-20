@@ -9977,7 +9977,7 @@ const fetchWithdrawHistory= async () => {
               </p>
               <p data-v-76eb7f31="">
                 Withdraw time
-                <span data-v-76eb7f31="" className="red">00:05-23:55</span>
+                <span data-v-76eb7f31="" className="red">11 PM</span>
               </p>
               <p data-v-76eb7f31="">
                 Inday Remaining Withdrawal Times<span
@@ -9988,7 +9988,7 @@ const fetchWithdrawHistory= async () => {
               </p>
               <p data-v-76eb7f31="">
                 Withdrawal amount range
-                <span data-v-76eb7f31="" className="red">₹110.00-₹200,000.00</span>
+                <span data-v-76eb7f31="" className="red">₹110-₹50,000</span>
               </p>
               
               <p data-v-76eb7f31="">
