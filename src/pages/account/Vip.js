@@ -8,6 +8,7 @@ import VipBenefits from './VipBenefits';
 // import { Navigation, Pagination } from 'swiper/modules';
 export default function Vip() {
   const navigate = useNavigate();
+  const [vhistory, setVhistory] = useState([]);
   const [activeHistory, setActiveHistroy] =useState('history1');
   const [activeSection, setActiveSection] = useState('section1');
   const [vipdetails, setVipDetails] = useState(null);
@@ -17,7 +18,7 @@ export default function Vip() {
     const [username, setUsername] = useState(null);
 
 
-  useEffect(() => {
+
     const fetchUserInfo = async () => {
       try {
         const response = await Api.get('/api/webapi/GetUserInfo');
@@ -34,10 +35,28 @@ export default function Vip() {
       } 
     };
 
-    fetchUserInfo();
-  }, []);
+
+  const fetchVhistory= async () => {
+    try {
+      const response = await Api.get('/api/webapi/vipHistory');
+      const data =  response.data;
+
+      console.log(data.datas);
+
+      setVhistory(data.datas); // Assuming data.data contains the user's information
 
 
+    } catch (err) {
+      console.error('An error occurred:', err);
+      setError('An error occurred. Please try again.');
+    } 
+  };
+
+  useEffect(() => {
+
+  fetchUserInfo();
+  fetchVhistory();
+}, []);
 
   const handleSectionClick = (sectionId) => {
     // setActiveSection(sectionId);
@@ -10307,42 +10326,31 @@ export default function Vip() {
               ><button data-v-eaa4a307="" className={activeHistory === 'history2' ? 'active' : ''} id="history2" onClick={() =>(setVipHistory('history2'))}>Rules</button>
             </div>
             <div data-v-eaa4a307="" className="vip-content-recordVsrule-con" style={{display: activeHistory === 'history1' ? 'block':'none'}}>
-              <div data-v-eaa4a307="" className="item ar-1px-b">
+            {vhistory.length === 0 ? (
+          <div data-v-cbab7763="" className="infiniteScroll__loading">
+           
+          <div data-v-cbab7763="">No more</div>
+        </div>
+        ) : (
+          vhistory.map((history, index) => (
+              <div key={index} data-v-eaa4a307="" className="item ar-1px-b">
                 <div data-v-eaa4a307="" className="item-left">
                   <span data-v-eaa4a307="" className="blue">Experience Bonus</span
                   ><span data-v-eaa4a307="">Betting EXP</span
-                  ><span data-v-eaa4a307="">2024-08-12 18:00:59</span>
+                  ><span data-v-eaa4a307="">{history.updated_at}</span>
                 </div>
                 <div data-v-eaa4a307="" className="item-right">
                   <span data-v-eaa4a307=""></span
                   ><span data-v-eaa4a307=""></span
-                  ><span data-v-eaa4a307="" className="green">38 EXP</span>
+                  ><span data-v-eaa4a307="" className="green">{history.amount} EXP</span>
                 </div>
               </div>
-              <div data-v-eaa4a307="" className="item ar-1px-b">
-                <div data-v-eaa4a307="" className="item-left">
-                  <span data-v-eaa4a307="" className="blue">Experience Bonus</span
-                  ><span data-v-eaa4a307="">Betting EXP</span
-                  ><span data-v-eaa4a307="">2024-08-12 17:50:51</span>
-                </div>
-                <div data-v-eaa4a307="" className="item-right">
-                  <span data-v-eaa4a307=""></span
-                  ><span data-v-eaa4a307=""></span
-                  ><span data-v-eaa4a307="" className="green">33 EXP</span>
-                </div>
-              </div>
-              <div data-v-eaa4a307="" className="item ar-1px-b">
-                <div data-v-eaa4a307="" className="item-left">
-                  <span data-v-eaa4a307="" className="blue">Experience Bonus</span
-                  ><span data-v-eaa4a307="">Betting EXP</span
-                  ><span data-v-eaa4a307="">2024-08-12 17:31:00</span>
-                </div>
-                <div data-v-eaa4a307="" className="item-right">
-                  <span data-v-eaa4a307=""></span
-                  ><span data-v-eaa4a307=""></span
-                  ><span data-v-eaa4a307="" className="green">39 EXP</span>
-                </div>
-              </div>                         
+            
+
+
+  ))
+        )}
+
 
               <button data-v-eaa4a307="">View All</button>
             </div>
