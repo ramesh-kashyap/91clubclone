@@ -10263,7 +10263,7 @@ export default function TransAction() {
                   className="transRecord__container-content__card-top"
                 >
 
-                  <h3 data-v-2565e76d="" style={{color:'green'}}>{history.remarks}</h3>
+                  <h3 data-v-2565e76d="" >{history.remarks}</h3>
                 </div>
                 <div
                   data-v-2565e76d=""
@@ -10281,7 +10281,7 @@ export default function TransAction() {
                   </div>
                   <div data-v-2565e76d="" className="line">
                     <div data-v-2565e76d="" className="left">Balance</div>
-                    <div data-v-2565e76d="" className="right red" >
+                    <div data-v-2565e76d="" className="right green" >
                     {history.comm}
                     </div>
                   </div>

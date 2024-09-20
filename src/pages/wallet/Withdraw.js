@@ -145,7 +145,9 @@ export default function Withdraw() {
       showToast('You need to bet more to Withdraw');
       return;
     }
-    if (money > userInfo.money) {
+    if (parseFloat(money) > parseFloat(userInfo.money)) {
+      console.log(money);
+      console.log(userInfo.money);
       showToast('Insufficient Balance');
       return;
     }
@@ -9829,7 +9831,6 @@ const fetchWithdrawHistory= async () => {
     </div>
 
 
-  const [showPassword, setShowPassword] = useState(false);
   <div className="van-overlay" role="button" tabIndex="0" data-v-80a607a5="" style={{zIndex: 2017, display: showPassword ? '' : 'none'}}></div>
 
 
@@ -9868,6 +9869,7 @@ const fetchWithdrawHistory= async () => {
         onChange={(e) => setPassword(e.target.value)}
         maxLength="32"
         autoComplete="new-password"
+        style={{ border:'1px solid #766060' }}
       />
         <img
                   data-v-ea5b66c8=""

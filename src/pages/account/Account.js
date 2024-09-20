@@ -9816,7 +9816,8 @@ export default function Account() {
                 data-v-acd6d46f=""
                 className="financialServices__container-box-para"  onClick={()=>navigate('/wallet/TransAction')}
               >
-               
+                              <h3 data-v-acd6d46f="">Transaction</h3>
+
                 <span data-v-acd6d46f="">My transaction history</span>
               </div>
             </div>

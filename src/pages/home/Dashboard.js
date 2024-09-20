@@ -4856,25 +4856,34 @@ export default function Dashboard() {
                     <div data-v-860d7030="" data-v-df3cc798="" className="minGame_container" id="section2" style={{ display: activeSection === 'section2' ? 'grid' : 'none' }}>
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(225)}><img data-v-860d7030=""
                                 className="min_game_img"
+                                style={{ border : `1px solid #e3c277` }}
                                 data-origin="/assets/png/vendorlogo_20240102165536rgfg.png"
                                 src="/assets/png/vendorlogo_20240102165536rgfg.png"/>
                         </div>
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(261)}><img data-v-860d7030=""
                                 className="min_game_img"
+                                style={{ border : `1px solid #e3c277` }}
+
                                 data-origin="/assets/png/img/22001.png"
                                 src="/assets/img/22001.png"/>
                         </div>
                        
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(235)}><img data-v-860d7030=""
                                 className="min_game_img"
+                                style={{ border : `1px solid #e3c277` }}
+
                                 data-origin="/assets/img/800.png"
                                 src="/assets/img/800.png"/></div>
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(233)}><img data-v-860d7030=""
                                 className="min_game_img"
+                                style={{ border : `1px solid #e3c277` }}
+
                                 data-origin="/assets/img/101.png"
                                 src="/assets/img/101.png"/></div>
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(62)}><img data-v-860d7030=""
                                 className="min_game_img"
+                                style={{ border : `1px solid #e3c277` }}
+
                                 data-origin="/assets/img/102.png"
                                 src="/assets/img/102.png"/></div>
                         

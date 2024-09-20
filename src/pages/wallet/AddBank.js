@@ -22,6 +22,7 @@ export default function AddBank() {
         accountName: nameUser,
         accountNumber: accountNumber,
         ifscCode: ifscCode,
+        branchName,
       });
 
       if (response.data.status) {
@@ -169,7 +170,34 @@ export default function AddBank() {
                    
                   />
                 </div>
+               
               </div>
+
+              <div data-v-24736190="" className="addUSDT__container-content-item">
+                <div data-v-24736190="" className="label">
+                  <svg data-v-24736190="" className="svg-icon icon-usdt2 icon icon">
+                    <use href="#icon-usdt2"></use>
+                  </svg>Branch Name<span style={{position: 'absolute', height: '1.17333rem',
+    width: '.8rem',
+    fontWeight: '900',
+    fontSize: '.56rem',
+    lineHeight: '1.17333rem',}}>
+                 
+                 </span>
+                </div>
+                <div data-v-24736190="" className="input">
+                  <input
+                    data-v-24736190=""
+                    placeholder="    Please enter Branch Name"
+                    maxLength="36"
+                    value={branchName}  
+                    onChange={(e) => setBranchName(e.target.value)} 
+                   
+                  />
+                </div>
+               
+              </div>
+
 
               <div data-v-24736190="" className="addUSDT__container-content-btn">
                 <button data-v-24736190="" className="" type="submit">
