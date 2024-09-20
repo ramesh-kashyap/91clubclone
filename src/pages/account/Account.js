@@ -9595,7 +9595,7 @@ export default function Account() {
         </div>
         <div data-v-5bd44e74="" className="userInfo__container-content">
           <div data-v-5bd44e74="" className="userInfo__container-content-wrapper">
-            <div data-v-5bd44e74="" className="userInfo__container-content__avatar">
+            <div data-v-5bd44e74="" className="userInfo__container-content__avatar" onClick={()=>navigate('/Avatar')}>
               <img
                 data-v-5bd44e74=""
                 src={`/assets/png/${avatar}`}
@@ -9685,7 +9685,7 @@ export default function Account() {
           >
             <h5 data-v-5bd44e74="">Nickname</h5>
             <div data-v-5bd44e74="">
-              <span data-v-5bd44e74="">MemberNNGNDBYB</span
+              <span data-v-5bd44e74="">{username}</span
               ><i
                 data-v-5bd44e74=""
                 className="van-badge__wrapper van-icon van-icon-arrow"

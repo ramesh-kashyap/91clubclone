@@ -26,7 +26,7 @@ export default function StreakBonus() {
           console.log(response.data);
           if (response.data.status === true) {
             showToast('Streak bonus inserted successfully', 'succes');
-          
+            fetchStreakBonus();
           } else {
             showToast('An error occurred. Please try again.', 'succes');
 
