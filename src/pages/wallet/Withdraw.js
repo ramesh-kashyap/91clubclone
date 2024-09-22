@@ -137,8 +137,8 @@ export default function Withdraw() {
 
 
 
-    if (money < 900) {
-      showToast('Amount need to be greater than 900');
+    if (money < 111) {
+      showToast('Amount need to be greater than 111');
       return;
     }
     if (needToBet > 0) {

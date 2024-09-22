@@ -1461,7 +1461,7 @@ ul {
 }
 
 .van-icon-close:before {
-    content: "\F034";
+    content: "";
 }
 
 .van-icon-closed-eye:before {

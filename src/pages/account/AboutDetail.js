@@ -414,11 +414,11 @@ export default function AboutDetail() {
                     fontWeight: 'bolder'
         }}
                     >Website</span
-                  >refers to<a href="https://bigdaddypro.live/account" target="_blank">Bigdady</a
+                  >refers to<a href="http://localhost:3000/account" target="_blank">Bigdady</a
                   >Pro, accessible from <a
-                    href="https://bigdaddypro.live/account"
+                    href="http://localhost:3000/account"
                     target="_blank"
-                    >https://bigdaddypro.live/account</a
+                    >http://localhost:3000/account</a
                   >
                 </li>
                 <li
@@ -2086,9 +2086,9 @@ export default function AboutDetail() {
         }}
                 >
                   By visiting this page on our website:<a
-                    href="https://bigdaddypro.live"
+                    href="http://localhost:3000"
                     target="_blank"
-                    >https://bigdaddypro.live/login</a
+                    >http://localhost:3000/login</a
                   >
                 </li>
               </ul>

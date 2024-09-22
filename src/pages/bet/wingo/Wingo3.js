@@ -13,7 +13,7 @@ import { useToast } from '../../../components/ToastContext';
 
 
 
-const SOCKET_URL = 'https://bigdaddypro.live';
+const SOCKET_URL = 'http://localhost:3000';
 
 
 const socket = io(SOCKET_URL, {
@@ -10062,12 +10062,17 @@ export default function Wingo3() {
       <button className="hotIcon">Detail</button>
     </div>
     <div data-v-17d56002="" data-v-5d71c3fd="" className="GameList__C">
-      <div data-v-17d56002="" className="GameList__C-item" onClick={() => {
+    <div data-v-17d56002="" className="GameList__C-item" onClick={() => {
+    navigate('/wingo10');
+  }}>
+        <div data-v-17d56002="">Win Go<br />30Sec</div>
+      </div>
+      <div data-v-17d56002="" className="GameList__C-item " onClick={() => {
     navigate('/wingo');
   }}>
         <div data-v-17d56002="">Win Go<br />1Min</div>
       </div>
-      <div data-v-17d56002="" className="GameList__C-item active" onClick={() => {
+      <div data-v-17d56002="" className="GameList__C-item  active" onClick={() => {
     navigate('/wingo3');
   }}>
         <div data-v-17d56002="">Win Go<br />3Min</div>
@@ -10077,9 +10082,7 @@ export default function Wingo3() {
   }}>
         <div data-v-17d56002="">Win Go<br />5Min</div>
       </div>
-      <div data-v-17d56002="" className="GameList__C-item" onClick={() => {navigate('/wingo10');}}>
-        <div data-v-17d56002="">Win Go<br />10Min</div>
-      </div>
+     
     </div>
     <div data-v-3e4c6499="" className="TimeLeft__C">
       {/* popup start */}

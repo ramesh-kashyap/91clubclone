@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const Api = axios.create({
-  baseURL: 'https://bigdaddypro.live',
+  baseURL: 'http://localhost:3000',
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',

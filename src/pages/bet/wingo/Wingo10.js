@@ -13,7 +13,7 @@ import { useToast } from '../../../components/ToastContext';
 
 
 
-const SOCKET_URL = 'https://bigdaddypro.live';
+const SOCKET_URL = 'http://localhost:3000';
 
 const socket = io(SOCKET_URL, {
   transports: ['websocket', 'polling'],
@@ -226,10 +226,10 @@ export default function Wingo10() {
           const now = new Date().getTime();
           const distance = countDownDate - now;
           const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          const minute = Math.ceil(minutes % 10);
-          const seconds1 = Math.floor((distance % (1000 * 60)) / 10000);
-          const seconds2 = Math.floor(((distance % (1000 * 60)) / 1000) % 10);
-          setTime({ minute, seconds1, seconds2 });
+          const minute = 0;
+          const seconds1 = Math.floor((distance % (1000 * 30)) / 10000); // Tens place
+          const seconds2 = Math.floor(((distance % (1000 * 30)) / 1000) % 10); // Ones place
+          setTime({ minute, seconds1, seconds2 }); 
   
           if (userInteracted) { // Only play audio if the user has interacted
             if (minute === 0 && seconds1 === 0 && seconds2 > 0 && seconds2 <= 5) {
@@ -10061,6 +10061,11 @@ export default function Wingo10() {
       <button className="hotIcon">Detail</button>
     </div>
     <div data-v-17d56002="" data-v-5d71c3fd="" className="GameList__C">
+    <div data-v-17d56002="" className="GameList__C-item active" onClick={() => {
+    navigate('/wingo10');
+  }}>
+        <div data-v-17d56002="">Win Go<br />30Sec</div>
+      </div>
       <div data-v-17d56002="" className="GameList__C-item " onClick={() => {
     navigate('/wingo');
   }}>
@@ -10076,11 +10081,7 @@ export default function Wingo10() {
   }}>
         <div data-v-17d56002="">Win Go<br />5Min</div>
       </div>
-      <div data-v-17d56002="" className="GameList__C-item active" onClick={() => {
-    navigate('/wingo10');
-  }}>
-        <div data-v-17d56002="">Win Go<br />10Min</div>
-      </div>
+     
     </div>
     <div data-v-3e4c6499="" className="TimeLeft__C">
       {/* popup start */}
@@ -10203,7 +10204,7 @@ export default function Wingo10() {
           ></path></svg
         >How to play
       </div>
-      <div data-v-3e4c6499="" className="TimeLeft__C-name">Win Go 1 min</div>
+      <div data-v-3e4c6499="" className="TimeLeft__C-name">Win Go 30 seconds</div>
       <div data-v-3e4c6499="" className="TimeLeft__C-num">
       {last5Periods.map((amount, index) => (
     
@@ -10726,7 +10727,7 @@ export default function Wingo10() {
 
         <div data-v-e44179e3="" className="WinningTip__C-body-l3">
           <div data-v-e44179e3="" className="isLose">Lose</div>
-          <div data-v-e44179e3="" className="gameDetail">Period: 1 min {lastBet.stage}</div>
+          <div data-v-e44179e3="" className="gameDetail">Period: 30 seconds {lastBet.stage}</div>
         </div>
 
         <div data-v-e44179e3="" className="WinningTip__C-body-l4">
