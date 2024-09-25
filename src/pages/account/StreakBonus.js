@@ -220,7 +220,7 @@ export default function StreakBonus() {
           <div data-v-98c90f53="" data-v-36cc3380="" className="">
             <div data-v-98c90f53="" className="balanceAssets__header" style={{height: '150px'
 }}>
-            <img style={{width:'100%'}} src="/assets/png/Banner/Banner_20240413224931qr21.png" alt="Slide 1" />
+            <img style={{width:'100%'}} src="/assets/rajk.png" alt="Slide 1" />
 
             </div>
           
@@ -228,6 +228,7 @@ export default function StreakBonus() {
           </div>
 
           <br/>
+         
           <div data-v-4f3d8608="" data-v-36cc3380="">
            
           </div>
@@ -404,6 +405,28 @@ export default function StreakBonus() {
           
           
           </div>
+
+
+
+          <div data-v-98c90f53="" data-v-36cc3380="" className="">
+            <div data-v-98c90f53="" className="balanceAssets__header" style={{height: '150px'
+}}>
+            <img style={{width:'100%',height:'450px'}} src="/assets/raj.png" alt="Slide 1" />
+
+            </div>
+          
+          
+          </div>
+
+          <br/>
+          <br/>  <br/>  <br/>  <br/>
+          <br/>
+          <br/>  <br/>  <br/>  <br/>
+          <br/>
+          <br/>  <br/>  <br/>  <br/>
+          <br/>  <br/>  <br/>  <br/>
+          <br/>
+          <br/>  <br/>  <br/>  <br/>
           <div
             data-v-9f5f4114=""
             data-v-36cc3380=""

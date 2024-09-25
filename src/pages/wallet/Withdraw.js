@@ -10099,7 +10099,7 @@ style={{ zIndex: 2017, display: showPassword ? '' : 'none' }}
               </p>
               <p data-v-76eb7f31="">
                 Withdraw time
-                <span data-v-76eb7f31="" className="red">11 PM</span>
+                <span data-v-76eb7f31="" className="red">00.00-23:59</span>
               </p>
               <p data-v-76eb7f31="">
                 Inday Remaining Withdrawal Times<span
