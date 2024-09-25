@@ -9630,20 +9630,20 @@ export default function Promotion(){
               Direct subordinates
             </div>
             <div data-v-6cf5705a="" className="line1 r">
-              <div data-v-6cf5705a="">      {directTeamDetails ? directTeamDetails.numberOfRegister : 0}
+              <div data-v-6cf5705a="">      {directTeamDetails ? directTeamDetails.todayRegisterCount : 0}
               </div>
               number of register
             </div>
             <div data-v-6cf5705a="" className="line2 r">
-              <div data-v-6cf5705a="">{directTeamDetails ? directTeamDetails.depositNumber : 0}</div>
+              <div data-v-6cf5705a="">{directTeamDetails ? directTeamDetails.todayDepositNumber : 0}</div>
               Deposit number
             </div>
             <div data-v-6cf5705a="" className="line3 r">
-              <div data-v-6cf5705a="">{directTeamDetails ? directTeamDetails.depositAmount : 0}</div>
+              <div data-v-6cf5705a="">{directTeamDetails ? directTeamDetails.todayDepositAmount : 0}</div>
               Deposit amount
             </div>
             <div data-v-6cf5705a="" className="line1 r">
-              <div data-v-6cf5705a="">{directTeamDetails ? directTeamDetails.firstDepositCount : 0}</div>
+              <div data-v-6cf5705a="">{directTeamDetails ? directTeamDetails.todayFirstDepositCount : 0}</div>
               Number of people making first deposit
             </div>
           </div>
@@ -9654,19 +9654,19 @@ export default function Promotion(){
               >Team subordinates
             </div>
             <div data-v-6cf5705a="" className="line1">
-              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.totalNumberOfRegister : 0}</div>
+              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.todayRegisterCount : 0}</div>
               number of register
             </div>
             <div data-v-6cf5705a="" className="line2">
-              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.totalDepositNumber : 0}</div>
+              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.todayDepositNumber : 0}</div>
               Deposit number
             </div>
             <div data-v-6cf5705a="" className="line3">
-              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.totalDepositAmount : 0}</div>
+              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.todayDepositAmount : 0}</div>
               Deposit amount
             </div>
             <div data-v-6cf5705a="" className="line1">
-              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.totalFirstDepositCount : 0}</div>
+              <div data-v-6cf5705a="">{teamSubordinatesDetails ? teamSubordinatesDetails.todayFirstDepositCount : 0}</div>
               Number of people making first deposit
             </div>
           </div>

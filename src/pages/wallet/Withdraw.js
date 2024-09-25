@@ -130,17 +130,37 @@ export default function Withdraw() {
         if(activeSection==='section1'){
           paymentMode = "BankCard";
           money=ruWithdraw;
+
+          if (parseFloat(money)< 111) {
+            showToast('Amount need to be greater than 111');
+            return;
+          }
+
+          if (parseFloat(money) > 50000) {
+            showToast('Amount need to be less than 50,000');
+            return;
+          }
+
+
         } else{
           paymentMode = "USDT(BEP20)";
           money=rupayAmount;
+
+          if (parseFloat(money)< 900) {
+            showToast('Amount need to be greater than 900');
+            return;
+          }
+
+          if (parseFloat(money) > 450000) {
+            showToast('Amount need to be less than 4,50,000');
+            return;
+          }
+
+
+
         }
 
 
-
-    if (money < 111) {
-      showToast('Amount need to be greater than 111');
-      return;
-    }
     if (needToBet > 0) {
       showToast('You need to bet more to Withdraw');
       return;
@@ -9831,71 +9851,7 @@ const fetchWithdrawHistory= async () => {
     </div>
 
 
-  <div className="van-overlay" role="button" tabIndex="0" data-v-80a607a5="" style={{zIndex: 2017, display: showPassword ? '' : 'none'}}></div>
-
-
-    <div
-  role="dialog"
-  tabIndex="0"
-  className="van-popup van-popup--round van-popup--bottom"
-  data-v-80a607a5=""
-  style={{ zIndex: 2017, display: showPassword ? '' : 'none' }}
->
-  <div data-v-80a607a5="" className="pwd">
-    <div data-v-80a607a5="" className="pwd-head ar-1px-b">
-      <svg data-v-80a607a5="" className="svg-icon icon-safeIcon">
-        <use xlinkHref="#icon-safeIcon"></use>
-      </svg>
-      <h1 data-v-80a607a5="">Security verification</h1>
-    </div>
-
-    <input data-v-80a607a5="" type="text" className="is-hidden" />
-    <input data-v-80a607a5="" type="password" className="is-hidden" />
-
-    <div data-v-ea5b66c8="" data-v-80a607a5="" className="passwordInput__container">
-      <div data-v-ea5b66c8="" className="passwordInput__container-label">
-        <svg data-v-ea5b66c8="" className="svg-icon icon-editPswIcon passwordInput__container-label__icon passwordInput__container-label__icon">
-          <use xlinkHref="#icon-editPswIcon"></use>
-        </svg>
-        <span data-v-ea5b66c8="">Please enter your login password</span>  
-      </div>
-
-      <div data-v-ea5b66c8="" className="passwordInput__container-input">
-      <input
-        data-v-ea5b66c8=""
-        type={isPasswordVisible ? 'text' : 'password'}
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        maxLength="32"
-        autoComplete="new-password"
-        style={{ border:'1px solid #766060' }}
-      />
-        <img
-                  data-v-ea5b66c8=""
-                  src={isPasswordVisible ? '/assets/png/eyeVisible-09720f5f.png' : '/assets/png/eyeInvisible-821d9d16.png'}
-                  className="eye"
-                  onClick={togglePasswordVisibility}
-                  alt="Toggle Password Visibility"
-                  style={{ cursor: 'pointer' }}
-                />
-      </div>
-    </div>
-
-    <span data-v-80a607a5="" className="red">
-      To secure your balance, please enter your password
-    </span>
-
-    <div data-v-80a607a5="" className="btnD">
-      <button data-v-80a607a5="" onClick={()=>{setShowPassword(false)}}>Return</button>
-      <button data-v-80a607a5="" onClick={confirmWithdraw}>Confirm withdrawal</button>
-    </div>
-  </div>
-
-  
-    {/* Close icon */}
  
-</div>
 
 
 
@@ -10059,6 +10015,72 @@ const fetchWithdrawHistory= async () => {
             </div>
           </div>
           </div>
+
+          <div className="van-overlay" role="button" tabIndex="0" data-v-80a607a5="" style={{zIndex: 2017, display: showPassword ? '' : 'none'}}></div>
+
+
+<div
+role="dialog"
+tabIndex="0"
+className="van-popup van-popup--round van-popup--bottom"
+data-v-80a607a5=""
+style={{ zIndex: 2017, display: showPassword ? '' : 'none' }}
+>
+<div data-v-80a607a5="" className="pwd">
+<div data-v-80a607a5="" className="pwd-head ar-1px-b">
+  <svg data-v-80a607a5="" className="svg-icon icon-safeIcon">
+    <use xlinkHref="#icon-safeIcon"></use>
+  </svg>
+  <h1 data-v-80a607a5="">Security verification</h1>
+</div>
+
+<input data-v-80a607a5="" type="text" className="is-hidden" />
+<input data-v-80a607a5="" type="password" className="is-hidden" />
+
+<div data-v-ea5b66c8="" data-v-80a607a5="" className="passwordInput__container">
+  <div data-v-ea5b66c8="" className="passwordInput__container-label">
+    <svg data-v-ea5b66c8="" className="svg-icon icon-editPswIcon passwordInput__container-label__icon passwordInput__container-label__icon">
+      <use xlinkHref="#icon-editPswIcon"></use>
+    </svg>
+    <span data-v-ea5b66c8="">Please enter your login password</span>  
+  </div>
+
+  <div data-v-ea5b66c8="" className="passwordInput__container-input">
+  <input
+    data-v-ea5b66c8=""
+    type={isPasswordVisible ? 'text' : 'password'}
+    placeholder="Password"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+    maxLength="32"
+    autoComplete="new-password"
+    style={{ border:'1px solid #766060' }}
+  />
+    <img
+              data-v-ea5b66c8=""
+              src={isPasswordVisible ? '/assets/png/eyeVisible-09720f5f.png' : '/assets/png/eyeInvisible-821d9d16.png'}
+              className="eye"
+              onClick={togglePasswordVisibility}
+              alt="Toggle Password Visibility"
+              style={{ cursor: 'pointer' }}
+            />
+  </div>
+</div>
+
+<span data-v-80a607a5="" className="red">
+  To secure your balance, please enter your password
+</span>
+
+<div data-v-80a607a5="" className="btnD">
+  <button data-v-80a607a5="" onClick={()=>{setShowPassword(false)}}>Return</button>
+  <button data-v-80a607a5="" onClick={confirmWithdraw}>Confirm withdrawal</button>
+</div>
+</div>
+
+
+{/* Close icon */}
+
+</div>
           
           <div data-v-80a607a5="" className="recycleBtnD">
             <button data-v-80a607a5="" className="recycleBtn" onClick={()=>{setShowPassword(true)}}>Withdraw</button>

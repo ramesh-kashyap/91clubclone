@@ -37,7 +37,7 @@ import Api from '../../services/Api'
                 try {
                   const response = await Api.post('/api/webapi/promotion', {});
                   const userCode = response.data.info[0].code;
-                  const siteLink = response.data.siteUrl || 'http://localhost:3000';
+                  const siteLink = response.data.siteUrl || 'https://bigdaddypro.live';
                   const invitationLink = `${siteLink}/register?invitationCode=${userCode}`;
                   
                   // Copy to clipboard

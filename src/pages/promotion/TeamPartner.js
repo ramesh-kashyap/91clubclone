@@ -13,7 +13,7 @@ export default function TeamPartner(){
         try {
           const response = await Api.post('/api/webapi/promotion', {});
           const userCode = response.data.info[0].code;
-          const siteLink = response.data.siteUrl || 'http://localhost:3000';
+          const siteLink = response.data.siteUrl || 'https://bigdaddypro.live';
           const invitationLink = `${siteLink}/register?invitationCode=${userCode}`;
           
           // Copy to clipboard
@@ -4633,7 +4633,7 @@ return(
                 </div>
                 <div data-v-28c19aaa="" className="partner-title">Invitation link</div>
                 <div data-v-28c19aaa="" className="partner-code"><span
-                        data-v-28c19aaa="">http://localhost:3000/register?invitationCode=123..</span><span
+                        data-v-28c19aaa="">https://bigdaddypro.live/register?invitationCode=123..</span><span
                         data-v-28c19aaa="" onClick={fetchPromotionInfo}><svg data-v-28c19aaa="" className="svg-icon icon-copy">
                             <use href="#icon-copy"></use>
                         </svg></span></div>
