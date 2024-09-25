@@ -80,6 +80,23 @@ export default function Dashboard() {
   setActiveLink(currentPath);
 },[]);
 
+const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    // Check if the button has been closed before by the user
+    const isClosed = localStorage.getItem('addToDesktopClosed');
+    if (isClosed) {
+      setIsVisible(false);
+    }
+  }, []);
+
+  const handleClose = () => {
+    // Set the flag in localStorage to remember the user closed it
+    localStorage.setItem('addToDesktopClosed', 'true');
+    setIsVisible(false);
+  };
+
+
 
 
   return (
@@ -10535,14 +10552,40 @@ export default function Dashboard() {
     </div>
   </div>
 
-  <div data-v-b3bd7e49="" data-v-715dd0f6="" className="btn pwa-btn">
-      <svg data-v-b3bd7e49="" className="line" width="1" height="60" viewBox="0 0 1 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line data-v-b3bd7e49="" x1="0.5" x2="0.5" y2="60" stroke="white"></line>
-      </svg>
-      <i data-v-b3bd7e49="" className="van-badge__wrapper van-icon van-icon-close close"></i>
-      <img data-v-b3bd7e49="" className="icon" src="https://ossimg.bdg123456.com/BDGWin/other/h5setting_20240313181537apuy.png" alt="Add to Desktop Icon" />
-      <div data-v-b3bd7e49="" className="text">Add to Desktop</div>
-    </div>
+  {isVisible && (
+        <div data-v-b3bd7e49="" data-v-715dd0f6="" className="btn pwa-btn">
+          <svg
+            data-v-b3bd7e49=""
+            className="line"
+            width="1"
+            height="60"
+            viewBox="0 0 1 60"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              data-v-b3bd7e49=""
+              x1="0.5"
+              x2="0.5"
+              y2="60"
+              stroke="white"
+            ></line>
+          </svg>
+          <i
+            data-v-b3bd7e49=""
+            className="van-badge__wrapper van-icon van-icon-close close"
+            onClick={handleClose} // Close icon action
+            style={{ cursor: 'pointer' }}
+          ></i>
+          <img
+            data-v-b3bd7e49=""
+            className="icon"
+            src="https://ossimg.bdg123456.com/BDGWin/other/h5setting_20240313181537apuy.png"
+            alt="Add to Desktop Icon"
+          />
+          <div data-v-b3bd7e49="" className="text">Add to Desktop</div>
+        </div>
+      )}
         
         <div className="customer" id="customerId"
             style={{'--f13b4d11-currentFontFamily': "'Roboto', 'Inter', sans-serif", '--f6a705e1-currentFontFamily': "bahnschrift"}}>

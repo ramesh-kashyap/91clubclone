@@ -56,6 +56,9 @@ export default function TransAction() {
     }else if (isTire === 'tire6') {
       filtered = filtered.filter((history) => history.remarks === 'Salary Bonus');
     }
+    else if (isTire === 'tire7') {
+      filtered = filtered.filter((history) => history.remarks === 'Company Turnover Profit');
+    }
 
 
     setFilteredTransaction(filtered);
@@ -9667,7 +9670,8 @@ export default function TransAction() {
                     isTire === 'tire4' ? 'translate3d(0px, -22px, 0px)':
                     isTire === 'tire5' ? 'translate3d(0px, -66px, 0px)':  
                     isTire === 'tire6' ? 'translate3d(0px, -110px, 0px)':  
-  
+                    isTire === 'tire7' ? 'translate3d(0px, -154px, 0px)':  
+
                     '',
                     transitionDuration: '0ms',
                     transitionProperty: 'none',
@@ -9720,6 +9724,14 @@ export default function TransAction() {
                     style={{height: '44px'}}
                   >
                     <div className="van-ellipsis">Salary Bonus</div>
+                  </li>  
+                  <li
+                    role="button"
+                    tabindex="0"
+                    className="van-picker-column__item" id="tire7" onClick={()=>tire('tire7')}
+                    style={{height: '44px'}}
+                  >
+                    <div className="van-ellipsis">Company Turnover Profit</div>
                   </li>                 
                 </ul>
               </div>
