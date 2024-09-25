@@ -9529,6 +9529,8 @@ export default function Server() {
           </div>
         </div>
         <div data-v-f4c030dd="" data-v-63a4fda1="" className="content">
+        <a href="https://t.me/bigdaddyprochennal" target='blank'>
+
           <div data-v-f4c030dd="">
             <div data-v-f4c030dd="" className="content-item">
               <div data-v-f4c030dd="" className="content-item-title">
@@ -9546,14 +9548,12 @@ export default function Server() {
               >
             </div>
           </div>
+        </a>
         </div>
       </div>
 
 
-<div data-v-f4c030dd="" data-v-49bd7182="" className="content"><div data-v-f4c030dd=""><div data-v-f4c030dd="" className="content-item"><div data-v-f4c030dd="" className="content-item-title"><img data-v-f4c030dd="" src="/assets/png/CStype5-6b3a66e3.png" alt=""/><span data-v-f4c030dd="">James  Agency</span></div><i data-v-f4c030dd="" className="van-badge__wrapper van-icon van-icon-arrow" 
-style={{color: "'rgb(168, 168, 168)' ,fontSize: '18px'"}}>
 
-    </i></div><div data-v-f4c030dd="" className="content-item"><div data-v-f4c030dd="" className="content-item-title"><img data-v-f4c030dd="" src="/assets/png/CStype5-6b3a66e3.png" alt=""/><span data-v-f4c030dd="">Vina Sakher Agency</span></div><i data-v-f4c030dd="" className="van-badge__wrapper van-icon van-icon-arrow" style={{color: "'rgb(168, 168, 168)' ,fontSize: '18px'"}}></i></div><div data-v-f4c030dd="" className="content-item"><div data-v-f4c030dd="" className="content-item-title"><img data-v-f4c030dd="" src="/assets/png/CStype5-6b3a66e3.png" alt=""/><span data-v-f4c030dd="">Telegram SPECIAL ACTIVITIES</span></div><i data-v-f4c030dd="" className="van-badge__wrapper van-icon van-icon-arrow" style={{color: "'rgb(168, 168, 168)',fontSize: '18px'"}}></i></div></div></div>
 
 
       

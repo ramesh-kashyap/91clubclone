@@ -9553,7 +9553,6 @@ export default function CustomerService() {
           </div>
         </div>
         <div data-v-f4c030dd="" data-v-26935615="" className="content">
-          <a href="https://t.me/bigdaddyprochennal" target='blank'>
           <div data-v-f4c030dd="">
             <div data-v-f4c030dd="" className="content-item">
               <div data-v-f4c030dd="" className="content-item-title">
@@ -9571,7 +9570,7 @@ export default function CustomerService() {
               >
             </div>
           </div>
-          </a>
+          
         </div>
     
         <div data-v-f4c030dd="" data-v-26935615="" className="content">
@@ -9595,130 +9594,7 @@ export default function CustomerService() {
           </div>
           
         </div>
-        <div data-v-f4c030dd="" data-v-78d5a4a8="" className="content">
-          <div data-v-f4c030dd="">
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd=""
-                  >BDG PRO Self-service Center（स्व-सेवा केंद्र）</span
-                >
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                               style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
-            </div>
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd=""
-                  >Withdraw Success Not Receive (Only deal with this issue, do
-                  not reply to other questions)</span
-                >
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                               style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
-            </div>
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd=""
-                  >Self-service Center Usage Tutorial（स्व-सेवा केंद्र उपयोग
-                  ट्यूटोरियल）</span
-                >
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                               style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
-            </div>
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd=""
-                  >Help Center Withdrawal Issues （सहायता केंद्र निकासी
-                  मुद्दे）</span
-                >
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
-            </div>
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd=""
-                  >BDG PRO Tutorial Center(ट्यूटोरियल सेंटर)</span
-                >
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                               style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
-            </div>
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd=""
-                  >Tutorial Apply Bonus Winstreak BigdadyPro</span
-                >
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                               style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
-            </div>
-            <div data-v-f4c030dd="" className="content-item">
-              <div data-v-f4c030dd="" className="content-item-title">
-                <img
-                  data-v-f4c030dd=""
-                  src="/assets/png/CStype3-7588d980.png"
-                  alt=""
-                /><span data-v-f4c030dd="">BDG PRO Event Center</span>
-              </div>
-              <i
-                data-v-f4c030dd=""
-                className="van-badge__wrapper van-icon van-icon-arrow"
-                               style={{color: 'rgb(168, 168, 168)', fontSize: '18px'}}
-                ></i
-              >
-            </div>
-          </div>
-        </div>
+       
       </div>
       <div
         className="customer"
