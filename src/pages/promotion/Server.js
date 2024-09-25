@@ -9529,7 +9529,7 @@ export default function Server() {
           </div>
         </div>
         <div data-v-f4c030dd="" data-v-63a4fda1="" className="content">
-        <a href="https://t.me/bigdaddyprochennal" target='blank'>
+       
 
           <div data-v-f4c030dd="">
             <div data-v-f4c030dd="" className="content-item">
@@ -9548,7 +9548,7 @@ export default function Server() {
               >
             </div>
           </div>
-        </a>
+      
         </div>
       </div>
 
