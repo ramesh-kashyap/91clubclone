@@ -10062,12 +10062,12 @@ export default function Wingo10() {
     </div>
     <div data-v-17d56002="" data-v-5d71c3fd="" className="GameList__C">
     <div data-v-17d56002="" className="GameList__C-item active" onClick={() => {
-    navigate('/wingo10');
+    navigate('/wingo');
   }}>
         <div data-v-17d56002="">Win Go<br />30Sec</div>
       </div>
       <div data-v-17d56002="" className="GameList__C-item " onClick={() => {
-    navigate('/wingo');
+    navigate('/wingo1');
   }}>
         <div data-v-17d56002="">Win Go<br />1Min</div>
       </div>

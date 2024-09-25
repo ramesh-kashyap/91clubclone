@@ -9713,7 +9713,7 @@ const [isVisible, setIsVisible] = useState(true);
                 <div data-v-df3cc798="" data-v-c9ec78ed="" className="gameListGrid__container" >
                     
                     <div data-v-acaadf81="" data-v-df3cc798="" className="lottery_container" id="section1" style={{ display: activeSection === 'section1' ? 'grid' : 'none' }}>
-                        <div data-v-acaadf81="" className="lotterySlotItem" onClick={()=> navigate('/wingo10')}><img 
+                        <div data-v-acaadf81="" className="lotterySlotItem" onClick={()=> navigate('/wingo')}><img 
                             src="/assets/lotterycategory_202307140102511fow.png"
                             data-v-acaadf81="" className="ar-lazyload"
                                 data-origin="/assets/png/lotterycategory_202307140102511fow.png"/>
